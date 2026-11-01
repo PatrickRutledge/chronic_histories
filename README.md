@@ -24,6 +24,8 @@ Every generated patient artifact must display:
 
 ```powershell
 node scripts/generate_case_outputs.mjs pilots/HR-ET007-audie-murphy/case.json
+node scripts/generate_ccda.mjs pilots/HR-ET007-audie-murphy/case.json
+pwsh -File scripts/validate_case.ps1 -CaseDirectory pilots/HR-ET007-audie-murphy
 ```
 
-The generator writes an HTML review page and draft FHIR R4 collection bundle under the case's `generated/` directory. Draft output is not represented as US Core-conformant until terminology and profile validation pass.
+The generators write an HTML review page, a draft FHIR R4 collection bundle, and a draft C-CDA R2.1 CCD under the case's `generated/` directory. Draft output is not represented as US Core- or C-CDA-conformant until the relevant profile and schematron validation passes.

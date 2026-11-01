@@ -138,6 +138,7 @@ const html = `<!doctype html>
       <div class="downloads">
         <a href="../case.json">Canonical JSON</a>
         <a href="fhir-bundle.json">FHIR R4 draft</a>
+        <a href="ccda.xml">C-CDA R2.1 draft</a>
         <a href="../sources.md">Evidence dossier</a>
       </div>
     </section>
@@ -271,7 +272,7 @@ const bundle = {
   resourceType: "Bundle",
   id: `${patientId}-collection`,
   type: "collection",
-  timestamp: new Date().toISOString(),
+  timestamp: data.clinical.problems[0]?.provenance?.created ?? `${data.synthetic_episode.index_date}T12:00:00Z`,
   meta: { tag: [{ system: "https://humanrecord.example.org/classification", code: "synthetic", display: "Synthetic record, not a real medical record" }] },
   entry: fhirEntries
 };
