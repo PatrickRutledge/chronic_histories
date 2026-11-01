@@ -58,6 +58,21 @@ const problemRows = data.clinical.problems.map(problem => `
     <td>${problem.provenance.claim_ids.map(esc).join(", ")}</td>
   </tr>`).join("") || `<tr><td colspan="6" class="muted">No clinical problems generated.</td></tr>`;
 
+const observationRows = data.clinical.observations.map(observation => `
+  <tr>
+    <td>${provenanceBadge(observation.provenance.evidence_grade)}</td>
+    <td>${esc(observation.effective_date)}</td>
+    <td>${esc(observation.display)}</td>
+    <td>${esc(observation.value)} ${esc(observation.unit)}</td>
+    <td>${observation.coding?.map(code => `${esc(code.system)} · ${esc(code.code)}`).join("<br>") ?? ""}</td>
+  </tr>`).join("") || `<tr><td colspan="5" class="muted">No observations generated.</td></tr>`;
+
+const goalRows = data.care_plan.goals.map(goal => `
+  <tr><td>${esc(goal.display)}</td><td>${esc(goal.target_date ?? "")}</td><td>${esc(goal.status)}</td><td>${esc(goal.outcome ?? "")}</td></tr>`).join("");
+
+const interventionRows = data.care_plan.interventions.map(item => `
+  <tr><td>${esc(item.display)}</td><td>${esc(item.status)}</td><td>${(item.guideline_ids ?? []).map(esc).join(", ")}</td></tr>`).join("");
+
 const sourceRows = data.sources.map(source => `
   <tr>
     <td>${esc(source.source_id)}</td>
@@ -129,6 +144,9 @@ const html = `<!doctype html>
     <section><h2>Historical timeline</h2><table><thead><tr><th>Date</th><th>Event</th><th>Claims</th></tr></thead><tbody>${timelineRows}</tbody></table></section>
     <section><h2>Evidence claims</h2><p class="muted">D = documented, R = retrospective, S = synthetic.</p><table><thead><tr><th>Grade</th><th>Claim</th><th>Certainty</th><th>Sources</th></tr></thead><tbody>${claimsRows}</tbody></table></section>
     <section><h2>Modern synthetic problem list</h2><table><thead><tr><th>Grade</th><th>Problem</th><th>Clinical status</th><th>Verification</th><th>Placement</th><th>Historical claims</th></tr></thead><tbody>${problemRows}</tbody></table></section>
+    <section><h2>Synthetic outcome measures</h2><table><thead><tr><th>Grade</th><th>Date</th><th>Measure</th><th>Result</th><th>Coding</th></tr></thead><tbody>${observationRows}</tbody></table></section>
+    <section><h2>Care-plan goals</h2><table><thead><tr><th>Goal</th><th>Target date</th><th>Status</th><th>Outcome</th></tr></thead><tbody>${goalRows}</tbody></table></section>
+    <section><h2>Interventions</h2><table><thead><tr><th>Intervention</th><th>Status</th><th>Guideline</th></tr></thead><tbody>${interventionRows}</tbody></table></section>
     <section><h2>Planned encounters</h2><ul>${visits}</ul></section>
     <section><h2>Sources</h2><table><thead><tr><th>ID</th><th>Source</th><th>Publisher</th><th>Type</th></tr></thead><tbody>${sourceRows}</tbody></table></section>
     <section><h2>Review status</h2><table><thead><tr><th>Review</th><th>Status</th><th>Notes</th></tr></thead><tbody>${reviewRows}</tbody></table></section>
@@ -169,6 +187,85 @@ for (const problem of data.clinical.problems) {
   if (problem.coding?.length) resource.code.coding = problem.coding;
   fhirEntries.push({ fullUrl: `urn:uuid:${conditionId}`, resource });
 }
+
+for (const encounter of data.clinical.encounters) {
+  const encounterId = slug(encounter.id);
+  fhirEntries.push({
+    fullUrl: `urn:uuid:${encounterId}`,
+    resource: {
+      resourceType: "Encounter",
+      id: encounterId,
+      meta: { tag: [{ system: "https://humanrecord.example.org/evidence-grade", code: encounter.provenance.evidence_grade }] },
+      status: encounter.status,
+      class: { system: "http://terminology.hl7.org/CodeSystem/v3-ActCode", code: "AMB", display: "ambulatory" },
+      type: [{ text: encounter.display }],
+      subject: { reference: patientFullUrl },
+      period: { start: encounter.date, end: encounter.date }
+    }
+  });
+}
+
+for (const observation of data.clinical.observations) {
+  const observationId = slug(observation.id);
+  fhirEntries.push({
+    fullUrl: `urn:uuid:${observationId}`,
+    resource: {
+      resourceType: "Observation",
+      id: observationId,
+      meta: { tag: [{ system: "https://humanrecord.example.org/evidence-grade", code: observation.provenance.evidence_grade }] },
+      status: observation.status,
+      category: [{ coding: [{ system: "http://terminology.hl7.org/CodeSystem/observation-category", code: "survey", display: "Survey" }] }],
+      code: { coding: observation.coding, text: observation.display },
+      subject: { reference: patientFullUrl },
+      effectiveDateTime: observation.effective_date,
+      valueQuantity: { value: observation.value, unit: observation.unit, system: "http://unitsofmeasure.org", code: observation.unit },
+      note: [{ text: `Synthetic teaching-case result. Evidence grade ${observation.provenance.evidence_grade}.` }]
+    }
+  });
+}
+
+for (const goal of data.care_plan.goals) {
+  const goalId = slug(goal.id);
+  fhirEntries.push({
+    fullUrl: `urn:uuid:${goalId}`,
+    resource: {
+      resourceType: "Goal",
+      id: goalId,
+      meta: { tag: [{ system: "https://humanrecord.example.org/evidence-grade", code: goal.provenance.evidence_grade }] },
+      lifecycleStatus: goal.status,
+      description: { text: goal.display },
+      subject: { reference: patientFullUrl },
+      target: goal.target_date ? [{ dueDate: goal.target_date }] : undefined,
+      outcomeCode: goal.outcome ? [{ text: goal.outcome }] : undefined
+    }
+  });
+}
+
+const carePlanId = `${patientId}-careplan`;
+fhirEntries.push({
+  fullUrl: `urn:uuid:${carePlanId}`,
+  resource: {
+    resourceType: "CarePlan",
+    id: carePlanId,
+    meta: { tag: [{ system: "https://humanrecord.example.org/evidence-grade", code: "S" }] },
+    status: "completed",
+    intent: "plan",
+    title: `${data.identity.display_name} synthetic PTSD care plan`,
+    description: data.synthetic_episode.teaching_objective,
+    subject: { reference: patientFullUrl },
+    period: { start: data.synthetic_episode.index_date, end: data.synthetic_episode.visit_schedule.at(-1)?.date },
+    addresses: data.clinical.problems.map(problem => ({ reference: `urn:uuid:${slug(problem.id)}` })),
+    goal: data.care_plan.goals.map(goal => ({ reference: `urn:uuid:${slug(goal.id)}` })),
+    activity: data.care_plan.interventions.map(item => ({
+      detail: {
+        kind: "ServiceRequest",
+        code: { text: item.display },
+        status: item.status,
+        description: `Guideline reference: ${(item.guideline_ids ?? []).join(", ")}`
+      }
+    }))
+  }
+});
 
 const bundle = {
   resourceType: "Bundle",

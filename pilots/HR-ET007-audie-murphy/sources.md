@@ -13,6 +13,12 @@ Status: preliminary evidence dossier. The case is not ready for clinical generat
 
 5. VA/DoD. “Clinical Practice Guideline for Management of Posttraumatic Stress Disorder and Acute Stress Disorder,” 2023. https://www.healthquality.va.gov/HEALTHQUALITY/guidelines/MH/ptsd/
 
+## Terminology sources
+
+6. CDC/NCHS. “ICD-10-CM Files,” FY2026. https://www.cdc.gov/nchs/icd/icd-10-cm/files.html
+7. Regenstrief Institute. “Post traumatic stress disorder checklist - civilian version DSM-5 [PCL-5],” LOINC 101697-1; total score 101698-9. https://loinc.org/101697-1/panel
+8. Regenstrief Institute. “Patient Health Questionnaire 9 item (PHQ-9) total score [Reported],” LOINC 44261-6. https://loinc.org/44261-6
+
 ## Evidence gaps before clinical generation
 
 - Obtain and review Murphy’s memoir, *To Hell and Back*, as a primary text.

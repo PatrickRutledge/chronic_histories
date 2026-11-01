@@ -2,7 +2,7 @@
   "resourceType": "Bundle",
   "id": "hr-et007-collection",
   "type": "collection",
-  "timestamp": "2026-11-01T19:27:53.592Z",
+  "timestamp": "2026-11-01T19:43:11.428Z",
   "meta": {
     "tag": [
       {
@@ -85,7 +85,17 @@
           }
         ],
         "code": {
-          "text": "Post-traumatic stress disorder, synthetic modern panel diagnosis based on documented symptoms and retrospective interpretation"
+          "text": "Post-traumatic stress disorder, synthetic modern panel diagnosis based on documented symptoms and retrospective interpretation",
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "version": "FY2026",
+              "code": "F43.10",
+              "display": "Post-traumatic stress disorder, unspecified",
+              "validation_status": "validated",
+              "validated_on": "2026-11-01"
+            }
+          ]
         },
         "subject": {
           "reference": "urn:uuid:hr-et007-patient"
@@ -139,7 +149,17 @@
           }
         ],
         "code": {
-          "text": "Chronic insomnia"
+          "text": "Chronic insomnia",
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "version": "FY2026",
+              "code": "G47.00",
+              "display": "Insomnia, unspecified",
+              "validation_status": "validated",
+              "validated_on": "2026-11-01"
+            }
+          ]
         },
         "subject": {
           "reference": "urn:uuid:hr-et007-patient"
@@ -148,6 +168,618 @@
         "note": [
           {
             "text": "Synthetic teaching-case problem. Evidence grade S. Historical claims: CLM-0005."
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:enc-001",
+      "resource": {
+        "resourceType": "Encounter",
+        "id": "enc-001",
+        "meta": {
+          "tag": [
+            {
+              "system": "https://humanrecord.example.org/evidence-grade",
+              "code": "S"
+            }
+          ]
+        },
+        "status": "finished",
+        "class": {
+          "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+          "code": "AMB",
+          "display": "ambulatory"
+        },
+        "type": [
+          {
+            "text": "Primary care intake and behavioral health assessment"
+          }
+        ],
+        "subject": {
+          "reference": "urn:uuid:hr-et007-patient"
+        },
+        "period": {
+          "start": "2026-06-30",
+          "end": "2026-06-30"
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:enc-002",
+      "resource": {
+        "resourceType": "Encounter",
+        "id": "enc-002",
+        "meta": {
+          "tag": [
+            {
+              "system": "https://humanrecord.example.org/evidence-grade",
+              "code": "S"
+            }
+          ]
+        },
+        "status": "finished",
+        "class": {
+          "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+          "code": "AMB",
+          "display": "ambulatory"
+        },
+        "type": [
+          {
+            "text": "Six-week results and treatment follow-up"
+          }
+        ],
+        "subject": {
+          "reference": "urn:uuid:hr-et007-patient"
+        },
+        "period": {
+          "start": "2026-08-11",
+          "end": "2026-08-11"
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:enc-003",
+      "resource": {
+        "resourceType": "Encounter",
+        "id": "enc-003",
+        "meta": {
+          "tag": [
+            {
+              "system": "https://humanrecord.example.org/evidence-grade",
+              "code": "S"
+            }
+          ]
+        },
+        "status": "finished",
+        "class": {
+          "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+          "code": "AMB",
+          "display": "ambulatory"
+        },
+        "type": [
+          {
+            "text": "Three-month care-plan review"
+          }
+        ],
+        "subject": {
+          "reference": "urn:uuid:hr-et007-patient"
+        },
+        "period": {
+          "start": "2026-09-30",
+          "end": "2026-09-30"
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:obs-pcl5-001",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-pcl5-001",
+        "meta": {
+          "tag": [
+            {
+              "system": "https://humanrecord.example.org/evidence-grade",
+              "code": "S"
+            }
+          ]
+        },
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "survey",
+                "display": "Survey"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "version": "2.81",
+              "code": "101698-9",
+              "display": "PTSD PCL-5 score [PCL-5]",
+              "validation_status": "validated",
+              "validated_on": "2026-11-01"
+            }
+          ],
+          "text": "PTSD PCL-5 score"
+        },
+        "subject": {
+          "reference": "urn:uuid:hr-et007-patient"
+        },
+        "effectiveDateTime": "2026-06-30",
+        "valueQuantity": {
+          "value": 42,
+          "unit": "{score}",
+          "system": "http://unitsofmeasure.org",
+          "code": "{score}"
+        },
+        "note": [
+          {
+            "text": "Synthetic teaching-case result. Evidence grade S."
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:obs-pcl5-002",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-pcl5-002",
+        "meta": {
+          "tag": [
+            {
+              "system": "https://humanrecord.example.org/evidence-grade",
+              "code": "S"
+            }
+          ]
+        },
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "survey",
+                "display": "Survey"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "version": "2.81",
+              "code": "101698-9",
+              "display": "PTSD PCL-5 score [PCL-5]",
+              "validation_status": "validated",
+              "validated_on": "2026-11-01"
+            }
+          ],
+          "text": "PTSD PCL-5 score"
+        },
+        "subject": {
+          "reference": "urn:uuid:hr-et007-patient"
+        },
+        "effectiveDateTime": "2026-08-11",
+        "valueQuantity": {
+          "value": 31,
+          "unit": "{score}",
+          "system": "http://unitsofmeasure.org",
+          "code": "{score}"
+        },
+        "note": [
+          {
+            "text": "Synthetic teaching-case result. Evidence grade S."
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:obs-pcl5-003",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-pcl5-003",
+        "meta": {
+          "tag": [
+            {
+              "system": "https://humanrecord.example.org/evidence-grade",
+              "code": "S"
+            }
+          ]
+        },
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "survey",
+                "display": "Survey"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "version": "2.81",
+              "code": "101698-9",
+              "display": "PTSD PCL-5 score [PCL-5]",
+              "validation_status": "validated",
+              "validated_on": "2026-11-01"
+            }
+          ],
+          "text": "PTSD PCL-5 score"
+        },
+        "subject": {
+          "reference": "urn:uuid:hr-et007-patient"
+        },
+        "effectiveDateTime": "2026-09-30",
+        "valueQuantity": {
+          "value": 24,
+          "unit": "{score}",
+          "system": "http://unitsofmeasure.org",
+          "code": "{score}"
+        },
+        "note": [
+          {
+            "text": "Synthetic teaching-case result. Evidence grade S."
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:obs-phq9-001",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-phq9-001",
+        "meta": {
+          "tag": [
+            {
+              "system": "https://humanrecord.example.org/evidence-grade",
+              "code": "S"
+            }
+          ]
+        },
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "survey",
+                "display": "Survey"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "version": "2.81",
+              "code": "44261-6",
+              "display": "Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]",
+              "validation_status": "validated",
+              "validated_on": "2026-11-01"
+            }
+          ],
+          "text": "PHQ-9 total score"
+        },
+        "subject": {
+          "reference": "urn:uuid:hr-et007-patient"
+        },
+        "effectiveDateTime": "2026-06-30",
+        "valueQuantity": {
+          "value": 11,
+          "unit": "{score}",
+          "system": "http://unitsofmeasure.org",
+          "code": "{score}"
+        },
+        "note": [
+          {
+            "text": "Synthetic teaching-case result. Evidence grade S."
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:obs-phq9-002",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-phq9-002",
+        "meta": {
+          "tag": [
+            {
+              "system": "https://humanrecord.example.org/evidence-grade",
+              "code": "S"
+            }
+          ]
+        },
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "survey",
+                "display": "Survey"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "version": "2.81",
+              "code": "44261-6",
+              "display": "Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]",
+              "validation_status": "validated",
+              "validated_on": "2026-11-01"
+            }
+          ],
+          "text": "PHQ-9 total score"
+        },
+        "subject": {
+          "reference": "urn:uuid:hr-et007-patient"
+        },
+        "effectiveDateTime": "2026-08-11",
+        "valueQuantity": {
+          "value": 7,
+          "unit": "{score}",
+          "system": "http://unitsofmeasure.org",
+          "code": "{score}"
+        },
+        "note": [
+          {
+            "text": "Synthetic teaching-case result. Evidence grade S."
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:obs-phq9-003",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-phq9-003",
+        "meta": {
+          "tag": [
+            {
+              "system": "https://humanrecord.example.org/evidence-grade",
+              "code": "S"
+            }
+          ]
+        },
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "survey",
+                "display": "Survey"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "version": "2.81",
+              "code": "44261-6",
+              "display": "Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]",
+              "validation_status": "validated",
+              "validated_on": "2026-11-01"
+            }
+          ],
+          "text": "PHQ-9 total score"
+        },
+        "subject": {
+          "reference": "urn:uuid:hr-et007-patient"
+        },
+        "effectiveDateTime": "2026-09-30",
+        "valueQuantity": {
+          "value": 4,
+          "unit": "{score}",
+          "system": "http://unitsofmeasure.org",
+          "code": "{score}"
+        },
+        "note": [
+          {
+            "text": "Synthetic teaching-case result. Evidence grade S."
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:goal-001",
+      "resource": {
+        "resourceType": "Goal",
+        "id": "goal-001",
+        "meta": {
+          "tag": [
+            {
+              "system": "https://humanrecord.example.org/evidence-grade",
+              "code": "S"
+            }
+          ]
+        },
+        "lifecycleStatus": "completed",
+        "description": {
+          "text": "Reduce PCL-5 score from 42 to 27 or lower by the twelve-week review"
+        },
+        "subject": {
+          "reference": "urn:uuid:hr-et007-patient"
+        },
+        "target": [
+          {
+            "dueDate": "2026-09-30"
+          }
+        ],
+        "outcomeCode": [
+          {
+            "text": "PCL-5 score 24"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:goal-002",
+      "resource": {
+        "resourceType": "Goal",
+        "id": "goal-002",
+        "meta": {
+          "tag": [
+            {
+              "system": "https://humanrecord.example.org/evidence-grade",
+              "code": "S"
+            }
+          ]
+        },
+        "lifecycleStatus": "completed",
+        "description": {
+          "text": "Complete at least eight Cognitive Processing Therapy sessions by the twelve-week review"
+        },
+        "subject": {
+          "reference": "urn:uuid:hr-et007-patient"
+        },
+        "target": [
+          {
+            "dueDate": "2026-09-30"
+          }
+        ],
+        "outcomeCode": [
+          {
+            "text": "Nine sessions completed"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:goal-003",
+      "resource": {
+        "resourceType": "Goal",
+        "id": "goal-003",
+        "meta": {
+          "tag": [
+            {
+              "system": "https://humanrecord.example.org/evidence-grade",
+              "code": "S"
+            }
+          ]
+        },
+        "lifecycleStatus": "completed",
+        "description": {
+          "text": "Use the agreed sleep routine on at least five nights each week by the six-week review"
+        },
+        "subject": {
+          "reference": "urn:uuid:hr-et007-patient"
+        },
+        "target": [
+          {
+            "dueDate": "2026-08-11"
+          }
+        ],
+        "outcomeCode": [
+          {
+            "text": "Patient-reported use on five to six nights each week"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:hr-et007-careplan",
+      "resource": {
+        "resourceType": "CarePlan",
+        "id": "hr-et007-careplan",
+        "meta": {
+          "tag": [
+            {
+              "system": "https://humanrecord.example.org/evidence-grade",
+              "code": "S"
+            }
+          ]
+        },
+        "status": "completed",
+        "intent": "plan",
+        "title": "Audie Leon Murphy synthetic PTSD care plan",
+        "description": "Recognize and treat chronic combat-related PTSD while emphasizing function, strengths, shared decision-making, and recovery.",
+        "subject": {
+          "reference": "urn:uuid:hr-et007-patient"
+        },
+        "period": {
+          "start": "2026-06-30",
+          "end": "2026-09-30"
+        },
+        "addresses": [
+          {
+            "reference": "urn:uuid:prb-001"
+          },
+          {
+            "reference": "urn:uuid:prb-002"
+          }
+        ],
+        "goal": [
+          {
+            "reference": "urn:uuid:goal-001"
+          },
+          {
+            "reference": "urn:uuid:goal-002"
+          },
+          {
+            "reference": "urn:uuid:goal-003"
+          }
+        ],
+        "activity": [
+          {
+            "detail": {
+              "kind": "ServiceRequest",
+              "code": {
+                "text": "Shared decision-making referral for individual Cognitive Processing Therapy with a trained behavioral health clinician"
+              },
+              "status": "completed",
+              "description": "Guideline reference: GL-PTSD-2023"
+            }
+          },
+          {
+            "detail": {
+              "kind": "ServiceRequest",
+              "code": {
+                "text": "Repeat PCL-5 and PHQ-9 at six and twelve weeks to monitor symptom change"
+              },
+              "status": "completed",
+              "description": "Guideline reference: GL-PTSD-2023"
+            }
+          },
+          {
+            "detail": {
+              "kind": "ServiceRequest",
+              "code": {
+                "text": "Create a collaborative safety and lethal-means plan without describing methods or historical weapon details in patient instructions"
+              },
+              "status": "completed",
+              "description": "Guideline reference: GL-PTSD-2023"
+            }
+          },
+          {
+            "detail": {
+              "kind": "ServiceRequest",
+              "code": {
+                "text": "Review sleep routine, stimulus control, and non-pharmacologic insomnia strategies; reassess before adding medication"
+              },
+              "status": "completed",
+              "description": "Guideline reference: GL-PTSD-2023"
+            }
           }
         ]
       }
