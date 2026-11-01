@@ -6,7 +6,7 @@
   "meta": {
     "tag": [
       {
-        "system": "https://humanrecord.example.org/classification",
+        "system": "https://github.com/PatrickRutledge/chronic_histories/fhir/classification",
         "code": "synthetic",
         "display": "Synthetic record, not a real medical record"
       }
@@ -14,14 +14,17 @@
   },
   "entry": [
     {
-      "fullUrl": "urn:uuid:hr-et007-patient",
+      "fullUrl": "urn:uuid:f40753d5-f170-4562-b207-9e767af5e179",
       "resource": {
         "resourceType": "Patient",
         "id": "hr-et007-patient",
         "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient"
+          ],
           "tag": [
             {
-              "system": "https://humanrecord.example.org/classification",
+              "system": "https://github.com/PatrickRutledge/chronic_histories/fhir/classification",
               "code": "synthetic",
               "display": "Synthetic record"
             }
@@ -29,7 +32,7 @@
         },
         "identifier": [
           {
-            "system": "https://humanrecord.example.org/mrn",
+            "system": "https://github.com/PatrickRutledge/chronic_histories/fhir/mrn",
             "value": "HR-ET007-SYN"
           }
         ],
@@ -37,7 +40,12 @@
         "name": [
           {
             "use": "official",
-            "text": "Audie Leon Murphy"
+            "text": "Audie Leon Murphy",
+            "family": "Murphy",
+            "given": [
+              "Audie",
+              "Leon"
+            ]
           }
         ],
         "gender": "male",
@@ -45,14 +53,17 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:prb-001",
+      "fullUrl": "urn:uuid:d7d60eb5-adf7-4b5b-b70e-1f8d4c3cb248",
       "resource": {
         "resourceType": "Condition",
         "id": "prb-001",
         "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition-problems-health-concerns"
+          ],
           "tag": [
             {
-              "system": "https://humanrecord.example.org/evidence-grade",
+              "system": "https://github.com/PatrickRutledge/chronic_histories/fhir/evidence-grade",
               "code": "S"
             }
           ]
@@ -89,16 +100,13 @@
           "coding": [
             {
               "system": "http://hl7.org/fhir/sid/icd-10-cm",
-              "version": "FY2026",
               "code": "F43.10",
-              "display": "Post-traumatic stress disorder, unspecified",
-              "validation_status": "validated",
-              "validated_on": "2026-11-01"
+              "display": "Post-traumatic stress disorder, unspecified"
             }
           ]
         },
         "subject": {
-          "reference": "urn:uuid:hr-et007-patient"
+          "reference": "urn:uuid:f40753d5-f170-4562-b207-9e767af5e179"
         },
         "recordedDate": "2026-06-30",
         "note": [
@@ -109,14 +117,17 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:prb-002",
+      "fullUrl": "urn:uuid:a89e0e5d-7cb4-4dd4-8e73-f4d86101b01c",
       "resource": {
         "resourceType": "Condition",
         "id": "prb-002",
         "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition-problems-health-concerns"
+          ],
           "tag": [
             {
-              "system": "https://humanrecord.example.org/evidence-grade",
+              "system": "https://github.com/PatrickRutledge/chronic_histories/fhir/evidence-grade",
               "code": "S"
             }
           ]
@@ -153,16 +164,13 @@
           "coding": [
             {
               "system": "http://hl7.org/fhir/sid/icd-10-cm",
-              "version": "FY2026",
               "code": "G47.00",
-              "display": "Insomnia, unspecified",
-              "validation_status": "validated",
-              "validated_on": "2026-11-01"
+              "display": "Insomnia, unspecified"
             }
           ]
         },
         "subject": {
-          "reference": "urn:uuid:hr-et007-patient"
+          "reference": "urn:uuid:f40753d5-f170-4562-b207-9e767af5e179"
         },
         "recordedDate": "2026-06-30",
         "note": [
@@ -173,14 +181,17 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:enc-001",
+      "fullUrl": "urn:uuid:bdff35b6-4044-4446-b5dd-df87e7bc95da",
       "resource": {
         "resourceType": "Encounter",
         "id": "enc-001",
         "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-encounter"
+          ],
           "tag": [
             {
-              "system": "https://humanrecord.example.org/evidence-grade",
+              "system": "https://github.com/PatrickRutledge/chronic_histories/fhir/evidence-grade",
               "code": "S"
             }
           ]
@@ -197,7 +208,7 @@
           }
         ],
         "subject": {
-          "reference": "urn:uuid:hr-et007-patient"
+          "reference": "urn:uuid:f40753d5-f170-4562-b207-9e767af5e179"
         },
         "period": {
           "start": "2026-06-30",
@@ -206,14 +217,17 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:enc-002",
+      "fullUrl": "urn:uuid:8b1ccc17-07d7-48ea-93f8-d387e7631115",
       "resource": {
         "resourceType": "Encounter",
         "id": "enc-002",
         "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-encounter"
+          ],
           "tag": [
             {
-              "system": "https://humanrecord.example.org/evidence-grade",
+              "system": "https://github.com/PatrickRutledge/chronic_histories/fhir/evidence-grade",
               "code": "S"
             }
           ]
@@ -230,7 +244,7 @@
           }
         ],
         "subject": {
-          "reference": "urn:uuid:hr-et007-patient"
+          "reference": "urn:uuid:f40753d5-f170-4562-b207-9e767af5e179"
         },
         "period": {
           "start": "2026-08-11",
@@ -239,14 +253,17 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:enc-003",
+      "fullUrl": "urn:uuid:266274b9-5171-4450-b8b0-62ffc28599df",
       "resource": {
         "resourceType": "Encounter",
         "id": "enc-003",
         "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-encounter"
+          ],
           "tag": [
             {
-              "system": "https://humanrecord.example.org/evidence-grade",
+              "system": "https://github.com/PatrickRutledge/chronic_histories/fhir/evidence-grade",
               "code": "S"
             }
           ]
@@ -263,7 +280,7 @@
           }
         ],
         "subject": {
-          "reference": "urn:uuid:hr-et007-patient"
+          "reference": "urn:uuid:f40753d5-f170-4562-b207-9e767af5e179"
         },
         "period": {
           "start": "2026-09-30",
@@ -272,14 +289,17 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:obs-pcl5-001",
+      "fullUrl": "urn:uuid:227bf37a-a512-42b9-a394-6cbd51ae11dc",
       "resource": {
         "resourceType": "Observation",
         "id": "obs-pcl5-001",
         "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-screening-assessment"
+          ],
           "tag": [
             {
-              "system": "https://humanrecord.example.org/evidence-grade",
+              "system": "https://github.com/PatrickRutledge/chronic_histories/fhir/evidence-grade",
               "code": "S"
             }
           ]
@@ -300,17 +320,14 @@
           "coding": [
             {
               "system": "http://loinc.org",
-              "version": "2.81",
               "code": "101698-9",
-              "display": "PTSD PCL-5 score [PCL-5]",
-              "validation_status": "validated",
-              "validated_on": "2026-11-01"
+              "display": "PTSD PCL-5 score [PCL-5]"
             }
           ],
           "text": "PTSD PCL-5 score"
         },
         "subject": {
-          "reference": "urn:uuid:hr-et007-patient"
+          "reference": "urn:uuid:f40753d5-f170-4562-b207-9e767af5e179"
         },
         "effectiveDateTime": "2026-06-30",
         "valueQuantity": {
@@ -327,14 +344,17 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:obs-pcl5-002",
+      "fullUrl": "urn:uuid:a7efac27-0639-4233-b215-a92ea057d284",
       "resource": {
         "resourceType": "Observation",
         "id": "obs-pcl5-002",
         "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-screening-assessment"
+          ],
           "tag": [
             {
-              "system": "https://humanrecord.example.org/evidence-grade",
+              "system": "https://github.com/PatrickRutledge/chronic_histories/fhir/evidence-grade",
               "code": "S"
             }
           ]
@@ -355,17 +375,14 @@
           "coding": [
             {
               "system": "http://loinc.org",
-              "version": "2.81",
               "code": "101698-9",
-              "display": "PTSD PCL-5 score [PCL-5]",
-              "validation_status": "validated",
-              "validated_on": "2026-11-01"
+              "display": "PTSD PCL-5 score [PCL-5]"
             }
           ],
           "text": "PTSD PCL-5 score"
         },
         "subject": {
-          "reference": "urn:uuid:hr-et007-patient"
+          "reference": "urn:uuid:f40753d5-f170-4562-b207-9e767af5e179"
         },
         "effectiveDateTime": "2026-08-11",
         "valueQuantity": {
@@ -382,14 +399,17 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:obs-pcl5-003",
+      "fullUrl": "urn:uuid:ac60b97b-8848-4719-9def-b175ccf69cea",
       "resource": {
         "resourceType": "Observation",
         "id": "obs-pcl5-003",
         "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-screening-assessment"
+          ],
           "tag": [
             {
-              "system": "https://humanrecord.example.org/evidence-grade",
+              "system": "https://github.com/PatrickRutledge/chronic_histories/fhir/evidence-grade",
               "code": "S"
             }
           ]
@@ -410,17 +430,14 @@
           "coding": [
             {
               "system": "http://loinc.org",
-              "version": "2.81",
               "code": "101698-9",
-              "display": "PTSD PCL-5 score [PCL-5]",
-              "validation_status": "validated",
-              "validated_on": "2026-11-01"
+              "display": "PTSD PCL-5 score [PCL-5]"
             }
           ],
           "text": "PTSD PCL-5 score"
         },
         "subject": {
-          "reference": "urn:uuid:hr-et007-patient"
+          "reference": "urn:uuid:f40753d5-f170-4562-b207-9e767af5e179"
         },
         "effectiveDateTime": "2026-09-30",
         "valueQuantity": {
@@ -437,14 +454,17 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:obs-phq9-001",
+      "fullUrl": "urn:uuid:e942f82e-f78a-497b-9490-d280caebb7fa",
       "resource": {
         "resourceType": "Observation",
         "id": "obs-phq9-001",
         "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-screening-assessment"
+          ],
           "tag": [
             {
-              "system": "https://humanrecord.example.org/evidence-grade",
+              "system": "https://github.com/PatrickRutledge/chronic_histories/fhir/evidence-grade",
               "code": "S"
             }
           ]
@@ -465,17 +485,14 @@
           "coding": [
             {
               "system": "http://loinc.org",
-              "version": "2.81",
               "code": "44261-6",
-              "display": "Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]",
-              "validation_status": "validated",
-              "validated_on": "2026-11-01"
+              "display": "Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]"
             }
           ],
           "text": "PHQ-9 total score"
         },
         "subject": {
-          "reference": "urn:uuid:hr-et007-patient"
+          "reference": "urn:uuid:f40753d5-f170-4562-b207-9e767af5e179"
         },
         "effectiveDateTime": "2026-06-30",
         "valueQuantity": {
@@ -492,14 +509,17 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:obs-phq9-002",
+      "fullUrl": "urn:uuid:032ed99d-920b-494c-bec9-43e55bf79fb5",
       "resource": {
         "resourceType": "Observation",
         "id": "obs-phq9-002",
         "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-screening-assessment"
+          ],
           "tag": [
             {
-              "system": "https://humanrecord.example.org/evidence-grade",
+              "system": "https://github.com/PatrickRutledge/chronic_histories/fhir/evidence-grade",
               "code": "S"
             }
           ]
@@ -520,17 +540,14 @@
           "coding": [
             {
               "system": "http://loinc.org",
-              "version": "2.81",
               "code": "44261-6",
-              "display": "Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]",
-              "validation_status": "validated",
-              "validated_on": "2026-11-01"
+              "display": "Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]"
             }
           ],
           "text": "PHQ-9 total score"
         },
         "subject": {
-          "reference": "urn:uuid:hr-et007-patient"
+          "reference": "urn:uuid:f40753d5-f170-4562-b207-9e767af5e179"
         },
         "effectiveDateTime": "2026-08-11",
         "valueQuantity": {
@@ -547,14 +564,17 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:obs-phq9-003",
+      "fullUrl": "urn:uuid:ca321935-71a5-46a2-a7eb-e689000a9d59",
       "resource": {
         "resourceType": "Observation",
         "id": "obs-phq9-003",
         "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-screening-assessment"
+          ],
           "tag": [
             {
-              "system": "https://humanrecord.example.org/evidence-grade",
+              "system": "https://github.com/PatrickRutledge/chronic_histories/fhir/evidence-grade",
               "code": "S"
             }
           ]
@@ -575,17 +595,14 @@
           "coding": [
             {
               "system": "http://loinc.org",
-              "version": "2.81",
               "code": "44261-6",
-              "display": "Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]",
-              "validation_status": "validated",
-              "validated_on": "2026-11-01"
+              "display": "Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]"
             }
           ],
           "text": "PHQ-9 total score"
         },
         "subject": {
-          "reference": "urn:uuid:hr-et007-patient"
+          "reference": "urn:uuid:f40753d5-f170-4562-b207-9e767af5e179"
         },
         "effectiveDateTime": "2026-09-30",
         "valueQuantity": {
@@ -602,17 +619,17 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:vset-001-8302-2",
+      "fullUrl": "urn:uuid:03cf6dbc-79c0-45f3-b548-c1985845b108",
       "resource": {
         "resourceType": "Observation",
         "id": "vset-001-8302-2",
         "meta": {
           "profile": [
-            "http://hl7.org/fhir/StructureDefinition/vitalsigns"
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-body-height"
           ],
           "tag": [
             {
-              "system": "https://humanrecord.example.org/evidence-grade",
+              "system": "https://github.com/PatrickRutledge/chronic_histories/fhir/evidence-grade",
               "code": "S"
             }
           ]
@@ -640,7 +657,7 @@
           "text": "Body height"
         },
         "subject": {
-          "reference": "urn:uuid:hr-et007-patient"
+          "reference": "urn:uuid:f40753d5-f170-4562-b207-9e767af5e179"
         },
         "effectiveDateTime": "2026-06-30",
         "valueQuantity": {
@@ -657,17 +674,17 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:vset-001-29463-7",
+      "fullUrl": "urn:uuid:e306898c-abb8-4d5c-a95a-1af0e8ecb284",
       "resource": {
         "resourceType": "Observation",
         "id": "vset-001-29463-7",
         "meta": {
           "profile": [
-            "http://hl7.org/fhir/StructureDefinition/vitalsigns"
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-body-weight"
           ],
           "tag": [
             {
-              "system": "https://humanrecord.example.org/evidence-grade",
+              "system": "https://github.com/PatrickRutledge/chronic_histories/fhir/evidence-grade",
               "code": "S"
             }
           ]
@@ -695,7 +712,7 @@
           "text": "Body weight"
         },
         "subject": {
-          "reference": "urn:uuid:hr-et007-patient"
+          "reference": "urn:uuid:f40753d5-f170-4562-b207-9e767af5e179"
         },
         "effectiveDateTime": "2026-06-30",
         "valueQuantity": {
@@ -712,17 +729,17 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:vset-001-39156-5",
+      "fullUrl": "urn:uuid:fe4121ee-b4df-4c63-a997-28ad5f6a05d7",
       "resource": {
         "resourceType": "Observation",
         "id": "vset-001-39156-5",
         "meta": {
           "profile": [
-            "http://hl7.org/fhir/StructureDefinition/vitalsigns"
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-bmi"
           ],
           "tag": [
             {
-              "system": "https://humanrecord.example.org/evidence-grade",
+              "system": "https://github.com/PatrickRutledge/chronic_histories/fhir/evidence-grade",
               "code": "S"
             }
           ]
@@ -744,13 +761,13 @@
             {
               "system": "http://loinc.org",
               "code": "39156-5",
-              "display": "Body mass index (BMI)"
+              "display": "Body mass index (BMI) [Ratio]"
             }
           ],
-          "text": "Body mass index (BMI)"
+          "text": "Body mass index (BMI) [Ratio]"
         },
         "subject": {
-          "reference": "urn:uuid:hr-et007-patient"
+          "reference": "urn:uuid:f40753d5-f170-4562-b207-9e767af5e179"
         },
         "effectiveDateTime": "2026-06-30",
         "valueQuantity": {
@@ -767,127 +784,17 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:vset-001-8480-6",
-      "resource": {
-        "resourceType": "Observation",
-        "id": "vset-001-8480-6",
-        "meta": {
-          "profile": [
-            "http://hl7.org/fhir/StructureDefinition/vitalsigns"
-          ],
-          "tag": [
-            {
-              "system": "https://humanrecord.example.org/evidence-grade",
-              "code": "S"
-            }
-          ]
-        },
-        "status": "final",
-        "category": [
-          {
-            "coding": [
-              {
-                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
-                "code": "vital-signs",
-                "display": "Vital Signs"
-              }
-            ]
-          }
-        ],
-        "code": {
-          "coding": [
-            {
-              "system": "http://loinc.org",
-              "code": "8480-6",
-              "display": "Systolic blood pressure"
-            }
-          ],
-          "text": "Systolic blood pressure"
-        },
-        "subject": {
-          "reference": "urn:uuid:hr-et007-patient"
-        },
-        "effectiveDateTime": "2026-06-30",
-        "valueQuantity": {
-          "value": 132,
-          "unit": "mm[Hg]",
-          "system": "http://unitsofmeasure.org",
-          "code": "mm[Hg]"
-        },
-        "note": [
-          {
-            "text": "Synthetic vital sign; not a historical measurement."
-          }
-        ]
-      }
-    },
-    {
-      "fullUrl": "urn:uuid:vset-001-8462-4",
-      "resource": {
-        "resourceType": "Observation",
-        "id": "vset-001-8462-4",
-        "meta": {
-          "profile": [
-            "http://hl7.org/fhir/StructureDefinition/vitalsigns"
-          ],
-          "tag": [
-            {
-              "system": "https://humanrecord.example.org/evidence-grade",
-              "code": "S"
-            }
-          ]
-        },
-        "status": "final",
-        "category": [
-          {
-            "coding": [
-              {
-                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
-                "code": "vital-signs",
-                "display": "Vital Signs"
-              }
-            ]
-          }
-        ],
-        "code": {
-          "coding": [
-            {
-              "system": "http://loinc.org",
-              "code": "8462-4",
-              "display": "Diastolic blood pressure"
-            }
-          ],
-          "text": "Diastolic blood pressure"
-        },
-        "subject": {
-          "reference": "urn:uuid:hr-et007-patient"
-        },
-        "effectiveDateTime": "2026-06-30",
-        "valueQuantity": {
-          "value": 84,
-          "unit": "mm[Hg]",
-          "system": "http://unitsofmeasure.org",
-          "code": "mm[Hg]"
-        },
-        "note": [
-          {
-            "text": "Synthetic vital sign; not a historical measurement."
-          }
-        ]
-      }
-    },
-    {
-      "fullUrl": "urn:uuid:vset-001-8867-4",
+      "fullUrl": "urn:uuid:d9d2d7aa-ed62-44cd-a634-1903d396ed22",
       "resource": {
         "resourceType": "Observation",
         "id": "vset-001-8867-4",
         "meta": {
           "profile": [
-            "http://hl7.org/fhir/StructureDefinition/vitalsigns"
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-heart-rate"
           ],
           "tag": [
             {
-              "system": "https://humanrecord.example.org/evidence-grade",
+              "system": "https://github.com/PatrickRutledge/chronic_histories/fhir/evidence-grade",
               "code": "S"
             }
           ]
@@ -915,14 +822,14 @@
           "text": "Heart rate"
         },
         "subject": {
-          "reference": "urn:uuid:hr-et007-patient"
+          "reference": "urn:uuid:f40753d5-f170-4562-b207-9e767af5e179"
         },
         "effectiveDateTime": "2026-06-30",
         "valueQuantity": {
           "value": 78,
-          "unit": "{beats}/min",
+          "unit": "/min",
           "system": "http://unitsofmeasure.org",
-          "code": "{beats}/min"
+          "code": "/min"
         },
         "note": [
           {
@@ -932,17 +839,17 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:vset-001-9279-1",
+      "fullUrl": "urn:uuid:c4536c23-231f-4bca-b737-7b1115362d9d",
       "resource": {
         "resourceType": "Observation",
         "id": "vset-001-9279-1",
         "meta": {
           "profile": [
-            "http://hl7.org/fhir/StructureDefinition/vitalsigns"
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-respiratory-rate"
           ],
           "tag": [
             {
-              "system": "https://humanrecord.example.org/evidence-grade",
+              "system": "https://github.com/PatrickRutledge/chronic_histories/fhir/evidence-grade",
               "code": "S"
             }
           ]
@@ -970,14 +877,14 @@
           "text": "Respiratory rate"
         },
         "subject": {
-          "reference": "urn:uuid:hr-et007-patient"
+          "reference": "urn:uuid:f40753d5-f170-4562-b207-9e767af5e179"
         },
         "effectiveDateTime": "2026-06-30",
         "valueQuantity": {
           "value": 16,
-          "unit": "{breaths}/min",
+          "unit": "/min",
           "system": "http://unitsofmeasure.org",
-          "code": "{breaths}/min"
+          "code": "/min"
         },
         "note": [
           {
@@ -987,17 +894,17 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:vset-001-8310-5",
+      "fullUrl": "urn:uuid:29d9beeb-74ee-4301-a37f-d775a49c589c",
       "resource": {
         "resourceType": "Observation",
         "id": "vset-001-8310-5",
         "meta": {
           "profile": [
-            "http://hl7.org/fhir/StructureDefinition/vitalsigns"
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-body-temperature"
           ],
           "tag": [
             {
-              "system": "https://humanrecord.example.org/evidence-grade",
+              "system": "https://github.com/PatrickRutledge/chronic_histories/fhir/evidence-grade",
               "code": "S"
             }
           ]
@@ -1025,7 +932,7 @@
           "text": "Body temperature"
         },
         "subject": {
-          "reference": "urn:uuid:hr-et007-patient"
+          "reference": "urn:uuid:f40753d5-f170-4562-b207-9e767af5e179"
         },
         "effectiveDateTime": "2026-06-30",
         "valueQuantity": {
@@ -1042,17 +949,17 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:vset-001-59408-5",
+      "fullUrl": "urn:uuid:33d8cc6f-06aa-475c-ad44-2dc61776a0af",
       "resource": {
         "resourceType": "Observation",
         "id": "vset-001-59408-5",
         "meta": {
           "profile": [
-            "http://hl7.org/fhir/StructureDefinition/vitalsigns"
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-pulse-oximetry"
           ],
           "tag": [
             {
-              "system": "https://humanrecord.example.org/evidence-grade",
+              "system": "https://github.com/PatrickRutledge/chronic_histories/fhir/evidence-grade",
               "code": "S"
             }
           ]
@@ -1074,13 +981,18 @@
             {
               "system": "http://loinc.org",
               "code": "59408-5",
-              "display": "Oxygen saturation by pulse oximetry"
+              "display": "Oxygen saturation in Arterial blood by Pulse oximetry"
+            },
+            {
+              "system": "http://loinc.org",
+              "code": "2708-6",
+              "display": "Oxygen saturation in Arterial blood"
             }
           ],
-          "text": "Oxygen saturation by pulse oximetry"
+          "text": "Oxygen saturation in Arterial blood by Pulse oximetry"
         },
         "subject": {
-          "reference": "urn:uuid:hr-et007-patient"
+          "reference": "urn:uuid:f40753d5-f170-4562-b207-9e767af5e179"
         },
         "effectiveDateTime": "2026-06-30",
         "valueQuantity": {
@@ -1097,17 +1009,104 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:vset-002-8302-2",
+      "fullUrl": "urn:uuid:098a3531-49b4-4ec5-b45e-52894d47970a",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "vset-001-85354-9",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-blood-pressure"
+          ],
+          "tag": [
+            {
+              "system": "https://github.com/PatrickRutledge/chronic_histories/fhir/evidence-grade",
+              "code": "S"
+            }
+          ]
+        },
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "vital-signs",
+                "display": "Vital Signs"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "85354-9",
+              "display": "Blood pressure panel with all children optional"
+            }
+          ],
+          "text": "Blood pressure panel with all children optional"
+        },
+        "subject": {
+          "reference": "urn:uuid:f40753d5-f170-4562-b207-9e767af5e179"
+        },
+        "effectiveDateTime": "2026-06-30",
+        "component": [
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "8480-6",
+                  "display": "Systolic blood pressure"
+                }
+              ],
+              "text": "Systolic blood pressure"
+            },
+            "valueQuantity": {
+              "value": 132,
+              "unit": "mm[Hg]",
+              "system": "http://unitsofmeasure.org",
+              "code": "mm[Hg]"
+            }
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "8462-4",
+                  "display": "Diastolic blood pressure"
+                }
+              ],
+              "text": "Diastolic blood pressure"
+            },
+            "valueQuantity": {
+              "value": 84,
+              "unit": "mm[Hg]",
+              "system": "http://unitsofmeasure.org",
+              "code": "mm[Hg]"
+            }
+          }
+        ],
+        "note": [
+          {
+            "text": "Synthetic vital sign; not a historical measurement."
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:ceff3369-2379-42a9-b637-e245c7f8f1e6",
       "resource": {
         "resourceType": "Observation",
         "id": "vset-002-8302-2",
         "meta": {
           "profile": [
-            "http://hl7.org/fhir/StructureDefinition/vitalsigns"
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-body-height"
           ],
           "tag": [
             {
-              "system": "https://humanrecord.example.org/evidence-grade",
+              "system": "https://github.com/PatrickRutledge/chronic_histories/fhir/evidence-grade",
               "code": "S"
             }
           ]
@@ -1135,7 +1134,7 @@
           "text": "Body height"
         },
         "subject": {
-          "reference": "urn:uuid:hr-et007-patient"
+          "reference": "urn:uuid:f40753d5-f170-4562-b207-9e767af5e179"
         },
         "effectiveDateTime": "2026-08-11",
         "valueQuantity": {
@@ -1152,17 +1151,17 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:vset-002-29463-7",
+      "fullUrl": "urn:uuid:2c152349-8239-48d7-9f1c-60c3c5114fd8",
       "resource": {
         "resourceType": "Observation",
         "id": "vset-002-29463-7",
         "meta": {
           "profile": [
-            "http://hl7.org/fhir/StructureDefinition/vitalsigns"
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-body-weight"
           ],
           "tag": [
             {
-              "system": "https://humanrecord.example.org/evidence-grade",
+              "system": "https://github.com/PatrickRutledge/chronic_histories/fhir/evidence-grade",
               "code": "S"
             }
           ]
@@ -1190,7 +1189,7 @@
           "text": "Body weight"
         },
         "subject": {
-          "reference": "urn:uuid:hr-et007-patient"
+          "reference": "urn:uuid:f40753d5-f170-4562-b207-9e767af5e179"
         },
         "effectiveDateTime": "2026-08-11",
         "valueQuantity": {
@@ -1207,17 +1206,17 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:vset-002-39156-5",
+      "fullUrl": "urn:uuid:0f61a2bd-7c0f-487c-b393-e1c9aa00b600",
       "resource": {
         "resourceType": "Observation",
         "id": "vset-002-39156-5",
         "meta": {
           "profile": [
-            "http://hl7.org/fhir/StructureDefinition/vitalsigns"
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-bmi"
           ],
           "tag": [
             {
-              "system": "https://humanrecord.example.org/evidence-grade",
+              "system": "https://github.com/PatrickRutledge/chronic_histories/fhir/evidence-grade",
               "code": "S"
             }
           ]
@@ -1239,13 +1238,13 @@
             {
               "system": "http://loinc.org",
               "code": "39156-5",
-              "display": "Body mass index (BMI)"
+              "display": "Body mass index (BMI) [Ratio]"
             }
           ],
-          "text": "Body mass index (BMI)"
+          "text": "Body mass index (BMI) [Ratio]"
         },
         "subject": {
-          "reference": "urn:uuid:hr-et007-patient"
+          "reference": "urn:uuid:f40753d5-f170-4562-b207-9e767af5e179"
         },
         "effectiveDateTime": "2026-08-11",
         "valueQuantity": {
@@ -1262,127 +1261,17 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:vset-002-8480-6",
-      "resource": {
-        "resourceType": "Observation",
-        "id": "vset-002-8480-6",
-        "meta": {
-          "profile": [
-            "http://hl7.org/fhir/StructureDefinition/vitalsigns"
-          ],
-          "tag": [
-            {
-              "system": "https://humanrecord.example.org/evidence-grade",
-              "code": "S"
-            }
-          ]
-        },
-        "status": "final",
-        "category": [
-          {
-            "coding": [
-              {
-                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
-                "code": "vital-signs",
-                "display": "Vital Signs"
-              }
-            ]
-          }
-        ],
-        "code": {
-          "coding": [
-            {
-              "system": "http://loinc.org",
-              "code": "8480-6",
-              "display": "Systolic blood pressure"
-            }
-          ],
-          "text": "Systolic blood pressure"
-        },
-        "subject": {
-          "reference": "urn:uuid:hr-et007-patient"
-        },
-        "effectiveDateTime": "2026-08-11",
-        "valueQuantity": {
-          "value": 128,
-          "unit": "mm[Hg]",
-          "system": "http://unitsofmeasure.org",
-          "code": "mm[Hg]"
-        },
-        "note": [
-          {
-            "text": "Synthetic vital sign; not a historical measurement."
-          }
-        ]
-      }
-    },
-    {
-      "fullUrl": "urn:uuid:vset-002-8462-4",
-      "resource": {
-        "resourceType": "Observation",
-        "id": "vset-002-8462-4",
-        "meta": {
-          "profile": [
-            "http://hl7.org/fhir/StructureDefinition/vitalsigns"
-          ],
-          "tag": [
-            {
-              "system": "https://humanrecord.example.org/evidence-grade",
-              "code": "S"
-            }
-          ]
-        },
-        "status": "final",
-        "category": [
-          {
-            "coding": [
-              {
-                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
-                "code": "vital-signs",
-                "display": "Vital Signs"
-              }
-            ]
-          }
-        ],
-        "code": {
-          "coding": [
-            {
-              "system": "http://loinc.org",
-              "code": "8462-4",
-              "display": "Diastolic blood pressure"
-            }
-          ],
-          "text": "Diastolic blood pressure"
-        },
-        "subject": {
-          "reference": "urn:uuid:hr-et007-patient"
-        },
-        "effectiveDateTime": "2026-08-11",
-        "valueQuantity": {
-          "value": 82,
-          "unit": "mm[Hg]",
-          "system": "http://unitsofmeasure.org",
-          "code": "mm[Hg]"
-        },
-        "note": [
-          {
-            "text": "Synthetic vital sign; not a historical measurement."
-          }
-        ]
-      }
-    },
-    {
-      "fullUrl": "urn:uuid:vset-002-8867-4",
+      "fullUrl": "urn:uuid:f6acf553-5ce7-4232-8eaa-c4224c5a9063",
       "resource": {
         "resourceType": "Observation",
         "id": "vset-002-8867-4",
         "meta": {
           "profile": [
-            "http://hl7.org/fhir/StructureDefinition/vitalsigns"
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-heart-rate"
           ],
           "tag": [
             {
-              "system": "https://humanrecord.example.org/evidence-grade",
+              "system": "https://github.com/PatrickRutledge/chronic_histories/fhir/evidence-grade",
               "code": "S"
             }
           ]
@@ -1410,14 +1299,14 @@
           "text": "Heart rate"
         },
         "subject": {
-          "reference": "urn:uuid:hr-et007-patient"
+          "reference": "urn:uuid:f40753d5-f170-4562-b207-9e767af5e179"
         },
         "effectiveDateTime": "2026-08-11",
         "valueQuantity": {
           "value": 74,
-          "unit": "{beats}/min",
+          "unit": "/min",
           "system": "http://unitsofmeasure.org",
-          "code": "{beats}/min"
+          "code": "/min"
         },
         "note": [
           {
@@ -1427,17 +1316,17 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:vset-002-9279-1",
+      "fullUrl": "urn:uuid:34d0fe47-493d-4a4e-97c1-cbe38b322bc2",
       "resource": {
         "resourceType": "Observation",
         "id": "vset-002-9279-1",
         "meta": {
           "profile": [
-            "http://hl7.org/fhir/StructureDefinition/vitalsigns"
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-respiratory-rate"
           ],
           "tag": [
             {
-              "system": "https://humanrecord.example.org/evidence-grade",
+              "system": "https://github.com/PatrickRutledge/chronic_histories/fhir/evidence-grade",
               "code": "S"
             }
           ]
@@ -1465,14 +1354,14 @@
           "text": "Respiratory rate"
         },
         "subject": {
-          "reference": "urn:uuid:hr-et007-patient"
+          "reference": "urn:uuid:f40753d5-f170-4562-b207-9e767af5e179"
         },
         "effectiveDateTime": "2026-08-11",
         "valueQuantity": {
           "value": 16,
-          "unit": "{breaths}/min",
+          "unit": "/min",
           "system": "http://unitsofmeasure.org",
-          "code": "{breaths}/min"
+          "code": "/min"
         },
         "note": [
           {
@@ -1482,17 +1371,17 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:vset-002-8310-5",
+      "fullUrl": "urn:uuid:0a6ccf62-f24b-47bc-ad9e-6240a1921dd9",
       "resource": {
         "resourceType": "Observation",
         "id": "vset-002-8310-5",
         "meta": {
           "profile": [
-            "http://hl7.org/fhir/StructureDefinition/vitalsigns"
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-body-temperature"
           ],
           "tag": [
             {
-              "system": "https://humanrecord.example.org/evidence-grade",
+              "system": "https://github.com/PatrickRutledge/chronic_histories/fhir/evidence-grade",
               "code": "S"
             }
           ]
@@ -1520,7 +1409,7 @@
           "text": "Body temperature"
         },
         "subject": {
-          "reference": "urn:uuid:hr-et007-patient"
+          "reference": "urn:uuid:f40753d5-f170-4562-b207-9e767af5e179"
         },
         "effectiveDateTime": "2026-08-11",
         "valueQuantity": {
@@ -1537,17 +1426,17 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:vset-002-59408-5",
+      "fullUrl": "urn:uuid:cf0817ab-3785-4442-82af-64cb15dc9455",
       "resource": {
         "resourceType": "Observation",
         "id": "vset-002-59408-5",
         "meta": {
           "profile": [
-            "http://hl7.org/fhir/StructureDefinition/vitalsigns"
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-pulse-oximetry"
           ],
           "tag": [
             {
-              "system": "https://humanrecord.example.org/evidence-grade",
+              "system": "https://github.com/PatrickRutledge/chronic_histories/fhir/evidence-grade",
               "code": "S"
             }
           ]
@@ -1569,13 +1458,18 @@
             {
               "system": "http://loinc.org",
               "code": "59408-5",
-              "display": "Oxygen saturation by pulse oximetry"
+              "display": "Oxygen saturation in Arterial blood by Pulse oximetry"
+            },
+            {
+              "system": "http://loinc.org",
+              "code": "2708-6",
+              "display": "Oxygen saturation in Arterial blood"
             }
           ],
-          "text": "Oxygen saturation by pulse oximetry"
+          "text": "Oxygen saturation in Arterial blood by Pulse oximetry"
         },
         "subject": {
-          "reference": "urn:uuid:hr-et007-patient"
+          "reference": "urn:uuid:f40753d5-f170-4562-b207-9e767af5e179"
         },
         "effectiveDateTime": "2026-08-11",
         "valueQuantity": {
@@ -1592,17 +1486,104 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:vset-003-8302-2",
+      "fullUrl": "urn:uuid:627fb75e-b095-4309-abbd-d4ca67e527fe",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "vset-002-85354-9",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-blood-pressure"
+          ],
+          "tag": [
+            {
+              "system": "https://github.com/PatrickRutledge/chronic_histories/fhir/evidence-grade",
+              "code": "S"
+            }
+          ]
+        },
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "vital-signs",
+                "display": "Vital Signs"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "85354-9",
+              "display": "Blood pressure panel with all children optional"
+            }
+          ],
+          "text": "Blood pressure panel with all children optional"
+        },
+        "subject": {
+          "reference": "urn:uuid:f40753d5-f170-4562-b207-9e767af5e179"
+        },
+        "effectiveDateTime": "2026-08-11",
+        "component": [
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "8480-6",
+                  "display": "Systolic blood pressure"
+                }
+              ],
+              "text": "Systolic blood pressure"
+            },
+            "valueQuantity": {
+              "value": 128,
+              "unit": "mm[Hg]",
+              "system": "http://unitsofmeasure.org",
+              "code": "mm[Hg]"
+            }
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "8462-4",
+                  "display": "Diastolic blood pressure"
+                }
+              ],
+              "text": "Diastolic blood pressure"
+            },
+            "valueQuantity": {
+              "value": 82,
+              "unit": "mm[Hg]",
+              "system": "http://unitsofmeasure.org",
+              "code": "mm[Hg]"
+            }
+          }
+        ],
+        "note": [
+          {
+            "text": "Synthetic vital sign; not a historical measurement."
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:00314f0f-5b0c-4a57-87c2-42ce76dba84b",
       "resource": {
         "resourceType": "Observation",
         "id": "vset-003-8302-2",
         "meta": {
           "profile": [
-            "http://hl7.org/fhir/StructureDefinition/vitalsigns"
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-body-height"
           ],
           "tag": [
             {
-              "system": "https://humanrecord.example.org/evidence-grade",
+              "system": "https://github.com/PatrickRutledge/chronic_histories/fhir/evidence-grade",
               "code": "S"
             }
           ]
@@ -1630,7 +1611,7 @@
           "text": "Body height"
         },
         "subject": {
-          "reference": "urn:uuid:hr-et007-patient"
+          "reference": "urn:uuid:f40753d5-f170-4562-b207-9e767af5e179"
         },
         "effectiveDateTime": "2026-09-30",
         "valueQuantity": {
@@ -1647,17 +1628,17 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:vset-003-29463-7",
+      "fullUrl": "urn:uuid:3d4e83b6-46d7-4ae1-b530-8ecd658b8b09",
       "resource": {
         "resourceType": "Observation",
         "id": "vset-003-29463-7",
         "meta": {
           "profile": [
-            "http://hl7.org/fhir/StructureDefinition/vitalsigns"
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-body-weight"
           ],
           "tag": [
             {
-              "system": "https://humanrecord.example.org/evidence-grade",
+              "system": "https://github.com/PatrickRutledge/chronic_histories/fhir/evidence-grade",
               "code": "S"
             }
           ]
@@ -1685,7 +1666,7 @@
           "text": "Body weight"
         },
         "subject": {
-          "reference": "urn:uuid:hr-et007-patient"
+          "reference": "urn:uuid:f40753d5-f170-4562-b207-9e767af5e179"
         },
         "effectiveDateTime": "2026-09-30",
         "valueQuantity": {
@@ -1702,17 +1683,17 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:vset-003-39156-5",
+      "fullUrl": "urn:uuid:af1a0ad6-92e7-4524-a312-3dfa0905f297",
       "resource": {
         "resourceType": "Observation",
         "id": "vset-003-39156-5",
         "meta": {
           "profile": [
-            "http://hl7.org/fhir/StructureDefinition/vitalsigns"
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-bmi"
           ],
           "tag": [
             {
-              "system": "https://humanrecord.example.org/evidence-grade",
+              "system": "https://github.com/PatrickRutledge/chronic_histories/fhir/evidence-grade",
               "code": "S"
             }
           ]
@@ -1734,13 +1715,13 @@
             {
               "system": "http://loinc.org",
               "code": "39156-5",
-              "display": "Body mass index (BMI)"
+              "display": "Body mass index (BMI) [Ratio]"
             }
           ],
-          "text": "Body mass index (BMI)"
+          "text": "Body mass index (BMI) [Ratio]"
         },
         "subject": {
-          "reference": "urn:uuid:hr-et007-patient"
+          "reference": "urn:uuid:f40753d5-f170-4562-b207-9e767af5e179"
         },
         "effectiveDateTime": "2026-09-30",
         "valueQuantity": {
@@ -1757,127 +1738,17 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:vset-003-8480-6",
-      "resource": {
-        "resourceType": "Observation",
-        "id": "vset-003-8480-6",
-        "meta": {
-          "profile": [
-            "http://hl7.org/fhir/StructureDefinition/vitalsigns"
-          ],
-          "tag": [
-            {
-              "system": "https://humanrecord.example.org/evidence-grade",
-              "code": "S"
-            }
-          ]
-        },
-        "status": "final",
-        "category": [
-          {
-            "coding": [
-              {
-                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
-                "code": "vital-signs",
-                "display": "Vital Signs"
-              }
-            ]
-          }
-        ],
-        "code": {
-          "coding": [
-            {
-              "system": "http://loinc.org",
-              "code": "8480-6",
-              "display": "Systolic blood pressure"
-            }
-          ],
-          "text": "Systolic blood pressure"
-        },
-        "subject": {
-          "reference": "urn:uuid:hr-et007-patient"
-        },
-        "effectiveDateTime": "2026-09-30",
-        "valueQuantity": {
-          "value": 126,
-          "unit": "mm[Hg]",
-          "system": "http://unitsofmeasure.org",
-          "code": "mm[Hg]"
-        },
-        "note": [
-          {
-            "text": "Synthetic vital sign; not a historical measurement."
-          }
-        ]
-      }
-    },
-    {
-      "fullUrl": "urn:uuid:vset-003-8462-4",
-      "resource": {
-        "resourceType": "Observation",
-        "id": "vset-003-8462-4",
-        "meta": {
-          "profile": [
-            "http://hl7.org/fhir/StructureDefinition/vitalsigns"
-          ],
-          "tag": [
-            {
-              "system": "https://humanrecord.example.org/evidence-grade",
-              "code": "S"
-            }
-          ]
-        },
-        "status": "final",
-        "category": [
-          {
-            "coding": [
-              {
-                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
-                "code": "vital-signs",
-                "display": "Vital Signs"
-              }
-            ]
-          }
-        ],
-        "code": {
-          "coding": [
-            {
-              "system": "http://loinc.org",
-              "code": "8462-4",
-              "display": "Diastolic blood pressure"
-            }
-          ],
-          "text": "Diastolic blood pressure"
-        },
-        "subject": {
-          "reference": "urn:uuid:hr-et007-patient"
-        },
-        "effectiveDateTime": "2026-09-30",
-        "valueQuantity": {
-          "value": 80,
-          "unit": "mm[Hg]",
-          "system": "http://unitsofmeasure.org",
-          "code": "mm[Hg]"
-        },
-        "note": [
-          {
-            "text": "Synthetic vital sign; not a historical measurement."
-          }
-        ]
-      }
-    },
-    {
-      "fullUrl": "urn:uuid:vset-003-8867-4",
+      "fullUrl": "urn:uuid:65f50b93-c081-4ac1-affd-f17630ad12f6",
       "resource": {
         "resourceType": "Observation",
         "id": "vset-003-8867-4",
         "meta": {
           "profile": [
-            "http://hl7.org/fhir/StructureDefinition/vitalsigns"
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-heart-rate"
           ],
           "tag": [
             {
-              "system": "https://humanrecord.example.org/evidence-grade",
+              "system": "https://github.com/PatrickRutledge/chronic_histories/fhir/evidence-grade",
               "code": "S"
             }
           ]
@@ -1905,14 +1776,14 @@
           "text": "Heart rate"
         },
         "subject": {
-          "reference": "urn:uuid:hr-et007-patient"
+          "reference": "urn:uuid:f40753d5-f170-4562-b207-9e767af5e179"
         },
         "effectiveDateTime": "2026-09-30",
         "valueQuantity": {
           "value": 72,
-          "unit": "{beats}/min",
+          "unit": "/min",
           "system": "http://unitsofmeasure.org",
-          "code": "{beats}/min"
+          "code": "/min"
         },
         "note": [
           {
@@ -1922,17 +1793,17 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:vset-003-9279-1",
+      "fullUrl": "urn:uuid:d529f45e-426e-4208-a020-b64129b63cc3",
       "resource": {
         "resourceType": "Observation",
         "id": "vset-003-9279-1",
         "meta": {
           "profile": [
-            "http://hl7.org/fhir/StructureDefinition/vitalsigns"
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-respiratory-rate"
           ],
           "tag": [
             {
-              "system": "https://humanrecord.example.org/evidence-grade",
+              "system": "https://github.com/PatrickRutledge/chronic_histories/fhir/evidence-grade",
               "code": "S"
             }
           ]
@@ -1960,14 +1831,14 @@
           "text": "Respiratory rate"
         },
         "subject": {
-          "reference": "urn:uuid:hr-et007-patient"
+          "reference": "urn:uuid:f40753d5-f170-4562-b207-9e767af5e179"
         },
         "effectiveDateTime": "2026-09-30",
         "valueQuantity": {
           "value": 15,
-          "unit": "{breaths}/min",
+          "unit": "/min",
           "system": "http://unitsofmeasure.org",
-          "code": "{breaths}/min"
+          "code": "/min"
         },
         "note": [
           {
@@ -1977,17 +1848,17 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:vset-003-8310-5",
+      "fullUrl": "urn:uuid:8a85ec07-5a53-4555-af7d-6ea0b2d82206",
       "resource": {
         "resourceType": "Observation",
         "id": "vset-003-8310-5",
         "meta": {
           "profile": [
-            "http://hl7.org/fhir/StructureDefinition/vitalsigns"
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-body-temperature"
           ],
           "tag": [
             {
-              "system": "https://humanrecord.example.org/evidence-grade",
+              "system": "https://github.com/PatrickRutledge/chronic_histories/fhir/evidence-grade",
               "code": "S"
             }
           ]
@@ -2015,7 +1886,7 @@
           "text": "Body temperature"
         },
         "subject": {
-          "reference": "urn:uuid:hr-et007-patient"
+          "reference": "urn:uuid:f40753d5-f170-4562-b207-9e767af5e179"
         },
         "effectiveDateTime": "2026-09-30",
         "valueQuantity": {
@@ -2032,17 +1903,17 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:vset-003-59408-5",
+      "fullUrl": "urn:uuid:5c558c08-1f5a-4c7c-9ea0-e02915308bc8",
       "resource": {
         "resourceType": "Observation",
         "id": "vset-003-59408-5",
         "meta": {
           "profile": [
-            "http://hl7.org/fhir/StructureDefinition/vitalsigns"
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-pulse-oximetry"
           ],
           "tag": [
             {
-              "system": "https://humanrecord.example.org/evidence-grade",
+              "system": "https://github.com/PatrickRutledge/chronic_histories/fhir/evidence-grade",
               "code": "S"
             }
           ]
@@ -2064,13 +1935,18 @@
             {
               "system": "http://loinc.org",
               "code": "59408-5",
-              "display": "Oxygen saturation by pulse oximetry"
+              "display": "Oxygen saturation in Arterial blood by Pulse oximetry"
+            },
+            {
+              "system": "http://loinc.org",
+              "code": "2708-6",
+              "display": "Oxygen saturation in Arterial blood"
             }
           ],
-          "text": "Oxygen saturation by pulse oximetry"
+          "text": "Oxygen saturation in Arterial blood by Pulse oximetry"
         },
         "subject": {
-          "reference": "urn:uuid:hr-et007-patient"
+          "reference": "urn:uuid:f40753d5-f170-4562-b207-9e767af5e179"
         },
         "effectiveDateTime": "2026-09-30",
         "valueQuantity": {
@@ -2087,14 +1963,101 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:soc-001",
+      "fullUrl": "urn:uuid:ef37cb2d-6d5a-4015-8092-9194e93e6dd5",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "vset-003-85354-9",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-blood-pressure"
+          ],
+          "tag": [
+            {
+              "system": "https://github.com/PatrickRutledge/chronic_histories/fhir/evidence-grade",
+              "code": "S"
+            }
+          ]
+        },
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "vital-signs",
+                "display": "Vital Signs"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "85354-9",
+              "display": "Blood pressure panel with all children optional"
+            }
+          ],
+          "text": "Blood pressure panel with all children optional"
+        },
+        "subject": {
+          "reference": "urn:uuid:f40753d5-f170-4562-b207-9e767af5e179"
+        },
+        "effectiveDateTime": "2026-09-30",
+        "component": [
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "8480-6",
+                  "display": "Systolic blood pressure"
+                }
+              ],
+              "text": "Systolic blood pressure"
+            },
+            "valueQuantity": {
+              "value": 126,
+              "unit": "mm[Hg]",
+              "system": "http://unitsofmeasure.org",
+              "code": "mm[Hg]"
+            }
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "8462-4",
+                  "display": "Diastolic blood pressure"
+                }
+              ],
+              "text": "Diastolic blood pressure"
+            },
+            "valueQuantity": {
+              "value": 80,
+              "unit": "mm[Hg]",
+              "system": "http://unitsofmeasure.org",
+              "code": "mm[Hg]"
+            }
+          }
+        ],
+        "note": [
+          {
+            "text": "Synthetic vital sign; not a historical measurement."
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:91d63b1e-01c7-49a8-9d86-b787ee24d456",
       "resource": {
         "resourceType": "Observation",
         "id": "soc-001",
         "meta": {
           "tag": [
             {
-              "system": "https://humanrecord.example.org/evidence-grade",
+              "system": "https://github.com/PatrickRutledge/chronic_histories/fhir/evidence-grade",
               "code": "S"
             }
           ]
@@ -2114,21 +2077,21 @@
           "text": "Current tobacco use: none reported"
         },
         "subject": {
-          "reference": "urn:uuid:hr-et007-patient"
+          "reference": "urn:uuid:f40753d5-f170-4562-b207-9e767af5e179"
         },
         "effectiveDateTime": "2026-06-30",
         "valueString": "Current tobacco use: none reported"
       }
     },
     {
-      "fullUrl": "urn:uuid:soc-002",
+      "fullUrl": "urn:uuid:aa17bd0c-0ff2-4ea1-92e1-a01d98f32248",
       "resource": {
         "resourceType": "Observation",
         "id": "soc-002",
         "meta": {
           "tag": [
             {
-              "system": "https://humanrecord.example.org/evidence-grade",
+              "system": "https://github.com/PatrickRutledge/chronic_histories/fhir/evidence-grade",
               "code": "S"
             }
           ]
@@ -2148,21 +2111,21 @@
           "text": "Current alcohol use: none reported in the past 12 months"
         },
         "subject": {
-          "reference": "urn:uuid:hr-et007-patient"
+          "reference": "urn:uuid:f40753d5-f170-4562-b207-9e767af5e179"
         },
         "effectiveDateTime": "2026-06-30",
         "valueString": "Current alcohol use: none reported in the past 12 months"
       }
     },
     {
-      "fullUrl": "urn:uuid:soc-003",
+      "fullUrl": "urn:uuid:73b0b9d8-cfe9-4441-b88f-2c14294be701",
       "resource": {
         "resourceType": "Observation",
         "id": "soc-003",
         "meta": {
           "tag": [
             {
-              "system": "https://humanrecord.example.org/evidence-grade",
+              "system": "https://github.com/PatrickRutledge/chronic_histories/fhir/evidence-grade",
               "code": "S"
             }
           ]
@@ -2182,21 +2145,21 @@
           "text": "Housing: stable"
         },
         "subject": {
-          "reference": "urn:uuid:hr-et007-patient"
+          "reference": "urn:uuid:f40753d5-f170-4562-b207-9e767af5e179"
         },
         "effectiveDateTime": "2026-06-30",
         "valueString": "Housing: stable"
       }
     },
     {
-      "fullUrl": "urn:uuid:soc-004",
+      "fullUrl": "urn:uuid:d9f97093-5ea7-487f-9198-e5d66cd94847",
       "resource": {
         "resourceType": "Observation",
         "id": "soc-004",
         "meta": {
           "tag": [
             {
-              "system": "https://humanrecord.example.org/evidence-grade",
+              "system": "https://github.com/PatrickRutledge/chronic_histories/fhir/evidence-grade",
               "code": "S"
             }
           ]
@@ -2216,21 +2179,21 @@
           "text": "Supports: family and veteran peer connections"
         },
         "subject": {
-          "reference": "urn:uuid:hr-et007-patient"
+          "reference": "urn:uuid:f40753d5-f170-4562-b207-9e767af5e179"
         },
         "effectiveDateTime": "2026-06-30",
         "valueString": "Supports: family and veteran peer connections"
       }
     },
     {
-      "fullUrl": "urn:uuid:func-001",
+      "fullUrl": "urn:uuid:1f2aa5a4-1655-461a-9111-72d3633f2d62",
       "resource": {
         "resourceType": "Observation",
         "id": "func-001",
         "meta": {
           "tag": [
             {
-              "system": "https://humanrecord.example.org/evidence-grade",
+              "system": "https://github.com/PatrickRutledge/chronic_histories/fhir/evidence-grade",
               "code": "S"
             }
           ]
@@ -2250,21 +2213,21 @@
           "text": "Independent in basic activities of daily living"
         },
         "subject": {
-          "reference": "urn:uuid:hr-et007-patient"
+          "reference": "urn:uuid:f40753d5-f170-4562-b207-9e767af5e179"
         },
         "effectiveDateTime": "2026-06-30",
         "valueString": "Independent in basic activities of daily living"
       }
     },
     {
-      "fullUrl": "urn:uuid:func-002",
+      "fullUrl": "urn:uuid:3ce85af9-a240-41f5-8a40-e05a90f82fa2",
       "resource": {
         "resourceType": "Observation",
         "id": "func-002",
         "meta": {
           "tag": [
             {
-              "system": "https://humanrecord.example.org/evidence-grade",
+              "system": "https://github.com/PatrickRutledge/chronic_histories/fhir/evidence-grade",
               "code": "S"
             }
           ]
@@ -2284,21 +2247,21 @@
           "text": "Independent in instrumental activities of daily living; sleep symptoms impair concentration"
         },
         "subject": {
-          "reference": "urn:uuid:hr-et007-patient"
+          "reference": "urn:uuid:f40753d5-f170-4562-b207-9e767af5e179"
         },
         "effectiveDateTime": "2026-06-30",
         "valueString": "Independent in instrumental activities of daily living; sleep symptoms impair concentration"
       }
     },
     {
-      "fullUrl": "urn:uuid:mse-001",
+      "fullUrl": "urn:uuid:ba52e3dd-986a-4134-aa67-83e125d07566",
       "resource": {
         "resourceType": "Observation",
         "id": "mse-001",
         "meta": {
           "tag": [
             {
-              "system": "https://humanrecord.example.org/evidence-grade",
+              "system": "https://github.com/PatrickRutledge/chronic_histories/fhir/evidence-grade",
               "code": "S"
             }
           ]
@@ -2318,21 +2281,21 @@
           "text": "Alert and fully oriented"
         },
         "subject": {
-          "reference": "urn:uuid:hr-et007-patient"
+          "reference": "urn:uuid:f40753d5-f170-4562-b207-9e767af5e179"
         },
         "effectiveDateTime": "2026-06-30",
         "valueString": "Alert and fully oriented"
       }
     },
     {
-      "fullUrl": "urn:uuid:mse-002",
+      "fullUrl": "urn:uuid:3ccf31bd-1bc5-4450-85bc-cd7ef4630d5f",
       "resource": {
         "resourceType": "Observation",
         "id": "mse-002",
         "meta": {
           "tag": [
             {
-              "system": "https://humanrecord.example.org/evidence-grade",
+              "system": "https://github.com/PatrickRutledge/chronic_histories/fhir/evidence-grade",
               "code": "S"
             }
           ]
@@ -2352,21 +2315,21 @@
           "text": "Cooperative, engaged, and goal directed"
         },
         "subject": {
-          "reference": "urn:uuid:hr-et007-patient"
+          "reference": "urn:uuid:f40753d5-f170-4562-b207-9e767af5e179"
         },
         "effectiveDateTime": "2026-06-30",
         "valueString": "Cooperative, engaged, and goal directed"
       }
     },
     {
-      "fullUrl": "urn:uuid:mse-003",
+      "fullUrl": "urn:uuid:0015265e-221a-446e-beae-c3ce67ec74cf",
       "resource": {
         "resourceType": "Observation",
         "id": "mse-003",
         "meta": {
           "tag": [
             {
-              "system": "https://humanrecord.example.org/evidence-grade",
+              "system": "https://github.com/PatrickRutledge/chronic_histories/fhir/evidence-grade",
               "code": "S"
             }
           ]
@@ -2386,21 +2349,21 @@
           "text": "Mood anxious; affect congruent and mildly constricted"
         },
         "subject": {
-          "reference": "urn:uuid:hr-et007-patient"
+          "reference": "urn:uuid:f40753d5-f170-4562-b207-9e767af5e179"
         },
         "effectiveDateTime": "2026-06-30",
         "valueString": "Mood anxious; affect congruent and mildly constricted"
       }
     },
     {
-      "fullUrl": "urn:uuid:mse-004",
+      "fullUrl": "urn:uuid:0e41fb73-d607-46c7-b5d3-0c8e45c63cc0",
       "resource": {
         "resourceType": "Observation",
         "id": "mse-004",
         "meta": {
           "tag": [
             {
-              "system": "https://humanrecord.example.org/evidence-grade",
+              "system": "https://github.com/PatrickRutledge/chronic_histories/fhir/evidence-grade",
               "code": "S"
             }
           ]
@@ -2420,21 +2383,21 @@
           "text": "Thought process linear; no psychosis observed"
         },
         "subject": {
-          "reference": "urn:uuid:hr-et007-patient"
+          "reference": "urn:uuid:f40753d5-f170-4562-b207-9e767af5e179"
         },
         "effectiveDateTime": "2026-06-30",
         "valueString": "Thought process linear; no psychosis observed"
       }
     },
     {
-      "fullUrl": "urn:uuid:safe-001",
+      "fullUrl": "urn:uuid:4fc3cd35-6f3f-4906-b2e9-491567ebd5fd",
       "resource": {
         "resourceType": "Observation",
         "id": "safe-001",
         "meta": {
           "tag": [
             {
-              "system": "https://humanrecord.example.org/evidence-grade",
+              "system": "https://github.com/PatrickRutledge/chronic_histories/fhir/evidence-grade",
               "code": "S"
             }
           ]
@@ -2455,26 +2418,29 @@
           "text": "Structured present-day safety assessment"
         },
         "subject": {
-          "reference": "urn:uuid:hr-et007-patient"
+          "reference": "urn:uuid:f40753d5-f170-4562-b207-9e767af5e179"
         },
         "effectiveDateTime": "2026-06-30",
         "valueString": "Current ideation absent; intent absent; plan absent; access reviewed true. Disposition: Outpatient care with collaborative safety plan and scheduled follow-up.",
         "note": [
           {
-            "text": "Synthetic assessment. Historical firearm-related evidence is not represented as current behavior."
+            "text": "Synthetic assessment. Historical evidence is not represented as current behavior."
           }
         ]
       }
     },
     {
-      "fullUrl": "urn:uuid:goal-001",
+      "fullUrl": "urn:uuid:35fdcff1-9754-4f93-9a46-5462470ca68b",
       "resource": {
         "resourceType": "Goal",
         "id": "goal-001",
         "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-goal"
+          ],
           "tag": [
             {
-              "system": "https://humanrecord.example.org/evidence-grade",
+              "system": "https://github.com/PatrickRutledge/chronic_histories/fhir/evidence-grade",
               "code": "S"
             }
           ]
@@ -2484,7 +2450,7 @@
           "text": "Reduce PCL-5 score from 42 to 27 or lower by the twelve-week review"
         },
         "subject": {
-          "reference": "urn:uuid:hr-et007-patient"
+          "reference": "urn:uuid:f40753d5-f170-4562-b207-9e767af5e179"
         },
         "target": [
           {
@@ -2499,14 +2465,17 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:goal-002",
+      "fullUrl": "urn:uuid:31717ec7-fc79-47ca-896c-ac586730fdc2",
       "resource": {
         "resourceType": "Goal",
         "id": "goal-002",
         "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-goal"
+          ],
           "tag": [
             {
-              "system": "https://humanrecord.example.org/evidence-grade",
+              "system": "https://github.com/PatrickRutledge/chronic_histories/fhir/evidence-grade",
               "code": "S"
             }
           ]
@@ -2516,7 +2485,7 @@
           "text": "Complete at least eight Cognitive Processing Therapy sessions by the twelve-week review"
         },
         "subject": {
-          "reference": "urn:uuid:hr-et007-patient"
+          "reference": "urn:uuid:f40753d5-f170-4562-b207-9e767af5e179"
         },
         "target": [
           {
@@ -2531,14 +2500,17 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:goal-003",
+      "fullUrl": "urn:uuid:d52f50a9-be69-414c-85e7-19429ed4b267",
       "resource": {
         "resourceType": "Goal",
         "id": "goal-003",
         "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-goal"
+          ],
           "tag": [
             {
-              "system": "https://humanrecord.example.org/evidence-grade",
+              "system": "https://github.com/PatrickRutledge/chronic_histories/fhir/evidence-grade",
               "code": "S"
             }
           ]
@@ -2548,7 +2520,7 @@
           "text": "Use the agreed sleep routine on at least five nights each week by the six-week review"
         },
         "subject": {
-          "reference": "urn:uuid:hr-et007-patient"
+          "reference": "urn:uuid:f40753d5-f170-4562-b207-9e767af5e179"
         },
         "target": [
           {
@@ -2563,24 +2535,41 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:hr-et007-careplan",
+      "fullUrl": "urn:uuid:91c9d5c2-20dd-4436-8277-cdee9fe382ed",
       "resource": {
         "resourceType": "CarePlan",
         "id": "hr-et007-careplan",
         "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-careplan"
+          ],
           "tag": [
             {
-              "system": "https://humanrecord.example.org/evidence-grade",
+              "system": "https://github.com/PatrickRutledge/chronic_histories/fhir/evidence-grade",
               "code": "S"
             }
           ]
         },
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>SYNTHETIC RECORD, NOT A REAL MEDICAL RECORD</p><ul><li>Shared decision-making referral for individual Cognitive Processing Therapy with a trained behavioral health clinician</li><li>Repeat PCL-5 and PHQ-9 at six and twelve weeks to monitor symptom change</li><li>Create a collaborative safety and lethal-means plan without describing methods or historical weapon details in patient instructions</li><li>Review sleep routine, stimulus control, and non-pharmacologic insomnia strategies; reassess before adding medication</li></ul></div>"
+        },
         "status": "completed",
         "intent": "plan",
-        "title": "Audie Leon Murphy synthetic PTSD care plan",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/us/core/CodeSystem/careplan-category",
+                "code": "assess-plan"
+              }
+            ]
+          }
+        ],
+        "title": "Audie Leon Murphy synthetic care plan",
         "description": "Recognize and treat chronic combat-related PTSD while emphasizing function, strengths, shared decision-making, and recovery.",
         "subject": {
-          "reference": "urn:uuid:hr-et007-patient"
+          "reference": "urn:uuid:f40753d5-f170-4562-b207-9e767af5e179"
         },
         "period": {
           "start": "2026-06-30",
@@ -2588,21 +2577,21 @@
         },
         "addresses": [
           {
-            "reference": "urn:uuid:prb-001"
+            "reference": "urn:uuid:d7d60eb5-adf7-4b5b-b70e-1f8d4c3cb248"
           },
           {
-            "reference": "urn:uuid:prb-002"
+            "reference": "urn:uuid:a89e0e5d-7cb4-4dd4-8e73-f4d86101b01c"
           }
         ],
         "goal": [
           {
-            "reference": "urn:uuid:goal-001"
+            "reference": "urn:uuid:35fdcff1-9754-4f93-9a46-5462470ca68b"
           },
           {
-            "reference": "urn:uuid:goal-002"
+            "reference": "urn:uuid:31717ec7-fc79-47ca-896c-ac586730fdc2"
           },
           {
-            "reference": "urn:uuid:goal-003"
+            "reference": "urn:uuid:d52f50a9-be69-414c-85e7-19429ed4b267"
           }
         ],
         "activity": [

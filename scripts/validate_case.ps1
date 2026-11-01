@@ -84,7 +84,8 @@ foreach ($entry in $fhir.entry) {
 }
 if ($fhirCounts.Patient -ne 1) { $errors.Add('FHIR bundle must contain one Patient') }
 if ($fhirCounts.Condition -ne $case.clinical.problems.Count) { $errors.Add('FHIR Condition count differs from canonical problems') }
-$expectedFhirObservations = $case.clinical.observations.Count + ($case.clinical.vital_sign_sets.measurements | Measure-Object).Count + $case.clinical.social_history.Count + $case.clinical.functional_status.Count + $case.clinical.mental_status.Count + 1
+$bloodPressureMerged = @($case.clinical.vital_sign_sets.measurements | Where-Object { $_.code -eq '8462-4' }).Count
+$expectedFhirObservations = $case.clinical.observations.Count + ($case.clinical.vital_sign_sets.measurements | Measure-Object).Count - $bloodPressureMerged + $case.clinical.social_history.Count + $case.clinical.functional_status.Count + $case.clinical.mental_status.Count + 1
 if ($fhirCounts.Observation -ne $expectedFhirObservations) { $errors.Add("FHIR Observation count differs from canonical observations: expected $expectedFhirObservations, found $($fhirCounts.Observation)") }
 if ($fhirCounts.Encounter -ne $case.clinical.encounters.Count) { $errors.Add('FHIR Encounter count differs from canonical encounters') }
 if ($fhirCounts.Goal -ne $case.care_plan.goals.Count) { $errors.Add('FHIR Goal count differs from canonical goals') }
@@ -131,6 +132,15 @@ if ($errors.Count -gt 0) {
     exit 1
 }
 
+$conformance = 'NOT RUN'
+$conformancePath = Join-Path $CaseDirectory 'generated\conformance\summary.json'
+if (Test-Path -LiteralPath $conformancePath) {
+    $report = Get-Content -Raw -LiteralPath $conformancePath | ConvertFrom-Json
+    $fresh = $report.CcdaSha256 -eq (Get-FileHash -Algorithm SHA256 -LiteralPath $ccdaPath).Hash -and
+        $report.FhirSha256 -eq (Get-FileHash -Algorithm SHA256 -LiteralPath $fhirPath).Hash
+    $conformance = if (-not $fresh) { 'STALE (rerun scripts/run_conformance.ps1)' } else { "XSD $($report.CdaXsdErrors), Schematron $($report.SchematronErrors), FHIR $($report.FhirBaseErrors), US Core $($report.UsCoreErrors) errors" }
+}
+
 [pscustomobject]@{
     CaseId = $case.case_id
     JsonSchema = 'PASS'
@@ -144,5 +154,5 @@ if ($errors.Count -gt 0) {
     CcdaVitalSignEntries = $ccdaVitals
     SupportingDocuments = $noteFiles.Count
     ProvenanceRows = $provenanceRows.Count
-    SchematronValidation = 'NOT RUN'
+    Conformance = $conformance
 } | Format-List

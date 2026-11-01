@@ -1,5 +1,6 @@
 import fs from "node:fs/promises";
 import path from "node:path";
+import { NAMESPACE, deterministicUuid, splitName } from "./lib/common.mjs";
 
 const inputPath = process.argv[2];
 if (!inputPath) {
@@ -176,16 +177,41 @@ const html = `<!doctype html>
 </html>`;
 
 const patientId = slug(data.case_id);
-const patientFullUrl = `urn:uuid:${patientId}-patient`;
+const GRADE_SYSTEM = `${NAMESPACE}/evidence-grade`;
+const CLASSIFICATION_SYSTEM = `${NAMESPACE}/classification`;
+const US_CORE = "http://hl7.org/fhir/us/core/StructureDefinition";
+const urn = (localId) => `urn:uuid:${deterministicUuid(`${data.case_id}|fhir|${localId}`)}`;
+// FHIR Coding allows only its own elements; validation metadata stays in the canonical case.
+// The version is dropped too: terminology servers cannot check a code pinned to a release they lack.
+const fhirCoding = ({ system, code, display }) => ({ system, code, display });
+const humanName = splitName(data.identity.display_name);
+const carePlanNarrative = {
+  status: "generated",
+  div: `<div xmlns="http://www.w3.org/1999/xhtml"><p>${esc(data.record_classification.banner)}</p><ul>${data.care_plan.interventions.map(item => `<li>${esc(item.display)}</li>`).join("")}</ul></div>`
+};
+const VITAL_PROFILES = {
+  "8302-2": "us-core-body-height",
+  "29463-7": "us-core-body-weight",
+  "39156-5": "us-core-bmi",
+  "8867-4": "us-core-heart-rate",
+  "9279-1": "us-core-respiratory-rate",
+  "8310-5": "us-core-body-temperature",
+  "59408-5": "us-core-pulse-oximetry"
+};
+const LOINC = "http://loinc.org";
+const BP_CODE = "85354-9";
+const SYSTOLIC = "8480-6";
+const DIASTOLIC = "8462-4";
+const patientFullUrl = urn(`${patientId}-patient`);
 const fhirEntries = [{
   fullUrl: patientFullUrl,
   resource: {
     resourceType: "Patient",
     id: `${patientId}-patient`,
-    meta: { tag: [{ system: "https://humanrecord.example.org/classification", code: "synthetic", display: "Synthetic record" }] },
-    identifier: [{ system: "https://humanrecord.example.org/mrn", value: data.identity.synthetic_identity.mrn }],
+    meta: { profile: [`${US_CORE}/us-core-patient`], tag: [{ system: CLASSIFICATION_SYSTEM, code: "synthetic", display: "Synthetic record" }] },
+    identifier: [{ system: `${NAMESPACE}/mrn`, value: data.identity.synthetic_identity.mrn }],
     active: true,
-    name: [{ use: "official", text: data.identity.display_name }],
+    name: [{ use: "official", text: data.identity.display_name, family: humanName.family, given: humanName.given }],
     gender: data.identity.sex,
     birthDate: data.identity.synthetic_identity.date_of_birth
   }
@@ -196,7 +222,7 @@ for (const problem of data.clinical.problems) {
   const resource = {
     resourceType: "Condition",
     id: conditionId,
-    meta: { tag: [{ system: "https://humanrecord.example.org/evidence-grade", code: problem.provenance.evidence_grade }] },
+    meta: { profile: [`${US_CORE}/us-core-condition-problems-health-concerns`], tag: [{ system: GRADE_SYSTEM, code: problem.provenance.evidence_grade }] },
     clinicalStatus: { coding: [{ system: "http://terminology.hl7.org/CodeSystem/condition-clinical", code: problem.clinical_status }] },
     verificationStatus: { coding: [{ system: "http://terminology.hl7.org/CodeSystem/condition-ver-status", code: problem.verification_status }] },
     category: [{ coding: [{ system: "http://terminology.hl7.org/CodeSystem/condition-category", code: "problem-list-item", display: "Problem List Item" }] }],
@@ -205,18 +231,18 @@ for (const problem of data.clinical.problems) {
     recordedDate: data.synthetic_episode.index_date,
     note: [{ text: `Synthetic teaching-case problem. Evidence grade ${problem.provenance.evidence_grade}. Historical claims: ${problem.provenance.claim_ids.join(", ")}.` }]
   };
-  if (problem.coding?.length) resource.code.coding = problem.coding;
-  fhirEntries.push({ fullUrl: `urn:uuid:${conditionId}`, resource });
+  if (problem.coding?.length) resource.code.coding = problem.coding.map(fhirCoding);
+  fhirEntries.push({ fullUrl: urn(conditionId), resource });
 }
 
 for (const encounter of data.clinical.encounters) {
   const encounterId = slug(encounter.id);
   fhirEntries.push({
-    fullUrl: `urn:uuid:${encounterId}`,
+    fullUrl: urn(encounterId),
     resource: {
       resourceType: "Encounter",
       id: encounterId,
-      meta: { tag: [{ system: "https://humanrecord.example.org/evidence-grade", code: encounter.provenance.evidence_grade }] },
+      meta: { profile: [`${US_CORE}/us-core-encounter`], tag: [{ system: GRADE_SYSTEM, code: encounter.provenance.evidence_grade }] },
       status: encounter.status,
       class: { system: "http://terminology.hl7.org/CodeSystem/v3-ActCode", code: "AMB", display: "ambulatory" },
       type: [{ text: encounter.display }],
@@ -229,14 +255,14 @@ for (const encounter of data.clinical.encounters) {
 for (const observation of data.clinical.observations) {
   const observationId = slug(observation.id);
   fhirEntries.push({
-    fullUrl: `urn:uuid:${observationId}`,
+    fullUrl: urn(observationId),
     resource: {
       resourceType: "Observation",
       id: observationId,
-      meta: { tag: [{ system: "https://humanrecord.example.org/evidence-grade", code: observation.provenance.evidence_grade }] },
+      meta: { profile: [`${US_CORE}/us-core-observation-screening-assessment`], tag: [{ system: GRADE_SYSTEM, code: observation.provenance.evidence_grade }] },
       status: observation.status,
       category: [{ coding: [{ system: "http://terminology.hl7.org/CodeSystem/observation-category", code: "survey", display: "Survey" }] }],
-      code: { coding: observation.coding, text: observation.display },
+      code: { coding: observation.coding.map(fhirCoding), text: observation.display },
       subject: { reference: patientFullUrl },
       effectiveDateTime: observation.effective_date,
       valueQuantity: { value: observation.value, unit: observation.unit, system: "http://unitsofmeasure.org", code: observation.unit },
@@ -246,23 +272,38 @@ for (const observation of data.clinical.observations) {
 }
 
 for (const set of data.clinical.vital_sign_sets) {
+  const vitalObservation = (localId, profile, code, value) => ({
+    fullUrl: urn(localId),
+    resource: {
+      resourceType: "Observation",
+      id: localId,
+      meta: { profile: [`${US_CORE}/${profile}`], tag: [{ system: GRADE_SYSTEM, code: "S" }] },
+      status: "final",
+      category: [{ coding: [{ system: "http://terminology.hl7.org/CodeSystem/observation-category", code: "vital-signs", display: "Vital Signs" }] }],
+      code,
+      subject: { reference: patientFullUrl },
+      effectiveDateTime: set.date,
+      ...value,
+      note: [{ text: "Synthetic vital sign; not a historical measurement." }]
+    }
+  });
+  const quantity = (measurement) => ({ value: measurement.value, unit: measurement.unit, system: "http://unitsofmeasure.org", code: measurement.unit });
+  const loinc = (code, display) => ({ coding: [{ system: LOINC, code, display }], text: display });
+
   for (const measurement of set.measurements) {
-    const vitalId = slug(`${set.id}-${measurement.code}`);
-    fhirEntries.push({
-      fullUrl: `urn:uuid:${vitalId}`,
-      resource: {
-        resourceType: "Observation",
-        id: vitalId,
-        meta: { profile: ["http://hl7.org/fhir/StructureDefinition/vitalsigns"], tag: [{ system: "https://humanrecord.example.org/evidence-grade", code: "S" }] },
-        status: "final",
-        category: [{ coding: [{ system: "http://terminology.hl7.org/CodeSystem/observation-category", code: "vital-signs", display: "Vital Signs" }] }],
-        code: { coding: [{ system: "http://loinc.org", code: measurement.code, display: measurement.display }], text: measurement.display },
-        subject: { reference: patientFullUrl },
-        effectiveDateTime: set.date,
-        valueQuantity: { value: measurement.value, unit: measurement.unit, system: "http://unitsofmeasure.org", code: measurement.unit },
-        note: [{ text: "Synthetic vital sign; not a historical measurement." }]
-      }
-    });
+    if (measurement.code === SYSTOLIC || measurement.code === DIASTOLIC) continue;
+    const code = loinc(measurement.code, measurement.display);
+    // The FHIR oxygen-saturation profile requires its fixed LOINC beside the pulse-oximetry code.
+    if (measurement.code === "59408-5") code.coding.push({ system: LOINC, code: "2708-6", display: "Oxygen saturation in Arterial blood" });
+    fhirEntries.push(vitalObservation(slug(`${set.id}-${measurement.code}`), VITAL_PROFILES[measurement.code], code, { valueQuantity: quantity(measurement) }));
+  }
+
+  // FHIR carries one blood pressure as a panel; C-CDA carries systolic and diastolic separately.
+  const pressures = set.measurements.filter(measurement => measurement.code === SYSTOLIC || measurement.code === DIASTOLIC);
+  if (pressures.length) {
+    fhirEntries.push(vitalObservation(slug(`${set.id}-${BP_CODE}`), "us-core-blood-pressure", loinc(BP_CODE, "Blood pressure panel with all children optional"), {
+      component: pressures.map(measurement => ({ code: loinc(measurement.code, measurement.display), valueQuantity: quantity(measurement) }))
+    }));
   }
 }
 
@@ -270,10 +311,10 @@ for (const [category, items] of [["social-history", data.clinical.social_history
   for (const item of items) {
     const itemId = slug(item.id);
     fhirEntries.push({
-      fullUrl: `urn:uuid:${itemId}`,
+      fullUrl: urn(itemId),
       resource: {
         resourceType: "Observation", id: itemId,
-        meta: { tag: [{ system: "https://humanrecord.example.org/evidence-grade", code: item.provenance.evidence_grade }] },
+        meta: { tag: [{ system: GRADE_SYSTEM, code: item.provenance.evidence_grade }] },
         status: "final",
         category: [{ coding: [{ system: "http://terminology.hl7.org/CodeSystem/observation-category", code: category }] }],
         code: { text: item.display }, subject: { reference: patientFullUrl },
@@ -285,27 +326,27 @@ for (const [category, items] of [["social-history", data.clinical.social_history
 
 const safety = data.clinical.safety_assessment;
 fhirEntries.push({
-  fullUrl: `urn:uuid:${slug(safety.id)}`,
+  fullUrl: urn(slug(safety.id)),
   resource: {
     resourceType: "Observation", id: slug(safety.id),
-    meta: { tag: [{ system: "https://humanrecord.example.org/evidence-grade", code: safety.provenance.evidence_grade }] },
+    meta: { tag: [{ system: GRADE_SYSTEM, code: safety.provenance.evidence_grade }] },
     status: "final",
     category: [{ coding: [{ system: "http://terminology.hl7.org/CodeSystem/observation-category", code: "survey", display: "Survey" }] }],
     code: { text: "Structured present-day safety assessment" },
     subject: { reference: patientFullUrl }, effectiveDateTime: safety.date,
     valueString: `Current ideation ${safety.current_ideation}; intent ${safety.intent}; plan ${safety.plan}; access reviewed ${safety.access_reviewed}. Disposition: ${safety.disposition}.`,
-    note: [{ text: "Synthetic assessment. Historical firearm-related evidence is not represented as current behavior." }]
+    note: [{ text: "Synthetic assessment. Historical evidence is not represented as current behavior." }]
   }
 });
 
 for (const goal of data.care_plan.goals) {
   const goalId = slug(goal.id);
   fhirEntries.push({
-    fullUrl: `urn:uuid:${goalId}`,
+    fullUrl: urn(goalId),
     resource: {
       resourceType: "Goal",
       id: goalId,
-      meta: { tag: [{ system: "https://humanrecord.example.org/evidence-grade", code: goal.provenance.evidence_grade }] },
+      meta: { profile: [`${US_CORE}/us-core-goal`], tag: [{ system: GRADE_SYSTEM, code: goal.provenance.evidence_grade }] },
       lifecycleStatus: goal.status,
       description: { text: goal.display },
       subject: { reference: patientFullUrl },
@@ -317,19 +358,21 @@ for (const goal of data.care_plan.goals) {
 
 const carePlanId = `${patientId}-careplan`;
 fhirEntries.push({
-  fullUrl: `urn:uuid:${carePlanId}`,
+  fullUrl: urn(carePlanId),
   resource: {
     resourceType: "CarePlan",
     id: carePlanId,
-    meta: { tag: [{ system: "https://humanrecord.example.org/evidence-grade", code: "S" }] },
+    meta: { profile: [`${US_CORE}/us-core-careplan`], tag: [{ system: GRADE_SYSTEM, code: "S" }] },
+    text: carePlanNarrative,
     status: "completed",
     intent: "plan",
-    title: `${data.identity.display_name} synthetic PTSD care plan`,
+    category: [{ coding: [{ system: "http://hl7.org/fhir/us/core/CodeSystem/careplan-category", code: "assess-plan" }] }],
+    title: `${data.identity.display_name} synthetic care plan`,
     description: data.synthetic_episode.teaching_objective,
     subject: { reference: patientFullUrl },
     period: { start: data.synthetic_episode.index_date, end: data.synthetic_episode.visit_schedule.at(-1)?.date },
-    addresses: data.clinical.problems.map(problem => ({ reference: `urn:uuid:${slug(problem.id)}` })),
-    goal: data.care_plan.goals.map(goal => ({ reference: `urn:uuid:${slug(goal.id)}` })),
+    addresses: data.clinical.problems.map(problem => ({ reference: urn(slug(problem.id)) })),
+    goal: data.care_plan.goals.map(goal => ({ reference: urn(slug(goal.id)) })),
     activity: data.care_plan.interventions.map(item => ({
       detail: {
         kind: "ServiceRequest",
@@ -346,7 +389,7 @@ const bundle = {
   id: `${patientId}-collection`,
   type: "collection",
   timestamp: data.clinical.problems[0]?.provenance?.created ?? `${data.synthetic_episode.index_date}T12:00:00Z`,
-  meta: { tag: [{ system: "https://humanrecord.example.org/classification", code: "synthetic", display: "Synthetic record, not a real medical record" }] },
+  meta: { tag: [{ system: CLASSIFICATION_SYSTEM, code: "synthetic", display: "Synthetic record, not a real medical record" }] },
   entry: fhirEntries
 };
 

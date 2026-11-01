@@ -15,7 +15,7 @@ The patient participates in this fictional follow-up for six-week alcohol and tr
 
 ## Objective
 
-Total score [AUDIT-C]: 5 {score}; PTSD PCL-5 score: 31 {score}; PHQ-9 total score: 6 {score}. All results are synthetic.
+Total score [AUDIT-C]: 5 {score}; PTSD PCL-5 score [PCL-5]: 31 {score}; Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]: 6 {score}. All results are synthetic.
 
 BP 130/84 mmHg; pulse 76 bpm; respirations 16/min; temperature 36.7 °C; oxygen saturation 98% on room air; weight 87.1 kg; BMI 27.5 kg/m². All vital signs are synthetic.
 

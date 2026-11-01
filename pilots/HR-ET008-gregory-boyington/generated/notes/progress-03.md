@@ -15,7 +15,7 @@ The patient participates in this fictional follow-up for three-month recovery ca
 
 ## Objective
 
-Total score [AUDIT-C]: 2 {score}; PTSD PCL-5 score: 23 {score}; PHQ-9 total score: 3 {score}. All results are synthetic.
+Total score [AUDIT-C]: 2 {score}; PTSD PCL-5 score [PCL-5]: 23 {score}; Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]: 3 {score}. All results are synthetic.
 
 BP 126/80 mmHg; pulse 72 bpm; respirations 15/min; temperature 36.6 °C; oxygen saturation 99% on room air; weight 85.8 kg; BMI 27.1 kg/m². All vital signs are synthetic.
 

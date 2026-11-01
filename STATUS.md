@@ -59,7 +59,7 @@ Current local validation:
 - JSON Schema: PASS
 - Age and dates: PASS
 - Provenance links: PASS
-- FHIR resources: 54
+- FHIR resources: 51
 - C-CDA sections: 11
 - C-CDA problem entries: 2
 - C-CDA result entries: 6
@@ -67,7 +67,7 @@ Current local validation:
 - C-CDA vital-sign entries: 27
 - Supporting documents: 8
 - Provenance rows: 64
-- Formal Schematron: NOT RUN
+- CDA XSD, C-CDA R2.1 Schematron, FHIR R4, US Core 6.1.0: 0 errors (94 Schematron, 73 FHIR R4, and 79 US Core warnings)
 
 ### Pilot 2: Gregory “Pappy” Boyington (`HR-ET008`)
 
@@ -86,7 +86,7 @@ Current local validation:
 - JSON Schema: PASS
 - Age and dates: PASS
 - Provenance links: PASS
-- FHIR resources: 57
+- FHIR resources: 54
 - C-CDA sections: 11
 - C-CDA problem entries: 2
 - C-CDA result entries: 9
@@ -94,7 +94,7 @@ Current local validation:
 - C-CDA vital-sign entries: 27
 - Supporting documents: 8
 - Provenance rows: 67
-- Formal Schematron: NOT RUN
+- CDA XSD, C-CDA R2.1 Schematron, FHIR R4, US Core 6.1.0: 0 errors (104 Schematron, 82 FHIR R4, and 88 US Core warnings)
 
 ## Git history
 
@@ -112,13 +112,13 @@ Major milestones, oldest to newest:
 10. `1cdfd4c` — Generalize supporting document generation
 11. `bd15465` — Add Gregory Boyington integrated recovery pilot
 
-At this update, local `main` and `origin/main` both point to `bd15465` before the status-document commit.
-
 ## Important limitations
 
-- Formal HL7 C-CDA R2.1 Schematron validation has not been installed or run. Generated XML is explicitly a draft.
-- FHIR bundles have internal consistency checks but have not been validated against US Core profiles.
-- Terminology validation is documented for selected codes, but there is not yet an automated resolver covering every SNOMED CT, RxNorm, LOINC, CVX, ICD-10-CM, and UCUM entry.
+- Formal validation passes with zero errors, but rules test only content that exists. Allergies and medications are still empty, and social, functional, mental-status, and safety Observations declare no US Core profile. See `docs/validation.md`.
+- The official Schematron has a quoting defect in CONF:1098-8583. It is corrected at install time and should be reported to HL7.
+- FHIR validation depends on the public `tx.fhir.org` terminology server, so results can change as its content changes.
+- FHIR validation now checks LOINC and ICD-10-CM codes through the terminology server, but there is not yet an automated resolver covering every SNOMED CT, RxNorm, CVX, and UCUM entry, including C-CDA-only content.
+- C-CDA problem values are ICD-10-CM only. They should gain SNOMED CT codes.
 - The C-CDA currently has 11 sections and is not yet the complete section set described in the original project instruction. Medications, allergies, procedures, immunizations, and some other sections may use empty/null-flavor content.
 - The canonical schema and generators need fuller support for family history, past medical history, procedures, immunizations, assessment, reason for visit, equipment, advance directives, and payers where relevant.
 - Human clinical, provenance, and safe-messaging reviews have not occurred. Both pilots remain drafts.
@@ -130,12 +130,9 @@ At this update, local `main` and `origin/main` both point to `bd15465` before th
 
 ## Recommended continuation order
 
-### 1. Establish formal validation
+### 1. Establish formal validation (complete)
 
-- Add the official C-CDA R2.1 Schematron/validator workflow.
-- Record validator version and reproducible commands.
-- Correct all template, vocabulary, and cardinality errors before claiming C-CDA conformance.
-- Add an appropriate FHIR R4/US Core validation workflow and distinguish base-R4 validity from US Core conformance.
+Done. See `docs/validation.md` for pinned tools, commands, and limits. Both pilots have zero errors at every stage.
 
 ### 2. Complete the canonical clinical model
 
@@ -143,12 +140,16 @@ At this update, local `main` and `origin/main` both point to `bd15465` before th
 - Add explicit assessment, reason-for-visit, health-concern, goals, and plan sections as required by the chosen CCD template.
 - Support optional advance directives, medical equipment, payers, and discharge summaries.
 - Ensure evidence grade and provenance travel into every generated representation.
+- Decide now how the schema supports both the modern-shifted and true-date datasets, so packaging does not force rework.
+- Add coded tobacco, social, functional, and mental-status data so those Observations can claim US Core profiles.
 
 ### 3. Harden generators across both pilots
 
 - Regenerate Audie Murphy and Gregory Boyington after schema changes.
 - Run both validators after every generator change.
 - Add regression checks for cross-patient leakage, deterministic output, identifiers, future dates, terminology, units, and note-to-C-CDA consistency.
+- Add the required scan for real identifiers (Social Security, phone, and real NPI patterns) and enforce a D, R, or S tag on every problem, drug, and result.
+- Add a broken control fixture to the conformance workflow.
 - Improve note templates so author specialty and consultation type come from canonical case data.
 
 ### 4. Build pilot 3: Abraham Lincoln
@@ -185,12 +186,16 @@ git log --oneline -12
 node scripts/generate_case_outputs.mjs pilots/HR-ET007-audie-murphy/case.json
 node scripts/generate_ccda.mjs pilots/HR-ET007-audie-murphy/case.json
 node scripts/generate_supporting_docs.mjs pilots/HR-ET007-audie-murphy/case.json
+pwsh -File scripts/run_conformance.ps1 -CaseDirectory pilots/HR-ET007-audie-murphy
 pwsh -File scripts/validate_case.ps1 -CaseDirectory pilots/HR-ET007-audie-murphy
 
 node scripts/generate_case_outputs.mjs pilots/HR-ET008-gregory-boyington/case.json
 node scripts/generate_ccda.mjs pilots/HR-ET008-gregory-boyington/case.json
 node scripts/generate_supporting_docs.mjs pilots/HR-ET008-gregory-boyington/case.json
+pwsh -File scripts/run_conformance.ps1 -CaseDirectory pilots/HR-ET008-gregory-boyington
 pwsh -File scripts/validate_case.ps1 -CaseDirectory pilots/HR-ET008-gregory-boyington
 ```
+
+On a new machine, run `pwsh -File scripts/install_validators.ps1` once first.
 
 Generators are deterministic and should be run from canonical `case.json`. Do not edit generated artifacts manually.

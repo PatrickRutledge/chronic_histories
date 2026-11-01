@@ -29,20 +29,23 @@
       <providerOrganization>
         <id root="1b8f134e-aa62-4244-86b0-69d469556652"/>
         <name>AetherForge Veterans Health Center</name>
+      <telecom use="WP" value="tel:+1-202-555-0100"/>
+      <addr use="WP"><streetAddressLine>100 Forge Way</streetAddressLine><city>Aetherton</city><state>OR</state><postalCode>00000</postalCode><country>US</country></addr>
       </providerOrganization>
     </patientRole>
   </recordTarget>
   <author>
     <time value="20261101120000-0500"/>
     <assignedAuthor>
-      <id root="459c42d4-25f2-404f-b2d4-53f61423442e"/>
+      <id root="02a9d947-13b5-4971-b11b-f5288b3cb3f3"/>
       <addr nullFlavor="UNK"/><telecom nullFlavor="UNK"/>
       <assignedPerson><name><given>Elena</given><family>Marquez</family><suffix>MD</suffix></name></assignedPerson>
       <representedOrganization><id root="1b8f134e-aa62-4244-86b0-69d469556652"/><name>AetherForge Veterans Health Center</name></representedOrganization>
     </assignedAuthor>
   </author>
   <custodian>
-    <assignedCustodian><representedCustodianOrganization><id root="1b8f134e-aa62-4244-86b0-69d469556652"/><name>AetherForge Veterans Health Center</name></representedCustodianOrganization></assignedCustodian>
+    <assignedCustodian><representedCustodianOrganization><id root="1b8f134e-aa62-4244-86b0-69d469556652"/><name>AetherForge Veterans Health Center</name><telecom use="WP" value="tel:+1-202-555-0100"/>
+      <addr use="WP"><streetAddressLine>100 Forge Way</streetAddressLine><city>Aetherton</city><state>OR</state><postalCode>00000</postalCode><country>US</country></addr></representedCustodianOrganization></assignedCustodian>
   </custodian>
   <documentationOf>
     <serviceEvent classCode="PCPR"><effectiveTime><low value="20260630"/><high value="20260930"/></effectiveTime></serviceEvent>
@@ -64,7 +67,7 @@
     <templateId root="2.16.840.1.113883.10.20.22.2.1.1" extension="2014-06-09"/>
     <code code="10160-0" codeSystem="2.16.840.1.113883.6.1"/>
     <title>Medications</title>
-    <text><paragraph>No medications generated. The initial synthetic plan prioritizes psychotherapy and non-pharmacologic insomnia care.</paragraph></text>
+    <text><paragraph>No medication entries are present in this synthetic record.</paragraph></text>
   </section>
 </component>
       <component>
@@ -133,18 +136,20 @@
   <tr ID="result-1"><td>2026-06-30</td><td>Total score [AUDIT-C]</td><td>10</td><td>{score}</td><td>S</td></tr>
   <tr ID="result-2"><td>2026-08-11</td><td>Total score [AUDIT-C]</td><td>5</td><td>{score}</td><td>S</td></tr>
   <tr ID="result-3"><td>2026-09-30</td><td>Total score [AUDIT-C]</td><td>2</td><td>{score}</td><td>S</td></tr>
-  <tr ID="result-4"><td>2026-06-30</td><td>PTSD PCL-5 score</td><td>39</td><td>{score}</td><td>S</td></tr>
-  <tr ID="result-5"><td>2026-08-11</td><td>PTSD PCL-5 score</td><td>31</td><td>{score}</td><td>S</td></tr>
-  <tr ID="result-6"><td>2026-09-30</td><td>PTSD PCL-5 score</td><td>23</td><td>{score}</td><td>S</td></tr>
-  <tr ID="result-7"><td>2026-06-30</td><td>PHQ-9 total score</td><td>9</td><td>{score}</td><td>S</td></tr>
-  <tr ID="result-8"><td>2026-08-11</td><td>PHQ-9 total score</td><td>6</td><td>{score}</td><td>S</td></tr>
-  <tr ID="result-9"><td>2026-09-30</td><td>PHQ-9 total score</td><td>3</td><td>{score}</td><td>S</td></tr></tbody></table></text>
-          <entry typeCode="DRIV">
-            <organizer classCode="BATTERY" moodCode="EVN">
-              <templateId root="2.16.840.1.113883.10.20.22.4.1" extension="2015-08-01"/>
-              <id root="5df7e658-f3a3-4a77-9c12-40637592f939"/>
-              <code code="101697-1" codeSystem="2.16.840.1.113883.6.1" displayName="Post traumatic stress disorder checklist - civilian version DSM-5 [PCL-5]"/>
-              <statusCode code="completed"/>
+  <tr ID="result-4"><td>2026-06-30</td><td>PTSD PCL-5 score [PCL-5]</td><td>39</td><td>{score}</td><td>S</td></tr>
+  <tr ID="result-5"><td>2026-08-11</td><td>PTSD PCL-5 score [PCL-5]</td><td>31</td><td>{score}</td><td>S</td></tr>
+  <tr ID="result-6"><td>2026-09-30</td><td>PTSD PCL-5 score [PCL-5]</td><td>23</td><td>{score}</td><td>S</td></tr>
+  <tr ID="result-7"><td>2026-06-30</td><td>Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]</td><td>9</td><td>{score}</td><td>S</td></tr>
+  <tr ID="result-8"><td>2026-08-11</td><td>Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]</td><td>6</td><td>{score}</td><td>S</td></tr>
+  <tr ID="result-9"><td>2026-09-30</td><td>Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]</td><td>3</td><td>{score}</td><td>S</td></tr></tbody></table></text>
+
+  <entry typeCode="DRIV">
+    <organizer classCode="CLUSTER" moodCode="EVN">
+      <templateId root="2.16.840.1.113883.10.20.22.4.1" extension="2015-08-01"/>
+      <id root="2d356c42-06ed-4ed2-8990-b23130ada394"/>
+      <code code="75626-2" codeSystem="2.16.840.1.113883.6.1" displayName="Total score [AUDIT-C]"/>
+      <statusCode code="completed"/>
+      <effectiveTime><low value="20260630"/><high value="20260930"/></effectiveTime>
 
       <component>
         <observation classCode="OBS" moodCode="EVN">
@@ -179,11 +184,21 @@
           <value xsi:type="PQ" value="2" unit="{score}"/>
         </observation>
       </component>
+    </organizer>
+  </entry>
+  <entry typeCode="DRIV">
+    <organizer classCode="CLUSTER" moodCode="EVN">
+      <templateId root="2.16.840.1.113883.10.20.22.4.1" extension="2015-08-01"/>
+      <id root="a2c4173d-0a0b-4e1c-861d-52733975f920"/>
+      <code code="101698-9" codeSystem="2.16.840.1.113883.6.1" displayName="PTSD PCL-5 score [PCL-5]"/>
+      <statusCode code="completed"/>
+      <effectiveTime><low value="20260630"/><high value="20260930"/></effectiveTime>
+
       <component>
         <observation classCode="OBS" moodCode="EVN">
           <templateId root="2.16.840.1.113883.10.20.22.4.2" extension="2015-08-01"/>
           <id root="d06d3a2c-15c5-4423-9ff7-2d79e67a0332"/>
-          <code code="101698-9" codeSystem="2.16.840.1.113883.6.1" displayName="PTSD PCL-5 score"/>
+          <code code="101698-9" codeSystem="2.16.840.1.113883.6.1" displayName="PTSD PCL-5 score [PCL-5]"/>
           <text><reference value="#result-4"/></text>
           <statusCode code="completed"/>
           <effectiveTime value="20260630"/>
@@ -194,7 +209,7 @@
         <observation classCode="OBS" moodCode="EVN">
           <templateId root="2.16.840.1.113883.10.20.22.4.2" extension="2015-08-01"/>
           <id root="620555ac-7c7c-40aa-8682-1be86a6148b1"/>
-          <code code="101698-9" codeSystem="2.16.840.1.113883.6.1" displayName="PTSD PCL-5 score"/>
+          <code code="101698-9" codeSystem="2.16.840.1.113883.6.1" displayName="PTSD PCL-5 score [PCL-5]"/>
           <text><reference value="#result-5"/></text>
           <statusCode code="completed"/>
           <effectiveTime value="20260811"/>
@@ -205,18 +220,28 @@
         <observation classCode="OBS" moodCode="EVN">
           <templateId root="2.16.840.1.113883.10.20.22.4.2" extension="2015-08-01"/>
           <id root="894d9734-377a-42ba-87f1-8cf9bb2c5eff"/>
-          <code code="101698-9" codeSystem="2.16.840.1.113883.6.1" displayName="PTSD PCL-5 score"/>
+          <code code="101698-9" codeSystem="2.16.840.1.113883.6.1" displayName="PTSD PCL-5 score [PCL-5]"/>
           <text><reference value="#result-6"/></text>
           <statusCode code="completed"/>
           <effectiveTime value="20260930"/>
           <value xsi:type="PQ" value="23" unit="{score}"/>
         </observation>
       </component>
+    </organizer>
+  </entry>
+  <entry typeCode="DRIV">
+    <organizer classCode="CLUSTER" moodCode="EVN">
+      <templateId root="2.16.840.1.113883.10.20.22.4.1" extension="2015-08-01"/>
+      <id root="235ba5f9-9d14-4fde-83e5-af5920a10a12"/>
+      <code code="44261-6" codeSystem="2.16.840.1.113883.6.1" displayName="Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]"/>
+      <statusCode code="completed"/>
+      <effectiveTime><low value="20260630"/><high value="20260930"/></effectiveTime>
+
       <component>
         <observation classCode="OBS" moodCode="EVN">
           <templateId root="2.16.840.1.113883.10.20.22.4.2" extension="2015-08-01"/>
           <id root="6386a09c-4ff9-4d26-9d9d-c00040722dbe"/>
-          <code code="44261-6" codeSystem="2.16.840.1.113883.6.1" displayName="PHQ-9 total score"/>
+          <code code="44261-6" codeSystem="2.16.840.1.113883.6.1" displayName="Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]"/>
           <text><reference value="#result-7"/></text>
           <statusCode code="completed"/>
           <effectiveTime value="20260630"/>
@@ -227,7 +252,7 @@
         <observation classCode="OBS" moodCode="EVN">
           <templateId root="2.16.840.1.113883.10.20.22.4.2" extension="2015-08-01"/>
           <id root="19166490-9166-4b70-add0-48b16a6fb5b0"/>
-          <code code="44261-6" codeSystem="2.16.840.1.113883.6.1" displayName="PHQ-9 total score"/>
+          <code code="44261-6" codeSystem="2.16.840.1.113883.6.1" displayName="Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]"/>
           <text><reference value="#result-8"/></text>
           <statusCode code="completed"/>
           <effectiveTime value="20260811"/>
@@ -238,71 +263,71 @@
         <observation classCode="OBS" moodCode="EVN">
           <templateId root="2.16.840.1.113883.10.20.22.4.2" extension="2015-08-01"/>
           <id root="b0fc6c0c-e87f-4336-b2f7-c00a2d154dd2"/>
-          <code code="44261-6" codeSystem="2.16.840.1.113883.6.1" displayName="PHQ-9 total score"/>
+          <code code="44261-6" codeSystem="2.16.840.1.113883.6.1" displayName="Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]"/>
           <text><reference value="#result-9"/></text>
           <statusCode code="completed"/>
           <effectiveTime value="20260930"/>
           <value xsi:type="PQ" value="3" unit="{score}"/>
         </observation>
       </component>
-            </organizer>
-          </entry>
+    </organizer>
+  </entry>
         </section>
       </component>
       <component><section><templateId root="2.16.840.1.113883.10.20.22.2.17" extension="2015-08-01"/><code code="29762-2" codeSystem="2.16.840.1.113883.6.1" displayName="Social history Narrative"/><title>Social History</title><text><list><item>Current tobacco use: none reported [S]</item><item>Alcohol use: treatment goal is abstinence; recurrent-course relapse prevention discussed [S]</item><item>Housing: stable [S]</item><item>Supports: family, veteran peers, and recovery peer group [S]</item></list></text></section></component>
       <component><section><templateId root="2.16.840.1.113883.10.20.22.2.4.1" extension="2015-08-01"/><code code="8716-3" codeSystem="2.16.840.1.113883.6.1" displayName="Vital signs"/><title>Vital Signs</title><text><table><thead><tr><th>Date</th><th>Measure</th><th>Value</th><th>Unit</th><th>Provenance</th></tr></thead><tbody>
   <tr ID="vital-1-1"><td>2026-06-30</td><td>Body height</td><td>178</td><td>cm</td><td>S</td></tr>
   <tr ID="vital-1-2"><td>2026-06-30</td><td>Body weight</td><td>88.4</td><td>kg</td><td>S</td></tr>
-  <tr ID="vital-1-3"><td>2026-06-30</td><td>Body mass index (BMI)</td><td>27.9</td><td>kg/m2</td><td>S</td></tr>
+  <tr ID="vital-1-3"><td>2026-06-30</td><td>Body mass index (BMI) [Ratio]</td><td>27.9</td><td>kg/m2</td><td>S</td></tr>
   <tr ID="vital-1-4"><td>2026-06-30</td><td>Systolic blood pressure</td><td>134</td><td>mm[Hg]</td><td>S</td></tr>
   <tr ID="vital-1-5"><td>2026-06-30</td><td>Diastolic blood pressure</td><td>86</td><td>mm[Hg]</td><td>S</td></tr>
-  <tr ID="vital-1-6"><td>2026-06-30</td><td>Heart rate</td><td>80</td><td>{beats}/min</td><td>S</td></tr>
-  <tr ID="vital-1-7"><td>2026-06-30</td><td>Respiratory rate</td><td>16</td><td>{breaths}/min</td><td>S</td></tr>
+  <tr ID="vital-1-6"><td>2026-06-30</td><td>Heart rate</td><td>80</td><td>/min</td><td>S</td></tr>
+  <tr ID="vital-1-7"><td>2026-06-30</td><td>Respiratory rate</td><td>16</td><td>/min</td><td>S</td></tr>
   <tr ID="vital-1-8"><td>2026-06-30</td><td>Body temperature</td><td>36.8</td><td>Cel</td><td>S</td></tr>
-  <tr ID="vital-1-9"><td>2026-06-30</td><td>Oxygen saturation by pulse oximetry</td><td>98</td><td>%</td><td>S</td></tr>
+  <tr ID="vital-1-9"><td>2026-06-30</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>98</td><td>%</td><td>S</td></tr>
   <tr ID="vital-2-1"><td>2026-08-11</td><td>Body height</td><td>178</td><td>cm</td><td>S</td></tr>
   <tr ID="vital-2-2"><td>2026-08-11</td><td>Body weight</td><td>87.1</td><td>kg</td><td>S</td></tr>
-  <tr ID="vital-2-3"><td>2026-08-11</td><td>Body mass index (BMI)</td><td>27.5</td><td>kg/m2</td><td>S</td></tr>
+  <tr ID="vital-2-3"><td>2026-08-11</td><td>Body mass index (BMI) [Ratio]</td><td>27.5</td><td>kg/m2</td><td>S</td></tr>
   <tr ID="vital-2-4"><td>2026-08-11</td><td>Systolic blood pressure</td><td>130</td><td>mm[Hg]</td><td>S</td></tr>
   <tr ID="vital-2-5"><td>2026-08-11</td><td>Diastolic blood pressure</td><td>84</td><td>mm[Hg]</td><td>S</td></tr>
-  <tr ID="vital-2-6"><td>2026-08-11</td><td>Heart rate</td><td>76</td><td>{beats}/min</td><td>S</td></tr>
-  <tr ID="vital-2-7"><td>2026-08-11</td><td>Respiratory rate</td><td>16</td><td>{breaths}/min</td><td>S</td></tr>
+  <tr ID="vital-2-6"><td>2026-08-11</td><td>Heart rate</td><td>76</td><td>/min</td><td>S</td></tr>
+  <tr ID="vital-2-7"><td>2026-08-11</td><td>Respiratory rate</td><td>16</td><td>/min</td><td>S</td></tr>
   <tr ID="vital-2-8"><td>2026-08-11</td><td>Body temperature</td><td>36.7</td><td>Cel</td><td>S</td></tr>
-  <tr ID="vital-2-9"><td>2026-08-11</td><td>Oxygen saturation by pulse oximetry</td><td>98</td><td>%</td><td>S</td></tr>
+  <tr ID="vital-2-9"><td>2026-08-11</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>98</td><td>%</td><td>S</td></tr>
   <tr ID="vital-3-1"><td>2026-09-30</td><td>Body height</td><td>178</td><td>cm</td><td>S</td></tr>
   <tr ID="vital-3-2"><td>2026-09-30</td><td>Body weight</td><td>85.8</td><td>kg</td><td>S</td></tr>
-  <tr ID="vital-3-3"><td>2026-09-30</td><td>Body mass index (BMI)</td><td>27.1</td><td>kg/m2</td><td>S</td></tr>
+  <tr ID="vital-3-3"><td>2026-09-30</td><td>Body mass index (BMI) [Ratio]</td><td>27.1</td><td>kg/m2</td><td>S</td></tr>
   <tr ID="vital-3-4"><td>2026-09-30</td><td>Systolic blood pressure</td><td>126</td><td>mm[Hg]</td><td>S</td></tr>
   <tr ID="vital-3-5"><td>2026-09-30</td><td>Diastolic blood pressure</td><td>80</td><td>mm[Hg]</td><td>S</td></tr>
-  <tr ID="vital-3-6"><td>2026-09-30</td><td>Heart rate</td><td>72</td><td>{beats}/min</td><td>S</td></tr>
-  <tr ID="vital-3-7"><td>2026-09-30</td><td>Respiratory rate</td><td>15</td><td>{breaths}/min</td><td>S</td></tr>
+  <tr ID="vital-3-6"><td>2026-09-30</td><td>Heart rate</td><td>72</td><td>/min</td><td>S</td></tr>
+  <tr ID="vital-3-7"><td>2026-09-30</td><td>Respiratory rate</td><td>15</td><td>/min</td><td>S</td></tr>
   <tr ID="vital-3-8"><td>2026-09-30</td><td>Body temperature</td><td>36.6</td><td>Cel</td><td>S</td></tr>
-  <tr ID="vital-3-9"><td>2026-09-30</td><td>Oxygen saturation by pulse oximetry</td><td>99</td><td>%</td><td>S</td></tr></tbody></table></text>
+  <tr ID="vital-3-9"><td>2026-09-30</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>99</td><td>%</td><td>S</td></tr></tbody></table></text>
   <entry typeCode="DRIV">
     <organizer classCode="CLUSTER" moodCode="EVN">
       <templateId root="2.16.840.1.113883.10.20.22.4.26" extension="2015-08-01"/>
       <id root="cb271fd2-b43d-4ca3-8b4c-eff56f9f0363"/>
-      <code code="46680005" codeSystem="2.16.840.1.113883.6.96" displayName="Vital signs"/>
+      <code code="74728-7" codeSystem="2.16.840.1.113883.6.1" displayName="Vital signs, weight, height, head circumference, oximetry, BMI, and BSA panel - HL7.FHIR.R4"/>
       <statusCode code="completed"/><effectiveTime value="20260630"/>
-      <component><observation classCode="OBS" moodCode="EVN"><templateId root="2.16.840.1.113883.10.20.22.4.27" extension="2014-06-09"/><id root="f7138b55-23af-45d0-961c-a7bbc4711ca6"/><code code="8302-2" codeSystem="2.16.840.1.113883.6.1" displayName="Body height"/><text><reference value="#vital-1-1"/></text><statusCode code="completed"/><effectiveTime value="20260630"/><value xsi:type="PQ" value="178" unit="cm"/></observation></component><component><observation classCode="OBS" moodCode="EVN"><templateId root="2.16.840.1.113883.10.20.22.4.27" extension="2014-06-09"/><id root="1cb20be1-5cd4-4def-aad3-1642c3d353a4"/><code code="29463-7" codeSystem="2.16.840.1.113883.6.1" displayName="Body weight"/><text><reference value="#vital-1-2"/></text><statusCode code="completed"/><effectiveTime value="20260630"/><value xsi:type="PQ" value="88.4" unit="kg"/></observation></component><component><observation classCode="OBS" moodCode="EVN"><templateId root="2.16.840.1.113883.10.20.22.4.27" extension="2014-06-09"/><id root="6c2cf704-f886-40d2-8c1c-7f291df9663a"/><code code="39156-5" codeSystem="2.16.840.1.113883.6.1" displayName="Body mass index (BMI)"/><text><reference value="#vital-1-3"/></text><statusCode code="completed"/><effectiveTime value="20260630"/><value xsi:type="PQ" value="27.9" unit="kg/m2"/></observation></component><component><observation classCode="OBS" moodCode="EVN"><templateId root="2.16.840.1.113883.10.20.22.4.27" extension="2014-06-09"/><id root="5170d9b0-3fa6-4552-bde9-14ebef1e274f"/><code code="8480-6" codeSystem="2.16.840.1.113883.6.1" displayName="Systolic blood pressure"/><text><reference value="#vital-1-4"/></text><statusCode code="completed"/><effectiveTime value="20260630"/><value xsi:type="PQ" value="134" unit="mm[Hg]"/></observation></component><component><observation classCode="OBS" moodCode="EVN"><templateId root="2.16.840.1.113883.10.20.22.4.27" extension="2014-06-09"/><id root="7db3e7c3-49da-4cc4-91d1-da55ed748147"/><code code="8462-4" codeSystem="2.16.840.1.113883.6.1" displayName="Diastolic blood pressure"/><text><reference value="#vital-1-5"/></text><statusCode code="completed"/><effectiveTime value="20260630"/><value xsi:type="PQ" value="86" unit="mm[Hg]"/></observation></component><component><observation classCode="OBS" moodCode="EVN"><templateId root="2.16.840.1.113883.10.20.22.4.27" extension="2014-06-09"/><id root="8876b90d-1daf-4a50-9196-20a159eb4f4b"/><code code="8867-4" codeSystem="2.16.840.1.113883.6.1" displayName="Heart rate"/><text><reference value="#vital-1-6"/></text><statusCode code="completed"/><effectiveTime value="20260630"/><value xsi:type="PQ" value="80" unit="{beats}/min"/></observation></component><component><observation classCode="OBS" moodCode="EVN"><templateId root="2.16.840.1.113883.10.20.22.4.27" extension="2014-06-09"/><id root="153341b9-eaa8-4309-a116-9da5a1d4bd26"/><code code="9279-1" codeSystem="2.16.840.1.113883.6.1" displayName="Respiratory rate"/><text><reference value="#vital-1-7"/></text><statusCode code="completed"/><effectiveTime value="20260630"/><value xsi:type="PQ" value="16" unit="{breaths}/min"/></observation></component><component><observation classCode="OBS" moodCode="EVN"><templateId root="2.16.840.1.113883.10.20.22.4.27" extension="2014-06-09"/><id root="a94e16f7-e3c5-4fdc-9f1e-6b88d3b55791"/><code code="8310-5" codeSystem="2.16.840.1.113883.6.1" displayName="Body temperature"/><text><reference value="#vital-1-8"/></text><statusCode code="completed"/><effectiveTime value="20260630"/><value xsi:type="PQ" value="36.8" unit="Cel"/></observation></component><component><observation classCode="OBS" moodCode="EVN"><templateId root="2.16.840.1.113883.10.20.22.4.27" extension="2014-06-09"/><id root="b8739a11-73b6-46be-b402-7911271748e5"/><code code="59408-5" codeSystem="2.16.840.1.113883.6.1" displayName="Oxygen saturation by pulse oximetry"/><text><reference value="#vital-1-9"/></text><statusCode code="completed"/><effectiveTime value="20260630"/><value xsi:type="PQ" value="98" unit="%"/></observation></component>
+      <component><observation classCode="OBS" moodCode="EVN"><templateId root="2.16.840.1.113883.10.20.22.4.27" extension="2014-06-09"/><id root="f7138b55-23af-45d0-961c-a7bbc4711ca6"/><code code="8302-2" codeSystem="2.16.840.1.113883.6.1" displayName="Body height"/><text><reference value="#vital-1-1"/></text><statusCode code="completed"/><effectiveTime value="20260630"/><value xsi:type="PQ" value="178" unit="cm"/></observation></component><component><observation classCode="OBS" moodCode="EVN"><templateId root="2.16.840.1.113883.10.20.22.4.27" extension="2014-06-09"/><id root="1cb20be1-5cd4-4def-aad3-1642c3d353a4"/><code code="29463-7" codeSystem="2.16.840.1.113883.6.1" displayName="Body weight"/><text><reference value="#vital-1-2"/></text><statusCode code="completed"/><effectiveTime value="20260630"/><value xsi:type="PQ" value="88.4" unit="kg"/></observation></component><component><observation classCode="OBS" moodCode="EVN"><templateId root="2.16.840.1.113883.10.20.22.4.27" extension="2014-06-09"/><id root="6c2cf704-f886-40d2-8c1c-7f291df9663a"/><code code="39156-5" codeSystem="2.16.840.1.113883.6.1" displayName="Body mass index (BMI) [Ratio]"/><text><reference value="#vital-1-3"/></text><statusCode code="completed"/><effectiveTime value="20260630"/><value xsi:type="PQ" value="27.9" unit="kg/m2"/></observation></component><component><observation classCode="OBS" moodCode="EVN"><templateId root="2.16.840.1.113883.10.20.22.4.27" extension="2014-06-09"/><id root="5170d9b0-3fa6-4552-bde9-14ebef1e274f"/><code code="8480-6" codeSystem="2.16.840.1.113883.6.1" displayName="Systolic blood pressure"/><text><reference value="#vital-1-4"/></text><statusCode code="completed"/><effectiveTime value="20260630"/><value xsi:type="PQ" value="134" unit="mm[Hg]"/></observation></component><component><observation classCode="OBS" moodCode="EVN"><templateId root="2.16.840.1.113883.10.20.22.4.27" extension="2014-06-09"/><id root="7db3e7c3-49da-4cc4-91d1-da55ed748147"/><code code="8462-4" codeSystem="2.16.840.1.113883.6.1" displayName="Diastolic blood pressure"/><text><reference value="#vital-1-5"/></text><statusCode code="completed"/><effectiveTime value="20260630"/><value xsi:type="PQ" value="86" unit="mm[Hg]"/></observation></component><component><observation classCode="OBS" moodCode="EVN"><templateId root="2.16.840.1.113883.10.20.22.4.27" extension="2014-06-09"/><id root="8876b90d-1daf-4a50-9196-20a159eb4f4b"/><code code="8867-4" codeSystem="2.16.840.1.113883.6.1" displayName="Heart rate"/><text><reference value="#vital-1-6"/></text><statusCode code="completed"/><effectiveTime value="20260630"/><value xsi:type="PQ" value="80" unit="/min"/></observation></component><component><observation classCode="OBS" moodCode="EVN"><templateId root="2.16.840.1.113883.10.20.22.4.27" extension="2014-06-09"/><id root="153341b9-eaa8-4309-a116-9da5a1d4bd26"/><code code="9279-1" codeSystem="2.16.840.1.113883.6.1" displayName="Respiratory rate"/><text><reference value="#vital-1-7"/></text><statusCode code="completed"/><effectiveTime value="20260630"/><value xsi:type="PQ" value="16" unit="/min"/></observation></component><component><observation classCode="OBS" moodCode="EVN"><templateId root="2.16.840.1.113883.10.20.22.4.27" extension="2014-06-09"/><id root="a94e16f7-e3c5-4fdc-9f1e-6b88d3b55791"/><code code="8310-5" codeSystem="2.16.840.1.113883.6.1" displayName="Body temperature"/><text><reference value="#vital-1-8"/></text><statusCode code="completed"/><effectiveTime value="20260630"/><value xsi:type="PQ" value="36.8" unit="Cel"/></observation></component><component><observation classCode="OBS" moodCode="EVN"><templateId root="2.16.840.1.113883.10.20.22.4.27" extension="2014-06-09"/><id root="b8739a11-73b6-46be-b402-7911271748e5"/><code code="59408-5" codeSystem="2.16.840.1.113883.6.1" displayName="Oxygen saturation in Arterial blood by Pulse oximetry"/><text><reference value="#vital-1-9"/></text><statusCode code="completed"/><effectiveTime value="20260630"/><value xsi:type="PQ" value="98" unit="%"/></observation></component>
     </organizer>
   </entry>
   <entry typeCode="DRIV">
     <organizer classCode="CLUSTER" moodCode="EVN">
       <templateId root="2.16.840.1.113883.10.20.22.4.26" extension="2015-08-01"/>
       <id root="f9951fc2-e9b8-4de8-b51d-cd5f2a36873a"/>
-      <code code="46680005" codeSystem="2.16.840.1.113883.6.96" displayName="Vital signs"/>
+      <code code="74728-7" codeSystem="2.16.840.1.113883.6.1" displayName="Vital signs, weight, height, head circumference, oximetry, BMI, and BSA panel - HL7.FHIR.R4"/>
       <statusCode code="completed"/><effectiveTime value="20260811"/>
-      <component><observation classCode="OBS" moodCode="EVN"><templateId root="2.16.840.1.113883.10.20.22.4.27" extension="2014-06-09"/><id root="22c7023c-5c04-417c-8567-8a060ea78d38"/><code code="8302-2" codeSystem="2.16.840.1.113883.6.1" displayName="Body height"/><text><reference value="#vital-2-1"/></text><statusCode code="completed"/><effectiveTime value="20260811"/><value xsi:type="PQ" value="178" unit="cm"/></observation></component><component><observation classCode="OBS" moodCode="EVN"><templateId root="2.16.840.1.113883.10.20.22.4.27" extension="2014-06-09"/><id root="4f6a3d11-4c00-4d17-8839-781976690913"/><code code="29463-7" codeSystem="2.16.840.1.113883.6.1" displayName="Body weight"/><text><reference value="#vital-2-2"/></text><statusCode code="completed"/><effectiveTime value="20260811"/><value xsi:type="PQ" value="87.1" unit="kg"/></observation></component><component><observation classCode="OBS" moodCode="EVN"><templateId root="2.16.840.1.113883.10.20.22.4.27" extension="2014-06-09"/><id root="e145970d-4420-4f5b-acdf-5bd320fe60a8"/><code code="39156-5" codeSystem="2.16.840.1.113883.6.1" displayName="Body mass index (BMI)"/><text><reference value="#vital-2-3"/></text><statusCode code="completed"/><effectiveTime value="20260811"/><value xsi:type="PQ" value="27.5" unit="kg/m2"/></observation></component><component><observation classCode="OBS" moodCode="EVN"><templateId root="2.16.840.1.113883.10.20.22.4.27" extension="2014-06-09"/><id root="286b13bc-5f98-4961-92de-ddda760879db"/><code code="8480-6" codeSystem="2.16.840.1.113883.6.1" displayName="Systolic blood pressure"/><text><reference value="#vital-2-4"/></text><statusCode code="completed"/><effectiveTime value="20260811"/><value xsi:type="PQ" value="130" unit="mm[Hg]"/></observation></component><component><observation classCode="OBS" moodCode="EVN"><templateId root="2.16.840.1.113883.10.20.22.4.27" extension="2014-06-09"/><id root="5d03f1c4-f054-4089-896a-0712da069cd2"/><code code="8462-4" codeSystem="2.16.840.1.113883.6.1" displayName="Diastolic blood pressure"/><text><reference value="#vital-2-5"/></text><statusCode code="completed"/><effectiveTime value="20260811"/><value xsi:type="PQ" value="84" unit="mm[Hg]"/></observation></component><component><observation classCode="OBS" moodCode="EVN"><templateId root="2.16.840.1.113883.10.20.22.4.27" extension="2014-06-09"/><id root="9096d026-3ad7-4c07-87a5-68480a12d0d5"/><code code="8867-4" codeSystem="2.16.840.1.113883.6.1" displayName="Heart rate"/><text><reference value="#vital-2-6"/></text><statusCode code="completed"/><effectiveTime value="20260811"/><value xsi:type="PQ" value="76" unit="{beats}/min"/></observation></component><component><observation classCode="OBS" moodCode="EVN"><templateId root="2.16.840.1.113883.10.20.22.4.27" extension="2014-06-09"/><id root="f8a9e675-4d58-49bb-8a8c-bd532645cb78"/><code code="9279-1" codeSystem="2.16.840.1.113883.6.1" displayName="Respiratory rate"/><text><reference value="#vital-2-7"/></text><statusCode code="completed"/><effectiveTime value="20260811"/><value xsi:type="PQ" value="16" unit="{breaths}/min"/></observation></component><component><observation classCode="OBS" moodCode="EVN"><templateId root="2.16.840.1.113883.10.20.22.4.27" extension="2014-06-09"/><id root="f3b88c34-397c-444c-ba3e-0ad87817dd96"/><code code="8310-5" codeSystem="2.16.840.1.113883.6.1" displayName="Body temperature"/><text><reference value="#vital-2-8"/></text><statusCode code="completed"/><effectiveTime value="20260811"/><value xsi:type="PQ" value="36.7" unit="Cel"/></observation></component><component><observation classCode="OBS" moodCode="EVN"><templateId root="2.16.840.1.113883.10.20.22.4.27" extension="2014-06-09"/><id root="cd9c96a3-a181-45d5-8417-34c9fc1293f9"/><code code="59408-5" codeSystem="2.16.840.1.113883.6.1" displayName="Oxygen saturation by pulse oximetry"/><text><reference value="#vital-2-9"/></text><statusCode code="completed"/><effectiveTime value="20260811"/><value xsi:type="PQ" value="98" unit="%"/></observation></component>
+      <component><observation classCode="OBS" moodCode="EVN"><templateId root="2.16.840.1.113883.10.20.22.4.27" extension="2014-06-09"/><id root="22c7023c-5c04-417c-8567-8a060ea78d38"/><code code="8302-2" codeSystem="2.16.840.1.113883.6.1" displayName="Body height"/><text><reference value="#vital-2-1"/></text><statusCode code="completed"/><effectiveTime value="20260811"/><value xsi:type="PQ" value="178" unit="cm"/></observation></component><component><observation classCode="OBS" moodCode="EVN"><templateId root="2.16.840.1.113883.10.20.22.4.27" extension="2014-06-09"/><id root="4f6a3d11-4c00-4d17-8839-781976690913"/><code code="29463-7" codeSystem="2.16.840.1.113883.6.1" displayName="Body weight"/><text><reference value="#vital-2-2"/></text><statusCode code="completed"/><effectiveTime value="20260811"/><value xsi:type="PQ" value="87.1" unit="kg"/></observation></component><component><observation classCode="OBS" moodCode="EVN"><templateId root="2.16.840.1.113883.10.20.22.4.27" extension="2014-06-09"/><id root="e145970d-4420-4f5b-acdf-5bd320fe60a8"/><code code="39156-5" codeSystem="2.16.840.1.113883.6.1" displayName="Body mass index (BMI) [Ratio]"/><text><reference value="#vital-2-3"/></text><statusCode code="completed"/><effectiveTime value="20260811"/><value xsi:type="PQ" value="27.5" unit="kg/m2"/></observation></component><component><observation classCode="OBS" moodCode="EVN"><templateId root="2.16.840.1.113883.10.20.22.4.27" extension="2014-06-09"/><id root="286b13bc-5f98-4961-92de-ddda760879db"/><code code="8480-6" codeSystem="2.16.840.1.113883.6.1" displayName="Systolic blood pressure"/><text><reference value="#vital-2-4"/></text><statusCode code="completed"/><effectiveTime value="20260811"/><value xsi:type="PQ" value="130" unit="mm[Hg]"/></observation></component><component><observation classCode="OBS" moodCode="EVN"><templateId root="2.16.840.1.113883.10.20.22.4.27" extension="2014-06-09"/><id root="5d03f1c4-f054-4089-896a-0712da069cd2"/><code code="8462-4" codeSystem="2.16.840.1.113883.6.1" displayName="Diastolic blood pressure"/><text><reference value="#vital-2-5"/></text><statusCode code="completed"/><effectiveTime value="20260811"/><value xsi:type="PQ" value="84" unit="mm[Hg]"/></observation></component><component><observation classCode="OBS" moodCode="EVN"><templateId root="2.16.840.1.113883.10.20.22.4.27" extension="2014-06-09"/><id root="9096d026-3ad7-4c07-87a5-68480a12d0d5"/><code code="8867-4" codeSystem="2.16.840.1.113883.6.1" displayName="Heart rate"/><text><reference value="#vital-2-6"/></text><statusCode code="completed"/><effectiveTime value="20260811"/><value xsi:type="PQ" value="76" unit="/min"/></observation></component><component><observation classCode="OBS" moodCode="EVN"><templateId root="2.16.840.1.113883.10.20.22.4.27" extension="2014-06-09"/><id root="f8a9e675-4d58-49bb-8a8c-bd532645cb78"/><code code="9279-1" codeSystem="2.16.840.1.113883.6.1" displayName="Respiratory rate"/><text><reference value="#vital-2-7"/></text><statusCode code="completed"/><effectiveTime value="20260811"/><value xsi:type="PQ" value="16" unit="/min"/></observation></component><component><observation classCode="OBS" moodCode="EVN"><templateId root="2.16.840.1.113883.10.20.22.4.27" extension="2014-06-09"/><id root="f3b88c34-397c-444c-ba3e-0ad87817dd96"/><code code="8310-5" codeSystem="2.16.840.1.113883.6.1" displayName="Body temperature"/><text><reference value="#vital-2-8"/></text><statusCode code="completed"/><effectiveTime value="20260811"/><value xsi:type="PQ" value="36.7" unit="Cel"/></observation></component><component><observation classCode="OBS" moodCode="EVN"><templateId root="2.16.840.1.113883.10.20.22.4.27" extension="2014-06-09"/><id root="cd9c96a3-a181-45d5-8417-34c9fc1293f9"/><code code="59408-5" codeSystem="2.16.840.1.113883.6.1" displayName="Oxygen saturation in Arterial blood by Pulse oximetry"/><text><reference value="#vital-2-9"/></text><statusCode code="completed"/><effectiveTime value="20260811"/><value xsi:type="PQ" value="98" unit="%"/></observation></component>
     </organizer>
   </entry>
   <entry typeCode="DRIV">
     <organizer classCode="CLUSTER" moodCode="EVN">
       <templateId root="2.16.840.1.113883.10.20.22.4.26" extension="2015-08-01"/>
       <id root="960372ed-c9e5-43de-a9fa-a58627d5d155"/>
-      <code code="46680005" codeSystem="2.16.840.1.113883.6.96" displayName="Vital signs"/>
+      <code code="74728-7" codeSystem="2.16.840.1.113883.6.1" displayName="Vital signs, weight, height, head circumference, oximetry, BMI, and BSA panel - HL7.FHIR.R4"/>
       <statusCode code="completed"/><effectiveTime value="20260930"/>
-      <component><observation classCode="OBS" moodCode="EVN"><templateId root="2.16.840.1.113883.10.20.22.4.27" extension="2014-06-09"/><id root="24de769b-310f-4692-b54f-f3a0e2e740c3"/><code code="8302-2" codeSystem="2.16.840.1.113883.6.1" displayName="Body height"/><text><reference value="#vital-3-1"/></text><statusCode code="completed"/><effectiveTime value="20260930"/><value xsi:type="PQ" value="178" unit="cm"/></observation></component><component><observation classCode="OBS" moodCode="EVN"><templateId root="2.16.840.1.113883.10.20.22.4.27" extension="2014-06-09"/><id root="57924797-4e64-44c8-949c-f5966c81d736"/><code code="29463-7" codeSystem="2.16.840.1.113883.6.1" displayName="Body weight"/><text><reference value="#vital-3-2"/></text><statusCode code="completed"/><effectiveTime value="20260930"/><value xsi:type="PQ" value="85.8" unit="kg"/></observation></component><component><observation classCode="OBS" moodCode="EVN"><templateId root="2.16.840.1.113883.10.20.22.4.27" extension="2014-06-09"/><id root="f60117c1-cb39-441e-be74-597842ceea40"/><code code="39156-5" codeSystem="2.16.840.1.113883.6.1" displayName="Body mass index (BMI)"/><text><reference value="#vital-3-3"/></text><statusCode code="completed"/><effectiveTime value="20260930"/><value xsi:type="PQ" value="27.1" unit="kg/m2"/></observation></component><component><observation classCode="OBS" moodCode="EVN"><templateId root="2.16.840.1.113883.10.20.22.4.27" extension="2014-06-09"/><id root="b60236a2-9191-49cd-b364-523ca72cd0fb"/><code code="8480-6" codeSystem="2.16.840.1.113883.6.1" displayName="Systolic blood pressure"/><text><reference value="#vital-3-4"/></text><statusCode code="completed"/><effectiveTime value="20260930"/><value xsi:type="PQ" value="126" unit="mm[Hg]"/></observation></component><component><observation classCode="OBS" moodCode="EVN"><templateId root="2.16.840.1.113883.10.20.22.4.27" extension="2014-06-09"/><id root="788bee4b-3bba-46ac-93c6-8cf809fa6e00"/><code code="8462-4" codeSystem="2.16.840.1.113883.6.1" displayName="Diastolic blood pressure"/><text><reference value="#vital-3-5"/></text><statusCode code="completed"/><effectiveTime value="20260930"/><value xsi:type="PQ" value="80" unit="mm[Hg]"/></observation></component><component><observation classCode="OBS" moodCode="EVN"><templateId root="2.16.840.1.113883.10.20.22.4.27" extension="2014-06-09"/><id root="966e6f42-6a4c-4e5d-b51c-e21104adf7ed"/><code code="8867-4" codeSystem="2.16.840.1.113883.6.1" displayName="Heart rate"/><text><reference value="#vital-3-6"/></text><statusCode code="completed"/><effectiveTime value="20260930"/><value xsi:type="PQ" value="72" unit="{beats}/min"/></observation></component><component><observation classCode="OBS" moodCode="EVN"><templateId root="2.16.840.1.113883.10.20.22.4.27" extension="2014-06-09"/><id root="3605e563-41fc-4013-a732-7d1c4ac4895c"/><code code="9279-1" codeSystem="2.16.840.1.113883.6.1" displayName="Respiratory rate"/><text><reference value="#vital-3-7"/></text><statusCode code="completed"/><effectiveTime value="20260930"/><value xsi:type="PQ" value="15" unit="{breaths}/min"/></observation></component><component><observation classCode="OBS" moodCode="EVN"><templateId root="2.16.840.1.113883.10.20.22.4.27" extension="2014-06-09"/><id root="cf455360-77e4-4292-ab5c-1c6569896bbf"/><code code="8310-5" codeSystem="2.16.840.1.113883.6.1" displayName="Body temperature"/><text><reference value="#vital-3-8"/></text><statusCode code="completed"/><effectiveTime value="20260930"/><value xsi:type="PQ" value="36.6" unit="Cel"/></observation></component><component><observation classCode="OBS" moodCode="EVN"><templateId root="2.16.840.1.113883.10.20.22.4.27" extension="2014-06-09"/><id root="5829d9e8-9917-4eb0-969d-5363426468ab"/><code code="59408-5" codeSystem="2.16.840.1.113883.6.1" displayName="Oxygen saturation by pulse oximetry"/><text><reference value="#vital-3-9"/></text><statusCode code="completed"/><effectiveTime value="20260930"/><value xsi:type="PQ" value="99" unit="%"/></observation></component>
+      <component><observation classCode="OBS" moodCode="EVN"><templateId root="2.16.840.1.113883.10.20.22.4.27" extension="2014-06-09"/><id root="24de769b-310f-4692-b54f-f3a0e2e740c3"/><code code="8302-2" codeSystem="2.16.840.1.113883.6.1" displayName="Body height"/><text><reference value="#vital-3-1"/></text><statusCode code="completed"/><effectiveTime value="20260930"/><value xsi:type="PQ" value="178" unit="cm"/></observation></component><component><observation classCode="OBS" moodCode="EVN"><templateId root="2.16.840.1.113883.10.20.22.4.27" extension="2014-06-09"/><id root="57924797-4e64-44c8-949c-f5966c81d736"/><code code="29463-7" codeSystem="2.16.840.1.113883.6.1" displayName="Body weight"/><text><reference value="#vital-3-2"/></text><statusCode code="completed"/><effectiveTime value="20260930"/><value xsi:type="PQ" value="85.8" unit="kg"/></observation></component><component><observation classCode="OBS" moodCode="EVN"><templateId root="2.16.840.1.113883.10.20.22.4.27" extension="2014-06-09"/><id root="f60117c1-cb39-441e-be74-597842ceea40"/><code code="39156-5" codeSystem="2.16.840.1.113883.6.1" displayName="Body mass index (BMI) [Ratio]"/><text><reference value="#vital-3-3"/></text><statusCode code="completed"/><effectiveTime value="20260930"/><value xsi:type="PQ" value="27.1" unit="kg/m2"/></observation></component><component><observation classCode="OBS" moodCode="EVN"><templateId root="2.16.840.1.113883.10.20.22.4.27" extension="2014-06-09"/><id root="b60236a2-9191-49cd-b364-523ca72cd0fb"/><code code="8480-6" codeSystem="2.16.840.1.113883.6.1" displayName="Systolic blood pressure"/><text><reference value="#vital-3-4"/></text><statusCode code="completed"/><effectiveTime value="20260930"/><value xsi:type="PQ" value="126" unit="mm[Hg]"/></observation></component><component><observation classCode="OBS" moodCode="EVN"><templateId root="2.16.840.1.113883.10.20.22.4.27" extension="2014-06-09"/><id root="788bee4b-3bba-46ac-93c6-8cf809fa6e00"/><code code="8462-4" codeSystem="2.16.840.1.113883.6.1" displayName="Diastolic blood pressure"/><text><reference value="#vital-3-5"/></text><statusCode code="completed"/><effectiveTime value="20260930"/><value xsi:type="PQ" value="80" unit="mm[Hg]"/></observation></component><component><observation classCode="OBS" moodCode="EVN"><templateId root="2.16.840.1.113883.10.20.22.4.27" extension="2014-06-09"/><id root="966e6f42-6a4c-4e5d-b51c-e21104adf7ed"/><code code="8867-4" codeSystem="2.16.840.1.113883.6.1" displayName="Heart rate"/><text><reference value="#vital-3-6"/></text><statusCode code="completed"/><effectiveTime value="20260930"/><value xsi:type="PQ" value="72" unit="/min"/></observation></component><component><observation classCode="OBS" moodCode="EVN"><templateId root="2.16.840.1.113883.10.20.22.4.27" extension="2014-06-09"/><id root="3605e563-41fc-4013-a732-7d1c4ac4895c"/><code code="9279-1" codeSystem="2.16.840.1.113883.6.1" displayName="Respiratory rate"/><text><reference value="#vital-3-7"/></text><statusCode code="completed"/><effectiveTime value="20260930"/><value xsi:type="PQ" value="15" unit="/min"/></observation></component><component><observation classCode="OBS" moodCode="EVN"><templateId root="2.16.840.1.113883.10.20.22.4.27" extension="2014-06-09"/><id root="cf455360-77e4-4292-ab5c-1c6569896bbf"/><code code="8310-5" codeSystem="2.16.840.1.113883.6.1" displayName="Body temperature"/><text><reference value="#vital-3-8"/></text><statusCode code="completed"/><effectiveTime value="20260930"/><value xsi:type="PQ" value="36.6" unit="Cel"/></observation></component><component><observation classCode="OBS" moodCode="EVN"><templateId root="2.16.840.1.113883.10.20.22.4.27" extension="2014-06-09"/><id root="5829d9e8-9917-4eb0-969d-5363426468ab"/><code code="59408-5" codeSystem="2.16.840.1.113883.6.1" displayName="Oxygen saturation in Arterial blood by Pulse oximetry"/><text><reference value="#vital-3-9"/></text><statusCode code="completed"/><effectiveTime value="20260930"/><value xsi:type="PQ" value="99" unit="%"/></observation></component>
     </organizer>
   </entry></section></component>
       <component>
@@ -362,9 +387,40 @@
           <code code="61146-7" codeSystem="2.16.840.1.113883.6.1" displayName="Goals"/>
           <title>Goals</title>
           <text><table><thead><tr><th>Goal</th><th>Target</th><th>Status</th><th>Outcome</th><th>Provenance</th></tr></thead><tbody>
-  <tr><td>Reduce AUDIT-C score from 10 to 3 or lower by twelve weeks</td><td>2026-09-30</td><td>completed</td><td>AUDIT-C score 2</td><td>S</td></tr>
-  <tr><td>Reduce PCL-5 score from 39 to 25 or lower by twelve weeks</td><td>2026-09-30</td><td>completed</td><td>PCL-5 score 23</td><td>S</td></tr>
-  <tr><td>Attend at least eight integrated therapy or recovery-support sessions by twelve weeks</td><td>2026-09-30</td><td>completed</td><td>Nine sessions completed</td><td>S</td></tr></tbody></table></text>
+  <tr ID="goal-1"><td>Reduce AUDIT-C score from 10 to 3 or lower by twelve weeks</td><td>2026-09-30</td><td>completed</td><td>AUDIT-C score 2</td><td>S</td></tr>
+  <tr ID="goal-2"><td>Reduce PCL-5 score from 39 to 25 or lower by twelve weeks</td><td>2026-09-30</td><td>completed</td><td>PCL-5 score 23</td><td>S</td></tr>
+  <tr ID="goal-3"><td>Attend at least eight integrated therapy or recovery-support sessions by twelve weeks</td><td>2026-09-30</td><td>completed</td><td>Nine sessions completed</td><td>S</td></tr></tbody></table></text>
+
+  <entry>
+    <observation classCode="OBS" moodCode="GOL">
+      <templateId root="2.16.840.1.113883.10.20.22.4.121"/>
+      <id root="28960026-4613-47dc-ae08-4dbf503827a5"/>
+      <code nullFlavor="OTH"><originalText><reference value="#goal-1"/></originalText></code>
+      <text><reference value="#goal-1"/></text>
+      <statusCode code="active"/>
+      <effectiveTime value="20260930"/>
+    </observation>
+  </entry>
+  <entry>
+    <observation classCode="OBS" moodCode="GOL">
+      <templateId root="2.16.840.1.113883.10.20.22.4.121"/>
+      <id root="44ca381b-b7cb-4b1a-bb8d-60c722928e57"/>
+      <code nullFlavor="OTH"><originalText><reference value="#goal-2"/></originalText></code>
+      <text><reference value="#goal-2"/></text>
+      <statusCode code="active"/>
+      <effectiveTime value="20260930"/>
+    </observation>
+  </entry>
+  <entry>
+    <observation classCode="OBS" moodCode="GOL">
+      <templateId root="2.16.840.1.113883.10.20.22.4.121"/>
+      <id root="7b4f5374-6143-431e-b126-f2dc94883b5e"/>
+      <code nullFlavor="OTH"><originalText><reference value="#goal-3"/></originalText></code>
+      <text><reference value="#goal-3"/></text>
+      <statusCode code="active"/>
+      <effectiveTime value="20260930"/>
+    </observation>
+  </entry>
         </section>
       </component>
       <component>

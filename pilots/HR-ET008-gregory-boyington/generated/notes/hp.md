@@ -41,7 +41,7 @@ This fictional modern episode addresses Alcohol use and trauma symptoms impair s
 
 ## Measurements
 
-Total score [AUDIT-C]: 10 {score}; PTSD PCL-5 score: 39 {score}; PHQ-9 total score: 9 {score}. All results are synthetic.
+Total score [AUDIT-C]: 10 {score}; PTSD PCL-5 score [PCL-5]: 39 {score}; Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]: 9 {score}. All results are synthetic.
 
 BP 134/86 mmHg; pulse 80 bpm; respirations 16/min; temperature 36.8 °C; oxygen saturation 98% on room air; weight 88.4 kg; BMI 27.9 kg/m². All vital signs are synthetic.
 

@@ -24,7 +24,7 @@ Please evaluate the active concerns and advise on the guideline-linked intervent
 - Post-traumatic stress disorder is a retrospective interpretation of Boyington’s combat and captivity history, not a documented lifetime diagnosis. **R**
 - The roster’s phrase ‘eventual sobriety’ overstates a recurrent course that included both sustained sober periods and relapse. **R**
 
-Baseline: Total score [AUDIT-C]: 10 {score}; PTSD PCL-5 score: 39 {score}; PHQ-9 total score: 9 {score}. All results are synthetic.
+Baseline: Total score [AUDIT-C]: 10 {score}; PTSD PCL-5 score [PCL-5]: 39 {score}; Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]: 9 {score}. All results are synthetic.
 
 ## Requested recommendations
 
