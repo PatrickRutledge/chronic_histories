@@ -25,6 +25,7 @@ Every generated patient artifact must display:
 ```powershell
 node scripts/generate_case_outputs.mjs pilots/HR-ET007-audie-murphy/case.json
 node scripts/generate_ccda.mjs pilots/HR-ET007-audie-murphy/case.json
+node scripts/generate_supporting_docs.mjs pilots/HR-ET007-audie-murphy/case.json
 pwsh -File scripts/validate_case.ps1 -CaseDirectory pilots/HR-ET007-audie-murphy
 ```
 

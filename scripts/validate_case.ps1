@@ -9,12 +9,16 @@ $casePath = Join-Path $CaseDirectory 'case.json'
 $schemaPath = Join-Path $repoRoot 'schema\case.schema.json'
 $fhirPath = Join-Path $CaseDirectory 'generated\fhir-bundle.json'
 $ccdaPath = Join-Path $CaseDirectory 'generated\ccda.xml'
+$notesPath = Join-Path $CaseDirectory 'generated\notes'
+$provenancePath = Join-Path $CaseDirectory 'generated\provenance.csv'
 
 foreach ($required in @($casePath, $schemaPath, $fhirPath, $ccdaPath)) {
     if (-not (Test-Path -LiteralPath $required)) {
         throw "Missing required file: $required"
     }
 }
+if (-not (Test-Path -LiteralPath $notesPath)) { throw "Missing notes directory: $notesPath" }
+if (-not (Test-Path -LiteralPath $provenancePath)) { throw "Missing provenance file: $provenancePath" }
 
 $caseText = Get-Content -Raw -LiteralPath $casePath
 if (-not ($caseText | Test-Json -SchemaFile $schemaPath)) {
@@ -80,6 +84,24 @@ if ($ccdaProblems -ne $case.clinical.problems.Count) { $errors.Add('C-CDA proble
 if ($ccdaResults -ne $case.clinical.observations.Count) { $errors.Add('C-CDA result count differs from canonical observations') }
 if ($ccdaEncounters -ne $case.clinical.encounters.Count) { $errors.Add('C-CDA encounter count differs from canonical encounters') }
 
+$noteFiles = @(Get-ChildItem -LiteralPath $notesPath -Filter '*.md' -File)
+if ($noteFiles.Count -ne 8) { $errors.Add("Expected 8 supporting documents; found $($noteFiles.Count)") }
+foreach ($noteFile in $noteFiles) {
+    $noteText = Get-Content -Raw -LiteralPath $noteFile.FullName
+    if ($noteText -notmatch [regex]::Escape($case.record_classification.banner)) { $errors.Add("Missing synthetic banner: $($noteFile.Name)") }
+    if ($noteText -notmatch [regex]::Escape($case.identity.display_name) -and $noteFile.Name -ne 'teaching-note.md') { $errors.Add("Missing patient name: $($noteFile.Name)") }
+}
+$allNoteText = ($noteFiles | ForEach-Object { Get-Content -Raw -LiteralPath $_.FullName }) -join "`n"
+foreach ($visit in $case.synthetic_episode.visit_schedule) {
+    if ($allNoteText -notmatch [regex]::Escape($visit.date)) { $errors.Add("Visit date missing from supporting documents: $($visit.date)") }
+}
+foreach ($observation in $case.clinical.observations) {
+    $expected = [string]$observation.value
+    if ($allNoteText -notmatch "\b$([regex]::Escape($expected))\b") { $errors.Add("Observation value missing from supporting documents: $($observation.id)") }
+}
+$provenanceRows = @(Import-Csv -LiteralPath $provenancePath)
+if ($provenanceRows.Count -lt ($case.claims.Count + $case.clinical.problems.Count + $case.clinical.observations.Count)) { $errors.Add('Provenance CSV has fewer rows than required core elements') }
+
 if ($errors.Count -gt 0) {
     $errors | ForEach-Object { Write-Error $_ }
     exit 1
@@ -95,5 +117,7 @@ if ($errors.Count -gt 0) {
     CcdaProblemEntries = $ccdaProblems
     CcdaResultEntries = $ccdaResults
     CcdaEncounterEntries = $ccdaEncounters
+    SupportingDocuments = $noteFiles.Count
+    ProvenanceRows = $provenanceRows.Count
     SchematronValidation = 'NOT RUN'
 } | Format-List

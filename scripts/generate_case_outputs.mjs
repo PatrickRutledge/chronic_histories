@@ -87,6 +87,18 @@ const visits = data.synthetic_episode.visit_schedule.map(visit => `
 const reviewRows = Object.entries(data.review).map(([name, review]) => `
   <tr><td>${esc(name.replaceAll("_", " "))}</td><td>${esc(review.status)}</td><td>${esc(review.notes ?? "")}</td></tr>`).join("");
 
+const supportingDocuments = [
+  ["History and physical", "notes/hp.md"],
+  ["Progress note 01", "notes/progress-01.md"],
+  ["Progress note 02", "notes/progress-02.md"],
+  ["Progress note 03", "notes/progress-03.md"],
+  ["Behavioral health referral", "notes/referral-01.md"],
+  ["Behavioral health consultation", "notes/consult-01.md"],
+  ["Patient care plan", "notes/careplan.md"],
+  ["Teaching note", "notes/teaching-note.md"],
+  ["Provenance CSV", "provenance.csv"]
+].map(([label, href]) => `<li><a href="${href}">${label}</a></li>`).join("");
+
 const html = `<!doctype html>
 <html lang="en">
 <head>
@@ -149,6 +161,7 @@ const html = `<!doctype html>
     <section><h2>Care-plan goals</h2><table><thead><tr><th>Goal</th><th>Target date</th><th>Status</th><th>Outcome</th></tr></thead><tbody>${goalRows}</tbody></table></section>
     <section><h2>Interventions</h2><table><thead><tr><th>Intervention</th><th>Status</th><th>Guideline</th></tr></thead><tbody>${interventionRows}</tbody></table></section>
     <section><h2>Planned encounters</h2><ul>${visits}</ul></section>
+    <section><h2>Supporting documents</h2><ul>${supportingDocuments}</ul></section>
     <section><h2>Sources</h2><table><thead><tr><th>ID</th><th>Source</th><th>Publisher</th><th>Type</th></tr></thead><tbody>${sourceRows}</tbody></table></section>
     <section><h2>Review status</h2><table><thead><tr><th>Review</th><th>Status</th><th>Notes</th></tr></thead><tbody>${reviewRows}</tbody></table></section>
   </main>
