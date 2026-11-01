@@ -258,5 +258,6 @@ const xml = `<?xml version="1.0" encoding="UTF-8"?>
 `;
 
 await fs.mkdir(outputDir, { recursive: true });
-await fs.writeFile(path.join(outputDir, "ccda.xml"), xml, "utf8");
+const normalizedXml = xml.replace(/[ \t]+$/gm, "");
+await fs.writeFile(path.join(outputDir, "ccda.xml"), normalizedXml, "utf8");
 console.log(JSON.stringify({ case_id: data.case_id, output: path.join(outputDir, "ccda.xml"), documentUuid }));
