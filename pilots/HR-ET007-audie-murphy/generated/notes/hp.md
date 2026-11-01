@@ -34,11 +34,13 @@ The patient identifies persistence, service, purposeful work, and willingness to
 
 PCL-5 42/80; PHQ-9 11/27. All scores are synthetic.
 
-Individual PHQ-9 item responses, including the self-harm item, have not been generated. The total score must not be treated as a substitute for an item-level safety assessment.
+BP 132/84 mmHg; pulse 78 bpm; respirations 16/min; temperature 36.8 °C; oxygen saturation 98% on room air; weight 74.8 kg; BMI 27.5 kg/m². All vital signs are synthetic.
+
+Individual PHQ-9 item responses have not been generated. A separate structured synthetic safety assessment records current ideation, intent, and plan as absent; access was reviewed and outpatient follow-up with a collaborative safety plan was selected. The PHQ-9 total is not treated as a substitute for that assessment.
 
 ## Review of systems and examination
 
-This draft does not yet contain synthetic vital signs, a complete review of systems, or a physical examination. These elements must be generated under explicit plausibility rules and clinically reviewed before release.
+Synthetic review and examination: no acute cardiopulmonary complaint; alert and fully oriented; cooperative and goal directed; anxious mood with congruent, mildly constricted affect; linear thought process; no psychosis observed. Physical examination remains intentionally limited to general appearance and recorded vital signs. **S**
 
 ## Assessment
 

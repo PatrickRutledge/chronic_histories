@@ -87,6 +87,20 @@ const resultObservations = data.clinical.observations.map((observation, index) =
       </component>`;
 }).join("");
 
+const vitalNarrative = data.clinical.vital_sign_sets.flatMap((set, setIndex) => set.measurements.map((measurement, measurementIndex) => `
+  <tr ID="vital-${setIndex + 1}-${measurementIndex + 1}"><td>${x(set.date)}</td><td>${x(measurement.display)}</td><td>${x(measurement.value)}</td><td>${x(measurement.unit)}</td><td>S</td></tr>`)).join("");
+const vitalEntries = data.clinical.vital_sign_sets.map((set, setIndex) => `
+  <entry typeCode="DRIV">
+    <organizer classCode="CLUSTER" moodCode="EVN">
+      <templateId root="2.16.840.1.113883.10.20.22.4.26" extension="2015-08-01"/>
+      <id root="${deterministicUuid(`${data.case_id}|${set.id}`)}"/>
+      <code code="46680005" codeSystem="2.16.840.1.113883.6.96" displayName="Vital signs"/>
+      <statusCode code="completed"/><effectiveTime value="${compactDate(set.date)}"/>
+      ${set.measurements.map((measurement, measurementIndex) => `<component><observation classCode="OBS" moodCode="EVN"><templateId root="2.16.840.1.113883.10.20.22.4.27" extension="2014-06-09"/><id root="${deterministicUuid(`${data.case_id}|${set.id}|${measurement.code}`)}"/><code code="${x(measurement.code)}" codeSystem="2.16.840.1.113883.6.1" displayName="${x(measurement.display)}"/><text><reference value="#vital-${setIndex + 1}-${measurementIndex + 1}"/></text><statusCode code="completed"/><effectiveTime value="${compactDate(set.date)}"/><value xsi:type="PQ" value="${x(measurement.value)}" unit="${x(measurement.unit)}"/></observation></component>`).join("")}
+    </organizer>
+  </entry>`).join("");
+const narrativeList = (items) => `<list>${items.map(item => `<item>${x(item.display)} [S]</item>`).join("")}</list>`;
+
 const encounterNarrative = data.clinical.encounters.map((encounter, index) => `
   <tr ID="encounter-${index + 1}"><td>${x(encounter.date)}</td><td>${x(encounter.display)}</td><td>${x(encounter.status)}</td><td>S</td></tr>`).join("");
 
@@ -196,8 +210,8 @@ const xml = `<?xml version="1.0" encoding="UTF-8"?>
           </entry>
         </section>
       </component>
-      ${emptySection({ templateRoot: "2.16.840.1.113883.10.20.22.2.17", extension: "2015-08-01", code: "29762-2", title: "Social History", explanation: "Not yet generated; required historical and synthetic social-history assertions remain under evidence review." })}
-      ${emptySection({ templateRoot: "2.16.840.1.113883.10.20.22.2.4.1", extension: "2015-08-01", code: "8716-3", title: "Vital Signs", explanation: "Not yet generated. Synthetic vital signs will be added only with a documented plausibility and consistency rule." })}
+      <component><section><templateId root="2.16.840.1.113883.10.20.22.2.17" extension="2015-08-01"/><code code="29762-2" codeSystem="2.16.840.1.113883.6.1" displayName="Social history Narrative"/><title>Social History</title><text>${narrativeList(data.clinical.social_history)}</text></section></component>
+      <component><section><templateId root="2.16.840.1.113883.10.20.22.2.4.1" extension="2015-08-01"/><code code="8716-3" codeSystem="2.16.840.1.113883.6.1" displayName="Vital signs"/><title>Vital Signs</title><text><table><thead><tr><th>Date</th><th>Measure</th><th>Value</th><th>Unit</th><th>Provenance</th></tr></thead><tbody>${vitalNarrative}</tbody></table></text>${vitalEntries}</section></component>
       <component>
         <section>
           <templateId root="2.16.840.1.113883.10.20.22.2.22" extension="2015-08-01"/>
@@ -225,10 +239,17 @@ const xml = `<?xml version="1.0" encoding="UTF-8"?>
       </component>
       <component>
         <section>
+          <templateId root="2.16.840.1.113883.10.20.22.2.14" extension="2014-06-09"/>
+          <code code="47420-5" codeSystem="2.16.840.1.113883.6.1" displayName="Functional status assessment note"/>
+          <title>Functional Status</title><text>${narrativeList(data.clinical.functional_status)}</text>
+        </section>
+      </component>
+      <component>
+        <section>
           <templateId root="2.16.840.1.113883.10.20.22.2.56" extension="2015-08-01"/>
           <code code="10190-7" codeSystem="2.16.840.1.113883.6.1" displayName="Mental status Narrative"/>
           <title>Mental Status</title>
-          <text><paragraph>Synthetic draft: engaged in shared decision-making, able to participate in outpatient care, and demonstrating improvement on serial symptom measures. Detailed examination remains pending clinical review.</paragraph></text>
+          <text>${narrativeList(data.clinical.mental_status)}<paragraph>Structured synthetic safety assessment on ${x(data.clinical.safety_assessment.date)}: current ideation ${x(data.clinical.safety_assessment.current_ideation)}, intent ${x(data.clinical.safety_assessment.intent)}, plan ${x(data.clinical.safety_assessment.plan)}. ${x(data.clinical.safety_assessment.disposition)} [S]</paragraph></text>
         </section>
       </component>
     </structuredBody>

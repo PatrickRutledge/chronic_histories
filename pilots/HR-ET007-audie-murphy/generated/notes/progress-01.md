@@ -15,7 +15,7 @@ The patient describes trauma-related sleep disruption and mood symptoms and elec
 
 ## Objective
 
-PCL-5 42/80; PHQ-9 11/27. All scores are synthetic. No synthetic vital signs are available in this draft.
+PCL-5 42/80; PHQ-9 11/27. All scores are synthetic. BP 132/84 mmHg; pulse 78 bpm; respirations 16/min; temperature 36.8 °C; oxygen saturation 98% on room air; weight 74.8 kg; BMI 27.5 kg/m². All vital signs are synthetic.
 
 ## Assessment
 

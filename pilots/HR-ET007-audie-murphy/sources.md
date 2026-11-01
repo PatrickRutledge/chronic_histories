@@ -18,6 +18,9 @@ Status: preliminary evidence dossier. The case is not ready for clinical generat
 6. CDC/NCHS. “ICD-10-CM Files,” FY2026. https://www.cdc.gov/nchs/icd/icd-10-cm/files.html
 7. Regenstrief Institute. “Post traumatic stress disorder checklist - civilian version DSM-5 [PCL-5],” LOINC 101697-1; total score 101698-9. https://loinc.org/101697-1/panel
 8. Regenstrief Institute. “Patient Health Questionnaire 9 item (PHQ-9) total score [Reported],” LOINC 44261-6. https://loinc.org/44261-6
+9. Regenstrief Institute. “Vital signs, weight, height, head circumference, oxygen saturation and BMI panel,” LOINC 85353-1. https://loinc.org/85353-1
+10. VA/DoD. “Clinical Practice Guideline for Assessment and Management of Patients at Risk for Suicide,” 2024. https://healthquality.va.gov/HEALTHQUALITY/guidelines/mh/srb/index.asp
+11. VA/DoD. “Clinical Practice Guideline for Management of Chronic Insomnia Disorder and Obstructive Sleep Apnea,” 2025. https://www.healthquality.va.gov/guidelines/CD/insomnia/index.asp
 
 ## Evidence gaps before clinical generation
 

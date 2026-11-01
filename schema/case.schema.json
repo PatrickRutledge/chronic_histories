@@ -244,7 +244,12 @@
         "observations",
         "procedures",
         "immunizations",
-        "encounters"
+        "encounters",
+        "vital_sign_sets",
+        "social_history",
+        "functional_status",
+        "mental_status",
+        "safety_assessment"
       ],
       "properties": {
         "problems": {
@@ -287,6 +292,90 @@
           "type": "array",
           "items": {
             "$ref": "#/$defs/clinicalElement"
+          }
+        },
+        "vital_sign_sets": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/vitalSignSet"
+          }
+        },
+        "social_history": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/clinicalElement"
+          }
+        },
+        "functional_status": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/clinicalElement"
+          }
+        },
+        "mental_status": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/clinicalElement"
+          }
+        },
+        "safety_assessment": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "id",
+            "date",
+            "current_ideation",
+            "intent",
+            "plan",
+            "access_reviewed",
+            "protective_factors",
+            "disposition",
+            "provenance"
+          ],
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "date": {
+              "type": "string",
+              "format": "date"
+            },
+            "current_ideation": {
+              "enum": [
+                "present",
+                "absent",
+                "unknown"
+              ]
+            },
+            "intent": {
+              "enum": [
+                "present",
+                "absent",
+                "unknown"
+              ]
+            },
+            "plan": {
+              "enum": [
+                "present",
+                "absent",
+                "unknown"
+              ]
+            },
+            "access_reviewed": {
+              "type": "boolean"
+            },
+            "protective_factors": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "disposition": {
+              "type": "string"
+            },
+            "provenance": {
+              "$ref": "#/$defs/provenance"
+            }
           }
         }
       }
@@ -668,6 +757,56 @@
           "type": "array",
           "items": {
             "$ref": "#/$defs/coding"
+          }
+        },
+        "provenance": {
+          "$ref": "#/$defs/provenance"
+        }
+      }
+    },
+    "vitalSignSet": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "date",
+        "measurements",
+        "provenance"
+      ],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "date": {
+          "type": "string",
+          "format": "date"
+        },
+        "measurements": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "code",
+              "display",
+              "value",
+              "unit"
+            ],
+            "properties": {
+              "code": {
+                "type": "string"
+              },
+              "display": {
+                "type": "string"
+              },
+              "value": {
+                "type": "number"
+              },
+              "unit": {
+                "type": "string"
+              }
+            }
           }
         },
         "provenance": {

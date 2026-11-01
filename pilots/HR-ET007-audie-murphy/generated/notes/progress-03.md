@@ -15,7 +15,7 @@ The patient reports improved sleep routine and better management of trauma-relat
 
 ## Objective
 
-PCL-5 24/80; PHQ-9 4/27. All scores are synthetic.
+PCL-5 24/80; PHQ-9 4/27. All scores are synthetic. BP 126/80 mmHg; pulse 72 bpm; respirations 15/min; temperature 36.6 °C; oxygen saturation 99% on room air; weight 73.9 kg; BMI 27.1 kg/m². All vital signs are synthetic.
 
 ## Assessment
 

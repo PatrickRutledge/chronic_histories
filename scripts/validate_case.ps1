@@ -62,6 +62,19 @@ foreach ($observation in $case.clinical.observations) {
     if ($observation.coding[0].code -eq '101698-9' -and ($observation.value -lt 0 -or $observation.value -gt 80)) { $errors.Add("PCL-5 out of range: $($observation.id)") }
     if ($observation.coding[0].code -eq '44261-6' -and ($observation.value -lt 0 -or $observation.value -gt 27)) { $errors.Add("PHQ-9 out of range: $($observation.id)") }
 }
+foreach ($set in $case.clinical.vital_sign_sets) {
+    $map = @{}; foreach ($measurement in $set.measurements) { $map[$measurement.code] = [double]$measurement.value }
+    foreach ($requiredCode in @('8302-2','29463-7','39156-5','8480-6','8462-4','8867-4','9279-1','8310-5','59408-5')) {
+        if (-not $map.ContainsKey($requiredCode)) { $errors.Add("Vital set $($set.id) missing LOINC $requiredCode") }
+    }
+    if ($map.ContainsKey('8302-2') -and $map.ContainsKey('29463-7') -and $map.ContainsKey('39156-5')) {
+        $calculatedBmi = $map['29463-7'] / [math]::Pow($map['8302-2'] / 100, 2)
+        if ([math]::Abs($calculatedBmi - $map['39156-5']) -gt 0.2) { $errors.Add("BMI mismatch in $($set.id)") }
+    }
+    if ($map['8480-6'] -le $map['8462-4']) { $errors.Add("Invalid blood pressure in $($set.id)") }
+    if ($map['59408-5'] -lt 70 -or $map['59408-5'] -gt 100) { $errors.Add("Invalid oxygen saturation in $($set.id)") }
+}
+if ($case.clinical.safety_assessment.provenance.evidence_grade -ne 'S') { $errors.Add('Safety assessment must be synthetic') }
 
 $fhirCounts = @{}
 foreach ($entry in $fhir.entry) {
@@ -71,7 +84,8 @@ foreach ($entry in $fhir.entry) {
 }
 if ($fhirCounts.Patient -ne 1) { $errors.Add('FHIR bundle must contain one Patient') }
 if ($fhirCounts.Condition -ne $case.clinical.problems.Count) { $errors.Add('FHIR Condition count differs from canonical problems') }
-if ($fhirCounts.Observation -ne $case.clinical.observations.Count) { $errors.Add('FHIR Observation count differs from canonical observations') }
+$expectedFhirObservations = $case.clinical.observations.Count + ($case.clinical.vital_sign_sets.measurements | Measure-Object).Count + $case.clinical.social_history.Count + $case.clinical.functional_status.Count + $case.clinical.mental_status.Count + 1
+if ($fhirCounts.Observation -ne $expectedFhirObservations) { $errors.Add("FHIR Observation count differs from canonical observations: expected $expectedFhirObservations, found $($fhirCounts.Observation)") }
 if ($fhirCounts.Encounter -ne $case.clinical.encounters.Count) { $errors.Add('FHIR Encounter count differs from canonical encounters') }
 if ($fhirCounts.Goal -ne $case.care_plan.goals.Count) { $errors.Add('FHIR Goal count differs from canonical goals') }
 
@@ -80,9 +94,12 @@ $ns.AddNamespace('cda', 'urn:hl7-org:v3')
 $ccdaProblems = $ccda.SelectNodes('//cda:section[cda:code[@code="11450-4"]]//cda:observation', $ns).Count
 $ccdaResults = $ccda.SelectNodes('//cda:section[cda:code[@code="30954-2"]]//cda:observation', $ns).Count
 $ccdaEncounters = $ccda.SelectNodes('//cda:section[cda:code[@code="46240-8"]]//cda:encounter', $ns).Count
+$ccdaVitals = $ccda.SelectNodes('//cda:section[cda:code[@code="8716-3"]]//cda:observation', $ns).Count
 if ($ccdaProblems -ne $case.clinical.problems.Count) { $errors.Add('C-CDA problem count differs from canonical problems') }
 if ($ccdaResults -ne $case.clinical.observations.Count) { $errors.Add('C-CDA result count differs from canonical observations') }
 if ($ccdaEncounters -ne $case.clinical.encounters.Count) { $errors.Add('C-CDA encounter count differs from canonical encounters') }
+$expectedVitals = ($case.clinical.vital_sign_sets.measurements | Measure-Object).Count
+if ($ccdaVitals -ne $expectedVitals) { $errors.Add("C-CDA vital-sign count differs from canonical vital signs: expected $expectedVitals, found $ccdaVitals") }
 
 $noteFiles = @(Get-ChildItem -LiteralPath $notesPath -Filter '*.md' -File)
 if ($noteFiles.Count -ne 8) { $errors.Add("Expected 8 supporting documents; found $($noteFiles.Count)") }
@@ -117,6 +134,7 @@ if ($errors.Count -gt 0) {
     CcdaProblemEntries = $ccdaProblems
     CcdaResultEntries = $ccdaResults
     CcdaEncounterEntries = $ccdaEncounters
+    CcdaVitalSignEntries = $ccdaVitals
     SupportingDocuments = $noteFiles.Count
     ProvenanceRows = $provenanceRows.Count
     SchematronValidation = 'NOT RUN'

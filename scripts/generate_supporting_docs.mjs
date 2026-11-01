@@ -26,6 +26,13 @@ const scoreLine = (date) => {
   const phq = observation("44261-6", date);
   return `PCL-5 ${pcl?.value ?? "not recorded"}/80; PHQ-9 ${phq?.value ?? "not recorded"}/27. All scores are synthetic.`;
 };
+const vitalLine = (date) => {
+  const set = data.clinical.vital_sign_sets.find(item => item.date === date);
+  if (!set) return "Vital signs not recorded.";
+  const byCode = new Map(set.measurements.map(item => [item.code, item]));
+  const value = (code) => byCode.get(code)?.value;
+  return `BP ${value("8480-6")}/${value("8462-4")} mmHg; pulse ${value("8867-4")} bpm; respirations ${value("9279-1")}/min; temperature ${value("8310-5")} °C; oxygen saturation ${value("59408-5")}% on room air; weight ${value("29463-7")} kg; BMI ${value("39156-5")} kg/m². All vital signs are synthetic.`;
+};
 const sourceClaim = (id) => data.claims.find(claim => claim.claim_id === id);
 
 const header = (title, date, author = clinician) => `# ${title}
@@ -66,11 +73,13 @@ The patient identifies persistence, service, purposeful work, and willingness to
 
 ${scoreLine(visits.get("ENC-001").date)}
 
-Individual PHQ-9 item responses, including the self-harm item, have not been generated. The total score must not be treated as a substitute for an item-level safety assessment.
+${vitalLine(visits.get("ENC-001").date)}
+
+Individual PHQ-9 item responses have not been generated. A separate structured synthetic safety assessment records current ideation, intent, and plan as absent; access was reviewed and outpatient follow-up with a collaborative safety plan was selected. The PHQ-9 total is not treated as a substitute for that assessment.
 
 ## Review of systems and examination
 
-This draft does not yet contain synthetic vital signs, a complete review of systems, or a physical examination. These elements must be generated under explicit plausibility rules and clinically reviewed before release.
+Synthetic review and examination: no acute cardiopulmonary complaint; alert and fully oriented; cooperative and goal directed; anxious mood with congruent, mildly constricted affect; linear thought process; no psychosis observed. Physical examination remains intentionally limited to general appearance and recorded vital signs. **S**
 
 ## Assessment
 
@@ -95,7 +104,7 @@ The patient describes trauma-related sleep disruption and mood symptoms and elec
 
 ## Objective
 
-${scoreLine(visits.get("ENC-001").date)} No synthetic vital signs are available in this draft.
+${scoreLine(visits.get("ENC-001").date)} ${vitalLine(visits.get("ENC-001").date)}
 
 ## Assessment
 
@@ -112,7 +121,7 @@ The patient reports using the agreed sleep routine on five to six nights per wee
 
 ## Objective
 
-${scoreLine(visits.get("ENC-002").date)} No medication change occurred because no medication regimen has been generated.
+${scoreLine(visits.get("ENC-002").date)} ${vitalLine(visits.get("ENC-002").date)} No medication change occurred because no medication regimen has been generated.
 
 ## Assessment
 
@@ -129,7 +138,7 @@ The patient reports improved sleep routine and better management of trauma-relat
 
 ## Objective
 
-${scoreLine(visits.get("ENC-003").date)}
+${scoreLine(visits.get("ENC-003").date)} ${vitalLine(visits.get("ENC-003").date)}
 
 ## Assessment
 
@@ -238,6 +247,11 @@ const provenanceRows = [
   ...data.clinical.problems.map(item => ["problem", item.id, item.display, item.provenance.evidence_grade, item.provenance.claim_ids.join("|"), item.provenance.synthetic_reason, item.status]),
   ...data.clinical.observations.map(item => ["observation", item.id, `${item.display}: ${item.value} ${item.unit}`, item.provenance.evidence_grade, item.provenance.claim_ids.join("|"), item.provenance.synthetic_reason, item.status]),
   ...data.clinical.encounters.map(item => ["encounter", item.id, `${item.date}: ${item.display}`, item.provenance.evidence_grade, item.provenance.claim_ids.join("|"), item.provenance.synthetic_reason, item.status]),
+  ...data.clinical.vital_sign_sets.flatMap(set => set.measurements.map(item => ["vital_sign", `${set.id}-${item.code}`, `${set.date}: ${item.display} ${item.value} ${item.unit}`, set.provenance.evidence_grade, "", set.provenance.synthetic_reason, "final"])),
+  ...data.clinical.social_history.map(item => ["social_history", item.id, item.display, item.provenance.evidence_grade, item.provenance.claim_ids.join("|"), item.provenance.synthetic_reason, item.status]),
+  ...data.clinical.functional_status.map(item => ["functional_status", item.id, item.display, item.provenance.evidence_grade, item.provenance.claim_ids.join("|"), item.provenance.synthetic_reason, item.status]),
+  ...data.clinical.mental_status.map(item => ["mental_status", item.id, item.display, item.provenance.evidence_grade, item.provenance.claim_ids.join("|"), item.provenance.synthetic_reason, item.status]),
+  ["safety_assessment", data.clinical.safety_assessment.id, `${data.clinical.safety_assessment.date}: ${data.clinical.safety_assessment.disposition}`, data.clinical.safety_assessment.provenance.evidence_grade, data.clinical.safety_assessment.provenance.claim_ids.join("|"), data.clinical.safety_assessment.provenance.synthetic_reason, "final"],
   ...data.care_plan.goals.map(item => ["goal", item.id, item.display, item.provenance.evidence_grade, item.provenance.claim_ids.join("|"), item.provenance.synthetic_reason, item.status]),
   ...data.care_plan.interventions.map(item => ["intervention", item.id, item.display, item.provenance.evidence_grade, item.provenance.claim_ids.join("|"), item.provenance.synthetic_reason, item.status])
 ].map(row => row.map(csv).join(",")).join("\r\n") + "\r\n";

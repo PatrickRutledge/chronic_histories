@@ -15,7 +15,7 @@ The patient reports using the agreed sleep routine on five to six nights per wee
 
 ## Objective
 
-PCL-5 31/80; PHQ-9 7/27. All scores are synthetic. No medication change occurred because no medication regimen has been generated.
+PCL-5 31/80; PHQ-9 7/27. All scores are synthetic. BP 128/82 mmHg; pulse 74 bpm; respirations 16/min; temperature 36.7 °C; oxygen saturation 98% on room air; weight 74.2 kg; BMI 27.3 kg/m². All vital signs are synthetic. No medication change occurred because no medication regimen has been generated.
 
 ## Assessment
 

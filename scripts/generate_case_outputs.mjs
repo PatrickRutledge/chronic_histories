@@ -67,6 +67,10 @@ const observationRows = data.clinical.observations.map(observation => `
     <td>${observation.coding?.map(code => `${esc(code.system)} · ${esc(code.code)}`).join("<br>") ?? ""}</td>
   </tr>`).join("") || `<tr><td colspan="5" class="muted">No observations generated.</td></tr>`;
 
+const vitalRows = data.clinical.vital_sign_sets.flatMap(set => set.measurements.map(measurement => `
+  <tr><td>${esc(set.date)}</td><td>${esc(measurement.display)}</td><td>${esc(measurement.value)} ${esc(measurement.unit)}</td><td>${esc(measurement.code)}</td><td>${provenanceBadge(set.provenance.evidence_grade)}</td></tr>`)).join("");
+const historyList = (items) => items.map(item => `<li>${provenanceBadge(item.provenance.evidence_grade)} ${esc(item.display)}</li>`).join("");
+
 const goalRows = data.care_plan.goals.map(goal => `
   <tr><td>${esc(goal.display)}</td><td>${esc(goal.target_date ?? "")}</td><td>${esc(goal.status)}</td><td>${esc(goal.outcome ?? "")}</td></tr>`).join("");
 
@@ -158,6 +162,9 @@ const html = `<!doctype html>
     <section><h2>Evidence claims</h2><p class="muted">D = documented, R = retrospective, S = synthetic.</p><table><thead><tr><th>Grade</th><th>Claim</th><th>Certainty</th><th>Sources</th></tr></thead><tbody>${claimsRows}</tbody></table></section>
     <section><h2>Modern synthetic problem list</h2><table><thead><tr><th>Grade</th><th>Problem</th><th>Clinical status</th><th>Verification</th><th>Placement</th><th>Historical claims</th></tr></thead><tbody>${problemRows}</tbody></table></section>
     <section><h2>Synthetic outcome measures</h2><table><thead><tr><th>Grade</th><th>Date</th><th>Measure</th><th>Result</th><th>Coding</th></tr></thead><tbody>${observationRows}</tbody></table></section>
+    <section><h2>Synthetic vital signs</h2><table><thead><tr><th>Date</th><th>Measure</th><th>Result</th><th>LOINC</th><th>Grade</th></tr></thead><tbody>${vitalRows}</tbody></table></section>
+    <section><h2>Social, functional, and mental status</h2><h3>Social history</h3><ul>${historyList(data.clinical.social_history)}</ul><h3>Functional status</h3><ul>${historyList(data.clinical.functional_status)}</ul><h3>Mental status</h3><ul>${historyList(data.clinical.mental_status)}</ul></section>
+    <section><h2>Structured safety assessment</h2><div class="grid"><div class="card"><div class="label">Current ideation</div>${esc(data.clinical.safety_assessment.current_ideation)}</div><div class="card"><div class="label">Intent</div>${esc(data.clinical.safety_assessment.intent)}</div><div class="card"><div class="label">Plan</div>${esc(data.clinical.safety_assessment.plan)}</div><div class="card"><div class="label">Disposition</div>${esc(data.clinical.safety_assessment.disposition)}</div></div><p class="muted">This assessment is synthetic and does not convert historical behavior into a present-day fact.</p></section>
     <section><h2>Care-plan goals</h2><table><thead><tr><th>Goal</th><th>Target date</th><th>Status</th><th>Outcome</th></tr></thead><tbody>${goalRows}</tbody></table></section>
     <section><h2>Interventions</h2><table><thead><tr><th>Intervention</th><th>Status</th><th>Guideline</th></tr></thead><tbody>${interventionRows}</tbody></table></section>
     <section><h2>Planned encounters</h2><ul>${visits}</ul></section>
@@ -237,6 +244,59 @@ for (const observation of data.clinical.observations) {
     }
   });
 }
+
+for (const set of data.clinical.vital_sign_sets) {
+  for (const measurement of set.measurements) {
+    const vitalId = slug(`${set.id}-${measurement.code}`);
+    fhirEntries.push({
+      fullUrl: `urn:uuid:${vitalId}`,
+      resource: {
+        resourceType: "Observation",
+        id: vitalId,
+        meta: { profile: ["http://hl7.org/fhir/StructureDefinition/vitalsigns"], tag: [{ system: "https://humanrecord.example.org/evidence-grade", code: "S" }] },
+        status: "final",
+        category: [{ coding: [{ system: "http://terminology.hl7.org/CodeSystem/observation-category", code: "vital-signs", display: "Vital Signs" }] }],
+        code: { coding: [{ system: "http://loinc.org", code: measurement.code, display: measurement.display }], text: measurement.display },
+        subject: { reference: patientFullUrl },
+        effectiveDateTime: set.date,
+        valueQuantity: { value: measurement.value, unit: measurement.unit, system: "http://unitsofmeasure.org", code: measurement.unit },
+        note: [{ text: "Synthetic vital sign; not a historical measurement." }]
+      }
+    });
+  }
+}
+
+for (const [category, items] of [["social-history", data.clinical.social_history], ["survey", data.clinical.functional_status], ["exam", data.clinical.mental_status]]) {
+  for (const item of items) {
+    const itemId = slug(item.id);
+    fhirEntries.push({
+      fullUrl: `urn:uuid:${itemId}`,
+      resource: {
+        resourceType: "Observation", id: itemId,
+        meta: { tag: [{ system: "https://humanrecord.example.org/evidence-grade", code: item.provenance.evidence_grade }] },
+        status: "final",
+        category: [{ coding: [{ system: "http://terminology.hl7.org/CodeSystem/observation-category", code: category }] }],
+        code: { text: item.display }, subject: { reference: patientFullUrl },
+        effectiveDateTime: data.synthetic_episode.index_date, valueString: item.display
+      }
+    });
+  }
+}
+
+const safety = data.clinical.safety_assessment;
+fhirEntries.push({
+  fullUrl: `urn:uuid:${slug(safety.id)}`,
+  resource: {
+    resourceType: "Observation", id: slug(safety.id),
+    meta: { tag: [{ system: "https://humanrecord.example.org/evidence-grade", code: safety.provenance.evidence_grade }] },
+    status: "final",
+    category: [{ coding: [{ system: "http://terminology.hl7.org/CodeSystem/observation-category", code: "survey", display: "Survey" }] }],
+    code: { text: "Structured present-day safety assessment" },
+    subject: { reference: patientFullUrl }, effectiveDateTime: safety.date,
+    valueString: `Current ideation ${safety.current_ideation}; intent ${safety.intent}; plan ${safety.plan}; access reviewed ${safety.access_reviewed}. Disposition: ${safety.disposition}.`,
+    note: [{ text: "Synthetic assessment. Historical firearm-related evidence is not represented as current behavior." }]
+  }
+});
 
 for (const goal of data.care_plan.goals) {
   const goalId = slug(goal.id);
