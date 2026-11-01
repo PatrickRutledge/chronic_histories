@@ -14,6 +14,8 @@ Every generated patient artifact must display:
 - `scripts/` — deterministic generators and validators
 - `outputs/` — editorial workbook outputs
 
+See [STATUS.md](STATUS.md) for the current decisions, completed milestones, validation results, limitations, and continuation plan.
+
 ## Evidence grades
 
 - `D` — documented in a primary or reliable source
