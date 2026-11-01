@@ -1,0 +1,778 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://humanrecord.example.org/schema/case.schema.json",
+  "title": "The Human Record canonical case",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "case_id",
+    "record_classification",
+    "identity",
+    "historical_timeline",
+    "claims",
+    "sources",
+    "synthetic_episode",
+    "clinical",
+    "care_plan",
+    "review"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "0.1.0"
+    },
+    "case_id": {
+      "type": "string",
+      "pattern": "^HR-[A-Z0-9]+$"
+    },
+    "record_classification": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "synthetic",
+        "banner",
+        "real_historical_name",
+        "public_release_status"
+      ],
+      "properties": {
+        "synthetic": {
+          "const": true
+        },
+        "banner": {
+          "const": "SYNTHETIC RECORD, NOT A REAL MEDICAL RECORD"
+        },
+        "real_historical_name": {
+          "const": true
+        },
+        "public_release_status": {
+          "enum": [
+            "draft",
+            "review",
+            "approved",
+            "withheld"
+          ]
+        }
+      }
+    },
+    "identity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "person_id",
+        "display_name",
+        "historical_dates",
+        "synthetic_identity"
+      ],
+      "properties": {
+        "person_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "display_name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "aliases": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        },
+        "sex": {
+          "enum": [
+            "female",
+            "male",
+            "intersex",
+            "unknown",
+            "not_recorded"
+          ]
+        },
+        "historical_dates": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "birth",
+            "death"
+          ],
+          "properties": {
+            "birth": {
+              "$ref": "#/$defs/historicalDateAssertion"
+            },
+            "death": {
+              "$ref": "#/$defs/historicalDateAssertion"
+            }
+          }
+        },
+        "synthetic_identity": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "mrn",
+            "date_of_birth",
+            "name_policy"
+          ],
+          "properties": {
+            "mrn": {
+              "type": "string",
+              "pattern": "^HR-[A-Z0-9-]+-SYN$"
+            },
+            "date_of_birth": {
+              "type": "string",
+              "format": "date"
+            },
+            "name_policy": {
+              "const": "real_historical_name"
+            },
+            "fictional_facility": {
+              "type": "string"
+            },
+            "fictional_primary_clinician": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "historical_timeline": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "event_id",
+          "date",
+          "summary",
+          "claim_ids"
+        ],
+        "properties": {
+          "event_id": {
+            "type": "string",
+            "pattern": "^EVT-[0-9]{4}$"
+          },
+          "date": {
+            "$ref": "#/$defs/historicalDate"
+          },
+          "summary": {
+            "type": "string",
+            "minLength": 1
+          },
+          "claim_ids": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "uniqueItems": true
+          }
+        }
+      }
+    },
+    "claims": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/claim"
+      }
+    },
+    "sources": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/source"
+      }
+    },
+    "synthetic_episode": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "calendar_frame",
+        "index_date",
+        "index_age",
+        "date_shift_policy",
+        "visit_schedule"
+      ],
+      "properties": {
+        "calendar_frame": {
+          "const": "modern_shifted"
+        },
+        "index_date": {
+          "type": "string",
+          "format": "date"
+        },
+        "index_age": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 125
+        },
+        "date_shift_policy": {
+          "const": "HR-DATE-SHIFT-1"
+        },
+        "teaching_objective": {
+          "type": "string"
+        },
+        "visit_schedule": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "encounter_id",
+              "date",
+              "purpose"
+            ],
+            "properties": {
+              "encounter_id": {
+                "type": "string"
+              },
+              "date": {
+                "type": "string",
+                "format": "date"
+              },
+              "purpose": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "clinical": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "problems",
+        "medications",
+        "allergies",
+        "observations",
+        "procedures",
+        "immunizations",
+        "encounters"
+      ],
+      "properties": {
+        "problems": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/clinicalProblem"
+          }
+        },
+        "medications": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/clinicalElement"
+          }
+        },
+        "allergies": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/clinicalElement"
+          }
+        },
+        "observations": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/clinicalElement"
+          }
+        },
+        "procedures": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/clinicalElement"
+          }
+        },
+        "immunizations": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/clinicalElement"
+          }
+        },
+        "encounters": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/clinicalElement"
+          }
+        }
+      }
+    },
+    "care_plan": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "health_concerns",
+        "goals",
+        "interventions",
+        "guidelines"
+      ],
+      "properties": {
+        "health_concerns": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/clinicalElement"
+          }
+        },
+        "goals": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/clinicalElement"
+          }
+        },
+        "interventions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/clinicalElement"
+          }
+        },
+        "guidelines": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/guideline"
+          }
+        }
+      }
+    },
+    "review": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schema_validation",
+        "clinical_review",
+        "provenance_review",
+        "safe_messaging_review"
+      ],
+      "properties": {
+        "schema_validation": {
+          "$ref": "#/$defs/reviewStatus"
+        },
+        "clinical_review": {
+          "$ref": "#/$defs/reviewStatus"
+        },
+        "provenance_review": {
+          "$ref": "#/$defs/reviewStatus"
+        },
+        "safe_messaging_review": {
+          "$ref": "#/$defs/reviewStatus"
+        }
+      }
+    }
+  },
+  "$defs": {
+    "evidenceGrade": {
+      "enum": [
+        "D",
+        "R",
+        "S"
+      ]
+    },
+    "historicalDate": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "display",
+        "precision",
+        "calendar"
+      ],
+      "properties": {
+        "iso": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "pattern": "^-?[0-9]{4,6}(-[0-9]{2}(-[0-9]{2})?)?$"
+        },
+        "display": {
+          "type": "string"
+        },
+        "precision": {
+          "enum": [
+            "day",
+            "month",
+            "year",
+            "decade",
+            "approximate",
+            "unknown"
+          ]
+        },
+        "calendar": {
+          "enum": [
+            "gregorian",
+            "julian",
+            "proleptic_gregorian",
+            "unknown"
+          ]
+        }
+      }
+    },
+    "historicalDateAssertion": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "preferred",
+        "alternatives"
+      ],
+      "properties": {
+        "preferred": {
+          "$ref": "#/$defs/historicalDate"
+        },
+        "alternatives": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "date",
+              "source_ids",
+              "resolution_status"
+            ],
+            "properties": {
+              "date": {
+                "$ref": "#/$defs/historicalDate"
+              },
+              "source_ids": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "minItems": 1
+              },
+              "resolution_status": {
+                "enum": [
+                  "preferred",
+                  "conflicting",
+                  "superseded",
+                  "unresolved"
+                ]
+              },
+              "note": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "claim": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "claim_id",
+        "statement",
+        "evidence_grade",
+        "certainty",
+        "source_links",
+        "release_status"
+      ],
+      "properties": {
+        "claim_id": {
+          "type": "string",
+          "pattern": "^CLM-[0-9]{4}$"
+        },
+        "statement": {
+          "type": "string",
+          "minLength": 1
+        },
+        "evidence_grade": {
+          "$ref": "#/$defs/evidenceGrade"
+        },
+        "certainty": {
+          "enum": [
+            "confirmed",
+            "probable",
+            "possible",
+            "disputed",
+            "synthetic"
+          ]
+        },
+        "clinical_interpretation": {
+          "type": "string"
+        },
+        "source_links": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "source_id",
+              "relationship"
+            ],
+            "properties": {
+              "source_id": {
+                "type": "string"
+              },
+              "relationship": {
+                "enum": [
+                  "supports",
+                  "disputes",
+                  "context",
+                  "derived_from"
+                ]
+              },
+              "locator": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "release_status": {
+          "enum": [
+            "draft",
+            "reviewed",
+            "approved",
+            "withheld"
+          ]
+        },
+        "sensitive_content": {
+          "type": "boolean",
+          "default": false
+        }
+      }
+    },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "source_id",
+        "title",
+        "publisher",
+        "url",
+        "source_type",
+        "accessed"
+      ],
+      "properties": {
+        "source_id": {
+          "type": "string",
+          "pattern": "^SRC-[0-9]{4}$"
+        },
+        "title": {
+          "type": "string"
+        },
+        "publisher": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string",
+          "format": "uri"
+        },
+        "source_type": {
+          "enum": [
+            "primary",
+            "government",
+            "scholarly",
+            "biography",
+            "guideline",
+            "standard",
+            "other"
+          ]
+        },
+        "published": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "accessed": {
+          "type": "string",
+          "format": "date"
+        },
+        "rights_note": {
+          "type": "string"
+        }
+      }
+    },
+    "coding": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "system",
+        "code",
+        "display"
+      ],
+      "properties": {
+        "system": {
+          "type": "string",
+          "format": "uri"
+        },
+        "version": {
+          "type": "string"
+        },
+        "code": {
+          "type": "string"
+        },
+        "display": {
+          "type": "string"
+        },
+        "validation_status": {
+          "enum": [
+            "unvalidated",
+            "validated",
+            "invalid",
+            "deprecated"
+          ]
+        },
+        "validated_on": {
+          "type": "string",
+          "format": "date"
+        }
+      }
+    },
+    "provenance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "evidence_grade",
+        "claim_ids",
+        "synthetic_reason"
+      ],
+      "properties": {
+        "evidence_grade": {
+          "$ref": "#/$defs/evidenceGrade"
+        },
+        "claim_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        },
+        "synthetic_reason": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "author": {
+          "type": "string"
+        },
+        "created": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    },
+    "clinicalElement": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": [
+        "id",
+        "display",
+        "status",
+        "provenance"
+      ],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "display": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        },
+        "coding": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/coding"
+          }
+        },
+        "provenance": {
+          "$ref": "#/$defs/provenance"
+        }
+      }
+    },
+    "clinicalProblem": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/clinicalElement"
+        },
+        {
+          "type": "object",
+          "required": [
+            "clinical_status",
+            "verification_status",
+            "problem_placement"
+          ],
+          "properties": {
+            "clinical_status": {
+              "enum": [
+                "active",
+                "resolved",
+                "inactive",
+                "remission",
+                "unknown"
+              ]
+            },
+            "verification_status": {
+              "enum": [
+                "confirmed",
+                "provisional",
+                "differential",
+                "refuted",
+                "entered-in-error"
+              ]
+            },
+            "problem_placement": {
+              "enum": [
+                "active",
+                "historical",
+                "both_with_link"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    "guideline": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "guideline_id",
+        "title",
+        "publisher",
+        "url",
+        "version_or_year"
+      ],
+      "properties": {
+        "guideline_id": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "publisher": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string",
+          "format": "uri"
+        },
+        "version_or_year": {
+          "type": "string"
+        }
+      }
+    },
+    "reviewStatus": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "status"
+      ],
+      "properties": {
+        "status": {
+          "enum": [
+            "not_started",
+            "in_progress",
+            "passed",
+            "failed",
+            "not_applicable"
+          ]
+        },
+        "reviewer": {
+          "type": "string"
+        },
+        "reviewed_on": {
+          "type": "string",
+          "format": "date"
+        },
+        "notes": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}
