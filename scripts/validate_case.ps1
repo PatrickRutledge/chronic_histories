@@ -119,6 +119,13 @@ foreach ($observation in $case.clinical.observations) {
 $provenanceRows = @(Import-Csv -LiteralPath $provenancePath)
 if ($provenanceRows.Count -lt ($case.claims.Count + $case.clinical.problems.Count + $case.clinical.observations.Count)) { $errors.Add('Provenance CSV has fewer rows than required core elements') }
 
+$supportingGeneratorText = Get-Content -Raw -LiteralPath (Join-Path $repoRoot 'scripts\generate_supporting_docs.mjs')
+foreach ($name in @($case.identity.display_name) + @($case.identity.aliases)) {
+    if ($name -and $supportingGeneratorText -match [regex]::Escape($name)) {
+        $errors.Add("Supporting-document generator contains case-specific name: $name")
+    }
+}
+
 if ($errors.Count -gt 0) {
     $errors | ForEach-Object { Write-Error $_ }
     exit 1

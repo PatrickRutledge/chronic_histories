@@ -29,4 +29,6 @@ node scripts/generate_supporting_docs.mjs pilots/HR-ET007-audie-murphy/case.json
 pwsh -File scripts/validate_case.ps1 -CaseDirectory pilots/HR-ET007-audie-murphy
 ```
 
-The generators write an HTML review page, a draft FHIR R4 collection bundle, and a draft C-CDA R2.1 CCD under the case's `generated/` directory. Draft output is not represented as US Core- or C-CDA-conformant until the relevant profile and schematron validation passes.
+The generators write an HTML review page, a draft FHIR R4 collection bundle, a draft C-CDA R2.1 CCD, eight case-driven supporting notes, and a provenance CSV under the case's `generated/` directory. Supporting notes are rendered from the canonical case rather than embedded pilot prose.
+
+Draft output is not represented as US Core- or C-CDA-conformant until the relevant profile and schematron validation passes.

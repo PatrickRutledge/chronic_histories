@@ -11,49 +11,62 @@
 
 ## Reason for visit
 
-Initial primary-care and behavioral-health assessment for persistent trauma-related symptoms and insomnia. **S**
+Primary care intake and behavioral health assessment. **S**
 
 ## Historical basis
 
-Government biographies document postwar nightmares and insomnia (**D**), depression and headaches (**D**), and a firearm-under-pillow statement with a clear safety implication (**D**). The PTSD label is a retrospective modern interpretation (**R**). This note does not claim to reproduce an authentic examination of Audie Murphy.
+- Audie Leon Murphy was born June 20, 1924. **D**
+- Murphy died May 28, 1971, in a private-plane crash near Roanoke, Virginia. **D**
+- Murphy served in World War II and became one of the most decorated United States soldiers of the war. **D**
+- Murphy was wounded in the leg during the January 26, 1945 action near Holtzwihr and was wounded three times during the war. **D**
+- Murphy experienced postwar nightmares and insomnia. **D**
+- Murphy experienced postwar depression and headaches. **D**
+- Murphy's postwar symptoms are retrospectively described as post-traumatic stress disorder. **R**
+- Murphy reported sleeping with a loaded pistol under his pillow. **D**
+
+These claims are historical evidence, not findings from a real modern examination.
 
 ## History of present illness
 
-In this synthetic modern episode, the patient reports intrusive trauma memories, disrupted sleep, heightened vigilance, low mood, and interference with daily functioning. The active PTSD and insomnia entries are provisional synthetic diagnoses created for care-plan testing. **S**
+This fictional modern episode addresses Trauma-related symptoms interfere with sleep, mood, and sense of safety. **S**
 
 ## Strengths and supports
 
-The patient identifies persistence, service, purposeful work, and willingness to engage in treatment as strengths. **S**
+- Supports: family and veteran peer connections **S**
 
 ## Medications and allergies
 
-- No medication regimen generated. The initial plan prioritizes psychotherapy and non-pharmacologic insomnia care. **S**
-- No known medication allergies reported in the synthetic episode; this requires clinical review. **S**
+- No medication regimen generated. **S**
+- No known medication allergies reported in the synthetic episode **S**
 
 ## Measurements
 
-PCL-5 42/80; PHQ-9 11/27. All scores are synthetic.
+PTSD PCL-5 score: 42 {score}; PHQ-9 total score: 11 {score}. All results are synthetic.
 
 BP 132/84 mmHg; pulse 78 bpm; respirations 16/min; temperature 36.8 °C; oxygen saturation 98% on room air; weight 74.8 kg; BMI 27.5 kg/m². All vital signs are synthetic.
 
-Individual PHQ-9 item responses have not been generated. A separate structured synthetic safety assessment records current ideation, intent, and plan as absent; access was reviewed and outpatient follow-up with a collaborative safety plan was selected. The PHQ-9 total is not treated as a substitute for that assessment.
+## Examination
 
-## Review of systems and examination
+Mental status: Alert and fully oriented; Cooperative, engaged, and goal directed; Mood anxious; affect congruent and mildly constricted; Thought process linear; no psychosis observed. Functional status: Independent in basic activities of daily living; Independent in instrumental activities of daily living; sleep symptoms impair concentration. Physical examination is intentionally limited. **S**
 
-Synthetic review and examination: no acute cardiopulmonary complaint; alert and fully oriented; cooperative and goal directed; anxious mood with congruent, mildly constricted affect; linear thought process; no psychosis observed. Physical examination remains intentionally limited to general appearance and recorded vital signs. **S**
+## Safety assessment
+
+Current ideation: absent; intent: absent; plan: absent; access reviewed: yes. Disposition: Outpatient care with collaborative safety plan and scheduled follow-up. This is synthetic and does not convert historical behavior into a current finding. **S**
 
 ## Assessment
 
-1. Provisional active post-traumatic stress disorder in the synthetic panel; linked to documented symptoms and a retrospective historical interpretation. **S linked to D/R**
-2. Provisional active chronic insomnia. **S linked to D**
-3. Safety review required because the historical record includes a firearm-related sleep statement. The synthetic care plan addresses present-day safety without reproducing methods or treating the historical statement as current behavior. **S response to D evidence**
+1. Post-traumatic stress disorder, synthetic modern panel diagnosis based on documented symptoms and retrospective interpretation; status draft. **S**
+2. Chronic insomnia; status draft. **S**
 
 ## Plan
 
-- Shared decision-making referral for individual Cognitive Processing Therapy with a trained clinician. **S**
-- Repeat PCL-5 and PHQ-9 at six and twelve weeks. **S**
-- Develop a collaborative safety and lethal-means plan using person-first, non-sensational language. **S**
-- Review sleep routine, stimulus control, and non-pharmacologic insomnia strategies before considering medication. **S**
-- Follow up in six weeks. **S**
+- Shared decision-making referral for individual Cognitive Processing Therapy with a trained behavioral health clinician. Guideline: VA/DoD Clinical Practice Guideline for Management of Posttraumatic Stress Disorder and Acute Stress Disorder (2023) **S**
+- Repeat PCL-5 and PHQ-9 at six and twelve weeks to monitor symptom change. Guideline: VA/DoD Clinical Practice Guideline for Management of Posttraumatic Stress Disorder and Acute Stress Disorder (2023) **S**
+- Create a collaborative safety and lethal-means plan without describing methods or historical weapon details in patient instructions. Guideline: VA/DoD Clinical Practice Guideline for Management of Posttraumatic Stress Disorder and Acute Stress Disorder (2023) **S**
+- Review sleep routine, stimulus control, and non-pharmacologic insomnia strategies; reassess before adding medication. Guideline: VA/DoD Clinical Practice Guideline for Management of Posttraumatic Stress Disorder and Acute Stress Disorder (2023) **S**
 
-Guideline: 2023 VA/DoD Clinical Practice Guideline for Management of PTSD and Acute Stress Disorder.
+## Guideline basis
+
+- VA/DoD Clinical Practice Guideline for Management of Posttraumatic Stress Disorder and Acute Stress Disorder (2023), United States Department of Veterans Affairs and Department of Defense
+- VA/DoD Clinical Practice Guideline for Assessment and Management of Patients at Risk for Suicide (2024), United States Department of Veterans Affairs and Department of Defense
+- VA/DoD Clinical Practice Guideline for Management of Chronic Insomnia Disorder and Obstructive Sleep Apnea (2025), United States Department of Veterans Affairs and Department of Defense

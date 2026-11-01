@@ -9,9 +9,9 @@
 - Fictional author: Elena Marquez, MD
 - Calendar frame: modern shifted
 
-## What matters to you
+## What we are working on
 
-Improve sleep, reduce the impact of trauma memories, and remain engaged in meaningful work and relationships. **S**
+- Trauma-related symptoms interfere with sleep, mood, and sense of safety **S**
 
 ## Your goals
 
@@ -21,14 +21,15 @@ Improve sleep, reduce the impact of trauma memories, and remain engaged in meani
 
 ## What we agreed to do
 
-- Shared decision-making referral for individual Cognitive Processing Therapy with a trained behavioral health clinician **S**
-- Repeat PCL-5 and PHQ-9 at six and twelve weeks to monitor symptom change **S**
-- Create a collaborative safety and lethal-means plan without describing methods or historical weapon details in patient instructions **S**
-- Review sleep routine, stimulus control, and non-pharmacologic insomnia strategies; reassess before adding medication **S**
+- Shared decision-making referral for individual Cognitive Processing Therapy with a trained behavioral health clinician. Guideline: VA/DoD Clinical Practice Guideline for Management of Posttraumatic Stress Disorder and Acute Stress Disorder (2023) **S**
+- Repeat PCL-5 and PHQ-9 at six and twelve weeks to monitor symptom change. Guideline: VA/DoD Clinical Practice Guideline for Management of Posttraumatic Stress Disorder and Acute Stress Disorder (2023) **S**
+- Create a collaborative safety and lethal-means plan without describing methods or historical weapon details in patient instructions. Guideline: VA/DoD Clinical Practice Guideline for Management of Posttraumatic Stress Disorder and Acute Stress Disorder (2023) **S**
+- Review sleep routine, stimulus control, and non-pharmacologic insomnia strategies; reassess before adding medication. Guideline: VA/DoD Clinical Practice Guideline for Management of Posttraumatic Stress Disorder and Acute Stress Disorder (2023) **S**
 
 ## Follow-up
 
-- Six-week review: 2026-08-11
-- Twelve-week review: 2026-09-30
+- 2026-06-30: Primary care intake and behavioral health assessment **S**
+- 2026-08-11: Six-week results and treatment follow-up **S**
+- 2026-09-30: Three-month care-plan review **S**
 
 This teaching document does not replace care from a qualified clinician.
