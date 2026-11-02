@@ -60,6 +60,9 @@
       "required": [
         "person_id",
         "display_name",
+        "sex",
+        "era",
+        "nationality",
         "historical_dates",
         "synthetic_identity"
       ],
@@ -87,6 +90,23 @@
             "unknown",
             "not_recorded"
           ]
+        },
+        "era": {
+          "description": "Roster era, used for dataset balance reporting.",
+          "enum": [
+            "Ancient & Classical",
+            "Renaissance & Early Modern",
+            "Enlightenment",
+            "19th Century",
+            "Early 20th Century",
+            "Mid-Late 20th Century",
+            "Not applicable"
+          ]
+        },
+        "nationality": {
+          "description": "Roster nationality, as recorded in the master roster.",
+          "type": "string",
+          "minLength": 1
         },
         "historical_dates": {
           "type": "object",

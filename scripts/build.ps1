@@ -53,4 +53,7 @@ foreach ($directory in $CaseDirectory) {
     & pwsh -NoProfile -File (Join-Path $PSScriptRoot 'validate_case.ps1') -CaseDirectory $caseDir | Out-Host
     if ($LASTEXITCODE -ne 0) { throw "Local checks failed for $caseDir" }
 }
+# The dataset manifest summarizes every pilot, so refresh it after any build.
+& node (Join-Path $PSScriptRoot 'generate_dataset_manifest.mjs') | Out-Host
+if ($LASTEXITCODE -ne 0) { throw 'generate_dataset_manifest.mjs failed' }
 Write-Host "Build succeeded for $(@($CaseDirectory).Count) case(s)."
