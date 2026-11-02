@@ -80,6 +80,9 @@ try {
     $dir = New-ControlCase 'grade' { param($c) $c.clinical.past_medical_history[2].provenance.evidence_grade = 'D' }
     Assert-Control 'history graded above its claims' (Invoke-Script $build @('-CaseDirectory', $dir)) 'graded D but its claims support R'
 
+    $dir = New-ControlCase 'future-history' { param($c) $c.clinical.past_medical_history[0].historical_date.iso = '1960-01-01' }
+    Assert-Control 'history dated after the index visit' (Invoke-Script $build @('-CaseDirectory', $dir)) 'after the true-frame index date'
+
     $dir = New-ControlCase 'synthetic-history' { param($c) $c.clinical.past_medical_history[0].provenance.evidence_grade = 'S' }
     Assert-Control 'synthetic family or past history' (Invoke-Script $build @('-CaseDirectory', $dir)) 'schema validation'
 

@@ -96,6 +96,28 @@ Current local validation:
 - Provenance rows: 75
 - CDA XSD, C-CDA R2.1 Schematron, FHIR R4, US Core 6.1.0: 0 errors (126 Schematron, 89 FHIR R4, and 95 US Core warnings)
 
+### Pilot 3: Abraham Lincoln (`HR-NI001`)
+
+Location: `pilots/HR-NI001-abraham-lincoln/`
+
+- Historical dossier with twelve graded claims from his own letters and autobiographies, NPS sources, and PubMed abstracts
+- Corrected the roster's "grief (3 of 4 sons died)": two sons died during his lifetime and are sourced
+- Chronic depression, Marfan syndrome or another marfanoid disorder, and the 1863 smallpox interpretation remain retrospective (`R`)
+- Index age 32, his January 1841 episode; past medical and family history include only events before 1841
+- First pilot with sourced family history (mother 1818, sister 1828) and an active medication
+- Modern synthetic episode: moderate major depression treated with sertraline monotherapy, chosen by shared decision-making under the 2022 VA/DoD guideline, with PHQ-9 at three visits and psychiatry consultation
+- HTML review page, FHIR bundle, C-CDA, eight notes, and provenance CSV
+
+Current validation:
+
+- JSON Schema: PASS
+- Age and dates: PASS
+- Provenance links: PASS
+- FHIR resources: 54
+- C-CDA sections: 18
+- Provenance rows: 75
+- CDA XSD, C-CDA R2.1 Schematron, FHIR R4, US Core 6.1.0: 0 errors
+
 ## Git history
 
 Major milestones, oldest to newest:
@@ -165,7 +187,7 @@ Remaining:
 - Note-to-C-CDA consistency for medications, allergies, and vital signs, beyond the current visit-date and result-value checks.
 - CI that runs the build and controls on every push.
 
-### 4. Build pilot 3: Abraham Lincoln
+### 4. Build pilot 3: Abraham Lincoln (complete)
 
 - Extract Lincoln’s roster row and provisional claims.
 - Research 3–5 reliable sources, including primary evidence where available.
@@ -174,6 +196,14 @@ Remaining:
 - Run the complete validation suite.
 
 ### 5. Conduct pilot review and revise templates
+
+Template weaknesses already seen in all three pilots, to fix after clinician review:
+
+- Progress notes repeat the full plan at every visit, so the twelve-week note still says "start" a medication. Notes need a per-visit plan and a medication-changes section.
+- The consultation note lists the consultation itself among its recommendations.
+- The H&P "Historical basis" lists every claim, including events after the index age.
+- The history of present illness capitalizes the concern mid-sentence, and scores print with their UCUM annotation, for example `14 {score}`.
+
 
 - Obtain clinical review of all three pilots.
 - Obtain independent provenance review of `D` and `R` claims.
@@ -187,6 +217,12 @@ Remaining:
 - Update the v3 workbook’s Claims Register, Sources Register, and Case Build Register.
 - Document how to produce modern-shifted and true-date distributions.
 - Add batch commands and CI validation, then begin groups of ten records.
+
+## Ideas to evaluate later
+
+These are not work instructions.
+
+- **Referral-partner roster.** A short, reusable list of specialists, therapists, and referral partners would simplify progress notes and shared records. One option is historical physicians with posterity, such as 18th- and 19th-century surgeons and specialists. Before adopting it, resolve two questions: the ground rules require fictional clinicians and facilities, and a note signed by a real person who never wrote it would misattribute words to them. Fictional partners modeled on historical specialists would avoid both.
 
 ## Resume commands
 

@@ -81,6 +81,14 @@ foreach ($item in @($case.clinical.past_medical_history) + @($case.clinical.fami
     if ($item.provenance.evidence_grade -ne $expectedGrade) { $errors.Add("$($item.id) is graded $($item.provenance.evidence_grade) but its claims support $expectedGrade") }
 }
 
+# Past medical history is history as of the index visit, so it cannot include events after
+# the true-frame index date (the index date moved back by the whole-year date shift).
+$shiftYears = ([datetime]$case.identity.synthetic_identity.date_of_birth).Year - [int]$case.identity.historical_dates.birth.preferred.iso.Substring(0, 4)
+$trueIndex = ([datetime]$case.synthetic_episode.index_date).AddYears(-$shiftYears).ToString('yyyy-MM-dd')
+foreach ($item in @($case.clinical.past_medical_history) | Where-Object { $_.historical_date.iso }) {
+    if ($item.historical_date.iso -gt $trueIndex.Substring(0, $item.historical_date.iso.Length)) { $errors.Add("$($item.id) is dated $($item.historical_date.iso), after the true-frame index date $trueIndex") }
+}
+
 # Synthetic clinical dates must sit inside the modern frame: after the synthetic birth, not after the cutoff.
 $syntheticDates = @($case.clinical.immunizations.date) + @($case.clinical.procedures.period.start) + @($case.clinical.procedures.period.end) + @($case.clinical.medications.start_date) + @($case.clinical.medications.end_date)
 foreach ($value in $syntheticDates | Where-Object { $_ }) {
