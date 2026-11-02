@@ -1,4 +1,5 @@
 import crypto from "node:crypto";
+import path from "node:path";
 
 export const deterministicUuid = (seed) => {
   const hex = crypto.createHash("sha256").update(seed).digest("hex").slice(0, 32).split("");
@@ -7,6 +8,15 @@ export const deterministicUuid = (seed) => {
   const value = hex.join("");
   return `${value.slice(0, 8)}-${value.slice(8, 12)}-${value.slice(12, 16)}-${value.slice(16, 20)}-${value.slice(20)}`;
 };
+
+// Calendar frame. A true-date case is derived from the modern one by
+// scripts/derive_true_date_case.mjs and must say that its modern content is anachronistic.
+export const isTrueDateFrame = (data) => data.synthetic_episode.calendar_frame === "true_date";
+export const frameLabel = (data) => isTrueDateFrame(data) ? "true historical dates (modern content is anachronistic)" : "modern shifted";
+export const TRUE_DATE_NOTICE = "True-date frame: synthetic events are moved into the patient's historical lifetime. Codes, instruments, and treatments remain modern and are anachronistic.";
+
+// Optional second argument: output directory. Defaults to <case directory>/generated.
+export const outputDirFor = (casePath) => process.argv[3] ? path.resolve(process.argv[3]) : path.join(path.dirname(casePath), "generated");
 
 export const splitName = (displayName) => {
   const parts = displayName.trim().split(/\s+/);

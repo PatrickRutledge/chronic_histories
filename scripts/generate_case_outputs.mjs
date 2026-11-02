@@ -1,6 +1,6 @@
 import fs from "node:fs/promises";
 import path from "node:path";
-import { NAMESPACE, ROUTES, deterministicUuid, parseClinician, splitName } from "./lib/common.mjs";
+import { NAMESPACE, ROUTES, TRUE_DATE_NOTICE, deterministicUuid, isTrueDateFrame, outputDirFor, parseClinician, splitName } from "./lib/common.mjs";
 
 const inputPath = process.argv[2];
 if (!inputPath) {
@@ -9,8 +9,7 @@ if (!inputPath) {
 }
 
 const absoluteInput = path.resolve(inputPath);
-const caseDir = path.dirname(absoluteInput);
-const outputDir = path.join(caseDir, "generated");
+const outputDir = outputDirFor(absoluteInput);
 const data = JSON.parse(await fs.readFile(absoluteInput, "utf8"));
 
 const esc = (value) => String(value ?? "")
@@ -137,7 +136,8 @@ const html = `<!doctype html>
 </head>
 <body>
   <div class="banner">${esc(data.record_classification.banner)}</div>
-  <header>
+${isTrueDateFrame(data) ? `  <div class="banner">${esc(TRUE_DATE_NOTICE)}</div>
+` : ""}  <header>
     <div>The Human Record</div>
     <h1>${esc(data.identity.display_name)}</h1>
     <div>Case ${esc(data.case_id)} · Modern EHR teaching episode · Draft for review</div>
@@ -522,7 +522,10 @@ const bundle = {
   id: `${patientId}-collection`,
   type: "collection",
   timestamp: data.clinical.problems[0]?.provenance?.created ?? `${data.synthetic_episode.index_date}T12:00:00Z`,
-  meta: { tag: [{ system: CLASSIFICATION_SYSTEM, code: "synthetic", display: "Synthetic record, not a real medical record" }] },
+  meta: { tag: [
+    { system: CLASSIFICATION_SYSTEM, code: "synthetic", display: "Synthetic record, not a real medical record" },
+    ...(isTrueDateFrame(data) ? [{ system: CLASSIFICATION_SYSTEM, code: "true-date-frame", display: TRUE_DATE_NOTICE }] : [])
+  ] },
   entry: fhirEntries
 };
 

@@ -1,6 +1,6 @@
 import fs from "node:fs/promises";
 import path from "node:path";
-import { ADMINISTRATIVE_GENDER, FICTIONAL_FACILITY_CONTACT, ROUTES, deterministicUuid, oidFor, parseClinician, splitName } from "./lib/common.mjs";
+import { ADMINISTRATIVE_GENDER, FICTIONAL_FACILITY_CONTACT, ROUTES, TRUE_DATE_NOTICE, deterministicUuid, isTrueDateFrame, oidFor, outputDirFor, parseClinician, splitName } from "./lib/common.mjs";
 
 const inputPath = process.argv[2];
 if (!inputPath) {
@@ -9,8 +9,7 @@ if (!inputPath) {
 }
 
 const absoluteInput = path.resolve(inputPath);
-const caseDir = path.dirname(absoluteInput);
-const outputDir = path.join(caseDir, "generated");
+const outputDir = outputDirFor(absoluteInput);
 const data = JSON.parse(await fs.readFile(absoluteInput, "utf8"));
 
 const x = (value) => String(value ?? "")
@@ -348,7 +347,7 @@ const xml = `<?xml version="1.0" encoding="UTF-8"?>
   <templateId root="2.16.840.1.113883.10.20.22.1.2" extension="2015-08-01"/>
   <id root="${documentUuid}"/>
   <code code="34133-9" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Summarization of Episode Note"/>
-  <title>${x(data.record_classification.banner)} — ${x(data.identity.display_name)} Synthetic CCD</title>
+  <title>${x(data.record_classification.banner)} — ${x(data.identity.display_name)} Synthetic CCD${isTrueDateFrame(data) ? ` — ${x(TRUE_DATE_NOTICE)}` : ""}</title>
   <effectiveTime value="20261101120000-0500"/>
   <confidentialityCode code="N" codeSystem="2.16.840.1.113883.5.25"/>
   <languageCode code="en-US"/>

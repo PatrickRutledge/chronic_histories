@@ -1,11 +1,11 @@
 import fs from "node:fs/promises";
 import path from "node:path";
+import { TRUE_DATE_NOTICE, frameLabel, isTrueDateFrame, outputDirFor } from "./lib/common.mjs";
 
 const inputPath = process.argv[2];
 if (!inputPath) throw new Error("Usage: node scripts/generate_supporting_docs.mjs <case.json>");
 const casePath = path.resolve(inputPath);
-const caseDir = path.dirname(casePath);
-const outputDir = path.join(caseDir, "generated");
+const outputDir = outputDirFor(casePath);
 const notesDir = path.join(outputDir, "notes");
 const data = JSON.parse(await fs.readFile(casePath, "utf8"));
 const { clinical, care_plan: care, identity } = data;
@@ -13,7 +13,7 @@ const visits = data.synthetic_episode.visit_schedule;
 const encounters = new Map(clinical.encounters.map(x => [x.id, x]));
 const evidence = x => x.provenance?.evidence_grade ?? x.evidence_grade ?? "S";
 const bullets = items => items.map(x => `- ${x.display} **${evidence(x)}**`).join("\n");
-const header = (title, date, author = identity.synthetic_identity.fictional_primary_clinician) => `# ${title}\n\n> **${data.record_classification.banner}**\n\n- Patient: ${identity.display_name} (real historical name used in a fictional teaching record)\n- Synthetic MRN: ${identity.synthetic_identity.mrn}\n- Date: ${date}\n- Fictional facility: ${identity.synthetic_identity.fictional_facility}\n- Fictional author: ${author}\n- Calendar frame: modern shifted\n\n`;
+const header = (title, date, author = identity.synthetic_identity.fictional_primary_clinician) => `# ${title}\n\n> **${data.record_classification.banner}**\n\n- Patient: ${identity.display_name} (real historical name used in a fictional teaching record)\n- Synthetic MRN: ${identity.synthetic_identity.mrn}\n- Date: ${date}\n- Fictional facility: ${identity.synthetic_identity.fictional_facility}\n- Fictional author: ${author}\n- Calendar frame: ${frameLabel(data)}\n\n${isTrueDateFrame(data) ? `> ${TRUE_DATE_NOTICE}\n\n` : ""}`;
 const results = date => {
   const rows = clinical.observations.filter(x => x.effective_date === date);
   return rows.length ? `${rows.map(x => `${x.display}: ${x.value} ${x.unit}`).join("; ")}. All results are synthetic.` : "No condition-specific results recorded.";

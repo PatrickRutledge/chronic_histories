@@ -86,6 +86,9 @@ try {
     $dir = New-ControlCase 'synthetic-history' { param($c) $c.clinical.past_medical_history[0].provenance.evidence_grade = 'S' }
     Assert-Control 'synthetic family or past history' (Invoke-Script $build @('-CaseDirectory', $dir)) 'schema validation'
 
+    $dir = New-ControlCase 'true-date' { param($c) Add-SocialText $c 'Next review 2026-12-01' }
+    Assert-Control 'modern date the true-date variant cannot shift' (Invoke-Script $build @('-CaseDirectory', $dir)) 'Unrecognized date field'
+
     if ($Conformance) {
         $dir = New-ControlCase 'ccda' $null
         [void](Invoke-Script $build @('-CaseDirectory', $dir))

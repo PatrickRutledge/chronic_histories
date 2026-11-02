@@ -33,6 +33,7 @@ This datasheet follows the structure of Gebru et al., "Datasheets for Datasets" 
 - `generated/notes/`: eight notes covering the history and physical, three progress notes, a consultation, a referral, a care plan, and a summary.
 - `generated/provenance.csv`: one row per clinical element, with its evidence grade and linked claims.
 - `sources.md` and `terminology.md`: the source list and coding notes for reviewers.
+- `generated/true-date/`: the same record with synthetic events moved into the patient's historical lifetime, with its own case ID and MRN ending in `-TD`. See [date-shifting.md](date-shifting.md).
 
 **Evidence grades.** Every clinical element carries one of three grades.
 

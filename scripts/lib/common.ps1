@@ -14,7 +14,12 @@ function Get-GeneratedFiles([string]$CaseDirectory) {
     $fixed = 'index.html', 'fhir-bundle.json', 'ccda.xml', 'provenance.csv' | ForEach-Object { "generated/$_" }
     $notes = @(Get-ChildItem -LiteralPath (Join-Path $generated 'notes') -Filter '*.md' -File -ErrorAction SilentlyContinue |
         Sort-Object Name | ForEach-Object { "generated/notes/$($_.Name)" })
-    return @($fixed) + $notes
+    # True-date variant, derived from the modern case (docs/date-shifting.md).
+    $trueDate = 'case.json', 'index.html', 'fhir-bundle.json', 'ccda.xml', 'provenance.csv' | ForEach-Object { "generated/true-date/$_" }
+    $trueDateNotes = @(Get-ChildItem -LiteralPath (Join-Path $generated 'true-date
+otes') -Filter '*.md' -File -ErrorAction SilentlyContinue |
+        Sort-Object Name | ForEach-Object { "generated/true-date/notes/$($_.Name)" })
+    return @($fixed) + $notes + $trueDate + $trueDateNotes
 }
 
 # Every case in the repository: pilots and test fixtures.

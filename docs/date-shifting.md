@@ -53,7 +53,23 @@ The canonical case stores the synthetic episode only in the modern frame. A true
 - Historical dates, including past medical history and family history, are already true and are not moved.
 - A whole-year shift is exact only when the synthetic birthday keeps the true month and day, so `validate_case.ps1` enforces that rule for day-precision birth dates.
 - Coded content stays modern. A 1964 PCL-5 score or Tdap dose is anachronistic, as the original project instruction anticipated, so the true-date distribution must be labeled as such.
-- True-date output files are not generated yet. That is part of dataset packaging.
+- Record metadata stays real: provenance timestamps, terminology validation dates, source access dates, code-system versions, and guideline years record when the dataset was made.
+- Entries graded `D` or `R` are already true and are not moved.
+- The derived case gets its own case ID and MRN with the suffix `-TD`, for example `HR-NI001-TD` and `HR-NI001-SYN-TD`, so both frames can be loaded into one system without colliding.
+- Every output carries the notice: "True-date frame: synthetic events are moved into the patient's historical lifetime. Codes, instruments, and treatments remain modern and are anachronistic." HTML shows it under the banner, notes in their header, the C-CDA in its title, and the FHIR bundle as a `meta.tag`.
+
+### Generation
+
+`scripts/build.ps1` derives the variant on every build with `scripts/derive_true_date_case.mjs` and renders it into `generated/true-date/` with the same generators. The directory holds the derived `case.json`, HTML, FHIR, C-CDA, notes, and provenance CSV, and is covered by the build manifest.
+
+The derivation fails if:
+
+- a full ISO date appears in a synthetic field it does not know how to shift, so a new date field cannot stay in the modern frame unnoticed,
+- the shifted birth date differs from the true birth date when that is known to the day,
+- a shifted visit falls after the true death date, or
+- any generated true-date file still contains one of the original modern synthetic dates.
+
+Formal C-CDA and US Core validation runs on the modern frame only. The true-date files use the same templates and differ only in dates, identifiers, and the notice.
 
 ## Historical content in modern records
 
