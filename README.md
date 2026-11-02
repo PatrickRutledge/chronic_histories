@@ -40,5 +40,5 @@ Records remain drafts until clinical and provenance review. See [docs/validation
 
 - Data and documentation: [CC BY-NC 4.0](LICENSE-DATA). Free for non-commercial use with attribution.
 - Code and schema: [MIT](LICENSE-CODE).
-- Commercial use of the data needs a license from AetherForge. See [COMMERCIAL-USE.md](COMMERCIAL-USE.md).
+- Commercial use of the data needs a license from Aether Forge. See [COMMERCIAL-USE.md](COMMERCIAL-USE.md).
 - Terminologies and cited sources stay under their owners' terms. See [NOTICE.md](NOTICE.md).

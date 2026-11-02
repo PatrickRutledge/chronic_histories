@@ -1,6 +1,6 @@
 # Commercial use
 
-The Human Record data is free for non-commercial use under [CC BY-NC 4.0](LICENSE-DATA). Commercial use needs a separate license from AetherForge. We grant commercial licenses, and we prefer arrangements that fund more records, clinical review, and tooling.
+The Human Record data is free for non-commercial use under [CC BY-NC 4.0](LICENSE-DATA). Commercial use needs a separate license from Aether Forge. We grant commercial licenses, and we prefer arrangements that fund more records, clinical review, and tooling.
 
 ## When you need a commercial license
 
@@ -26,8 +26,13 @@ Terms depend on the use. They can include a license fee, sponsorship of new reco
 
 ## Contact
 
-**AetherForge, licensing for The Human Record**
-Open an issue at <https://github.com/PatrickRutledge/chronic_histories/issues> with the title "Commercial license request". Describe the organization, the intended use, and the expected scale. Do not include confidential details in the public issue; we will move the discussion to a private channel.
+**Aether Forge**, licensing for The Human Record
+
+- Email: <NameAppliedFor@gmail.com>, subject "Commercial license request"
+- Web: <https://aetherforge.us>
+- Mail: PO Box 52, Birmingham, Alabama 35201
+
+Describe your organization, the intended use, and the expected scale. Public questions about whether a use is commercial can also go to <https://github.com/PatrickRutledge/chronic_histories/issues>.
 
 ## Code
 
@@ -35,4 +40,4 @@ The generators, validators, and schema are under the [MIT License](LICENSE-CODE)
 
 ## Contributions
 
-Dual licensing works only if AetherForge holds the rights it licenses. Contributions of data or documentation are accepted only under an agreement that allows them to be included in commercial licenses.
+Dual licensing works only if Aether Forge holds the rights it licenses. Contributions of data or documentation are accepted only under an agreement that allows them to be included in commercial licenses.

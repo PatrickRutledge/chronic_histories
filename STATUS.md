@@ -26,7 +26,7 @@ Every generated artifact must display:
   - `S`: synthetic content created for the teaching record
 - Keep contested diagnoses and recent information visible without forcing a single conclusion. Historical and active problem placement can both be used when logically appropriate.
 - Real names of deceased historical figures may appear. All clinicians, facilities, MRNs, encounters, measurements, and modern care are fictional.
-- License: data and documentation under CC BY-NC 4.0, with commercial licenses from AetherForge on request (`COMMERCIAL-USE.md`). Code and schema under MIT. Chosen so that companies that profit from the data license it and can fund further work.
+- License: data and documentation under CC BY-NC 4.0, with commercial licenses from Aether Forge on request (`COMMERCIAL-USE.md`). Code and schema under MIT. Chosen so that companies that profit from the data license it and can fund further work.
 - For recent deaths and sensitive cases, retain the stricter human-review rules in the original project instruction.
 
 ## Completed work
@@ -212,7 +212,7 @@ Template weaknesses already seen in all three pilots, to fix after clinician rev
 
 ### 6. Finish dataset-level packaging
 
-- Add the license (done: `LICENSE`, `LICENSE-DATA`, `LICENSE-CODE`, `COMMERCIAL-USE.md`, `NOTICE.md`). Still open: a private licensing contact for AetherForge, a contributor agreement before accepting outside data.
+- Add the license (done: `LICENSE`, `LICENSE-DATA`, `LICENSE-CODE`, `COMMERCIAL-USE.md`, `NOTICE.md`). Licensing contact: NameAppliedFor@gmail.com, aetherforge.us, PO Box 52, Birmingham, Alabama 35201. Still open: a contributor agreement before accepting outside data.
 - Create `manifest.csv`, a dataset datasheet, and `CHANGELOG.md`.
 - Update the v3 workbook’s Claims Register, Sources Register, and Case Build Register.
 - Document how to produce modern-shifted and true-date distributions.
