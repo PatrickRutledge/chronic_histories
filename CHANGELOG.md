@@ -13,6 +13,8 @@ A case ID is never reused for a different person.
 ### Added
 
 - True-date distribution: every build derives `generated/true-date/` for each case, with synthetic events moved into the patient's lifetime and an anachronism notice on every output.
+- `scripts/sync_workbook_registers.py` fills the workbook's Claims, Sources, and Case Build registers from the cases.
+- GitHub Actions CI: committed outputs must be current, a rebuild must match them, and the negative controls must pass.
 - Dataset packaging: `manifest.csv`, generated from the pilot cases on every build, and a [datasheet](docs/datasheet.md).
 - `identity.era` and `identity.nationality` in the case schema, both required and taken from the master roster.
 - Dual license: CC BY-NC 4.0 for data and documentation, MIT for code and schema. Commercial licenses are available from Aether Forge ([COMMERCIAL-USE.md](COMMERCIAL-USE.md)). Third-party terms are in [NOTICE.md](NOTICE.md).

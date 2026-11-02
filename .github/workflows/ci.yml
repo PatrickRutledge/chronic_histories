@@ -1,0 +1,68 @@
+# Checks every push and pull request. The scripts use Windows paths, so jobs run on Windows.
+name: CI
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+    inputs:
+      conformance:
+        description: Also run formal C-CDA and US Core validation (slow, downloads validators)
+        type: boolean
+        default: false
+
+jobs:
+  checks:
+    runs-on: windows-latest
+    defaults:
+      run:
+        shell: pwsh
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      # Committed outputs must match their case.json before anything is regenerated.
+      - name: Committed outputs are current
+        run: |
+          foreach ($dir in Get-ChildItem pilots -Directory) {
+            pwsh -NoProfile -File scripts/validate_case.ps1 -CaseDirectory $dir.FullName
+            if ($LASTEXITCODE -ne 0) { exit 1 }
+          }
+          node scripts/generate_dataset_manifest.mjs --check
+          if ($LASTEXITCODE -ne 0) { exit 1 }
+
+      - name: Build every case
+        run: pwsh -NoProfile -File scripts/build.ps1
+
+      - name: Rebuild matches the committed files
+        run: |
+          git add -A --renormalize .
+          git diff --cached --exit-code --stat
+          if ($LASTEXITCODE -ne 0) { Write-Error 'Generated files differ from the committed ones. Run scripts/build.ps1 and commit.'; exit 1 }
+
+      - name: Negative controls
+        run: pwsh -NoProfile -File scripts/run_controls.ps1
+
+  conformance:
+    if: github.event_name == 'workflow_dispatch' && inputs.conformance
+    runs-on: windows-latest
+    defaults:
+      run:
+        shell: pwsh
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 17
+      - name: Install validators
+        run: pwsh -NoProfile -File scripts/install_validators.ps1
+      - name: Build with formal validation
+        run: pwsh -NoProfile -File scripts/build.ps1 -Conformance
+      - name: Conformance controls
+        run: pwsh -NoProfile -File scripts/run_controls.ps1 -Conformance
