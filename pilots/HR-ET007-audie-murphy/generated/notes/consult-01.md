@@ -5,7 +5,7 @@
 - Patient: Audie Leon Murphy (real historical name used in a fictional teaching record)
 - Synthetic MRN: HR-ET007-SYN
 - Date: 2026-08-11
-- Fictional facility: AetherForge Veterans Health Center
+- Fictional facility: St. Posthumous Health Center
 - Fictional author: Marcus Lee, PsyD
 - Calendar frame: modern shifted
 

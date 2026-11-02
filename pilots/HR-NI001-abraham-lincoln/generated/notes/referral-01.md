@@ -5,7 +5,7 @@
 - Patient: Abraham Lincoln (real historical name used in a fictional teaching record)
 - Synthetic MRN: HR-NI001-SYN
 - Date: 2026-06-30
-- Fictional facility: AetherForge Community Health Center
+- Fictional facility: St. Posthumous Health Center
 - Fictional author: Elena Marquez, MD
 - Calendar frame: modern shifted
 
