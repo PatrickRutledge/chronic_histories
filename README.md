@@ -35,3 +35,10 @@ The build stops at the first failure. It deletes earlier outputs before generati
 The generators write an HTML review page, a draft FHIR R4 collection bundle, a draft C-CDA R2.1 CCD, eight case-driven supporting notes, and a provenance CSV under the case's `generated/` directory. Supporting notes are rendered from the canonical case rather than embedded pilot prose.
 
 Records remain drafts until clinical and provenance review. See [docs/validation.md](docs/validation.md) for formal C-CDA R2.1 and US Core validation and for what a pass does and does not establish.
+
+## License
+
+- Data and documentation: [CC BY-NC 4.0](LICENSE-DATA). Free for non-commercial use with attribution.
+- Code and schema: [MIT](LICENSE-CODE).
+- Commercial use of the data needs a license from AetherForge. See [COMMERCIAL-USE.md](COMMERCIAL-USE.md).
+- Terminologies and cited sources stay under their owners' terms. See [NOTICE.md](NOTICE.md).

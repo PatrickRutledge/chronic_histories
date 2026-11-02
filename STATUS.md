@@ -26,7 +26,7 @@ Every generated artifact must display:
   - `S`: synthetic content created for the teaching record
 - Keep contested diagnoses and recent information visible without forcing a single conclusion. Historical and active problem placement can both be used when logically appropriate.
 - Real names of deceased historical figures may appear. All clinicians, facilities, MRNs, encounters, measurements, and modern care are fictional.
-- Use a public license. CC BY 4.0 is the working recommendation, but the repository does not yet contain the final license file.
+- License: data and documentation under CC BY-NC 4.0, with commercial licenses from AetherForge on request (`COMMERCIAL-USE.md`). Code and schema under MIT. Chosen so that companies that profit from the data license it and can fund further work.
 - For recent deaths and sensitive cases, retain the stricter human-review rules in the original project instruction.
 
 ## Completed work
@@ -146,7 +146,7 @@ Major milestones, oldest to newest:
 - Human clinical, provenance, and safe-messaging reviews have not occurred. Both pilots remain drafts.
 - Primary memoir and archival verification remains incomplete for both pilots.
 - The workbook’s Case Build Register and Claims Register have not yet been updated with the completed pilot status and resolved claim decisions.
-- Dataset-level `manifest.csv`, datasheet, final license, and changelog have not been created.
+- Dataset-level `manifest.csv`, datasheet, and changelog have not been created.
 - The true-date distribution is designed (`docs/date-shifting.md`) but not yet generated.
 - Generated notes are synchronized summaries suitable for review and testing. They still need clinician review before being treated as exemplary clinical documentation.
 
@@ -212,7 +212,7 @@ Template weaknesses already seen in all three pilots, to fix after clinician rev
 
 ### 6. Finish dataset-level packaging
 
-- Add the selected public license, expected to be CC BY 4.0 unless changed.
+- Add the license (done: `LICENSE`, `LICENSE-DATA`, `LICENSE-CODE`, `COMMERCIAL-USE.md`, `NOTICE.md`). Still open: a private licensing contact for AetherForge, a contributor agreement before accepting outside data.
 - Create `manifest.csv`, a dataset datasheet, and `CHANGELOG.md`.
 - Update the v3 workbook’s Claims Register, Sources Register, and Case Build Register.
 - Document how to produce modern-shifted and true-date distributions.
