@@ -54,11 +54,43 @@
     <structuredBody>
 
 <component>
-  <section nullFlavor="NI">
+  <section>
+    <templateId root="2.16.840.1.113883.10.20.22.2.12"/>
+    <code code="29299-5" codeSystem="2.16.840.1.113883.6.1" displayName="Reason for visit"/>
+    <title>Reason for Visit</title>
+    <text><paragraph>Primary care and integrated behavioral health intake. Concerns: Alcohol use and trauma symptoms impair sleep, relationships, and reliability. [S]</paragraph></text>
+
+  </section>
+</component>
+
+<component>
+  <section>
     <templateId root="2.16.840.1.113883.10.20.22.2.6.1" extension="2015-08-01"/>
-    <code code="48765-2" codeSystem="2.16.840.1.113883.6.1"/>
+    <code code="48765-2" codeSystem="2.16.840.1.113883.6.1" displayName="Allergies and adverse reactions Document"/>
     <title>Allergies and Intolerances</title>
-    <text><paragraph>No structured allergy assertion is available in this draft. The canonical synthetic episode records no known medication allergies pending clinical review.</paragraph></text>
+    <text><table><thead><tr><th>Allergy</th><th>Reaction</th><th>Status</th><th>Evidence</th></tr></thead><tbody><tr ID="allergy-1"><td>No known allergy</td><td></td><td>active</td><td>S</td></tr></tbody></table></text>
+
+  <entry typeCode="DRIV">
+    <act classCode="ACT" moodCode="EVN">
+      <templateId root="2.16.840.1.113883.10.20.22.4.30" extension="2015-08-01"/>
+      <id root="6083209f-7a1a-4254-8ba2-5307be9d5f57"/>
+      <code code="CONC" codeSystem="2.16.840.1.113883.5.6" displayName="Concern"/>
+      <statusCode code="active"/>
+      <effectiveTime><low value="20260630"/></effectiveTime>
+      <entryRelationship typeCode="SUBJ">
+        <observation classCode="OBS" moodCode="EVN" negationInd="true">
+          <templateId root="2.16.840.1.113883.10.20.22.4.7" extension="2014-06-09"/>
+          <id root="db00d8d3-d5a4-41ed-be49-c44499d06174"/>
+          <code code="ASSERTION" codeSystem="2.16.840.1.113883.5.4"/>
+          <text><reference value="#allergy-1"/></text>
+          <statusCode code="completed"/>
+          <effectiveTime><low nullFlavor="UNK"/></effectiveTime>
+          <value xsi:type="CD" code="419199007" codeSystem="2.16.840.1.113883.6.96" displayName="Allergy to substance"/>
+          <participant typeCode="CSM"><participantRole classCode="MANU"><playingEntity classCode="MMAT"><code nullFlavor="NA"/></playingEntity></participantRole></participant>
+        </observation>
+      </entryRelationship>
+    </act>
+  </entry>
   </section>
 </component>
 
@@ -67,7 +99,118 @@
     <templateId root="2.16.840.1.113883.10.20.22.2.1.1" extension="2014-06-09"/>
     <code code="10160-0" codeSystem="2.16.840.1.113883.6.1"/>
     <title>Medications</title>
-    <text><paragraph>No medication entries are present in this synthetic record.</paragraph></text>
+    <text><paragraph>No current medications. The synthetic care plan does not include medication.</paragraph></text>
+  </section>
+</component>
+
+<component>
+  <section>
+    <templateId root="2.16.840.1.113883.10.20.22.2.7.1" extension="2014-06-09"/>
+    <code code="47519-4" codeSystem="2.16.840.1.113883.6.1" displayName="History of Procedures Document"/>
+    <title>Procedures</title>
+    <text><table><thead><tr><th>Procedure</th><th>Dates</th><th>Status</th><th>Evidence</th></tr></thead><tbody><tr ID="procedure-1"><td>Trauma-focused psychotherapy course within integrated recovery care</td><td>2026-07-07 to 2026-09-22</td><td>completed</td><td>S</td></tr></tbody></table></text>
+
+  <entry typeCode="DRIV">
+    <procedure classCode="PROC" moodCode="EVN">
+      <templateId root="2.16.840.1.113883.10.20.22.4.14" extension="2014-06-09"/>
+      <id root="42971b0f-9a2d-4db9-ba0c-04061ffa1ded"/>
+      <code code="75516001" codeSystem="2.16.840.1.113883.6.96" displayName="Psychotherapy"><originalText><reference value="#procedure-1"/></originalText></code>
+      <text><reference value="#procedure-1"/></text>
+      <statusCode code="completed"/>
+      <effectiveTime><low value="20260707"/><high value="20260922"/></effectiveTime>
+    </procedure>
+  </entry>
+  </section>
+</component>
+
+<component>
+  <section>
+    <templateId root="2.16.840.1.113883.10.20.22.2.2.1" extension="2015-08-01"/>
+    <code code="11369-6" codeSystem="2.16.840.1.113883.6.1" displayName="History of Immunization Narrative"/>
+    <title>Immunizations</title>
+    <text><table><thead><tr><th>Date</th><th>Vaccine</th><th>Status</th><th>Evidence</th></tr></thead><tbody><tr ID="immunization-1"><td>2020-05-18</td><td>Tdap vaccine</td><td>completed</td><td>S</td></tr><tr ID="immunization-2"><td>2025-10-21</td><td>Influenza vaccine, 2025-2026 season</td><td>completed</td><td>S</td></tr></tbody></table></text>
+
+  <entry typeCode="DRIV">
+    <substanceAdministration classCode="SBADM" moodCode="EVN" negationInd="false">
+      <templateId root="2.16.840.1.113883.10.20.22.4.52" extension="2015-08-01"/>
+      <id root="22b280e4-986c-4de8-a284-56508e860aa2"/>
+      <text><reference value="#immunization-1"/></text>
+      <statusCode code="completed"/>
+      <effectiveTime value="20200518"/>
+      <consumable>
+        <manufacturedProduct classCode="MANU">
+          <templateId root="2.16.840.1.113883.10.20.22.4.54" extension="2014-06-09"/>
+          <manufacturedMaterial><code code="115" codeSystem="2.16.840.1.113883.12.292" displayName="Tdap"/></manufacturedMaterial>
+        </manufacturedProduct>
+      </consumable>
+    </substanceAdministration>
+  </entry>
+  <entry typeCode="DRIV">
+    <substanceAdministration classCode="SBADM" moodCode="EVN" negationInd="false">
+      <templateId root="2.16.840.1.113883.10.20.22.4.52" extension="2015-08-01"/>
+      <id root="74cf2d2e-d68c-4113-a3f8-5730399861a2"/>
+      <text><reference value="#immunization-2"/></text>
+      <statusCode code="completed"/>
+      <effectiveTime value="20251021"/>
+      <consumable>
+        <manufacturedProduct classCode="MANU">
+          <templateId root="2.16.840.1.113883.10.20.22.4.54" extension="2014-06-09"/>
+          <manufacturedMaterial><code code="140" codeSystem="2.16.840.1.113883.12.292" displayName="Influenza, split virus, trivalent, PF"/></manufacturedMaterial>
+        </manufacturedProduct>
+      </consumable>
+    </substanceAdministration>
+  </entry>
+  </section>
+</component>
+
+<component>
+  <section>
+    <templateId root="2.16.840.1.113883.10.20.22.2.20" extension="2015-08-01"/>
+    <code code="11348-0" codeSystem="2.16.840.1.113883.6.1" displayName="History of Past illness note"/>
+    <title>Past Medical History</title>
+    <text><paragraph>Historical biography with true dates. These events are not part of the synthetic care timeline.</paragraph><table><thead><tr><th>Historical date</th><th>History</th><th>Evidence</th></tr></thead><tbody><tr><td>January 3, 1944</td><td>Shot down and held approximately 20 months as a prisoner of war; beaten, interrogated, and nearly starved during captivity</td><td>D (CLM-0004, CLM-0005)</td></tr><tr><td>Adult life</td><td>Longstanding alcohol-related impairment with periods of sobriety and later relapses</td><td>D (CLM-0006)</td></tr><tr><td>After 1945</td><td>Post-traumatic stress disorder as a retrospective interpretation of combat and captivity history; not a documented lifetime diagnosis</td><td>R (CLM-0007)</td></tr></tbody></table></text>
+
+  </section>
+</component>
+
+<component>
+  <section>
+    <templateId root="2.16.840.1.113883.10.20.22.2.15" extension="2015-08-01"/>
+    <code code="10157-6" codeSystem="2.16.840.1.113883.6.1" displayName="History of family member diseases note"/>
+    <title>Family History</title>
+    <text><paragraph>No family medical history is documented in the logged sources. Family history of real relatives is recorded only from documented or retrospective sources and is never synthesized.</paragraph></text>
+
+  </section>
+</component>
+
+<component>
+  <section>
+    <templateId root="2.16.840.1.113883.10.20.22.2.58" extension="2015-08-01"/>
+    <code code="75310-3" codeSystem="2.16.840.1.113883.6.1" displayName="Health concerns document"/>
+    <title>Health Concerns</title>
+    <text><table><thead><tr><th>Concern</th><th>Status</th><th>Evidence</th></tr></thead><tbody><tr ID="concern-1"><td>Alcohol use and trauma symptoms impair sleep, relationships, and reliability</td><td>active</td><td>S</td></tr></tbody></table></text>
+
+  <entry>
+    <act classCode="ACT" moodCode="EVN">
+      <templateId root="2.16.840.1.113883.10.20.22.4.132" extension="2015-08-01"/>
+      <id root="5c5bf933-e759-4c63-8b54-34f33b4a4bf4"/>
+      <code code="75310-3" codeSystem="2.16.840.1.113883.6.1" displayName="Health concern"/>
+      <text><reference value="#concern-1"/></text>
+      <statusCode code="active"/>
+    </act>
+  </entry>
+  </section>
+</component>
+
+<component>
+  <section>
+    <templateId root="2.16.840.1.113883.10.20.22.2.8"/>
+    <code code="51848-0" codeSystem="2.16.840.1.113883.6.1" displayName="Evaluation note"/>
+    <title>Assessment</title>
+    <text><list><item>Alcohol use disorder, synthetic modern panel diagnosis: active, provisional [S]</item><item>Post-traumatic stress disorder, synthetic diagnosis linked to retrospective interpretation: active, provisional [S]</item></list>
+<paragraph>Most recent measures: Total score [AUDIT-C] 2 on 2026-09-30; PTSD PCL-5 score [PCL-5] 23 on 2026-09-30; Patient Health Questionnaire 9 item (PHQ-9) total score [Reported] 3 on 2026-09-30 [S]</paragraph>
+<paragraph>Strengths and supports: Supports: family, veteran peers, and recovery peer group [S]</paragraph></text>
+
   </section>
 </component>
       <component>

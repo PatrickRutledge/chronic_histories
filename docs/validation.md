@@ -30,19 +30,29 @@ All versions are pinned, and `install_validators.ps1` checks each download again
 
 The FHIR Validator sends codes to the public terminology server `tx.fhir.org`. Results can shift as that server's content changes, and the run needs network access.
 
-## Correction applied to the official Schematron
+When the terminology server fails, for example by timing out on a large value set, the affected code was not checked. The runner reports these as `TerminologyUnverified`. They neither fail the record nor count as verified, and `validate_case.ps1` shows them on the conformance line. The US Core allergy-substance value set reliably times out for RxNorm penicillin.
 
-At the pinned commit, the assertion for CONF:1098-8583 (Goal Observation) has a misplaced quote:
+## Code-path test record
 
-```text
-@root='2.16.840.1.113883.10.20.22.4.121 and not(@extension)'
+`tests/fixtures/HR-TST001-code-paths/` exercises generator paths that the pilots do not use: an active medication with an indication, a drug allergy and a drug intolerance with reactions, and a coded family-history entry. It uses a fictional name with placeholder claims, so no real person acquires invented allergies or relatives. Its generated output is not committed. Run it after generator changes:
+
+```powershell
+node scripts/generate_case_outputs.mjs tests/fixtures/HR-TST001-code-paths/case.json
+node scripts/generate_ccda.mjs tests/fixtures/HR-TST001-code-paths/case.json
+node scripts/generate_supporting_docs.mjs tests/fixtures/HR-TST001-code-paths/case.json
+pwsh -File scripts/run_conformance.ps1 -CaseDirectory tests/fixtures/HR-TST001-code-paths
 ```
 
-It compares `@root` to a literal that no document can match, so every Goal Observation fails. The installer moves the quote to `@root='…4.121' and not(@extension)` in `ccda-2.1.patched.sch` and leaves the downloaded file unchanged. The correction should be reported to HL7 and removed once upstream is fixed.
+## Corrections applied to the official Schematron
+
+The installer builds `ccda-2.1.patched.sch` from the downloaded file, which it leaves unchanged, and prints each correction it makes. Both defects make rules impossible to pass, so they should be reported to HL7 and the corrections removed once upstream is fixed.
+
+1. **Misplaced quote (CONF:1098-8583, Goal Observation).** The test `@root='2.16.840.1.113883.10.20.22.4.121 and not(@extension)'` compares `@root` to a literal that no document can match. The quote is moved so the test reads `@root='…4.121' and not(@extension)`.
+2. **Version contradicted by the rule's own message (CONF:1198-30768, Health Concerns; CONF:1198-30235, template 4.108).** The 2025 errata added `not(@extension)` to these template references, but each message names a versioned template, such as `urn:hl7ii:2.16.840.1.113883.10.20.22.4.132:2015-08-01`. Only that versioned template has rules. The correction requires the extension the message names. It applies to every assertion with this contradiction, and at the pinned commit there are exactly two.
 
 ## What a pass means
 
-- **Rules only test content that exists.** Allergies and medications are `nullFlavor` sections, so their entry rules do not run. A pass means the record is valid, not that it is complete.
+- **Rules only test content that exists.** Neither pilot has medications or family-history entries, so those rules run only on the code-path test record. A pass means the record is valid, not that it is complete.
 - **Warnings are not gated.** They are mostly SHOULD-level items such as author participation, reference ranges, and interpretation codes.
 - **US Core applies only to declared profiles.** The validator ignores a profile a resource does not claim, so the runner fails if no resource declares one. Social, functional, mental-status, and safety Observations declare no US Core profile until they are coded.
 - **Base R4 runs on a temporary copy** with US Core profile references replaced, so that result is independent of US Core.

@@ -37,7 +37,25 @@ This fictional modern episode addresses Alcohol use and trauma symptoms impair s
 ## Medications and allergies
 
 - No medication regimen generated. **S**
-- No known allergies recorded; clinical review required. **S**
+- No known allergy **S**
+
+## Past medical history
+
+True biography with historical dates; these events are not part of the synthetic care timeline.
+
+- January 3, 1944: Shot down and held approximately 20 months as a prisoner of war; beaten, interrogated, and nearly starved during captivity **D** (CLM-0004, CLM-0005)
+- Adult life: Longstanding alcohol-related impairment with periods of sobriety and later relapses **D** (CLM-0006)
+- After 1945: Post-traumatic stress disorder as a retrospective interpretation of combat and captivity history; not a documented lifetime diagnosis **R** (CLM-0007)
+
+## Procedures and immunizations
+
+- 2026-07-07 to 2026-09-22: Trauma-focused psychotherapy course within integrated recovery care **S**
+- 2020-05-18: Tdap vaccine **S**
+- 2025-10-21: Influenza vaccine, 2025-2026 season **S**
+
+## Family history
+
+- No family medical history is documented in the logged sources. Family history of real relatives is never synthesized.
 
 ## Measurements
 

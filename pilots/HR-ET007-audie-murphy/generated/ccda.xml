@@ -19,7 +19,7 @@
       <addr nullFlavor="UNK"/>
       <telecom nullFlavor="UNK"/>
       <patient>
-        <name use="L"><given>Audie,Leon</given><family>Murphy</family></name>
+        <name use="L"><given>Audie</given><given>Leon</given><family>Murphy</family></name>
         <administrativeGenderCode code="M" codeSystem="2.16.840.1.113883.5.1" displayName="Male"/>
         <birthTime value="19860620"/>
         <raceCode nullFlavor="ASKU"/>
@@ -54,11 +54,43 @@
     <structuredBody>
 
 <component>
-  <section nullFlavor="NI">
+  <section>
+    <templateId root="2.16.840.1.113883.10.20.22.2.12"/>
+    <code code="29299-5" codeSystem="2.16.840.1.113883.6.1" displayName="Reason for visit"/>
+    <title>Reason for Visit</title>
+    <text><paragraph>Primary care intake and behavioral health assessment. Concerns: Trauma-related symptoms interfere with sleep, mood, and sense of safety. [S]</paragraph></text>
+
+  </section>
+</component>
+
+<component>
+  <section>
     <templateId root="2.16.840.1.113883.10.20.22.2.6.1" extension="2015-08-01"/>
-    <code code="48765-2" codeSystem="2.16.840.1.113883.6.1"/>
+    <code code="48765-2" codeSystem="2.16.840.1.113883.6.1" displayName="Allergies and adverse reactions Document"/>
     <title>Allergies and Intolerances</title>
-    <text><paragraph>No structured allergy assertion is available in this draft. The canonical synthetic episode records no known medication allergies pending clinical review.</paragraph></text>
+    <text><table><thead><tr><th>Allergy</th><th>Reaction</th><th>Status</th><th>Evidence</th></tr></thead><tbody><tr ID="allergy-1"><td>No known allergy</td><td></td><td>active</td><td>S</td></tr></tbody></table></text>
+
+  <entry typeCode="DRIV">
+    <act classCode="ACT" moodCode="EVN">
+      <templateId root="2.16.840.1.113883.10.20.22.4.30" extension="2015-08-01"/>
+      <id root="986d45e8-4871-44ec-ba28-eedca06f4f1f"/>
+      <code code="CONC" codeSystem="2.16.840.1.113883.5.6" displayName="Concern"/>
+      <statusCode code="active"/>
+      <effectiveTime><low value="20260630"/></effectiveTime>
+      <entryRelationship typeCode="SUBJ">
+        <observation classCode="OBS" moodCode="EVN" negationInd="true">
+          <templateId root="2.16.840.1.113883.10.20.22.4.7" extension="2014-06-09"/>
+          <id root="2d650517-3305-470b-8641-7b18bee47694"/>
+          <code code="ASSERTION" codeSystem="2.16.840.1.113883.5.4"/>
+          <text><reference value="#allergy-1"/></text>
+          <statusCode code="completed"/>
+          <effectiveTime><low nullFlavor="UNK"/></effectiveTime>
+          <value xsi:type="CD" code="419199007" codeSystem="2.16.840.1.113883.6.96" displayName="Allergy to substance"/>
+          <participant typeCode="CSM"><participantRole classCode="MANU"><playingEntity classCode="MMAT"><code nullFlavor="NA"/></playingEntity></participantRole></participant>
+        </observation>
+      </entryRelationship>
+    </act>
+  </entry>
   </section>
 </component>
 
@@ -67,7 +99,118 @@
     <templateId root="2.16.840.1.113883.10.20.22.2.1.1" extension="2014-06-09"/>
     <code code="10160-0" codeSystem="2.16.840.1.113883.6.1"/>
     <title>Medications</title>
-    <text><paragraph>No medication entries are present in this synthetic record.</paragraph></text>
+    <text><paragraph>No current medications. The synthetic care plan does not include medication.</paragraph></text>
+  </section>
+</component>
+
+<component>
+  <section>
+    <templateId root="2.16.840.1.113883.10.20.22.2.7.1" extension="2014-06-09"/>
+    <code code="47519-4" codeSystem="2.16.840.1.113883.6.1" displayName="History of Procedures Document"/>
+    <title>Procedures</title>
+    <text><table><thead><tr><th>Procedure</th><th>Dates</th><th>Status</th><th>Evidence</th></tr></thead><tbody><tr ID="procedure-1"><td>Individual Cognitive Processing Therapy course</td><td>2026-07-07 to 2026-09-22</td><td>completed</td><td>S</td></tr></tbody></table></text>
+
+  <entry typeCode="DRIV">
+    <procedure classCode="PROC" moodCode="EVN">
+      <templateId root="2.16.840.1.113883.10.20.22.4.14" extension="2014-06-09"/>
+      <id root="46fb433c-2a86-460d-becf-112c4ff87245"/>
+      <code code="228557008" codeSystem="2.16.840.1.113883.6.96" displayName="Cognitive and behavioral therapy"><originalText><reference value="#procedure-1"/></originalText></code>
+      <text><reference value="#procedure-1"/></text>
+      <statusCode code="completed"/>
+      <effectiveTime><low value="20260707"/><high value="20260922"/></effectiveTime>
+    </procedure>
+  </entry>
+  </section>
+</component>
+
+<component>
+  <section>
+    <templateId root="2.16.840.1.113883.10.20.22.2.2.1" extension="2015-08-01"/>
+    <code code="11369-6" codeSystem="2.16.840.1.113883.6.1" displayName="History of Immunization Narrative"/>
+    <title>Immunizations</title>
+    <text><table><thead><tr><th>Date</th><th>Vaccine</th><th>Status</th><th>Evidence</th></tr></thead><tbody><tr ID="immunization-1"><td>2021-03-15</td><td>Tdap vaccine</td><td>completed</td><td>S</td></tr><tr ID="immunization-2"><td>2025-10-14</td><td>Influenza vaccine, 2025-2026 season</td><td>completed</td><td>S</td></tr></tbody></table></text>
+
+  <entry typeCode="DRIV">
+    <substanceAdministration classCode="SBADM" moodCode="EVN" negationInd="false">
+      <templateId root="2.16.840.1.113883.10.20.22.4.52" extension="2015-08-01"/>
+      <id root="ad6651e5-3d40-4e10-a5b9-5ad0907e2d3a"/>
+      <text><reference value="#immunization-1"/></text>
+      <statusCode code="completed"/>
+      <effectiveTime value="20210315"/>
+      <consumable>
+        <manufacturedProduct classCode="MANU">
+          <templateId root="2.16.840.1.113883.10.20.22.4.54" extension="2014-06-09"/>
+          <manufacturedMaterial><code code="115" codeSystem="2.16.840.1.113883.12.292" displayName="Tdap"/></manufacturedMaterial>
+        </manufacturedProduct>
+      </consumable>
+    </substanceAdministration>
+  </entry>
+  <entry typeCode="DRIV">
+    <substanceAdministration classCode="SBADM" moodCode="EVN" negationInd="false">
+      <templateId root="2.16.840.1.113883.10.20.22.4.52" extension="2015-08-01"/>
+      <id root="7aedc823-9858-40b4-b6ed-c94e8f022481"/>
+      <text><reference value="#immunization-2"/></text>
+      <statusCode code="completed"/>
+      <effectiveTime value="20251014"/>
+      <consumable>
+        <manufacturedProduct classCode="MANU">
+          <templateId root="2.16.840.1.113883.10.20.22.4.54" extension="2014-06-09"/>
+          <manufacturedMaterial><code code="140" codeSystem="2.16.840.1.113883.12.292" displayName="Influenza, split virus, trivalent, PF"/></manufacturedMaterial>
+        </manufacturedProduct>
+      </consumable>
+    </substanceAdministration>
+  </entry>
+  </section>
+</component>
+
+<component>
+  <section>
+    <templateId root="2.16.840.1.113883.10.20.22.2.20" extension="2015-08-01"/>
+    <code code="11348-0" codeSystem="2.16.840.1.113883.6.1" displayName="History of Past illness note"/>
+    <title>Past Medical History</title>
+    <text><paragraph>Historical biography with true dates. These events are not part of the synthetic care timeline.</paragraph><table><thead><tr><th>Historical date</th><th>History</th><th>Evidence</th></tr></thead><tbody><tr><td>January 26, 1945</td><td>Combat leg wound in the action near Holtzwihr; wounded three times during the war</td><td>D (CLM-0004)</td></tr><tr><td>Postwar years</td><td>Postwar nightmares, insomnia, depression, and headaches</td><td>D (CLM-0005, CLM-0006)</td></tr><tr><td>Postwar years</td><td>Postwar symptoms retrospectively described as post-traumatic stress disorder</td><td>R (CLM-0007)</td></tr></tbody></table></text>
+
+  </section>
+</component>
+
+<component>
+  <section>
+    <templateId root="2.16.840.1.113883.10.20.22.2.15" extension="2015-08-01"/>
+    <code code="10157-6" codeSystem="2.16.840.1.113883.6.1" displayName="History of family member diseases note"/>
+    <title>Family History</title>
+    <text><paragraph>No family medical history is documented in the logged sources. Family history of real relatives is recorded only from documented or retrospective sources and is never synthesized.</paragraph></text>
+
+  </section>
+</component>
+
+<component>
+  <section>
+    <templateId root="2.16.840.1.113883.10.20.22.2.58" extension="2015-08-01"/>
+    <code code="75310-3" codeSystem="2.16.840.1.113883.6.1" displayName="Health concerns document"/>
+    <title>Health Concerns</title>
+    <text><table><thead><tr><th>Concern</th><th>Status</th><th>Evidence</th></tr></thead><tbody><tr ID="concern-1"><td>Trauma-related symptoms interfere with sleep, mood, and sense of safety</td><td>active</td><td>S</td></tr></tbody></table></text>
+
+  <entry>
+    <act classCode="ACT" moodCode="EVN">
+      <templateId root="2.16.840.1.113883.10.20.22.4.132" extension="2015-08-01"/>
+      <id root="0a1f8734-e5ac-4e98-b5e3-ebda2066591a"/>
+      <code code="75310-3" codeSystem="2.16.840.1.113883.6.1" displayName="Health concern"/>
+      <text><reference value="#concern-1"/></text>
+      <statusCode code="active"/>
+    </act>
+  </entry>
+  </section>
+</component>
+
+<component>
+  <section>
+    <templateId root="2.16.840.1.113883.10.20.22.2.8"/>
+    <code code="51848-0" codeSystem="2.16.840.1.113883.6.1" displayName="Evaluation note"/>
+    <title>Assessment</title>
+    <text><list><item>Post-traumatic stress disorder, synthetic modern panel diagnosis based on documented symptoms and retrospective interpretation: active, provisional [S]</item><item>Chronic insomnia: active, provisional [S]</item></list>
+<paragraph>Most recent measures: PTSD PCL-5 score 24 on 2026-09-30; PHQ-9 total score 4 on 2026-09-30 [S]</paragraph>
+<paragraph>Strengths and supports: Supports: family and veteran peer connections [S]</paragraph></text>
+
   </section>
 </component>
       <component>

@@ -43,3 +43,18 @@ all synthetic encounter dates <= publication cutoff
 - Planned visits: 2026-06-30, 2026-08-11, and 2026-09-30
 
 The shifted date is an EHR-testing value, not a claim about Murphy's life.
+
+## True-date distribution
+
+The canonical case stores the synthetic episode only in the modern frame. A true-date distribution is derived from it, not stored separately.
+
+- Offset in whole years: `shift = synthetic_birth_year - true_birth_year`. Murphy's is 62, so the index visit 2026-06-30 becomes 1964-06-30 at the same age of 40.
+- Every synthetic date moves back by `shift` years with month and day unchanged. February 29 maps to February 28 in a non-leap target year.
+- Historical dates, including past medical history and family history, are already true and are not moved.
+- A whole-year shift is exact only when the synthetic birthday keeps the true month and day, so `validate_case.ps1` enforces that rule for day-precision birth dates.
+- Coded content stays modern. A 1964 PCL-5 score or Tdap dose is anachronistic, as the original project instruction anticipated, so the true-date distribution must be labeled as such.
+- True-date output files are not generated yet. That is part of dataset packaging.
+
+## Historical content in modern records
+
+Past medical history and family history describe the real person and real relatives. They carry their true historical dates in narrative form and must be graded `D` or `R` with linked claims. They are never synthesized, and their dates never enter coded entries in the modern frame.

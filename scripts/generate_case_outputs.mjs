@@ -1,6 +1,6 @@
 import fs from "node:fs/promises";
 import path from "node:path";
-import { NAMESPACE, deterministicUuid, splitName } from "./lib/common.mjs";
+import { NAMESPACE, ROUTES, deterministicUuid, parseClinician, splitName } from "./lib/common.mjs";
 
 const inputPath = process.argv[2];
 if (!inputPath) {
@@ -166,6 +166,9 @@ const html = `<!doctype html>
     <section><h2>Synthetic vital signs</h2><table><thead><tr><th>Date</th><th>Measure</th><th>Result</th><th>LOINC</th><th>Grade</th></tr></thead><tbody>${vitalRows}</tbody></table></section>
     <section><h2>Social, functional, and mental status</h2><h3>Social history</h3><ul>${historyList(data.clinical.social_history)}</ul><h3>Functional status</h3><ul>${historyList(data.clinical.functional_status)}</ul><h3>Mental status</h3><ul>${historyList(data.clinical.mental_status)}</ul></section>
     <section><h2>Structured safety assessment</h2><div class="grid"><div class="card"><div class="label">Current ideation</div>${esc(data.clinical.safety_assessment.current_ideation)}</div><div class="card"><div class="label">Intent</div>${esc(data.clinical.safety_assessment.intent)}</div><div class="card"><div class="label">Plan</div>${esc(data.clinical.safety_assessment.plan)}</div><div class="card"><div class="label">Disposition</div>${esc(data.clinical.safety_assessment.disposition)}</div></div><p class="muted">This assessment is synthetic and does not convert historical behavior into a present-day fact.</p></section>
+    <section><h2>Allergies and medications</h2><h3>Allergies</h3><ul>${historyList(data.clinical.allergies)}</ul><h3>Medications</h3>${data.clinical.medications.length ? `<ul>${historyList(data.clinical.medications)}</ul>` : `<p class="muted">No current medications.</p>`}</section>
+    <section><h2>Procedures and immunizations</h2><h3>Procedures</h3><ul>${historyList(data.clinical.procedures)}</ul><h3>Immunizations</h3><ul>${data.clinical.immunizations.map(item => `<li>${provenanceBadge(item.provenance.evidence_grade)} ${esc(item.date)}: ${esc(item.display)}</li>`).join("")}</ul></section>
+    <section><h2>Past medical history</h2><p class="muted">True biography with historical dates; not part of the synthetic care timeline.</p><ul>${data.clinical.past_medical_history.map(item => `<li>${provenanceBadge(item.provenance.evidence_grade)} ${esc(item.historical_date.display)}: ${esc(item.display)} <span class="muted">(${item.provenance.claim_ids.map(esc).join(", ")})</span></li>`).join("")}</ul><h3>Family history</h3>${data.clinical.family_history.length ? `<ul>${data.clinical.family_history.map(item => `<li>${provenanceBadge(item.provenance.evidence_grade)} ${esc(item.relationship.display)}: ${esc(item.condition)}</li>`).join("")}</ul>` : `<p class="muted">No family medical history is documented in the logged sources. Family history of real relatives is never synthesized.</p>`}</section>
     <section><h2>Care-plan goals</h2><table><thead><tr><th>Goal</th><th>Target date</th><th>Status</th><th>Outcome</th></tr></thead><tbody>${goalRows}</tbody></table></section>
     <section><h2>Interventions</h2><table><thead><tr><th>Intervention</th><th>Status</th><th>Guideline</th></tr></thead><tbody>${interventionRows}</tbody></table></section>
     <section><h2>Planned encounters</h2><ul>${visits}</ul></section>
@@ -185,6 +188,9 @@ const urn = (localId) => `urn:uuid:${deterministicUuid(`${data.case_id}|fhir|${l
 // The version is dropped too: terminology servers cannot check a code pinned to a release they lack.
 const fhirCoding = ({ system, code, display }) => ({ system, code, display });
 const humanName = splitName(data.identity.display_name);
+const clinician = parseClinician(data.identity.synthetic_identity.fictional_primary_clinician);
+const practitionerFullUrl = urn("primary-clinician");
+const tagged = (profile, item) => ({ ...(profile ? { profile: [`${US_CORE}/${profile}`] } : {}), tag: [{ system: GRADE_SYSTEM, code: item.provenance.evidence_grade }] });
 const carePlanNarrative = {
   status: "generated",
   div: `<div xmlns="http://www.w3.org/1999/xhtml"><p>${esc(data.record_classification.banner)}</p><ul>${data.care_plan.interventions.map(item => `<li>${esc(item.display)}</li>`).join("")}</ul></div>`
@@ -233,6 +239,133 @@ for (const problem of data.clinical.problems) {
   };
   if (problem.coding?.length) resource.code.coding = problem.coding.map(fhirCoding);
   fhirEntries.push({ fullUrl: urn(conditionId), resource });
+}
+
+for (const concern of data.care_plan.health_concerns) {
+  const concernId = slug(concern.id);
+  fhirEntries.push({
+    fullUrl: urn(concernId),
+    resource: {
+      resourceType: "Condition",
+      id: concernId,
+      meta: tagged("us-core-condition-problems-health-concerns", concern),
+      clinicalStatus: { coding: [{ system: "http://terminology.hl7.org/CodeSystem/condition-clinical", code: concern.status === "active" ? "active" : "resolved" }] },
+      category: [{ coding: [{ system: "http://hl7.org/fhir/us/core/CodeSystem/condition-category", code: "health-concern", display: "Health Concern" }] }],
+      code: { text: concern.display },
+      subject: { reference: patientFullUrl },
+      recordedDate: data.synthetic_episode.index_date
+    }
+  });
+}
+
+fhirEntries.push({
+  fullUrl: practitionerFullUrl,
+  resource: {
+    resourceType: "Practitioner",
+    id: "primary-clinician",
+    meta: { profile: [`${US_CORE}/us-core-practitioner`], tag: [{ system: CLASSIFICATION_SYSTEM, code: "synthetic", display: "Fictional clinician" }] },
+    identifier: [{ system: `${NAMESPACE}/clinician`, value: slug(data.identity.synthetic_identity.fictional_primary_clinician) }],
+    name: [{ family: clinician.family, given: clinician.given, suffix: clinician.suffix ? [clinician.suffix] : undefined }]
+  }
+});
+
+for (const allergy of data.clinical.allergies) {
+  const allergyId = slug(allergy.id);
+  fhirEntries.push({
+    fullUrl: urn(allergyId),
+    resource: {
+      resourceType: "AllergyIntolerance",
+      id: allergyId,
+      meta: tagged("us-core-allergyintolerance", allergy),
+      clinicalStatus: { coding: [{ system: "http://terminology.hl7.org/CodeSystem/allergyintolerance-clinical", code: allergy.status }] },
+      verificationStatus: { coding: [{ system: "http://terminology.hl7.org/CodeSystem/allergyintolerance-verification", code: "confirmed" }] },
+      ...(allergy.assertion === "no_known_allergy" ? {} : { type: allergy.assertion }),
+      ...(allergy.criticality ? { criticality: allergy.criticality } : {}),
+      code: { coding: [fhirCoding(allergy.substance)], text: allergy.display },
+      patient: { reference: patientFullUrl },
+      recordedDate: data.synthetic_episode.index_date,
+      ...(allergy.reaction ? { reaction: [{ manifestation: [{ coding: [fhirCoding(allergy.reaction)], text: allergy.reaction.display }] }] } : {})
+    }
+  });
+}
+
+for (const medication of data.clinical.medications) {
+  const medicationId = slug(medication.id);
+  const route = ROUTES[medication.route];
+  fhirEntries.push({
+    fullUrl: urn(medicationId),
+    resource: {
+      resourceType: "MedicationRequest",
+      id: medicationId,
+      meta: tagged("us-core-medicationrequest", medication),
+      status: medication.status,
+      intent: "order",
+      reportedBoolean: false,
+      medicationCodeableConcept: { coding: medication.coding.map(fhirCoding), text: medication.display },
+      subject: { reference: patientFullUrl },
+      authoredOn: medication.start_date,
+      requester: { reference: practitionerFullUrl },
+      reasonReference: medication.indication_problem_ids.map(problemId => ({ reference: urn(slug(problemId)) })),
+      dosageInstruction: [{
+        text: medication.frequency.text,
+        timing: { repeat: { frequency: 1, period: medication.frequency.period, periodUnit: medication.frequency.period_unit, boundsPeriod: { start: medication.start_date, ...(medication.end_date ? { end: medication.end_date } : {}) } } },
+        route: { coding: [{ system: "http://snomed.info/sct", code: route.snomed, display: route.display }] },
+        doseAndRate: [{ doseQuantity: { value: medication.dose.value, unit: medication.dose.unit, system: "http://unitsofmeasure.org", code: medication.dose.unit } }]
+      }]
+    }
+  });
+}
+
+for (const procedure of data.clinical.procedures) {
+  const procedureId = slug(procedure.id);
+  fhirEntries.push({
+    fullUrl: urn(procedureId),
+    resource: {
+      resourceType: "Procedure",
+      id: procedureId,
+      meta: tagged("us-core-procedure", procedure),
+      status: procedure.status,
+      code: { coding: procedure.coding.map(fhirCoding), text: procedure.display },
+      subject: { reference: patientFullUrl },
+      performedPeriod: procedure.period
+    }
+  });
+}
+
+for (const immunization of data.clinical.immunizations) {
+  const immunizationId = slug(immunization.id);
+  fhirEntries.push({
+    fullUrl: urn(immunizationId),
+    resource: {
+      resourceType: "Immunization",
+      id: immunizationId,
+      meta: tagged("us-core-immunization", immunization),
+      status: immunization.status,
+      vaccineCode: { coding: immunization.coding.map(fhirCoding), text: immunization.display },
+      patient: { reference: patientFullUrl },
+      occurrenceDateTime: immunization.date,
+      primarySource: false
+    }
+  });
+}
+
+// Family history of real relatives carries D or R provenance; US Core defines no profile.
+for (const item of data.clinical.family_history) {
+  const itemId = slug(item.id);
+  fhirEntries.push({
+    fullUrl: urn(itemId),
+    resource: {
+      resourceType: "FamilyMemberHistory",
+      id: itemId,
+      meta: tagged(null, item),
+      status: "completed",
+      patient: { reference: patientFullUrl },
+      relationship: { coding: [fhirCoding(item.relationship)], text: item.relationship.display },
+      ...(item.age_at_death !== undefined ? { deceasedAge: { value: item.age_at_death, unit: "a", system: "http://unitsofmeasure.org", code: "a" } } : {}),
+      condition: [{ code: { ...(item.condition_coding?.length ? { coding: item.condition_coding.map(fhirCoding) } : {}), text: item.condition } }],
+      note: [{ text: `Evidence grade ${item.provenance.evidence_grade}; claims ${item.provenance.claim_ids.join(", ")}.` }]
+    }
+  });
 }
 
 for (const encounter of data.clinical.encounters) {

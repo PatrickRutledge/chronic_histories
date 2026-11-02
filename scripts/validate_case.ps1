@@ -54,6 +54,29 @@ if ($indexDate -lt $dob.AddYears($age)) { $age-- }
 if ($age -ne $case.synthetic_episode.index_age) { $errors.Add("Index age mismatch: calculated $age") }
 if ($dob -lt [datetime]'1901-01-01') { $errors.Add('Synthetic DOB is before 1901-01-01') }
 
+# Historical items: D only when every linked claim is D, R when any is R; never S.
+$claimGrade = @{}; foreach ($claim in $case.claims) { $claimGrade[$claim.claim_id] = $claim.evidence_grade }
+foreach ($item in @($case.clinical.past_medical_history) + @($case.clinical.family_history)) {
+    $grades = @($item.provenance.claim_ids | ForEach-Object { $claimGrade[$_] })
+    if ($grades -contains $null) { $errors.Add("$($item.id) links a missing claim") }
+    $expectedGrade = if ($grades -contains 'R' -or $grades -contains 'S') { 'R' } else { 'D' }
+    if ($item.provenance.evidence_grade -ne $expectedGrade) { $errors.Add("$($item.id) is graded $($item.provenance.evidence_grade) but its claims support $expectedGrade") }
+}
+
+# Synthetic clinical dates must sit inside the modern frame: after the synthetic birth, not after the cutoff.
+$syntheticDates = @($case.clinical.immunizations.date) + @($case.clinical.procedures.period.start) + @($case.clinical.procedures.period.end) + @($case.clinical.medications.start_date) + @($case.clinical.medications.end_date)
+foreach ($value in $syntheticDates | Where-Object { $_ }) {
+    if ([datetime]$value -lt $dob -or [datetime]$value -gt [datetime]'2026-11-01') { $errors.Add("Synthetic date outside the modern frame: $value") }
+}
+
+# The true-date distribution shifts the episode by whole years, so the synthetic birthday must keep the true month and day.
+$trueBirth = $case.identity.historical_dates.birth.preferred
+if ($trueBirth.precision -eq 'day') {
+    $trueDob = [datetime]$trueBirth.iso
+    $leapAdjusted = $trueDob.Month -eq 2 -and $trueDob.Day -eq 29 -and $dob.Month -eq 2 -and $dob.Day -eq 28
+    if (($trueDob.Month -ne $dob.Month -or $trueDob.Day -ne $dob.Day) -and -not $leapAdjusted) { $errors.Add('Synthetic date of birth does not keep the true month and day') }
+}
+
 foreach ($visit in $case.synthetic_episode.visit_schedule) {
     if ([datetime]$visit.date -gt [datetime]'2026-11-01') { $errors.Add("Future visit: $($visit.date)") }
 }
@@ -83,7 +106,11 @@ foreach ($entry in $fhir.entry) {
     $fhirCounts[$type]++
 }
 if ($fhirCounts.Patient -ne 1) { $errors.Add('FHIR bundle must contain one Patient') }
-if ($fhirCounts.Condition -ne $case.clinical.problems.Count) { $errors.Add('FHIR Condition count differs from canonical problems') }
+if ($fhirCounts.Condition -ne ($case.clinical.problems.Count + $case.care_plan.health_concerns.Count)) { $errors.Add('FHIR Condition count differs from canonical problems and health concerns') }
+foreach ($pair in @(@('AllergyIntolerance', 'allergies'), @('MedicationRequest', 'medications'), @('Procedure', 'procedures'), @('Immunization', 'immunizations'), @('FamilyMemberHistory', 'family_history'))) {
+    $expected = @($case.clinical.($pair[1])).Count
+    if ([int]$fhirCounts[$pair[0]] -ne $expected) { $errors.Add("FHIR $($pair[0]) count $([int]$fhirCounts[$pair[0]]) differs from canonical $($pair[1]) $expected") }
+}
 $bloodPressureMerged = @($case.clinical.vital_sign_sets.measurements | Where-Object { $_.code -eq '8462-4' }).Count
 $expectedFhirObservations = $case.clinical.observations.Count + ($case.clinical.vital_sign_sets.measurements | Measure-Object).Count - $bloodPressureMerged + $case.clinical.social_history.Count + $case.clinical.functional_status.Count + $case.clinical.mental_status.Count + 1
 if ($fhirCounts.Observation -ne $expectedFhirObservations) { $errors.Add("FHIR Observation count differs from canonical observations: expected $expectedFhirObservations, found $($fhirCounts.Observation)") }
@@ -96,6 +123,27 @@ $ccdaProblems = $ccda.SelectNodes('//cda:section[cda:code[@code="11450-4"]]//cda
 $ccdaResults = $ccda.SelectNodes('//cda:section[cda:code[@code="30954-2"]]//cda:observation', $ns).Count
 $ccdaEncounters = $ccda.SelectNodes('//cda:section[cda:code[@code="46240-8"]]//cda:encounter', $ns).Count
 $ccdaVitals = $ccda.SelectNodes('//cda:section[cda:code[@code="8716-3"]]//cda:observation', $ns).Count
+$ccdaChecks = @(
+    @('48765-2', 'cda:entry/cda:act/cda:entryRelationship/cda:observation', 'allergies'),
+    @('10160-0', 'cda:entry/cda:substanceAdministration', 'medications'),
+    @('47519-4', 'cda:entry/cda:procedure', 'procedures'),
+    @('11369-6', 'cda:entry/cda:substanceAdministration', 'immunizations'),
+    @('10157-6', 'cda:entry/cda:organizer', 'family_history')
+)
+foreach ($check in $ccdaChecks) {
+    $found = $ccda.SelectNodes("//cda:section[cda:code[@code='$($check[0])']]/$($check[1])", $ns).Count
+    $expected = @($case.clinical.($check[2])).Count
+    if ($found -ne $expected) { $errors.Add("C-CDA $($check[2]) entries $found differ from canonical $expected") }
+}
+$pmhRows = $ccda.SelectNodes("//cda:section[cda:code[@code='11348-0']]//cda:tbody/cda:tr", $ns).Count
+if ($pmhRows -ne @($case.clinical.past_medical_history).Count) { $errors.Add('C-CDA past medical history rows differ from canonical history') }
+
+# The patient's name must survive intact in both exchange formats.
+$cdaName = $ccda.SelectSingleNode('//cda:recordTarget/cda:patientRole/cda:patient/cda:name', $ns)
+$cdaFull = ((@($cdaName.SelectNodes('cda:given', $ns) | ForEach-Object InnerText) + $cdaName.SelectSingleNode('cda:family', $ns).InnerText) -join ' ')
+if ($cdaFull -ne $case.identity.display_name) { $errors.Add("C-CDA patient name '$cdaFull' differs from '$($case.identity.display_name)'") }
+$fhirName = ($fhir.entry | Where-Object { $_.resource.resourceType -eq 'Patient' }).resource.name[0]
+if (((@($fhirName.given) + $fhirName.family) -join ' ') -ne $case.identity.display_name) { $errors.Add('FHIR patient name differs from canonical display name') }
 if ($ccdaProblems -ne $case.clinical.problems.Count) { $errors.Add('C-CDA problem count differs from canonical problems') }
 if ($ccdaResults -ne $case.clinical.observations.Count) { $errors.Add('C-CDA result count differs from canonical observations') }
 if ($ccdaEncounters -ne $case.clinical.encounters.Count) { $errors.Add('C-CDA encounter count differs from canonical encounters') }
@@ -138,7 +186,7 @@ if (Test-Path -LiteralPath $conformancePath) {
     $report = Get-Content -Raw -LiteralPath $conformancePath | ConvertFrom-Json
     $fresh = $report.CcdaSha256 -eq (Get-FileHash -Algorithm SHA256 -LiteralPath $ccdaPath).Hash -and
         $report.FhirSha256 -eq (Get-FileHash -Algorithm SHA256 -LiteralPath $fhirPath).Hash
-    $conformance = if (-not $fresh) { 'STALE (rerun scripts/run_conformance.ps1)' } else { "XSD $($report.CdaXsdErrors), Schematron $($report.SchematronErrors), FHIR $($report.FhirBaseErrors), US Core $($report.UsCoreErrors) errors" }
+    $conformance = if (-not $fresh) { 'STALE (rerun scripts/run_conformance.ps1)' } else { "XSD $($report.CdaXsdErrors), Schematron $($report.SchematronErrors), FHIR $($report.FhirBaseErrors), US Core $($report.UsCoreErrors) errors$(if ($report.TerminologyUnverified) { '; ' + $report.TerminologyUnverified + ' codes unverified (terminology server failure)' })" }
 }
 
 [pscustomobject]@{

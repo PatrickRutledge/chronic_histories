@@ -439,13 +439,18 @@
     "allergies": [
       {
         "id": "ALG-001",
-        "display": "No known medication allergies reported in the synthetic episode",
+        "display": "No known allergy",
         "status": "active",
-        "coding": [],
+        "assertion": "no_known_allergy",
+        "substance": {
+          "system": "http://snomed.info/sct",
+          "code": "716186003",
+          "display": "No known allergy"
+        },
         "provenance": {
           "evidence_grade": "S",
           "claim_ids": [],
-          "synthetic_reason": "Required synthetic clinical completion element; not a historical assertion.",
+          "synthetic_reason": "Synthetic allergy assertion for EHR completeness; not a historical assertion.",
           "author": "The Human Record generator",
           "created": "2026-11-01T12:00:00-05:00"
         }
@@ -621,8 +626,138 @@
         }
       }
     ],
-    "procedures": [],
-    "immunizations": [],
+    "procedures": [
+      {
+        "id": "PRC-001",
+        "display": "Individual Cognitive Processing Therapy course",
+        "status": "completed",
+        "coding": [
+          {
+            "system": "http://snomed.info/sct",
+            "code": "228557008",
+            "display": "Cognitive and behavioral therapy"
+          }
+        ],
+        "period": {
+          "start": "2026-07-07",
+          "end": "2026-09-22"
+        },
+        "provenance": {
+          "evidence_grade": "S",
+          "claim_ids": [
+            "CLM-0005",
+            "CLM-0006",
+            "CLM-0007"
+          ],
+          "synthetic_reason": "Synthetic therapy course matching GOAL-002 and INT-001.",
+          "author": "The Human Record generator",
+          "created": "2026-11-01T12:00:00-05:00"
+        }
+      }
+    ],
+    "immunizations": [
+      {
+        "id": "IMM-001",
+        "display": "Tdap vaccine",
+        "status": "completed",
+        "date": "2021-03-15",
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/sid/cvx",
+            "code": "115",
+            "display": "Tdap"
+          }
+        ],
+        "provenance": {
+          "evidence_grade": "S",
+          "claim_ids": [],
+          "synthetic_reason": "Synthetic adult immunization history in the modern frame; not a historical assertion.",
+          "author": "The Human Record generator",
+          "created": "2026-11-01T12:00:00-05:00"
+        }
+      },
+      {
+        "id": "IMM-002",
+        "display": "Influenza vaccine, 2025-2026 season",
+        "status": "completed",
+        "date": "2025-10-14",
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/sid/cvx",
+            "code": "140",
+            "display": "Influenza, split virus, trivalent, PF"
+          }
+        ],
+        "provenance": {
+          "evidence_grade": "S",
+          "claim_ids": [],
+          "synthetic_reason": "Synthetic adult immunization history in the modern frame; not a historical assertion.",
+          "author": "The Human Record generator",
+          "created": "2026-11-01T12:00:00-05:00"
+        }
+      }
+    ],
+    "family_history": [],
+    "past_medical_history": [
+      {
+        "id": "PMH-001",
+        "display": "Combat leg wound in the action near Holtzwihr; wounded three times during the war",
+        "historical_date": {
+          "iso": "1945-01-26",
+          "display": "January 26, 1945",
+          "precision": "day",
+          "calendar": "gregorian"
+        },
+        "provenance": {
+          "evidence_grade": "D",
+          "claim_ids": [
+            "CLM-0004"
+          ],
+          "synthetic_reason": null,
+          "author": "The Human Record generator",
+          "created": "2026-11-01T12:00:00-05:00"
+        }
+      },
+      {
+        "id": "PMH-002",
+        "display": "Postwar nightmares, insomnia, depression, and headaches",
+        "historical_date": {
+          "iso": null,
+          "display": "Postwar years",
+          "precision": "approximate",
+          "calendar": "gregorian"
+        },
+        "provenance": {
+          "evidence_grade": "D",
+          "claim_ids": [
+            "CLM-0005",
+            "CLM-0006"
+          ],
+          "synthetic_reason": null,
+          "author": "The Human Record generator",
+          "created": "2026-11-01T12:00:00-05:00"
+        }
+      },
+      {
+        "id": "PMH-003",
+        "display": "Postwar symptoms retrospectively described as post-traumatic stress disorder",
+        "historical_date": {
+          "iso": null,
+          "display": "Postwar years",
+          "precision": "approximate",
+          "calendar": "gregorian"
+        },
+        "provenance": {
+          "evidence_grade": "R",
+          "claim_ids": [
+            "CLM-0007"
+          ],
+          "synthetic_reason": null,
+          "author": "The Human Record generator",
+          "created": "2026-11-01T12:00:00-05:00"
+        }
+      }
+    ],
     "encounters": [
       {
         "id": "ENC-001",

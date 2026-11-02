@@ -397,7 +397,26 @@
       }
     ],
     "medications": [],
-    "allergies": [],
+    "allergies": [
+      {
+        "id": "ALG-001",
+        "display": "No known allergy",
+        "status": "active",
+        "assertion": "no_known_allergy",
+        "substance": {
+          "system": "http://snomed.info/sct",
+          "code": "716186003",
+          "display": "No known allergy"
+        },
+        "provenance": {
+          "evidence_grade": "S",
+          "claim_ids": [],
+          "synthetic_reason": "Synthetic allergy assertion for EHR completeness; not a historical assertion.",
+          "author": "The Human Record generator",
+          "created": "2026-11-01T14:00:00-05:00"
+        }
+      }
+    ],
     "observations": [
       {
         "id": "OBS-AUDITC-001",
@@ -640,8 +659,136 @@
         }
       }
     ],
-    "procedures": [],
-    "immunizations": [],
+    "procedures": [
+      {
+        "id": "PRC-001",
+        "display": "Trauma-focused psychotherapy course within integrated recovery care",
+        "status": "completed",
+        "coding": [
+          {
+            "system": "http://snomed.info/sct",
+            "code": "75516001",
+            "display": "Psychotherapy"
+          }
+        ],
+        "period": {
+          "start": "2026-07-07",
+          "end": "2026-09-22"
+        },
+        "provenance": {
+          "evidence_grade": "S",
+          "claim_ids": [
+            "CLM-0007"
+          ],
+          "synthetic_reason": "Synthetic therapy course matching GOAL-003 and INT-003.",
+          "author": "The Human Record generator",
+          "created": "2026-11-01T14:00:00-05:00"
+        }
+      }
+    ],
+    "immunizations": [
+      {
+        "id": "IMM-001",
+        "display": "Tdap vaccine",
+        "status": "completed",
+        "date": "2020-05-18",
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/sid/cvx",
+            "code": "115",
+            "display": "Tdap"
+          }
+        ],
+        "provenance": {
+          "evidence_grade": "S",
+          "claim_ids": [],
+          "synthetic_reason": "Synthetic adult immunization history in the modern frame; not a historical assertion.",
+          "author": "The Human Record generator",
+          "created": "2026-11-01T14:00:00-05:00"
+        }
+      },
+      {
+        "id": "IMM-002",
+        "display": "Influenza vaccine, 2025-2026 season",
+        "status": "completed",
+        "date": "2025-10-21",
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/sid/cvx",
+            "code": "140",
+            "display": "Influenza, split virus, trivalent, PF"
+          }
+        ],
+        "provenance": {
+          "evidence_grade": "S",
+          "claim_ids": [],
+          "synthetic_reason": "Synthetic adult immunization history in the modern frame; not a historical assertion.",
+          "author": "The Human Record generator",
+          "created": "2026-11-01T14:00:00-05:00"
+        }
+      }
+    ],
+    "family_history": [],
+    "past_medical_history": [
+      {
+        "id": "PMH-001",
+        "display": "Shot down and held approximately 20 months as a prisoner of war; beaten, interrogated, and nearly starved during captivity",
+        "historical_date": {
+          "iso": "1944-01-03",
+          "display": "January 3, 1944",
+          "precision": "day",
+          "calendar": "gregorian"
+        },
+        "provenance": {
+          "evidence_grade": "D",
+          "claim_ids": [
+            "CLM-0004",
+            "CLM-0005"
+          ],
+          "synthetic_reason": null,
+          "author": "The Human Record generator",
+          "created": "2026-11-01T14:00:00-05:00"
+        }
+      },
+      {
+        "id": "PMH-002",
+        "display": "Longstanding alcohol-related impairment with periods of sobriety and later relapses",
+        "historical_date": {
+          "iso": null,
+          "display": "Adult life",
+          "precision": "approximate",
+          "calendar": "gregorian"
+        },
+        "provenance": {
+          "evidence_grade": "D",
+          "claim_ids": [
+            "CLM-0006"
+          ],
+          "synthetic_reason": null,
+          "author": "The Human Record generator",
+          "created": "2026-11-01T14:00:00-05:00"
+        }
+      },
+      {
+        "id": "PMH-003",
+        "display": "Post-traumatic stress disorder as a retrospective interpretation of combat and captivity history; not a documented lifetime diagnosis",
+        "historical_date": {
+          "iso": null,
+          "display": "After 1945",
+          "precision": "approximate",
+          "calendar": "gregorian"
+        },
+        "provenance": {
+          "evidence_grade": "R",
+          "claim_ids": [
+            "CLM-0007"
+          ],
+          "synthetic_reason": null,
+          "author": "The Human Record generator",
+          "created": "2026-11-01T14:00:00-05:00"
+        }
+      }
+    ],
     "encounters": [
       {
         "id": "ENC-001",

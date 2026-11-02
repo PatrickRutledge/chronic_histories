@@ -32,6 +32,32 @@ export const FICTIONAL_FACILITY_CONTACT = {
   phone: "+1-202-555-0100"
 };
 
+// Code system URIs used in canonical cases, with their HL7 OIDs for C-CDA.
+export const CODE_SYSTEM_OID = {
+  "http://snomed.info/sct": "2.16.840.1.113883.6.96",
+  "http://loinc.org": "2.16.840.1.113883.6.1",
+  "http://www.nlm.nih.gov/research/umls/rxnorm": "2.16.840.1.113883.6.88",
+  "http://hl7.org/fhir/sid/cvx": "2.16.840.1.113883.12.292",
+  "http://hl7.org/fhir/sid/icd-10-cm": "2.16.840.1.113883.6.90",
+  "http://terminology.hl7.org/CodeSystem/v3-RoleCode": "2.16.840.1.113883.5.111"
+};
+export const oidFor = (system) => {
+  const oid = CODE_SYSTEM_OID[system];
+  if (!oid) throw new Error(`No OID mapping for code system ${system}`);
+  return oid;
+};
+
+// Medication routes: SNOMED CT for FHIR, NCI Thesaurus (FDA route of administration) for C-CDA.
+export const ROUTES = {
+  oral: { snomed: "26643006", nci: "C38288", display: "Oral route" },
+  sublingual: { snomed: "37839007", nci: "C38300", display: "Sublingual route" },
+  topical: { snomed: "6064005", nci: "C38304", display: "Topical route" },
+  intramuscular: { snomed: "78421000", nci: "C28161", display: "Intramuscular route" },
+  subcutaneous: { snomed: "34206005", nci: "C38299", display: "Subcutaneous route" },
+  intravenous: { snomed: "47625008", nci: "C38276", display: "Intravenous route" },
+  inhalation: { snomed: "447694001", nci: "C38216", display: "Respiratory tract route" }
+};
+
 export const ADMINISTRATIVE_GENDER = {
   male: { code: "M", display: "Male" },
   female: { code: "F", display: "Female" }

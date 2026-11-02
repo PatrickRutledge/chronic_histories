@@ -69,15 +69,36 @@ $iso = Join-Path $root 'iso'
 $ccda = Join-Path $root 'ccda'
 $upstream = Join-Path $ccda 'ccda-2.1.sch'
 $sch = Join-Path $ccda 'ccda-2.1.patched.sch'
-# Upstream defect at the pinned commit: a misplaced quote in rules such as
-#   @root='2.16.840.1.113883.10.20.22.4.121 and not(@extension)'
-# makes them compare @root to a literal that no document can match. Move the quote
-# so the rule means what its message says. The downloaded file is left untouched.
+# Upstream defects at the pinned commit; see docs/validation.md. The downloaded file
+# is left untouched and the corrected copy is rebuilt from it on every install.
 $text = [IO.File]::ReadAllText($upstream)
-$pattern = "@root='([0-9.]+) and not\(@extension\)'"
-$patchedRules = [regex]::Matches($text, $pattern).Count
-[IO.File]::WriteAllText($sch, [regex]::Replace($text, $pattern, "@root='`$1' and not(@extension)"))
-Write-Host "Corrected $patchedRules upstream Schematron quoting defects"
+
+# 1. A misplaced quote, as in @root='2.16.840.1.113883.10.20.22.4.121 and not(@extension)',
+#    compares @root to a literal that no document can match. Move the quote.
+$quotePattern = "@root='([0-9.]+) and not\(@extension\)'"
+$quoteFixes = [regex]::Matches($text, $quotePattern).Count
+$text = [regex]::Replace($text, $quotePattern, "@root='`$1' and not(@extension)")
+
+# 2. The 2025 errata added not(@extension) to template references whose own message
+#    names a versioned template (urn:hl7ii:ROOT:EXT). Only the versioned template has
+#    rules, so no document can pass. Require the version the message names.
+$versionFixes = [System.Collections.Generic.List[string]]::new()
+$text = [regex]::Replace($text, '(?s)<sch:assert id="([^"]+)" test="([^"]*)">(.*?)</sch:assert>', {
+    param($m)
+    $test = $m.Groups[2].Value
+    foreach ($hit in [regex]::Matches($m.Groups[3].Value, 'urn:hl7ii:([0-9.]+):(\d{4}-\d{2}-\d{2})')) {
+        $wrong = "@root='$($hit.Groups[1].Value)' and not(@extension)"
+        if ($test.Contains($wrong)) {
+            $test = $test.Replace($wrong, "@root='$($hit.Groups[1].Value)' and @extension='$($hit.Groups[2].Value)'")
+            $versionFixes.Add($m.Groups[1].Value)
+        }
+    }
+    "<sch:assert id=`"$($m.Groups[1].Value)`" test=`"$test`">$($m.Groups[3].Value)</sch:assert>"
+})
+
+$changed = -not (Test-Path -LiteralPath $sch) -or [IO.File]::ReadAllText($sch) -ne $text
+if ($changed) { [IO.File]::WriteAllText($sch, $text) }
+Write-Host "Corrected upstream Schematron defects: $quoteFixes quoting; $($versionFixes.Count) version ($($versionFixes -join ', '))"
 $step1 = Join-Path $ccda 'step1.sch'
 $step2 = Join-Path $ccda 'step2.sch'
 function Invoke-Saxon([string[]]$Arguments) {
@@ -86,7 +107,7 @@ function Invoke-Saxon([string[]]$Arguments) {
 }
 foreach ($phase in 'errors', 'warnings') {
     $compiled = Join-Path $ccda "ccda-2.1.$phase.xsl"
-    if ($Force -or -not (Test-Path -LiteralPath $compiled)) {
+    if ($Force -or $changed -or -not (Test-Path -LiteralPath $compiled)) {
         Write-Host "Compiling Schematron phase: $phase"
         Invoke-Saxon @("-s:$sch", "-xsl:$(Join-Path $iso 'iso_dsdl_include.xsl')", "-o:$step1")
         Invoke-Saxon @("-s:$step1", "-xsl:$(Join-Path $iso 'iso_abstract_expand.xsl')", "-o:$step2")

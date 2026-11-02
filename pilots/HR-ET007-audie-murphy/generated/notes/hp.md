@@ -37,7 +37,25 @@ This fictional modern episode addresses Trauma-related symptoms interfere with s
 ## Medications and allergies
 
 - No medication regimen generated. **S**
-- No known medication allergies reported in the synthetic episode **S**
+- No known allergy **S**
+
+## Past medical history
+
+True biography with historical dates; these events are not part of the synthetic care timeline.
+
+- January 26, 1945: Combat leg wound in the action near Holtzwihr; wounded three times during the war **D** (CLM-0004)
+- Postwar years: Postwar nightmares, insomnia, depression, and headaches **D** (CLM-0005, CLM-0006)
+- Postwar years: Postwar symptoms retrospectively described as post-traumatic stress disorder **R** (CLM-0007)
+
+## Procedures and immunizations
+
+- 2026-07-07 to 2026-09-22: Individual Cognitive Processing Therapy course **S**
+- 2021-03-15: Tdap vaccine **S**
+- 2025-10-14: Influenza vaccine, 2025-2026 season **S**
+
+## Family history
+
+- No family medical history is documented in the logged sources. Family history of real relatives is never synthesized.
 
 ## Measurements
 

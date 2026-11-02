@@ -95,7 +95,11 @@ if (-not $SkipFhir) {
     $declared = (Select-String -LiteralPath $bundle -Pattern 'us/core/StructureDefinition/').Count
     if ($declared -eq 0) { throw 'No resource declares a US Core profile, so the US Core run would test nothing.' }
     $summary.UsCoreProfiledResources = $declared
-    $count = { param($issues, $levels) @($issues | Where-Object { $levels -contains $_.severity }).Count }
+    # A terminology-server failure (for example a timeout) means a code went unchecked, not that it is wrong.
+    # It is counted on its own so it neither fails the record nor passes for a verified result.
+    $isTxFailure = { param($issue) $issue.code -eq 'exception' -and "$($issue.details.text)" -match '^Error from https?://tx\.' }
+    $count = { param($issues, $levels) @($issues | Where-Object { $levels -contains $_.severity -and -not (& $isTxFailure $_) }).Count }
+    $summary.TerminologyUnverified = @(@($base) + @($core) | Where-Object { & $isTxFailure $_ }).Count
     $summary.FhirBaseErrors = & $count $base @('error', 'fatal')
     $summary.FhirBaseWarnings = & $count $base @('warning')
     $summary.UsCoreErrors = & $count $core @('error', 'fatal')

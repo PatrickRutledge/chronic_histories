@@ -244,6 +244,8 @@
         "observations",
         "procedures",
         "immunizations",
+        "family_history",
+        "past_medical_history",
         "encounters",
         "vital_sign_sets",
         "social_history",
@@ -261,13 +263,14 @@
         "medications": {
           "type": "array",
           "items": {
-            "$ref": "#/$defs/clinicalElement"
+            "$ref": "#/$defs/medication"
           }
         },
         "allergies": {
           "type": "array",
+          "minItems": 1,
           "items": {
-            "$ref": "#/$defs/clinicalElement"
+            "$ref": "#/$defs/allergy"
           }
         },
         "observations": {
@@ -279,13 +282,25 @@
         "procedures": {
           "type": "array",
           "items": {
-            "$ref": "#/$defs/clinicalElement"
+            "$ref": "#/$defs/procedure"
           }
         },
         "immunizations": {
           "type": "array",
           "items": {
-            "$ref": "#/$defs/clinicalElement"
+            "$ref": "#/$defs/immunization"
+          }
+        },
+        "family_history": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/familyHistory"
+          }
+        },
+        "past_medical_history": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/pastMedicalHistory"
           }
         },
         "encounters": {
@@ -910,6 +925,383 @@
         },
         "notes": {
           "type": "string"
+        }
+      }
+    },
+    "period": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "start"
+      ],
+      "properties": {
+        "start": {
+          "type": "string",
+          "format": "date"
+        },
+        "end": {
+          "type": "string",
+          "format": "date"
+        }
+      }
+    },
+    "medication": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "display",
+        "status",
+        "coding",
+        "dose",
+        "route",
+        "frequency",
+        "start_date",
+        "indication_problem_ids",
+        "provenance"
+      ],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "display": {
+          "type": "string",
+          "minLength": 1
+        },
+        "status": {
+          "enum": [
+            "active",
+            "completed",
+            "stopped",
+            "on-hold"
+          ]
+        },
+        "coding": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/coding"
+          },
+          "minItems": 1,
+          "description": "RxNorm clinical drug; era remedies map to a modern equivalent."
+        },
+        "dose": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "value",
+            "unit"
+          ],
+          "properties": {
+            "value": {
+              "type": "number",
+              "exclusiveMinimum": 0
+            },
+            "unit": {
+              "type": "string",
+              "description": "UCUM"
+            }
+          }
+        },
+        "route": {
+          "enum": [
+            "oral",
+            "sublingual",
+            "topical",
+            "intramuscular",
+            "subcutaneous",
+            "intravenous",
+            "inhalation"
+          ]
+        },
+        "frequency": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "period",
+            "period_unit",
+            "text"
+          ],
+          "properties": {
+            "period": {
+              "type": "number",
+              "exclusiveMinimum": 0
+            },
+            "period_unit": {
+              "enum": [
+                "h",
+                "d",
+                "wk"
+              ]
+            },
+            "text": {
+              "type": "string"
+            }
+          }
+        },
+        "start_date": {
+          "type": "string",
+          "format": "date"
+        },
+        "end_date": {
+          "type": "string",
+          "format": "date"
+        },
+        "indication_problem_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1
+        },
+        "historical_remedy": {
+          "type": "string",
+          "description": "Era remedy this entry maps from, for example laudanum."
+        },
+        "provenance": {
+          "$ref": "#/$defs/provenance"
+        }
+      }
+    },
+    "allergy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "display",
+        "status",
+        "assertion",
+        "provenance"
+      ],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "display": {
+          "type": "string",
+          "minLength": 1
+        },
+        "status": {
+          "enum": [
+            "active",
+            "inactive",
+            "resolved"
+          ]
+        },
+        "assertion": {
+          "enum": [
+            "no_known_allergy",
+            "allergy",
+            "intolerance"
+          ]
+        },
+        "substance": {
+          "$ref": "#/$defs/coding"
+        },
+        "reaction": {
+          "$ref": "#/$defs/coding"
+        },
+        "criticality": {
+          "enum": [
+            "low",
+            "high",
+            "unable-to-assess"
+          ]
+        },
+        "provenance": {
+          "$ref": "#/$defs/provenance"
+        }
+      },
+      "if": {
+        "properties": {
+          "assertion": {
+            "enum": [
+              "allergy",
+              "intolerance"
+            ]
+          }
+        }
+      },
+      "then": {
+        "required": [
+          "substance"
+        ]
+      }
+    },
+    "procedure": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "display",
+        "status",
+        "coding",
+        "period",
+        "provenance"
+      ],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "display": {
+          "type": "string",
+          "minLength": 1
+        },
+        "status": {
+          "enum": [
+            "completed",
+            "in-progress"
+          ]
+        },
+        "coding": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/coding"
+          },
+          "minItems": 1
+        },
+        "period": {
+          "$ref": "#/$defs/period"
+        },
+        "provenance": {
+          "$ref": "#/$defs/provenance"
+        }
+      }
+    },
+    "immunization": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "display",
+        "status",
+        "coding",
+        "date",
+        "provenance"
+      ],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "display": {
+          "type": "string",
+          "minLength": 1
+        },
+        "status": {
+          "enum": [
+            "completed"
+          ]
+        },
+        "coding": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/coding"
+          },
+          "minItems": 1
+        },
+        "date": {
+          "type": "string",
+          "format": "date"
+        },
+        "provenance": {
+          "$ref": "#/$defs/provenance"
+        }
+      }
+    },
+    "familyHistory": {
+      "type": "object",
+      "additionalProperties": false,
+      "description": "Real relatives of real people: only documented or retrospective content, never synthetic.",
+      "required": [
+        "id",
+        "relationship",
+        "condition",
+        "provenance"
+      ],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "relationship": {
+          "$ref": "#/$defs/coding"
+        },
+        "condition": {
+          "type": "string",
+          "minLength": 1
+        },
+        "condition_coding": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/coding"
+          }
+        },
+        "age_at_death": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "provenance": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/provenance"
+            },
+            {
+              "type": "object",
+              "properties": {
+                "evidence_grade": {
+                  "enum": [
+                    "D",
+                    "R"
+                  ]
+                },
+                "claim_ids": {
+                  "minItems": 1
+                }
+              }
+            }
+          ]
+        }
+      }
+    },
+    "pastMedicalHistory": {
+      "type": "object",
+      "additionalProperties": false,
+      "description": "True biography. Dates are historical and never enter the synthetic timeline.",
+      "required": [
+        "id",
+        "display",
+        "historical_date",
+        "provenance"
+      ],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "display": {
+          "type": "string",
+          "minLength": 1
+        },
+        "historical_date": {
+          "$ref": "#/$defs/historicalDate"
+        },
+        "provenance": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/provenance"
+            },
+            {
+              "type": "object",
+              "properties": {
+                "evidence_grade": {
+                  "enum": [
+                    "D",
+                    "R"
+                  ]
+                },
+                "claim_ids": {
+                  "minItems": 1
+                }
+              }
+            }
+          ]
         }
       }
     }
