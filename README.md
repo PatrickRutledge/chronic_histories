@@ -25,11 +25,12 @@ See [STATUS.md](STATUS.md) for the current decisions, completed milestones, vali
 ## Generate pilot review outputs
 
 ```powershell
-node scripts/generate_case_outputs.mjs pilots/HR-ET007-audie-murphy/case.json
-node scripts/generate_ccda.mjs pilots/HR-ET007-audie-murphy/case.json
-node scripts/generate_supporting_docs.mjs pilots/HR-ET007-audie-murphy/case.json
-pwsh -File scripts/validate_case.ps1 -CaseDirectory pilots/HR-ET007-audie-murphy
+pwsh -File scripts/build.ps1                  # every pilot and test fixture
+pwsh -File scripts/build.ps1 -Conformance     # also formal C-CDA and US Core validation
+pwsh -File scripts/run_controls.ps1           # confirm the checks still catch known defects
 ```
+
+The build stops at the first failure. It deletes earlier outputs before generating, so a failed generator cannot leave stale files to be checked. It records a hash manifest, and the local checks reject outputs that do not match the current `case.json`. Do not edit generated files by hand.
 
 The generators write an HTML review page, a draft FHIR R4 collection bundle, a draft C-CDA R2.1 CCD, eight case-driven supporting notes, and a provenance CSV under the case's `generated/` directory. Supporting notes are rendered from the canonical case rather than embedded pilot prose.
 

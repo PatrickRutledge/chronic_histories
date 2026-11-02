@@ -97,8 +97,8 @@ const supportingDocuments = [
   ["Progress note 01", "notes/progress-01.md"],
   ["Progress note 02", "notes/progress-02.md"],
   ["Progress note 03", "notes/progress-03.md"],
-  ["Behavioral health referral", "notes/referral-01.md"],
-  ["Behavioral health consultation", "notes/consult-01.md"],
+  [`${data.identity.synthetic_identity.fictional_consultant.specialty} referral`, "notes/referral-01.md"],
+  [`${data.identity.synthetic_identity.fictional_consultant.specialty} consultation`, "notes/consult-01.md"],
   ["Patient care plan", "notes/careplan.md"],
   ["Teaching note", "notes/teaching-note.md"],
   ["Provenance CSV", "provenance.csv"]

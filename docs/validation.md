@@ -56,7 +56,7 @@ The installer builds `ccda-2.1.patched.sch` from the downloaded file, which it l
 - **Warnings are not gated.** They are mostly SHOULD-level items such as author participation, reference ranges, and interpretation codes.
 - **US Core applies only to declared profiles.** The validator ignores a profile a resource does not claim, so the runner fails if no resource declares one. Social, functional, mental-status, and safety Observations declare no US Core profile until they are coded.
 - **Base R4 runs on a temporary copy** with US Core profile references replaced, so that result is independent of US Core.
-- **Validator results need controls.** A broken fixture should be run after toolchain changes to confirm that findings still fire.
+- **Validator results need controls.** `scripts/run_controls.ps1 -Conformance` breaks copies of the code-path fixture and requires the XSD, Schematron, and US Core stages to report errors. Run it after any toolchain change.
 
 ## Generator conventions required by validation
 

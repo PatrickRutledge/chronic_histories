@@ -149,16 +149,21 @@ Remaining:
 - Add coded tobacco, social, functional, and mental-status data so those Observations can claim US Core profiles.
 - Add SNOMED CT codes to problems alongside ICD-10-CM.
 
-### 3. Harden generators across both pilots
+### 3. Harden generators across both pilots (mostly complete)
 
-- Regenerate Audie Murphy and Gregory Boyington after schema changes.
-- Run both validators after every generator change.
-- Add regression checks for cross-patient leakage, deterministic output, identifiers, future dates, terminology, units, and note-to-C-CDA consistency.
-- Add the required scan for real identifiers (Social Security, phone, and real NPI patterns) and enforce a D, R, or S tag on every problem, drug, and result.
-- Add a broken control fixture to the conformance workflow.
-- Make a generator failure stop the run. A crashed notes generator once left the previous notes in place, and the local checks passed against them.
-- Read consultant name and specialty from the case; `Marcus Lee, PsyD` is still hardcoded in the notes generator.
-- Improve note templates so author specialty and consultation type come from canonical case data.
+Done:
+
+- `scripts/build.ps1` runs every generator and check, stops at the first failure, and deletes earlier outputs first.
+- A build manifest with line-ending-normalized hashes rejects stale or hand-edited outputs. Conformance summaries use the same normalized hashes, so Git line-ending conversion no longer marks them stale.
+- Checks for real-looking identifiers (Social Security numbers, phone numbers outside 555-0100 to 555-0199, valid-checksum NPIs), a D, R, or S grade on every FHIR clinical resource and provenance row, and leakage of another case's name, alias, or MRN.
+- `scripts/run_controls.ps1` runs 13 negative and determinism controls, 2 of them against the formal validators.
+- Consultant name and specialty come from `synthetic_identity.fictional_consultant`.
+
+Remaining:
+
+- Automated terminology resolution for C-CDA-only codes; FHIR codes are already checked by the terminology server.
+- Note-to-C-CDA consistency for medications, allergies, and vital signs, beyond the current visit-date and result-value checks.
+- CI that runs the build and controls on every push.
 
 ### 4. Build pilot 3: Abraham Lincoln
 
@@ -191,17 +196,8 @@ From `D:\chronic_histories`:
 git status
 git log --oneline -12
 
-node scripts/generate_case_outputs.mjs pilots/HR-ET007-audie-murphy/case.json
-node scripts/generate_ccda.mjs pilots/HR-ET007-audie-murphy/case.json
-node scripts/generate_supporting_docs.mjs pilots/HR-ET007-audie-murphy/case.json
-pwsh -File scripts/run_conformance.ps1 -CaseDirectory pilots/HR-ET007-audie-murphy
-pwsh -File scripts/validate_case.ps1 -CaseDirectory pilots/HR-ET007-audie-murphy
-
-node scripts/generate_case_outputs.mjs pilots/HR-ET008-gregory-boyington/case.json
-node scripts/generate_ccda.mjs pilots/HR-ET008-gregory-boyington/case.json
-node scripts/generate_supporting_docs.mjs pilots/HR-ET008-gregory-boyington/case.json
-pwsh -File scripts/run_conformance.ps1 -CaseDirectory pilots/HR-ET008-gregory-boyington
-pwsh -File scripts/validate_case.ps1 -CaseDirectory pilots/HR-ET008-gregory-boyington
+pwsh -File scripts/build.ps1 -Conformance
+pwsh -File scripts/run_controls.ps1 -Conformance
 ```
 
 On a new machine, run `pwsh -File scripts/install_validators.ps1` once first.

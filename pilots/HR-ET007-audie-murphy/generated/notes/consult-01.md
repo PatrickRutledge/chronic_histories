@@ -1,4 +1,4 @@
-# Specialist Consultation
+# Behavioral health Consultation
 
 > **SYNTHETIC RECORD, NOT A REAL MEDICAL RECORD**
 

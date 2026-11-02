@@ -5,6 +5,7 @@ param(
 
 $ErrorActionPreference = 'Stop'
 $repoRoot = Split-Path -Parent $PSScriptRoot
+. (Join-Path $PSScriptRoot 'lib\common.ps1')
 $casePath = Join-Path $CaseDirectory 'case.json'
 $schemaPath = Join-Path $repoRoot 'schema\case.schema.json'
 $fhirPath = Join-Path $CaseDirectory 'generated\fhir-bundle.json'
@@ -29,6 +30,23 @@ $fhir = Get-Content -Raw -LiteralPath $fhirPath | ConvertFrom-Json
 [xml]$ccda = Get-Content -Raw -LiteralPath $ccdaPath
 
 $errors = [System.Collections.Generic.List[string]]::new()
+
+# Outputs must come from the current case.json through scripts/build.ps1.
+$manifestPath = Join-Path $CaseDirectory 'generated\build-manifest.json'
+if (-not (Test-Path -LiteralPath $manifestPath)) {
+    $errors.Add('No build manifest; run scripts/build.ps1')
+} else {
+    $manifest = Get-Content -Raw -LiteralPath $manifestPath | ConvertFrom-Json
+    if ($manifest.CaseSha256 -ne (Get-NormalizedSha256 $casePath)) { $errors.Add('Outputs are stale: case.json changed after the last build; run scripts/build.ps1') }
+    $recorded = @($manifest.Outputs.PSObject.Properties.Name)
+    $present = @(Get-GeneratedFiles $CaseDirectory)
+    foreach ($relative in $present + $recorded | Sort-Object -Unique) {
+        $path = Join-Path $CaseDirectory $relative
+        if ($recorded -notcontains $relative) { $errors.Add("Output not produced by the last build: $relative") }
+        elseif (-not (Test-Path -LiteralPath $path)) { $errors.Add("Output missing since the last build: $relative") }
+        elseif ($manifest.Outputs.$relative -ne (Get-NormalizedSha256 $path)) { $errors.Add("Output changed since the last build: $relative") }
+    }
+}
 $sourceIds = @($case.sources.source_id)
 $claimIds = @($case.claims.claim_id)
 
@@ -175,8 +193,57 @@ foreach ($name in @($case.identity.display_name) + @($case.identity.aliases)) {
     }
 }
 
+# Every FHIR clinical resource carries an evidence grade; only the person and clinician records do not.
+$gradeSystem = 'https://github.com/PatrickRutledge/chronic_histories/fhir/evidence-grade'
+foreach ($entry in $fhir.entry) {
+    $resource = $entry.resource
+    if (@('Patient', 'Practitioner') -contains $resource.resourceType) { continue }
+    $grades = @($resource.meta.tag | Where-Object { $_.system -eq $gradeSystem } | ForEach-Object code)
+    if ($grades.Count -ne 1 -or @('D', 'R', 'S') -notcontains $grades[0]) { $errors.Add("FHIR $($resource.resourceType)/$($resource.id) lacks exactly one D, R, or S grade") }
+}
+foreach ($row in $provenanceRows) {
+    if (@('D', 'R', 'S') -notcontains $row.evidence_grade) { $errors.Add("Provenance row $($row.element_id) lacks a D, R, or S grade") }
+}
+
+# Scan every generated file and the case for real-looking identifiers.
+$scanFiles = @($casePath) + @(Get-GeneratedFiles $CaseDirectory | ForEach-Object { Join-Path $CaseDirectory $_ } | Where-Object { Test-Path -LiteralPath $_ })
+$scanText = @{}
+foreach ($file in $scanFiles) { $scanText[$file] = Get-Content -Raw -LiteralPath $file }
+function Test-NpiChecksum([string]$Digits) {
+    # NPI check digit: Luhn over the 80840 prefix plus the first nine digits.
+    $sum = 0; $double = $true
+    foreach ($char in ('80840' + $Digits.Substring(0, 9)).ToCharArray()[-1..-14]) {
+        $value = [int][string]$char
+        if ($double) { $value *= 2; if ($value -gt 9) { $value -= 9 } }
+        $sum += $value; $double = -not $double
+    }
+    return ((10 - ($sum % 10)) % 10) -eq [int][string]$Digits[9]
+}
+foreach ($file in $scanFiles) {
+    $name = Split-Path -Leaf $file
+    foreach ($match in [regex]::Matches($scanText[$file], '(?<![\w-])\d{3}-\d{2}-\d{4}(?![\w-])')) { $errors.Add("Possible Social Security number in ${name}: $($match.Value)") }
+    foreach ($match in [regex]::Matches($scanText[$file], '(?<![\w.-])(?:\+?1[-. ]?)?\(?\d{3}\)?[-. ]\d{3}[-. ]\d{4}(?![\w-])')) {
+        if ($match.Value -notmatch '555[-. ]01\d\d$') { $errors.Add("Phone number outside the fictional 555-0100 to 555-0199 range in ${name}: $($match.Value)") }
+    }
+    foreach ($match in [regex]::Matches($scanText[$file], '(?<![\w.-])[12]\d{9}(?![\w.-])')) {
+        if (Test-NpiChecksum $match.Value) { $errors.Add("Valid-format NPI in ${name}: $($match.Value)") }
+    }
+}
+
+# No other case's identity may appear in this case's files.
+foreach ($otherDir in Get-AllCaseDirectories $repoRoot) {
+    $other = Get-Content -Raw -LiteralPath (Join-Path $otherDir 'case.json') | ConvertFrom-Json
+    if ($other.case_id -eq $case.case_id) { continue }
+    $markers = @($other.identity.display_name, $other.identity.synthetic_identity.mrn) + @($other.identity.aliases) | Where-Object { $_ }
+    foreach ($file in $scanFiles) {
+        foreach ($marker in $markers) {
+            if ($scanText[$file] -match [regex]::Escape($marker)) { $errors.Add("$(Split-Path -Leaf $file) contains '$marker' from case $($other.case_id)") }
+        }
+    }
+}
+
 if ($errors.Count -gt 0) {
-    $errors | ForEach-Object { Write-Error $_ }
+    $errors | ForEach-Object { [Console]::Error.WriteLine("ERROR: $_") }
     exit 1
 }
 
@@ -184,8 +251,7 @@ $conformance = 'NOT RUN'
 $conformancePath = Join-Path $CaseDirectory 'generated\conformance\summary.json'
 if (Test-Path -LiteralPath $conformancePath) {
     $report = Get-Content -Raw -LiteralPath $conformancePath | ConvertFrom-Json
-    $fresh = $report.CcdaSha256 -eq (Get-FileHash -Algorithm SHA256 -LiteralPath $ccdaPath).Hash -and
-        $report.FhirSha256 -eq (Get-FileHash -Algorithm SHA256 -LiteralPath $fhirPath).Hash
+    $fresh = $report.CcdaSha256 -eq (Get-NormalizedSha256 $ccdaPath) -and $report.FhirSha256 -eq (Get-NormalizedSha256 $fhirPath)
     $conformance = if (-not $fresh) { 'STALE (rerun scripts/run_conformance.ps1)' } else { "XSD $($report.CdaXsdErrors), Schematron $($report.SchematronErrors), FHIR $($report.FhirBaseErrors), US Core $($report.UsCoreErrors) errors$(if ($report.TerminologyUnverified) { '; ' + $report.TerminologyUnverified + ' codes unverified (terminology server failure)' })" }
 }
 

@@ -1,4 +1,4 @@
-# Specialist Referral
+# Behavioral health Referral
 
 > **SYNTHETIC RECORD, NOT A REAL MEDICAL RECORD**
 

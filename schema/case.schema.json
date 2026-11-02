@@ -110,7 +110,10 @@
           "required": [
             "mrn",
             "date_of_birth",
-            "name_policy"
+            "name_policy",
+            "fictional_facility",
+            "fictional_primary_clinician",
+            "fictional_consultant"
           ],
           "properties": {
             "mrn": {
@@ -129,6 +132,24 @@
             },
             "fictional_primary_clinician": {
               "type": "string"
+            },
+            "fictional_consultant": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "name",
+                "specialty"
+              ],
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "specialty": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              }
             }
           }
         }

@@ -10,6 +10,7 @@ param(
 
 $ErrorActionPreference = 'Stop'
 $repoRoot = Split-Path -Parent $PSScriptRoot
+. (Join-Path $PSScriptRoot 'lib\common.ps1')
 $tools = Join-Path $repoRoot '.work\validators'
 $saxon = Join-Path $tools 'saxon\saxon-he.jar'
 $fhirJar = Join-Path $tools 'fhir\validator_cli.jar'
@@ -75,8 +76,8 @@ $schWarnings = Invoke-Schematron 'warnings' $ccda (Join-Path $reports 'schematro
 if ($schErrors.Fired -eq 0) { throw 'Schematron fired no rules; the validator is not reading this document.' }
 
 $summary = [ordered]@{
-    CcdaSha256         = (Get-FileHash -Algorithm SHA256 -LiteralPath $ccda).Hash
-    FhirSha256         = (Get-FileHash -Algorithm SHA256 -LiteralPath $bundle).Hash
+    CcdaSha256         = Get-NormalizedSha256 $ccda
+    FhirSha256         = Get-NormalizedSha256 $bundle
     CdaXsdErrors       = $xsdErrors.Count
     SchematronRulesRun = $schErrors.Fired
     SchematronErrors   = $schErrors.Failures.Count
