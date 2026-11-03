@@ -27,7 +27,7 @@ function Get-GeneratedFiles([string]$CaseDirectory) {
 
 # Every case in the repository: pilots and test fixtures.
 function Get-AllCaseDirectories([string]$RepoRoot) {
-    return @('pilots', 'tests\fixtures') | ForEach-Object { Join-Path $RepoRoot $_ } |
+    return @('pilots', 'cases', 'tests\fixtures') | ForEach-Object { Join-Path $RepoRoot $_ } |
         Where-Object { Test-Path -LiteralPath $_ } |
         ForEach-Object { Get-ChildItem -LiteralPath $_ -Directory } |
         Where-Object { Test-Path -LiteralPath (Join-Path $_.FullName 'case.json') } |

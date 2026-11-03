@@ -38,7 +38,7 @@ RELIABILITY = {
 
 def load_cases():
     cases = []
-    for case_json in sorted((REPO / "pilots").glob("*/case.json")):
+    for case_json in sorted([*(REPO / "pilots").glob("*/case.json"), *(REPO / "cases").glob("*/case.json")]):
         case_dir = case_json.parent
         data = json.loads(case_json.read_text(encoding="utf-8"))
         summary_path = case_dir / "generated" / "conformance" / "summary.json"

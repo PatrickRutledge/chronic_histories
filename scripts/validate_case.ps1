@@ -110,7 +110,7 @@ foreach ($observation in $case.clinical.observations) {
     if ($observation.provenance.evidence_grade -ne 'S') { $errors.Add("Non-synthetic generated observation: $($observation.id)") }
     if ($observation.coding[0].code -eq '101698-9' -and ($observation.value -lt 0 -or $observation.value -gt 80)) { $errors.Add("PCL-5 out of range: $($observation.id)") }
     if ($observation.coding[0].code -eq '44261-6' -and ($observation.value -lt 0 -or $observation.value -gt 27)) { $errors.Add("PHQ-9 out of range: $($observation.id)") }
-    if ($observation.category -eq 'laboratory') {
+    if ($observation.category -in @('laboratory', 'imaging')) {
         # The flag must agree with a numeric range; critical flags must point the same way.
         $range = $observation.reference_range
         $implied = $null
@@ -120,7 +120,7 @@ foreach ($observation in $case.clinical.observations) {
         $flag = [string]$observation.interpretation
         $direction = if ($flag -in @('HH', 'LL')) { $flag.Substring(0, 1) } else { $flag }
         if ($implied -and $flag -ne 'A' -and $direction -ne $implied) { $errors.Add("Lab interpretation $flag disagrees with reference range for $($observation.id) (value $($observation.value), expected $implied)") }
-        if ($observation.coding[0].system -ne 'http://loinc.org') { $errors.Add("Lab result must be LOINC coded: $($observation.id)") }
+        if ($observation.coding[0].system -ne 'http://loinc.org') { $errors.Add("Lab or imaging result must be LOINC coded: $($observation.id)") }
     }
 }
 foreach ($set in $case.clinical.vital_sign_sets) {
@@ -135,8 +135,8 @@ foreach ($set in $case.clinical.vital_sign_sets) {
     if ($map['8480-6'] -le $map['8462-4']) { $errors.Add("Invalid blood pressure in $($set.id)") }
     if ($map['59408-5'] -lt 70 -or $map['59408-5'] -gt 100) { $errors.Add("Invalid oxygen saturation in $($set.id)") }
 }
-# A behavioral-health diagnosis (ICD-10-CM F10-F99) or a positive depression screen (PHQ-9 >= 10, PHQ-2 >= 3) needs a structured safety assessment.
-$behavioralProblem = @($case.clinical.problems | Where-Object { $_.coding | Where-Object { $_.system -eq 'http://hl7.org/fhir/sid/icd-10-cm' -and $_.code -match '^F[1-9]' } }).Count -gt 0
+# A behavioral-health diagnosis (ICD-10-CM F10-F99 except F17 nicotine dependence) or a positive depression screen (PHQ-9 >= 10, PHQ-2 >= 3) needs a structured safety assessment.
+$behavioralProblem = @($case.clinical.problems | Where-Object { $_.coding | Where-Object { $_.system -eq 'http://hl7.org/fhir/sid/icd-10-cm' -and $_.code -match '^F(1[0-689]|[2-9])' } }).Count -gt 0
 $positiveScreen = @($case.clinical.observations | Where-Object { ($_.coding[0].code -eq '44261-6' -and $_.value -ge 10) -or ($_.coding[0].code -eq '55758-7' -and $_.value -ge 3) }).Count -gt 0
 if (($behavioralProblem -or $positiveScreen) -and -not $case.clinical.safety_assessment) { $errors.Add('A behavioral-health problem or positive depression screen requires clinical.safety_assessment') }
 if ($case.clinical.safety_assessment -and $case.clinical.safety_assessment.provenance.evidence_grade -ne 'S') { $errors.Add('Safety assessment must be synthetic') }
@@ -233,7 +233,9 @@ $expectedVitals = ($case.clinical.vital_sign_sets.measurements | Measure-Object)
 if ($ccdaVitals -ne $expectedVitals) { $errors.Add("C-CDA vital-sign count differs from canonical vital signs: expected $expectedVitals, found $ccdaVitals") }
 
 $noteFiles = @(Get-ChildItem -LiteralPath $notesPath -Filter '*.md' -File)
-if ($noteFiles.Count -ne 8) { $errors.Add("Expected 8 supporting documents; found $($noteFiles.Count)") }
+# H&P, one progress note per visit, referral, consultation, care plan, and teaching note.
+$expectedNotes = 5 + $case.synthetic_episode.visit_schedule.Count
+if ($noteFiles.Count -ne $expectedNotes) { $errors.Add("Expected $expectedNotes supporting documents; found $($noteFiles.Count)") }
 foreach ($noteFile in $noteFiles) {
     $noteText = Get-Content -Raw -LiteralPath $noteFile.FullName
     if ($noteText -notmatch [regex]::Escape($case.record_classification.banner)) { $errors.Add("Missing synthetic banner: $($noteFile.Name)") }

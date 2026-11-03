@@ -46,8 +46,15 @@ export const resultChanges = (data, date) => {
 
 // Laboratory results carry a reference range and an interpretation flag (HL7 ObservationInterpretation).
 export const INTERPRETATIONS = { N: "Normal", H: "High", L: "Low", HH: "Critical high", LL: "Critical low", A: "Abnormal" };
-export const isLab = (observation) => observation.category === "laboratory";
-const bare = (value, unit) => /^\{.*\}$/.test(unit ?? "") ? `${value}` : `${value} ${unit}`;
+// Laboratory and imaging results are measured against a reference range; survey scores are not.
+export const isLab = (observation) => observation.category === "laboratory" || observation.category === "imaging";
+// Human-readable units for prose; the coded value keeps its UCUM unit.
+const UNIT_TEXT = { "mL/min/{1.73_m2}": "mL/min/1.73 m²", "m[IU]/L": "mIU/L", "mm[Hg]": "mmHg", "Cel": "°C" };
+const bare = (value, unit) => {
+  if (/^\{.*\}$/.test(unit ?? "")) return `${value}`;
+  if (unit === "%") return `${value}%`;
+  return `${value} ${UNIT_TEXT[unit] ?? unit}`;
+};
 export const rangeText = (observation) => {
   const range = observation.reference_range;
   if (!range) return "";

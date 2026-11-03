@@ -26,7 +26,7 @@ jobs:
       # Committed outputs must match their case.json before anything is regenerated.
       - name: Committed outputs are current
         run: |
-          foreach ($dir in Get-ChildItem pilots -Directory) {
+          foreach ($dir in Get-ChildItem pilots, cases -Directory -ErrorAction SilentlyContinue) {
             pwsh -NoProfile -File scripts/validate_case.ps1 -CaseDirectory $dir.FullName
             if ($LASTEXITCODE -ne 0) { exit 1 }
           }

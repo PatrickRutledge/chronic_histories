@@ -408,6 +408,13 @@ for (const encounter of data.clinical.encounters) {
   });
 }
 
+const OBSERVATION_CATEGORY = "http://terminology.hl7.org/CodeSystem/observation-category";
+const CATEGORY = {
+  survey: { system: OBSERVATION_CATEGORY, code: "survey", display: "Survey" },
+  laboratory: { system: OBSERVATION_CATEGORY, code: "laboratory", display: "Laboratory" },
+  imaging: { system: OBSERVATION_CATEGORY, code: "imaging", display: "Imaging" },
+};
+const PROFILE = { survey: "us-core-observation-screening-assessment", laboratory: "us-core-observation-lab", imaging: "us-core-observation-clinical-result" };
 for (const observation of data.clinical.observations) {
   const observationId = slug(observation.id);
   const lab = isLab(observation);
@@ -418,11 +425,9 @@ for (const observation of data.clinical.observations) {
     resource: {
       resourceType: "Observation",
       id: observationId,
-      meta: { profile: [`${US_CORE}/${lab ? "us-core-observation-lab" : "us-core-observation-screening-assessment"}`], tag: [{ system: GRADE_SYSTEM, code: observation.provenance.evidence_grade }] },
+      meta: { profile: [`${US_CORE}/${PROFILE[observation.category ?? "survey"]}`], tag: [{ system: GRADE_SYSTEM, code: observation.provenance.evidence_grade }] },
       status: observation.status,
-      category: [{ coding: [lab
-        ? { system: "http://terminology.hl7.org/CodeSystem/observation-category", code: "laboratory", display: "Laboratory" }
-        : { system: "http://terminology.hl7.org/CodeSystem/observation-category", code: "survey", display: "Survey" }] }],
+      category: [{ coding: [CATEGORY[observation.category ?? "survey"]] }],
       code: { coding: observation.coding.map(fhirCoding), text: observation.display },
       subject: { reference: patientFullUrl },
       effectiveDateTime: observation.effective_date,

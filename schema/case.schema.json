@@ -1357,7 +1357,7 @@
       }
     },
     "observation": {
-      "description": "A scored instrument (survey, the default) or a laboratory result. Laboratory results need a reference range and an interpretation flag; results drawn together share a panel.",
+      "description": "A scored instrument (survey, the default), a laboratory result, or an imaging measurement. Laboratory and imaging results need a reference range and an interpretation flag; results drawn together share a panel.",
       "allOf": [
         {
           "$ref": "#/$defs/clinicalElement"
@@ -1373,7 +1373,8 @@
         "category": {
           "enum": [
             "survey",
-            "laboratory"
+            "laboratory",
+            "imaging"
           ]
         },
         "effective_date": {
@@ -1436,7 +1437,10 @@
       "if": {
         "properties": {
           "category": {
-            "const": "laboratory"
+            "enum": [
+              "laboratory",
+              "imaging"
+            ]
           }
         },
         "required": [

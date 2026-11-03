@@ -1,4 +1,4 @@
-// Writes manifest.csv at the repository root: one row per released-track case under pilots/.
+// Writes manifest.csv at the repository root: one row per released-track case under pilots/ and cases/.
 // Test fixtures are excluded. Every value is derived from case.json and the committed
 // conformance summary, so the file can be regenerated at any time and must not be hand-edited.
 //   node scripts/generate_dataset_manifest.mjs [--check]
@@ -89,9 +89,11 @@ function row(caseDir) {
   };
 }
 
-const caseDirs = fs.readdirSync(pilotsDir, { withFileTypes: true })
-  .filter(entry => entry.isDirectory() && fs.existsSync(path.join(pilotsDir, entry.name, "case.json")))
-  .map(entry => path.join(pilotsDir, entry.name))
+const caseDirs = [pilotsDir, path.join(repoRoot, "cases")]
+  .filter(dir => fs.existsSync(dir))
+  .flatMap(dir => fs.readdirSync(dir, { withFileTypes: true })
+    .filter(entry => entry.isDirectory() && fs.existsSync(path.join(dir, entry.name, "case.json")))
+    .map(entry => path.join(dir, entry.name)))
   .sort();
 const rows = caseDirs.map(row).sort((a, b) => a.case_id.localeCompare(b.case_id));
 const csv = [columns.join(","), ...rows.map(r => columns.map(col => csvField(r[col])).join(","))].join("\n") + "\n";
