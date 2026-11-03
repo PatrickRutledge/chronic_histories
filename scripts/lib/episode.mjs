@@ -97,8 +97,13 @@ export const VISIT_TITLES = {
 };
 export const PREVENTION_STATUS = {
   completed_today: "Completed today", up_to_date: "Up to date", due: "Due", ordered: "Ordered",
-  referred: "Referred", declined: "Declined", not_indicated: "Not indicated",
+  referred: "Referred", declined: "Declined", not_indicated: "Not indicated", deferred: "Deferred",
 };
+export const MONITORING_DOMAINS = {
+  laboratory: "Laboratory", imaging: "Imaging", examination: "Examination", survey: "Survey",
+  medication_safety: "Medication safety", referral: "Referral", self_management: "Self-management",
+};
+export const isChronicCare = (data, visit) => { const type = encounterOf(data, visit)?.visit_type; return !type || type === "chronic_care"; };
 export const encounterOf = (data, visit) => data.clinical.encounters.find(encounter => encounter.id === visit.encounter_id);
 export const documentationOf = (data, visit) => encounterOf(data, visit)?.documentation;
 export const isUnscheduled = (data, visit) => encounterOf(data, visit)?.visit_type === "sick";
@@ -116,15 +121,17 @@ export const visitOnlyGuidelineIds = (data) => {
 export const guidelinesFor = (data, ids) => data.care_plan.guidelines.filter(guideline => ids.includes(guideline.guideline_id));
 export const immunizationsOn = (data, date) => data.clinical.immunizations.filter(item => item.date === date);
 
-// Progress-note labels. Full encounter notes are titled by visit type. Among the chronic-care visits,
-// the first sets the plan, the last reviews it, and any between are follow-ups.
+// Progress-note labels. Wellness, preventive, and sick visits are titled by visit type. Among the
+// chronic-care visits, the first sets the plan, the last reviews it, and any between are follow-ups;
+// a chronic-care visit with full documentation is a focused visit in that role.
 export const visitLabels = (data) => {
   const visits = data.synthetic_episode.visit_schedule;
-  const chronic = visits.filter(visit => !documentationOf(data, visit));
+  const chronic = visits.filter(visit => isChronicCare(data, visit));
   return visits.map(visit => {
     const encounter = encounterOf(data, visit);
-    if (encounter?.documentation) return VISIT_TITLES[encounter.visit_type] ?? "Encounter Note";
+    if (!isChronicCare(data, visit)) return VISIT_TITLES[encounter.visit_type] ?? "Encounter Note";
     const k = chronic.indexOf(visit) + 1;
-    return k === 1 ? "Initial plan" : k === chronic.length ? "Care-plan review" : chronic.length === 3 ? "Intermediate follow-up" : "Follow-up";
+    const role = k === 1 ? "Initial plan" : k === chronic.length ? "Care-plan review" : chronic.length === 3 ? "Intermediate follow-up" : "Follow-up";
+    return encounter?.documentation ? `Focused Visit (${role})` : role;
   });
 };

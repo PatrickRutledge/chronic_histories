@@ -140,6 +140,23 @@ foreach ($encounter in $case.clinical.encounters | Where-Object { $_.documentati
         if (-not $problem) { $errors.Add("$($encounter.id): assessment cites unknown problem $($item.problem_id)") }
         elseif ($problem.recorded_date -and $problem.recorded_date -gt $encounter.date) { $errors.Add("$($encounter.id): assessment cites $($item.problem_id) before it was recorded") }
     }
+    # A focused chronic-care visit accounts for every result drawn that day in its protocol table.
+    if (-not $encounter.visit_type -or $encounter.visit_type -eq 'chronic_care') {
+        $referenced = @($doc.monitoring | ForEach-Object { $_.observation_ids }) | Where-Object { $_ }
+        foreach ($observation in $case.clinical.observations | Where-Object effective_date -eq $encounter.date) {
+            if ($referenced -notcontains $observation.id) { $errors.Add("$($encounter.id): result $($observation.id) is not in the protocol monitoring table") }
+        }
+    }
+    foreach ($item in $doc.monitoring) {
+        foreach ($observationId in $item.observation_ids) {
+            $observation = $case.clinical.observations | Where-Object id -eq $observationId
+            if (-not $observation) { $errors.Add("$($encounter.id): monitoring cites unknown result $observationId") }
+            elseif ($observation.effective_date -ne $encounter.date) { $errors.Add("$($encounter.id): monitoring cites $observationId from another date") }
+        }
+        foreach ($guidelineId in $item.guideline_ids) {
+            if (-not ($case.care_plan.guidelines | Where-Object guideline_id -eq $guidelineId)) { $errors.Add("$($encounter.id): monitoring cites unknown guideline $guidelineId") }
+        }
+    }
     foreach ($guidelineId in $doc.guideline_ids) {
         if (-not ($case.care_plan.guidelines | Where-Object guideline_id -eq $guidelineId)) { $errors.Add("$($encounter.id): note cites unknown guideline $guidelineId") }
     }

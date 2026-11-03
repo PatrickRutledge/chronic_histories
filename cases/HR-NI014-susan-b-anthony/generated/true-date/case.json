@@ -2422,6 +2422,220 @@
           "synthetic_reason": "Synthetic modern EHR encounter.",
           "author": "The Human Record generator",
           "created": "2026-11-02T19:00:00-05:00"
+        },
+        "visit_type": "chronic_care",
+        "type_coding": {
+          "system": "http://snomed.info/sct",
+          "code": "390906007",
+          "display": "Follow-up encounter",
+          "validation_status": "validated",
+          "validated_on": "2026-11-03"
+        },
+        "documentation": {
+          "chief_complaint": "Two-week heart failure medication safety check",
+          "hpi": {
+            "narrative": "Miss Anthony returns two weeks after starting furosemide and empagliflozin for newly diagnosed heart failure. She is less breathless and now climbs a flight of stairs with one pause instead of two. Her ankle swelling is gone by morning and returns only slightly in the evening. Her home weights have fallen steadily by about 1.7 kg. She has had no dizziness on standing, no excess thirst, and no genital itching or urinary symptoms since starting empagliflozin. She takes every dose and keeps a weight diary. Her echocardiogram and cardiology consultation were done this morning.",
+            "elements": [
+              {
+                "label": "Interval change",
+                "value": "Less breathless on stairs; evening ankle swelling only"
+              },
+              {
+                "label": "Weight diary",
+                "value": "Down about 1.7 kg over two weeks"
+              },
+              {
+                "label": "Medication tolerance",
+                "value": "No dizziness, thirst, or genital or urinary symptoms"
+              },
+              {
+                "label": "Adherence",
+                "value": "Every dose taken"
+              },
+              {
+                "label": "NYHA class",
+                "value": "II, improved from II to III"
+              }
+            ]
+          },
+          "ros": [
+            {
+              "system": "Constitutional",
+              "status": "negative",
+              "finding": "No fever or fatigue beyond her usual after travel"
+            },
+            {
+              "system": "Cardiovascular",
+              "status": "positive",
+              "finding": "Mild evening ankle swelling; no chest pain, palpitations, or orthopnea"
+            },
+            {
+              "system": "Respiratory",
+              "status": "positive",
+              "finding": "Breathless after a flight of stairs; no cough or wheeze"
+            },
+            {
+              "system": "Genitourinary",
+              "status": "negative",
+              "finding": "No dysuria, genital itching, or urgency"
+            },
+            {
+              "system": "Neurological",
+              "status": "negative",
+              "finding": "No dizziness or lightheadedness on standing"
+            }
+          ],
+          "exam": [
+            {
+              "system": "General",
+              "finding": "Alert, comfortable, speaking easily"
+            },
+            {
+              "system": "Neck",
+              "finding": "Jugular venous pressure 7 cm, down from 10 cm at intake"
+            },
+            {
+              "system": "Lungs",
+              "finding": "Clear; the basal crackles heard at intake are gone"
+            },
+            {
+              "system": "Heart",
+              "finding": "Regular rhythm; S4; no murmur"
+            },
+            {
+              "system": "Extremities",
+              "finding": "Trace ankle edema, down from 2+ at intake"
+            }
+          ],
+          "assessment_plan": [
+            {
+              "problem_id": "PRB-001",
+              "display": "Heart failure with preserved ejection fraction, improving",
+              "assessment": "Echocardiography confirms preserved ejection fraction (62 percent) with an enlarged left atrium and raised filling pressures. She is still mildly congested, and kidney function and potassium are stable on the new medicines (eGFR 58, potassium 3.9)",
+              "plan": [
+                "Continue furosemide 20 mg daily and empagliflozin 10 mg daily",
+                "Start spironolactone 12.5 mg daily, since blood pressure is above target and potassium and kidney function are stable",
+                "Repeat the basic metabolic panel in one to two weeks after starting spironolactone, by the CMID schedule"
+              ]
+            },
+            {
+              "problem_id": "PRB-002",
+              "display": "Hypertensive heart disease",
+              "assessment": "Blood pressure 146/80 mmHg, above the 130/80 target",
+              "plan": [
+                "Spironolactone is expected to lower it; recheck at the three-month review"
+              ]
+            }
+          ],
+          "monitoring": [
+            {
+              "domain": "laboratory",
+              "measure": "Basic metabolic panel with magnesium",
+              "cadence": "1 to 2 weeks after starting or changing therapy; every 3 to 6 months when stable",
+              "status": "completed_today",
+              "detail": "Two weeks after starting furosemide and empagliflozin. Sodium, potassium, creatinine, and magnesium normal; eGFR 58, a small expected fall",
+              "observation_ids": [
+                "OBS-NA-V2",
+                "OBS-K-V2",
+                "OBS-CR-V2",
+                "OBS-EGFR-V2",
+                "OBS-GLU-V2",
+                "OBS-MG-V2"
+              ],
+              "guideline_ids": [
+                "GL-HF-2022",
+                "GL-CMID-2026"
+              ]
+            },
+            {
+              "domain": "imaging",
+              "measure": "Transthoracic echocardiogram",
+              "cadence": "At diagnosis; repeat only with unexplained change",
+              "status": "completed_today",
+              "detail": "Ejection fraction 62 percent, left atrial volume index 42 mL/m², E/e' 16: heart failure with preserved ejection fraction",
+              "observation_ids": [
+                "OBS-LVEF-V2",
+                "OBS-LAVI-V2",
+                "OBS-EE-V2"
+              ],
+              "guideline_ids": [
+                "GL-HF-2022",
+                "GL-HFPEF-2023",
+                "GL-CMID-2026"
+              ]
+            },
+            {
+              "domain": "examination",
+              "measure": "Blood pressure, heart rate, weight, jugular venous pressure, edema, lungs",
+              "cadence": "Every visit",
+              "status": "completed_today",
+              "detail": "Weight down 1.7 kg; jugular venous pressure and edema improved",
+              "guideline_ids": [
+                "GL-HF-2022",
+                "GL-CMID-2026"
+              ]
+            },
+            {
+              "domain": "survey",
+              "measure": "NYHA functional class",
+              "cadence": "Every visit",
+              "status": "completed_today",
+              "detail": "Class II",
+              "guideline_ids": [
+                "GL-HF-2022",
+                "GL-CMID-2026"
+              ]
+            },
+            {
+              "domain": "survey",
+              "measure": "KCCQ-12",
+              "cadence": "Baseline, then every 3 to 6 months",
+              "status": "up_to_date",
+              "detail": "Baseline 52 at intake; next at the three-month review",
+              "guideline_ids": [
+                "GL-HF-2022",
+                "GL-CMID-2026"
+              ]
+            },
+            {
+              "domain": "referral",
+              "measure": "Cardiology evaluation for specific causes",
+              "cadence": "At diagnosis",
+              "status": "completed_today",
+              "detail": "Seen today. Cardiac amyloidosis is not suspected: septal thickness 11 mm, voltage criteria for left ventricular hypertrophy on the ECG, and no carpal tunnel or neuropathy",
+              "guideline_ids": [
+                "GL-HFPEF-2023"
+              ]
+            },
+            {
+              "domain": "medication_safety",
+              "measure": "SGLT2 inhibitor tolerance",
+              "cadence": "Each visit while starting",
+              "status": "completed_today",
+              "detail": "No volume depletion, genital infection, or urinary infection",
+              "guideline_ids": [
+                "GL-HF-2022",
+                "GL-CMID-2026"
+              ]
+            },
+            {
+              "domain": "self_management",
+              "measure": "Daily weight diary",
+              "cadence": "Every visit",
+              "status": "completed_today",
+              "detail": "Reviewed; she records every morning",
+              "guideline_ids": [
+                "GL-HF-2022",
+                "GL-CMID-2026"
+              ]
+            }
+          ],
+          "follow_up": "Basic metabolic panel in one to two weeks after starting spironolactone. Heart failure review in three months",
+          "guideline_ids": [
+            "GL-HF-2022",
+            "GL-HFPEF-2023",
+            "GL-CMID-2026"
+          ]
         }
       },
       {
@@ -2437,6 +2651,256 @@
           "synthetic_reason": "Synthetic modern EHR encounter.",
           "author": "The Human Record generator",
           "created": "2026-11-02T19:00:00-05:00"
+        },
+        "visit_type": "chronic_care",
+        "type_coding": {
+          "system": "http://snomed.info/sct",
+          "code": "390906007",
+          "display": "Follow-up encounter",
+          "validation_status": "validated",
+          "validated_on": "2026-11-03"
+        },
+        "documentation": {
+          "chief_complaint": "Three-month heart failure and blood pressure review",
+          "hpi": {
+            "narrative": "Miss Anthony returns for her three-month review. She has had no swelling for six weeks and climbs stairs without stopping. Her morning weight has held at 56.0 to 56.4 kg for a month. She has resumed a reduced lecture schedule and walks a mile a day. She has had no dizziness on spironolactone, no breast tenderness, and no muscle cramps. She asks whether she still needs the daily water pill, because it limits her travel.",
+            "elements": [
+              {
+                "label": "Interval change",
+                "value": "No edema for six weeks; stairs without stopping"
+              },
+              {
+                "label": "Weight diary",
+                "value": "Stable at 56.0 to 56.4 kg for a month"
+              },
+              {
+                "label": "Medication tolerance",
+                "value": "No dizziness, breast tenderness, or cramps on spironolactone"
+              },
+              {
+                "label": "Function",
+                "value": "Walking a mile a day; reduced lecture schedule"
+              },
+              {
+                "label": "Patient goal",
+                "value": "Fewer diuretic days so she can travel"
+              },
+              {
+                "label": "NYHA class",
+                "value": "I to II"
+              }
+            ]
+          },
+          "ros": [
+            {
+              "system": "Constitutional",
+              "status": "negative",
+              "finding": "Energy improved; no weight gain"
+            },
+            {
+              "system": "Cardiovascular",
+              "status": "negative",
+              "finding": "No chest pain, palpitations, orthopnea, or edema"
+            },
+            {
+              "system": "Respiratory",
+              "status": "negative",
+              "finding": "Breathless only on long climbs"
+            },
+            {
+              "system": "Genitourinary",
+              "status": "positive",
+              "finding": "Urgency on diuretic mornings; no dysuria"
+            },
+            {
+              "system": "Neurological",
+              "status": "negative",
+              "finding": "No dizziness on standing"
+            },
+            {
+              "system": "Psychiatric",
+              "status": "negative",
+              "finding": "Mood good; PHQ-2 score 0"
+            }
+          ],
+          "exam": [
+            {
+              "system": "General",
+              "finding": "Well, energetic"
+            },
+            {
+              "system": "Neck",
+              "finding": "Jugular venous pressure 6 cm"
+            },
+            {
+              "system": "Lungs",
+              "finding": "Clear"
+            },
+            {
+              "system": "Heart",
+              "finding": "Regular rhythm; soft S4"
+            },
+            {
+              "system": "Extremities",
+              "finding": "No edema"
+            }
+          ],
+          "assessment_plan": [
+            {
+              "problem_id": "PRB-001",
+              "display": "Heart failure with preserved ejection fraction, euvolemic",
+              "assessment": "Dry weight 56 kg reached, with no congestion on examination. NT-proBNP has fallen from 1650 to 720 pg/mL and the KCCQ-12 has risen from 52 to 70. Potassium 4.5 on spironolactone",
+              "plan": [
+                "Change furosemide to as needed, for a weight gain of more than 1 kg in a day or 2 kg in a week",
+                "Continue empagliflozin and spironolactone",
+                "Written travel plan: weigh each morning on the road and carry furosemide",
+                "Basic metabolic panel at the six-month review"
+              ]
+            },
+            {
+              "problem_id": "PRB-002",
+              "display": "Hypertensive heart disease",
+              "assessment": "Blood pressure 132/74 mmHg, nearly at the 130/80 target",
+              "plan": [
+                "No change; recheck at the six-month review"
+              ]
+            }
+          ],
+          "monitoring": [
+            {
+              "domain": "laboratory",
+              "measure": "Basic metabolic panel with magnesium",
+              "cadence": "1 to 2 weeks after starting or changing therapy; every 3 to 6 months when stable",
+              "status": "completed_today",
+              "detail": "Potassium 4.5, eGFR 61. This is the first panel since spironolactone started three months ago",
+              "observation_ids": [
+                "OBS-NA-V3",
+                "OBS-K-V3",
+                "OBS-CR-V3",
+                "OBS-EGFR-V3",
+                "OBS-GLU-V3",
+                "OBS-MG-V3"
+              ],
+              "guideline_ids": [
+                "GL-HF-2022",
+                "GL-CMID-2026"
+              ]
+            },
+            {
+              "domain": "laboratory",
+              "measure": "Basic metabolic panel 1 to 2 weeks after starting spironolactone",
+              "cadence": "Once, after starting a mineralocorticoid antagonist",
+              "status": "deferred",
+              "detail": "Not drawn in the two-week window, a deviation from the protocol. Today's potassium and kidney function are normal, so no harm resulted; the reminder is now in her chart",
+              "guideline_ids": [
+                "GL-HF-2022",
+                "GL-CMID-2026"
+              ]
+            },
+            {
+              "domain": "laboratory",
+              "measure": "NT-proBNP",
+              "cadence": "Selectively in outpatient follow-up",
+              "status": "completed_today",
+              "detail": "720 pg/mL, down from 1650; informs decongestion, not used to titrate therapy",
+              "observation_ids": [
+                "OBS-NTPROBNP-V3"
+              ],
+              "guideline_ids": [
+                "GL-HF-2022",
+                "GL-CMID-2026"
+              ]
+            },
+            {
+              "domain": "examination",
+              "measure": "Blood pressure, heart rate, weight, jugular venous pressure, edema, lungs",
+              "cadence": "Every visit",
+              "status": "completed_today",
+              "detail": "Euvolemic at 56.2 kg",
+              "guideline_ids": [
+                "GL-HF-2022",
+                "GL-CMID-2026"
+              ]
+            },
+            {
+              "domain": "survey",
+              "measure": "NYHA functional class",
+              "cadence": "Every visit",
+              "status": "completed_today",
+              "detail": "Class I to II",
+              "guideline_ids": [
+                "GL-HF-2022",
+                "GL-CMID-2026"
+              ]
+            },
+            {
+              "domain": "survey",
+              "measure": "KCCQ-12",
+              "cadence": "Every 3 to 6 months",
+              "status": "completed_today",
+              "detail": "70, up 18 points from baseline",
+              "observation_ids": [
+                "OBS-KCCQ-V3"
+              ],
+              "guideline_ids": [
+                "GL-HF-2022",
+                "GL-CMID-2026"
+              ]
+            },
+            {
+              "domain": "survey",
+              "measure": "Depression screen (PHQ-2)",
+              "cadence": "Periodically",
+              "status": "completed_today",
+              "detail": "Score 0",
+              "observation_ids": [
+                "OBS-PHQ2-V3"
+              ],
+              "guideline_ids": [
+                "GL-HF-2022",
+                "GL-CMID-2026"
+              ]
+            },
+            {
+              "domain": "imaging",
+              "measure": "Echocardiogram",
+              "cadence": "Only with unexplained clinical change",
+              "status": "not_indicated",
+              "detail": "Improving as expected; routine repeat imaging is not recommended",
+              "guideline_ids": [
+                "GL-HF-2022",
+                "GL-CMID-2026"
+              ]
+            },
+            {
+              "domain": "referral",
+              "measure": "Cardiac rehabilitation",
+              "cadence": "If exercise tolerance plateaus",
+              "status": "not_indicated",
+              "detail": "Exercise tolerance still improving with daily walking",
+              "guideline_ids": [
+                "GL-HF-2022",
+                "GL-CMID-2026"
+              ]
+            },
+            {
+              "domain": "self_management",
+              "measure": "Daily weight diary and travel plan",
+              "cadence": "Every visit",
+              "status": "completed_today",
+              "detail": "Travel weight plan written today",
+              "guideline_ids": [
+                "GL-HF-2022",
+                "GL-CMID-2026"
+              ]
+            }
+          ],
+          "follow_up": "Six-month heart failure review with a basic metabolic panel and KCCQ-12",
+          "guideline_ids": [
+            "GL-HF-2022",
+            "GL-HFPEF-2023",
+            "GL-CMID-2026"
+          ]
         }
       },
       {
@@ -2452,6 +2916,214 @@
           "synthetic_reason": "Synthetic modern EHR encounter.",
           "author": "The Human Record generator",
           "created": "2026-11-02T19:00:00-05:00"
+        },
+        "visit_type": "chronic_care",
+        "type_coding": {
+          "system": "http://snomed.info/sct",
+          "code": "390906007",
+          "display": "Follow-up encounter",
+          "validation_status": "validated",
+          "validated_on": "2026-11-03"
+        },
+        "documentation": {
+          "chief_complaint": "Six-month heart failure review",
+          "hpi": {
+            "narrative": "Miss Anthony returns for her six-month review. She is back to lecturing twice a month and travelling by train, and walks two miles most days. She needed as-needed furosemide twice in three months, both after long train days with restaurant meals, and her weight returned to 56 kg within a day each time. Her cough from the August bronchitis has cleared. She has had no dizziness, falls, or breathlessness except on long stair climbs.",
+            "elements": [
+              {
+                "label": "Interval change",
+                "value": "Back to full activity; bronchitis resolved"
+              },
+              {
+                "label": "As-needed diuretic",
+                "value": "Two doses in three months, after travel days"
+              },
+              {
+                "label": "Weight diary",
+                "value": "Stable at 56 kg"
+              },
+              {
+                "label": "Function",
+                "value": "Lecturing twice a month; walking two miles"
+              },
+              {
+                "label": "NYHA class",
+                "value": "I to II"
+              }
+            ]
+          },
+          "ros": [
+            {
+              "system": "Constitutional",
+              "status": "negative",
+              "finding": "Weight stable; good energy"
+            },
+            {
+              "system": "Cardiovascular",
+              "status": "negative",
+              "finding": "No chest pain, palpitations, orthopnea, or edema"
+            },
+            {
+              "system": "Respiratory",
+              "status": "negative",
+              "finding": "Cough resolved; breathless only on long climbs"
+            },
+            {
+              "system": "Neurological",
+              "status": "negative",
+              "finding": "No dizziness on standing"
+            }
+          ],
+          "exam": [
+            {
+              "system": "General",
+              "finding": "Well"
+            },
+            {
+              "system": "Neck",
+              "finding": "Jugular venous pressure 6 cm"
+            },
+            {
+              "system": "Lungs",
+              "finding": "Clear"
+            },
+            {
+              "system": "Heart",
+              "finding": "Regular rhythm; soft S4"
+            },
+            {
+              "system": "Extremities",
+              "finding": "No edema"
+            },
+            {
+              "system": "Orthostatic blood pressure",
+              "finding": "No fall on standing"
+            }
+          ],
+          "assessment_plan": [
+            {
+              "problem_id": "PRB-001",
+              "display": "Heart failure with preserved ejection fraction, stable",
+              "assessment": "Euvolemic on empagliflozin and spironolactone with rare as-needed furosemide. KCCQ-12 76, up 24 points from baseline. Kidney function and potassium stable (eGFR 63, potassium 4.6)",
+              "plan": [
+                "Continue the current regimen and the travel weight plan",
+                "Basic metabolic panel and KCCQ-12 every three to six months on the CMID schedule"
+              ]
+            },
+            {
+              "problem_id": "PRB-002",
+              "display": "Hypertensive heart disease",
+              "assessment": "Blood pressure 126/72 mmHg, below the 130/80 target without orthostatic symptoms",
+              "plan": [
+                "No change"
+              ]
+            }
+          ],
+          "monitoring": [
+            {
+              "domain": "laboratory",
+              "measure": "Basic metabolic panel",
+              "cadence": "Every 3 to 6 months when stable",
+              "status": "completed_today",
+              "detail": "Potassium 4.6, eGFR 63",
+              "observation_ids": [
+                "OBS-NA-V4",
+                "OBS-K-V4",
+                "OBS-CR-V4",
+                "OBS-EGFR-V4",
+                "OBS-GLU-V4"
+              ],
+              "guideline_ids": [
+                "GL-HF-2022",
+                "GL-CMID-2026"
+              ]
+            },
+            {
+              "domain": "examination",
+              "measure": "Blood pressure, heart rate, weight, jugular venous pressure, edema, lungs",
+              "cadence": "Every visit",
+              "status": "completed_today",
+              "detail": "Euvolemic; orthostatic check normal",
+              "guideline_ids": [
+                "GL-HF-2022",
+                "GL-CMID-2026"
+              ]
+            },
+            {
+              "domain": "survey",
+              "measure": "NYHA functional class",
+              "cadence": "Every visit",
+              "status": "completed_today",
+              "detail": "Class I to II",
+              "guideline_ids": [
+                "GL-HF-2022",
+                "GL-CMID-2026"
+              ]
+            },
+            {
+              "domain": "survey",
+              "measure": "KCCQ-12",
+              "cadence": "Every 3 to 6 months",
+              "status": "completed_today",
+              "detail": "76, up 24 points from baseline",
+              "observation_ids": [
+                "OBS-KCCQ-V4"
+              ],
+              "guideline_ids": [
+                "GL-HF-2022",
+                "GL-CMID-2026"
+              ]
+            },
+            {
+              "domain": "survey",
+              "measure": "Depression screen (PHQ-2)",
+              "cadence": "Periodically",
+              "status": "due",
+              "detail": "Planned at next month's annual wellness visit",
+              "guideline_ids": [
+                "GL-HF-2022",
+                "GL-CMID-2026"
+              ]
+            },
+            {
+              "domain": "laboratory",
+              "measure": "Iron studies, lipid panel, HbA1c, TSH",
+              "cadence": "Annually",
+              "status": "up_to_date",
+              "detail": "Drawn at diagnosis in March; due again next spring",
+              "guideline_ids": [
+                "GL-HF-2022",
+                "GL-CMID-2026"
+              ]
+            },
+            {
+              "domain": "imaging",
+              "measure": "Echocardiogram",
+              "cadence": "Only with unexplained clinical change",
+              "status": "not_indicated",
+              "detail": "Clinically stable",
+              "guideline_ids": [
+                "GL-HF-2022",
+                "GL-CMID-2026"
+              ]
+            },
+            {
+              "domain": "medication_safety",
+              "measure": "Influenza vaccine",
+              "cadence": "Every season",
+              "status": "due",
+              "detail": "Planned at next month's annual wellness visit",
+              "guideline_ids": [
+                "GL-HF-2022"
+              ]
+            }
+          ],
+          "follow_up": "Annual wellness visit next month. Heart failure review with laboratory tests in three to six months",
+          "guideline_ids": [
+            "GL-HF-2022",
+            "GL-HFPEF-2023",
+            "GL-CMID-2026"
+          ]
         }
       },
       {

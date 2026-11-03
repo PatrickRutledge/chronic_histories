@@ -1,7 +1,7 @@
 import fs from "node:fs/promises";
 import path from "node:path";
 import { TRUE_DATE_NOTICE, frameLabel, isTrueDateFrame, outputDirFor } from "./lib/common.mjs";
-import { PREVENTION_STATUS, guidelinesFor, visitOnlyGuidelineIds, activeProblemsAt, claimsAtIndex, documentationOf, immunizationsOn, labelOf, medicationsAt, nextScheduledVisit, scheduledVisits, visitLabels, goalProgress as goalStatus, isConsultStep, laterClaimsNote, medicationChanges as medChanges, midSentence, resultChanges as changesAt, sentence, withUnit } from "./lib/episode.mjs";
+import { MONITORING_DOMAINS, PREVENTION_STATUS, isChronicCare, guidelinesFor, visitOnlyGuidelineIds, activeProblemsAt, claimsAtIndex, documentationOf, immunizationsOn, labelOf, medicationsAt, nextScheduledVisit, scheduledVisits, visitLabels, goalProgress as goalStatus, isConsultStep, laterClaimsNote, medicationChanges as medChanges, midSentence, resultChanges as changesAt, sentence, withUnit } from "./lib/episode.mjs";
 
 const inputPath = process.argv[2];
 if (!inputPath) throw new Error("Usage: node scripts/generate_supporting_docs.mjs <case.json>");
@@ -97,6 +97,8 @@ const fullNote = (visit, n, label) => {
       const code = problemById.get(item.problem_id)?.coding?.[0]?.code;
       return `${i + 1}. **${item.display}**${code ? ` (${code})` : ""}. ${sentence(item.assessment)} **S**\n${item.plan.map(step => `   - ${sentence(step)}`).join("\n")}`;
     }).join("\n")}\n\n`,
+    doc.monitoring?.length ? `## Protocol monitoring\n\nItems the monitoring protocol calls for at this visit. **S**\n\n| Domain | Measure | Interval | Status | Detail |\n|---|---|---|---|---|\n${doc.monitoring.map(e => `| ${MONITORING_DOMAINS[e.domain]} | ${cell(e.measure)} | ${cell(e.cadence)} | ${PREVENTION_STATUS[e.status]} | ${cell(e.detail)} |`).join("\n")}\n\n` : "",
+    isChronicCare(data, visit) && n > 1 ? `## Goal progress\n\n${goalProgress(visit)}\n\n` : "",
     started.length ? `## Medication changes\n\n${started.map(({ change, med }) => `- ${change}: ${med.display} **${evidence(med)}**`).join("\n")}\n\n` : "",
     doc.prevention_plan?.length ? `## Personalized prevention plan\n\nA written copy was given to the patient. **S**\n\n| Service | Status | Detail |\n|---|---|---|\n${doc.prevention_plan.map(e => `| ${cell(e.service)} | ${PREVENTION_STATUS[e.status]} | ${cell(e.detail)} |`).join("\n")}\n\n` : "",
     doc.advance_care_planning ? `## Advance care planning\n\n${doc.advance_care_planning} **S**\n\n` : "",

@@ -2,7 +2,7 @@ import fs from "node:fs/promises";
 import path from "node:path";
 import { cdaToHtml } from "./lib/cda_html.mjs";
 import { ADMINISTRATIVE_GENDER, FICTIONAL_FACILITY_CONTACT, ROUTES, TRUE_DATE_NOTICE, deterministicUuid, isTrueDateFrame, oidFor, outputDirFor, parseClinician, splitName } from "./lib/common.mjs";
-import { INTERPRETATIONS, PREVENTION_STATUS, guidelinesFor, activeProblemsAt, documentationOf, immunizationsOn, nextScheduledVisit, visitLabels, problemsAt, claimsAtIndex, goalProgress, isConsultStep, isLab, labelOf, laterClaimsNote, medicationChanges, midSentence, rangeText, resultChanges, sentence, withUnit } from "./lib/episode.mjs";
+import { INTERPRETATIONS, MONITORING_DOMAINS, PREVENTION_STATUS, isChronicCare, guidelinesFor, activeProblemsAt, documentationOf, immunizationsOn, nextScheduledVisit, visitLabels, problemsAt, claimsAtIndex, goalProgress, isConsultStep, isLab, labelOf, laterClaimsNote, medicationChanges, midSentence, rangeText, resultChanges, sentence, withUnit } from "./lib/episode.mjs";
 
 const inputPath = process.argv[2];
 if (!inputPath) {
@@ -662,9 +662,15 @@ const assessmentAndPlanSection = (doc, n) => {
     ? `<paragraph>Personalized prevention plan. A written copy was given to the patient. [S]</paragraph>${table(["Service", "Status", "Detail"], doc.prevention_plan.map(e => `<tr><td>${x(e.service)}</td><td>${PREVENTION_STATUS[e.status]}</td><td>${x(e.detail)}</td></tr>`).join(""))}`
     : "";
   const given = immunizationsOn(data, visits[n - 1].date);
+  const monitoring = doc.monitoring?.length
+    ? `<paragraph>Protocol monitoring: items the monitoring protocol calls for at this visit. [S]</paragraph>${table(["Domain", "Measure", "Interval", "Status", "Detail"], doc.monitoring.map(e => `<tr><td>${MONITORING_DOMAINS[e.domain]}</td><td>${x(e.measure)}</td><td>${x(e.cadence)}</td><td>${PREVENTION_STATUS[e.status]}</td><td>${x(e.detail)}</td></tr>`).join(""))}`
+    : "";
+  const goals = isChronicCare(data, visits[n - 1]) && n > 1
+    ? `<paragraph>Goal progress:</paragraph>${list(goalProgress(data, visits[n - 1]).map(({ goal, due }) => due ? `${x(sentence(goal.display))} Outcome by ${x(goal.target_date)}: ${x(goal.outcome)} [S]` : `${x(sentence(goal.display))} In progress; target ${x(goal.target_date)} [S]`))}`
+    : "";
   return plain({
     templateRoot: "2.16.840.1.113883.10.20.22.2.9", extension: "2014-06-09", code: "51847-2", display: "Evaluation + Plan note", title: "Assessment and Plan",
-    text: `<list listType="ordered">${items.join("")}</list>${prevention}${given.length ? `<paragraph>Immunizations given today: ${given.map(item => x(item.display)).join("; ")} [S]</paragraph>` : ""}${doc.guideline_ids?.length ? `<paragraph>Guideline basis: ${guidelinesFor(data, doc.guideline_ids).map(g => `${x(g.title)} (${x(g.version_or_year)})`).join("; ")}</paragraph>` : ""}${p(`Follow-up: ${sentence(doc.follow_up)}${next ? ` Next scheduled visit ${next.date}: ${midSentence(encounterOf(next)?.display ?? next.encounter_id)}.` : ""}`)}`,
+    text: `<list listType="ordered">${items.join("")}</list>${monitoring}${goals}${prevention}${given.length ? `<paragraph>Immunizations given today: ${given.map(item => x(item.display)).join("; ")} [S]</paragraph>` : ""}${doc.guideline_ids?.length ? `<paragraph>Guideline basis: ${guidelinesFor(data, doc.guideline_ids).map(g => `${x(g.title)} (${x(g.version_or_year)})`).join("; ")}</paragraph>` : ""}${p(`Follow-up: ${sentence(doc.follow_up)}${next ? ` Next scheduled visit ${next.date}: ${midSentence(encounterOf(next)?.display ?? next.encounter_id)}.` : ""}`)}`,
   });
 };
 const advanceDirectivesSection = (doc) => plain({

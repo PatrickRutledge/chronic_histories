@@ -1468,7 +1468,7 @@
       }
     },
     "encounterDocumentation": {
-      "description": "Full encounter documentation for a visit written as a complete note: chief complaint, history of present illness, review of systems, examination, and assessment and plan. Wellness visits add a health risk assessment, a personalized prevention plan, and advance care planning.",
+      "description": "Full encounter documentation for a visit written as a complete note: chief complaint, history of present illness, review of systems, examination, and assessment and plan. Wellness visits add a health risk assessment, a personalized prevention plan, and advance care planning. A focused chronic-care visit adds a protocol monitoring table: every item the condition's monitoring protocol (CMID or the specialty guideline) calls for at this point, with its interval and status.",
       "type": "object",
       "additionalProperties": false,
       "required": [
@@ -1684,6 +1684,69 @@
         "health_risk_assessment_method": {
           "type": "string",
           "description": "How the health risk assessment was completed. Defaults to self-completion before the visit."
+        },
+        "monitoring": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "domain",
+              "measure",
+              "cadence",
+              "status",
+              "detail"
+            ],
+            "properties": {
+              "domain": {
+                "enum": [
+                  "laboratory",
+                  "imaging",
+                  "examination",
+                  "survey",
+                  "medication_safety",
+                  "referral",
+                  "self_management"
+                ]
+              },
+              "measure": {
+                "type": "string",
+                "minLength": 1
+              },
+              "cadence": {
+                "type": "string",
+                "minLength": 1
+              },
+              "status": {
+                "enum": [
+                  "completed_today",
+                  "up_to_date",
+                  "due",
+                  "ordered",
+                  "referred",
+                  "deferred",
+                  "not_indicated"
+                ]
+              },
+              "detail": {
+                "type": "string",
+                "minLength": 1
+              },
+              "observation_ids": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "description": "Results recorded for this item at this visit."
+              },
+              "guideline_ids": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          }
         }
       },
       "allOf": [
@@ -1707,6 +1770,28 @@
       "allOf": [
         {
           "$ref": "#/$defs/clinicalElement"
+        },
+        {
+          "if": {
+            "properties": {
+              "visit_type": {
+                "const": "chronic_care"
+              }
+            },
+            "required": [
+              "visit_type",
+              "documentation"
+            ]
+          },
+          "then": {
+            "properties": {
+              "documentation": {
+                "required": [
+                  "monitoring"
+                ]
+              }
+            }
+          }
         }
       ],
       "required": [

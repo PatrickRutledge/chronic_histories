@@ -116,6 +116,9 @@ try {
     $dir = New-ControlCase 'note-early-problem' { param($c) ($c.clinical.problems | Where-Object id -eq 'PRB-001') | Add-Member -NotePropertyName recorded_date -NotePropertyValue '2026-10-01' -Force }
     Assert-Control 'full note cites a problem before it was recorded' (Invoke-Script $build @('-CaseDirectory', $dir)) 'before it was recorded'
 
+    $dir = New-ControlCase 'focused-unlisted-result' { param($c) $row = ($c.clinical.encounters | Where-Object id -eq 'ENC-002').documentation.monitoring[0]; $row.observation_ids = @($row.observation_ids | Where-Object { $_ -ne 'OBS-PHQ9-002' }) }
+    Assert-Control 'focused visit result missing from its protocol table' (Invoke-Script $build @('-CaseDirectory', $dir)) 'is not in the protocol monitoring table'
+
     if ($Conformance) {
         $dir = New-ControlCase 'ccda' $null
         [void](Invoke-Script $build @('-CaseDirectory', $dir))

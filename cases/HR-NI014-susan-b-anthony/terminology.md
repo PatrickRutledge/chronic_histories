@@ -43,7 +43,7 @@ eGFR values are calculated from the synthetic creatinine with the 2021 CKD-EPI c
 - Electrocardiogram: SNOMED CT 29303009. Transthoracic echocardiography: SNOMED CT 433236007.
 - Immunizations: CVX 135 (high-dose influenza), 216 (PCV20), 303 (RSV, adjuvanted), 187 (recombinant zoster), and 115 (Tdap).
 - No known allergy: SNOMED CT 716186003.
-- Encounter types: SNOMED CT 185345009 (encounter for symptom) for the August sick visit and 281038008 (geriatric annual health check) for the annual wellness visit. The services are named in plain text as HCPCS G0439 and CPT 99497; HCPCS and CPT are not used as coded values.
+- Encounter types: SNOMED CT 390906007 (follow-up encounter) for the three focused chronic-care visits, 185345009 (encounter for symptom) for the August sick visit and 281038008 (geriatric annual health check) for the annual wellness visit. The services are named in plain text as HCPCS G0439 and CPT 99497; HCPCS and CPT are not used as coded values.
 - Family relationships: HL7 RoleCode FTH (father), MTH (mother), PGRFTH (paternal grandfather), MGRMTH (maternal grandmother), and MGRFTH (maternal grandfather).
 
 ## Vital signs
