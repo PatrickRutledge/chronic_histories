@@ -112,6 +112,42 @@ if ($trueBirth.precision -eq 'day') {
 
 foreach ($visit in $case.synthetic_episode.visit_schedule) {
     if ([datetime]$visit.date -gt [datetime]'2026-11-01') { $errors.Add("Future visit: $($visit.date)") }
+    $encounter = $case.clinical.encounters | Where-Object id -eq $visit.encounter_id
+    if (-not $encounter) { $errors.Add("Visit without an encounter: $($visit.encounter_id)"); continue }
+    if ($encounter.date -ne $visit.date) { $errors.Add("Encounter date differs from its visit: $($encounter.id)") }
+}
+
+# Full encounter notes. Wellness and preventive visits review at least ten systems, carry a
+# health risk assessment, a prevention plan, advance care planning, and a same-day depression
+# screen; a sick visit reviews at least two systems. Problems they address must be known by then.
+$depressionScreens = @('55758-7', '44261-6')
+foreach ($encounter in $case.clinical.encounters | Where-Object { $_.documentation }) {
+    $doc = $encounter.documentation
+    $isWellness = $encounter.visit_type -match 'preventive|wellness'
+    $minimumSystems = if ($isWellness) { 10 } else { 2 }
+    if (@($doc.ros).Count -lt $minimumSystems) { $errors.Add("$($encounter.id): review of systems covers $(@($doc.ros).Count) systems; at least $minimumSystems required") }
+    if (@($doc.ros.system | Sort-Object -Unique).Count -ne @($doc.ros).Count) { $errors.Add("$($encounter.id): review of systems repeats a system") }
+    if (-not ($case.clinical.vital_sign_sets | Where-Object date -eq $encounter.date)) { $errors.Add("$($encounter.id): full encounter note without vital signs") }
+    if ($isWellness) {
+        if (-not $doc.prevention_plan) { $errors.Add("$($encounter.id): wellness visit without a prevention plan") }
+        if (-not $doc.health_risk_assessment) { $errors.Add("$($encounter.id): wellness visit without a health risk assessment") }
+        if (-not $doc.advance_care_planning) { $errors.Add("$($encounter.id): wellness visit without advance care planning") }
+        $screened = $case.clinical.observations | Where-Object { $_.effective_date -eq $encounter.date -and $depressionScreens -contains $_.coding[0].code }
+        if (-not $screened) { $errors.Add("$($encounter.id): wellness visit without a same-day PHQ-2 or PHQ-9") }
+    }
+    foreach ($item in $doc.assessment_plan | Where-Object { $_.problem_id }) {
+        $problem = $case.clinical.problems | Where-Object id -eq $item.problem_id
+        if (-not $problem) { $errors.Add("$($encounter.id): assessment cites unknown problem $($item.problem_id)") }
+        elseif ($problem.recorded_date -and $problem.recorded_date -gt $encounter.date) { $errors.Add("$($encounter.id): assessment cites $($item.problem_id) before it was recorded") }
+    }
+    foreach ($guidelineId in $doc.guideline_ids) {
+        if (-not ($case.care_plan.guidelines | Where-Object guideline_id -eq $guidelineId)) { $errors.Add("$($encounter.id): note cites unknown guideline $guidelineId") }
+    }
+    foreach ($item in $doc.prevention_plan) {
+        foreach ($guidelineId in $item.guideline_ids) {
+            if (-not ($case.care_plan.guidelines | Where-Object guideline_id -eq $guidelineId)) { $errors.Add("$($encounter.id): prevention plan cites unknown guideline $guidelineId") }
+        }
+    }
 }
 foreach ($observation in $case.clinical.observations) {
     if ($observation.provenance.evidence_grade -ne 'S') { $errors.Add("Non-synthetic generated observation: $($observation.id)") }

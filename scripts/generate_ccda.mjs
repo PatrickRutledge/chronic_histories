@@ -2,7 +2,7 @@ import fs from "node:fs/promises";
 import path from "node:path";
 import { cdaToHtml } from "./lib/cda_html.mjs";
 import { ADMINISTRATIVE_GENDER, FICTIONAL_FACILITY_CONTACT, ROUTES, TRUE_DATE_NOTICE, deterministicUuid, isTrueDateFrame, oidFor, outputDirFor, parseClinician, splitName } from "./lib/common.mjs";
-import { INTERPRETATIONS, activeProblemsAt, problemsAt, claimsAtIndex, goalProgress, isConsultStep, isLab, labelOf, laterClaimsNote, medicationChanges, midSentence, rangeText, resultChanges, sentence, withUnit } from "./lib/episode.mjs";
+import { INTERPRETATIONS, PREVENTION_STATUS, guidelinesFor, activeProblemsAt, documentationOf, immunizationsOn, nextScheduledVisit, visitLabels, problemsAt, claimsAtIndex, goalProgress, isConsultStep, isLab, labelOf, laterClaimsNote, medicationChanges, midSentence, rangeText, resultChanges, sentence, withUnit } from "./lib/episode.mjs";
 
 const inputPath = process.argv[2];
 if (!inputPath) {
@@ -145,7 +145,7 @@ const encounterEntries = data.clinical.encounters.map((encounter, index) => `
     <encounter classCode="ENC" moodCode="EVN">
       <templateId root="2.16.840.1.113883.10.20.22.4.49" extension="2015-08-01"/>
       <id root="${deterministicUuid(`${data.case_id}|${encounter.id}`)}"/>
-      <code nullFlavor="UNK"><originalText><reference value="#encounter-${index + 1}"/></originalText></code>
+      ${encounter.type_coding ? `<code code="${x(encounter.type_coding.code)}" codeSystem="${oidFor(encounter.type_coding.system)}" displayName="${x(encounter.type_coding.display)}"><originalText><reference value="#encounter-${index + 1}"/></originalText></code>` : `<code nullFlavor="UNK"><originalText><reference value="#encounter-${index + 1}"/></originalText></code>`}
       <statusCode code="completed"/>
       <effectiveTime value="${compactDate(encounter.date)}"/>
     </encounter>
@@ -619,7 +619,7 @@ const planSection = ({ items, withOrder = false }) => section({
   entries: withOrder ? referralOrderEntry("active") : "",
 });
 const followUpPlanItems = (visit, n) => {
-  const next = visits[n];
+  const next = nextScheduledVisit(data, n);
   const changes = medicationChanges(data, visit);
   return [
     ...(changes.length ? changes.map(({ change, med }) => `Medication: ${x(change.toLowerCase())}, ${x(med.display)} [S]`) : ["No medication changes [S]"]),
@@ -631,6 +631,45 @@ const followUpPlanItems = (visit, n) => {
 const reasonForReferralSection = () => plain({
   templateRoot: "1.3.6.1.4.1.19376.1.5.3.1.3.1", extension: "2014-06-09", code: "42349-1", display: "Reason for referral (narrative)", title: "Reason for Referral",
   text: `${p(`Please evaluate and advise on ${activeProblems.map(problem => midSentence(problem.coding?.[0]?.display ?? problem.display)).join(" and ")}.`)}${referralStep ? p(sentence(referralStep.display)) : ""}`,
+});
+
+// Full encounter notes: chief complaint, HPI, review of systems, examination, and a combined
+// Assessment and Plan section (the Progress Note template forbids it alongside separate
+// Assessment or Plan of Treatment sections).
+const chiefComplaintSection = (doc) => plain({
+  templateRoot: "1.3.6.1.4.1.19376.1.5.3.1.1.13.2.1", code: "10154-3", display: "Chief complaint Narrative - Reported", title: "Chief Complaint",
+  text: p(sentence(doc.chief_complaint)),
+});
+const fullHpiSection = (doc) => plain({
+  templateRoot: "1.3.6.1.4.1.19376.1.5.3.1.3.4", code: "10164-2", display: "History of Present illness Narrative", title: "History of Present Illness",
+  text: `${p(doc.hpi.narrative)}${doc.hpi.elements?.length ? table(["Element", "Detail"], doc.hpi.elements.map(e => `<tr><td>${x(e.label)}</td><td>${x(e.value)}</td></tr>`).join("")) : ""}${doc.health_risk_assessment?.length ? `<paragraph>Health risk assessment, completed by the patient before the visit and reviewed during the visit [S]</paragraph>${table(["Domain", "Finding"], doc.health_risk_assessment.map(e => `<tr><td>${x(e.domain)}</td><td>${x(e.finding)}</td></tr>`).join(""))}` : ""}`,
+});
+const fullRosSection = (doc) => plain({
+  templateRoot: "1.3.6.1.4.1.19376.1.5.3.1.3.18", code: "10187-3", display: "Review of systems Narrative - Reported", title: "Review of Systems",
+  text: `${table(["System", "Result", "Finding"], doc.ros.map(e => `<tr><td>${x(e.system)}</td><td>${e.status === "positive" ? "Positive" : "Negative"}</td><td>${x(e.finding)}</td></tr>`).join(""))}${p(`${doc.ros.length} systems reviewed.`)}`,
+});
+const fullExamSection = (doc, date) => plain({
+  templateRoot: "2.16.840.1.113883.10.20.2.10", extension: "2015-08-01", code: "29545-1", display: "Physical findings note", title: "Physical Exam",
+  text: `${p(clinical.vital_sign_sets.some(item => item.date === date) ? `Vital signs recorded on ${date}; see the Vital Signs section.` : "Vital signs not recorded at this visit.")}${table(["System", "Finding"], doc.exam.map(e => `<tr><td>${x(e.system)}</td><td>${x(e.finding)}</td></tr>`).join(""))}`,
+});
+const assessmentAndPlanSection = (doc, n) => {
+  const next = nextScheduledVisit(data, n);
+  const items = doc.assessment_plan.map(item => {
+    const code = problemById.get(item.problem_id)?.coding?.[0]?.code;
+    return `<item><content styleCode="Bold">${x(item.display)}${code ? ` (${x(code)})` : ""}</content>. ${x(sentence(item.assessment))} [S]${list(item.plan.map(step => x(sentence(step))))}</item>`;
+  });
+  const prevention = doc.prevention_plan?.length
+    ? `<paragraph>Personalized prevention plan. A written copy was given to the patient. [S]</paragraph>${table(["Service", "Status", "Detail"], doc.prevention_plan.map(e => `<tr><td>${x(e.service)}</td><td>${PREVENTION_STATUS[e.status]}</td><td>${x(e.detail)}</td></tr>`).join(""))}`
+    : "";
+  const given = immunizationsOn(data, visits[n - 1].date);
+  return plain({
+    templateRoot: "2.16.840.1.113883.10.20.22.2.9", extension: "2014-06-09", code: "51847-2", display: "Evaluation + Plan note", title: "Assessment and Plan",
+    text: `<list listType="ordered">${items.join("")}</list>${prevention}${given.length ? `<paragraph>Immunizations given today: ${given.map(item => x(item.display)).join("; ")} [S]</paragraph>` : ""}${doc.guideline_ids?.length ? `<paragraph>Guideline basis: ${guidelinesFor(data, doc.guideline_ids).map(g => `${x(g.title)} (${x(g.version_or_year)})`).join("; ")}</paragraph>` : ""}${p(`Follow-up: ${sentence(doc.follow_up)}${next ? ` Next scheduled visit ${next.date}: ${midSentence(encounterOf(next)?.display ?? next.encounter_id)}.` : ""}`)}`,
+  });
+};
+const advanceDirectivesSection = (doc) => plain({
+  templateRoot: "2.16.840.1.113883.10.20.22.2.21", extension: "2015-08-01", code: "42348-3", display: "Advance directives", title: "Advance Care Planning",
+  text: p(doc.advance_care_planning),
 });
 
 // Document header. Every document carries the same patient, birth date, and MRN.
@@ -676,7 +715,7 @@ ${inFulfillmentOf}  <documentationOf>
   <componentOf>
     <encompassingEncounter>
       <id root="${uuid(encounter.id)}"/>
-      <code nullFlavor="UNK"><originalText>${x(encounter.display)}</originalText></code>
+      ${encounter.type_coding ? `<code ${cd(encounter.type_coding)}><originalText>${x(encounter.display)}</originalText></code>` : `<code nullFlavor="UNK"><originalText>${x(encounter.display)}</originalText></code>`}
       <effectiveTime><low value="${compactDate(date)}"/><high value="${compactDate(date)}"/></effectiveTime>
       <encounterParticipant typeCode="ATND">${assignedEntity(person, personUuid)}</encounterParticipant>
       <location><healthCareFacility><id root="${custodianUuid}"/><serviceProviderOrganization><id root="${custodianUuid}"/><name>${x(facility)}</name>${facilityContact}</serviceProviderOrganization></healthCareFacility></location>
@@ -709,14 +748,22 @@ noteDocuments.set("hp-01.xml", noteDocument({
   ],
 }));
 
+const labels = visitLabels(data);
 visits.forEach((visit, index) => {
   const n = index + 1;
   const followUp = n > 1;
+  const doc = documentationOf(data, visit);
   noteDocuments.set(`progress-${String(n).padStart(2, "0")}.xml`, noteDocument({
-    key: `progress-${n}`, templateRoot: "2.16.840.1.113883.10.20.22.1.9", code: "11506-3", display: "Progress note", title: `Progress Note ${n}`,
+    key: `progress-${n}`, templateRoot: "2.16.840.1.113883.10.20.22.1.9", code: "11506-3", display: "Progress note", title: doc ? `Progress Note ${n} — ${labels[index]}` : `Progress Note ${n}`,
     date: visit.date, author: primary, visit,
     serviceEventTemplate: `<templateId root="2.16.840.1.113883.10.20.21.3.1"/>`,
-    body: [
+    body: doc ? [
+      chiefComplaintSection(doc), fullHpiSection(doc), fullRosSection(doc),
+      medicationsSection(), allergiesSection(),
+      vitalsSection(visit.date), resultsSection(visit.date), fullExamSection(doc, visit.date),
+      problemsSection(visit.date), assessmentAndPlanSection(doc, n),
+      ...(doc.advance_care_planning ? [advanceDirectivesSection(doc)] : []),
+    ] : [
       subjectiveSection(visit, followUp), objectiveSection(visit),
       vitalsSection(visit.date), resultsSection(visit.date),
       medicationsSection(), allergiesSection(), problemsSection(visit.date),

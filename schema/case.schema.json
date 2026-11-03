@@ -356,7 +356,7 @@
         "encounters": {
           "type": "array",
           "items": {
-            "$ref": "#/$defs/clinicalElement"
+            "$ref": "#/$defs/encounter"
           }
         },
         "vital_sign_sets": {
@@ -1459,6 +1459,292 @@
         "required": [
           "reference_range",
           "interpretation"
+        ]
+      }
+    },
+    "encounterDocumentation": {
+      "description": "Full encounter documentation for a visit written as a complete note: chief complaint, history of present illness, review of systems, examination, and assessment and plan. Wellness visits add a health risk assessment, a personalized prevention plan, and advance care planning.",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "chief_complaint",
+        "hpi",
+        "ros",
+        "exam",
+        "assessment_plan"
+      ],
+      "properties": {
+        "chief_complaint": {
+          "type": "string",
+          "minLength": 1
+        },
+        "billing_note": {
+          "type": "string",
+          "description": "Service codes as plain text, such as HCPCS G0439 with CPT 99497."
+        },
+        "hpi": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "narrative"
+          ],
+          "properties": {
+            "narrative": {
+              "type": "string",
+              "minLength": 1
+            },
+            "elements": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "label",
+                  "value"
+                ],
+                "properties": {
+                  "label": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "value": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                }
+              }
+            }
+          }
+        },
+        "health_risk_assessment": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "domain",
+              "finding"
+            ],
+            "properties": {
+              "domain": {
+                "type": "string",
+                "minLength": 1
+              },
+              "finding": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          }
+        },
+        "ros": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "system",
+              "status",
+              "finding"
+            ],
+            "properties": {
+              "system": {
+                "type": "string",
+                "minLength": 1
+              },
+              "status": {
+                "enum": [
+                  "positive",
+                  "negative"
+                ]
+              },
+              "finding": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          }
+        },
+        "exam": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "system",
+              "finding"
+            ],
+            "properties": {
+              "system": {
+                "type": "string",
+                "minLength": 1
+              },
+              "finding": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          }
+        },
+        "assessment_plan": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "display",
+              "assessment",
+              "plan"
+            ],
+            "properties": {
+              "problem_id": {
+                "type": "string",
+                "description": "Problem list entry this item addresses, if any."
+              },
+              "display": {
+                "type": "string",
+                "minLength": 1
+              },
+              "assessment": {
+                "type": "string",
+                "minLength": 1
+              },
+              "plan": {
+                "type": "array",
+                "minItems": 1,
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              }
+            }
+          }
+        },
+        "prevention_plan": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "service",
+              "status",
+              "detail"
+            ],
+            "properties": {
+              "service": {
+                "type": "string",
+                "minLength": 1
+              },
+              "status": {
+                "enum": [
+                  "completed_today",
+                  "up_to_date",
+                  "due",
+                  "ordered",
+                  "referred",
+                  "declined",
+                  "not_indicated"
+                ]
+              },
+              "detail": {
+                "type": "string",
+                "minLength": 1
+              },
+              "guideline_ids": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "advance_care_planning": {
+          "type": "string"
+        },
+        "follow_up": {
+          "type": "string",
+          "minLength": 1
+        },
+        "guideline_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Guidelines this visit follows. Guidelines cited only by visits are left out of the intake H&P and consultation guideline lists."
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "required": [
+              "prevention_plan"
+            ]
+          },
+          "then": {
+            "required": [
+              "health_risk_assessment",
+              "advance_care_planning"
+            ]
+          }
+        }
+      ]
+    },
+    "encounter": {
+      "description": "A synthetic visit. visit_type defaults to chronic_care; sick visits are unscheduled. Visits with documentation are written as full encounter notes.",
+      "allOf": [
+        {
+          "$ref": "#/$defs/clinicalElement"
+        }
+      ],
+      "required": [
+        "date"
+      ],
+      "properties": {
+        "date": {
+          "type": "string",
+          "format": "date"
+        },
+        "visit_type": {
+          "enum": [
+            "chronic_care",
+            "initial_preventive_exam",
+            "annual_wellness_initial",
+            "annual_wellness_subsequent",
+            "preventive_adult",
+            "sick"
+          ]
+        },
+        "type_coding": {
+          "$ref": "#/$defs/coding"
+        },
+        "documentation": {
+          "$ref": "#/$defs/encounterDocumentation"
+        }
+      },
+      "if": {
+        "properties": {
+          "visit_type": {
+            "enum": [
+              "initial_preventive_exam",
+              "annual_wellness_initial",
+              "annual_wellness_subsequent",
+              "preventive_adult",
+              "sick"
+            ]
+          }
+        },
+        "required": [
+          "visit_type"
+        ]
+      },
+      "then": {
+        "required": [
+          "documentation",
+          "type_coding"
         ]
       }
     }

@@ -104,6 +104,18 @@ try {
     $dir = New-ControlCase 'lab-no-range' { param($c) ($c.clinical.observations | Where-Object id -eq 'OBS-ALT-001').PSObject.Properties.Remove('reference_range') }
     Assert-Control 'lab result without a reference range' (Invoke-Script $build @('-CaseDirectory', $dir)) 'schema validation'
 
+    $dir = New-ControlCase 'wellness-ros' { param($c) $doc = ($c.clinical.encounters | Where-Object id -eq 'ENC-005').documentation; $doc.ros = @($doc.ros | Select-Object -First 3) }
+    Assert-Control 'preventive visit reviews fewer than ten systems' (Invoke-Script $build @('-CaseDirectory', $dir)) 'review of systems covers 3 systems'
+
+    $dir = New-ControlCase 'wellness-no-screen' { param($c) $c.clinical.observations = @($c.clinical.observations | Where-Object id -ne 'OBS-PHQ9-PREV') }
+    Assert-Control 'preventive visit without a depression screen' (Invoke-Script $build @('-CaseDirectory', $dir)) 'without a same-day PHQ-2 or PHQ-9'
+
+    $dir = New-ControlCase 'sick-undocumented' { param($c) ($c.clinical.encounters | Where-Object id -eq 'ENC-004').PSObject.Properties.Remove('documentation') }
+    Assert-Control 'sick visit without full documentation' (Invoke-Script $build @('-CaseDirectory', $dir)) 'schema validation'
+
+    $dir = New-ControlCase 'note-early-problem' { param($c) ($c.clinical.problems | Where-Object id -eq 'PRB-001') | Add-Member -NotePropertyName recorded_date -NotePropertyValue '2026-10-01' -Force }
+    Assert-Control 'full note cites a problem before it was recorded' (Invoke-Script $build @('-CaseDirectory', $dir)) 'before it was recorded'
+
     if ($Conformance) {
         $dir = New-ControlCase 'ccda' $null
         [void](Invoke-Script $build @('-CaseDirectory', $dir))

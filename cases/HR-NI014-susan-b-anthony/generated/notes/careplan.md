@@ -36,5 +36,6 @@
 - 2026-03-30: Two-week heart failure medication safety check, echocardiogram, and cardiology consultation **S**
 - 2026-06-29: Three-month heart failure and blood pressure review **S**
 - 2026-09-28: Six-month heart failure review **S**
+- 2026-10-19: Subsequent annual wellness visit **S**
 
 This teaching document does not replace care from a qualified clinician.

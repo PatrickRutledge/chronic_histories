@@ -53,14 +53,6 @@ True biography with historical dates; these events are not part of the synthetic
 ## Procedures and immunizations
 
 - 2026-03-10 to 2026-03-10: Amsler grid assessment, both eyes **S**
-- 2026-03-12 to 2026-03-12: Optical coherence tomography of the macula, both eyes **S**
-- 2026-03-12 to 2026-03-12: Intravitreal injection of aflibercept 2 mg, left eye (injection 1) **S**
-- 2026-04-09 to 2026-04-09: Optical coherence tomography of the macula, left eye **S**
-- 2026-04-09 to 2026-04-09: Intravitreal injection of aflibercept 2 mg, left eye (injection 2) **S**
-- 2026-05-07 to 2026-05-07: Optical coherence tomography of the macula, left eye **S**
-- 2026-05-07 to 2026-05-07: Intravitreal injection of aflibercept 2 mg, left eye (injection 3) **S**
-- 2026-07-02 to 2026-07-02: Optical coherence tomography of the macula, both eyes **S**
-- 2026-07-02 to 2026-07-02: Intravitreal injection of aflibercept 2 mg, left eye (injection 4) **S**
 - 2025-10-15: High-dose influenza vaccine, 2025-2026 season **S**
 - 2026-03-10: Recombinant zoster vaccine, dose 1 **S**
 

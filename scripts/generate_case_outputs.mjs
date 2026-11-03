@@ -1,7 +1,7 @@
 import fs from "node:fs/promises";
 import path from "node:path";
 import { NAMESPACE, ROUTES, TRUE_DATE_NOTICE, deterministicUuid, isTrueDateFrame, outputDirFor, parseClinician, splitName } from "./lib/common.mjs";
-import { INTERPRETATIONS, isConsultStep, isLab, rangeText, withUnit } from "./lib/episode.mjs";
+import { INTERPRETATIONS, documentationOf, isConsultStep, isLab, isUnscheduled, rangeText, visitLabels, withUnit } from "./lib/episode.mjs";
 
 const inputPath = process.argv[2];
 if (!inputPath) {
@@ -87,16 +87,19 @@ const sourceRows = data.sources.map(source => `
   </tr>`).join("");
 
 const visits = data.synthetic_episode.visit_schedule.map(visit => `
-  <li><strong>${esc(visit.date)}</strong> — ${esc(visit.purpose)} <span class="muted">(${esc(visit.encounter_id)})</span></li>`).join("");
+  <li><strong>${esc(visit.date)}</strong> — ${esc(visit.purpose)} <span class="muted">(${esc(visit.encounter_id)}${isUnscheduled(data, visit) ? ", unscheduled" : ""})</span></li>`).join("");
 
 const reviewRows = Object.entries(data.review).map(([name, review]) => `
   <tr><td>${esc(name.replaceAll("_", " "))}</td><td>${esc(review.status)}</td><td>${esc(review.notes ?? "")}</td></tr>`).join("");
 
 const visitNumbers = data.synthetic_episode.visit_schedule.map((visit, index) => String(index + 1).padStart(2, "0"));
+// Full encounter notes carry their visit type in the link text.
+const labels = visitLabels(data);
+const noteLabel = (n, index) => `Progress note ${n}${documentationOf(data, data.synthetic_episode.visit_schedule[index]) ? ` — ${labels[index]}` : ""}`;
 const specialty = data.identity.synthetic_identity.fictional_consultant.specialty;
 const supportingDocuments = [
   ["History and physical", "notes/hp.md"],
-  ...visitNumbers.map(n => [`Progress note ${n}`, `notes/progress-${n}.md`]),
+  ...visitNumbers.map((n, index) => [noteLabel(n, index), `notes/progress-${n}.md`]),
   [`${data.identity.synthetic_identity.fictional_consultant.specialty} referral`, "notes/referral-01.md"],
   [`${data.identity.synthetic_identity.fictional_consultant.specialty} consultation`, "notes/consult-01.md"],
   ["Patient care plan", "notes/careplan.md"],
@@ -108,7 +111,7 @@ const supportingDocuments = [
 // and a referral and consultation when the plan includes a referral step.
 const ccdaDocuments = [
   ["History and physical", "hp-01"],
-  ...visitNumbers.map(n => [`Progress note ${n}`, `progress-${n}`]),
+  ...visitNumbers.map((n, index) => [noteLabel(n, index), `progress-${n}`]),
   ...(data.care_plan.interventions.some(isConsultStep) ? [[`${specialty} referral`, "referral-01"], [`${specialty} consultation`, "consult-01"]] : []),
 ].map(([label, name]) => `<li><a href="ccda/${name}.html">${label}</a> <a href="ccda/${name}.xml">(XML)</a></li>`).join("");
 
@@ -410,7 +413,8 @@ for (const encounter of data.clinical.encounters) {
       meta: { profile: [`${US_CORE}/us-core-encounter`], tag: [{ system: GRADE_SYSTEM, code: encounter.provenance.evidence_grade }] },
       status: encounter.status,
       class: { system: "http://terminology.hl7.org/CodeSystem/v3-ActCode", code: "AMB", display: "ambulatory" },
-      type: [{ text: encounter.display }],
+      type: [{ ...(encounter.type_coding ? { coding: [fhirCoding(encounter.type_coding)] } : {}), text: encounter.display }],
+      ...(encounter.documentation ? { reasonCode: [{ text: encounter.documentation.chief_complaint }] } : {}),
       subject: { reference: patientFullUrl },
       period: { start: encounter.date, end: encounter.date }
     }

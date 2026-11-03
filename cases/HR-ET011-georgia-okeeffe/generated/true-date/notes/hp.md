@@ -55,14 +55,6 @@ True biography with historical dates; these events are not part of the synthetic
 ## Procedures and immunizations
 
 - 1968-03-10 to 1968-03-10: Amsler grid assessment, both eyes **S**
-- 1968-03-12 to 1968-03-12: Optical coherence tomography of the macula, both eyes **S**
-- 1968-03-12 to 1968-03-12: Intravitreal injection of aflibercept 2 mg, left eye (injection 1) **S**
-- 1968-04-09 to 1968-04-09: Optical coherence tomography of the macula, left eye **S**
-- 1968-04-09 to 1968-04-09: Intravitreal injection of aflibercept 2 mg, left eye (injection 2) **S**
-- 1968-05-07 to 1968-05-07: Optical coherence tomography of the macula, left eye **S**
-- 1968-05-07 to 1968-05-07: Intravitreal injection of aflibercept 2 mg, left eye (injection 3) **S**
-- 1968-07-02 to 1968-07-02: Optical coherence tomography of the macula, both eyes **S**
-- 1968-07-02 to 1968-07-02: Intravitreal injection of aflibercept 2 mg, left eye (injection 4) **S**
 - 1967-10-15: High-dose influenza vaccine, 1967-1968 season **S**
 - 1968-03-10: Recombinant zoster vaccine, dose 1 **S**
 

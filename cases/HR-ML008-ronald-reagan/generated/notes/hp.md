@@ -64,10 +64,7 @@ True biography with historical dates; these events are not part of the synthetic
 
 - 2026-01-13 to 2026-01-13: Internal fixation of right intertrochanteric hip fracture with a sliding hip screw and side plate **S**
 - 2026-02-10 to 2026-02-10: Home safety assessment with occupational therapy **S**
-- 2026-02-24 to 2026-02-24: Advance care planning conversation with the patient and his spouse **S**
-- 2026-04-14 to 2026-04-14: Dual-energy X-ray absorptiometry of the left hip and lumbar spine: left total hip T-score -2.8, lumbar spine T-score -1.9 **S**
 - 2025-10-08: High-dose influenza vaccine, 2025-2026 season **S**
-- 2026-04-14: Pneumococcal conjugate vaccine PCV20 **S**
 
 ## Family history
 

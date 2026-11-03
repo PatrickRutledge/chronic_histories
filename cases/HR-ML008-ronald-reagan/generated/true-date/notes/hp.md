@@ -66,10 +66,7 @@ True biography with historical dates; these events are not part of the synthetic
 
 - 2001-01-13 to 2001-01-13: Internal fixation of right intertrochanteric hip fracture with a sliding hip screw and side plate **S**
 - 2001-02-10 to 2001-02-10: Home safety assessment with occupational therapy **S**
-- 2001-02-24 to 2001-02-24: Advance care planning conversation with the patient and his spouse **S**
-- 2001-04-14 to 2001-04-14: Dual-energy X-ray absorptiometry of the left hip and lumbar spine: left total hip T-score -2.8, lumbar spine T-score -1.9 **S**
 - 2000-10-08: High-dose influenza vaccine, 2000-2001 season **S**
-- 2001-04-14: Pneumococcal conjugate vaccine PCV20 **S**
 
 ## Family history
 

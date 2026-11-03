@@ -58,10 +58,7 @@ True biography with historical dates; these events are not part of the synthetic
 ## Procedures and immunizations
 
 - 1905-03-16 to 1905-03-16: 12-lead electrocardiogram: sinus rhythm, left ventricular hypertrophy by voltage, no atrial fibrillation **S**
-- 1905-03-30 to 1905-03-30: Transthoracic echocardiography: ejection fraction 62 percent, concentric remodeling with septal thickness 11 mm, enlarged left atrium, raised filling pressures, no significant valve disease **S**
 - 1904-10-06: High-dose influenza vaccine, 1904-1905 season **S**
-- 1905-03-30: Pneumococcal conjugate vaccine PCV20 **S**
-- 1905-03-30: Respiratory syncytial virus vaccine, single dose **S**
 - 1901-11-14: Recombinant zoster vaccine, two-dose series completed **S**
 - 1899-05-11: Tdap vaccine **S**
 

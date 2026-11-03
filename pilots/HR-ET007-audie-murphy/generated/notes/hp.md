@@ -52,7 +52,7 @@ True biography with historical dates; these events are not part of the synthetic
 
 ## Procedures and immunizations
 
-- 2026-07-07 to 2026-09-22: Individual Cognitive Processing Therapy course **S**
+- No procedures before this visit. **S**
 - 2021-03-15: Tdap vaccine **S**
 - 2025-10-14: Influenza vaccine, 2025-2026 season **S**
 

@@ -60,11 +60,7 @@ True biography with historical dates; these events are not part of the synthetic
 
 ## Procedures and immunizations
 
-- 2026-04-20 to 2026-04-20: Routine EEG: normal background with intermittent left frontal slowing; no epileptiform discharges **S**
-- 2026-04-20 to 2026-04-20: MRI of the brain: old depressed left frontal skull defect with small underlying encephalomalacia; normal hippocampi; no tumor or other lesion **S**
-- 2026-05-04 to 2026-05-07: Ambulatory EEG with video, 72 hours: four typical spells captured, each at sleep onset with no ictal pattern **S**
-- 2026-05-11 to 2026-05-11: Overnight polysomnography: apnea-hypopnea index 4 per hour; no periodic limb movements; REM sleep within 15 minutes of sleep onset **S**
-- 2026-05-12 to 2026-05-12: Multiple sleep latency test: mean sleep latency 4.5 minutes with two sleep-onset REM periods in five naps **S**
+- No procedures before this visit. **S**
 - 2025-10-13: High-dose influenza vaccine, 2025-2026 season **S**
 - 2026-04-06: Pneumococcal conjugate vaccine PCV20 **S**
 - 2023-02-06: Recombinant zoster vaccine, two-dose series completed **S**

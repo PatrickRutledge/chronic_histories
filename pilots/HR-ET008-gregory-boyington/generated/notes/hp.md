@@ -52,7 +52,7 @@ True biography with historical dates; these events are not part of the synthetic
 
 ## Procedures and immunizations
 
-- 2026-07-07 to 2026-09-22: Trauma-focused psychotherapy course within integrated recovery care **S**
+- No procedures before this visit. **S**
 - 2020-05-18: Tdap vaccine **S**
 - 2025-10-21: Influenza vaccine, 2025-2026 season **S**
 

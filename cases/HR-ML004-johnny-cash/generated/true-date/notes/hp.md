@@ -67,11 +67,8 @@ True biography with historical dates; these events are not part of the synthetic
 - 2003-02-27 to 2003-02-27: Comprehensive diabetic foot examination with 10-g monofilament and vibration testing **S**
 - 2003-02-27 to 2003-02-27: Optical coherence tomography of the optic nerve and retinal nerve fiber layer, both eyes **S**
 - 2003-02-27 to 2003-02-27: Dilated eye examination and Humphrey 24-2 visual field testing, both eyes **S**
-- 2003-08-14 to 2003-08-14: Optical coherence tomography of the optic nerve and retinal nerve fiber layer, both eyes **S**
-- 2003-08-14 to 2003-08-14: Humphrey 24-2 visual field testing, both eyes **S**
 - 2002-10-20: High-dose influenza vaccine, 2002-2003 season **S**
 - 2003-02-27: Pneumococcal conjugate vaccine PCV20 **S**
-- 2003-05-29: Recombinant zoster vaccine, dose 1 **S**
 
 ## Family history
 

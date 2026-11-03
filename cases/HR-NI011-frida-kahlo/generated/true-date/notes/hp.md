@@ -68,9 +68,6 @@ True biography with historical dates; these events are not part of the synthetic
 
 - 1944-09-17 to 1944-09-17: Plain X-ray of the right ankle: joint-space narrowing, osteophytes, and healed old fractures **S**
 - 1944-09-17 to 1944-09-17: Urine drug test, with consent, before continuing long-term opioid therapy; result consistent with the prescribed oxycodone only **S**
-- 1944-10-01: Physical therapy twice weekly: graded exercise, core and hip strengthening, aquatic therapy, and a shoe lift for the shorter right leg **S**
-- 1944-10-15: Cognitive behavioral therapy for chronic pain, weekly **S**
-- 1944-10-15: Influenza vaccine, 1944-1945 season **S**
 - 1940-02-14: Tdap vaccine **S**
 
 ## Family history

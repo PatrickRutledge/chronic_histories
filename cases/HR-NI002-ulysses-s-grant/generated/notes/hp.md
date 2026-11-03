@@ -55,12 +55,7 @@ True biography with historical dates; these events are not part of the synthetic
 
 ## Procedures and immunizations
 
-- 2026-07-14 to 2026-07-14: CT of the neck with contrast, showing a right tonsillar mass with an enlarged right level II lymph node **S**
-- 2026-07-21 to 2026-07-21: Flexible fiberoptic laryngoscopy, showing an ulcerated lesion of the right tonsillar pillar; larynx clear **S**
-- 2026-07-21 to 2026-07-21: Biopsy of lesion of tonsil; pathology showed squamous cell carcinoma, p16-negative **S**
-- 2026-07-30 to 2026-07-30: PET/CT for staging, showing no distant spread **S**
-- 2026-10-22: Influenza vaccine, 2026-2027 season **S**
-- 2026-08-04: Pneumococcal conjugate vaccine PCV20 **S**
+- No procedures before this visit. **S**
 - 2020-09-15: Tdap vaccine **S**
 
 ## Family history

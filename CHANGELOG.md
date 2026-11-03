@@ -12,6 +12,8 @@ A case ID is never reused for a different person.
 
 ### Added
 
+- Full encounter notes. An encounter can carry a `visit_type` (initial preventive exam, initial or subsequent annual wellness visit, adult preventive visit, or sick visit), a SNOMED CT `type_coding`, and `documentation` with chief complaint, history of present illness, review of systems, examination, and assessment and plan. Wellness and preventive visits add a health risk assessment, a personalized prevention plan, and advance care planning. These visits render as full progress notes in Markdown and as C-CDA Progress Notes with Chief Complaint, HPI, Review of Systems, Physical Exam, Assessment and Plan, and Advance Directives sections; the FHIR Encounter carries the type code and chief complaint. Sick visits are unscheduled, so "next visit" lines and the care plan skip them. Validation requires ten or more systems and a same-day PHQ-2 or PHQ-9 at wellness and preventive visits, and two or more systems at sick visits, and four new controls prove the rules. The visit templates follow the Medicare Preventive Services reference (Aether Forge).
+- `HR-NI014` Susan B. Anthony: an unscheduled sick visit for viral bronchitis and a subsequent annual wellness visit with Mini-Cog, AUDIT-C, and PHQ-2 screens, a same-day influenza vaccine, and a written prevention plan. This is the pattern case for adding these visits to the other records.
 - Batch 1, nine more draft records in `cases/`: Booker T. Washington (hypertensive kidney disease), Susan B. Anthony (heart failure with preserved ejection fraction), Harriet Tubman (post-traumatic headache and sleep episodes), Johnny Cash (type 2 diabetes with autonomic neuropathy, glaucoma), Ronald Reagan (Alzheimer's disease after a hip fracture), Georgia O'Keeffe (age-related macular degeneration), Ulysses S. Grant (oropharyngeal cancer), Marie Curie (aplastic anemia, cataract), and Frida Kahlo (chronic post-traumatic pain on long-term opioids). Visit schedules follow the CMID monitoring intervals where the condition has a monograph, and the specialty guideline otherwise. All are draft and awaiting review.
 - `recorded_date` on problems: a diagnosis made at a later visit is left out of earlier visits' documents, and its C-CDA onset is that date.
 - Medication routes `nasal`, `ophthalmic`, and `intravitreal`.
@@ -27,6 +29,7 @@ A case ID is never reused for a different person.
 
 ### Fixed
 
+- The intake H&P listed procedures and immunizations dated after the intake visit.
 - The last progress note told every patient to continue "the safety plan", even when the case had none.
 - The check that every result appears in the notes could not match a negative value such as a T-score.
 - The C-CDA links on the review page opened a blank page: every document referenced a `ccda.xsl` stylesheet that was never generated, and browsers do not apply XSLT to local files anyway. The reference is removed, and each C-CDA document now has a readable HTML copy beside it (`ccda.html`, `ccda/*.html`), linked from the review page with the XML.

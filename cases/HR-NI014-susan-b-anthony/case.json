@@ -415,9 +415,19 @@
         "purpose": "Three-month heart failure and blood pressure review"
       },
       {
+        "encounter_id": "ENC-005",
+        "date": "2026-08-17",
+        "purpose": "Same-day sick visit for a head cold and cough"
+      },
+      {
         "encounter_id": "ENC-004",
         "date": "2026-09-28",
         "purpose": "Six-month heart failure review"
+      },
+      {
+        "encounter_id": "ENC-006",
+        "date": "2026-10-19",
+        "purpose": "Subsequent annual wellness visit"
       }
     ]
   },
@@ -474,6 +484,32 @@
         "clinical_status": "active",
         "verification_status": "confirmed",
         "problem_placement": "active"
+      },
+      {
+        "id": "PRB-003",
+        "display": "Acute viral bronchitis after a head cold, resolved without antibiotics",
+        "status": "draft",
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/sid/icd-10-cm",
+            "code": "J20.9",
+            "display": "Acute bronchitis, unspecified",
+            "version": "FY2026",
+            "validation_status": "validated",
+            "validated_on": "2026-11-03"
+          }
+        ],
+        "provenance": {
+          "evidence_grade": "S",
+          "claim_ids": [],
+          "synthetic_reason": "Synthetic intercurrent illness at an unscheduled visit; it does not echo a documented illness.",
+          "author": "The Human Record generator",
+          "created": "2026-11-03T09:00:00-05:00"
+        },
+        "clinical_status": "resolved",
+        "verification_status": "confirmed",
+        "problem_placement": "active",
+        "recorded_date": "2026-08-17"
       }
     ],
     "medications": [
@@ -1964,6 +2000,84 @@
           "author": "The Human Record generator",
           "created": "2026-11-02T19:00:00-05:00"
         }
+      },
+      {
+        "id": "OBS-PHQ2-AWV",
+        "display": "Patient Health Questionnaire 2 item (PHQ-2) total score [Reported]",
+        "label": "PHQ-2",
+        "status": "final",
+        "effective_date": "2026-10-19",
+        "value": 0,
+        "unit": "{score}",
+        "coding": [
+          {
+            "system": "http://loinc.org",
+            "code": "55758-7",
+            "display": "Patient Health Questionnaire 2 item (PHQ-2) total score [Reported]",
+            "version": "2.81",
+            "validation_status": "validated",
+            "validated_on": "2026-11-03"
+          }
+        ],
+        "provenance": {
+          "evidence_grade": "S",
+          "claim_ids": [],
+          "synthetic_reason": "Synthetic annual depression screen.",
+          "author": "The Human Record generator",
+          "created": "2026-11-03T09:00:00-05:00"
+        }
+      },
+      {
+        "id": "OBS-MINICOG-AWV",
+        "display": "Total score [Mini-Cog]",
+        "label": "Mini-Cog",
+        "status": "final",
+        "effective_date": "2026-10-19",
+        "value": 5,
+        "unit": "{score}",
+        "coding": [
+          {
+            "system": "http://loinc.org",
+            "code": "72233-0",
+            "display": "Total score [Mini-Cog]",
+            "version": "2.81",
+            "validation_status": "validated",
+            "validated_on": "2026-11-03"
+          }
+        ],
+        "provenance": {
+          "evidence_grade": "S",
+          "claim_ids": [],
+          "synthetic_reason": "Synthetic cognitive screen at the annual wellness visit (three-word recall 3 of 3, clock normal).",
+          "author": "The Human Record generator",
+          "created": "2026-11-03T09:00:00-05:00"
+        }
+      },
+      {
+        "id": "OBS-AUDITC-AWV",
+        "display": "Total score [AUDIT-C]",
+        "label": "AUDIT-C",
+        "status": "final",
+        "effective_date": "2026-10-19",
+        "value": 0,
+        "unit": "{score}",
+        "coding": [
+          {
+            "system": "http://loinc.org",
+            "code": "75626-2",
+            "display": "Total score [AUDIT-C]",
+            "version": "2.81",
+            "validation_status": "validated",
+            "validated_on": "2026-11-03"
+          }
+        ],
+        "provenance": {
+          "evidence_grade": "S",
+          "claim_ids": [],
+          "synthetic_reason": "Synthetic alcohol screen.",
+          "author": "The Human Record generator",
+          "created": "2026-11-03T09:00:00-05:00"
+        }
       }
     ],
     "procedures": [
@@ -2121,6 +2235,28 @@
           "synthetic_reason": "Synthetic adult immunization history in the modern frame; not a historical assertion.",
           "author": "The Human Record generator",
           "created": "2026-11-02T19:00:00-05:00"
+        }
+      },
+      {
+        "id": "IMM-006",
+        "display": "High-dose influenza vaccine, 2026-2027 season",
+        "status": "completed",
+        "date": "2026-10-19",
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/sid/cvx",
+            "code": "135",
+            "display": "Influenza, high-dose, trivalent, PF",
+            "validation_status": "validated",
+            "validated_on": "2026-11-03"
+          }
+        ],
+        "provenance": {
+          "evidence_grade": "S",
+          "claim_ids": [],
+          "synthetic_reason": "Synthetic adult immunization history in the modern frame; not a historical assertion.",
+          "author": "The Human Record generator",
+          "created": "2026-11-03T09:00:00-05:00"
         }
       }
     ],
@@ -2315,6 +2451,534 @@
           "synthetic_reason": "Synthetic modern EHR encounter.",
           "author": "The Human Record generator",
           "created": "2026-11-02T19:00:00-05:00"
+        }
+      },
+      {
+        "id": "ENC-005",
+        "display": "Same-day sick visit for a head cold and cough",
+        "status": "finished",
+        "date": "2026-08-17",
+        "visit_type": "sick",
+        "type_coding": {
+          "system": "http://snomed.info/sct",
+          "code": "185345009",
+          "display": "Encounter for symptom",
+          "validation_status": "validated",
+          "validated_on": "2026-11-03"
+        },
+        "documentation": {
+          "chief_complaint": "Head cold and dry cough for four days",
+          "billing_note": "Problem-oriented office visit, established patient",
+          "hpi": {
+            "narrative": "Miss Anthony is an 85-year-old woman with heart failure with preserved ejection fraction (ejection fraction 62 percent) and hypertensive heart disease, euvolemic since June on as-needed furosemide, who asked for a same-day visit. Four days ago, two days after returning by train from a convention, she developed a runny nose and sore throat, followed by a dry cough that is worse at night and has woken her on two nights. Her sister had a cold the week before. A home COVID-19 antigen test on day two was negative. Her highest home temperature was 37.6 °C. Her daily weights have stayed between 56.0 and 56.4 kg, so she has not needed an extra furosemide dose. She is mildly breathless only during coughing fits, still sleeps on one pillow, and has kept walking, more slowly. Honey in hot tea eases the cough. She has taken nothing else, because the care plan told her to avoid cold remedies containing decongestants or ibuprofen.",
+            "elements": [
+              {
+                "label": "Onset",
+                "value": "Four days ago, two days after train travel"
+              },
+              {
+                "label": "Location",
+                "value": "Nose, throat, and chest"
+              },
+              {
+                "label": "Duration",
+                "value": "Four days"
+              },
+              {
+                "label": "Character",
+                "value": "Dry cough; clear nasal discharge; scratchy throat"
+              },
+              {
+                "label": "Severity",
+                "value": "Mild to moderate; sleep broken on two nights"
+              },
+              {
+                "label": "Timing",
+                "value": "Cough worse at night and on lying down to sleep, not on lying flat while awake"
+              },
+              {
+                "label": "Context",
+                "value": "Sister had a cold last week; recent convention travel"
+              },
+              {
+                "label": "Modifying factors",
+                "value": "Honey and tea help; no extra furosemide needed by the weight plan"
+              },
+              {
+                "label": "Associated signs and symptoms",
+                "value": "Fatigue. Denies fever above 37.6 °C, chest pain, sputum, hemoptysis, orthopnea, ankle swelling, and weight gain"
+              }
+            ]
+          },
+          "ros": [
+            {
+              "system": "Constitutional",
+              "status": "positive",
+              "finding": "Fatigue; low-grade temperature to 37.6 °C; no chills or night sweats"
+            },
+            {
+              "system": "Ears, nose, mouth, and throat",
+              "status": "positive",
+              "finding": "Clear rhinorrhea, nasal congestion, sore throat; no ear pain or facial pain"
+            },
+            {
+              "system": "Respiratory",
+              "status": "positive",
+              "finding": "Dry cough; breathless only during coughing fits; no wheeze, sputum, or hemoptysis"
+            },
+            {
+              "system": "Cardiovascular",
+              "status": "negative",
+              "finding": "No chest pain, palpitations, orthopnea, paroxysmal nocturnal dyspnea, or ankle swelling"
+            },
+            {
+              "system": "Gastrointestinal",
+              "status": "negative",
+              "finding": "No nausea, vomiting, or diarrhea; eating and drinking normally"
+            },
+            {
+              "system": "Genitourinary",
+              "status": "negative",
+              "finding": "No dysuria; urine output normal"
+            },
+            {
+              "system": "Neurological",
+              "status": "negative",
+              "finding": "No headache beyond mild sinus pressure; no dizziness"
+            }
+          ],
+          "exam": [
+            {
+              "system": "General",
+              "finding": "Alert, well-appearing, speaking in full sentences, mildly hoarse"
+            },
+            {
+              "system": "Ears, nose, and throat",
+              "finding": "Tympanic membranes normal; nasal mucosa red and swollen with clear discharge; pharynx mildly red without exudate"
+            },
+            {
+              "system": "Neck",
+              "finding": "Small, soft, mildly tender anterior cervical nodes; jugular venous pressure not raised"
+            },
+            {
+              "system": "Respiratory",
+              "finding": "Unlabored; scattered upper-airway rhonchi that clear with coughing; no crackles, wheeze, or dullness"
+            },
+            {
+              "system": "Cardiovascular",
+              "finding": "Regular rhythm; no S3 or new murmur"
+            },
+            {
+              "system": "Extremities",
+              "finding": "No ankle or sacral edema"
+            }
+          ],
+          "assessment_plan": [
+            {
+              "problem_id": "PRB-003",
+              "display": "Acute bronchitis, likely viral, after an upper respiratory infection",
+              "assessment": "She is afebrile with heart rate under 100, respiratory rate under 24, and a clear chest, so pneumonia is not suspected. A chest radiograph and antibiotics are not indicated",
+              "plan": [
+                "Supportive care: honey, warm fluids within her usual fluid guidance, saline nasal rinse, and rest",
+                "Acetaminophen 650 mg up to every 6 hours as needed for sore throat, no more than 3 g a day",
+                "Avoid ibuprofen and other NSAIDs and oral decongestants such as pseudoephedrine, which can worsen heart failure and blood pressure",
+                "Repeat a home COVID-19 antigen test today and again in 48 hours. If it is positive, call the same day, because antiviral treatment would be offered at her age after a drug-interaction check",
+                "The cough may last two to three weeks"
+              ]
+            },
+            {
+              "problem_id": "PRB-001",
+              "display": "Heart failure with preserved ejection fraction, compensated",
+              "assessment": "Weight is at her dry weight, the jugular venous pressure is not raised, and there is no edema. Respiratory infection is a common trigger for decompensation",
+              "plan": [
+                "Continue empagliflozin and spironolactone",
+                "Sick-day rule: pause empagliflozin on any day she cannot eat or drink normally, and restart when she can",
+                "Continue daily weights and take as-needed furosemide by the written plan for a gain of more than 1 kg in a day or 2 kg in a week"
+              ]
+            },
+            {
+              "problem_id": "PRB-002",
+              "display": "Hypertensive heart disease",
+              "assessment": "Blood pressure 128/74 mmHg, at goal",
+              "plan": [
+                "No change"
+              ]
+            }
+          ],
+          "follow_up": "Nurse telephone check in three days. Call or return the same day for a temperature above 38 °C, breathlessness at rest or when lying flat, chest pain, or weight gain beyond the plan",
+          "guideline_ids": [
+            "GL-ARTI-2016",
+            "GL-HF-2022"
+          ]
+        },
+        "provenance": {
+          "evidence_grade": "S",
+          "claim_ids": [
+            "CLM-0009"
+          ],
+          "synthetic_reason": "Synthetic unscheduled sick visit.",
+          "author": "The Human Record generator",
+          "created": "2026-11-03T09:00:00-05:00"
+        }
+      },
+      {
+        "id": "ENC-006",
+        "display": "Subsequent annual wellness visit",
+        "status": "finished",
+        "date": "2026-10-19",
+        "visit_type": "annual_wellness_subsequent",
+        "type_coding": {
+          "system": "http://snomed.info/sct",
+          "code": "281038008",
+          "display": "Geriatric annual health check",
+          "validation_status": "validated",
+          "validated_on": "2026-11-03"
+        },
+        "documentation": {
+          "chief_complaint": "Subsequent annual wellness visit; no new complaints",
+          "billing_note": "HCPCS G0439 (subsequent annual wellness visit) with CPT 99497 (advance care planning), both on the same day",
+          "hpi": {
+            "narrative": "Miss Anthony returns for her subsequent annual wellness visit, three weeks after her six-month heart failure review. She completed the health risk assessment before the visit. Her August bronchitis cleared within two weeks without antibiotics. Since her last wellness visit she has had no falls, emergency visits, or hospital stays. She reports good adherence, uses a weekly pill organizer, and has added no over-the-counter medicines. She is back to a full lecture and travel schedule and walks two miles most days. Her one new concern is difficulty following questions from the back of crowded halls, more on the right.",
+            "elements": [
+              {
+                "label": "Visit",
+                "value": "Subsequent annual wellness visit"
+              },
+              {
+                "label": "New concern",
+                "value": "Trouble hearing in crowded halls, worse on the right"
+              },
+              {
+                "label": "Safety events",
+                "value": "No falls, emergency visits, or hospital stays in the past year"
+              },
+              {
+                "label": "Medicines",
+                "value": "Adherent with a weekly pill organizer; no new over-the-counter medicines or supplements"
+              },
+              {
+                "label": "Active conditions",
+                "value": "Heart failure with preserved ejection fraction and hypertensive heart disease, both controlled"
+              },
+              {
+                "label": "Functional status",
+                "value": "Independent in all activities and instrumental activities of daily living"
+              }
+            ]
+          },
+          "health_risk_assessment": [
+            {
+              "domain": "Self-rated health",
+              "finding": "Good, and better than in the spring"
+            },
+            {
+              "domain": "Psychosocial",
+              "finding": "Lives with her sister; close circle of colleagues; no loneliness; stress from her work schedule is manageable"
+            },
+            {
+              "domain": "Behavioral",
+              "finding": "Never smoker; no alcohol; walks two miles most days; simple diet with moderate salt; sleeps about seven hours"
+            },
+            {
+              "domain": "Activities of daily living",
+              "finding": "Independent in bathing, dressing, eating, toileting, and transfers"
+            },
+            {
+              "domain": "Instrumental activities of daily living",
+              "finding": "Manages her own medicines, money, correspondence, and travel arrangements"
+            },
+            {
+              "domain": "Home safety",
+              "finding": "Smoke detectors working; handrails on both sides of the stairs; one loose hall rug"
+            },
+            {
+              "domain": "Hearing and vision",
+              "finding": "Difficulty hearing in large rooms; reading glasses; last eye examination more than a year ago"
+            },
+            {
+              "domain": "Bladder",
+              "finding": "Urgency on the days she takes furosemide, without leakage"
+            },
+            {
+              "domain": "Memory",
+              "finding": "No concerns from her or her family"
+            }
+          ],
+          "ros": [
+            {
+              "system": "Constitutional",
+              "status": "negative",
+              "finding": "Weight stable at her dry weight; no fatigue, fever, or appetite change"
+            },
+            {
+              "system": "Eyes",
+              "status": "negative",
+              "finding": "No change in vision with reading glasses; no eye pain"
+            },
+            {
+              "system": "Ears, nose, mouth, and throat",
+              "status": "positive",
+              "finding": "Reduced hearing in crowded rooms, right more than left; no tinnitus or vertigo"
+            },
+            {
+              "system": "Cardiovascular",
+              "status": "negative",
+              "finding": "No chest pain, palpitations, orthopnea, or ankle swelling"
+            },
+            {
+              "system": "Respiratory",
+              "status": "negative",
+              "finding": "Cough resolved; breathless only on long stair climbs"
+            },
+            {
+              "system": "Gastrointestinal",
+              "status": "negative",
+              "finding": "Regular bowel habit; no bleeding or reflux"
+            },
+            {
+              "system": "Genitourinary",
+              "status": "positive",
+              "finding": "Urgency on furosemide days; no incontinence or dysuria"
+            },
+            {
+              "system": "Musculoskeletal",
+              "status": "negative",
+              "finding": "No falls, joint pain, or change in gait"
+            },
+            {
+              "system": "Integumentary",
+              "status": "negative",
+              "finding": "No new or changing skin lesions"
+            },
+            {
+              "system": "Neurological",
+              "status": "negative",
+              "finding": "No memory change, headache, weakness, or imbalance"
+            },
+            {
+              "system": "Psychiatric",
+              "status": "negative",
+              "finding": "Mood good; sleeps well; PHQ-2 score 0"
+            },
+            {
+              "system": "Endocrine",
+              "status": "negative",
+              "finding": "No polyuria, polydipsia, or heat or cold intolerance"
+            },
+            {
+              "system": "Hematologic",
+              "status": "negative",
+              "finding": "No easy bruising or bleeding"
+            }
+          ],
+          "exam": [
+            {
+              "system": "Constitutional",
+              "finding": "Alert and well-appearing; weight stable from her September review"
+            },
+            {
+              "system": "Eyes",
+              "finding": "Pupils equal and reactive; near vision 20/30 with reading glasses"
+            },
+            {
+              "system": "Ears",
+              "finding": "Canals clear; whispered-voice test failed on the right and passed on the left"
+            },
+            {
+              "system": "Neck",
+              "finding": "No thyroid enlargement or nodes; no carotid bruits; jugular venous pressure not raised"
+            },
+            {
+              "system": "Cardiovascular",
+              "finding": "Regular rhythm; soft S4; no murmur; pedal pulses present; no edema"
+            },
+            {
+              "system": "Respiratory",
+              "finding": "Clear to auscultation bilaterally"
+            },
+            {
+              "system": "Abdomen",
+              "finding": "Soft and non-tender; no masses or aortic bruit"
+            },
+            {
+              "system": "Musculoskeletal",
+              "finding": "Timed Up and Go 9 seconds with a steady gait; rises from a chair without using her arms"
+            },
+            {
+              "system": "Neurological",
+              "finding": "Oriented; Mini-Cog 5 of 5 (recall 3 of 3, clock normal)"
+            },
+            {
+              "system": "Psychiatric",
+              "finding": "Euthymic, forthright, and engaged; judgment and insight intact"
+            },
+            {
+              "system": "Skin",
+              "finding": "Scattered seborrheic keratoses on the back; no suspicious lesions"
+            }
+          ],
+          "assessment_plan": [
+            {
+              "display": "Subsequent annual wellness visit completed",
+              "assessment": "Health risk assessment reviewed, personalized prevention plan updated, and a written copy given. Depression, alcohol, cognitive, and fall-risk screens are negative",
+              "plan": [
+                "Next annual wellness visit in one year"
+              ]
+            },
+            {
+              "problem_id": "PRB-001",
+              "display": "Heart failure with preserved ejection fraction",
+              "assessment": "Compensated, with symptoms only on long stair climbs. The KCCQ-12 score rose from 52 at diagnosis to 76 in September, and her weight is stable",
+              "plan": [
+                "Continue empagliflozin, spironolactone, and as-needed furosemide by the weight plan",
+                "Basic metabolic panel and magnesium with the next heart failure review in about three months, then every three to six months on the CMID schedule"
+              ]
+            },
+            {
+              "problem_id": "PRB-002",
+              "display": "Hypertensive heart disease",
+              "assessment": "Blood pressure 124/72 mmHg, below the 130/80 target, without orthostatic symptoms",
+              "plan": [
+                "No change"
+              ]
+            },
+            {
+              "display": "Reduced hearing, right ear",
+              "assessment": "New concern, confirmed by a failed whispered-voice test on the right. Hearing loss is common at her age and treatable, and it matters for her public speaking",
+              "plan": [
+                "Refer to audiology for a formal hearing evaluation"
+              ]
+            },
+            {
+              "display": "Urinary urgency on furosemide days",
+              "assessment": "Expected effect of the diuretic, without incontinence or infection symptoms",
+              "plan": [
+                "Take as-needed furosemide in the morning and plan it around lectures and travel"
+              ]
+            },
+            {
+              "display": "Fall risk",
+              "assessment": "Low, with no falls in the past year and a Timed Up and Go of 9 seconds",
+              "plan": [
+                "Secure or remove the loose hall rug",
+                "Continue daily walking"
+              ]
+            }
+          ],
+          "prevention_plan": [
+            {
+              "service": "Influenza vaccine, 2026-2027",
+              "status": "completed_today",
+              "detail": "High-dose vaccine given today"
+            },
+            {
+              "service": "COVID-19 vaccine, 2026-2027",
+              "status": "due",
+              "detail": "Recommended at her age; she plans to get it at her pharmacy"
+            },
+            {
+              "service": "Pneumococcal vaccine",
+              "status": "up_to_date",
+              "detail": "PCV20 given in March; no further doses needed"
+            },
+            {
+              "service": "RSV vaccine",
+              "status": "up_to_date",
+              "detail": "Single dose given in March"
+            },
+            {
+              "service": "Recombinant zoster vaccine",
+              "status": "up_to_date",
+              "detail": "Two-dose series completed four years ago"
+            },
+            {
+              "service": "Tetanus booster",
+              "status": "up_to_date",
+              "detail": "Tdap six years ago; next dose due in four years"
+            },
+            {
+              "service": "Bone density (DXA)",
+              "status": "ordered",
+              "detail": "No prior scan on record; recommended for women 65 and older, and her low body weight raises fracture risk",
+              "guideline_ids": [
+                "GL-USPSTF-OSTEO-2025"
+              ]
+            },
+            {
+              "service": "Depression screening",
+              "status": "completed_today",
+              "detail": "PHQ-2 score 0"
+            },
+            {
+              "service": "Alcohol misuse screening",
+              "status": "completed_today",
+              "detail": "AUDIT-C score 0"
+            },
+            {
+              "service": "Cognitive assessment",
+              "status": "completed_today",
+              "detail": "Mini-Cog 5 of 5"
+            },
+            {
+              "service": "Falls prevention",
+              "status": "completed_today",
+              "detail": "Timed Up and Go 9 seconds; home-safety advice given",
+              "guideline_ids": [
+                "GL-USPSTF-FALLS-2024"
+              ]
+            },
+            {
+              "service": "Hearing",
+              "status": "referred",
+              "detail": "Audiology referral for a failed right whispered-voice test"
+            },
+            {
+              "service": "Eye examination",
+              "status": "due",
+              "detail": "More than a year since her last examination; she will book with her optometrist"
+            },
+            {
+              "service": "Cholesterol and diabetes screening",
+              "status": "up_to_date",
+              "detail": "LDL cholesterol 96 mg/dL and HbA1c 5.5% in March"
+            },
+            {
+              "service": "Colorectal cancer screening",
+              "status": "not_indicated",
+              "detail": "Age 85; after discussion she declines further screening"
+            },
+            {
+              "service": "Breast cancer screening",
+              "status": "not_indicated",
+              "detail": "Evidence is insufficient after 75; after discussion she declines further mammograms"
+            },
+            {
+              "service": "Cervical cancer screening",
+              "status": "not_indicated",
+              "detail": "Not recommended after 65 with adequate prior screening"
+            },
+            {
+              "service": "Lung cancer and abdominal aortic aneurysm screening",
+              "status": "not_indicated",
+              "detail": "Never smoker"
+            }
+          ],
+          "advance_care_planning": "Voluntary advance care planning discussion of about 20 minutes, with her consent. She has a written health care directive and has named a health care agent; a copy is now in the chart. She wants full treatment for reversible illness, including hospital care. She would not want prolonged mechanical ventilation or resuscitation if recovery to independent living were unlikely. She will review these wishes with her agent.",
+          "follow_up": "Audiology referral and DXA scan ordered. Heart failure review with laboratory tests in about three months. Next annual wellness visit in one year",
+          "guideline_ids": [
+            "GL-AWV-CMS",
+            "GL-PREV-2026",
+            "GL-CMID-2026"
+          ]
+        },
+        "provenance": {
+          "evidence_grade": "S",
+          "claim_ids": [
+            "CLM-0009"
+          ],
+          "synthetic_reason": "Synthetic Medicare annual wellness visit.",
+          "author": "The Human Record generator",
+          "created": "2026-11-03T09:00:00-05:00"
         }
       }
     ],
@@ -2585,6 +3249,140 @@
           "synthetic_reason": "Synthetic vital signs; no blood pressure or weight from her lifetime is recorded in the cited sources.",
           "author": "The Human Record generator",
           "created": "2026-11-02T19:00:00-05:00"
+        }
+      },
+      {
+        "id": "VSET-005",
+        "date": "2026-08-17",
+        "measurements": [
+          {
+            "code": "8302-2",
+            "display": "Body height",
+            "value": 165,
+            "unit": "cm"
+          },
+          {
+            "code": "29463-7",
+            "display": "Body weight",
+            "value": 56.3,
+            "unit": "kg"
+          },
+          {
+            "code": "39156-5",
+            "display": "Body mass index (BMI) [Ratio]",
+            "value": 20.7,
+            "unit": "kg/m2"
+          },
+          {
+            "code": "8480-6",
+            "display": "Systolic blood pressure",
+            "value": 128,
+            "unit": "mm[Hg]"
+          },
+          {
+            "code": "8462-4",
+            "display": "Diastolic blood pressure",
+            "value": 74,
+            "unit": "mm[Hg]"
+          },
+          {
+            "code": "8867-4",
+            "display": "Heart rate",
+            "value": 88,
+            "unit": "/min"
+          },
+          {
+            "code": "9279-1",
+            "display": "Respiratory rate",
+            "value": 18,
+            "unit": "/min"
+          },
+          {
+            "code": "8310-5",
+            "display": "Body temperature",
+            "value": 37.4,
+            "unit": "Cel"
+          },
+          {
+            "code": "59408-5",
+            "display": "Oxygen saturation in Arterial blood by Pulse oximetry",
+            "value": 95,
+            "unit": "%"
+          }
+        ],
+        "provenance": {
+          "evidence_grade": "S",
+          "claim_ids": [],
+          "synthetic_reason": "Synthetic vital signs; no blood pressure or weight from her lifetime is recorded in the cited sources.",
+          "author": "The Human Record generator",
+          "created": "2026-11-03T09:00:00-05:00"
+        }
+      },
+      {
+        "id": "VSET-006",
+        "date": "2026-10-19",
+        "measurements": [
+          {
+            "code": "8302-2",
+            "display": "Body height",
+            "value": 165,
+            "unit": "cm"
+          },
+          {
+            "code": "29463-7",
+            "display": "Body weight",
+            "value": 56.1,
+            "unit": "kg"
+          },
+          {
+            "code": "39156-5",
+            "display": "Body mass index (BMI) [Ratio]",
+            "value": 20.6,
+            "unit": "kg/m2"
+          },
+          {
+            "code": "8480-6",
+            "display": "Systolic blood pressure",
+            "value": 124,
+            "unit": "mm[Hg]"
+          },
+          {
+            "code": "8462-4",
+            "display": "Diastolic blood pressure",
+            "value": 72,
+            "unit": "mm[Hg]"
+          },
+          {
+            "code": "8867-4",
+            "display": "Heart rate",
+            "value": 68,
+            "unit": "/min"
+          },
+          {
+            "code": "9279-1",
+            "display": "Respiratory rate",
+            "value": 16,
+            "unit": "/min"
+          },
+          {
+            "code": "8310-5",
+            "display": "Body temperature",
+            "value": 36.6,
+            "unit": "Cel"
+          },
+          {
+            "code": "59408-5",
+            "display": "Oxygen saturation in Arterial blood by Pulse oximetry",
+            "value": 97,
+            "unit": "%"
+          }
+        ],
+        "provenance": {
+          "evidence_grade": "S",
+          "claim_ids": [],
+          "synthetic_reason": "Synthetic vital signs; no blood pressure or weight from her lifetime is recorded in the cited sources.",
+          "author": "The Human Record generator",
+          "created": "2026-11-03T09:00:00-05:00"
         }
       }
     ],
@@ -2910,6 +3708,41 @@
         "publisher": "Aether Forge",
         "url": "https://patrickrutledge.github.io/topthirty/",
         "version_or_year": "2026"
+      },
+      {
+        "guideline_id": "GL-ARTI-2016",
+        "title": "Appropriate Antibiotic Use for Acute Respiratory Tract Infection in Adults: Advice for High-Value Care From the American College of Physicians and the Centers for Disease Control and Prevention",
+        "publisher": "American College of Physicians and Centers for Disease Control and Prevention",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/26785402/",
+        "version_or_year": "2016"
+      },
+      {
+        "guideline_id": "GL-AWV-CMS",
+        "title": "Medicare Wellness Visits (Medicare Learning Network)",
+        "publisher": "Centers for Medicare & Medicaid Services",
+        "url": "https://www.cms.gov/outreach-and-education/medicare-learning-network-mln/mlnproducts/preventive-services/medicare-wellness-visits.html",
+        "version_or_year": "2026"
+      },
+      {
+        "guideline_id": "GL-PREV-2026",
+        "title": "Medicare Preventive Services reference: visit templates, screening cascades, and documentation elements",
+        "publisher": "Aether Forge",
+        "url": "https://patrickrutledge.github.io/preventative_services/",
+        "version_or_year": "2026"
+      },
+      {
+        "guideline_id": "GL-USPSTF-OSTEO-2025",
+        "title": "Osteoporosis to Prevent Fractures: Screening",
+        "publisher": "U.S. Preventive Services Task Force",
+        "url": "https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/osteoporosis-screening",
+        "version_or_year": "2025"
+      },
+      {
+        "guideline_id": "GL-USPSTF-FALLS-2024",
+        "title": "Falls Prevention in Community-Dwelling Older Adults: Interventions",
+        "publisher": "U.S. Preventive Services Task Force",
+        "url": "https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/falls-prevention-community-dwelling-older-adults-interventions",
+        "version_or_year": "2024"
       }
     ]
   },

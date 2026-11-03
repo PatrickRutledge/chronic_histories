@@ -84,3 +84,47 @@ export const activeProblemsAt = (data, date) => problemsAt(data, date).filter(pr
 
 // Notes use the short clinical name when one is given (ALT rather than the full LOINC display).
 export const labelOf = (observation) => observation.label ?? observation.display;
+
+// Visit types. A visit whose encounter carries documentation is written as a full encounter note
+// (chief complaint, HPI, review of systems, examination, assessment and plan). Sick visits are
+// unscheduled, so "next visit" lines skip them and the care plan does not list them.
+export const VISIT_TITLES = {
+  initial_preventive_exam: "Initial Preventive Physical Examination",
+  annual_wellness_initial: "Annual Wellness Visit, Initial",
+  annual_wellness_subsequent: "Annual Wellness Visit, Subsequent",
+  preventive_adult: "Preventive Visit",
+  sick: "Sick Visit",
+};
+export const PREVENTION_STATUS = {
+  completed_today: "Completed today", up_to_date: "Up to date", due: "Due", ordered: "Ordered",
+  referred: "Referred", declined: "Declined", not_indicated: "Not indicated",
+};
+export const encounterOf = (data, visit) => data.clinical.encounters.find(encounter => encounter.id === visit.encounter_id);
+export const documentationOf = (data, visit) => encounterOf(data, visit)?.documentation;
+export const isUnscheduled = (data, visit) => encounterOf(data, visit)?.visit_type === "sick";
+export const scheduledVisits = (data) => data.synthetic_episode.visit_schedule.filter(visit => !isUnscheduled(data, visit));
+// The next scheduled visit after visit number n (1-based).
+export const nextScheduledVisit = (data, n) => data.synthetic_episode.visit_schedule.slice(n).find(visit => !isUnscheduled(data, visit));
+export const medicationsAt = (data, date) => data.clinical.medications.filter(med => med.start_date <= date && (!med.end_date || med.end_date > date));
+// Guidelines cited only by full encounter notes (directly or from a prevention-plan row) belong to
+// those visits, not to the intake plan.
+export const visitOnlyGuidelineIds = (data) => {
+  const planIds = new Set(data.care_plan.interventions.flatMap(item => item.guideline_ids ?? []));
+  const visitIds = data.clinical.encounters.flatMap(encounter => [...(encounter.documentation?.guideline_ids ?? []), ...(encounter.documentation?.prevention_plan ?? []).flatMap(item => item.guideline_ids ?? [])]);
+  return new Set(visitIds.filter(id => !planIds.has(id)));
+};
+export const guidelinesFor = (data, ids) => data.care_plan.guidelines.filter(guideline => ids.includes(guideline.guideline_id));
+export const immunizationsOn = (data, date) => data.clinical.immunizations.filter(item => item.date === date);
+
+// Progress-note labels. Full encounter notes are titled by visit type. Among the chronic-care visits,
+// the first sets the plan, the last reviews it, and any between are follow-ups.
+export const visitLabels = (data) => {
+  const visits = data.synthetic_episode.visit_schedule;
+  const chronic = visits.filter(visit => !documentationOf(data, visit));
+  return visits.map(visit => {
+    const encounter = encounterOf(data, visit);
+    if (encounter?.documentation) return VISIT_TITLES[encounter.visit_type] ?? "Encounter Note";
+    const k = chronic.indexOf(visit) + 1;
+    return k === 1 ? "Initial plan" : k === chronic.length ? "Care-plan review" : chronic.length === 3 ? "Intermediate follow-up" : "Follow-up";
+  });
+};

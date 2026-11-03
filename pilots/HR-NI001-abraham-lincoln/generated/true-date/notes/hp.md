@@ -56,7 +56,7 @@ True biography with historical dates; these events are not part of the synthetic
 
 ## Procedures and immunizations
 
-- No procedures recorded. **S**
+- No procedures before this visit. **S**
 - 1837-04-11: Tdap vaccine **S**
 - 1840-10-20: Influenza vaccine, 1840-1841 season **S**
 

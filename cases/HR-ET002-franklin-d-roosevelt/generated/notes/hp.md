@@ -63,10 +63,8 @@ True biography with historical dates; these events are not part of the synthetic
 
 ## Procedures and immunizations
 
-- 2026-04-10 to 2026-04-10: Transthoracic echocardiography **S**
-- 2026-09-25 to 2026-09-25: Transthoracic echocardiography **S**
+- No procedures before this visit. **S**
 - 2025-10-14: Influenza vaccine, 2025-2026 season **S**
-- 2026-04-10: Pneumococcal conjugate vaccine PCV20 **S**
 - 2021-05-03: Tdap vaccine **S**
 
 ## Family history

@@ -54,7 +54,7 @@ True biography with historical dates; these events are not part of the synthetic
 
 ## Procedures and immunizations
 
-- 1964-07-07 to 1964-09-22: Individual Cognitive Processing Therapy course **S**
+- No procedures before this visit. **S**
 - 1959-03-15: Tdap vaccine **S**
 - 1963-10-14: Influenza vaccine, 1963-1964 season **S**
 

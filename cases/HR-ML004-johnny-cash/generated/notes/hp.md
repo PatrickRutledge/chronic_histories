@@ -65,11 +65,8 @@ True biography with historical dates; these events are not part of the synthetic
 - 2026-02-27 to 2026-02-27: Comprehensive diabetic foot examination with 10-g monofilament and vibration testing **S**
 - 2026-02-27 to 2026-02-27: Optical coherence tomography of the optic nerve and retinal nerve fiber layer, both eyes **S**
 - 2026-02-27 to 2026-02-27: Dilated eye examination and Humphrey 24-2 visual field testing, both eyes **S**
-- 2026-08-14 to 2026-08-14: Optical coherence tomography of the optic nerve and retinal nerve fiber layer, both eyes **S**
-- 2026-08-14 to 2026-08-14: Humphrey 24-2 visual field testing, both eyes **S**
 - 2025-10-20: High-dose influenza vaccine, 2025-2026 season **S**
 - 2026-02-27: Pneumococcal conjugate vaccine PCV20 **S**
-- 2026-05-29: Recombinant zoster vaccine, dose 1 **S**
 
 ## Family history
 

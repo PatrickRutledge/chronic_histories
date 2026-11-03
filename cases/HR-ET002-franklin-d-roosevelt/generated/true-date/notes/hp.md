@@ -65,10 +65,8 @@ True biography with historical dates; these events are not part of the synthetic
 
 ## Procedures and immunizations
 
-- 1944-04-10 to 1944-04-10: Transthoracic echocardiography **S**
-- 1944-09-25 to 1944-09-25: Transthoracic echocardiography **S**
+- No procedures before this visit. **S**
 - 1943-10-14: Influenza vaccine, 1943-1944 season **S**
-- 1944-04-10: Pneumococcal conjugate vaccine PCV20 **S**
 - 1939-05-03: Tdap vaccine **S**
 
 ## Family history

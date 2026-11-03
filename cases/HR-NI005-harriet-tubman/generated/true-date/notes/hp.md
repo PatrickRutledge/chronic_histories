@@ -62,11 +62,7 @@ True biography with historical dates; these events are not part of the synthetic
 
 ## Procedures and immunizations
 
-- 1897-04-20 to 1897-04-20: Routine EEG: normal background with intermittent left frontal slowing; no epileptiform discharges **S**
-- 1897-04-20 to 1897-04-20: MRI of the brain: old depressed left frontal skull defect with small underlying encephalomalacia; normal hippocampi; no tumor or other lesion **S**
-- 1897-05-04 to 1897-05-07: Ambulatory EEG with video, 72 hours: four typical spells captured, each at sleep onset with no ictal pattern **S**
-- 1897-05-11 to 1897-05-11: Overnight polysomnography: apnea-hypopnea index 4 per hour; no periodic limb movements; REM sleep within 15 minutes of sleep onset **S**
-- 1897-05-12 to 1897-05-12: Multiple sleep latency test: mean sleep latency 4.5 minutes with two sleep-onset REM periods in five naps **S**
+- No procedures before this visit. **S**
 - 1896-10-13: High-dose influenza vaccine, 1896-1897 season **S**
 - 1897-04-06: Pneumococcal conjugate vaccine PCV20 **S**
 - 1894-02-06: Recombinant zoster vaccine, two-dose series completed **S**

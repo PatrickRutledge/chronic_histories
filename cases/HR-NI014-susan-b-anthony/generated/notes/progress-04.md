@@ -1,51 +1,101 @@
-# Progress Note 04 — Care-plan review
+# Progress Note 04 — Sick Visit
 
 > **SYNTHETIC RECORD, NOT A REAL MEDICAL RECORD**
 
 - Patient: Susan B. Anthony (real historical name used in a fictional teaching record)
 - Synthetic MRN: HR-NI014-SYN
-- Date: 2026-09-28
+- Date: 2026-08-17
 - Fictional facility: St. Posthumous Health Center
 - Fictional author: Harold Pemberton, MD
 - Calendar frame: modern shifted
 
-## Subjective
+- Visit type: Sick Visit
+- Services: Problem-oriented office visit, established patient
 
-The patient participates in this fictional follow-up for six-month heart failure review. **S**
+## Chief complaint
+
+Head cold and dry cough for four days. **S**
+
+## History of present illness
+
+Miss Anthony is an 85-year-old woman with heart failure with preserved ejection fraction (ejection fraction 62 percent) and hypertensive heart disease, euvolemic since June on as-needed furosemide, who asked for a same-day visit. Four days ago, two days after returning by train from a convention, she developed a runny nose and sore throat, followed by a dry cough that is worse at night and has woken her on two nights. Her sister had a cold the week before. A home COVID-19 antigen test on day two was negative. Her highest home temperature was 37.6 °C. Her daily weights have stayed between 56.0 and 56.4 kg, so she has not needed an extra furosemide dose. She is mildly breathless only during coughing fits, still sleeps on one pillow, and has kept walking, more slowly. Honey in hot tea eases the cough. She has taken nothing else, because the care plan told her to avoid cold remedies containing decongestants or ibuprofen. **S**
+
+| Element | Detail |
+|---|---|
+| Onset | Four days ago, two days after train travel |
+| Location | Nose, throat, and chest |
+| Duration | Four days |
+| Character | Dry cough; clear nasal discharge; scratchy throat |
+| Severity | Mild to moderate; sleep broken on two nights |
+| Timing | Cough worse at night and on lying down to sleep, not on lying flat while awake |
+| Context | Sister had a cold last week; recent convention travel |
+| Modifying factors | Honey and tea help; no extra furosemide needed by the weight plan |
+| Associated signs and symptoms | Fatigue. Denies fever above 37.6 °C, chest pain, sputum, hemoptysis, orthopnea, ankle swelling, and weight gain |
+
+## Review of systems
+
+| System | Result | Finding |
+|---|---|---|
+| Constitutional | Positive | Fatigue; low-grade temperature to 37.6 °C; no chills or night sweats |
+| Ears, nose, mouth, and throat | Positive | Clear rhinorrhea, nasal congestion, sore throat; no ear pain or facial pain |
+| Respiratory | Positive | Dry cough; breathless only during coughing fits; no wheeze, sputum, or hemoptysis |
+| Cardiovascular | Negative | No chest pain, palpitations, orthopnea, paroxysmal nocturnal dyspnea, or ankle swelling |
+| Gastrointestinal | Negative | No nausea, vomiting, or diarrhea; eating and drinking normally |
+| Genitourinary | Negative | No dysuria; urine output normal |
+| Neurological | Negative | No headache beyond mild sinus pressure; no dizziness |
+
+7 systems reviewed. **S**
+
+## Current medications
+
+- Furosemide 20 mg oral tablet, one tablet by mouth as needed for a weight gain of more than 1 kg in a day or 2 kg in a week **S**
+- Empagliflozin 10 mg oral tablet, one tablet by mouth daily **S**
+- Spironolactone 25 mg oral tablet, one-half tablet (12.5 mg) by mouth daily **S**
+
+## Allergies
+
+- No known allergy **S**
 
 ## Objective
 
-Sodium: 138 mmol/L; Potassium: 4.6 mmol/L; Creatinine: 0.9 mg/dL; eGFR: 63 mL/min/1.73 m²; Glucose: 93 mg/dL; KCCQ-12 overall summary: 76. All results are synthetic.
+BP 128/74 mmHg; pulse 88 bpm; respirations 18/min; temperature 37.4 °C; oxygen saturation 95% on room air; weight 56.3 kg; BMI 20.7 kg/m². All vital signs are synthetic.
 
-BP 126/72 mmHg; pulse 70 bpm; respirations 16/min; temperature 36.6 °C; oxygen saturation 97% on room air; weight 56 kg; BMI 20.6 kg/m². All vital signs are synthetic.
+No condition-specific results recorded.
 
-## Change since baseline
+## Physical examination
 
-- Sodium: 138 mmol/L at baseline, 138 mmol/L at this visit **S**
-- Potassium: 4.1 mmol/L at baseline, 4.6 mmol/L at this visit **S**
-- Creatinine: 0.88 mg/dL at baseline, 0.9 mg/dL at this visit **S**
-- eGFR: 64 mL/min/1.73 m² at baseline, 63 mL/min/1.73 m² at this visit **S**
-- Glucose: 96 mg/dL at baseline, 93 mg/dL at this visit **S**
-- KCCQ-12 overall summary: 52 at baseline, 76 at this visit **S**
+| System | Finding |
+|---|---|
+| General | Alert, well-appearing, speaking in full sentences, mildly hoarse |
+| Ears, nose, and throat | Tympanic membranes normal; nasal mucosa red and swollen with clear discharge; pharynx mildly red without exudate |
+| Neck | Small, soft, mildly tender anterior cervical nodes; jugular venous pressure not raised |
+| Respiratory | Unlabored; scattered upper-airway rhonchi that clear with coughing; no crackles, wheeze, or dullness |
+| Cardiovascular | Regular rhythm; no S3 or new murmur |
+| Extremities | No ankle or sacral edema |
 
-## Assessment
+All examination findings are synthetic. **S**
 
-Active problems: Heart failure with preserved ejection fraction, NYHA class II to III at diagnosis; synthetic modern diagnosis linked to the documented 1906 heart failure; Hypertensive heart disease with heart failure. Strengths and supports remain part of the care plan. **S**
+## Assessment and plan
 
-## Medication changes
+1. **Acute bronchitis, likely viral, after an upper respiratory infection** (J20.9). She is afebrile with heart rate under 100, respiratory rate under 24, and a clear chest, so pneumonia is not suspected. A chest radiograph and antibiotics are not indicated. **S**
+   - Supportive care: honey, warm fluids within her usual fluid guidance, saline nasal rinse, and rest.
+   - Acetaminophen 650 mg up to every 6 hours as needed for sore throat, no more than 3 g a day.
+   - Avoid ibuprofen and other NSAIDs and oral decongestants such as pseudoephedrine, which can worsen heart failure and blood pressure.
+   - Repeat a home COVID-19 antigen test today and again in 48 hours. If it is positive, call the same day, because antiviral treatment would be offered at her age after a drug-interaction check.
+   - The cough may last two to three weeks.
+2. **Heart failure with preserved ejection fraction, compensated** (I50.32). Weight is at her dry weight, the jugular venous pressure is not raised, and there is no edema. Respiratory infection is a common trigger for decompensation. **S**
+   - Continue empagliflozin and spironolactone.
+   - Sick-day rule: pause empagliflozin on any day she cannot eat or drink normally, and restart when she can.
+   - Continue daily weights and take as-needed furosemide by the written plan for a gain of more than 1 kg in a day or 2 kg in a week.
+3. **Hypertensive heart disease** (I11.0). Blood pressure 128/74 mmHg, at goal. **S**
+   - No change.
 
-- Continued without change: Furosemide 20 mg oral tablet, one tablet by mouth as needed for a weight gain of more than 1 kg in a day or 2 kg in a week **S**
-- Continued without change: Empagliflozin 10 mg oral tablet, one tablet by mouth daily **S**
-- Continued without change: Spironolactone 25 mg oral tablet, one-half tablet (12.5 mg) by mouth daily **S**
+## Guideline basis
 
-## Goal progress
+- 2022 AHA/ACC/HFSA Guideline for the Management of Heart Failure (2022), American Heart Association, American College of Cardiology, and Heart Failure Society of America
+- Appropriate Antibiotic Use for Acute Respiratory Tract Infection in Adults: Advice for High-Value Care From the American College of Physicians and the Centers for Disease Control and Prevention (2016), American College of Physicians and Centers for Disease Control and Prevention
 
-- Reach euvolemia with no ankle edema and a stable dry weight within three months. Outcome by 2026-06-29: Dry weight 56 kg; furosemide changed to as-needed use. **S**
-- Improve the KCCQ-12 overall summary score by at least 15 points by the three-month review. Outcome by 2026-06-29: KCCQ-12 rose from 52 to 70. **S**
-- Lower blood pressure below 130/80 by the six-month review without orthostatic symptoms. Outcome by 2026-09-28: Blood pressure 126/72; no dizziness on standing. **S**
-- Resume a full speaking and travel schedule by the six-month review. Outcome by 2026-09-28: Back to lecturing twice a month with a travel weight plan. **S**
+## Follow-up
 
-## Plan
-
-- Continue the care plan agreed on 2026-03-16. The care-plan document lists every intervention. **S**
-- Scheduled episode complete. Continue routine follow-up. **S**
+- Nurse telephone check in three days. Call or return the same day for a temperature above 38 °C, breathlessness at rest or when lying flat, chest pain, or weight gain beyond the plan. **S**
+- Next scheduled visit 2026-09-28: six-month heart failure review. **S**

@@ -54,7 +54,7 @@ True biography with historical dates; these events are not part of the synthetic
 
 ## Procedures and immunizations
 
-- No procedures recorded. **S**
+- No procedures before this visit. **S**
 - 2022-04-11: Tdap vaccine **S**
 - 2025-10-20: Influenza vaccine, 2025-2026 season **S**
 

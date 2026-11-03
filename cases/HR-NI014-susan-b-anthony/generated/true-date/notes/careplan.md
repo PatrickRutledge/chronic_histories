@@ -38,5 +38,6 @@
 - 1905-03-30: Two-week heart failure medication safety check, echocardiogram, and cardiology consultation **S**
 - 1905-06-29: Three-month heart failure and blood pressure review **S**
 - 1905-09-28: Six-month heart failure review **S**
+- 1905-10-19: Subsequent annual wellness visit **S**
 
 This teaching document does not replace care from a qualified clinician.

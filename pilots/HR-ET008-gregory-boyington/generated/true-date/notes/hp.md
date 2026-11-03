@@ -54,7 +54,7 @@ True biography with historical dates; these events are not part of the synthetic
 
 ## Procedures and immunizations
 
-- 1957-07-07 to 1957-09-22: Trauma-focused psychotherapy course within integrated recovery care **S**
+- No procedures before this visit. **S**
 - 1951-05-18: Tdap vaccine **S**
 - 1956-10-21: Influenza vaccine, 1956-1957 season **S**
 

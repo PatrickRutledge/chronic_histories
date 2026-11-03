@@ -58,12 +58,7 @@ True biography with historical dates; these events are not part of the synthetic
 
 - 2026-05-04 to 2026-05-04: 12-lead electrocardiogram: sinus rhythm with left ventricular hypertrophy by voltage **S**
 - 2026-05-04 to 2026-05-04: Dilated funduscopic examination: arteriolar narrowing and arteriovenous nicking in both eyes; no hemorrhages, exudates, or papilledema **S**
-- 2026-05-11 to 2026-05-11: Renal ultrasound: both kidneys small (9.4 and 9.6 cm) and echogenic, without hydronephrosis **S**
-- 2026-05-11 to 2026-05-11: Transthoracic echocardiography: concentric left ventricular hypertrophy, ejection fraction 60 percent **S**
 - 2025-10-20: Influenza vaccine, 2025-2026 season **S**
-- 2026-05-11: Pneumococcal conjugate vaccine PCV20 **S**
-- 2026-05-11: Hepatitis B vaccine (HepB-CpG), dose 1 of 2 **S**
-- 2026-06-29: Hepatitis B vaccine (HepB-CpG), dose 2 of 2 **S**
 - 2019-09-16: Tdap vaccine **S**
 
 ## Family history

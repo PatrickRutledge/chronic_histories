@@ -62,9 +62,6 @@ True biography with historical dates; these events are not part of the synthetic
 ## Procedures and immunizations
 
 - 1934-05-11 to 1934-05-11: Transfusion of two units of irradiated, leukocyte-depleted red cells for symptomatic anemia **S**
-- 1934-05-18 to 1934-05-18: Bone marrow aspirate and trephine biopsy: about 10% cellularity with no dysplasia, fibrosis, or malignant cells; cytogenetics normal; no PNH clone **S**
-- 1934-06-15 to 1934-06-15: Comprehensive eye examination: best-corrected acuity 20/60 right and 20/30 left; posterior capsule opacification in the right eye; normal intraocular pressure; no retinal hemorrhages **S**
-- 1934-06-22 to 1934-06-22: YAG laser posterior capsulotomy, right eye **S**
 - 1933-10-20: Influenza vaccine, 1933-1934 season **S**
 - 1933-10-20: Pneumococcal conjugate vaccine PCV20 **S**
 - 1927-03-12: Tdap vaccine **S**
