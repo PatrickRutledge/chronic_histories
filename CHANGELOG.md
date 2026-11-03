@@ -10,6 +10,15 @@ A case ID is never reused for a different person.
 
 ## [Unreleased]
 
+### Added
+
+- `CONTRIBUTING.md` with the evidence, sourcing, safety, and build rules for contributors.
+- `CLA.md`: individual and corporate contributor license agreements with a relicensing right and a public-license commitment.
+
+### Changed
+
+- `HR-ET007` Audie Murphy: the safety plan now names crisis resources, including the 988 Suicide & Crisis Lifeline, as the other pilots do and `CONTRIBUTING.md` requires.
+
 ## [0.2.0] - 2026-11-02
 
 First approved release. The three pilots passed clinical, provenance, and safe-messaging review.

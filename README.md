@@ -39,6 +39,10 @@ The generators write an HTML review page, a draft FHIR R4 collection bundle, a d
 
 A case is released only when its clinical, provenance, and safe-messaging reviews have passed; the build rejects an approved case that lacks any of them. See [docs/validation.md](docs/validation.md) for formal C-CDA R2.1 and US Core validation and for what a pass does and does not establish.
 
+## Contributing
+
+See [CONTRIBUTING.md](CONTRIBUTING.md) for evidence, sourcing, and safety rules, and [CLA.md](CLA.md) for the contributor license agreement.
+
 ## License
 
 - Data and documentation: [CC BY-NC 4.0](LICENSE-DATA). Free for non-commercial use with attribution.

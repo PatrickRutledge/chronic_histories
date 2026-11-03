@@ -27,7 +27,7 @@ This is fictional. Historical evidence and retrospective interpretation remain s
 ## Recommendations
 
 - Repeat PCL-5 and PHQ-9 at six and twelve weeks to monitor symptom change. Guideline: VA/DoD Clinical Practice Guideline for Management of Posttraumatic Stress Disorder and Acute Stress Disorder (2023) **S**
-- Create a collaborative safety and lethal-means plan without describing methods or historical weapon details in patient instructions. Guideline: VA/DoD Clinical Practice Guideline for Management of Posttraumatic Stress Disorder and Acute Stress Disorder (2023) **S**
+- Create a collaborative safety and lethal-means plan with crisis resources, including the 988 Suicide & Crisis Lifeline, without describing methods or historical weapon details in patient instructions. Guideline: VA/DoD Clinical Practice Guideline for Management of Posttraumatic Stress Disorder and Acute Stress Disorder (2023) **S**
 - Review sleep routine, stimulus control, and non-pharmacologic insomnia strategies; reassess before adding medication. Guideline: VA/DoD Clinical Practice Guideline for Management of Posttraumatic Stress Disorder and Acute Stress Disorder (2023) **S**
 
 ## Guideline basis
