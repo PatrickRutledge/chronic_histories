@@ -35,7 +35,7 @@ pwsh -File scripts/run_controls.ps1           # confirm the checks still catch k
 
 The build stops at the first failure. It deletes earlier outputs before generating, so a failed generator cannot leave stale files to be checked. It records a hash manifest, and the local checks reject outputs that do not match the current `case.json`. Do not edit generated files by hand.
 
-The generators write an HTML review page, a draft FHIR R4 collection bundle, a draft C-CDA R2.1 CCD, eight case-driven supporting notes, and a provenance CSV under the case's `generated/` directory. Supporting notes are rendered from the canonical case rather than embedded pilot prose.
+The generators write an HTML review page, a FHIR R4 collection bundle, a C-CDA R2.1 CCD, six C-CDA note documents (History and Physical, three Progress Notes, Referral Note, and Consultation Note), eight case-driven supporting notes in Markdown, and a provenance CSV under the case's `generated/` directory. Supporting notes are rendered from the canonical case rather than embedded pilot prose.
 
 A case is released only when its clinical, provenance, and safe-messaging reviews have passed; the build rejects an approved case that lacks any of them. See [docs/validation.md](docs/validation.md) for formal C-CDA R2.1 and US Core validation and for what a pass does and does not establish.
 

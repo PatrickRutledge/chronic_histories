@@ -84,6 +84,26 @@ $summary = [ordered]@{
     SchematronWarnings = $schWarnings.Failures.Count
 }
 
+# Note documents (H&P, progress, referral, consultation) are validated the same way.
+$noteResults = foreach ($note in @(Get-ChildItem -LiteralPath (Join-Path $caseDir 'generated\ccda') -Filter '*.xml' -File -ErrorAction SilentlyContinue | Sort-Object Name)) {
+    $stem = $note.BaseName
+    $noteXsd = Get-Xsd-Errors $note.FullName $xsd
+    $noteErrors = Invoke-Schematron 'errors' $note.FullName (Join-Path $reports "$stem.schematron-errors.svrl.xml")
+    $noteWarnings = Invoke-Schematron 'warnings' $note.FullName (Join-Path $reports "$stem.schematron-warnings.svrl.xml")
+    if ($noteErrors.Fired -eq 0) { throw "Schematron fired no rules for $($note.Name)." }
+    foreach ($failure in $noteErrors.Failures) { Write-Host "  $($note.Name): $($failure.Message)" }
+    foreach ($xsdError in $noteXsd) { Write-Host "  $($note.Name) XSD: $xsdError" }
+    [ordered]@{
+        File               = "generated/ccda/$($note.Name)"
+        Sha256             = Get-NormalizedSha256 $note.FullName
+        CdaXsdErrors       = $noteXsd.Count
+        SchematronErrors   = $noteErrors.Failures.Count
+        SchematronWarnings = $noteWarnings.Failures.Count
+    }
+}
+$summary.NoteDocuments = @($noteResults)
+$summary.NoteDocumentErrors = [int](@($noteResults | ForEach-Object { $_.CdaXsdErrors + $_.SchematronErrors }) | Measure-Object -Sum).Sum
+
 if (-not $SkipFhir) {
     # Base R4 is judged without US Core loaded, so its declared profiles are removed from a temporary copy.
     $baseBundle = Join-Path ([IO.Path]::GetTempPath()) "$([guid]::NewGuid()).json"
@@ -107,8 +127,9 @@ if (-not $SkipFhir) {
     $summary.UsCoreWarnings = & $count $core @('warning')
 }
 
-[pscustomobject]$summary | ConvertTo-Json | Set-Content -LiteralPath (Join-Path $reports 'summary.json')
-[pscustomobject]$summary | Format-List
+[pscustomobject]$summary | ConvertTo-Json -Depth 5 | Set-Content -LiteralPath (Join-Path $reports 'summary.json')
+[pscustomobject]$summary | Select-Object * -ExcludeProperty NoteDocuments | Format-List
+$summary.NoteDocuments | ForEach-Object { '{0}: XSD {1}, Schematron {2} errors, {3} warnings' -f $_.File, $_.CdaXsdErrors, $_.SchematronErrors, $_.SchematronWarnings }
 
-$failed = $summary.CdaXsdErrors + $summary.SchematronErrors + [int]$summary.FhirBaseErrors + [int]$summary.UsCoreErrors
+$failed = $summary.CdaXsdErrors + $summary.SchematronErrors + $summary.NoteDocumentErrors + [int]$summary.FhirBaseErrors + [int]$summary.UsCoreErrors
 if ($failed -gt 0) { exit 1 }

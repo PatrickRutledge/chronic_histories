@@ -37,7 +37,12 @@ function conformanceStatus(caseDir) {
   if (!fs.existsSync(summaryPath) || !fs.existsSync(ccdaPath) || !fs.existsSync(fhirPath)) return "not run";
   const summary = JSON.parse(fs.readFileSync(summaryPath, "utf8"));
   if (summary.CcdaSha256 !== normalizedSha256(ccdaPath) || summary.FhirSha256 !== normalizedSha256(fhirPath)) return "stale";
-  const errors = ["CdaXsdErrors", "SchematronErrors", "FhirBaseErrors", "UsCoreErrors"].reduce((sum, key) => sum + (summary[key] ?? 0), 0);
+  // Every note document must have been validated in its current form.
+  const notesDir = path.join(caseDir, "generated", "ccda");
+  const noteFiles = fs.existsSync(notesDir) ? fs.readdirSync(notesDir).filter(name => name.endsWith(".xml")) : [];
+  const checked = new Map([].concat(summary.NoteDocuments ?? []).map(doc => [doc.File, doc.Sha256]));
+  if (checked.size !== noteFiles.length || noteFiles.some(name => checked.get(`generated/ccda/${name}`) !== normalizedSha256(path.join(notesDir, name)))) return "stale";
+  const errors = ["CdaXsdErrors", "SchematronErrors", "NoteDocumentErrors", "FhirBaseErrors", "UsCoreErrors"].reduce((sum, key) => sum + (summary[key] ?? 0), 0);
   if (errors > 0) return `fail (${errors} errors)`;
   return summary.TerminologyUnverified > 0 ? `pass (${summary.TerminologyUnverified} codes unverified)` : "pass";
 }

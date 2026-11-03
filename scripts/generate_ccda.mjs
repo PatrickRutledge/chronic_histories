@@ -1,6 +1,7 @@
 import fs from "node:fs/promises";
 import path from "node:path";
 import { ADMINISTRATIVE_GENDER, FICTIONAL_FACILITY_CONTACT, ROUTES, TRUE_DATE_NOTICE, deterministicUuid, isTrueDateFrame, oidFor, outputDirFor, parseClinician, splitName } from "./lib/common.mjs";
+import { claimsAtIndex, goalProgress, isConsultStep, laterClaimsNote, medicationChanges, midSentence, resultChanges, sentence, withUnit } from "./lib/episode.mjs";
 
 const inputPath = process.argv[2];
 if (!inputPath) {
@@ -67,12 +68,12 @@ const problemEntries = data.clinical.problems.map((problem, index) => {
   </entry>`;
 }).join("");
 
-const resultNarrative = data.clinical.observations.map((observation, index) => `
-  <tr ID="result-${index + 1}"><td>${x(observation.effective_date)}</td><td>${x(observation.display)}</td><td>${x(observation.value)}</td><td>${x(observation.unit)}</td><td>S</td></tr>`).join("");
+const resultNarrativeFor = (keep) => data.clinical.observations.map((observation, index) => keep(observation) ? `
+  <tr ID="result-${index + 1}"><td>${x(observation.effective_date)}</td><td>${x(observation.display)}</td><td>${x(observation.value)}</td><td>${x(observation.unit)}</td><td>S</td></tr>` : "").join("");
+const resultNarrative = resultNarrativeFor(() => true);
 
-const instruments = [...new Set(data.clinical.observations.map(observation => observation.coding[0].code))];
-const resultEntries = instruments.map(code => {
-  const members = data.clinical.observations.filter(observation => observation.coding[0].code === code);
+const resultEntriesFor = (keep, idSuffix = "") => [...new Set(data.clinical.observations.filter(keep).map(observation => observation.coding[0].code))].map(code => {
+  const members = data.clinical.observations.filter(observation => keep(observation) && observation.coding[0].code === code);
   const panel = members[0].coding[0];
   const dates = members.map(observation => compactDate(observation.effective_date)).sort();
   const components = members.map(observation => {
@@ -95,7 +96,7 @@ const resultEntries = instruments.map(code => {
   <entry typeCode="DRIV">
     <organizer classCode="CLUSTER" moodCode="EVN">
       <templateId root="2.16.840.1.113883.10.20.22.4.1" extension="2015-08-01"/>
-      <id root="${deterministicUuid(`${data.case_id}|results|${code}`)}"/>
+      <id root="${deterministicUuid(`${data.case_id}|results|${code}${idSuffix}`)}"/>
       <code code="${x(panel.code)}" codeSystem="2.16.840.1.113883.6.1" displayName="${x(panel.display)}"/>
       <statusCode code="completed"/>
       <effectiveTime><low value="${dates[0]}"/><high value="${dates.at(-1)}"/></effectiveTime>
@@ -103,10 +104,12 @@ const resultEntries = instruments.map(code => {
     </organizer>
   </entry>`;
 }).join("");
+const resultEntries = resultEntriesFor(() => true);
 
-const vitalNarrative = data.clinical.vital_sign_sets.flatMap((set, setIndex) => set.measurements.map((measurement, measurementIndex) => `
-  <tr ID="vital-${setIndex + 1}-${measurementIndex + 1}"><td>${x(set.date)}</td><td>${x(measurement.display)}</td><td>${x(measurement.value)}</td><td>${x(measurement.unit)}</td><td>S</td></tr>`)).join("");
-const vitalEntries = data.clinical.vital_sign_sets.map((set, setIndex) => `
+const vitalNarrativeFor = (keep) => data.clinical.vital_sign_sets.flatMap((set, setIndex) => keep(set) ? set.measurements.map((measurement, measurementIndex) => `
+  <tr ID="vital-${setIndex + 1}-${measurementIndex + 1}"><td>${x(set.date)}</td><td>${x(measurement.display)}</td><td>${x(measurement.value)}</td><td>${x(measurement.unit)}</td><td>S</td></tr>`) : []).join("");
+const vitalNarrative = vitalNarrativeFor(() => true);
+const vitalEntriesFor = (keep) => data.clinical.vital_sign_sets.map((set, setIndex) => keep(set) ? `
   <entry typeCode="DRIV">
     <organizer classCode="CLUSTER" moodCode="EVN">
       <templateId root="2.16.840.1.113883.10.20.22.4.26" extension="2015-08-01"/>
@@ -115,7 +118,8 @@ const vitalEntries = data.clinical.vital_sign_sets.map((set, setIndex) => `
       <statusCode code="completed"/><effectiveTime value="${compactDate(set.date)}"/>
       ${set.measurements.map((measurement, measurementIndex) => `<component><observation classCode="OBS" moodCode="EVN"><templateId root="2.16.840.1.113883.10.20.22.4.27" extension="2014-06-09"/><id root="${deterministicUuid(`${data.case_id}|${set.id}|${measurement.code}`)}"/><code code="${x(measurement.code)}" codeSystem="2.16.840.1.113883.6.1" displayName="${x(measurement.display)}"/><text><reference value="#vital-${setIndex + 1}-${measurementIndex + 1}"/></text><statusCode code="completed"/><effectiveTime value="${compactDate(set.date)}"/><value xsi:type="PQ" value="${x(measurement.value)}" unit="${x(measurement.unit)}"/></observation></component>`).join("")}
     </organizer>
-  </entry>`).join("");
+  </entry>` : "").join("");
+const vitalEntries = vitalEntriesFor(() => true);
 const narrativeList = (items) => `<list>${items.map(item => `<item>${x(item.display)} [S]</item>`).join("")}</list>`;
 
 const encounterNarrative = data.clinical.encounters.map((encounter, index) => `
@@ -338,22 +342,7 @@ const emptySection = ({ templateRoot, extension, code, title, explanation }) => 
   </section>
 </component>`;
 
-const xml = `<?xml version="1.0" encoding="UTF-8"?>
-<?xml-stylesheet type="text/xsl" href="ccda.xsl"?>
-<ClinicalDocument xmlns="urn:hl7-org:v3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <realmCode code="US"/>
-  <typeId root="2.16.840.1.113883.1.3" extension="POCD_HD000040"/>
-  <templateId root="2.16.840.1.113883.10.20.22.1.1" extension="2015-08-01"/>
-  <templateId root="2.16.840.1.113883.10.20.22.1.2" extension="2015-08-01"/>
-  <id root="${documentUuid}"/>
-  <code code="34133-9" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Summarization of Episode Note"/>
-  <title>${x(data.record_classification.banner)} — ${x(data.identity.display_name)} Synthetic CCD${isTrueDateFrame(data) ? ` — ${x(TRUE_DATE_NOTICE)}` : ""}</title>
-  <effectiveTime value="20261101120000-0500"/>
-  <confidentialityCode code="N" codeSystem="2.16.840.1.113883.5.25"/>
-  <languageCode code="en-US"/>
-  <setId root="${deterministicUuid(`${data.case_id}|ccd-set`)}"/>
-  <versionNumber value="1"/>
-  <recordTarget>
+const recordTarget = `  <recordTarget>
     <patientRole>
       <id root="${patientUuid}" extension="${x(data.identity.synthetic_identity.mrn)}"/>
       <addr nullFlavor="UNK"/>
@@ -372,7 +361,27 @@ const xml = `<?xml version="1.0" encoding="UTF-8"?>
       ${facilityContact}
       </providerOrganization>
     </patientRole>
-  </recordTarget>
+  </recordTarget>`;
+const custodianXml = `  <custodian>
+    <assignedCustodian><representedCustodianOrganization><id root="${custodianUuid}"/><name>${x(facility)}</name>${facilityContact}</representedCustodianOrganization></assignedCustodian>
+  </custodian>`;
+
+const xml = `<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="ccda.xsl"?>
+<ClinicalDocument xmlns="urn:hl7-org:v3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <realmCode code="US"/>
+  <typeId root="2.16.840.1.113883.1.3" extension="POCD_HD000040"/>
+  <templateId root="2.16.840.1.113883.10.20.22.1.1" extension="2015-08-01"/>
+  <templateId root="2.16.840.1.113883.10.20.22.1.2" extension="2015-08-01"/>
+  <id root="${documentUuid}"/>
+  <code code="34133-9" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Summarization of Episode Note"/>
+  <title>${x(data.record_classification.banner)} — ${x(data.identity.display_name)} Synthetic CCD${isTrueDateFrame(data) ? ` — ${x(TRUE_DATE_NOTICE)}` : ""}</title>
+  <effectiveTime value="20261101120000-0500"/>
+  <confidentialityCode code="N" codeSystem="2.16.840.1.113883.5.25"/>
+  <languageCode code="en-US"/>
+  <setId root="${deterministicUuid(`${data.case_id}|ccd-set`)}"/>
+  <versionNumber value="1"/>
+${recordTarget}
   <author>
     <time value="20261101120000-0500"/>
     <assignedAuthor>
@@ -382,9 +391,7 @@ const xml = `<?xml version="1.0" encoding="UTF-8"?>
       <representedOrganization><id root="${custodianUuid}"/><name>${x(facility)}</name></representedOrganization>
     </assignedAuthor>
   </author>
-  <custodian>
-    <assignedCustodian><representedCustodianOrganization><id root="${custodianUuid}"/><name>${x(facility)}</name>${facilityContact}</representedCustodianOrganization></assignedCustodian>
-  </custodian>
+${custodianXml}
   <documentationOf>
     <serviceEvent classCode="PCPR"><effectiveTime><low value="${compactDate(data.synthetic_episode.index_date)}"/><high value="${compactDate(data.synthetic_episode.visit_schedule.at(-1).date)}"/></effectiveTime></serviceEvent>
   </documentationOf>
@@ -471,7 +478,280 @@ const xml = `<?xml version="1.0" encoding="UTF-8"?>
 </ClinicalDocument>
 `;
 
+// ---------------------------------------------------------------------------
+// Note documents. Each visit and each step of the referral loop is its own C-CDA R2.1
+// document, built from the same case and the same section builders as the CCD.
+// ---------------------------------------------------------------------------
+const visits = data.synthetic_episode.visit_schedule;
+const firstVisitDate = visits[0].date;
+const encounterOf = (visit) => clinical.encounters.find(encounter => encounter.id === visit.encounter_id);
+const timestamp = (date) => `${compactDate(date)}120000-0500`;
+const consultant = data.identity.synthetic_identity.fictional_consultant;
+const consultantPerson = parseClinician(consultant.name);
+const consultantUuid = deterministicUuid(`${facility}|${consultant.name}|synthetic`);
+// Shared with the FHIR ServiceRequest, so the referral, its order, and the consultation link up.
+const referralOrderUuid = uuid("referral-order");
+const referralStep = data.care_plan.interventions.find(isConsultStep);
+const consultVisit = visits[1] ?? visits[0];
+const activeProblems = clinical.problems.filter(problem => problem.clinical_status === "active");
+const personName = (person) => `<name>${person.given.map(part => `<given>${x(part)}</given>`).join("")}<family>${x(person.family)}</family>${person.suffix ? `<suffix>${x(person.suffix)}</suffix>` : ""}</name>`;
+const organization = `<representedOrganization><id root="${custodianUuid}"/><name>${x(facility)}</name>${facilityContact}</representedOrganization>`;
+const assignedEntity = (person, personUuid) => `<assignedEntity><id root="${personUuid}"/><addr nullFlavor="UNK"/><telecom nullFlavor="UNK"/><assignedPerson>${personName(person)}</assignedPerson>${organization}</assignedEntity>`;
+const authorBlock = (person, personUuid, date) => `  <author>
+    <time value="${timestamp(date)}"/>
+    <assignedAuthor><id root="${personUuid}"/><addr nullFlavor="UNK"/><telecom nullFlavor="UNK"/><assignedPerson>${personName(person)}</assignedPerson>${organization}</assignedAuthor>
+  </author>`;
+const p = (text, grade = "S") => `<paragraph>${x(text)} [${grade}]</paragraph>`;
+const list = (items) => items.length ? `<list>${items.map(item => `<item>${item}</item>`).join("")}</list>` : "";
+const plain = ({ templateRoot, extension, code, display, title, text, entries = "" }) => section({ templateRoot, extension, code, display, title, text, entries });
+
+// Sections specific to note documents.
+const historicalBasis = () => {
+  const { included, laterCount } = claimsAtIndex(data);
+  return `<paragraph>Historical basis. These claims are historical evidence, not findings from a modern examination.</paragraph>${list(included.map(claim => `${x(claim.statement)} [${claim.evidence_grade}]`))}${laterCount ? `<paragraph>${x(laterClaimsNote(laterCount))}</paragraph>` : ""}`;
+};
+const hpiSection = (lead) => plain({
+  templateRoot: "1.3.6.1.4.1.19376.1.5.3.1.3.4", code: "10164-2", display: "History of Present illness Narrative", title: "History of Present Illness",
+  text: `${p(lead)}${list(data.care_plan.health_concerns.map(concern => `${x(sentence(concern.display))} [${grade(concern)}]`))}${historicalBasis()}`,
+});
+const reasonForVisitSection = (visit) => plain({
+  templateRoot: "2.16.840.1.113883.10.20.22.2.12", code: "29299-5", display: "Reason for visit", title: "Reason for Visit",
+  text: p(`${encounterOf(visit)?.display ?? visit.purpose}`),
+});
+const reviewOfSystemsSection = () => plain({
+  templateRoot: "1.3.6.1.4.1.19376.1.5.3.1.3.18", code: "10187-3", display: "Review of systems Narrative", title: "Review of Systems",
+  text: p(`Positive for the concerns in the history of present illness. ${clinical.mental_status.map(item => sentence(item.display)).join(" ")} No other systems reported as affected in this synthetic episode.`),
+});
+const generalStatusSection = () => plain({
+  templateRoot: "2.16.840.1.113883.10.20.2.5", code: "10210-3", display: "Physical findings of General status Narrative", title: "General Status",
+  text: p(`Alert and engaged. ${clinical.functional_status.map(item => sentence(item.display)).join(" ")}`),
+});
+const safetyText = () => {
+  const safety = clinical.safety_assessment;
+  return p(`Structured safety assessment: current ideation ${safety.current_ideation}, intent ${safety.intent}, plan ${safety.plan}, access to means reviewed: ${safety.access_reviewed ? "yes" : "no"}. ${sentence(safety.disposition)}`);
+};
+const physicalExamSection = (date) => {
+  const set = clinical.vital_sign_sets.find(item => item.date === date);
+  const vitalsLine = set ? `Vital signs recorded on ${set.date}; see the Vital Signs section.` : "Vital signs not recorded at this visit.";
+  return plain({
+    templateRoot: "2.16.840.1.113883.10.20.2.10", extension: "2015-08-01", code: "29545-1", display: "Physical findings Narrative", title: "Physical Exam",
+    text: `${p(`${vitalsLine} Mental status: ${clinical.mental_status.map(item => item.display).join("; ")}. The physical examination is limited to the findings relevant to this synthetic episode.`)}${safetyText()}`,
+  });
+};
+const subjectiveSection = (visit, followUp) => plain({
+  templateRoot: "2.16.840.1.113883.10.20.21.2.2", code: "61150-9", display: "Subjective Narrative", title: "Subjective",
+  text: p(`The patient attends this ${followUp ? "follow-up" : "visit"} for ${midSentence(encounterOf(visit)?.display ?? "longitudinal care")}.`),
+});
+const objectiveSection = (visit) => {
+  const changes = resultChanges(data, visit.date);
+  const observed = clinical.observations.filter(item => item.effective_date === visit.date);
+  return plain({
+    templateRoot: "2.16.840.1.113883.10.20.21.2.1", code: "61149-1", display: "Objective Narrative", title: "Objective",
+    text: `${p(observed.length ? `${observed.map(item => `${item.display}: ${withUnit(item)}`).join("; ")}.` : "No condition-specific results at this visit.")}${changes.length ? `<paragraph>Change since baseline:</paragraph>${list(changes.map(({ baseline, current }) => `${x(current.display)}: ${x(withUnit(baseline))} at baseline, ${x(withUnit(current))} at this visit [S]`))}` : ""}`,
+  });
+};
+const resultsSection = (date) => {
+  const keep = (observation) => observation.effective_date === date;
+  return clinical.observations.some(keep)
+    ? section({ templateRoot: "2.16.840.1.113883.10.20.22.2.3.1", extension: "2015-08-01", code: "30954-2", display: "Relevant Diagnostic Tests and/or Laboratory Data", title: "Results", text: table(["Date", "Measure", "Value", "Unit", "Provenance"], resultNarrativeFor(keep)), entries: resultEntriesFor(keep, `|${date}`) })
+    : emptySection({ templateRoot: "2.16.840.1.113883.10.20.22.2.3.1", extension: "2015-08-01", code: "30954-2", title: "Results", explanation: "No results recorded at this visit." });
+};
+const vitalsSection = (date) => {
+  const keep = (set) => set.date === date;
+  return clinical.vital_sign_sets.some(keep)
+    ? section({ templateRoot: "2.16.840.1.113883.10.20.22.2.4.1", extension: "2015-08-01", code: "8716-3", display: "Vital signs", title: "Vital Signs", text: table(["Date", "Measure", "Value", "Unit", "Provenance"], vitalNarrativeFor(keep)), entries: vitalEntriesFor(keep) })
+    : emptySection({ templateRoot: "2.16.840.1.113883.10.20.22.2.4.1", extension: "2015-08-01", code: "8716-3", title: "Vital Signs", explanation: "Vital signs not recorded at this visit." });
+};
+const allergiesSection = () => section({ templateRoot: "2.16.840.1.113883.10.20.22.2.6.1", extension: "2015-08-01", code: "48765-2", display: "Allergies and adverse reactions Document", title: "Allergies and Intolerances", text: table(["Allergy", "Reaction", "Status", "Evidence"], allergyRows), entries: allergyEntries });
+const medicationsSection = () => clinical.medications.length
+  ? section({ templateRoot: "2.16.840.1.113883.10.20.22.2.1.1", extension: "2014-06-09", code: "10160-0", display: "History of Medication use Narrative", title: "Medications", text: table(["Medication", "Frequency", "Route", "Dates", "Status", "Evidence"], medicationRows), entries: medicationEntries })
+  : emptySection({ templateRoot: "2.16.840.1.113883.10.20.22.2.1.1", extension: "2014-06-09", code: "10160-0", title: "Medications", explanation: "No current medications. The synthetic care plan does not include medication." });
+const problemsSection = () => `
+<component>
+  <section>
+    <templateId root="2.16.840.1.113883.10.20.22.2.5.1" extension="2015-08-01"/>
+    <code code="11450-4" codeSystem="2.16.840.1.113883.6.1" displayName="Problem List"/>
+    <title>Problems</title>
+    <text><table><thead><tr><th>Problem</th><th>Clinical status</th><th>Verification</th><th>Code</th><th>Provenance</th></tr></thead><tbody>${problemNarrative}</tbody></table></text>
+    ${problemEntries}
+  </section>
+</component>`;
+const pastHistorySection = () => section({ templateRoot: "2.16.840.1.113883.10.20.22.2.20", extension: "2015-08-01", code: "11348-0", display: "History of Past illness note", title: "Past Medical History", text: pastHistoryText });
+const familySection = () => section({ templateRoot: "2.16.840.1.113883.10.20.22.2.15", extension: "2015-08-01", code: "10157-6", display: "History of family member diseases note", title: "Family History", text: familyText, entries: familyEntries });
+const socialSection = () => `<component><section><templateId root="2.16.840.1.113883.10.20.22.2.17" extension="2015-08-01"/><code code="29762-2" codeSystem="2.16.840.1.113883.6.1" displayName="Social history Narrative"/><title>Social History</title><text>${narrativeList(clinical.social_history)}</text></section></component>`;
+const assessmentSection = (extra = "") => section({
+  templateRoot: "2.16.840.1.113883.10.20.22.2.8", code: "51848-0", display: "Evaluation note", title: "Assessment",
+  text: `${list(activeProblems.map(problem => `${x(problem.display)}: ${x(problem.clinical_status)}, ${x(problem.verification_status)} [${grade(problem)}]`))}${extra}`,
+});
+const guidelineRefs = (item) => data.care_plan.guidelines.filter(g => (item.guideline_ids ?? []).includes(g.guideline_id)).map(g => `${g.title} (${g.version_or_year})`).join("; ");
+const interventionItems = (items) => items.map(item => `${x(item.display)}${guidelineRefs(item) ? `. Guideline: ${x(guidelineRefs(item))}` : ""} [${grade(item)}]`);
+const referralOrderEntry = (status) => `
+  <entry>
+    <act classCode="ACT" moodCode="RQO">
+      <templateId root="2.16.840.1.113883.10.20.22.4.39" extension="2014-06-09"/>
+      <id root="${referralOrderUuid}"/>
+      <code code="3457005" codeSystem="2.16.840.1.113883.6.96" displayName="Patient referral"/>
+      <text><reference value="#referral-order"/></text>
+      <statusCode code="${status}"/>
+      <effectiveTime value="${compactDate(firstVisitDate)}"/>
+    </act>
+  </entry>`;
+const referralOrderItem = `<item ID="referral-order">Referral to ${x(consultant.specialty.toLowerCase())}, ${x(consultant.name)}, ordered ${x(firstVisitDate)} [S]</item>`;
+const planSection = ({ items, withOrder = false }) => section({
+  templateRoot: "2.16.840.1.113883.10.20.22.2.10", extension: "2014-06-09", code: "18776-5", display: "Plan of care note", title: "Plan of Treatment",
+  text: `<list>${items.map(item => `<item>${item}</item>`).join("")}${withOrder ? referralOrderItem : ""}</list>`,
+  entries: withOrder ? referralOrderEntry("active") : "",
+});
+const followUpPlanItems = (visit, n) => {
+  const next = visits[n];
+  const changes = medicationChanges(data, visit);
+  return [
+    ...(changes.length ? changes.map(({ change, med }) => `Medication: ${x(change.toLowerCase())}, ${x(med.display)} [S]`) : ["No medication changes [S]"]),
+    ...goalProgress(data, visit).map(({ goal, due }) => due ? `Goal: ${x(sentence(goal.display))} Outcome by ${x(goal.target_date)}: ${x(goal.outcome)} [S]` : `Goal: ${x(sentence(goal.display))} In progress; target ${x(goal.target_date)} [S]`),
+    `Continue the care plan agreed on ${x(firstVisitDate)} [S]`,
+    next ? `Next visit ${x(next.date)}: ${x(midSentence(encounterOf(next)?.display ?? next.encounter_id))} [S]` : "Scheduled episode complete. Continue routine follow-up and the safety plan [S]",
+  ];
+};
+const reasonForReferralSection = () => plain({
+  templateRoot: "1.3.6.1.4.1.19376.1.5.3.1.3.1", extension: "2014-06-09", code: "42349-1", display: "Reason for referral (narrative)", title: "Reason for Referral",
+  text: `${p(`Please evaluate and advise on ${activeProblems.map(problem => midSentence(problem.coding?.[0]?.display ?? problem.display)).join(" and ")}.`)}${referralStep ? p(sentence(referralStep.display)) : ""}`,
+});
+
+// Document header. Every document carries the same patient, birth date, and MRN.
+// Note types require the "entries optional" section templates; the entries-required versions
+// used here conform to them, so both IDs are declared.
+const OPTIONAL_TEMPLATES = [
+  ["2.16.840.1.113883.10.20.22.2.6.1", "2015-08-01", "2.16.840.1.113883.10.20.22.2.6"],
+  ["2.16.840.1.113883.10.20.22.2.1.1", "2014-06-09", "2.16.840.1.113883.10.20.22.2.1"],
+  ["2.16.840.1.113883.10.20.22.2.3.1", "2015-08-01", "2.16.840.1.113883.10.20.22.2.3"],
+  ["2.16.840.1.113883.10.20.22.2.4.1", "2015-08-01", "2.16.840.1.113883.10.20.22.2.4"],
+  ["2.16.840.1.113883.10.20.22.2.5.1", "2015-08-01", "2.16.840.1.113883.10.20.22.2.5"],
+];
+const withOptionalTemplates = (xmlText) => OPTIONAL_TEMPLATES.reduce((text, [root, extension, optional]) =>
+  text.replaceAll(`<templateId root="${root}" extension="${extension}"/>`, `<templateId root="${optional}" extension="${extension}"/><templateId root="${root}" extension="${extension}"/>`), xmlText);
+const noteDocument = ({ key, templateRoot, code, display, title, date, author, visit, inFulfillmentOf = "", recipient = "", serviceEventTemplate = "", body }) => {
+  const encounter = encounterOf(visit);
+  const [person, personUuid] = author;
+  return `<?xml version="1.0" encoding="UTF-8"?>
+<ClinicalDocument xmlns="urn:hl7-org:v3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <realmCode code="US"/>
+  <typeId root="2.16.840.1.113883.1.3" extension="POCD_HD000040"/>
+  <templateId root="2.16.840.1.113883.10.20.22.1.1" extension="2015-08-01"/>
+  <templateId root="${templateRoot}" extension="2015-08-01"/>
+  <id root="${uuid("document", key)}"/>
+  <code code="${code}" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="${x(display)}"/>
+  <title>${x(data.record_classification.banner)} — ${x(title)} — ${x(data.identity.display_name)}${isTrueDateFrame(data) ? ` — ${x(TRUE_DATE_NOTICE)}` : ""}</title>
+  <effectiveTime value="${timestamp(date)}"/>
+  <confidentialityCode code="N" codeSystem="2.16.840.1.113883.5.25"/>
+  <languageCode code="en-US"/>
+  <setId root="${uuid("document-set", key)}"/>
+  <versionNumber value="1"/>
+${recordTarget}
+${authorBlock(person, personUuid, date)}
+${custodianXml}
+${recipient}  <legalAuthenticator>
+    <time value="${timestamp(date)}"/>
+    <signatureCode code="S"/>
+    ${assignedEntity(person, personUuid)}
+  </legalAuthenticator>
+${inFulfillmentOf}  <documentationOf>
+    <serviceEvent classCode="PCPR">${serviceEventTemplate}<effectiveTime><low value="${compactDate(date)}"/><high value="${compactDate(date)}"/></effectiveTime><performer typeCode="PRF">${assignedEntity(person, personUuid)}</performer></serviceEvent>
+  </documentationOf>
+  <componentOf>
+    <encompassingEncounter>
+      <id root="${uuid(encounter.id)}"/>
+      <code nullFlavor="UNK"><originalText>${x(encounter.display)}</originalText></code>
+      <effectiveTime><low value="${compactDate(date)}"/><high value="${compactDate(date)}"/></effectiveTime>
+      <encounterParticipant typeCode="ATND">${assignedEntity(person, personUuid)}</encounterParticipant>
+      <location><healthCareFacility><id root="${custodianUuid}"/><serviceProviderOrganization><id root="${custodianUuid}"/><name>${x(facility)}</name>${facilityContact}</serviceProviderOrganization></healthCareFacility></location>
+    </encompassingEncounter>
+  </componentOf>
+  <component>
+    <structuredBody>
+${withOptionalTemplates(body.join("\n"))}
+    </structuredBody>
+  </component>
+</ClinicalDocument>
+`;
+};
+
+const primary = [clinician, authorUuid];
+const consultantAuthor = [consultantPerson, consultantUuid];
+const noteDocuments = new Map();
+
+noteDocuments.set("hp-01.xml", noteDocument({
+  key: "hp-01", templateRoot: "2.16.840.1.113883.10.20.22.1.3", code: "34117-2", display: "History and physical note", title: "History and Physical",
+  date: firstVisitDate, author: primary, visit: visits[0],
+  body: [
+    reasonForVisitSection(visits[0]),
+    hpiSection("This fictional modern episode addresses the presenting concerns below."),
+    pastHistorySection(), familySection(), socialSection(),
+    allergiesSection(), medicationsSection(), reviewOfSystemsSection(), generalStatusSection(),
+    physicalExamSection(firstVisitDate), vitalsSection(firstVisitDate), resultsSection(firstVisitDate),
+    problemsSection(), assessmentSection(),
+    planSection({ items: interventionItems(data.care_plan.interventions), withOrder: Boolean(referralStep) }),
+  ],
+}));
+
+visits.forEach((visit, index) => {
+  const n = index + 1;
+  const followUp = n > 1;
+  noteDocuments.set(`progress-${String(n).padStart(2, "0")}.xml`, noteDocument({
+    key: `progress-${n}`, templateRoot: "2.16.840.1.113883.10.20.22.1.9", code: "11506-3", display: "Progress note", title: `Progress Note ${n}`,
+    date: visit.date, author: primary, visit,
+    serviceEventTemplate: `<templateId root="2.16.840.1.113883.10.20.21.3.1"/>`,
+    body: [
+      subjectiveSection(visit, followUp), objectiveSection(visit),
+      vitalsSection(visit.date), resultsSection(visit.date),
+      medicationsSection(), allergiesSection(), problemsSection(),
+      assessmentSection(),
+      planSection({ items: followUp ? followUpPlanItems(visit, n) : interventionItems(data.care_plan.interventions) }),
+    ],
+  }));
+});
+
+if (referralStep) {
+  noteDocuments.set("referral-01.xml", noteDocument({
+    key: "referral-01", templateRoot: "2.16.840.1.113883.10.20.22.1.14", code: "57133-1", display: "Referral note", title: `${consultant.specialty} Referral`,
+    date: firstVisitDate, author: primary, visit: visits[0],
+    recipient: `  <informationRecipient>
+    <intendedRecipient><informationRecipient>${personName(consultantPerson)}</informationRecipient><receivedOrganization><name>${x(facility)}</name></receivedOrganization></intendedRecipient>
+  </informationRecipient>
+`,
+    body: [
+      reasonForReferralSection(),
+      hpiSection("Referral for the concerns below, which began before the index visit."),
+      allergiesSection(), medicationsSection(), problemsSection(),
+      pastHistorySection(), familySection(), socialSection(),
+      vitalsSection(firstVisitDate), resultsSection(firstVisitDate),
+      assessmentSection(),
+      planSection({ items: interventionItems(data.care_plan.interventions.filter(item => !isConsultStep(item))), withOrder: true }),
+    ],
+  }));
+
+  noteDocuments.set("consult-01.xml", noteDocument({
+    key: "consult-01", templateRoot: "2.16.840.1.113883.10.20.22.1.4", code: "11488-4", display: "Consult note", title: `${consultant.specialty} Consultation`,
+    date: consultVisit.date, author: consultantAuthor, visit: consultVisit,
+    inFulfillmentOf: `  <inFulfillmentOf>
+    <order><id root="${referralOrderUuid}"/></order>
+  </inFulfillmentOf>
+`,
+    body: [
+      reasonForReferralSection(),
+      hpiSection(`Seen in ${consultant.specialty.toLowerCase()} consultation at the request of ${data.identity.synthetic_identity.fictional_primary_clinician}.`),
+      allergiesSection(), medicationsSection(), problemsSection(),
+      physicalExamSection(consultVisit.date), resultsSection(consultVisit.date),
+      assessmentSection(p("Coordinated follow-up with the primary clinician is appropriate.")),
+      planSection({ items: interventionItems(data.care_plan.interventions.filter(item => !isConsultStep(item))) }),
+    ],
+  }));
+}
+
 await fs.mkdir(outputDir, { recursive: true });
 const normalizedXml = xml.replace(/[ \t]+$/gm, "");
 await fs.writeFile(path.join(outputDir, "ccda.xml"), normalizedXml, "utf8");
+const notesDir = path.join(outputDir, "ccda");
+await fs.rm(notesDir, { recursive: true, force: true });
+await fs.mkdir(notesDir, { recursive: true });
+for (const [name, document] of noteDocuments) await fs.writeFile(path.join(notesDir, name), document.replace(/[ \t]+$/gm, ""), "utf8");
 console.log(JSON.stringify({ case_id: data.case_id, output: path.join(outputDir, "ccda.xml"), documentUuid }));

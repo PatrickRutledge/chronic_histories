@@ -260,6 +260,42 @@
       }
     },
     {
+      "fullUrl": "urn:uuid:ec4cb942-6f4f-4f66-9a22-8a928017d261",
+      "resource": {
+        "resourceType": "Practitioner",
+        "id": "consultant",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitioner"
+          ],
+          "tag": [
+            {
+              "system": "https://github.com/PatrickRutledge/chronic_histories/fhir/classification",
+              "code": "synthetic",
+              "display": "Fictional clinician"
+            }
+          ]
+        },
+        "identifier": [
+          {
+            "system": "https://github.com/PatrickRutledge/chronic_histories/fhir/clinician",
+            "value": "marcus-lee-psyd"
+          }
+        ],
+        "name": [
+          {
+            "family": "Lee",
+            "given": [
+              "Marcus"
+            ],
+            "suffix": [
+              "PsyD"
+            ]
+          }
+        ]
+      }
+    },
+    {
       "fullUrl": "urn:uuid:9df5f331-e6ff-4929-9397-c9f6d0ff0856",
       "resource": {
         "resourceType": "AllergyIntolerance",
@@ -2948,7 +2984,7 @@
         },
         "text": {
           "status": "generated",
-          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>SYNTHETIC RECORD, NOT A REAL MEDICAL RECORD</p><ul><li>Use shared decision-making to select integrated evidence-based treatment for alcohol use disorder and PTSD</li><li>Offer behavioral AUD treatment and discuss FDA-approved medication options; patient initially selects behavioral treatment</li><li>Begin trauma-focused psychotherapy without requiring recovery to be perfect or linear</li><li>Repeat AUDIT-C, PCL-5, and PHQ-9 at six and twelve weeks and maintain a collaborative relapse and safety plan</li></ul></div>"
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>SYNTHETIC RECORD, NOT A REAL MEDICAL RECORD</p><ul><li>Use shared decision-making to select integrated evidence-based treatment for alcohol use disorder and PTSD</li><li>Offer behavioral AUD treatment and discuss FDA-approved medication options; patient initially selects behavioral treatment</li><li>Begin trauma-focused psychotherapy without requiring recovery to be perfect or linear</li><li>Referral to behavioral health for trauma-focused psychotherapy within integrated recovery care</li><li>Repeat AUDIT-C, PCL-5, and PHQ-9 at six and twelve weeks and maintain a collaborative relapse and safety plan</li></ul></div>"
         },
         "status": "completed",
         "intent": "plan",
@@ -3025,11 +3061,97 @@
             "detail": {
               "kind": "ServiceRequest",
               "code": {
+                "text": "Referral to behavioral health for trauma-focused psychotherapy within integrated recovery care"
+              },
+              "status": "completed",
+              "description": "Guideline reference: GL-PTSD-2023"
+            }
+          },
+          {
+            "detail": {
+              "kind": "ServiceRequest",
+              "code": {
                 "text": "Repeat AUDIT-C, PCL-5, and PHQ-9 at six and twelve weeks and maintain a collaborative relapse and safety plan"
               },
               "status": "completed",
               "description": "Guideline reference: GL-SUD-2021, GL-PTSD-2023"
             }
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:0694889b-2a67-4396-b986-82a04bbbe7d9",
+      "resource": {
+        "resourceType": "ServiceRequest",
+        "id": "referral-order",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-servicerequest"
+          ],
+          "tag": [
+            {
+              "system": "https://github.com/PatrickRutledge/chronic_histories/fhir/evidence-grade",
+              "code": "S"
+            }
+          ]
+        },
+        "identifier": [
+          {
+            "system": "urn:ietf:rfc:3986",
+            "value": "urn:uuid:8f19c14b-ee3a-479e-93ff-4b0d7b99fdca"
+          }
+        ],
+        "status": "completed",
+        "intent": "order",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "3457005",
+                "display": "Patient referral"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "3457005",
+              "display": "Patient referral"
+            }
+          ],
+          "text": "Referral to behavioral health"
+        },
+        "subject": {
+          "reference": "urn:uuid:885de53e-ac82-46ee-ba49-3f7fefd48b13"
+        },
+        "encounter": {
+          "reference": "urn:uuid:26a5deee-71ef-47f0-b448-9f9659789bc7"
+        },
+        "occurrenceDateTime": "2026-06-30",
+        "authoredOn": "2026-06-30",
+        "requester": {
+          "reference": "urn:uuid:25296796-ce96-4795-838d-946db335a870"
+        },
+        "performer": [
+          {
+            "reference": "urn:uuid:ec4cb942-6f4f-4f66-9a22-8a928017d261"
+          }
+        ],
+        "reasonReference": [
+          {
+            "reference": "urn:uuid:d55e22a8-034d-4cb3-a08a-84415f1d5241"
+          },
+          {
+            "reference": "urn:uuid:a33a0eba-02d0-4047-b724-f3554ef3d023"
+          }
+        ],
+        "note": [
+          {
+            "text": "Referral to behavioral health for trauma-focused psychotherapy within integrated recovery care"
           }
         ]
       }

@@ -196,6 +196,42 @@
       }
     },
     {
+      "fullUrl": "urn:uuid:b17a9ae3-fc5c-4bc6-a3c7-9a02719836d2",
+      "resource": {
+        "resourceType": "Practitioner",
+        "id": "consultant",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitioner"
+          ],
+          "tag": [
+            {
+              "system": "https://github.com/PatrickRutledge/chronic_histories/fhir/classification",
+              "code": "synthetic",
+              "display": "Fictional clinician"
+            }
+          ]
+        },
+        "identifier": [
+          {
+            "system": "https://github.com/PatrickRutledge/chronic_histories/fhir/clinician",
+            "value": "priya-natarajan-md"
+          }
+        ],
+        "name": [
+          {
+            "family": "Natarajan",
+            "given": [
+              "Priya"
+            ],
+            "suffix": [
+              "MD"
+            ]
+          }
+        ]
+      }
+    },
+    {
       "fullUrl": "urn:uuid:bc4d748c-7d37-4213-97a5-96b85efa878a",
       "resource": {
         "resourceType": "AllergyIntolerance",
@@ -2738,6 +2774,79 @@
               "status": "completed",
               "description": "Guideline reference: GL-MDD-2022"
             }
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:141e49cf-d98d-4d4d-9e1f-2d9b3341ede7",
+      "resource": {
+        "resourceType": "ServiceRequest",
+        "id": "referral-order",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-servicerequest"
+          ],
+          "tag": [
+            {
+              "system": "https://github.com/PatrickRutledge/chronic_histories/fhir/evidence-grade",
+              "code": "S"
+            }
+          ]
+        },
+        "identifier": [
+          {
+            "system": "urn:ietf:rfc:3986",
+            "value": "urn:uuid:32058f17-64d0-4f73-969e-814ae3ed7d8b"
+          }
+        ],
+        "status": "completed",
+        "intent": "order",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "3457005",
+                "display": "Patient referral"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "3457005",
+              "display": "Patient referral"
+            }
+          ],
+          "text": "Referral to psychiatry"
+        },
+        "subject": {
+          "reference": "urn:uuid:16f5f70a-daf7-49da-aa54-db734453cf15"
+        },
+        "encounter": {
+          "reference": "urn:uuid:ef6a2ea5-f796-435f-bd34-2528a5cacb01"
+        },
+        "occurrenceDateTime": "2026-06-30",
+        "authoredOn": "2026-06-30",
+        "requester": {
+          "reference": "urn:uuid:75aaef24-298c-4a81-a2e7-fe58d12bc891"
+        },
+        "performer": [
+          {
+            "reference": "urn:uuid:b17a9ae3-fc5c-4bc6-a3c7-9a02719836d2"
+          }
+        ],
+        "reasonReference": [
+          {
+            "reference": "urn:uuid:623fd99f-d13a-4224-8514-3d3b85e2bae0"
+          }
+        ],
+        "note": [
+          {
+            "text": "Psychiatry consultation to confirm the diagnosis and advise on medication management"
           }
         ]
       }

@@ -181,6 +181,34 @@ $cdaFull = ((@($cdaName.SelectNodes('cda:given', $ns) | ForEach-Object InnerText
 if ($cdaFull -ne $case.identity.display_name) { $errors.Add("C-CDA patient name '$cdaFull' differs from '$($case.identity.display_name)'") }
 $fhirName = ($fhir.entry | Where-Object { $_.resource.resourceType -eq 'Patient' }).resource.name[0]
 if (((@($fhirName.given) + $fhirName.family) -join ' ') -ne $case.identity.display_name) { $errors.Add('FHIR patient name differs from canonical display name') }
+
+# Every C-CDA note document identifies the same patient: name, birth date, and MRN. A receiving
+# system matches documents to a patient on these fields.
+$expectedBirth = $case.identity.synthetic_identity.date_of_birth.Replace('-', '')
+$noteDocuments = @(Get-ChildItem -LiteralPath (Join-Path $CaseDirectory 'generated/ccda') -Filter '*.xml' -File -ErrorAction SilentlyContinue)
+if ($noteDocuments.Count -eq 0) { $errors.Add('No C-CDA note documents generated') }
+$referralCount = 0
+foreach ($noteFile in $noteDocuments) {
+    [xml]$note = Get-Content -Raw -LiteralPath $noteFile.FullName
+    $role = $note.SelectSingleNode('/cda:ClinicalDocument/cda:recordTarget/cda:patientRole', $ns)
+    $noteName = $role.SelectSingleNode('cda:patient/cda:name', $ns)
+    $noteFull = ((@($noteName.SelectNodes('cda:given', $ns) | ForEach-Object InnerText) + $noteName.SelectSingleNode('cda:family', $ns).InnerText) -join ' ')
+    if ($noteFull -ne $case.identity.display_name) { $errors.Add("$($noteFile.Name): patient name '$noteFull' differs from '$($case.identity.display_name)'") }
+    if ($role.SelectSingleNode('cda:patient/cda:birthTime', $ns).value -ne $expectedBirth) { $errors.Add("$($noteFile.Name): birth date differs from the case") }
+    if ($role.SelectSingleNode('cda:id', $ns).extension -ne $case.identity.synthetic_identity.mrn) { $errors.Add("$($noteFile.Name): MRN differs from the case") }
+    if ($noteFile.Name -like 'referral-*' -or $noteFile.Name -like 'consult-*') { $referralCount++ }
+}
+# A referral and its consultation come as a pair, linked by the order ID.
+if ($referralCount -eq 1) { $errors.Add('Referral loop incomplete: a referral note or consultation note is missing') }
+if ($referralCount -eq 2) {
+    [xml]$referralDoc = Get-Content -Raw -LiteralPath (Join-Path $CaseDirectory 'generated/ccda/referral-01.xml')
+    [xml]$consultDoc = Get-Content -Raw -LiteralPath (Join-Path $CaseDirectory 'generated/ccda/consult-01.xml')
+    $orderId = $referralDoc.SelectSingleNode("//cda:act[cda:templateId/@root='2.16.840.1.113883.10.20.22.4.39']/cda:id", $ns).root
+    $fulfilled = $consultDoc.SelectSingleNode('/cda:ClinicalDocument/cda:inFulfillmentOf/cda:order/cda:id', $ns).root
+    $serviceRequest = ($fhir.entry | Where-Object { $_.resource.resourceType -eq 'ServiceRequest' }).resource
+    if (-not $orderId -or $orderId -ne $fulfilled) { $errors.Add('Consultation note does not fulfill the referral order') }
+    if (-not $serviceRequest -or $serviceRequest.identifier[0].value -ne "urn:uuid:$orderId") { $errors.Add('FHIR ServiceRequest does not carry the referral order ID') }
+}
 if ($ccdaProblems -ne $case.clinical.problems.Count) { $errors.Add('C-CDA problem count differs from canonical problems') }
 if ($ccdaResults -ne $case.clinical.observations.Count) { $errors.Add('C-CDA result count differs from canonical observations') }
 if ($ccdaEncounters -ne $case.clinical.encounters.Count) { $errors.Add('C-CDA encounter count differs from canonical encounters') }
@@ -271,7 +299,12 @@ $conformancePath = Join-Path $CaseDirectory 'generated\conformance\summary.json'
 if (Test-Path -LiteralPath $conformancePath) {
     $report = Get-Content -Raw -LiteralPath $conformancePath | ConvertFrom-Json
     $fresh = $report.CcdaSha256 -eq (Get-NormalizedSha256 $ccdaPath) -and $report.FhirSha256 -eq (Get-NormalizedSha256 $fhirPath)
-    $conformance = if (-not $fresh) { 'STALE (rerun scripts/run_conformance.ps1)' } else { "XSD $($report.CdaXsdErrors), Schematron $($report.SchematronErrors), FHIR $($report.FhirBaseErrors), US Core $($report.UsCoreErrors) errors$(if ($report.TerminologyUnverified) { '; ' + $report.TerminologyUnverified + ' codes unverified (terminology server failure)' })" }
+    # Every note document must have been validated in its current form, and no others may exist.
+    $noteDocs = @(Get-ChildItem -LiteralPath (Join-Path $CaseDirectory 'generated/ccda') -Filter '*.xml' -File -ErrorAction SilentlyContinue)
+    $checked = @{}; foreach ($doc in @($report.NoteDocuments)) { if ($doc) { $checked[$doc.File] = $doc.Sha256 } }
+    if ($checked.Count -ne $noteDocs.Count) { $fresh = $false }
+    foreach ($doc in $noteDocs) { if ($checked["generated/ccda/$($doc.Name)"] -ne (Get-NormalizedSha256 $doc.FullName)) { $fresh = $false } }
+    $conformance = if (-not $fresh) { 'STALE (rerun scripts/run_conformance.ps1)' } else { "XSD $($report.CdaXsdErrors), Schematron $($report.SchematronErrors), $($noteDocs.Count) note documents $([int]$report.NoteDocumentErrors), FHIR $($report.FhirBaseErrors), US Core $($report.UsCoreErrors) errors$(if ($report.TerminologyUnverified) { '; ' + $report.TerminologyUnverified + ' codes unverified (terminology server failure)' })" }
 }
 
 [pscustomobject]@{
@@ -286,6 +319,7 @@ if (Test-Path -LiteralPath $conformancePath) {
     CcdaEncounterEntries = $ccdaEncounters
     CcdaVitalSignEntries = $ccdaVitals
     SupportingDocuments = $noteFiles.Count
+    CcdaNoteDocuments = @(Get-ChildItem -LiteralPath (Join-Path $CaseDirectory 'generated/ccda') -Filter '*.xml' -File -ErrorAction SilentlyContinue).Count
     ProvenanceRows = $provenanceRows.Count
     Conformance = $conformance
 } | Format-List

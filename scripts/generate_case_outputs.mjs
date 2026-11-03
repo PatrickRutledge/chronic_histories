@@ -1,6 +1,7 @@
 import fs from "node:fs/promises";
 import path from "node:path";
 import { NAMESPACE, ROUTES, TRUE_DATE_NOTICE, deterministicUuid, isTrueDateFrame, outputDirFor, parseClinician, splitName } from "./lib/common.mjs";
+import { isConsultStep } from "./lib/episode.mjs";
 
 const inputPath = process.argv[2];
 if (!inputPath) {
@@ -269,6 +270,25 @@ fhirEntries.push({
   }
 });
 
+// The consultant and the referral order close the referral loop. The order's identifier is the
+// same UUID the C-CDA Referral Note orders and the Consultation Note fulfills.
+const consultant = data.identity.synthetic_identity.fictional_consultant;
+const consultantName = parseClinician(consultant.name);
+const consultantFullUrl = urn("consultant");
+const referralStep = data.care_plan.interventions.find(isConsultStep);
+if (referralStep) {
+  fhirEntries.push({
+    fullUrl: consultantFullUrl,
+    resource: {
+      resourceType: "Practitioner",
+      id: "consultant",
+      meta: { profile: [`${US_CORE}/us-core-practitioner`], tag: [{ system: CLASSIFICATION_SYSTEM, code: "synthetic", display: "Fictional clinician" }] },
+      identifier: [{ system: `${NAMESPACE}/clinician`, value: slug(consultant.name) }],
+      name: [{ family: consultantName.family, given: consultantName.given, suffix: consultantName.suffix ? [consultantName.suffix] : undefined }]
+    }
+  });
+}
+
 for (const allergy of data.clinical.allergies) {
   const allergyId = slug(allergy.id);
   fhirEntries.push({
@@ -516,6 +536,32 @@ fhirEntries.push({
     }))
   }
 });
+
+if (referralStep) {
+  const firstVisit = data.synthetic_episode.visit_schedule[0];
+  const firstEncounter = data.clinical.encounters.find(encounter => encounter.id === firstVisit.encounter_id);
+  fhirEntries.push({
+    fullUrl: urn("referral-order"),
+    resource: {
+      resourceType: "ServiceRequest",
+      id: "referral-order",
+      meta: { profile: [`${US_CORE}/us-core-servicerequest`], tag: [{ system: GRADE_SYSTEM, code: referralStep.provenance.evidence_grade }] },
+      identifier: [{ system: "urn:ietf:rfc:3986", value: `urn:uuid:${deterministicUuid(`${data.case_id}|referral-order`)}` }],
+      status: "completed",
+      intent: "order",
+      category: [{ coding: [{ system: "http://snomed.info/sct", code: "3457005", display: "Patient referral" }] }],
+      code: { coding: [{ system: "http://snomed.info/sct", code: "3457005", display: "Patient referral" }], text: `Referral to ${consultant.specialty.toLowerCase()}` },
+      subject: { reference: patientFullUrl },
+      encounter: firstEncounter ? { reference: urn(slug(firstEncounter.id)) } : undefined,
+      occurrenceDateTime: firstVisit.date,
+      authoredOn: firstVisit.date,
+      requester: { reference: practitionerFullUrl },
+      performer: [{ reference: consultantFullUrl }],
+      reasonReference: data.clinical.problems.filter(problem => problem.clinical_status === "active").map(problem => ({ reference: urn(slug(problem.id)) })),
+      note: [{ text: referralStep.display }]
+    }
+  });
+}
 
 const bundle = {
   resourceType: "Bundle",

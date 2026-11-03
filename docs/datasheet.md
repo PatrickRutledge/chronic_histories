@@ -27,8 +27,9 @@ This datasheet follows the structure of Gebru et al., "Datasheets for Datasets" 
 **Files per case.**
 
 - `case.json`: the canonical record, valid against [schema/case.schema.json](../schema/case.schema.json). Everything else is generated from it.
-- `generated/ccda.xml`: C-CDA R2.1 Continuity of Care Document.
-- `generated/fhir-bundle.json`: FHIR R4 collection bundle with US Core 6.1.0 profiles.
+- `generated/ccda.xml`: C-CDA R2.1 Continuity of Care Document summarizing the episode.
+- `generated/ccda/`: one C-CDA R2.1 document per clinical event. `hp-01.xml` is a History and Physical, `progress-01.xml` to `progress-03.xml` are Progress Notes for each visit, `referral-01.xml` is a Referral Note carrying the coded referral order, and `consult-01.xml` is a Consultation Note that fulfills that order. Each names the patient, birth date, and MRN, and passes the CDA XSD and C-CDA R2.1 Schematron.
+- `generated/fhir-bundle.json`: FHIR R4 collection bundle with US Core 6.1.0 profiles, including the referral as a `ServiceRequest` whose identifier matches the C-CDA order.
 - `generated/index.html`: a review page for people.
 - `generated/notes/`: eight notes covering the history and physical, three progress notes, a consultation, a referral, a care plan, and a summary.
 - `generated/provenance.csv`: one row per clinical element, with its evidence grade and linked claims.

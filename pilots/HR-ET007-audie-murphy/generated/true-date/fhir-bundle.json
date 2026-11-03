@@ -266,6 +266,42 @@
       }
     },
     {
+      "fullUrl": "urn:uuid:d4592c6a-917c-4d76-8c39-3aa917b03e73",
+      "resource": {
+        "resourceType": "Practitioner",
+        "id": "consultant",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitioner"
+          ],
+          "tag": [
+            {
+              "system": "https://github.com/PatrickRutledge/chronic_histories/fhir/classification",
+              "code": "synthetic",
+              "display": "Fictional clinician"
+            }
+          ]
+        },
+        "identifier": [
+          {
+            "system": "https://github.com/PatrickRutledge/chronic_histories/fhir/clinician",
+            "value": "marcus-lee-psyd"
+          }
+        ],
+        "name": [
+          {
+            "family": "Lee",
+            "given": [
+              "Marcus"
+            ],
+            "suffix": [
+              "PsyD"
+            ]
+          }
+        ]
+      }
+    },
+    {
       "fullUrl": "urn:uuid:aabfe2fa-87d2-4df9-8247-677021f161d6",
       "resource": {
         "resourceType": "AllergyIntolerance",
@@ -2871,6 +2907,82 @@
               "status": "completed",
               "description": "Guideline reference: GL-PTSD-2023"
             }
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:515fd985-47b7-4c7c-bacc-da8c5beb13b6",
+      "resource": {
+        "resourceType": "ServiceRequest",
+        "id": "referral-order",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-servicerequest"
+          ],
+          "tag": [
+            {
+              "system": "https://github.com/PatrickRutledge/chronic_histories/fhir/evidence-grade",
+              "code": "S"
+            }
+          ]
+        },
+        "identifier": [
+          {
+            "system": "urn:ietf:rfc:3986",
+            "value": "urn:uuid:a2ca84ef-97c0-4a3c-b51a-714a7b22f08d"
+          }
+        ],
+        "status": "completed",
+        "intent": "order",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "3457005",
+                "display": "Patient referral"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "3457005",
+              "display": "Patient referral"
+            }
+          ],
+          "text": "Referral to behavioral health"
+        },
+        "subject": {
+          "reference": "urn:uuid:bf723ffb-5aed-43da-a740-4bb3927cbcfc"
+        },
+        "encounter": {
+          "reference": "urn:uuid:532d2547-1903-46a2-b4f5-899905966b0e"
+        },
+        "occurrenceDateTime": "1964-06-30",
+        "authoredOn": "1964-06-30",
+        "requester": {
+          "reference": "urn:uuid:3a41bf47-b203-491f-8422-9496137bcb26"
+        },
+        "performer": [
+          {
+            "reference": "urn:uuid:d4592c6a-917c-4d76-8c39-3aa917b03e73"
+          }
+        ],
+        "reasonReference": [
+          {
+            "reference": "urn:uuid:d79fe30d-0f3a-4f44-914e-fbc5808d818e"
+          },
+          {
+            "reference": "urn:uuid:d78a62d0-5d9c-4ef5-85c0-32639b70d78a"
+          }
+        ],
+        "note": [
+          {
+            "text": "Shared decision-making referral for individual Cognitive Processing Therapy with a trained behavioral health clinician"
           }
         ]
       }

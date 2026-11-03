@@ -12,8 +12,15 @@ A case ID is never reused for a different person.
 
 ### Added
 
+- C-CDA note documents for every case: History and Physical, a Progress Note per visit, Referral Note, and Consultation Note. The referral order is coded once and shared by the Referral Note, the Consultation Note's `inFulfillmentOf`, and a US Core `ServiceRequest`. Every document passes the CDA XSD and C-CDA R2.1 Schematron, and the local checks confirm each carries the case's patient name, birth date, and MRN.
+- `HR-ET008` Gregory Boyington: an explicit referral step (INT-005) to behavioral health for the trauma-focused psychotherapy already in his plan.
+
 - `CONTRIBUTING.md` with the evidence, sourcing, safety, and build rules for contributors.
 - `CLA.md`: individual and corporate contributor license agreements with a relicensing right and a public-license commitment.
+
+### Fixed
+
+- Change since baseline in progress notes compared the wrong instrument when a case used two (Murphy's PHQ-9 showed his PCL-5 baseline). True-date notes were missing from the build manifest because of a broken path.
 
 ### Changed
 
