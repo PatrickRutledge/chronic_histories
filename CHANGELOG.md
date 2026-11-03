@@ -26,6 +26,7 @@ A case ID is never reused for a different person.
 
 ### Changed
 
+- `clinical.safety_assessment` is optional. Validation requires it when a case has a behavioral-health diagnosis (ICD-10-CM F10-F99) or a positive depression screen (PHQ-9 of 10 or more, PHQ-2 of 3 or more), and a new control proves it.
 - `HR-ET007` Audie Murphy: the safety plan now names crisis resources, including the 988 Suicide & Crisis Lifeline, as the other pilots do and `CONTRIBUTING.md` requires.
 
 ## [0.2.0] - 2026-11-02

@@ -135,7 +135,11 @@ foreach ($set in $case.clinical.vital_sign_sets) {
     if ($map['8480-6'] -le $map['8462-4']) { $errors.Add("Invalid blood pressure in $($set.id)") }
     if ($map['59408-5'] -lt 70 -or $map['59408-5'] -gt 100) { $errors.Add("Invalid oxygen saturation in $($set.id)") }
 }
-if ($case.clinical.safety_assessment.provenance.evidence_grade -ne 'S') { $errors.Add('Safety assessment must be synthetic') }
+# A behavioral-health diagnosis (ICD-10-CM F10-F99) or a positive depression screen (PHQ-9 >= 10, PHQ-2 >= 3) needs a structured safety assessment.
+$behavioralProblem = @($case.clinical.problems | Where-Object { $_.coding | Where-Object { $_.system -eq 'http://hl7.org/fhir/sid/icd-10-cm' -and $_.code -match '^F[1-9]' } }).Count -gt 0
+$positiveScreen = @($case.clinical.observations | Where-Object { ($_.coding[0].code -eq '44261-6' -and $_.value -ge 10) -or ($_.coding[0].code -eq '55758-7' -and $_.value -ge 3) }).Count -gt 0
+if (($behavioralProblem -or $positiveScreen) -and -not $case.clinical.safety_assessment) { $errors.Add('A behavioral-health problem or positive depression screen requires clinical.safety_assessment') }
+if ($case.clinical.safety_assessment -and $case.clinical.safety_assessment.provenance.evidence_grade -ne 'S') { $errors.Add('Safety assessment must be synthetic') }
 
 # Release gate: an approved case needs every review passed, a named reviewer, and a date.
 if ($case.record_classification.public_release_status -eq 'approved') {
@@ -161,7 +165,7 @@ foreach ($pair in @(@('AllergyIntolerance', 'allergies'), @('MedicationRequest',
     if ([int]$fhirCounts[$pair[0]] -ne $expected) { $errors.Add("FHIR $($pair[0]) count $([int]$fhirCounts[$pair[0]]) differs from canonical $($pair[1]) $expected") }
 }
 $bloodPressureMerged = @($case.clinical.vital_sign_sets.measurements | Where-Object { $_.code -eq '8462-4' }).Count
-$expectedFhirObservations = $case.clinical.observations.Count + ($case.clinical.vital_sign_sets.measurements | Measure-Object).Count - $bloodPressureMerged + $case.clinical.social_history.Count + $case.clinical.functional_status.Count + $case.clinical.mental_status.Count + 1
+$expectedFhirObservations = $case.clinical.observations.Count + ($case.clinical.vital_sign_sets.measurements | Measure-Object).Count - $bloodPressureMerged + $case.clinical.social_history.Count + $case.clinical.functional_status.Count + $case.clinical.mental_status.Count + $(if ($case.clinical.safety_assessment) { 1 } else { 0 })
 if ($fhirCounts.Observation -ne $expectedFhirObservations) { $errors.Add("FHIR Observation count differs from canonical observations: expected $expectedFhirObservations, found $($fhirCounts.Observation)") }
 if ($fhirCounts.Encounter -ne $case.clinical.encounters.Count) { $errors.Add('FHIR Encounter count differs from canonical encounters') }
 if ($fhirCounts.Goal -ne $case.care_plan.goals.Count) { $errors.Add('FHIR Goal count differs from canonical goals') }

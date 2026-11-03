@@ -166,7 +166,7 @@ ${isTrueDateFrame(data) ? `  <div class="banner">${esc(TRUE_DATE_NOTICE)}</div>
     <section><h2>Synthetic outcome measures</h2><table><thead><tr><th>Grade</th><th>Date</th><th>Measure</th><th>Result</th><th>Coding</th></tr></thead><tbody>${observationRows}</tbody></table></section>
     <section><h2>Synthetic vital signs</h2><table><thead><tr><th>Date</th><th>Measure</th><th>Result</th><th>LOINC</th><th>Grade</th></tr></thead><tbody>${vitalRows}</tbody></table></section>
     <section><h2>Social, functional, and mental status</h2><h3>Social history</h3><ul>${historyList(data.clinical.social_history)}</ul><h3>Functional status</h3><ul>${historyList(data.clinical.functional_status)}</ul><h3>Mental status</h3><ul>${historyList(data.clinical.mental_status)}</ul></section>
-    <section><h2>Structured safety assessment</h2><div class="grid"><div class="card"><div class="label">Current ideation</div>${esc(data.clinical.safety_assessment.current_ideation)}</div><div class="card"><div class="label">Intent</div>${esc(data.clinical.safety_assessment.intent)}</div><div class="card"><div class="label">Plan</div>${esc(data.clinical.safety_assessment.plan)}</div><div class="card"><div class="label">Disposition</div>${esc(data.clinical.safety_assessment.disposition)}</div></div><p class="muted">This assessment is synthetic and does not convert historical behavior into a present-day fact.</p></section>
+    ${data.clinical.safety_assessment ? `<section><h2>Structured safety assessment</h2><div class="grid"><div class="card"><div class="label">Current ideation</div>${esc(data.clinical.safety_assessment.current_ideation)}</div><div class="card"><div class="label">Intent</div>${esc(data.clinical.safety_assessment.intent)}</div><div class="card"><div class="label">Plan</div>${esc(data.clinical.safety_assessment.plan)}</div><div class="card"><div class="label">Disposition</div>${esc(data.clinical.safety_assessment.disposition)}</div></div><p class="muted">This assessment is synthetic and does not convert historical behavior into a present-day fact.</p></section>` : ""}
     <section><h2>Allergies and medications</h2><h3>Allergies</h3><ul>${historyList(data.clinical.allergies)}</ul><h3>Medications</h3>${data.clinical.medications.length ? `<ul>${historyList(data.clinical.medications)}</ul>` : `<p class="muted">No current medications.</p>`}</section>
     <section><h2>Procedures and immunizations</h2><h3>Procedures</h3><ul>${historyList(data.clinical.procedures)}</ul><h3>Immunizations</h3><ul>${data.clinical.immunizations.map(item => `<li>${provenanceBadge(item.provenance.evidence_grade)} ${esc(item.date)}: ${esc(item.display)}</li>`).join("")}</ul></section>
     <section><h2>Past medical history</h2><p class="muted">True biography with historical dates; not part of the synthetic care timeline.</p><ul>${data.clinical.past_medical_history.map(item => `<li>${provenanceBadge(item.provenance.evidence_grade)} ${esc(item.historical_date.display)}: ${esc(item.display)} <span class="muted">(${item.provenance.claim_ids.map(esc).join(", ")})</span></li>`).join("")}</ul><h3>Family history</h3>${data.clinical.family_history.length ? `<ul>${data.clinical.family_history.map(item => `<li>${provenanceBadge(item.provenance.evidence_grade)} ${esc(item.relationship.display)}: ${esc(item.condition)}</li>`).join("")}</ul>` : `<p class="muted">No family medical history is documented in the logged sources. Family history of real relatives is never synthesized.</p>`}</section>
@@ -493,8 +493,9 @@ for (const [category, items] of [["social-history", data.clinical.social_history
   }
 }
 
+// The structured safety assessment is present only when the episode calls for one.
 const safety = data.clinical.safety_assessment;
-fhirEntries.push({
+if (safety) fhirEntries.push({
   fullUrl: urn(slug(safety.id)),
   resource: {
     resourceType: "Observation", id: slug(safety.id),

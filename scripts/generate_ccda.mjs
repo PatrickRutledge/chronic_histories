@@ -481,7 +481,7 @@ ${custodianXml}
           <templateId root="2.16.840.1.113883.10.20.22.2.56" extension="2015-08-01"/>
           <code code="10190-7" codeSystem="2.16.840.1.113883.6.1" displayName="Mental status Narrative"/>
           <title>Mental Status</title>
-          <text>${narrativeList(data.clinical.mental_status)}<paragraph>Structured synthetic safety assessment on ${x(data.clinical.safety_assessment.date)}: current ideation ${x(data.clinical.safety_assessment.current_ideation)}, intent ${x(data.clinical.safety_assessment.intent)}, plan ${x(data.clinical.safety_assessment.plan)}. ${x(data.clinical.safety_assessment.disposition)} [S]</paragraph></text>
+          <text>${narrativeList(data.clinical.mental_status)}${data.clinical.safety_assessment ? `<paragraph>Structured synthetic safety assessment on ${x(data.clinical.safety_assessment.date)}: current ideation ${x(data.clinical.safety_assessment.current_ideation)}, intent ${x(data.clinical.safety_assessment.intent)}, plan ${x(data.clinical.safety_assessment.plan)}. ${x(data.clinical.safety_assessment.disposition)} [S]</paragraph>` : ""}</text>
         </section>
       </component>
     </structuredBody>
@@ -539,6 +539,7 @@ const generalStatusSection = () => plain({
 });
 const safetyText = () => {
   const safety = clinical.safety_assessment;
+  if (!safety) return "";
   return p(`Structured safety assessment: current ideation ${safety.current_ideation}, intent ${safety.intent}, plan ${safety.plan}, access to means reviewed: ${safety.access_reviewed ? "yes" : "no"}. ${sentence(safety.disposition)}`);
 };
 const physicalExamSection = (date) => {
