@@ -1,0 +1,31 @@
+# Sources — Marie Curie
+
+> **SYNTHETIC RECORD, NOT A REAL MEDICAL RECORD**
+
+Accessed November 2, 2026. The canonical source metadata and claim links are in `case.json`.
+
+## Historical evidence
+
+1. Nobel Prize Outreach. “Marie Curie – Biographical,” from *Nobel Lectures, Physics 1901–1921* (Elsevier, 1967). Supports her birth in Warsaw on November 7, 1867; her marriage to Pierre Curie in 1895; the discovery of polonium and radium; the 1903 Physics and 1911 Chemistry prizes; Pierre Curie’s death in 1906; her X-ray work in the First World War; and her death in Savoy after a short illness on July 4, 1934. https://www.nobelprize.org/prizes/physics/1903/marie-curie/biographical/
+2. American Institute of Physics, Center for History of Physics. “The Radium Institute (1919–1934): Physical Decline.” Supports the 1920 double cataract and four operations; her November 1920 letter to Bronya; the 1925 commission on lead screens and blood tests and her requirement of staff blood counts; the May 1934 illness; the suspected tuberculosis and the Geneva diagnosis; her death on July 4, 1934; and the sanatorium director’s report of “an aplastic pernicious anemia of rapid, feverish development,” with marrow “probably” injured by accumulated radiation. https://history.aip.org/exhibits/curie/radinst3_text.htm
+3. American Institute of Physics. “Polish Girlhood (1867–1891).” Supports her birth date, her mother’s death in May 1878 of tuberculosis at 42 after five years, and her eldest sister’s death of typhus caught from a boarder when Maria was eight. https://history.aip.org/exhibits/curie/polgirl1.htm
+4. Rentetzi M. “Marie Curie and the perils in radium.” *Physics Today* (AIP). Supports the double cataracts and four operations, “pernicious aplastic anemia,” fingers severely burned from handling radioactive materials bare-handed, death from aplastic anemia at 66, and the conclusion that radiation exposure likely shortened her life. https://physicstoday.aip.org/news/marie-curie-and-the-perils-in-radium
+5. Fernández Sáez C, López de Calle Cortázar A, Rodríguez Aguilar L. “Marie Curie: pionera de la ciencia y ejemplo de catarata por radiación.” *Revista Española de Historia y Humanidades en Oftalmología* 2024;(6):36. Full text reviewed in Spanish. Supports four cataract operations between 1923 and 1930 and the interpretation of her cataract as an early documented radiation injury (**R**). https://oftalmoseo.com/documentacion/hh/revista_6/06-04-com-libre.pdf
+6. American Institute of Physics. “War Duty (1914–1919).” Supports her direction of the Red Cross Radiology Service and 20 mobile radiology vehicles, the first ready by late October 1914. https://history.aip.org/exhibits/curie/war1.htm
+7. HISTMED Master Roster v3. Internal project source. Its clinical claims were provisional and were not treated as independent corroboration.
+
+## Clinical guidance
+
+1. Kulasekararaj A, et al. Guidelines for the diagnosis and management of adult aplastic anaemia: A British Society for Haematology Guideline. *Br J Haematol* 2024;204(3):784–804. Hypocellular marrow with exclusion of hypoplastic myelodysplasia; Camitta severity criteria; transfusion and antimicrobial support; horse antithymocyte globulin and ciclosporin with eltrombopag as first-line treatment for severe disease when transplant is not chosen. https://pubmed.ncbi.nlm.nih.gov/38247114/
+2. Miller KM, et al. Cataract in the Adult Eye Preferred Practice Pattern. American Academy of Ophthalmology; *Ophthalmology* 2022;129(1):P1–P126. Comprehensive examination and treatment decisions based on functional impairment. https://pubmed.ncbi.nlm.nih.gov/34780842/
+3. CMID: Clinical Monitoring Intelligence Database (Aether Forge, 2026), anemia and cataract monographs. Anemia workup with CBC and reticulocyte count, ferritin, B12, folate, eGFR, and LDH, haptoglobin, and bilirubin; comprehensive dilated eye examination every one to two years at 65 and older, with best-corrected acuity, intraocular pressure, slit-lamp examination, and a functional vision assessment. https://patrickrutledge.github.io/topthirty/
+
+## Editorial resolutions
+
+- **Index age.** The modern episode presents Curie at 66, her age when she fell ill in May 1934. The index visit is May 11, 2026; the true-date frame places all four visits in May and June 1934, before her death on July 4, 1934. Past medical history and family history include only events before May 1934.
+- **Modern diagnosis.** The contemporary diagnosis of aplastic pernicious anemia is documented (**D**). The synthetic episode makes it severe aplastic anemia confirmed by a hypocellular marrow, coded ICD-10-CM D61.2 (aplastic anemia due to other external agents). The radiation cause is an interpretation (**R**, probable) and the occupational exposure is coded separately (Z57.1). The marrow findings, counts, and treatment are **S**. The specialist chooses standard immunosuppressive therapy because an immune mechanism cannot be excluded.
+- **Cataracts.** The 1920 double cataract and four operations from 1923 to 1930 are **D**; the radiation interpretation is **R**. Because the operations precede the index age, the modern eye problem is posterior capsule opacification after earlier surgery (H26.491), treated with YAG laser capsulotomy. Modern lens implants did not exist in the 1920s; the modern eye history is synthetic.
+- **Finger burns.** The documented burns are linked to a synthetic chronic radiodermatitis problem (L58.1).
+- **Nationality.** Recorded as “Polish / French,” matching the roster.
+- **Not used.** The Musée Curie site was not reviewed. The name of the sanatorium (Sancellemoz, Passy) appears in secondary summaries that were not verified from a logged source; the Nobel biography says only that she died in Savoy. Her surgeon’s name and the dates of the individual cataract operations were not found. Her father’s death and her daughter Irène’s later leukemia were not used. Her recollection of profound low mood after her mother’s death was not recorded as a diagnosis.
+- Curie died in 1934, so the recent-death review rule does not apply. Ordinary clinical, provenance, and safe-messaging reviews remain required.

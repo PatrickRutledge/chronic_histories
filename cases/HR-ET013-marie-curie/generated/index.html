@@ -1,0 +1,623 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Marie Curie — The Human Record</title>
+  <style>
+    :root { --navy:#17365d; --blue:#1f4e78; --pale:#eef5fa; --ink:#1f2933; --muted:#66788a; --amber:#fff2cc; --red:#f8d7da; --green:#d9ead3; }
+    * { box-sizing:border-box; }
+    body { margin:0; font:16px/1.5 Arial, sans-serif; color:var(--ink); background:#f6f8fa; }
+    header { background:var(--navy); color:white; padding:24px max(24px,calc((100vw - 1180px)/2)); }
+    header h1 { margin:4px 0; font-size:30px; }
+    .banner { background:#b42318; color:white; font-weight:700; text-align:center; padding:10px; letter-spacing:.03em; }
+    main { max-width:1180px; margin:24px auto 60px; padding:0 24px; }
+    section { background:white; border:1px solid #d9e1e8; border-radius:8px; margin:18px 0; padding:20px; }
+    h2 { color:var(--navy); margin:0 0 14px; font-size:22px; }
+    h3 { color:var(--blue); }
+    .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:12px; }
+    .card { background:var(--pale); border-left:4px solid var(--blue); padding:12px; }
+    .label { color:var(--muted); font-size:13px; text-transform:uppercase; letter-spacing:.04em; }
+    table { width:100%; border-collapse:collapse; }
+    th { background:var(--blue); color:white; text-align:left; }
+    th,td { padding:9px; border-bottom:1px solid #dfe6ec; vertical-align:top; }
+    .badge { display:inline-block; min-width:28px; text-align:center; font-weight:700; border-radius:12px; padding:2px 8px; }
+    .grade-D { background:var(--green); } .grade-R { background:var(--amber); } .grade-S { background:var(--red); }
+    .muted { color:var(--muted); font-size:14px; }
+    .relationship { color:var(--muted); font-size:12px; }
+    .downloads a { display:inline-block; margin:4px 8px 4px 0; padding:8px 12px; background:var(--blue); color:white; text-decoration:none; border-radius:5px; }
+    @media (max-width:700px) { table { display:block; overflow-x:auto; } }
+  </style>
+</head>
+<body>
+  <div class="banner">SYNTHETIC RECORD, NOT A REAL MEDICAL RECORD</div>
+  <header>
+    <div>The Human Record</div>
+    <h1>Marie Curie</h1>
+    <div>Case HR-ET013 · Modern EHR teaching episode · Draft for review</div>
+  </header>
+  <main>
+    <section>
+      <h2>Review summary</h2>
+      <div class="grid">
+        <div class="card"><div class="label">Historical dates</div>November 7, 1867 – July 4, 1934</div>
+        <div class="card"><div class="label">Synthetic DOB</div>1959-11-07</div>
+        <div class="card"><div class="label">Index visit</div>2026-05-11 at age 66</div>
+        <div class="card"><div class="label">Synthetic MRN</div>HR-ET013-SYN</div>
+      </div>
+      <p><strong>Teaching objective:</strong> Work up anemia in primary care with a CBC, reticulocyte count, and nutritional and hemolysis studies; recognize pancytopenia with a low reticulocyte count as possible marrow failure needing urgent hematology referral; record cumulative occupational radiation exposure as part of the history; and follow the CMID cataract schedule for posterior capsule opacification after cataract surgery.</p>
+      <div class="downloads">
+        <a href="../case.json">Canonical JSON</a>
+        <a href="fhir-bundle.json">FHIR R4 draft</a>
+        <a href="ccda.html">C-CDA R2.1 summary</a> <a href="ccda.xml">(XML)</a>
+        <a href="../sources.md">Evidence dossier</a>
+      </div>
+    </section>
+    <section><h2>Historical timeline</h2><table><thead><tr><th>Date</th><th>Event</th><th>Claims</th></tr></thead><tbody>
+  <tr><td>November 7, 1867</td><td>Born Maria Sklodowska in Warsaw.</td><td>CLM-0001</td></tr>
+  <tr><td>May 1878</td><td>Mother died of tuberculosis; an elder sister had died of typhus about three years earlier.</td><td>CLM-0011</td></tr>
+  <tr><td>1903</td><td>Shared the Nobel Prize in Physics for work on radioactivity.</td><td>CLM-0012</td></tr>
+  <tr><td>1906</td><td>Pierre Curie died.</td><td>CLM-0012</td></tr>
+  <tr><td>1911</td><td>Received the Nobel Prize in Chemistry.</td><td>CLM-0012</td></tr>
+  <tr><td>October 1914</td><td>First mobile X-ray vehicle ready for the front; she directed the Red Cross Radiology Service.</td><td>CLM-0008</td></tr>
+  <tr><td>November 1920</td><td>Learned in 1920 that she had a double cataract; wrote that radium might be involved but that this could not be affirmed.</td><td>CLM-0004, CLM-0005, CLM-0006</td></tr>
+  <tr><td>1923 to 1930</td><td>Four cataract operations restored enough vision for laboratory work and driving.</td><td>CLM-0004</td></tr>
+  <tr><td>1925</td><td>Commission recommended lead screens and periodic blood tests for radium workers.</td><td>CLM-0009</td></tr>
+  <tr><td>May 1934</td><td>Went home sick from the laboratory and did not return.</td><td>CLM-0010</td></tr>
+  <tr><td>July 4, 1934</td><td>Died in Savoy, France, of aplastic pernicious anemia.</td><td>CLM-0002, CLM-0003</td></tr></tbody></table></section>
+    <section><h2>Evidence claims</h2><p class="muted">D = documented, R = retrospective, S = synthetic.</p><table><thead><tr><th>Grade</th><th>Claim</th><th>Certainty</th><th>Sources</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>Marie Curie, born Maria Sklodowska, was born in Warsaw on November 7, 1867, the daughter of a secondary-school teacher.</strong></td>
+    <td>confirmed</td>
+    <td><a href="https://www.nobelprize.org/prizes/physics/1903/marie-curie/biographical/" target="_blank" rel="noreferrer">Marie Curie - Biographical (from Nobel Lectures, Physics 1901-1921)</a> <span class="relationship">supports</span><br><a href="https://history.aip.org/exhibits/curie/polgirl1.htm" target="_blank" rel="noreferrer">Marie Curie: Polish Girlhood (1867-1891)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>Curie died on July 4, 1934, after a short illness, in Savoy, France; the sanatorium director reported the disease as an aplastic pernicious anemia of rapid, feverish development.</strong><div class="muted">Record the death as a fact without graphic detail. The contemporary diagnosis anchors the synthetic aplastic anemia.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.nobelprize.org/prizes/physics/1903/marie-curie/biographical/" target="_blank" rel="noreferrer">Marie Curie - Biographical (from Nobel Lectures, Physics 1901-1921)</a> <span class="relationship">supports</span><br><a href="https://history.aip.org/exhibits/curie/radinst3_text.htm" target="_blank" rel="noreferrer">Marie Curie: The Radium Institute (1919-1934), Physical Decline</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-R" title="Retrospective">R</span></td>
+    <td><strong>Her bone marrow failure has been attributed to long exposure to radiation: the sanatorium director wrote that the marrow had probably been injured by a long accumulation of radiations, and a historian concludes that radiation exposure likely shortened her life.</strong><div class="muted">A causal interpretation; the synthetic occupational radiation problem is linked to it.</div></td>
+    <td>probable</td>
+    <td><a href="https://history.aip.org/exhibits/curie/radinst3_text.htm" target="_blank" rel="noreferrer">Marie Curie: The Radium Institute (1919-1934), Physical Decline</a> <span class="relationship">supports</span><br><a href="https://physicstoday.aip.org/news/marie-curie-and-the-perils-in-radium" target="_blank" rel="noreferrer">Rentetzi M. Marie Curie and the perils in radium. Physics Today</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>In 1920 Curie learned that she had a double cataract; her vision became so impaired that she wrote lecture notes in huge letters, and only after four operations, between 1923 and 1930, could she again do exacting laboratory work and drive a car.</strong><div class="muted">The documented cataract history behind the synthetic eye problem.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://history.aip.org/exhibits/curie/radinst3_text.htm" target="_blank" rel="noreferrer">Marie Curie: The Radium Institute (1919-1934), Physical Decline</a> <span class="relationship">supports</span><br><a href="https://oftalmoseo.com/documentacion/hh/revista_6/06-04-com-libre.pdf" target="_blank" rel="noreferrer">Fernández Sáez C, López de Calle Cortázar A, Rodríguez Aguilar L. Marie Curie: pionera de la ciencia y ejemplo de catarata por radiación. Rev Esp Hist Humanid Oftalmol. 2024;(6):36</a> <span class="relationship">supports</span><br><a href="https://physicstoday.aip.org/news/marie-curie-and-the-perils-in-radium" target="_blank" rel="noreferrer">Rentetzi M. Marie Curie and the perils in radium. Physics Today</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>In a November 1920 letter to her sister Bronya, Curie wrote that radium perhaps had something to do with her troubles, but that this could not be affirmed with certainty.</strong><div class="muted">Her own contemporaneous uncertainty about the cause.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://history.aip.org/exhibits/curie/radinst3_text.htm" target="_blank" rel="noreferrer">Marie Curie: The Radium Institute (1919-1934), Physical Decline</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-R" title="Retrospective">R</span></td>
+    <td><strong>Her cataracts are regarded as an early documented example of radiation cataract.</strong><div class="muted">Retrospective attribution; radiation is a known cause of cataract.</div></td>
+    <td>probable</td>
+    <td><a href="https://oftalmoseo.com/documentacion/hh/revista_6/06-04-com-libre.pdf" target="_blank" rel="noreferrer">Fernández Sáez C, López de Calle Cortázar A, Rodríguez Aguilar L. Marie Curie: pionera de la ciencia y ejemplo de catarata por radiación. Rev Esp Hist Humanid Oftalmol. 2024;(6):36</a> <span class="relationship">supports</span><br><a href="https://history.aip.org/exhibits/curie/radinst3_text.htm" target="_blank" rel="noreferrer">Marie Curie: The Radium Institute (1919-1934), Physical Decline</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>Curie&#39;s fingers were severely burned from handling radioactive materials with her bare hands while preparing radium standards.</strong><div class="muted">Reported in a historian&#39;s article; linked to the synthetic chronic radiodermatitis.</div></td>
+    <td>probable</td>
+    <td><a href="https://physicstoday.aip.org/news/marie-curie-and-the-perils-in-radium" target="_blank" rel="noreferrer">Rentetzi M. Marie Curie and the perils in radium. Physics Today</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>During the First World War Curie directed the Red Cross Radiology Service, set up France&#39;s first military radiology centers, and equipped 20 mobile X-ray vehicles, the first ready by late October 1914.</strong><div class="muted">Documents a period of X-ray exposure in addition to radium work.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://history.aip.org/exhibits/curie/war1.htm" target="_blank" rel="noreferrer">Marie Curie: War Duty (1914-1919)</a> <span class="relationship">supports</span><br><a href="https://www.nobelprize.org/prizes/physics/1903/marie-curie/biographical/" target="_blank" rel="noreferrer">Marie Curie - Biographical (from Nobel Lectures, Physics 1901-1921)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>In 1925 Curie took part in a French Academy of Medicine commission that recommended lead screens and periodic blood tests for workers handling radioactive materials, and she required Radium Institute staff to have regular blood counts.</strong><div class="muted">Her own era&#39;s version of radiation monitoring by blood count.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://history.aip.org/exhibits/curie/radinst3_text.htm" target="_blank" rel="noreferrer">Marie Curie: The Radium Institute (1919-1934), Physical Decline</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>In May 1934 Curie went home sick from her laboratory and never returned; specialists who suspected tuberculosis advised a sanatorium stay, and a medical expert from Geneva diagnosed an incurable blood disorder.</strong><div class="muted">The documented presentation that the synthetic episode is linked to.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://history.aip.org/exhibits/curie/radinst3_text.htm" target="_blank" rel="noreferrer">Marie Curie: The Radium Institute (1919-1934), Physical Decline</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>Curie&#39;s mother, Bronislawa Sklodowska, died in May 1878 of tuberculosis at age 42, after a five-year illness, when Marie was ten; her eldest sister, Zosia, died of typhus caught from a boarder when Marie was eight.</strong></td>
+    <td>confirmed</td>
+    <td><a href="https://history.aip.org/exhibits/curie/polgirl1.htm" target="_blank" rel="noreferrer">Marie Curie: Polish Girlhood (1867-1891)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>With Pierre Curie, whom she married in 1895, she discovered polonium and radium; she shared the 1903 Nobel Prize in Physics, received the 1911 Nobel Prize in Chemistry, and directed the Curie Laboratory of the Radium Institute. Pierre Curie died in 1906.</strong></td>
+    <td>confirmed</td>
+    <td><a href="https://www.nobelprize.org/prizes/physics/1903/marie-curie/biographical/" target="_blank" rel="noreferrer">Marie Curie - Biographical (from Nobel Lectures, Physics 1901-1921)</a> <span class="relationship">supports</span></td>
+  </tr></tbody></table></section>
+    <section><h2>Modern synthetic problem list</h2><table><thead><tr><th>Grade</th><th>Problem</th><th>Clinical status</th><th>Verification</th><th>Placement</th><th>Historical claims</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Severe aplastic anemia: pancytopenia with a low reticulocyte count, confirmed by a hypocellular bone marrow; attributed to cumulative occupational ionizing radiation; linked to the documented 1934 diagnosis</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>both_with_link</td>
+    <td>CLM-0002, CLM-0003, CLM-0010</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Occupational exposure to ionizing radiation over decades of radium research and X-ray work</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td>CLM-0007, CLM-0008, CLM-0009</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Posterior capsule opacification, right eye, after earlier bilateral cataract surgery; glare and blurred reading vision</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>both_with_link</td>
+    <td>CLM-0004, CLM-0006</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Chronic radiodermatitis of the fingertips, with thin, scarred skin</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td>CLM-0007</td>
+  </tr></tbody></table></section>
+    <section><h2>Synthetic outcome measures</h2><table><thead><tr><th>Grade</th><th>Date</th><th>Measure</th><th>Result</th><th>Coding</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-05-11</td>
+    <td>Hemoglobin [Mass/volume] in Blood</td>
+    <td>7.2 g/dL (low)<div class="muted">Reference 11.6-15 g/dL</div></td>
+    <td>http://loinc.org · 718-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-05-11</td>
+    <td>Leukocytes [#/volume] in Blood by Automated count</td>
+    <td>1.9 10*3/uL (low)<div class="muted">Reference 4-11 10*3/uL</div></td>
+    <td>http://loinc.org · 6690-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-05-11</td>
+    <td>Neutrophils [#/volume] in Blood by Automated count</td>
+    <td>0.4 10*3/uL (low)<div class="muted">Reference 1.5-7.5 10*3/uL</div></td>
+    <td>http://loinc.org · 751-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-05-11</td>
+    <td>Platelets [#/volume] in Blood by Automated count</td>
+    <td>18 10*3/uL (low)<div class="muted">Reference 150-400 10*3/uL</div></td>
+    <td>http://loinc.org · 777-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-05-11</td>
+    <td>MCV [Entitic mean volume] in Red Blood Cells by Automated count</td>
+    <td>104 fL (high)<div class="muted">Reference 80-100 fL</div></td>
+    <td>http://loinc.org · 787-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-05-11</td>
+    <td>Reticulocytes [#/volume] in Blood by Automated count</td>
+    <td>14 10*3/uL (low)<div class="muted">Reference 25-100 10*3/uL</div></td>
+    <td>http://loinc.org · 60474-4</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-05-11</td>
+    <td>Cobalamin (Vitamin B12) [Mass/volume] in Serum or Plasma</td>
+    <td>512 pg/mL<div class="muted">Reference 232-1245 pg/mL</div></td>
+    <td>http://loinc.org · 2132-9</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-05-11</td>
+    <td>Folate [Mass/volume] in Serum or Plasma</td>
+    <td>14.2 ng/mL<div class="muted">Reference &gt;=5.9 ng/mL</div></td>
+    <td>http://loinc.org · 2284-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-05-11</td>
+    <td>Ferritin [Mass/volume] in Serum or Plasma</td>
+    <td>185 ng/mL (high)<div class="muted">Reference 15-150 ng/mL</div></td>
+    <td>http://loinc.org · 2276-4</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-05-11</td>
+    <td>Lactate dehydrogenase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>180 U/L<div class="muted">Reference 125-220 U/L</div></td>
+    <td>http://loinc.org · 2532-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-05-11</td>
+    <td>Bilirubin.total [Mass/volume] in Serum or Plasma</td>
+    <td>0.6 mg/dL<div class="muted">Reference 0.1-1.2 mg/dL</div></td>
+    <td>http://loinc.org · 1975-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-05-11</td>
+    <td>Sodium [Moles/volume] in Serum or Plasma</td>
+    <td>139 mmol/L<div class="muted">Reference 135-145 mmol/L</div></td>
+    <td>http://loinc.org · 2951-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-05-11</td>
+    <td>Potassium [Moles/volume] in Serum or Plasma</td>
+    <td>4.1 mmol/L<div class="muted">Reference 3.5-5.1 mmol/L</div></td>
+    <td>http://loinc.org · 2823-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-05-11</td>
+    <td>Creatinine [Mass/volume] in Serum or Plasma</td>
+    <td>0.78 mg/dL<div class="muted">Reference 0.59-1.04 mg/dL</div></td>
+    <td>http://loinc.org · 2160-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-05-11</td>
+    <td>Glomerular filtration rate [Volume Rate/Area] in Serum, Plasma or Blood by Creatinine-based formula (CKD-EPI 2021)/1.73 sq M</td>
+    <td>84 mL/min/1.73 m²<div class="muted">Reference &gt;=60 mL/min/1.73 m²</div></td>
+    <td>http://loinc.org · 98979-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-05-11</td>
+    <td>Glucose [Mass/volume] in Serum or Plasma</td>
+    <td>94 mg/dL<div class="muted">Reference 70-99 mg/dL</div></td>
+    <td>http://loinc.org · 2345-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-05-11</td>
+    <td>Patient Health Questionnaire 2 item (PHQ-2) total score [Reported]</td>
+    <td>1</td>
+    <td>http://loinc.org · 55758-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-05-18</td>
+    <td>Hemoglobin [Mass/volume] in Blood</td>
+    <td>8.9 g/dL (low)<div class="muted">Reference 11.6-15 g/dL</div></td>
+    <td>http://loinc.org · 718-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-05-18</td>
+    <td>Leukocytes [#/volume] in Blood by Automated count</td>
+    <td>1.8 10*3/uL (low)<div class="muted">Reference 4-11 10*3/uL</div></td>
+    <td>http://loinc.org · 6690-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-05-18</td>
+    <td>Neutrophils [#/volume] in Blood by Automated count</td>
+    <td>0.4 10*3/uL (low)<div class="muted">Reference 1.5-7.5 10*3/uL</div></td>
+    <td>http://loinc.org · 751-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-05-18</td>
+    <td>Platelets [#/volume] in Blood by Automated count</td>
+    <td>15 10*3/uL (low)<div class="muted">Reference 150-400 10*3/uL</div></td>
+    <td>http://loinc.org · 777-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-05-18</td>
+    <td>MCV [Entitic mean volume] in Red Blood Cells by Automated count</td>
+    <td>101 fL (high)<div class="muted">Reference 80-100 fL</div></td>
+    <td>http://loinc.org · 787-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-05-18</td>
+    <td>Reticulocytes [#/volume] in Blood by Automated count</td>
+    <td>12 10*3/uL (low)<div class="muted">Reference 25-100 10*3/uL</div></td>
+    <td>http://loinc.org · 60474-4</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-06-08</td>
+    <td>Hemoglobin [Mass/volume] in Blood</td>
+    <td>8.2 g/dL (low)<div class="muted">Reference 11.6-15 g/dL</div></td>
+    <td>http://loinc.org · 718-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-06-08</td>
+    <td>Leukocytes [#/volume] in Blood by Automated count</td>
+    <td>2 10*3/uL (low)<div class="muted">Reference 4-11 10*3/uL</div></td>
+    <td>http://loinc.org · 6690-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-06-08</td>
+    <td>Neutrophils [#/volume] in Blood by Automated count</td>
+    <td>0.5 10*3/uL (low)<div class="muted">Reference 1.5-7.5 10*3/uL</div></td>
+    <td>http://loinc.org · 751-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-06-08</td>
+    <td>Platelets [#/volume] in Blood by Automated count</td>
+    <td>21 10*3/uL (low)<div class="muted">Reference 150-400 10*3/uL</div></td>
+    <td>http://loinc.org · 777-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-06-08</td>
+    <td>MCV [Entitic mean volume] in Red Blood Cells by Automated count</td>
+    <td>102 fL (high)<div class="muted">Reference 80-100 fL</div></td>
+    <td>http://loinc.org · 787-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-06-08</td>
+    <td>Reticulocytes [#/volume] in Blood by Automated count</td>
+    <td>18 10*3/uL (low)<div class="muted">Reference 25-100 10*3/uL</div></td>
+    <td>http://loinc.org · 60474-4</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-06-08</td>
+    <td>Alanine aminotransferase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>28 U/L<div class="muted">Reference 7-35 U/L</div></td>
+    <td>http://loinc.org · 1742-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-06-08</td>
+    <td>Sodium [Moles/volume] in Serum or Plasma</td>
+    <td>138 mmol/L<div class="muted">Reference 135-145 mmol/L</div></td>
+    <td>http://loinc.org · 2951-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-06-08</td>
+    <td>Potassium [Moles/volume] in Serum or Plasma</td>
+    <td>4.8 mmol/L<div class="muted">Reference 3.5-5.1 mmol/L</div></td>
+    <td>http://loinc.org · 2823-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-06-08</td>
+    <td>Creatinine [Mass/volume] in Serum or Plasma</td>
+    <td>0.96 mg/dL<div class="muted">Reference 0.59-1.04 mg/dL</div></td>
+    <td>http://loinc.org · 2160-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-06-08</td>
+    <td>Glomerular filtration rate [Volume Rate/Area] in Serum, Plasma or Blood by Creatinine-based formula (CKD-EPI 2021)/1.73 sq M</td>
+    <td>65 mL/min/1.73 m²<div class="muted">Reference &gt;=60 mL/min/1.73 m²</div></td>
+    <td>http://loinc.org · 98979-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-06-08</td>
+    <td>Glucose [Mass/volume] in Serum or Plasma</td>
+    <td>101 mg/dL (high)<div class="muted">Reference 70-99 mg/dL</div></td>
+    <td>http://loinc.org · 2345-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-06-29</td>
+    <td>Hemoglobin [Mass/volume] in Blood</td>
+    <td>8.9 g/dL (low)<div class="muted">Reference 11.6-15 g/dL</div></td>
+    <td>http://loinc.org · 718-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-06-29</td>
+    <td>Leukocytes [#/volume] in Blood by Automated count</td>
+    <td>2.4 10*3/uL (low)<div class="muted">Reference 4-11 10*3/uL</div></td>
+    <td>http://loinc.org · 6690-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-06-29</td>
+    <td>Neutrophils [#/volume] in Blood by Automated count</td>
+    <td>0.8 10*3/uL (low)<div class="muted">Reference 1.5-7.5 10*3/uL</div></td>
+    <td>http://loinc.org · 751-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-06-29</td>
+    <td>Platelets [#/volume] in Blood by Automated count</td>
+    <td>34 10*3/uL (low)<div class="muted">Reference 150-400 10*3/uL</div></td>
+    <td>http://loinc.org · 777-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-06-29</td>
+    <td>MCV [Entitic mean volume] in Red Blood Cells by Automated count</td>
+    <td>101 fL (high)<div class="muted">Reference 80-100 fL</div></td>
+    <td>http://loinc.org · 787-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-06-29</td>
+    <td>Reticulocytes [#/volume] in Blood by Automated count</td>
+    <td>31 10*3/uL<div class="muted">Reference 25-100 10*3/uL</div></td>
+    <td>http://loinc.org · 60474-4</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-06-29</td>
+    <td>Alanine aminotransferase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>31 U/L<div class="muted">Reference 7-35 U/L</div></td>
+    <td>http://loinc.org · 1742-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-06-29</td>
+    <td>Sodium [Moles/volume] in Serum or Plasma</td>
+    <td>138 mmol/L<div class="muted">Reference 135-145 mmol/L</div></td>
+    <td>http://loinc.org · 2951-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-06-29</td>
+    <td>Potassium [Moles/volume] in Serum or Plasma</td>
+    <td>4.9 mmol/L<div class="muted">Reference 3.5-5.1 mmol/L</div></td>
+    <td>http://loinc.org · 2823-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-06-29</td>
+    <td>Creatinine [Mass/volume] in Serum or Plasma</td>
+    <td>1.02 mg/dL<div class="muted">Reference 0.59-1.04 mg/dL</div></td>
+    <td>http://loinc.org · 2160-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-06-29</td>
+    <td>Glomerular filtration rate [Volume Rate/Area] in Serum, Plasma or Blood by Creatinine-based formula (CKD-EPI 2021)/1.73 sq M</td>
+    <td>61 mL/min/1.73 m²<div class="muted">Reference &gt;=60 mL/min/1.73 m²</div></td>
+    <td>http://loinc.org · 98979-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-06-29</td>
+    <td>Glucose [Mass/volume] in Serum or Plasma</td>
+    <td>98 mg/dL<div class="muted">Reference 70-99 mg/dL</div></td>
+    <td>http://loinc.org · 2345-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-06-29</td>
+    <td>Patient Health Questionnaire 2 item (PHQ-2) total score [Reported]</td>
+    <td>2</td>
+    <td>http://loinc.org · 55758-7</td>
+  </tr></tbody></table></section>
+    <section><h2>Synthetic vital signs</h2><table><thead><tr><th>Date</th><th>Measure</th><th>Result</th><th>LOINC</th><th>Grade</th></tr></thead><tbody>
+  <tr><td>2026-05-11</td><td>Body height</td><td>157 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-05-11</td><td>Body weight</td><td>51 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-05-11</td><td>Body mass index (BMI) [Ratio]</td><td>20.7 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-05-11</td><td>Systolic blood pressure</td><td>112 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-05-11</td><td>Diastolic blood pressure</td><td>68 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-05-11</td><td>Heart rate</td><td>104 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-05-11</td><td>Respiratory rate</td><td>18 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-05-11</td><td>Body temperature</td><td>37.4 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-05-11</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>97 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-05-18</td><td>Body height</td><td>157 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-05-18</td><td>Body weight</td><td>51 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-05-18</td><td>Body mass index (BMI) [Ratio]</td><td>20.7 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-05-18</td><td>Systolic blood pressure</td><td>116 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-05-18</td><td>Diastolic blood pressure</td><td>70 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-05-18</td><td>Heart rate</td><td>92 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-05-18</td><td>Respiratory rate</td><td>16 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-05-18</td><td>Body temperature</td><td>36.9 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-05-18</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>98 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-08</td><td>Body height</td><td>157 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-08</td><td>Body weight</td><td>51.5 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-08</td><td>Body mass index (BMI) [Ratio]</td><td>20.9 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-08</td><td>Systolic blood pressure</td><td>124 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-08</td><td>Diastolic blood pressure</td><td>76 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-08</td><td>Heart rate</td><td>90 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-08</td><td>Respiratory rate</td><td>16 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-08</td><td>Body temperature</td><td>36.8 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-08</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>98 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-29</td><td>Body height</td><td>157 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-29</td><td>Body weight</td><td>52 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-29</td><td>Body mass index (BMI) [Ratio]</td><td>21.1 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-29</td><td>Systolic blood pressure</td><td>128 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-29</td><td>Diastolic blood pressure</td><td>78 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-29</td><td>Heart rate</td><td>86 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-29</td><td>Respiratory rate</td><td>16 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-29</td><td>Body temperature</td><td>36.7 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-29</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>98 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr></tbody></table></section>
+    <section><h2>Social, functional, and mental status</h2><h3>Social history</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Occupation: physicist and director of a radioactivity laboratory; decades of work with radium sources and X-ray equipment, much of it before modern shielding and dosimetry</li><li><span class="badge grade-S" title="Synthetic">S</span> Widowed; lives alone in an apartment near the laboratory</li><li><span class="badge grade-S" title="Synthetic">S</span> Never smoker; rare alcohol</li><li><span class="badge grade-S" title="Synthetic">S</span> Supports: two adult daughters, one also a scientist, and a sister who is a physician</li></ul><h3>Functional status</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Breathless after one flight of stairs and needs afternoon rest; still working shortened days, mostly writing at home</li><li><span class="badge grade-S" title="Synthetic">S</span> Glare from the right eye makes reading small print and night driving difficult</li></ul><h3>Mental status</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Alert, precise, and reserved; wants the data and the plan in detail</li><li><span class="badge grade-S" title="Synthetic">S</span> Mood steady; frustrated at time away from the laboratory; PHQ-2 negative</li></ul></section>
+    
+    <section><h2>Allergies and medications</h2><h3>Allergies</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> No known allergy</li></ul><h3>Medications</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Cyclosporine (modified) 100 mg oral capsule, one capsule twice daily, dose adjusted to trough levels by hematology</li><li><span class="badge grade-S" title="Synthetic">S</span> Eltrombopag 75 mg oral tablet, two tablets (150 mg) once daily on an empty stomach</li><li><span class="badge grade-S" title="Synthetic">S</span> Acyclovir 400 mg oral tablet, one tablet twice daily during immunosuppression</li></ul></section>
+    <section><h2>Procedures and immunizations</h2><h3>Procedures</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Transfusion of two units of irradiated, leukocyte-depleted red cells for symptomatic anemia</li><li><span class="badge grade-S" title="Synthetic">S</span> Bone marrow aspirate and trephine biopsy: about 10% cellularity with no dysplasia, fibrosis, or malignant cells; cytogenetics normal; no PNH clone</li><li><span class="badge grade-S" title="Synthetic">S</span> Comprehensive eye examination: best-corrected acuity 20/60 right and 20/30 left; posterior capsule opacification in the right eye; normal intraocular pressure; no retinal hemorrhages</li><li><span class="badge grade-S" title="Synthetic">S</span> YAG laser posterior capsulotomy, right eye</li></ul><h3>Immunizations</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> 2025-10-20: Influenza vaccine, 2025-2026 season</li><li><span class="badge grade-S" title="Synthetic">S</span> 2025-10-20: Pneumococcal conjugate vaccine PCV20</li><li><span class="badge grade-S" title="Synthetic">S</span> 2019-03-12: Tdap vaccine</li></ul></section>
+    <section><h2>Past medical history</h2><p class="muted">True biography with historical dates; not part of the synthetic care timeline.</p><ul><li><span class="badge grade-D" title="Documented">D</span> 1920 to 1930: Double cataract diagnosed in 1920, with severe visual impairment; four operations between 1923 and 1930 restored enough vision for laboratory work and driving <span class="muted">(CLM-0004, CLM-0005)</span></li><li><span class="badge grade-R" title="Retrospective">R</span> Interpretation of the 1920 diagnosis: Cataracts interpreted retrospectively as radiation cataract <span class="muted">(CLM-0006)</span></li><li><span class="badge grade-D" title="Documented">D</span> Before 1929: Severe burns of the fingers from handling radioactive materials with bare hands <span class="muted">(CLM-0007)</span></li></ul><h3>Family history</h3><ul><li><span class="badge grade-D" title="Documented">D</span> mother: Tuberculosis; died in May 1878 at age 42 after a five-year illness</li><li><span class="badge grade-D" title="Documented">D</span> sister: Typhus, caught from a boarder; the eldest sister died when Marie was eight</li></ul></section>
+    <section><h2>Care-plan goals</h2><table><thead><tr><th>Goal</th><th>Target date</th><th>Status</th><th>Outcome</th></tr></thead><tbody>
+  <tr><td>Hematology evaluation with bone marrow biopsy within one week of the pancytopenia result</td><td>2026-05-18</td><td>completed</td><td>Seen and biopsied seven days after the first visit</td></tr>
+  <tr><td>No serious infection or bleeding during the first months of treatment</td><td>2026-06-29</td><td>completed</td><td>No infection or bleeding through the sixth week of therapy</td></tr>
+  <tr><td>Early rise in neutrophil and platelet counts by the six-week visit</td><td>2026-06-29</td><td>completed</td><td>Neutrophils rose from 0.4 to 0.8 and platelets from 18 to 34 thousand per microliter; formal response is judged at three to six months</td></tr>
+  <tr><td>Read standard print comfortably with the right eye after capsulotomy</td><td>2026-06-29</td><td>completed</td><td>Reading without glare one week after laser capsulotomy</td></tr></tbody></table></section>
+    <section><h2>Interventions</h2><table><thead><tr><th>Intervention</th><th>Status</th><th>Guideline</th></tr></thead><tbody>
+  <tr><td>Urgent hematology referral for pancytopenia with a low reticulocyte count, for bone marrow aspirate and biopsy, cytogenetics, and PNH testing</td><td>completed</td><td>GL-BSH-AA-2024</td></tr>
+  <tr><td>Initial anemia workup in primary care: CBC with differential and reticulocyte count, blood film, vitamin B12, folate, ferritin, LDH, bilirubin, and kidney function</td><td>completed</td><td>GL-CMID-2026, GL-BSH-AA-2024</td></tr>
+  <tr><td>Supportive care: irradiated, leukocyte-depleted red cells for symptomatic anemia; platelet thresholds set by hematology; same-day assessment for a temperature of 38 °C or higher; avoid aspirin and NSAIDs</td><td>completed</td><td>GL-BSH-AA-2024</td></tr>
+  <tr><td>Record cumulative occupational radiation exposure, stop further exposure while counts recover, and review shielding and dosimetry for laboratory staff with occupational health</td><td>completed</td><td>GL-BSH-AA-2024</td></tr>
+  <tr><td>First-line immunosuppressive therapy given by hematology: horse antithymocyte globulin with cyclosporine and eltrombopag, plus acyclovir prophylaxis; inactivated vaccines only</td><td>completed</td><td>GL-BSH-AA-2024</td></tr>
+  <tr><td>Monitor CBC weekly during the first months of treatment, with kidney function, potassium, and ALT every two weeks on cyclosporine and eltrombopag</td><td>completed</td><td>GL-BSH-AA-2024, GL-CMID-2026</td></tr>
+  <tr><td>Comprehensive dilated eye examination with best-corrected acuity, intraocular pressure, slit-lamp examination, and a functional vision assessment; YAG laser capsulotomy when capsule opacification limits daily tasks; eye examinations every one to two years afterward</td><td>completed</td><td>GL-AAO-CAT-2021, GL-CMID-2026</td></tr></tbody></table></section>
+    <section><h2>Planned encounters</h2><ul>
+  <li><strong>2026-05-11</strong> — Primary care visit for two months of fatigue, breathlessness on stairs, easy bruising, and a recent fever <span class="muted">(ENC-001)</span></li>
+  <li><strong>2026-05-18</strong> — Hematology consultation with bone marrow aspirate and biopsy for pancytopenia <span class="muted">(ENC-002)</span></li>
+  <li><strong>2026-06-08</strong> — Primary care follow-up three weeks after starting immunosuppressive therapy, with a cataract and eye review <span class="muted">(ENC-003)</span></li>
+  <li><strong>2026-06-29</strong> — Primary care follow-up six weeks into immunosuppressive therapy, after laser capsulotomy of the right eye <span class="muted">(ENC-004)</span></li></ul></section>
+    <section><h2>Supporting documents</h2><ul><li><a href="notes/hp.md">History and physical</a></li><li><a href="notes/progress-01.md">Progress note 01</a></li><li><a href="notes/progress-02.md">Progress note 02</a></li><li><a href="notes/progress-03.md">Progress note 03</a></li><li><a href="notes/progress-04.md">Progress note 04</a></li><li><a href="notes/referral-01.md">Hematology referral</a></li><li><a href="notes/consult-01.md">Hematology consultation</a></li><li><a href="notes/careplan.md">Patient care plan</a></li><li><a href="notes/teaching-note.md">Teaching note</a></li><li><a href="provenance.csv">Provenance CSV</a></li></ul></section>
+    <section><h2>C-CDA note documents</h2><p class="muted">Each link opens a readable copy; the XML beside it is the exchange file.</p><ul><li><a href="ccda/hp-01.html">History and physical</a> <a href="ccda/hp-01.xml">(XML)</a></li><li><a href="ccda/progress-01.html">Progress note 01</a> <a href="ccda/progress-01.xml">(XML)</a></li><li><a href="ccda/progress-02.html">Progress note 02</a> <a href="ccda/progress-02.xml">(XML)</a></li><li><a href="ccda/progress-03.html">Progress note 03</a> <a href="ccda/progress-03.xml">(XML)</a></li><li><a href="ccda/progress-04.html">Progress note 04</a> <a href="ccda/progress-04.xml">(XML)</a></li><li><a href="ccda/referral-01.html">Hematology referral</a> <a href="ccda/referral-01.xml">(XML)</a></li><li><a href="ccda/consult-01.html">Hematology consultation</a> <a href="ccda/consult-01.xml">(XML)</a></li></ul></section>
+    <section><h2>Sources</h2><table><thead><tr><th>ID</th><th>Source</th><th>Publisher</th><th>Type</th></tr></thead><tbody>
+  <tr>
+    <td>SRC-0001</td>
+    <td><a href="https://www.nobelprize.org/prizes/physics/1903/marie-curie/biographical/" target="_blank" rel="noreferrer">Marie Curie - Biographical (from Nobel Lectures, Physics 1901-1921)</a></td>
+    <td>Nobel Prize Outreach (NobelPrize.org)</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0002</td>
+    <td><a href="https://history.aip.org/exhibits/curie/radinst3_text.htm" target="_blank" rel="noreferrer">Marie Curie: The Radium Institute (1919-1934), Physical Decline</a></td>
+    <td>American Institute of Physics, Center for History of Physics</td>
+    <td>scholarly</td>
+  </tr>
+  <tr>
+    <td>SRC-0003</td>
+    <td><a href="https://history.aip.org/exhibits/curie/polgirl1.htm" target="_blank" rel="noreferrer">Marie Curie: Polish Girlhood (1867-1891)</a></td>
+    <td>American Institute of Physics, Center for History of Physics</td>
+    <td>scholarly</td>
+  </tr>
+  <tr>
+    <td>SRC-0004</td>
+    <td><a href="https://physicstoday.aip.org/news/marie-curie-and-the-perils-in-radium" target="_blank" rel="noreferrer">Rentetzi M. Marie Curie and the perils in radium. Physics Today</a></td>
+    <td>American Institute of Physics (Physics Today)</td>
+    <td>scholarly</td>
+  </tr>
+  <tr>
+    <td>SRC-0005</td>
+    <td><a href="https://oftalmoseo.com/documentacion/hh/revista_6/06-04-com-libre.pdf" target="_blank" rel="noreferrer">Fernández Sáez C, López de Calle Cortázar A, Rodríguez Aguilar L. Marie Curie: pionera de la ciencia y ejemplo de catarata por radiación. Rev Esp Hist Humanid Oftalmol. 2024;(6):36</a></td>
+    <td>Revista Española de Historia y Humanidades en Oftalmología</td>
+    <td>scholarly</td>
+  </tr>
+  <tr>
+    <td>SRC-0006</td>
+    <td><a href="https://history.aip.org/exhibits/curie/war1.htm" target="_blank" rel="noreferrer">Marie Curie: War Duty (1914-1919)</a></td>
+    <td>American Institute of Physics, Center for History of Physics</td>
+    <td>scholarly</td>
+  </tr>
+  <tr>
+    <td>SRC-0007</td>
+    <td><a href="https://humanrecord.example.org/internal/HISTMED_Master_Roster_v3.xlsx" target="_blank" rel="noreferrer">HISTMED Master Roster v3</a></td>
+    <td>The Human Record project</td>
+    <td>other</td>
+  </tr></tbody></table></section>
+    <section><h2>Review status</h2><table><thead><tr><th>Review</th><th>Status</th><th>Notes</th></tr></thead><tbody>
+  <tr><td>schema validation</td><td>not_started</td><td>Run scripts/build.ps1 -Conformance.</td></tr>
+  <tr><td>clinical review</td><td>not_started</td><td>Awaiting clinician review.</td></tr>
+  <tr><td>provenance review</td><td>not_started</td><td>Nobel biography, AIP exhibit pages, Physics Today, and a Spanish ophthalmology history paper logged; the Musée Curie site was not reviewed.</td></tr>
+  <tr><td>safe messaging review</td><td>not_started</td><td>Death recorded without graphic detail; PHQ-2 negative at both screens.</td></tr></tbody></table></section>
+  </main>
+</body>
+</html>

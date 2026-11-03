@@ -55,4 +55,4 @@ Active problems: Hypertensive heart disease with heart failure; synthetic modern
 ## Plan
 
 - Continue the care plan agreed on 1944-03-27. The care-plan document lists every intervention. **S**
-- Scheduled episode complete. Continue routine follow-up and the safety plan. **S**
+- Scheduled episode complete. Continue routine follow-up. **S**

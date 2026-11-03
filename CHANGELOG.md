@@ -12,6 +12,9 @@ A case ID is never reused for a different person.
 
 ### Added
 
+- Batch 1, nine more draft records in `cases/`: Booker T. Washington (hypertensive kidney disease), Susan B. Anthony (heart failure with preserved ejection fraction), Harriet Tubman (post-traumatic headache and sleep episodes), Johnny Cash (type 2 diabetes with autonomic neuropathy, glaucoma), Ronald Reagan (Alzheimer's disease after a hip fracture), Georgia O'Keeffe (age-related macular degeneration), Ulysses S. Grant (oropharyngeal cancer), Marie Curie (aplastic anemia, cataract), and Frida Kahlo (chronic post-traumatic pain on long-term opioids). Visit schedules follow the CMID monitoring intervals where the condition has a monograph, and the specialty guideline otherwise. All are draft and awaiting review.
+- `recorded_date` on problems: a diagnosis made at a later visit is left out of earlier visits' documents, and its C-CDA onset is that date.
+- Medication routes `nasal`, `ophthalmic`, and `intravitreal`.
 - `cases/` for batch records, built, validated, and listed in `manifest.csv` like the pilots. First batch record: Franklin D. Roosevelt (`HR-ET002`), hypertensive heart failure with reduced ejection fraction over four visits on the CMID heart failure and hypertension monitoring schedules, with 42 laboratory, imaging, and survey results. Status draft, awaiting review.
 - One progress note per visit in both the Markdown notes and the C-CDA note documents, so a case can have more than three visits.
 - Laboratory and imaging results. An observation with `category: "laboratory"` or `"imaging"` carries a reference range, an interpretation flag (N, H, L, HH, LL, A), an optional panel, and an optional short `label` for note prose. FHIR emits US Core lab (or clinical-result, for imaging) Observations with `referenceRange` and `interpretation`; C-CDA result observations carry `interpretationCode` and `referenceRange`, and results drawn together are grouped by panel. Validation fails a flag that disagrees with its range, and two new controls prove it. The test fixture exercises the path with a hepatic panel.
@@ -24,6 +27,8 @@ A case ID is never reused for a different person.
 
 ### Fixed
 
+- The last progress note told every patient to continue "the safety plan", even when the case had none.
+- The check that every result appears in the notes could not match a negative value such as a T-score.
 - The C-CDA links on the review page opened a blank page: every document referenced a `ccda.xsl` stylesheet that was never generated, and browsers do not apply XSLT to local files anyway. The reference is removed, and each C-CDA document now has a readable HTML copy beside it (`ccda.html`, `ccda/*.html`), linked from the review page with the XML.
 - The review page listed only three progress notes. It now lists one per visit, and a new section links every C-CDA note document.
 - FDR had no evidence dossier, so the review page's dossier link was broken. `sources.md` and `terminology.md` are added, and validation now requires both for every case in `pilots/` and `cases/`.

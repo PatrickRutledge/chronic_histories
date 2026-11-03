@@ -254,7 +254,7 @@ foreach ($visit in $case.synthetic_episode.visit_schedule) {
 }
 foreach ($observation in $case.clinical.observations) {
     $expected = [string]$observation.value
-    if ($allNoteText -notmatch "\b$([regex]::Escape($expected))\b") { $errors.Add("Observation value missing from supporting documents: $($observation.id)") }
+    if ($allNoteText -notmatch "(?<![\w.-])$([regex]::Escape($expected))(?!\w|\.\d)") { $errors.Add("Observation value missing from supporting documents: $($observation.id)") }
 }
 $provenanceRows = @(Import-Csv -LiteralPath $provenancePath)
 if ($provenanceRows.Count -lt ($case.claims.Count + $case.clinical.problems.Count + $case.clinical.observations.Count)) { $errors.Add('Provenance CSV has fewer rows than required core elements') }

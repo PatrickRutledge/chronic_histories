@@ -2,7 +2,7 @@ import fs from "node:fs/promises";
 import path from "node:path";
 import { cdaToHtml } from "./lib/cda_html.mjs";
 import { ADMINISTRATIVE_GENDER, FICTIONAL_FACILITY_CONTACT, ROUTES, TRUE_DATE_NOTICE, deterministicUuid, isTrueDateFrame, oidFor, outputDirFor, parseClinician, splitName } from "./lib/common.mjs";
-import { INTERPRETATIONS, claimsAtIndex, goalProgress, isConsultStep, isLab, labelOf, laterClaimsNote, medicationChanges, midSentence, rangeText, resultChanges, sentence, withUnit } from "./lib/episode.mjs";
+import { INTERPRETATIONS, activeProblemsAt, problemsAt, claimsAtIndex, goalProgress, isConsultStep, isLab, labelOf, laterClaimsNote, medicationChanges, midSentence, rangeText, resultChanges, sentence, withUnit } from "./lib/episode.mjs";
 
 const inputPath = process.argv[2];
 if (!inputPath) {
@@ -37,14 +37,17 @@ const contact = FICTIONAL_FACILITY_CONTACT;
 const facilityContact = `<telecom use="WP" value="tel:${contact.phone}"/>
       <addr use="WP"><streetAddressLine>${x(contact.street)}</streetAddressLine><city>${x(contact.city)}</city><state>${contact.state}</state><postalCode>${contact.postalCode}</postalCode><country>${contact.country}</country></addr>`;
 
-const problemNarrative = data.clinical.problems.map((problem, index) => `
+const problemNarrativeFor = (date) => data.clinical.problems.map((problem, index) => !problemsAt(data, date).includes(problem) ? "" : `
   <tr ID="problem-${index + 1}">
     <td>${x(problem.display)}</td><td>${x(problem.clinical_status)}</td><td>${x(problem.verification_status)}</td>
     <td>${x(problem.coding?.[0]?.code ?? "Uncoded")}</td><td>${x(problem.provenance.evidence_grade)} — ${x(problem.provenance.synthetic_reason)}</td>
   </tr>`).join("");
+const problemNarrative = problemNarrativeFor();
 
-const problemEntries = data.clinical.problems.map((problem, index) => {
+const problemEntriesFor = (date) => data.clinical.problems.map((problem, index) => {
+  if (!problemsAt(data, date).includes(problem)) return "";
   const coding = problem.coding?.[0];
+  const onset = compactDate(problem.recorded_date ?? data.synthetic_episode.index_date);
   const id = deterministicUuid(`${data.case_id}|${problem.id}`);
   return `
   <entry typeCode="DRIV">
@@ -53,7 +56,7 @@ const problemEntries = data.clinical.problems.map((problem, index) => {
       <id root="${id}"/>
       <code code="CONC" codeSystem="2.16.840.1.113883.5.6" displayName="Concern"/>
       <statusCode code="active"/>
-      <effectiveTime><low value="${compactDate(data.synthetic_episode.index_date)}"/></effectiveTime>
+      <effectiveTime><low value="${onset}"/></effectiveTime>
       <entryRelationship typeCode="SUBJ">
         <observation classCode="OBS" moodCode="EVN">
           <templateId root="2.16.840.1.113883.10.20.22.4.4" extension="2015-08-01"/>
@@ -61,13 +64,14 @@ const problemEntries = data.clinical.problems.map((problem, index) => {
           <code code="55607006" codeSystem="2.16.840.1.113883.6.96" displayName="Problem"/>
           <text><reference value="#problem-${index + 1}"/></text>
           <statusCode code="completed"/>
-          <effectiveTime><low value="${compactDate(data.synthetic_episode.index_date)}"/></effectiveTime>
+          <effectiveTime><low value="${onset}"/></effectiveTime>
           <value xsi:type="CD" code="${x(coding?.code ?? "UNK")}" codeSystem="2.16.840.1.113883.6.90" displayName="${x(coding?.display ?? problem.display)}"/>
         </observation>
       </entryRelationship>
     </act>
   </entry>`;
 }).join("");
+const problemEntries = problemEntriesFor();
 
 const resultNarrativeFor = (keep) => data.clinical.observations.map((observation, index) => keep(observation) ? `
   <tr ID="result-${index + 1}"><td>${x(observation.effective_date)}</td><td>${x(observation.display)}</td><td>${x(observation.value)}</td><td>${x(observation.unit)}</td><td>${x(isLab(observation) ? rangeText(observation) : "")}</td><td>${x(isLab(observation) ? INTERPRETATIONS[observation.interpretation] : "")}</td><td>S</td></tr>` : "").join("");
@@ -504,7 +508,7 @@ const consultantUuid = deterministicUuid(`${facility}|${consultant.name}|synthet
 const referralOrderUuid = uuid("referral-order");
 const referralStep = data.care_plan.interventions.find(isConsultStep);
 const consultVisit = visits[1] ?? visits[0];
-const activeProblems = clinical.problems.filter(problem => problem.clinical_status === "active");
+const activeProblems = activeProblemsAt(data, visits[0].date);
 const personName = (person) => `<name>${person.given.map(part => `<given>${x(part)}</given>`).join("")}<family>${x(person.family)}</family>${person.suffix ? `<suffix>${x(person.suffix)}</suffix>` : ""}</name>`;
 const organization = `<representedOrganization><id root="${custodianUuid}"/><name>${x(facility)}</name>${facilityContact}</representedOrganization>`;
 const assignedEntity = (person, personUuid) => `<assignedEntity><id root="${personUuid}"/><addr nullFlavor="UNK"/><telecom nullFlavor="UNK"/><assignedPerson>${personName(person)}</assignedPerson>${organization}</assignedEntity>`;
@@ -578,22 +582,22 @@ const allergiesSection = () => section({ templateRoot: "2.16.840.1.113883.10.20.
 const medicationsSection = () => clinical.medications.length
   ? section({ templateRoot: "2.16.840.1.113883.10.20.22.2.1.1", extension: "2014-06-09", code: "10160-0", display: "History of Medication use Narrative", title: "Medications", text: table(["Medication", "Frequency", "Route", "Dates", "Status", "Evidence"], medicationRows), entries: medicationEntries })
   : emptySection({ templateRoot: "2.16.840.1.113883.10.20.22.2.1.1", extension: "2014-06-09", code: "10160-0", title: "Medications", explanation: "No current medications. The synthetic care plan does not include medication." });
-const problemsSection = () => `
+const problemsSection = (date) => `
 <component>
   <section>
     <templateId root="2.16.840.1.113883.10.20.22.2.5.1" extension="2015-08-01"/>
     <code code="11450-4" codeSystem="2.16.840.1.113883.6.1" displayName="Problem List"/>
     <title>Problems</title>
-    <text><table><thead><tr><th>Problem</th><th>Clinical status</th><th>Verification</th><th>Code</th><th>Provenance</th></tr></thead><tbody>${problemNarrative}</tbody></table></text>
-    ${problemEntries}
+    <text><table><thead><tr><th>Problem</th><th>Clinical status</th><th>Verification</th><th>Code</th><th>Provenance</th></tr></thead><tbody>${problemNarrativeFor(date)}</tbody></table></text>
+    ${problemEntriesFor(date)}
   </section>
 </component>`;
 const pastHistorySection = () => section({ templateRoot: "2.16.840.1.113883.10.20.22.2.20", extension: "2015-08-01", code: "11348-0", display: "History of Past illness note", title: "Past Medical History", text: pastHistoryText });
 const familySection = () => section({ templateRoot: "2.16.840.1.113883.10.20.22.2.15", extension: "2015-08-01", code: "10157-6", display: "History of family member diseases note", title: "Family History", text: familyText, entries: familyEntries });
 const socialSection = () => `<component><section><templateId root="2.16.840.1.113883.10.20.22.2.17" extension="2015-08-01"/><code code="29762-2" codeSystem="2.16.840.1.113883.6.1" displayName="Social history Narrative"/><title>Social History</title><text>${narrativeList(clinical.social_history)}</text></section></component>`;
-const assessmentSection = (extra = "") => section({
+const assessmentSection = (extra = "", date) => section({
   templateRoot: "2.16.840.1.113883.10.20.22.2.8", code: "51848-0", display: "Evaluation note", title: "Assessment",
-  text: `${list(activeProblems.map(problem => `${x(problem.display)}: ${x(problem.clinical_status)}, ${x(problem.verification_status)} [${grade(problem)}]`))}${extra}`,
+  text: `${list(activeProblemsAt(data, date).map(problem => `${x(problem.display)}: ${x(problem.clinical_status)}, ${x(problem.verification_status)} [${grade(problem)}]`))}${extra}`,
 });
 const guidelineRefs = (item) => data.care_plan.guidelines.filter(g => (item.guideline_ids ?? []).includes(g.guideline_id)).map(g => `${g.title} (${g.version_or_year})`).join("; ");
 const interventionItems = (items) => items.map(item => `${x(item.display)}${guidelineRefs(item) ? `. Guideline: ${x(guidelineRefs(item))}` : ""} [${grade(item)}]`);
@@ -621,7 +625,7 @@ const followUpPlanItems = (visit, n) => {
     ...(changes.length ? changes.map(({ change, med }) => `Medication: ${x(change.toLowerCase())}, ${x(med.display)} [S]`) : ["No medication changes [S]"]),
     ...goalProgress(data, visit).map(({ goal, due }) => due ? `Goal: ${x(sentence(goal.display))} Outcome by ${x(goal.target_date)}: ${x(goal.outcome)} [S]` : `Goal: ${x(sentence(goal.display))} In progress; target ${x(goal.target_date)} [S]`),
     `Continue the care plan agreed on ${x(firstVisitDate)} [S]`,
-    next ? `Next visit ${x(next.date)}: ${x(midSentence(encounterOf(next)?.display ?? next.encounter_id))} [S]` : "Scheduled episode complete. Continue routine follow-up and the safety plan [S]",
+    next ? `Next visit ${x(next.date)}: ${x(midSentence(encounterOf(next)?.display ?? next.encounter_id))} [S]` : `Scheduled episode complete. Continue routine follow-up${clinical.safety_assessment ? " and the safety plan" : ""} [S]`,
   ];
 };
 const reasonForReferralSection = () => plain({
@@ -700,7 +704,7 @@ noteDocuments.set("hp-01.xml", noteDocument({
     pastHistorySection(), familySection(), socialSection(),
     allergiesSection(), medicationsSection(), reviewOfSystemsSection(), generalStatusSection(),
     physicalExamSection(firstVisitDate), vitalsSection(firstVisitDate), resultsSection(firstVisitDate),
-    problemsSection(), assessmentSection(),
+    problemsSection(firstVisitDate), assessmentSection("", firstVisitDate),
     planSection({ items: interventionItems(data.care_plan.interventions), withOrder: Boolean(referralStep) }),
   ],
 }));
@@ -715,8 +719,8 @@ visits.forEach((visit, index) => {
     body: [
       subjectiveSection(visit, followUp), objectiveSection(visit),
       vitalsSection(visit.date), resultsSection(visit.date),
-      medicationsSection(), allergiesSection(), problemsSection(),
-      assessmentSection(),
+      medicationsSection(), allergiesSection(), problemsSection(visit.date),
+      assessmentSection("", visit.date),
       planSection({ items: followUp ? followUpPlanItems(visit, n) : interventionItems(data.care_plan.interventions) }),
     ],
   }));
@@ -733,10 +737,10 @@ if (referralStep) {
     body: [
       reasonForReferralSection(),
       hpiSection("Referral for the concerns below, which began before the index visit."),
-      allergiesSection(), medicationsSection(), problemsSection(),
+      allergiesSection(), medicationsSection(), problemsSection(firstVisitDate),
       pastHistorySection(), familySection(), socialSection(),
       vitalsSection(firstVisitDate), resultsSection(firstVisitDate),
-      assessmentSection(),
+      assessmentSection("", firstVisitDate),
       planSection({ items: interventionItems(data.care_plan.interventions.filter(item => !isConsultStep(item))), withOrder: true }),
     ],
   }));
@@ -751,9 +755,9 @@ if (referralStep) {
     body: [
       reasonForReferralSection(),
       hpiSection(`Seen in ${consultant.specialty.toLowerCase()} consultation at the request of ${data.identity.synthetic_identity.fictional_primary_clinician}.`),
-      allergiesSection(), medicationsSection(), problemsSection(),
+      allergiesSection(), medicationsSection(), problemsSection(consultVisit.date),
       physicalExamSection(consultVisit.date), resultsSection(consultVisit.date),
-      assessmentSection(p("Coordinated follow-up with the primary clinician is appropriate.")),
+      assessmentSection(p("Coordinated follow-up with the primary clinician is appropriate."), consultVisit.date),
       planSection({ items: interventionItems(data.care_plan.interventions.filter(item => !isConsultStep(item))) }),
     ],
   }));

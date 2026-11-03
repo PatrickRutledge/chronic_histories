@@ -1,0 +1,595 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Johnny Cash — The Human Record</title>
+  <style>
+    :root { --navy:#17365d; --blue:#1f4e78; --pale:#eef5fa; --ink:#1f2933; --muted:#66788a; --amber:#fff2cc; --red:#f8d7da; --green:#d9ead3; }
+    * { box-sizing:border-box; }
+    body { margin:0; font:16px/1.5 Arial, sans-serif; color:var(--ink); background:#f6f8fa; }
+    header { background:var(--navy); color:white; padding:24px max(24px,calc((100vw - 1180px)/2)); }
+    header h1 { margin:4px 0; font-size:30px; }
+    .banner { background:#b42318; color:white; font-weight:700; text-align:center; padding:10px; letter-spacing:.03em; }
+    main { max-width:1180px; margin:24px auto 60px; padding:0 24px; }
+    section { background:white; border:1px solid #d9e1e8; border-radius:8px; margin:18px 0; padding:20px; }
+    h2 { color:var(--navy); margin:0 0 14px; font-size:22px; }
+    h3 { color:var(--blue); }
+    .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:12px; }
+    .card { background:var(--pale); border-left:4px solid var(--blue); padding:12px; }
+    .label { color:var(--muted); font-size:13px; text-transform:uppercase; letter-spacing:.04em; }
+    table { width:100%; border-collapse:collapse; }
+    th { background:var(--blue); color:white; text-align:left; }
+    th,td { padding:9px; border-bottom:1px solid #dfe6ec; vertical-align:top; }
+    .badge { display:inline-block; min-width:28px; text-align:center; font-weight:700; border-radius:12px; padding:2px 8px; }
+    .grade-D { background:var(--green); } .grade-R { background:var(--amber); } .grade-S { background:var(--red); }
+    .muted { color:var(--muted); font-size:14px; }
+    .relationship { color:var(--muted); font-size:12px; }
+    .downloads a { display:inline-block; margin:4px 8px 4px 0; padding:8px 12px; background:var(--blue); color:white; text-decoration:none; border-radius:5px; }
+    @media (max-width:700px) { table { display:block; overflow-x:auto; } }
+  </style>
+</head>
+<body>
+  <div class="banner">SYNTHETIC RECORD, NOT A REAL MEDICAL RECORD</div>
+  <div class="banner">True-date frame: synthetic events are moved into the patient&#39;s historical lifetime. Codes, instruments, and treatments remain modern and are anachronistic.</div>
+  <header>
+    <div>The Human Record</div>
+    <h1>Johnny Cash</h1>
+    <div>Case HR-ML004-TD · Modern EHR teaching episode · Draft for review</div>
+  </header>
+  <main>
+    <section>
+      <h2>Review summary</h2>
+      <div class="grid">
+        <div class="card"><div class="label">Historical dates</div>February 26, 1932 – September 12, 2003</div>
+        <div class="card"><div class="label">Synthetic DOB</div>1932-02-26</div>
+        <div class="card"><div class="label">Index visit</div>2003-02-27 at age 71</div>
+        <div class="card"><div class="label">Synthetic MRN</div>HR-ML004-SYN-TD</div>
+      </div>
+      <p><strong>Teaching objective:</strong> Recognize that orthostatic lightheadedness, leg numbness, and falls in an older adult with long-standing type 2 diabetes fit diabetic autonomic and peripheral neuropathy rather than a prior label of Shy-Drager syndrome; set an individualized HbA1c goal, choose glucose-lowering drugs that avoid hypoglycemia, treat neurogenic orthostatic hypotension, and coordinate glaucoma care so that eye drops do not worsen blood pressure, using the CMID diabetes and glaucoma schedules.</p>
+      <div class="downloads">
+        <a href="../case.json">Canonical JSON</a>
+        <a href="fhir-bundle.json">FHIR R4 draft</a>
+        <a href="ccda.html">C-CDA R2.1 summary</a> <a href="ccda.xml">(XML)</a>
+        <a href="../sources.md">Evidence dossier</a>
+      </div>
+    </section>
+    <section><h2>Historical timeline</h2><table><thead><tr><th>Date</th><th>Event</th><th>Claims</th></tr></thead><tbody>
+  <tr><td>February 26, 1932</td><td>Born in Kingsland, Arkansas.</td><td>CLM-0001</td></tr>
+  <tr><td>1944</td><td>Older brother Jack died in a sawmill accident.</td><td>CLM-0003</td></tr>
+  <tr><td>1957</td><td>Began taking amphetamines on the road; addiction lasted about a decade.</td><td>CLM-0004</td></tr>
+  <tr><td>1983</td><td>Hospitalized with internal bleeding; then treated at the Betty Ford Clinic.</td><td>CLM-0005</td></tr>
+  <tr><td>October 1997</td><td>Diagnosed with Shy-Drager syndrome, later called a misdiagnosis.</td><td>CLM-0006</td></tr>
+  <tr><td>February 2001</td><td>Treated for pneumonia at Baptist Hospital in Nashville.</td><td>CLM-0008</td></tr>
+  <tr><td>November 26, 2002</td><td>Described autonomic neuropathy, diabetes, glaucoma, and loss of about 60 percent of his vision in a televised interview.</td><td>CLM-0007, CLM-0008, CLM-0009</td></tr>
+  <tr><td>September 12, 2003</td><td>Died at Baptist Hospital in Nashville of complications of diabetes with respiratory failure.</td><td>CLM-0002</td></tr></tbody></table></section>
+    <section><h2>Evidence claims</h2><p class="muted">D = documented, R = retrospective, S = synthetic.</p><table><thead><tr><th>Grade</th><th>Claim</th><th>Certainty</th><th>Sources</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>J. R. (Johnny) Cash was born on February 26, 1932, in Kingsland, Cleveland County, Arkansas, to Ray and Carrie Cash.</strong></td>
+    <td>confirmed</td>
+    <td><a href="https://encyclopediaofarkansas.net/entries/johnny-cash-9/" target="_blank" rel="noreferrer">Johnny Cash (1932-2003)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>Cash died at Baptist Hospital in Nashville, Tennessee, on September 12, 2003; his manager, Lou Robin, said in a statement issued by the hospital that he died of complications from diabetes, which resulted in respiratory failure.</strong><div class="muted">Public statement by his manager; the documented basis for the diabetes in this case. Record the death without graphic detail.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://encyclopediaofarkansas.net/entries/johnny-cash-9/" target="_blank" rel="noreferrer">Johnny Cash (1932-2003)</a> <span class="relationship">supports</span><br><a href="https://news.pollstar.com/2003/09/12/johnny-cash-dies/" target="_blank" rel="noreferrer">Johnny Cash Dies</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>Cash&#39;s older brother Jack died in a sawmill accident in 1944.</strong><div class="muted">Family event; an injury, not a heritable condition.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://encyclopediaofarkansas.net/entries/johnny-cash-9/" target="_blank" rel="noreferrer">Johnny Cash (1932-2003)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>In 1957 Cash began taking amphetamines to stay awake on a long road trip, the start of an addiction that lasted about a decade; in a 2002 interview he named amphetamines and barbiturates in the 1960s.</strong><div class="muted">Historical substance use made public by Cash and his biographers. It is not a modern diagnosis in this case.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://encyclopediaofarkansas.net/entries/johnny-cash-9/" target="_blank" rel="noreferrer">Johnny Cash (1932-2003)</a> <span class="relationship">supports</span><br><a href="https://transcripts.cnn.com/TRANSCRIPTS/0211/26/lkl.00.html" target="_blank" rel="noreferrer">Larry King Live: Interview With Johnny Cash (transcript)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>Cash was hospitalized in 1983 with internal bleeding; after recovering he entered the Betty Ford Clinic for treatment.</strong><div class="muted">Historical treatment for substance use; the cited encyclopedia states he remained abstinent afterward.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://encyclopediaofarkansas.net/entries/johnny-cash-9/" target="_blank" rel="noreferrer">Johnny Cash (1932-2003)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>In October 1997 Cash was diagnosed with Shy-Drager syndrome, an illness similar to Parkinson&#39;s disease; in a 2000 interview he said the diagnosis was a misdiagnosis.</strong><div class="muted">The diagnosis and its withdrawal were both made public by Cash. The case uses the withdrawn label as a teaching point about autonomic failure in diabetes.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://abcnews.com/Entertainment/story?id=109597" target="_blank" rel="noreferrer">Johnny Cash Battles Recurring Pneumonia</a> <span class="relationship">supports</span><br><a href="https://transcripts.cnn.com/TRANSCRIPTS/0211/26/lkl.00.html" target="_blank" rel="noreferrer">Larry King Live: Interview With Johnny Cash (transcript)</a> <span class="relationship">context</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>Cash later learned he had autonomic neuropathy; in November 2002 he described it as a deadening of the nerve endings in his lower extremities that had taken the strength from his legs, so that he could walk, but not very well.</strong><div class="muted">Self-reported diagnosis; the anchor for the synthetic diabetic autonomic and peripheral neuropathy.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://encyclopediaofarkansas.net/entries/johnny-cash-9/" target="_blank" rel="noreferrer">Johnny Cash (1932-2003)</a> <span class="relationship">supports</span><br><a href="https://transcripts.cnn.com/TRANSCRIPTS/0211/26/lkl.00.html" target="_blank" rel="noreferrer">Larry King Live: Interview With Johnny Cash (transcript)</a> <span class="relationship">supports</span><br><a href="https://news.pollstar.com/2003/09/12/johnny-cash-dies/" target="_blank" rel="noreferrer">Johnny Cash Dies</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>Cash was repeatedly hospitalized for pneumonia in his last years; he was treated for pneumonia at Baptist Hospital in Nashville in February 2001, and in November 2002 he said he had had pneumonia four times in three years.</strong></td>
+    <td>confirmed</td>
+    <td><a href="https://encyclopediaofarkansas.net/entries/johnny-cash-9/" target="_blank" rel="noreferrer">Johnny Cash (1932-2003)</a> <span class="relationship">supports</span><br><a href="https://abcnews.com/Entertainment/story?id=109597" target="_blank" rel="noreferrer">Johnny Cash Battles Recurring Pneumonia</a> <span class="relationship">supports</span><br><a href="https://transcripts.cnn.com/TRANSCRIPTS/0211/26/lkl.00.html" target="_blank" rel="noreferrer">Larry King Live: Interview With Johnny Cash (transcript)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>In November 2002 Cash said about 60 percent of his vision was gone, which he attributed to the neuropathy and the diabetes, and he said he hoped the glaucoma could also be reversed.</strong><div class="muted">His own lay account; the type and stage of glaucoma and any retinal findings were not made public.</div></td>
+    <td>probable</td>
+    <td><a href="https://transcripts.cnn.com/TRANSCRIPTS/0211/26/lkl.00.html" target="_blank" rel="noreferrer">Larry King Live: Interview With Johnny Cash (transcript)</a> <span class="relationship">supports</span></td>
+  </tr></tbody></table></section>
+    <section><h2>Modern synthetic problem list</h2><table><thead><tr><th>Grade</th><th>Problem</th><th>Clinical status</th><th>Verification</th><th>Placement</th><th>Historical claims</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Type 2 diabetes mellitus with diabetic autonomic neuropathy; HbA1c above the individualized goal at intake</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>both_with_link</td>
+    <td>CLM-0002, CLM-0007</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Neurogenic orthostatic hypotension from diabetic autonomic neuropathy</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>both_with_link</td>
+    <td>CLM-0006, CLM-0007</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Diabetic distal symmetric polyneuropathy with loss of protective sensation in both feet</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>both_with_link</td>
+    <td>CLM-0007</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Primary open-angle glaucoma, both eyes, severe stage</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>both_with_link</td>
+    <td>CLM-0009</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Mild nonproliferative diabetic retinopathy without macular edema, both eyes</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Hyperlipidemia</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>History of recurrent pneumonia</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>both_with_link</td>
+    <td>CLM-0008</td>
+  </tr></tbody></table></section>
+    <section><h2>Synthetic outcome measures</h2><table><thead><tr><th>Grade</th><th>Date</th><th>Measure</th><th>Result</th><th>Coding</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2003-02-27</td>
+    <td>Hemoglobin A1c/Hemoglobin.total in Blood</td>
+    <td>8.6% (high)<div class="muted">Reference &lt;=5.6%</div></td>
+    <td>http://loinc.org · 4548-4</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2003-02-27</td>
+    <td>Sodium [Moles/volume] in Serum or Plasma</td>
+    <td>138 mmol/L<div class="muted">Reference 135-145 mmol/L</div></td>
+    <td>http://loinc.org · 2951-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2003-02-27</td>
+    <td>Potassium [Moles/volume] in Serum or Plasma</td>
+    <td>4.4 mmol/L<div class="muted">Reference 3.5-5.1 mmol/L</div></td>
+    <td>http://loinc.org · 2823-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2003-02-27</td>
+    <td>Creatinine [Mass/volume] in Serum or Plasma</td>
+    <td>1.04 mg/dL<div class="muted">Reference 0.74-1.35 mg/dL</div></td>
+    <td>http://loinc.org · 2160-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2003-02-27</td>
+    <td>Glomerular filtration rate [Volume Rate/Area] in Serum, Plasma or Blood by Creatinine-based formula (CKD-EPI 1998)/1.73 sq M</td>
+    <td>74 mL/min/1.73 m²<div class="muted">Reference &gt;=60 mL/min/1.73 m²</div></td>
+    <td>http://loinc.org · 98979-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2003-02-27</td>
+    <td>Glucose [Mass/volume] in Serum or Plasma</td>
+    <td>186 mg/dL (high)<div class="muted">Reference 70-99 mg/dL</div></td>
+    <td>http://loinc.org · 2345-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2003-02-27</td>
+    <td>Cholesterol in LDL [Mass/volume] in Serum or Plasma by calculation</td>
+    <td>128 mg/dL (high)<div class="muted">Reference &lt;=99 mg/dL</div></td>
+    <td>http://loinc.org · 13457-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2003-02-27</td>
+    <td>Albumin/Creatinine [Mass Ratio] in Urine</td>
+    <td>18 mg/g<div class="muted">Reference &lt;=30 mg/g</div></td>
+    <td>http://loinc.org · 9318-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2003-02-27</td>
+    <td>Alanine aminotransferase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>24 U/L<div class="muted">Reference 7-56 U/L</div></td>
+    <td>http://loinc.org · 1742-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2003-02-27</td>
+    <td>Aspartate aminotransferase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>22 U/L<div class="muted">Reference 10-40 U/L</div></td>
+    <td>http://loinc.org · 1920-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2003-02-27</td>
+    <td>Cobalamin (Vitamin B12) [Mass/volume] in Serum or Plasma</td>
+    <td>286 pg/mL<div class="muted">Reference 232-1245 pg/mL</div></td>
+    <td>http://loinc.org · 2132-9</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2003-02-27</td>
+    <td>Thyrotropin [Units/volume] in Serum or Plasma</td>
+    <td>1.9 mIU/L<div class="muted">Reference 0.45-4.5 mIU/L</div></td>
+    <td>http://loinc.org · 3016-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2003-02-27</td>
+    <td>Hemoglobin [Mass/volume] in Blood</td>
+    <td>13.8 g/dL<div class="muted">Reference 13.2-16.6 g/dL</div></td>
+    <td>http://loinc.org · 718-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2003-02-27</td>
+    <td>Right eye Intraocular pressure</td>
+    <td>22 mmHg (high)<div class="muted">Reference 10-21 mmHg</div></td>
+    <td>http://loinc.org · 79892-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2003-02-27</td>
+    <td>Left eye Intraocular pressure</td>
+    <td>24 mmHg (high)<div class="muted">Reference 10-21 mmHg</div></td>
+    <td>http://loinc.org · 79893-4</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2003-02-27</td>
+    <td>Right retina Retinal nerve fiber layer.mean thickness by OCT</td>
+    <td>61 um (low)<div class="muted">Reference 80-120 um</div></td>
+    <td>http://loinc.org · 86301-9</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2003-02-27</td>
+    <td>Left retina Retinal nerve fiber layer.mean thickness by OCT</td>
+    <td>57 um (low)<div class="muted">Reference 80-120 um</div></td>
+    <td>http://loinc.org · 86290-4</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2003-02-27</td>
+    <td>Visual acuity best corrected Right eye by ETDRS eye chart</td>
+    <td>68 (low)<div class="muted">Reference &gt;=80</div></td>
+    <td>http://loinc.org · 79876-9</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2003-02-27</td>
+    <td>Visual acuity best corrected Left eye by ETDRS eye chart</td>
+    <td>63 (low)<div class="muted">Reference &gt;=80</div></td>
+    <td>http://loinc.org · 79877-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2003-02-27</td>
+    <td>Patient Health Questionnaire 2 item (PHQ-2) total score [Reported]</td>
+    <td>1</td>
+    <td>http://loinc.org · 55758-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2003-02-27</td>
+    <td>Total score [Mini-Cog]</td>
+    <td>5</td>
+    <td>http://loinc.org · 72233-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2003-03-27</td>
+    <td>Sodium [Moles/volume] in Serum or Plasma</td>
+    <td>139 mmol/L<div class="muted">Reference 135-145 mmol/L</div></td>
+    <td>http://loinc.org · 2951-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2003-03-27</td>
+    <td>Potassium [Moles/volume] in Serum or Plasma</td>
+    <td>4.3 mmol/L<div class="muted">Reference 3.5-5.1 mmol/L</div></td>
+    <td>http://loinc.org · 2823-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2003-03-27</td>
+    <td>Creatinine [Mass/volume] in Serum or Plasma</td>
+    <td>1.06 mg/dL<div class="muted">Reference 0.74-1.35 mg/dL</div></td>
+    <td>http://loinc.org · 2160-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2003-03-27</td>
+    <td>Glomerular filtration rate [Volume Rate/Area] in Serum, Plasma or Blood by Creatinine-based formula (CKD-EPI 1998)/1.73 sq M</td>
+    <td>72 mL/min/1.73 m²<div class="muted">Reference &gt;=60 mL/min/1.73 m²</div></td>
+    <td>http://loinc.org · 98979-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2003-03-27</td>
+    <td>Glucose [Mass/volume] in Serum or Plasma</td>
+    <td>152 mg/dL (high)<div class="muted">Reference 70-99 mg/dL</div></td>
+    <td>http://loinc.org · 2345-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2003-05-29</td>
+    <td>Hemoglobin A1c/Hemoglobin.total in Blood</td>
+    <td>7.7% (high)<div class="muted">Reference &lt;=5.6%</div></td>
+    <td>http://loinc.org · 4548-4</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2003-05-29</td>
+    <td>Cholesterol in LDL [Mass/volume] in Serum or Plasma by calculation</td>
+    <td>74 mg/dL<div class="muted">Reference &lt;=99 mg/dL</div></td>
+    <td>http://loinc.org · 13457-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2003-05-29</td>
+    <td>Alanine aminotransferase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>27 U/L<div class="muted">Reference 7-56 U/L</div></td>
+    <td>http://loinc.org · 1742-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2003-05-29</td>
+    <td>Right eye Intraocular pressure</td>
+    <td>15 mmHg<div class="muted">Reference 10-21 mmHg</div></td>
+    <td>http://loinc.org · 79892-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2003-05-29</td>
+    <td>Left eye Intraocular pressure</td>
+    <td>16 mmHg<div class="muted">Reference 10-21 mmHg</div></td>
+    <td>http://loinc.org · 79893-4</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2003-05-29</td>
+    <td>Patient Health Questionnaire 2 item (PHQ-2) total score [Reported]</td>
+    <td>0</td>
+    <td>http://loinc.org · 55758-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2003-08-14</td>
+    <td>Hemoglobin A1c/Hemoglobin.total in Blood</td>
+    <td>7.3% (high)<div class="muted">Reference &lt;=5.6%</div></td>
+    <td>http://loinc.org · 4548-4</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2003-08-14</td>
+    <td>Sodium [Moles/volume] in Serum or Plasma</td>
+    <td>140 mmol/L<div class="muted">Reference 135-145 mmol/L</div></td>
+    <td>http://loinc.org · 2951-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2003-08-14</td>
+    <td>Potassium [Moles/volume] in Serum or Plasma</td>
+    <td>4.5 mmol/L<div class="muted">Reference 3.5-5.1 mmol/L</div></td>
+    <td>http://loinc.org · 2823-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2003-08-14</td>
+    <td>Creatinine [Mass/volume] in Serum or Plasma</td>
+    <td>1.05 mg/dL<div class="muted">Reference 0.74-1.35 mg/dL</div></td>
+    <td>http://loinc.org · 2160-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2003-08-14</td>
+    <td>Glomerular filtration rate [Volume Rate/Area] in Serum, Plasma or Blood by Creatinine-based formula (CKD-EPI 1998)/1.73 sq M</td>
+    <td>73 mL/min/1.73 m²<div class="muted">Reference &gt;=60 mL/min/1.73 m²</div></td>
+    <td>http://loinc.org · 98979-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2003-08-14</td>
+    <td>Glucose [Mass/volume] in Serum or Plasma</td>
+    <td>131 mg/dL (high)<div class="muted">Reference 70-99 mg/dL</div></td>
+    <td>http://loinc.org · 2345-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2003-08-14</td>
+    <td>Albumin/Creatinine [Mass Ratio] in Urine</td>
+    <td>16 mg/g<div class="muted">Reference &lt;=30 mg/g</div></td>
+    <td>http://loinc.org · 9318-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2003-08-14</td>
+    <td>Right eye Intraocular pressure</td>
+    <td>14 mmHg<div class="muted">Reference 10-21 mmHg</div></td>
+    <td>http://loinc.org · 79892-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2003-08-14</td>
+    <td>Left eye Intraocular pressure</td>
+    <td>15 mmHg<div class="muted">Reference 10-21 mmHg</div></td>
+    <td>http://loinc.org · 79893-4</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2003-08-14</td>
+    <td>Right retina Retinal nerve fiber layer.mean thickness by OCT</td>
+    <td>60 um (low)<div class="muted">Reference 80-120 um</div></td>
+    <td>http://loinc.org · 86301-9</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2003-08-14</td>
+    <td>Left retina Retinal nerve fiber layer.mean thickness by OCT</td>
+    <td>57 um (low)<div class="muted">Reference 80-120 um</div></td>
+    <td>http://loinc.org · 86290-4</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2003-08-14</td>
+    <td>Visual acuity best corrected Right eye by ETDRS eye chart</td>
+    <td>68 (low)<div class="muted">Reference &gt;=80</div></td>
+    <td>http://loinc.org · 79876-9</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2003-08-14</td>
+    <td>Visual acuity best corrected Left eye by ETDRS eye chart</td>
+    <td>62 (low)<div class="muted">Reference &gt;=80</div></td>
+    <td>http://loinc.org · 79877-7</td>
+  </tr></tbody></table></section>
+    <section><h2>Synthetic vital signs</h2><table><thead><tr><th>Date</th><th>Measure</th><th>Result</th><th>LOINC</th><th>Grade</th></tr></thead><tbody>
+  <tr><td>2003-02-27</td><td>Body height</td><td>188 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2003-02-27</td><td>Body weight</td><td>96 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2003-02-27</td><td>Body mass index (BMI) [Ratio]</td><td>27.2 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2003-02-27</td><td>Systolic blood pressure</td><td>146 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2003-02-27</td><td>Diastolic blood pressure</td><td>80 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2003-02-27</td><td>Heart rate</td><td>78 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2003-02-27</td><td>Respiratory rate</td><td>16 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2003-02-27</td><td>Body temperature</td><td>36.7 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2003-02-27</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>95 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2003-03-27</td><td>Body height</td><td>188 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2003-03-27</td><td>Body weight</td><td>95 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2003-03-27</td><td>Body mass index (BMI) [Ratio]</td><td>26.9 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2003-03-27</td><td>Systolic blood pressure</td><td>142 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2003-03-27</td><td>Diastolic blood pressure</td><td>78 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2003-03-27</td><td>Heart rate</td><td>76 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2003-03-27</td><td>Respiratory rate</td><td>16 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2003-03-27</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2003-03-27</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>95 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2003-05-29</td><td>Body height</td><td>188 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2003-05-29</td><td>Body weight</td><td>93.5 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2003-05-29</td><td>Body mass index (BMI) [Ratio]</td><td>26.5 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2003-05-29</td><td>Systolic blood pressure</td><td>136 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2003-05-29</td><td>Diastolic blood pressure</td><td>76 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2003-05-29</td><td>Heart rate</td><td>74 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2003-05-29</td><td>Respiratory rate</td><td>16 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2003-05-29</td><td>Body temperature</td><td>36.7 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2003-05-29</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>96 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2003-08-14</td><td>Body height</td><td>188 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2003-08-14</td><td>Body weight</td><td>92.5 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2003-08-14</td><td>Body mass index (BMI) [Ratio]</td><td>26.2 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2003-08-14</td><td>Systolic blood pressure</td><td>134 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2003-08-14</td><td>Diastolic blood pressure</td><td>74 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2003-08-14</td><td>Heart rate</td><td>72 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2003-08-14</td><td>Respiratory rate</td><td>16 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2003-08-14</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2003-08-14</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>96 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr></tbody></table></section>
+    <section><h2>Social, functional, and mental status</h2><h3>Social history</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> No tobacco use; no current alcohol use</li><li><span class="badge grade-S" title="Synthetic">S</span> Past amphetamine and barbiturate use in his twenties and thirties, with residential treatment in his early fifties; no use since. Avoid prescribing controlled stimulants and sedatives, and review any opioid or benzodiazepine with him first</li><li><span class="badge grade-S" title="Synthetic">S</span> Occupation: recording artist and songwriter, now recording at home rather than touring</li><li><span class="badge grade-S" title="Synthetic">S</span> Supports: a family member who comes to visits and fills his pill organizer, and his church community</li></ul><h3>Functional status</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Orthostatic vital signs at intake: 146/80 seated and 112/68 after three minutes standing, heart rate 78 to 82; lightheaded on standing and two falls in six months</li><li><span class="badge grade-S" title="Synthetic">S</span> Walks with a cane; reduced vibration and monofilament sensation to the ankles in both feet; independent in basic activities of daily living</li><li><span class="badge grade-S" title="Synthetic">S</span> Low vision from advanced glaucoma: tunnel vision in both eyes and difficulty in dim light; no longer drives</li></ul><h3>Mental status</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Alert, oriented, and wry; speaks frankly about his past substance use and his faith</li><li><span class="badge grade-S" title="Synthetic">S</span> Mood euthymic; PHQ-2 negative; Mini-Cog normal</li></ul></section>
+    
+    <section><h2>Allergies and medications</h2><h3>Allergies</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> No known allergy</li></ul><h3>Medications</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Metformin 500 mg oral tablet, one tablet by mouth twice daily with meals</li><li><span class="badge grade-S" title="Synthetic">S</span> Metformin 1000 mg oral tablet, one tablet by mouth twice daily with meals</li><li><span class="badge grade-S" title="Synthetic">S</span> Sitagliptin 100 mg oral tablet, one tablet by mouth daily</li><li><span class="badge grade-S" title="Synthetic">S</span> Atorvastatin 40 mg oral tablet, one tablet by mouth daily</li><li><span class="badge grade-S" title="Synthetic">S</span> Latanoprost 0.005% ophthalmic solution, one drop in each eye at bedtime</li><li><span class="badge grade-S" title="Synthetic">S</span> Dorzolamide 2% ophthalmic solution, one drop in each eye twice daily</li><li><span class="badge grade-S" title="Synthetic">S</span> Midodrine 2.5 mg oral tablet, one tablet by mouth three times daily, last dose by 6 PM</li><li><span class="badge grade-S" title="Synthetic">S</span> Midodrine 5 mg oral tablet, one tablet by mouth three times daily, last dose by 6 PM</li></ul></section>
+    <section><h2>Procedures and immunizations</h2><h3>Procedures</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Comprehensive diabetic foot examination with 10-g monofilament and vibration testing</li><li><span class="badge grade-S" title="Synthetic">S</span> Optical coherence tomography of the optic nerve and retinal nerve fiber layer, both eyes</li><li><span class="badge grade-S" title="Synthetic">S</span> Dilated eye examination and Humphrey 24-2 visual field testing, both eyes</li><li><span class="badge grade-S" title="Synthetic">S</span> Optical coherence tomography of the optic nerve and retinal nerve fiber layer, both eyes</li><li><span class="badge grade-S" title="Synthetic">S</span> Humphrey 24-2 visual field testing, both eyes</li></ul><h3>Immunizations</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> 2002-10-20: High-dose influenza vaccine, 2002-2003 season</li><li><span class="badge grade-S" title="Synthetic">S</span> 2003-02-27: Pneumococcal conjugate vaccine PCV20</li><li><span class="badge grade-S" title="Synthetic">S</span> 2003-05-29: Recombinant zoster vaccine, dose 1</li></ul></section>
+    <section><h2>Past medical history</h2><p class="muted">True biography with historical dates; not part of the synthetic care timeline.</p><ul><li><span class="badge grade-D" title="Documented">D</span> 1957: Amphetamine use beginning in 1957, with barbiturates in the 1960s; addiction lasting about a decade <span class="muted">(CLM-0004)</span></li><li><span class="badge grade-D" title="Documented">D</span> 1983: Hospitalized in 1983 with internal bleeding, followed by treatment at the Betty Ford Clinic <span class="muted">(CLM-0005)</span></li><li><span class="badge grade-D" title="Documented">D</span> October 1997: Diagnosed with Shy-Drager syndrome in October 1997; he said in 2000 that it was a misdiagnosis, and autonomic neuropathy was later identified <span class="muted">(CLM-0006, CLM-0007)</span></li><li><span class="badge grade-D" title="Documented">D</span> February 2001: Pneumonia treated at Baptist Hospital in Nashville in February 2001, one of several pneumonia admissions <span class="muted">(CLM-0008)</span></li></ul><h3>Family history</h3><ul><li><span class="badge grade-D" title="Documented">D</span> brother: Older brother Jack died in a sawmill accident in 1944</li></ul></section>
+    <section><h2>Care-plan goals</h2><table><thead><tr><th>Goal</th><th>Target date</th><th>Status</th><th>Outcome</th></tr></thead><tbody>
+  <tr><td>Reach an HbA1c below 7.5% without hypoglycemia by the six-month review</td><td>2003-08-14</td><td>completed</td><td>HbA1c fell from 8.6% to 7.3% with no hypoglycemia</td></tr>
+  <tr><td>No falls and a standing systolic pressure of 100 mm Hg or more by the six-month review</td><td>2003-08-14</td><td>completed</td><td>No falls since the second visit; 134/74 seated and 120/70 standing on midodrine</td></tr>
+  <tr><td>Lower intraocular pressure to 16 mm Hg or less in each eye by the three-month review</td><td>2003-05-29</td><td>completed</td><td>Pressure 15 mm Hg right and 16 mm Hg left at three months</td></tr>
+  <tr><td>LDL cholesterol below 70 mg/dL by the six-month review</td><td>2003-08-14</td><td>active</td><td>LDL 74 mg/dL at three months; recheck at the annual visit</td></tr></tbody></table></section>
+    <section><h2>Interventions</h2><table><thead><tr><th>Intervention</th><th>Status</th><th>Guideline</th></tr></thead><tbody>
+  <tr><td>Increase metformin to 1000 mg twice daily and set an individualized HbA1c goal below 7.5%; avoid insulin and sulfonylureas while autonomic neuropathy may blunt warning symptoms of hypoglycemia</td><td>completed</td><td>GL-ADA-2025, GL-CMID-2026</td></tr>
+  <tr><td>Endocrinology consultation to confirm diabetic autonomic neuropathy as the cause of orthostatic hypotension, reconsider the earlier Shy-Drager label, and choose add-on glucose-lowering therapy</td><td>completed</td><td>GL-ADA-2025</td></tr>
+  <tr><td>Treat neurogenic orthostatic hypotension: stand up in stages, raise the head of the bed, use waist-high compression, drink 2 liters of fluid a day, then midodrine with the last dose at least four hours before bed; check supine blood pressure at each visit</td><td>completed</td><td>GL-ADA-2025</td></tr>
+  <tr><td>Check HbA1c every three months until at goal, a basic metabolic panel, UACR, and lipids each year, lipids 4 to 12 weeks after starting a statin, and vitamin B12 periodically on metformin</td><td>completed</td><td>GL-CMID-2026, GL-ADA-2025</td></tr>
+  <tr><td>Examine the feet at every visit because of sensory loss; daily self-inspection and protective footwear</td><td>completed</td><td>GL-ADA-2025, GL-CMID-2026</td></tr>
+  <tr><td>Coordinate glaucoma care with the eye clinic: add dorzolamide to latanoprost, check pressure at each visit, and repeat OCT and visual fields every six months; avoid timolol and brimonidine because of bradycardia, bronchospasm, and low blood pressure</td><td>completed</td><td>GL-AAO-POAG-2025, GL-CMID-2026</td></tr>
+  <tr><td>Annual dilated eye examination for diabetic retinopathy; low-vision rehabilitation and home lighting review</td><td>completed</td><td>GL-ADA-2025, GL-AAO-POAG-2025</td></tr>
+  <tr><td>Start atorvastatin 40 mg; give PCV20 and recombinant zoster vaccines</td><td>completed</td><td>GL-ADA-2025</td></tr></tbody></table></section>
+    <section><h2>Planned encounters</h2><ul>
+  <li><strong>2003-02-27</strong> — Primary care new-patient visit for diabetes, lightheadedness on standing, and glaucoma follow-up <span class="muted">(ENC-001)</span></li>
+  <li><strong>2003-03-27</strong> — Endocrinology consultation for diabetes and autonomic neuropathy <span class="muted">(ENC-002)</span></li>
+  <li><strong>2003-05-29</strong> — Three-month diabetes, blood pressure, and eye pressure review <span class="muted">(ENC-003)</span></li>
+  <li><strong>2003-08-14</strong> — Six-month diabetes review with glaucoma imaging <span class="muted">(ENC-004)</span></li></ul></section>
+    <section><h2>Supporting documents</h2><ul><li><a href="notes/hp.md">History and physical</a></li><li><a href="notes/progress-01.md">Progress note 01</a></li><li><a href="notes/progress-02.md">Progress note 02</a></li><li><a href="notes/progress-03.md">Progress note 03</a></li><li><a href="notes/progress-04.md">Progress note 04</a></li><li><a href="notes/referral-01.md">Endocrinology referral</a></li><li><a href="notes/consult-01.md">Endocrinology consultation</a></li><li><a href="notes/careplan.md">Patient care plan</a></li><li><a href="notes/teaching-note.md">Teaching note</a></li><li><a href="provenance.csv">Provenance CSV</a></li></ul></section>
+    <section><h2>C-CDA note documents</h2><p class="muted">Each link opens a readable copy; the XML beside it is the exchange file.</p><ul><li><a href="ccda/hp-01.html">History and physical</a> <a href="ccda/hp-01.xml">(XML)</a></li><li><a href="ccda/progress-01.html">Progress note 01</a> <a href="ccda/progress-01.xml">(XML)</a></li><li><a href="ccda/progress-02.html">Progress note 02</a> <a href="ccda/progress-02.xml">(XML)</a></li><li><a href="ccda/progress-03.html">Progress note 03</a> <a href="ccda/progress-03.xml">(XML)</a></li><li><a href="ccda/progress-04.html">Progress note 04</a> <a href="ccda/progress-04.xml">(XML)</a></li><li><a href="ccda/referral-01.html">Endocrinology referral</a> <a href="ccda/referral-01.xml">(XML)</a></li><li><a href="ccda/consult-01.html">Endocrinology consultation</a> <a href="ccda/consult-01.xml">(XML)</a></li></ul></section>
+    <section><h2>Sources</h2><table><thead><tr><th>ID</th><th>Source</th><th>Publisher</th><th>Type</th></tr></thead><tbody>
+  <tr>
+    <td>SRC-0001</td>
+    <td><a href="https://encyclopediaofarkansas.net/entries/johnny-cash-9/" target="_blank" rel="noreferrer">Johnny Cash (1932-2003)</a></td>
+    <td>CALS Encyclopedia of Arkansas</td>
+    <td>scholarly</td>
+  </tr>
+  <tr>
+    <td>SRC-0002</td>
+    <td><a href="https://abcnews.com/Entertainment/story?id=109597" target="_blank" rel="noreferrer">Johnny Cash Battles Recurring Pneumonia</a></td>
+    <td>ABC News</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0003</td>
+    <td><a href="https://transcripts.cnn.com/TRANSCRIPTS/0211/26/lkl.00.html" target="_blank" rel="noreferrer">Larry King Live: Interview With Johnny Cash (transcript)</a></td>
+    <td>CNN</td>
+    <td>primary</td>
+  </tr>
+  <tr>
+    <td>SRC-0004</td>
+    <td><a href="https://news.pollstar.com/2003/09/12/johnny-cash-dies/" target="_blank" rel="noreferrer">Johnny Cash Dies</a></td>
+    <td>Pollstar</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0005</td>
+    <td><a href="https://humanrecord.example.org/internal/HISTMED_Master_Roster_v3.xlsx" target="_blank" rel="noreferrer">HISTMED Master Roster v3</a></td>
+    <td>The Human Record project</td>
+    <td>other</td>
+  </tr></tbody></table></section>
+    <section><h2>Review status</h2><table><thead><tr><th>Review</th><th>Status</th><th>Notes</th></tr></thead><tbody>
+  <tr><td>schema validation</td><td>not_started</td><td>Run scripts/build.ps1 -Conformance.</td></tr>
+  <tr><td>clinical review</td><td>not_started</td><td>Awaiting clinician review.</td></tr>
+  <tr><td>provenance review</td><td>not_started</td><td>Recent-death rule: only facts Cash, his manager, or published reference works made public are used. Encyclopedia of Arkansas, ABC News, CNN transcript, and Pollstar logged.</td></tr>
+  <tr><td>safe messaging review</td><td>not_started</td><td>Historical substance use is recorded as history, marked sensitive, and is not a modern diagnosis. Death recorded without graphic detail.</td></tr></tbody></table></section>
+  </main>
+</body>
+</html>

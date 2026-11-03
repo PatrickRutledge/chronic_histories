@@ -1,0 +1,403 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Georgia O&#39;Keeffe — The Human Record</title>
+  <style>
+    :root { --navy:#17365d; --blue:#1f4e78; --pale:#eef5fa; --ink:#1f2933; --muted:#66788a; --amber:#fff2cc; --red:#f8d7da; --green:#d9ead3; }
+    * { box-sizing:border-box; }
+    body { margin:0; font:16px/1.5 Arial, sans-serif; color:var(--ink); background:#f6f8fa; }
+    header { background:var(--navy); color:white; padding:24px max(24px,calc((100vw - 1180px)/2)); }
+    header h1 { margin:4px 0; font-size:30px; }
+    .banner { background:#b42318; color:white; font-weight:700; text-align:center; padding:10px; letter-spacing:.03em; }
+    main { max-width:1180px; margin:24px auto 60px; padding:0 24px; }
+    section { background:white; border:1px solid #d9e1e8; border-radius:8px; margin:18px 0; padding:20px; }
+    h2 { color:var(--navy); margin:0 0 14px; font-size:22px; }
+    h3 { color:var(--blue); }
+    .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:12px; }
+    .card { background:var(--pale); border-left:4px solid var(--blue); padding:12px; }
+    .label { color:var(--muted); font-size:13px; text-transform:uppercase; letter-spacing:.04em; }
+    table { width:100%; border-collapse:collapse; }
+    th { background:var(--blue); color:white; text-align:left; }
+    th,td { padding:9px; border-bottom:1px solid #dfe6ec; vertical-align:top; }
+    .badge { display:inline-block; min-width:28px; text-align:center; font-weight:700; border-radius:12px; padding:2px 8px; }
+    .grade-D { background:var(--green); } .grade-R { background:var(--amber); } .grade-S { background:var(--red); }
+    .muted { color:var(--muted); font-size:14px; }
+    .relationship { color:var(--muted); font-size:12px; }
+    .downloads a { display:inline-block; margin:4px 8px 4px 0; padding:8px 12px; background:var(--blue); color:white; text-decoration:none; border-radius:5px; }
+    @media (max-width:700px) { table { display:block; overflow-x:auto; } }
+  </style>
+</head>
+<body>
+  <div class="banner">SYNTHETIC RECORD, NOT A REAL MEDICAL RECORD</div>
+  <header>
+    <div>The Human Record</div>
+    <h1>Georgia O&#39;Keeffe</h1>
+    <div>Case HR-ET011 · Modern EHR teaching episode · Draft for review</div>
+  </header>
+  <main>
+    <section>
+      <h2>Review summary</h2>
+      <div class="grid">
+        <div class="card"><div class="label">Historical dates</div>November 15, 1887 – March 6, 1986</div>
+        <div class="card"><div class="label">Synthetic DOB</div>1945-11-15</div>
+        <div class="card"><div class="label">Index visit</div>2026-03-10 at age 80</div>
+        <div class="card"><div class="label">Synthetic MRN</div>HR-ET011-SYN</div>
+      </div>
+      <p><strong>Teaching objective:</strong> Recognize new distortion in one eye as a possible sign of neovascular age-related macular degeneration that needs ophthalmology evaluation within days; follow intravitreal anti-VEGF treatment with acuity, OCT, and pressure checks under the AAO Preferred Practice Pattern; protect the fellow eye with AREDS2 supplements and home Amsler grid monitoring; and support function, safety, and mood with low-vision rehabilitation, in an artist whose central vision was lost before these treatments existed.</p>
+      <div class="downloads">
+        <a href="../case.json">Canonical JSON</a>
+        <a href="fhir-bundle.json">FHIR R4 draft</a>
+        <a href="ccda.html">C-CDA R2.1 summary</a> <a href="ccda.xml">(XML)</a>
+        <a href="../sources.md">Evidence dossier</a>
+      </div>
+    </section>
+    <section><h2>Historical timeline</h2><table><thead><tr><th>Date</th><th>Event</th><th>Claims</th></tr></thead><tbody>
+  <tr><td>November 15, 1887</td><td>Born near Sun Prairie, Wisconsin.</td><td>CLM-0001</td></tr>
+  <tr><td>May 1916</td><td>Mother died in Charlottesville, Virginia.</td><td>CLM-0003</td></tr>
+  <tr><td>November 1918</td><td>Father died in Petersburg, Virginia.</td><td>CLM-0003</td></tr>
+  <tr><td>1927</td><td>Two operations for benign breast cysts at Mount Sinai Hospital.</td><td>CLM-0004</td></tr>
+  <tr><td>February 1933</td><td>Admitted to Doctor&#39;s Hospital in New York with psychoneurosis.</td><td>CLM-0005</td></tr>
+  <tr><td>1964</td><td>Possible first signs of macular degeneration (retrospective suggestion).</td><td>CLM-0010</td></tr>
+  <tr><td>1968</td><td>Eyesight begins to fail.</td><td>CLM-0006</td></tr>
+  <tr><td>Early 1971</td><td>Loses central vision; keeps only peripheral sight.</td><td>CLM-0007</td></tr>
+  <tr><td>1972</td><td>Last unassisted oil painting; letter describing a cloudy left eye.</td><td>CLM-0008, CLM-0009</td></tr>
+  <tr><td>March 6, 1986</td><td>Died at St. Vincent&#39;s Hospital, Santa Fe.</td><td>CLM-0002</td></tr></tbody></table></section>
+    <section><h2>Evidence claims</h2><p class="muted">D = documented, R = retrospective, S = synthetic.</p><table><thead><tr><th>Grade</th><th>Claim</th><th>Certainty</th><th>Sources</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>Georgia Totto O&#39;Keeffe was born on November 15, 1887, to Francis Calyxtus O&#39;Keeffe and Ida Totto O&#39;Keeffe at the family dairy farm near Sun Prairie, Wisconsin, the second of seven children.</strong></td>
+    <td>confirmed</td>
+    <td><a href="https://access-ok.okeeffemuseum.org/chronology/" target="_blank" rel="noreferrer">Chronology (Georgia O&#39;Keeffe Museum accessible site)</a> <span class="relationship">supports</span><br><a href="https://access-ok.okeeffemuseum.org/biography/" target="_blank" rel="noreferrer">Biography (Georgia O&#39;Keeffe Museum accessible site)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>O&#39;Keeffe died at St. Vincent&#39;s Hospital in Santa Fe, New Mexico, on March 6, 1986, at age 98.</strong><div class="muted">Record the death as a fact without graphic detail.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://access-ok.okeeffemuseum.org/chronology/" target="_blank" rel="noreferrer">Chronology (Georgia O&#39;Keeffe Museum accessible site)</a> <span class="relationship">supports</span><br><a href="https://access-ok.okeeffemuseum.org/biography/" target="_blank" rel="noreferrer">Biography (Georgia O&#39;Keeffe Museum accessible site)</a> <span class="relationship">supports</span><br><a href="https://whitney.org/media/632" target="_blank" rel="noreferrer">Georgia O&#39;Keeffe: Watercolors exhibition audio (late works)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>O&#39;Keeffe&#39;s mother died in Charlottesville, Virginia, in May 1916, and her father died in Petersburg, Virginia, in November 1918.</strong><div class="muted">The cited chronology does not give causes of death.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://access-ok.okeeffemuseum.org/chronology/" target="_blank" rel="noreferrer">Chronology (Georgia O&#39;Keeffe Museum accessible site)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>In 1927 O&#39;Keeffe was admitted twice to Mount Sinai Hospital in New York for surgery to remove benign breast cysts.</strong></td>
+    <td>confirmed</td>
+    <td><a href="https://access-ok.okeeffemuseum.org/chronology/" target="_blank" rel="noreferrer">Chronology (Georgia O&#39;Keeffe Museum accessible site)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>In February 1933 O&#39;Keeffe was admitted to Doctor&#39;s Hospital in New York, suffering from psychoneurosis, and recuperated in Bermuda in March and April.</strong><div class="muted">The period term is kept as recorded; no modern psychiatric diagnosis is inferred.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://access-ok.okeeffemuseum.org/chronology/" target="_blank" rel="noreferrer">Chronology (Georgia O&#39;Keeffe Museum accessible site)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>O&#39;Keeffe&#39;s eyesight began to fail in 1968.</strong><div class="muted">The documented anchor for the synthetic presentation of macular degeneration.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://access-ok.okeeffemuseum.org/chronology/" target="_blank" rel="noreferrer">Chronology (Georgia O&#39;Keeffe Museum accessible site)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>Early in 1971 O&#39;Keeffe lost her central vision and kept only peripheral sight; the O&#39;Keeffe Museum and the Whitney Museum attribute her vision loss to macular degeneration.</strong><div class="muted">The type of macular degeneration (dry or neovascular) was not recorded in the sources.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://access-ok.okeeffemuseum.org/chronology/" target="_blank" rel="noreferrer">Chronology (Georgia O&#39;Keeffe Museum accessible site)</a> <span class="relationship">supports</span><br><a href="https://access-ok.okeeffemuseum.org/biography/" target="_blank" rel="noreferrer">Biography (Georgia O&#39;Keeffe Museum accessible site)</a> <span class="relationship">supports</span><br><a href="https://whitney.org/media/632" target="_blank" rel="noreferrer">Georgia O&#39;Keeffe: Watercolors exhibition audio (late works)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>O&#39;Keeffe completed her last unassisted oil painting in 1972 and continued in oil with assistance until 1977; she worked unassisted in watercolor and charcoal until 1978 and in graphite until 1984. From 1973 the potter Juan Hamilton was her assistant, and from 1974 he taught her to work in clay.</strong><div class="muted">Shows adaptation to low vision; the modern episode uses it to frame vision rehabilitation.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://access-ok.okeeffemuseum.org/chronology/" target="_blank" rel="noreferrer">Chronology (Georgia O&#39;Keeffe Museum accessible site)</a> <span class="relationship">supports</span><br><a href="https://access-ok.okeeffemuseum.org/biography/" target="_blank" rel="noreferrer">Biography (Georgia O&#39;Keeffe Museum accessible site)</a> <span class="relationship">supports</span><br><a href="https://whitney.org/media/632" target="_blank" rel="noreferrer">Georgia O&#39;Keeffe: Watercolors exhibition audio (late works)</a> <span class="relationship">context</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>In a 1972 letter O&#39;Keeffe wrote that her left eye had become much more cloudy and that her right eye seemed to be beginning to cloud.</strong><div class="muted">Quoted in a secondary source from a 1992 biography; the letter itself was not reviewed. Suggests the left eye was affected first.</div></td>
+    <td>probable</td>
+    <td><a href="https://visionandartproject.org/artists/georgia-okeeffe/" target="_blank" rel="noreferrer">Georgia O&#39;Keeffe</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-R" title="Retrospective">R</span></td>
+    <td><strong>The first signs of O&#39;Keeffe&#39;s macular degeneration may have appeared as early as 1964.</strong><div class="muted">Retrospective suggestion by an advocacy site; not documented in the museum chronology.</div></td>
+    <td>possible</td>
+    <td><a href="https://visionandartproject.org/artists/georgia-okeeffe/" target="_blank" rel="noreferrer">Georgia O&#39;Keeffe</a> <span class="relationship">supports</span></td>
+  </tr></tbody></table></section>
+    <section><h2>Modern synthetic problem list</h2><table><thead><tr><th>Grade</th><th>Problem</th><th>Clinical status</th><th>Verification</th><th>Placement</th><th>Historical claims</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Neovascular (wet) age-related macular degeneration, left eye, with active choroidal neovascularization</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>both_with_link</td>
+    <td>CLM-0006, CLM-0009, CLM-0007</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Nonexudative age-related macular degeneration, right eye, intermediate stage</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>both_with_link</td>
+    <td>CLM-0009</td>
+  </tr></tbody></table></section>
+    <section><h2>Synthetic outcome measures</h2><table><thead><tr><th>Grade</th><th>Date</th><th>Measure</th><th>Result</th><th>Coding</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-10</td>
+    <td>Visual acuity best corrected Right eye by ETDRS eye chart</td>
+    <td>78 (low)<div class="muted">Reference &gt;=80</div></td>
+    <td>http://loinc.org · 79876-9</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-10</td>
+    <td>Visual acuity best corrected Left eye by ETDRS eye chart</td>
+    <td>56 (low)<div class="muted">Reference &gt;=80</div></td>
+    <td>http://loinc.org · 79877-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-10</td>
+    <td>Patient Health Questionnaire 2 item (PHQ-2) total score [Reported]</td>
+    <td>1</td>
+    <td>http://loinc.org · 55758-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-10</td>
+    <td>Total score [Mini-Cog]</td>
+    <td>5</td>
+    <td>http://loinc.org · 72233-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-12</td>
+    <td>Visual acuity best corrected Right eye by ETDRS eye chart</td>
+    <td>78 (low)<div class="muted">Reference &gt;=80</div></td>
+    <td>http://loinc.org · 79876-9</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-12</td>
+    <td>Visual acuity best corrected Left eye by ETDRS eye chart</td>
+    <td>55 (low)<div class="muted">Reference &gt;=80</div></td>
+    <td>http://loinc.org · 79877-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-12</td>
+    <td>Macular grid.center subfield thickness by OCT</td>
+    <td>418 um (high)<div class="muted">Reference 200-300 um</div></td>
+    <td>http://loinc.org · 57109-1</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-12</td>
+    <td>Right eye Intraocular pressure</td>
+    <td>15 mmHg<div class="muted">Reference 10-21 mmHg</div></td>
+    <td>http://loinc.org · 79892-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-12</td>
+    <td>Left eye Intraocular pressure</td>
+    <td>16 mmHg<div class="muted">Reference 10-21 mmHg</div></td>
+    <td>http://loinc.org · 79893-4</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-04-09</td>
+    <td>Visual acuity best corrected Left eye by ETDRS eye chart</td>
+    <td>64 (low)<div class="muted">Reference &gt;=80</div></td>
+    <td>http://loinc.org · 79877-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-04-09</td>
+    <td>Macular grid.center subfield thickness by OCT</td>
+    <td>322 um (high)<div class="muted">Reference 200-300 um</div></td>
+    <td>http://loinc.org · 57109-1</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-04-09</td>
+    <td>Left eye Intraocular pressure</td>
+    <td>15 mmHg<div class="muted">Reference 10-21 mmHg</div></td>
+    <td>http://loinc.org · 79893-4</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-05-07</td>
+    <td>Visual acuity best corrected Left eye by ETDRS eye chart</td>
+    <td>69 (low)<div class="muted">Reference &gt;=80</div></td>
+    <td>http://loinc.org · 79877-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-05-07</td>
+    <td>Macular grid.center subfield thickness by OCT</td>
+    <td>274 um<div class="muted">Reference 200-300 um</div></td>
+    <td>http://loinc.org · 57109-1</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-05-07</td>
+    <td>Left eye Intraocular pressure</td>
+    <td>14 mmHg<div class="muted">Reference 10-21 mmHg</div></td>
+    <td>http://loinc.org · 79893-4</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-07-02</td>
+    <td>Visual acuity best corrected Right eye by ETDRS eye chart</td>
+    <td>77 (low)<div class="muted">Reference &gt;=80</div></td>
+    <td>http://loinc.org · 79876-9</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-07-02</td>
+    <td>Visual acuity best corrected Left eye by ETDRS eye chart</td>
+    <td>70 (low)<div class="muted">Reference &gt;=80</div></td>
+    <td>http://loinc.org · 79877-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-07-02</td>
+    <td>Macular grid.center subfield thickness by OCT</td>
+    <td>268 um<div class="muted">Reference 200-300 um</div></td>
+    <td>http://loinc.org · 57109-1</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-07-02</td>
+    <td>Right eye Intraocular pressure</td>
+    <td>15 mmHg<div class="muted">Reference 10-21 mmHg</div></td>
+    <td>http://loinc.org · 79892-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-07-02</td>
+    <td>Left eye Intraocular pressure</td>
+    <td>15 mmHg<div class="muted">Reference 10-21 mmHg</div></td>
+    <td>http://loinc.org · 79893-4</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-07-02</td>
+    <td>Patient Health Questionnaire 2 item (PHQ-2) total score [Reported]</td>
+    <td>0</td>
+    <td>http://loinc.org · 55758-7</td>
+  </tr></tbody></table></section>
+    <section><h2>Synthetic vital signs</h2><table><thead><tr><th>Date</th><th>Measure</th><th>Result</th><th>LOINC</th><th>Grade</th></tr></thead><tbody>
+  <tr><td>2026-03-10</td><td>Body height</td><td>165 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-10</td><td>Body weight</td><td>56 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-10</td><td>Body mass index (BMI) [Ratio]</td><td>20.6 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-10</td><td>Systolic blood pressure</td><td>132 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-10</td><td>Diastolic blood pressure</td><td>74 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-10</td><td>Heart rate</td><td>70 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-10</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-10</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-10</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>97 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-12</td><td>Body height</td><td>165 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-12</td><td>Body weight</td><td>56 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-12</td><td>Body mass index (BMI) [Ratio]</td><td>20.6 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-12</td><td>Systolic blood pressure</td><td>130 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-12</td><td>Diastolic blood pressure</td><td>72 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-12</td><td>Heart rate</td><td>72 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-12</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-12</td><td>Body temperature</td><td>36.5 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-12</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>97 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-09</td><td>Body height</td><td>165 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-09</td><td>Body weight</td><td>55.5 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-09</td><td>Body mass index (BMI) [Ratio]</td><td>20.4 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-09</td><td>Systolic blood pressure</td><td>128 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-09</td><td>Diastolic blood pressure</td><td>72 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-09</td><td>Heart rate</td><td>68 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-09</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-09</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-09</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>98 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-05-07</td><td>Body height</td><td>165 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-05-07</td><td>Body weight</td><td>56 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-05-07</td><td>Body mass index (BMI) [Ratio]</td><td>20.6 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-05-07</td><td>Systolic blood pressure</td><td>126 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-05-07</td><td>Diastolic blood pressure</td><td>70 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-05-07</td><td>Heart rate</td><td>68 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-05-07</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-05-07</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-05-07</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>97 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-07-02</td><td>Body height</td><td>165 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-07-02</td><td>Body weight</td><td>56.5 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-07-02</td><td>Body mass index (BMI) [Ratio]</td><td>20.8 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-07-02</td><td>Systolic blood pressure</td><td>128 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-07-02</td><td>Diastolic blood pressure</td><td>72 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-07-02</td><td>Heart rate</td><td>70 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-07-02</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-07-02</td><td>Body temperature</td><td>36.7 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-07-02</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>98 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr></tbody></table></section>
+    <section><h2>Social, functional, and mental status</h2><h3>Social history</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Never smoker; no alcohol</li><li><span class="badge grade-S" title="Synthetic">S</span> Occupation: painter who works daily in her studio; lives alone in a rural house and walks in the desert most mornings</li><li><span class="badge grade-S" title="Synthetic">S</span> Supports: a studio assistant, a housekeeper, and a sister who calls weekly; drives only short distances by day</li></ul><h3>Functional status</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Independent in all activities of daily living; straight lines on canvas and door frames look bent in the left eye; trouble reading small print and judging fine color differences</li><li><span class="badge grade-S" title="Synthetic">S</span> Amsler grid: wavy lines and a small central gray patch in the left eye; normal in the right eye</li></ul><h3>Mental status</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Alert, direct, and precise; worried that she may not be able to paint</li><li><span class="badge grade-S" title="Synthetic">S</span> Mood steady; PHQ-2 negative; Mini-Cog normal</li></ul></section>
+    
+    <section><h2>Allergies and medications</h2><h3>Allergies</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> No known allergy</li></ul><h3>Medications</h3><p class="muted">No current medications.</p></section>
+    <section><h2>Procedures and immunizations</h2><h3>Procedures</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Amsler grid assessment, both eyes</li><li><span class="badge grade-S" title="Synthetic">S</span> Optical coherence tomography of the macula, both eyes</li><li><span class="badge grade-S" title="Synthetic">S</span> Intravitreal injection of aflibercept 2 mg, left eye (injection 1)</li><li><span class="badge grade-S" title="Synthetic">S</span> Optical coherence tomography of the macula, left eye</li><li><span class="badge grade-S" title="Synthetic">S</span> Intravitreal injection of aflibercept 2 mg, left eye (injection 2)</li><li><span class="badge grade-S" title="Synthetic">S</span> Optical coherence tomography of the macula, left eye</li><li><span class="badge grade-S" title="Synthetic">S</span> Intravitreal injection of aflibercept 2 mg, left eye (injection 3)</li><li><span class="badge grade-S" title="Synthetic">S</span> Optical coherence tomography of the macula, both eyes</li><li><span class="badge grade-S" title="Synthetic">S</span> Intravitreal injection of aflibercept 2 mg, left eye (injection 4)</li></ul><h3>Immunizations</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> 2025-10-15: High-dose influenza vaccine, 2025-2026 season</li><li><span class="badge grade-S" title="Synthetic">S</span> 2026-03-10: Recombinant zoster vaccine, dose 1</li></ul></section>
+    <section><h2>Past medical history</h2><p class="muted">True biography with historical dates; not part of the synthetic care timeline.</p><ul><li><span class="badge grade-D" title="Documented">D</span> 1927: Two operations for benign breast cysts at Mount Sinai Hospital in 1927 <span class="muted">(CLM-0004)</span></li><li><span class="badge grade-D" title="Documented">D</span> February 1933: Hospitalized in February 1933 with psychoneurosis; recuperated in Bermuda <span class="muted">(CLM-0005)</span></li><li><span class="badge grade-D" title="Documented">D</span> 1968: Eyesight began to fail in 1968 <span class="muted">(CLM-0006)</span></li></ul><h3>Family history</h3><ul><li><span class="badge grade-D" title="Documented">D</span> mother: Died in May 1916; cause not recorded in the cited source</li><li><span class="badge grade-D" title="Documented">D</span> father: Died in November 1918; cause not recorded in the cited source</li></ul></section>
+    <section><h2>Care-plan goals</h2><table><thead><tr><th>Goal</th><th>Target date</th><th>Status</th><th>Outcome</th></tr></thead><tbody>
+  <tr><td>Gain at least 10 ETDRS letters in the left eye by the end of the loading phase</td><td>2026-05-07</td><td>completed</td><td>Left eye improved from 55 to 69 letters after three injections</td></tr>
+  <tr><td>Dry macula on OCT (central subfield thickness below 300 um, no fluid) by the end of the loading phase</td><td>2026-05-07</td><td>completed</td><td>Central subfield thickness fell from 418 to 274 um with no fluid</td></tr>
+  <tr><td>Check the Amsler grid daily for each eye and report any change the same day</td><td>2026-07-02</td><td>completed</td><td>Daily checks recorded; no new change in the right eye</td></tr>
+  <tr><td>Complete a low-vision rehabilitation evaluation and set up studio lighting and magnification by the July visit</td><td>2026-07-02</td><td>completed</td><td>Task lighting, a stand magnifier, and high-contrast labels in place; still painting daily</td></tr></tbody></table></section>
+    <section><h2>Interventions</h2><table><thead><tr><th>Intervention</th><th>Status</th><th>Guideline</th></tr></thead><tbody>
+  <tr><td>Same-week ophthalmology consultation for new distortion and reduced acuity in the left eye, with OCT and fluorescein or OCT angiography as needed</td><td>completed</td><td>GL-AAO-AMD-2024</td></tr>
+  <tr><td>Intravitreal aflibercept 2 mg in the left eye every four weeks for three doses, then treat-and-extend by two-week steps while the macula stays dry</td><td>completed</td><td>GL-AAO-AMD-2024</td></tr>
+  <tr><td>At each injection visit: best-corrected acuity, OCT, and intraocular pressure before and after injection; teach warning signs of endophthalmitis and retinal detachment</td><td>completed</td><td>GL-AAO-AMD-2024, GL-CMID-2026</td></tr>
+  <tr><td>Start an AREDS2 supplement (vitamin C 500 mg, vitamin E 400 IU, lutein 10 mg, zeaxanthin 2 mg, zinc 80 mg, copper 2 mg daily) for intermediate AMD in the right eye; no beta-carotene</td><td>completed</td><td>GL-AAO-AMD-2024</td></tr>
+  <tr><td>Daily home Amsler grid checks for each eye, with same-day calls for new distortion; dilated examination of the right eye at each retina visit</td><td>completed</td><td>GL-AAO-AMD-2024</td></tr>
+  <tr><td>Low-vision rehabilitation: task lighting, magnification, high-contrast marking, home fall-risk review, and a driving assessment</td><td>completed</td><td>GL-AAO-AMD-2024, GL-CMID-2026</td></tr>
+  <tr><td>Repeat the PHQ-2 at follow-up because vision loss raises the risk of depression</td><td>completed</td><td>GL-CMID-2026</td></tr></tbody></table></section>
+    <section><h2>Planned encounters</h2><ul>
+  <li><strong>2026-03-10</strong> — Primary care visit for new wavy lines and a blurred spot in the left eye <span class="muted">(ENC-001)</span></li>
+  <li><strong>2026-03-12</strong> — Ophthalmology consultation, retinal imaging, and first anti-VEGF injection <span class="muted">(ENC-002)</span></li>
+  <li><strong>2026-04-09</strong> — Four-week retina follow-up with OCT and second injection <span class="muted">(ENC-003)</span></li>
+  <li><strong>2026-05-07</strong> — Eight-week retina follow-up with OCT and third injection <span class="muted">(ENC-004)</span></li>
+  <li><strong>2026-07-02</strong> — Treat-and-extend retina visit and primary care review of vision rehabilitation <span class="muted">(ENC-005)</span></li></ul></section>
+    <section><h2>Supporting documents</h2><ul><li><a href="notes/hp.md">History and physical</a></li><li><a href="notes/progress-01.md">Progress note 01</a></li><li><a href="notes/progress-02.md">Progress note 02</a></li><li><a href="notes/progress-03.md">Progress note 03</a></li><li><a href="notes/progress-04.md">Progress note 04</a></li><li><a href="notes/progress-05.md">Progress note 05</a></li><li><a href="notes/referral-01.md">Ophthalmology referral</a></li><li><a href="notes/consult-01.md">Ophthalmology consultation</a></li><li><a href="notes/careplan.md">Patient care plan</a></li><li><a href="notes/teaching-note.md">Teaching note</a></li><li><a href="provenance.csv">Provenance CSV</a></li></ul></section>
+    <section><h2>C-CDA note documents</h2><p class="muted">Each link opens a readable copy; the XML beside it is the exchange file.</p><ul><li><a href="ccda/hp-01.html">History and physical</a> <a href="ccda/hp-01.xml">(XML)</a></li><li><a href="ccda/progress-01.html">Progress note 01</a> <a href="ccda/progress-01.xml">(XML)</a></li><li><a href="ccda/progress-02.html">Progress note 02</a> <a href="ccda/progress-02.xml">(XML)</a></li><li><a href="ccda/progress-03.html">Progress note 03</a> <a href="ccda/progress-03.xml">(XML)</a></li><li><a href="ccda/progress-04.html">Progress note 04</a> <a href="ccda/progress-04.xml">(XML)</a></li><li><a href="ccda/progress-05.html">Progress note 05</a> <a href="ccda/progress-05.xml">(XML)</a></li><li><a href="ccda/referral-01.html">Ophthalmology referral</a> <a href="ccda/referral-01.xml">(XML)</a></li><li><a href="ccda/consult-01.html">Ophthalmology consultation</a> <a href="ccda/consult-01.xml">(XML)</a></li></ul></section>
+    <section><h2>Sources</h2><table><thead><tr><th>ID</th><th>Source</th><th>Publisher</th><th>Type</th></tr></thead><tbody>
+  <tr>
+    <td>SRC-0001</td>
+    <td><a href="https://access-ok.okeeffemuseum.org/chronology/" target="_blank" rel="noreferrer">Chronology (Georgia O&#39;Keeffe Museum accessible site)</a></td>
+    <td>Georgia O&#39;Keeffe Museum</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0002</td>
+    <td><a href="https://access-ok.okeeffemuseum.org/biography/" target="_blank" rel="noreferrer">Biography (Georgia O&#39;Keeffe Museum accessible site)</a></td>
+    <td>Georgia O&#39;Keeffe Museum</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0003</td>
+    <td><a href="https://whitney.org/media/632" target="_blank" rel="noreferrer">Georgia O&#39;Keeffe: Watercolors exhibition audio (late works)</a></td>
+    <td>Whitney Museum of American Art</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0004</td>
+    <td><a href="https://visionandartproject.org/artists/georgia-okeeffe/" target="_blank" rel="noreferrer">Georgia O&#39;Keeffe</a></td>
+    <td>The Vision &amp; Art Project (American Macular Degeneration Foundation)</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0005</td>
+    <td><a href="https://humanrecord.example.org/internal/HISTMED_Master_Roster_v3.xlsx" target="_blank" rel="noreferrer">HISTMED Master Roster v3</a></td>
+    <td>The Human Record project</td>
+    <td>other</td>
+  </tr></tbody></table></section>
+    <section><h2>Review status</h2><table><thead><tr><th>Review</th><th>Status</th><th>Notes</th></tr></thead><tbody>
+  <tr><td>schema validation</td><td>not_started</td><td>Run scripts/build.ps1 -Conformance.</td></tr>
+  <tr><td>clinical review</td><td>not_started</td><td>Awaiting clinician review.</td></tr>
+  <tr><td>provenance review</td><td>not_started</td><td>O&#39;Keeffe Museum chronology and biography, Whitney Museum text, and the Vision &amp; Art Project logged; the 1972 letter and the 1992 biography were not reviewed directly.</td></tr>
+  <tr><td>safe messaging review</td><td>not_started</td><td>The 1933 hospitalization is recorded as history in the period&#39;s term and marked sensitive; no modern psychiatric diagnosis is inferred. Death recorded without graphic detail.</td></tr></tbody></table></section>
+  </main>
+</body>
+</html>

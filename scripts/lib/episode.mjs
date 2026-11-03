@@ -77,5 +77,10 @@ export const withUnit = (observation) => {
 };
 export const sentence = (text) => /[.!?]$/.test(text) ? text : `${text}.`;
 export const midSentence = (text) => /^[A-Z][a-z]/.test(text) ? text[0].toLowerCase() + text.slice(1) : text;
+// Problems known at a visit: a problem with recorded_date (the visit that made the diagnosis) is
+// absent from earlier visits' documents. Problems without one are known from the index visit.
+export const problemsAt = (data, date) => data.clinical.problems.filter(problem => !date || !problem.recorded_date || problem.recorded_date <= date);
+export const activeProblemsAt = (data, date) => problemsAt(data, date).filter(problem => problem.clinical_status === "active");
+
 // Notes use the short clinical name when one is given (ALT rather than the full LOINC display).
 export const labelOf = (observation) => observation.label ?? observation.display;

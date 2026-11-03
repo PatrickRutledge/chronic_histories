@@ -1,0 +1,361 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Frida Kahlo — The Human Record</title>
+  <style>
+    :root { --navy:#17365d; --blue:#1f4e78; --pale:#eef5fa; --ink:#1f2933; --muted:#66788a; --amber:#fff2cc; --red:#f8d7da; --green:#d9ead3; }
+    * { box-sizing:border-box; }
+    body { margin:0; font:16px/1.5 Arial, sans-serif; color:var(--ink); background:#f6f8fa; }
+    header { background:var(--navy); color:white; padding:24px max(24px,calc((100vw - 1180px)/2)); }
+    header h1 { margin:4px 0; font-size:30px; }
+    .banner { background:#b42318; color:white; font-weight:700; text-align:center; padding:10px; letter-spacing:.03em; }
+    main { max-width:1180px; margin:24px auto 60px; padding:0 24px; }
+    section { background:white; border:1px solid #d9e1e8; border-radius:8px; margin:18px 0; padding:20px; }
+    h2 { color:var(--navy); margin:0 0 14px; font-size:22px; }
+    h3 { color:var(--blue); }
+    .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:12px; }
+    .card { background:var(--pale); border-left:4px solid var(--blue); padding:12px; }
+    .label { color:var(--muted); font-size:13px; text-transform:uppercase; letter-spacing:.04em; }
+    table { width:100%; border-collapse:collapse; }
+    th { background:var(--blue); color:white; text-align:left; }
+    th,td { padding:9px; border-bottom:1px solid #dfe6ec; vertical-align:top; }
+    .badge { display:inline-block; min-width:28px; text-align:center; font-weight:700; border-radius:12px; padding:2px 8px; }
+    .grade-D { background:var(--green); } .grade-R { background:var(--amber); } .grade-S { background:var(--red); }
+    .muted { color:var(--muted); font-size:14px; }
+    .relationship { color:var(--muted); font-size:12px; }
+    .downloads a { display:inline-block; margin:4px 8px 4px 0; padding:8px 12px; background:var(--blue); color:white; text-decoration:none; border-radius:5px; }
+    @media (max-width:700px) { table { display:block; overflow-x:auto; } }
+  </style>
+</head>
+<body>
+  <div class="banner">SYNTHETIC RECORD, NOT A REAL MEDICAL RECORD</div>
+  <header>
+    <div>The Human Record</div>
+    <h1>Frida Kahlo</h1>
+    <div>Case HR-NI011 · Modern EHR teaching episode · Draft for review</div>
+  </header>
+  <main>
+    <section>
+      <h2>Review summary</h2>
+      <div class="grid">
+        <div class="card"><div class="label">Historical dates</div>July 6, 1907 – July 13, 1954</div>
+        <div class="card"><div class="label">Synthetic DOB</div>1989-07-06</div>
+        <div class="card"><div class="label">Index visit</div>2026-09-17 at age 37</div>
+        <div class="card"><div class="label">Synthetic MRN</div>HR-NI011-SYN</div>
+      </div>
+      <p><strong>Teaching objective:</strong> Manage chronic pain after major trauma and childhood polio in a patient already on long-term opioid therapy, following the CDC 2022 opioid guideline: measure pain and function, build a nonopioid and rehabilitation plan, offer naloxone and other risk mitigation, and taper gradually and collaboratively rather than abruptly, while screening mood and treating post-traumatic ankle osteoarthritis on the CMID schedule.</p>
+      <div class="downloads">
+        <a href="../case.json">Canonical JSON</a>
+        <a href="fhir-bundle.json">FHIR R4 draft</a>
+        <a href="ccda.html">C-CDA R2.1 summary</a> <a href="ccda.xml">(XML)</a>
+        <a href="../sources.md">Evidence dossier</a>
+      </div>
+    </section>
+    <section><h2>Historical timeline</h2><table><thead><tr><th>Date</th><th>Event</th><th>Claims</th></tr></thead><tbody>
+  <tr><td>July 6, 1907</td><td>Born in Coyoacán, Mexico City.</td><td>CLM-0001</td></tr>
+  <tr><td>1913</td><td>Polio at age six, leaving the right leg thinner and shorter.</td><td>CLM-0003, CLM-0004</td></tr>
+  <tr><td>September 17, 1925</td><td>Bus struck by a streetcar: pelvic, spinal, collarbone, rib, and right leg fractures.</td><td>CLM-0005</td></tr>
+  <tr><td>1925 to 1926</td><td>Began to paint while immobilized in bed.</td><td>CLM-0006</td></tr>
+  <tr><td>After 1925</td><td>Chronic pain, many operations, and about 25 corsets.</td><td>CLM-0007, CLM-0009</td></tr>
+  <tr><td>1932</td><td>Mother died.</td><td>CLM-0012</td></tr>
+  <tr><td>1941</td><td>Father died.</td><td>CLM-0012</td></tr>
+  <tr><td>1944</td><td>Stopped attending her classes at La Esmeralda because of limited mobility.</td><td>CLM-0008</td></tr>
+  <tr><td>1950</td><td>Nearly a year in hospital with an infection after a spinal graft.</td><td>CLM-0010</td></tr>
+  <tr><td>1953</td><td>Right leg amputated below the knee for threatened gangrene.</td><td>CLM-0011</td></tr>
+  <tr><td>July 13, 1954</td><td>Died at the Blue House, aged 47.</td><td>CLM-0002</td></tr></tbody></table></section>
+    <section><h2>Evidence claims</h2><p class="muted">D = documented, R = retrospective, S = synthetic.</p><table><thead><tr><th>Grade</th><th>Claim</th><th>Certainty</th><th>Sources</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>Magdalena Carmen Frida Kahlo Calderón was born on July 6, 1907, in her parents&#39; house in Coyoacán, Mexico City, now known as the Blue House, the daughter of Guillermo Kahlo and Matilde Calderón.</strong></td>
+    <td>confirmed</td>
+    <td><a href="https://www.museofridakahlo.org.mx/wp/wp-content/uploads/2022/08/Biografias-Frida-Kahlo-ingles.pdf" target="_blank" rel="noreferrer">Biography of Frida Kahlo (Ochoa Sandy G; edited and updated by Ximena Jordan)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>Frida Kahlo died at the Blue House in Mexico City on July 13, 1954, at the age of 47.</strong><div class="muted">Record the death as a fact without graphic detail.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.museofridakahlo.org.mx/wp/wp-content/uploads/2022/08/Biografias-Frida-Kahlo-ingles.pdf" target="_blank" rel="noreferrer">Biography of Frida Kahlo (Ochoa Sandy G; edited and updated by Ximena Jordan)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>In 1913, at the age of six, Kahlo fell ill with polio; afterward her right leg was thinner, slightly shorter, and less developed, with the foot turned outward, and her father encouraged cycling and swimming.</strong><div class="muted">The contemporaneous diagnosis was polio; a retrospective analysis adds a congenital spinal anomaly.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.museofridakahlo.org.mx/wp/wp-content/uploads/2022/08/Biografias-Frida-Kahlo-ingles.pdf" target="_blank" rel="noreferrer">Biography of Frida Kahlo (Ochoa Sandy G; edited and updated by Ximena Jordan)</a> <span class="relationship">supports</span><br><a href="https://pubmed.ncbi.nlm.nih.gov/27562644/" target="_blank" rel="noreferrer">Courtney CA, O&#39;Hearn MA, Franck CC. Frida Kahlo: Portrait of Chronic Pain. Phys Ther. 2017;97(1):90-96</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-R" title="Retrospective">R</span></td>
+    <td><strong>A neurologist&#39;s retrospective review proposes that Kahlo also had a congenital spinal anomaly (spina bifida).</strong><div class="muted">Retrospective interpretation; kept off the active problem list.</div></td>
+    <td>possible</td>
+    <td><a href="https://pubmed.ncbi.nlm.nih.gov/16432301/" target="_blank" rel="noreferrer">Budrys V. Neurological deficits in the life and works of Frida Kahlo. Eur Neurol. 2006;55(1):4-10</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>On September 17, 1925, at 18, Kahlo was riding a bus that was struck by a streetcar; a metal handrail impaled her through the hip and fractured her pelvis, and she had three fractures of the spinal column, a fractured collarbone, two rib fractures, a dislocated right shoulder, and eleven fractures of the right leg with a dislocated foot.</strong><div class="muted">The documented injuries behind the synthetic chronic pain diagnoses; stated without graphic detail.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.museofridakahlo.org.mx/wp/wp-content/uploads/2022/08/Biografias-Frida-Kahlo-ingles.pdf" target="_blank" rel="noreferrer">Biography of Frida Kahlo (Ochoa Sandy G; edited and updated by Ximena Jordan)</a> <span class="relationship">supports</span><br><a href="https://pubmed.ncbi.nlm.nih.gov/27562644/" target="_blank" rel="noreferrer">Courtney CA, O&#39;Hearn MA, Franck CC. Frida Kahlo: Portrait of Chronic Pain. Phys Ther. 2017;97(1):90-96</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>While immobilized for several months after the accident, Kahlo began to paint, using an easel adapted for painting in bed.</strong><div class="muted">A documented strength: art as a way through prolonged pain and bed rest.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.museofridakahlo.org.mx/wp/wp-content/uploads/2022/08/Biografias-Frida-Kahlo-ingles.pdf" target="_blank" rel="noreferrer">Biography of Frida Kahlo (Ochoa Sandy G; edited and updated by Ximena Jordan)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>Kahlo lived with chronic pain for the rest of her life, underwent many operations, some with long convalescences and serious consequences, and used about 25 different corsets.</strong></td>
+    <td>confirmed</td>
+    <td><a href="https://www.museofridakahlo.org.mx/wp/wp-content/uploads/2022/08/Biografias-Frida-Kahlo-ingles.pdf" target="_blank" rel="noreferrer">Biography of Frida Kahlo (Ochoa Sandy G; edited and updated by Ximena Jordan)</a> <span class="relationship">supports</span><br><a href="https://pubmed.ncbi.nlm.nih.gov/27562644/" target="_blank" rel="noreferrer">Courtney CA, O&#39;Hearn MA, Franck CC. Frida Kahlo: Portrait of Chronic Pain. Phys Ther. 2017;97(1):90-96</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>In 1944, because of increasingly limited mobility, Kahlo had to stop attending her classes at the La Esmeralda school of painting and sculpture, and some students continued to work with her at the Blue House.</strong><div class="muted">The documented functional decline that anchors the index age.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.museofridakahlo.org.mx/wp/wp-content/uploads/2022/08/Biografias-Frida-Kahlo-ingles.pdf" target="_blank" rel="noreferrer">Biography of Frida Kahlo (Ochoa Sandy G; edited and updated by Ximena Jordan)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-R" title="Retrospective">R</span></td>
+    <td><strong>Her pain has been interpreted retrospectively as including chronic neuropathic pain and central sensitization.</strong><div class="muted">Modern pain-science interpretation; informs the synthetic multimodal plan.</div></td>
+    <td>probable</td>
+    <td><a href="https://pubmed.ncbi.nlm.nih.gov/27562644/" target="_blank" rel="noreferrer">Courtney CA, O&#39;Hearn MA, Franck CC. Frida Kahlo: Portrait of Chronic Pain. Phys Ther. 2017;97(1):90-96</a> <span class="relationship">supports</span><br><a href="https://pubmed.ncbi.nlm.nih.gov/16432301/" target="_blank" rel="noreferrer">Budrys V. Neurological deficits in the life and works of Frida Kahlo. Eur Neurol. 2006;55(1):4-10</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>In 1950 Kahlo spent nearly the whole year in hospital with an infection after a graft to her spinal column.</strong></td>
+    <td>confirmed</td>
+    <td><a href="https://www.museofridakahlo.org.mx/wp/wp-content/uploads/2022/08/Biografias-Frida-Kahlo-ingles.pdf" target="_blank" rel="noreferrer">Biography of Frida Kahlo (Ochoa Sandy G; edited and updated by Ximena Jordan)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>In 1953 Kahlo&#39;s right leg was amputated below the knee because of the threat of gangrene.</strong></td>
+    <td>confirmed</td>
+    <td><a href="https://www.museofridakahlo.org.mx/wp/wp-content/uploads/2022/08/Biografias-Frida-Kahlo-ingles.pdf" target="_blank" rel="noreferrer">Biography of Frida Kahlo (Ochoa Sandy G; edited and updated by Ximena Jordan)</a> <span class="relationship">supports</span><br><a href="https://pubmed.ncbi.nlm.nih.gov/27562644/" target="_blank" rel="noreferrer">Courtney CA, O&#39;Hearn MA, Franck CC. Frida Kahlo: Portrait of Chronic Pain. Phys Ther. 2017;97(1):90-96</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>Kahlo&#39;s father, Guillermo Kahlo, had epilepsy and died in 1941; her mother, Matilde Calderón, died in 1932.</strong><div class="muted">The cited source does not give causes of death.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.museofridakahlo.org.mx/wp/wp-content/uploads/2022/08/Biografias-Frida-Kahlo-ingles.pdf" target="_blank" rel="noreferrer">Biography of Frida Kahlo (Ochoa Sandy G; edited and updated by Ximena Jordan)</a> <span class="relationship">supports</span></td>
+  </tr></tbody></table></section>
+    <section><h2>Modern synthetic problem list</h2><table><thead><tr><th>Grade</th><th>Problem</th><th>Clinical status</th><th>Verification</th><th>Placement</th><th>Historical claims</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Chronic low back and pelvic pain after remote spinal and pelvic fractures and spinal surgery, with neuropathic features in the right leg; linked to the documented 1925 injuries</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>both_with_link</td>
+    <td>CLM-0005, CLM-0007, CLM-0009</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Post-traumatic osteoarthritis of the right ankle and foot after multiple leg fractures and a foot dislocation</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td>CLM-0005</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Right leg weakness, atrophy, and shortening after childhood poliomyelitis; a congenital spinal anomaly has been proposed retrospectively</td>
+    <td>active</td>
+    <td>provisional</td>
+    <td>both_with_link</td>
+    <td>CLM-0003, CLM-0004</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Long-term opioid therapy for chronic pain, 60 MME a day at intake</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Vitamin D deficiency</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td></td>
+  </tr></tbody></table></section>
+    <section><h2>Synthetic outcome measures</h2><table><thead><tr><th>Grade</th><th>Date</th><th>Measure</th><th>Result</th><th>Coding</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-09-17</td>
+    <td>Alanine aminotransferase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>22 U/L<div class="muted">Reference 7-35 U/L</div></td>
+    <td>http://loinc.org · 1742-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-09-17</td>
+    <td>Creatinine [Mass/volume] in Serum or Plasma</td>
+    <td>0.72 mg/dL<div class="muted">Reference 0.59-1.04 mg/dL</div></td>
+    <td>http://loinc.org · 2160-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-09-17</td>
+    <td>Glomerular filtration rate [Volume Rate/Area] in Serum, Plasma or Blood by Creatinine-based formula (CKD-EPI 2021)/1.73 sq M</td>
+    <td>110 mL/min/1.73 m²<div class="muted">Reference &gt;=60 mL/min/1.73 m²</div></td>
+    <td>http://loinc.org · 98979-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-09-17</td>
+    <td>25-Hydroxyvitamin D3+25-Hydroxyvitamin D2 [Mass/volume] in Serum or Plasma</td>
+    <td>18 ng/mL (low)<div class="muted">Reference 30-100 ng/mL</div></td>
+    <td>http://loinc.org · 62292-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-09-17</td>
+    <td>Mean score [PEG]</td>
+    <td>7.3</td>
+    <td>http://loinc.org · 91147-9</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-09-17</td>
+    <td>Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]</td>
+    <td>8</td>
+    <td>http://loinc.org · 44261-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-10-01</td>
+    <td>Mean score [PEG]</td>
+    <td>7</td>
+    <td>http://loinc.org · 91147-9</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-10-15</td>
+    <td>Mean score [PEG]</td>
+    <td>6</td>
+    <td>http://loinc.org · 91147-9</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-10-15</td>
+    <td>Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]</td>
+    <td>6</td>
+    <td>http://loinc.org · 44261-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-10-29</td>
+    <td>Alanine aminotransferase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>24 U/L<div class="muted">Reference 7-35 U/L</div></td>
+    <td>http://loinc.org · 1742-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-10-29</td>
+    <td>Mean score [PEG]</td>
+    <td>5.3</td>
+    <td>http://loinc.org · 91147-9</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-10-29</td>
+    <td>Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]</td>
+    <td>4</td>
+    <td>http://loinc.org · 44261-6</td>
+  </tr></tbody></table></section>
+    <section><h2>Synthetic vital signs</h2><table><thead><tr><th>Date</th><th>Measure</th><th>Result</th><th>LOINC</th><th>Grade</th></tr></thead><tbody>
+  <tr><td>2026-09-17</td><td>Body height</td><td>160 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-09-17</td><td>Body weight</td><td>50 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-09-17</td><td>Body mass index (BMI) [Ratio]</td><td>19.5 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-09-17</td><td>Systolic blood pressure</td><td>118 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-09-17</td><td>Diastolic blood pressure</td><td>74 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-09-17</td><td>Heart rate</td><td>82 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-09-17</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-09-17</td><td>Body temperature</td><td>36.7 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-09-17</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>98 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-01</td><td>Body height</td><td>160 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-01</td><td>Body weight</td><td>50 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-01</td><td>Body mass index (BMI) [Ratio]</td><td>19.5 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-01</td><td>Systolic blood pressure</td><td>116 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-01</td><td>Diastolic blood pressure</td><td>72 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-01</td><td>Heart rate</td><td>80 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-01</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-01</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-01</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>99 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-15</td><td>Body height</td><td>160 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-15</td><td>Body weight</td><td>50.5 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-15</td><td>Body mass index (BMI) [Ratio]</td><td>19.7 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-15</td><td>Systolic blood pressure</td><td>114 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-15</td><td>Diastolic blood pressure</td><td>72 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-15</td><td>Heart rate</td><td>78 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-15</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-15</td><td>Body temperature</td><td>36.7 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-15</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>98 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-29</td><td>Body height</td><td>160 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-29</td><td>Body weight</td><td>50.5 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-29</td><td>Body mass index (BMI) [Ratio]</td><td>19.7 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-29</td><td>Systolic blood pressure</td><td>116 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-29</td><td>Diastolic blood pressure</td><td>70 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-29</td><td>Heart rate</td><td>76 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-29</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-29</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-29</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>99 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr></tbody></table></section>
+    <section><h2>Social, functional, and mental status</h2><h3>Social history</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Occupation: painter who works from home and teaches art; has had to stop teaching at the art school because of limited mobility, and some students now come to her studio</li><li><span class="badge grade-S" title="Synthetic">S</span> Married; lives in the family home she grew up in</li><li><span class="badge grade-S" title="Synthetic">S</span> No sedative, benzodiazepine, or sleep-medication prescriptions; the prescription drug monitoring program shows a single prescriber</li><li><span class="badge grade-S" title="Synthetic">S</span> Supports: spouse, a younger sister nearby, former students, and a wide circle of friends in the arts</li></ul><h3>Functional status</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Walks short distances with a cane and a limp from the shorter right leg; uses a wheelchair for longer outings; wears a back brace on bad days</li><li><span class="badge grade-S" title="Synthetic">S</span> Paints two to three hours a day, often seated or reclining; pain limits standing at the easel</li></ul><h3>Mental status</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Alert, warm, witty, and direct; describes pain vividly and with humor</li><li><span class="badge grade-S" title="Synthetic">S</span> Mood frustrated and low at times because of pain and lost mobility; PHQ-9 in the mild range with no thoughts of self-harm</li></ul></section>
+    
+    <section><h2>Allergies and medications</h2><h3>Allergies</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> No known allergy</li></ul><h3>Medications</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Oxycodone 10 mg oral tablet, one tablet every 6 hours as needed for pain, no more than four a day (60 MME a day)</li><li><span class="badge grade-S" title="Synthetic">S</span> Oxycodone 10 mg oral tablet, one tablet three times daily as needed for pain</li><li><span class="badge grade-S" title="Synthetic">S</span> Oxycodone 5 mg oral tablet, one tablet at bedtime as needed for pain</li><li><span class="badge grade-S" title="Synthetic">S</span> Duloxetine 30 mg delayed-release oral capsule, one capsule daily</li><li><span class="badge grade-S" title="Synthetic">S</span> Duloxetine 60 mg delayed-release oral capsule, one capsule daily</li><li><span class="badge grade-S" title="Synthetic">S</span> Acetaminophen 500 mg oral tablet, two tablets three times daily</li><li><span class="badge grade-S" title="Synthetic">S</span> Diclofenac sodium 1% topical gel, 2 g to the right ankle four times daily</li><li><span class="badge grade-S" title="Synthetic">S</span> Cholecalciferol (vitamin D3) 2,000 units oral tablet, one tablet daily</li></ul></section>
+    <section><h2>Procedures and immunizations</h2><h3>Procedures</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Plain X-ray of the right ankle: joint-space narrowing, osteophytes, and healed old fractures</li><li><span class="badge grade-S" title="Synthetic">S</span> Urine drug test, with consent, before continuing long-term opioid therapy; result consistent with the prescribed oxycodone only</li><li><span class="badge grade-S" title="Synthetic">S</span> Physical therapy twice weekly: graded exercise, core and hip strengthening, aquatic therapy, and a shoe lift for the shorter right leg</li><li><span class="badge grade-S" title="Synthetic">S</span> Cognitive behavioral therapy for chronic pain, weekly</li></ul><h3>Immunizations</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> 2026-10-15: Influenza vaccine, 2026-2027 season</li><li><span class="badge grade-S" title="Synthetic">S</span> 2022-02-14: Tdap vaccine</li></ul></section>
+    <section><h2>Past medical history</h2><p class="muted">True biography with historical dates; not part of the synthetic care timeline.</p><ul><li><span class="badge grade-D" title="Documented">D</span> 1913: Poliomyelitis at age six in 1913, leaving the right leg thinner, shorter, and less developed, with the foot turned outward <span class="muted">(CLM-0003)</span></li><li><span class="badge grade-R" title="Retrospective">R</span> Proposed in 2006: Congenital spinal anomaly (spina bifida) proposed retrospectively; not established <span class="muted">(CLM-0004)</span></li><li><span class="badge grade-D" title="Documented">D</span> September 17, 1925: Bus and streetcar collision on September 17, 1925: pelvic fracture from a handrail injury through the hip, three spinal fractures, fractured collarbone and two ribs, dislocated right shoulder, and eleven fractures of the right leg with a dislocated foot <span class="muted">(CLM-0005)</span></li><li><span class="badge grade-D" title="Documented">D</span> After 1925: Many operations after the accident, some with long convalescences, and about 25 different corsets for posture <span class="muted">(CLM-0007)</span></li></ul><h3>Family history</h3><ul><li><span class="badge grade-D" title="Documented">D</span> father: Epilepsy; died in 1941, cause not recorded in the cited source</li><li><span class="badge grade-D" title="Documented">D</span> mother: Died in 1932; cause not recorded in the cited source</li></ul></section>
+    <section><h2>Care-plan goals</h2><table><thead><tr><th>Goal</th><th>Target date</th><th>Status</th><th>Outcome</th></tr></thead><tbody>
+  <tr><td>Improve the PEG score by at least 30% from baseline</td><td>2026-10-29</td><td>active</td><td>PEG fell from 7.3 to 5.3 by the six-week review, a 27% improvement; goal continued</td></tr>
+  <tr><td>Stand at the easel for 30 minutes at a time by the six-week review</td><td>2026-10-29</td><td>completed</td><td>Stands 25 to 30 minutes at the easel with the shoe lift</td></tr>
+  <tr><td>First opioid dose reduction, agreed by the patient, without loss of function</td><td>2026-10-29</td><td>completed</td><td>Reduced from 60 to 52.5 MME a day at the four-week visit; PEG and standing tolerance improved at the six-week review</td></tr>
+  <tr><td>Naloxone in the home with a family member trained to use it</td><td>2026-09-17</td><td>completed</td><td>Naloxone nasal spray dispensed; spouse taught at the first visit</td></tr></tbody></table></section>
+    <section><h2>Interventions</h2><table><thead><tr><th>Intervention</th><th>Status</th><th>Guideline</th></tr></thead><tbody>
+  <tr><td>Physical medicine and rehabilitation referral for a multimodal rehabilitation plan: exercise therapy, bracing and orthotic review, a shoe lift for the leg-length difference, and function goals</td><td>completed</td><td>GL-VADOD-LBP-2022, GL-ACP-LBP-2017</td></tr>
+  <tr><td>Nonopioid treatment first: duloxetine titrated to 60 mg daily, scheduled acetaminophen up to 3 g a day, and topical diclofenac for the ankle</td><td>completed</td><td>GL-ACP-LBP-2017, GL-CDC-OPIOID-2022, GL-CMID-2026</td></tr>
+  <tr><td>Opioid risk mitigation: review benefits and harms together, check the prescription drug monitoring program, urine drug test with consent, prescribe naloxone 4 mg nasal spray and teach a family member, and avoid benzodiazepines and other sedatives</td><td>completed</td><td>GL-CDC-OPIOID-2022</td></tr>
+  <tr><td>Collaborative, gradual opioid taper of about 10% of the dose a month, paused if pain or function worsens; never stop opioids abruptly</td><td>completed</td><td>GL-CDC-OPIOID-2022</td></tr>
+  <tr><td>Physical therapy twice weekly with graded exercise and aquatic therapy, pain neuroscience education, and cognitive behavioral therapy for chronic pain</td><td>completed</td><td>GL-ACP-LBP-2017, GL-VADOD-LBP-2022</td></tr>
+  <tr><td>Measure pain and function with the PEG at every visit and depressive symptoms with the PHQ-9 every two to four weeks; complete a structured safety assessment if the PHQ-9 reaches 10 or item 9 is positive</td><td>completed</td><td>GL-CMID-2026, GL-CDC-OPIOID-2022</td></tr>
+  <tr><td>Check ALT periodically on regular acetaminophen, and replete vitamin D</td><td>completed</td><td>GL-CMID-2026</td></tr></tbody></table></section>
+    <section><h2>Planned encounters</h2><ul>
+  <li><strong>2026-09-17</strong> — New primary care visit for chronic back, pelvic, and right leg pain on long-term opioid therapy <span class="muted">(ENC-001)</span></li>
+  <li><strong>2026-10-01</strong> — Physical medicine and rehabilitation consultation for a multimodal rehabilitation plan <span class="muted">(ENC-002)</span></li>
+  <li><strong>2026-10-15</strong> — Four-week chronic pain follow-up with the first opioid dose reduction <span class="muted">(ENC-003)</span></li>
+  <li><strong>2026-10-29</strong> — Six-week chronic pain review of function, mood, and the opioid taper <span class="muted">(ENC-004)</span></li></ul></section>
+    <section><h2>Supporting documents</h2><ul><li><a href="notes/hp.md">History and physical</a></li><li><a href="notes/progress-01.md">Progress note 01</a></li><li><a href="notes/progress-02.md">Progress note 02</a></li><li><a href="notes/progress-03.md">Progress note 03</a></li><li><a href="notes/progress-04.md">Progress note 04</a></li><li><a href="notes/referral-01.md">Physical Medicine and Rehabilitation referral</a></li><li><a href="notes/consult-01.md">Physical Medicine and Rehabilitation consultation</a></li><li><a href="notes/careplan.md">Patient care plan</a></li><li><a href="notes/teaching-note.md">Teaching note</a></li><li><a href="provenance.csv">Provenance CSV</a></li></ul></section>
+    <section><h2>C-CDA note documents</h2><p class="muted">Each link opens a readable copy; the XML beside it is the exchange file.</p><ul><li><a href="ccda/hp-01.html">History and physical</a> <a href="ccda/hp-01.xml">(XML)</a></li><li><a href="ccda/progress-01.html">Progress note 01</a> <a href="ccda/progress-01.xml">(XML)</a></li><li><a href="ccda/progress-02.html">Progress note 02</a> <a href="ccda/progress-02.xml">(XML)</a></li><li><a href="ccda/progress-03.html">Progress note 03</a> <a href="ccda/progress-03.xml">(XML)</a></li><li><a href="ccda/progress-04.html">Progress note 04</a> <a href="ccda/progress-04.xml">(XML)</a></li><li><a href="ccda/referral-01.html">Physical Medicine and Rehabilitation referral</a> <a href="ccda/referral-01.xml">(XML)</a></li><li><a href="ccda/consult-01.html">Physical Medicine and Rehabilitation consultation</a> <a href="ccda/consult-01.xml">(XML)</a></li></ul></section>
+    <section><h2>Sources</h2><table><thead><tr><th>ID</th><th>Source</th><th>Publisher</th><th>Type</th></tr></thead><tbody>
+  <tr>
+    <td>SRC-0001</td>
+    <td><a href="https://www.museofridakahlo.org.mx/wp/wp-content/uploads/2022/08/Biografias-Frida-Kahlo-ingles.pdf" target="_blank" rel="noreferrer">Biography of Frida Kahlo (Ochoa Sandy G; edited and updated by Ximena Jordan)</a></td>
+    <td>Museo Frida Kahlo, Mexico City</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0002</td>
+    <td><a href="https://pubmed.ncbi.nlm.nih.gov/27562644/" target="_blank" rel="noreferrer">Courtney CA, O&#39;Hearn MA, Franck CC. Frida Kahlo: Portrait of Chronic Pain. Phys Ther. 2017;97(1):90-96</a></td>
+    <td>Physical Therapy (PubMed 27562644)</td>
+    <td>scholarly</td>
+  </tr>
+  <tr>
+    <td>SRC-0003</td>
+    <td><a href="https://pubmed.ncbi.nlm.nih.gov/16432301/" target="_blank" rel="noreferrer">Budrys V. Neurological deficits in the life and works of Frida Kahlo. Eur Neurol. 2006;55(1):4-10</a></td>
+    <td>European Neurology (PubMed 16432301)</td>
+    <td>scholarly</td>
+  </tr>
+  <tr>
+    <td>SRC-0004</td>
+    <td><a href="https://humanrecord.example.org/internal/HISTMED_Master_Roster_v3.xlsx" target="_blank" rel="noreferrer">HISTMED Master Roster v3</a></td>
+    <td>The Human Record project</td>
+    <td>other</td>
+  </tr></tbody></table></section>
+    <section><h2>Review status</h2><table><thead><tr><th>Review</th><th>Status</th><th>Notes</th></tr></thead><tbody>
+  <tr><td>schema validation</td><td>not_started</td><td>Run scripts/build.ps1 -Conformance.</td></tr>
+  <tr><td>clinical review</td><td>not_started</td><td>Awaiting clinician review.</td></tr>
+  <tr><td>provenance review</td><td>not_started</td><td>Museo Frida Kahlo biography and two PubMed abstracts logged; roster era corrected from 19th Century to Early 20th Century.</td></tr>
+  <tr><td>safe messaging review</td><td>not_started</td><td>Injuries and death recorded without graphic detail; PHQ-9 below 10 with item 9 negative at every screen; late-life opioid use not recorded.</td></tr></tbody></table></section>
+  </main>
+</body>
+</html>

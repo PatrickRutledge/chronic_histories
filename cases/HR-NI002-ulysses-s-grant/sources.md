@@ -1,0 +1,34 @@
+# Sources — Ulysses S. Grant
+
+> **SYNTHETIC RECORD, NOT A REAL MEDICAL RECORD**
+
+Accessed November 2, 2026. The canonical source metadata and claim links are in `case.json`.
+
+## Historical evidence
+
+1. U.S. National Park Service. “Ulysses S. Grant.” Supports his birth as Hiram Ulysses Grant on April 27, 1822, in Point Pleasant, Ohio, to Jesse and Hannah Grant; the loss of his fortune to a Wall Street scam; and the memoirs finished a few days before his death from throat cancer on July 23, 1885. https://www.nps.gov/people/ulysses-s-grant.htm
+2. U.S. National Park Service, General Grant National Memorial. “History & Culture.” Supports his death of throat cancer on July 23, 1885, at Mount McGregor, New York. https://www.nps.gov/gegr/learn/historyculture/index.htm
+3. National Library of Medicine, Archives and Modern Manuscripts. Finding aid for the John H. Douglas collection of Ulysses S. Grant letters and photographs. Supports Douglas as his physician from the fall of 1884 and the move to the Drexel cottage at Mount McGregor on June 17, 1885. https://findingaids.nlm.nih.gov/repositories/ammp/resources/grant175
+4. “Ulysses S. Grant in health and disease.” *Hektoen International*, Summer 2025. Secondary medical-history essay. Supports his cigar use (eighteen to twenty a day in wartime, nine or ten in peacetime), the June 1884 throat pain and painful swallowing, carcinoma of the right tonsillar pillar, cocaine and opiates for comfort, dictation of the memoirs by May 1885, the specialist’s suggested link with smoking, headaches “most likely migraines,” and the 1858 fever. https://hekint.org/2025/08/28/ulysses-s-grant-in-health-and-disease/
+5. U.S. Grant Cottage State Historic Site. “Through the Valley of the Shadow of Death” (March 30, 2020). Supports the June 1884 onset at Long Branch, Dr. Fordyce Barker’s referral to Dr. John H. Douglas on October 22, 1884, Douglas’s words “serious, epithelial in character,” Dr. George B. Elliot’s biopsy confirming cancer on February 19, 1885, and the June 16, 1885 arrival at Mount McGregor. https://grantcottage.org/blog/2020/3/30/through-the-valley-of-the-shadow-of-death
+6. Steckler RM, Shedd DP. “General Grant: his physicians and his cancer.” *American Journal of Surgery* 1976;132(4):508–514. Abstract reviewed; supports “carcinoma of the right tonsillar pillar” and the well-recorded course. Full text not reviewed. https://pubmed.ncbi.nlm.nih.gov/797264/
+7. PBS American Experience. “Grant’s Parents.” Supports his father’s death in 1873 at 79 and his mother’s death in 1883. Causes of death are not given. https://www.pbs.org/wgbh/americanexperience/features/grant-parents/
+8. National Cancer Institute. “Cigar Smoking and Cancer” fact sheet (reviewed October 27, 2010). General context: cigar smoking causes cancer of the oral cavity, larynx, esophagus, and lung. Not a statement about Grant. https://www.cancer.gov/about-cancer/causes-prevention/risk/tobacco/cigars-fact-sheet
+9. HISTMED Master Roster v3. Internal project source. Its clinical claims were provisional and were not treated as independent corroboration.
+
+## Clinical guidance
+
+1. National Comprehensive Cancer Network. NCCN Guidelines Insights: Head and Neck Cancers, Version 2.2025. *J Natl Compr Canc Netw* 2025;23(2). Cited for the NCCN head and neck cancer workup principles used at primary-care level: examination with laryngoscopy, biopsy, contrast imaging of the neck, PET/CT for staging, p16 testing for oropharyngeal cancer, and pretreatment dental, nutrition, and tobacco cessation care. The full NCCN guideline page could not be retrieved, and the Insights article itself features nasopharyngeal updates; the clinical reviewer should confirm the workup items against the current full guideline. https://pubmed.ncbi.nlm.nih.gov/39938471/
+2. U.S. Preventive Services Task Force. Tobacco Smoking Cessation in Adults, Including Pregnant Persons: Interventions (2021). Behavioral counseling and FDA-approved pharmacotherapy. https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/tobacco-use-in-adults-and-pregnant-women-counseling-and-interventions
+3. CMID: Clinical Monitoring Intelligence Database (Aether Forge, 2026), depression and hypothyroidism monographs. PHQ-2 or PHQ-9 depression screening per USPSTF, and thyroid case-finding after neck irradiation. Head and neck cancer is not a CMID condition, so the cancer workup follows the NCCN guideline. https://patrickrutledge.github.io/topthirty/
+
+## Editorial resolutions
+
+- **Index age.** The modern episode presents Grant at 62, his age when throat pain began in June 1884. The index visit is July 7, 2026, about four weeks into symptoms, so the true-date frame places it in July 1884. The fourth visit falls on October 22, 2026, which maps to October 22, 1884, the day Grant first saw Dr. Douglas. Past medical history and family history include only events before July 1884.
+- **Modern diagnosis.** The documented diagnosis was carcinoma of the right tonsillar pillar (**D**). The synthetic episode makes it a biopsy-proven, p16-negative squamous cell carcinoma (ICD-10-CM C09.1). The p16 result, imaging, staging, and treatment are **S**. In 1884–1885 about four months passed between symptoms and specialist evaluation; the synthetic pathway reaches a tissue diagnosis in two weeks.
+- **Scope.** The episode stays at primary-care level: urgent referral, imaging, tobacco cessation, nutrition, dental preparation, symptom control, mood screening, and laboratory monitoring. Chemoradiation is mentioned as directed by the head and neck oncology team and is not itemized as primary-care medication.
+- **Cause.** The link between his cigars and his cancer is graded **R** (probable). The NCI fact sheet is general context, not evidence about Grant.
+- **Conflicting dates.** The Grant Cottage gives June 16, 1885 for the arrival at Mount McGregor and the NLM finding aid gives June 17, 1885. The timeline uses June 16 and the claim notes both.
+- **Not used.** The year and details of the Wall Street loss were not given by the NPS source and are not dated here. A cigar gift after Fort Donelson, a hip injury, the doctors’ later debate over surgery, Grant’s alcohol use, and his tongue involvement appear in popular accounts that were not verified for this case and are not recorded. The *ENT Today*/AAO-HNS Bulletin article on Grant’s tumor could not be retrieved. The Powers, Pappas, and Powers 2026 editorial (PubMed 42833982) has no abstract and was not reviewed. The 1976 Steckler and Shedd full text was not reviewed.
+- **Headaches and fevers.** Migraine and malaria are retrospective interpretations (**R**) and remain in past medical history, not on the active problem list.
+- Grant died in 1885, so the recent-death review rule does not apply. Ordinary clinical, provenance, and safe-messaging reviews remain required.

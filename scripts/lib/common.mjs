@@ -65,7 +65,10 @@ export const ROUTES = {
   intramuscular: { snomed: "78421000", nci: "C28161", display: "Intramuscular route" },
   subcutaneous: { snomed: "34206005", nci: "C38299", display: "Subcutaneous route" },
   intravenous: { snomed: "47625008", nci: "C38276", display: "Intravenous route" },
-  inhalation: { snomed: "447694001", nci: "C38216", display: "Respiratory tract route" }
+  inhalation: { snomed: "447694001", nci: "C38216", display: "Respiratory tract route" },
+  nasal: { snomed: "46713006", nci: "C38284", display: "Nasal route" },
+  ophthalmic: { snomed: "54485002", nci: "C38287", display: "Ophthalmic route" },
+  intravitreal: { snomed: "418401004", nci: "C38280", display: "Intravitreal route" }
 };
 
 export const ADMINISTRATIVE_GENDER = {
