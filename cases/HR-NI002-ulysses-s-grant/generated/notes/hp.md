@@ -41,7 +41,6 @@ This fictional modern episode addresses the presenting concerns below. **S**
 ## Medications and allergies
 
 - Varenicline 0.5 mg oral tablet, one tablet daily for three days, then one tablet twice daily **S**
-- Varenicline 1 mg oral tablet, one tablet twice daily **S**
 - Acetaminophen 160 mg/5 mL oral solution, 20 mL (640 mg) every 6 hours as needed for throat pain **S**
 - Lidocaine viscous 2% solution, 15 mL swish and spit up to every 3 hours as needed for throat pain **S**
 - No known allergy **S**

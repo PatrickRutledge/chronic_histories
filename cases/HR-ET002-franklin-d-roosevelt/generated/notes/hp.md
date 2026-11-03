@@ -41,16 +41,11 @@ This fictional modern episode addresses the presenting concerns below. **S**
 ## Medications and allergies
 
 - Sacubitril 24 mg / valsartan 26 mg oral tablet, one tablet by mouth twice daily **S**
-- Sacubitril 49 mg / valsartan 51 mg oral tablet, one tablet by mouth twice daily **S**
 - Carvedilol 3.125 mg oral tablet, one tablet by mouth twice daily with food **S**
-- Carvedilol 6.25 mg oral tablet, one tablet by mouth twice daily with food **S**
-- Carvedilol 12.5 mg oral tablet, one tablet by mouth twice daily with food **S**
-- Spironolactone 25 mg oral tablet, one tablet by mouth daily **S**
 - Empagliflozin 10 mg oral tablet, one tablet by mouth daily **S**
 - Furosemide 20 mg oral tablet, one tablet by mouth daily **S**
 - Atorvastatin 40 mg oral tablet, one tablet by mouth daily **S**
 - Nicotine 21 mg/24 hr transdermal patch, apply one patch daily **S**
-- Ferric carboxymaltose 750 mg in 15 mL intravenous infusion, two doses one week apart **S**
 - No known allergy **S**
 
 ## Past medical history

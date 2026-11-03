@@ -43,9 +43,7 @@ This fictional modern episode addresses the presenting concerns below. **S**
 ## Medications and allergies
 
 - Furosemide 20 mg oral tablet, one tablet by mouth daily **S**
-- Furosemide 20 mg oral tablet, one tablet by mouth as needed for a weight gain of more than 1 kg in a day or 2 kg in a week **S**
 - Empagliflozin 10 mg oral tablet, one tablet by mouth daily **S**
-- Spironolactone 25 mg oral tablet, one-half tablet (12.5 mg) by mouth daily **S**
 - No known allergy **S**
 
 ## Past medical history

@@ -117,11 +117,11 @@ foreach ($visit in $case.synthetic_episode.visit_schedule) {
     if ($encounter.date -ne $visit.date) { $errors.Add("Encounter date differs from its visit: $($encounter.id)") }
 }
 
-# The referral and consultation are written for the case. Batch records must carry them when the
+# The referral and consultation are written for the case. Release-track records must carry them when the
 # plan has a referral step; problems the consultant assesses must be known by the consultation.
 $hasReferralStep = @($case.care_plan.interventions | Where-Object { $_.display -match '(consult|consultation|referral|refer)' }).Count -gt 0
 $consultDate = if ($case.synthetic_episode.visit_schedule.Count -gt 1) { $case.synthetic_episode.visit_schedule[1].date } else { $case.synthetic_episode.visit_schedule[0].date }
-if ($hasReferralStep -and -not $case.clinical.consultation -and (Split-Path -Leaf (Split-Path -Parent $CaseDirectory)) -eq 'cases') { $errors.Add('Batch record with a referral step has no clinical.consultation') }
+if ($hasReferralStep -and -not $case.clinical.consultation -and $isReleaseTrack) { $errors.Add('Release-track record with a referral step has no clinical.consultation') }
 foreach ($item in $case.clinical.consultation.consultant_note.assessment | Where-Object { $_.problem_id }) {
     $problem = $case.clinical.problems | Where-Object id -eq $item.problem_id
     if (-not $problem) { $errors.Add("Consultation assesses unknown problem $($item.problem_id)") }

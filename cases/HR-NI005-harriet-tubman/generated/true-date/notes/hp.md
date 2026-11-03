@@ -46,9 +46,6 @@ This fictional modern episode addresses the presenting concerns below. **S**
 
 - Ibuprofen 200 mg oral tablet, two tablets by mouth most days (self-directed, over the counter) **S**
 - Acetaminophen 500 mg oral tablet, two tablets by mouth as needed for headache, no more than 2 days a week **S**
-- Candesartan 8 mg oral tablet, one tablet by mouth daily **S**
-- Candesartan 16 mg oral tablet, one tablet by mouth daily **S**
-- Modafinil 100 mg oral tablet, one tablet by mouth each morning **S**
 - No known allergy **S**
 
 ## Past medical history

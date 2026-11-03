@@ -34,5 +34,6 @@
 - 1841-06-30: Primary care visit for low mood and sleep disturbance **S**
 - 1841-08-11: Six-week depression treatment follow-up **S**
 - 1841-09-30: Twelve-week depression care-plan review **S**
+- 1841-10-27: Adult preventive visit **S**
 
 This teaching document does not replace care from a qualified clinician.

@@ -34,5 +34,6 @@
 - 1957-06-30: Primary care and integrated behavioral health intake **S**
 - 1957-08-11: Six-week alcohol and trauma treatment follow-up **S**
 - 1957-09-30: Three-month recovery care-plan review **S**
+- 1957-10-28: Adult preventive visit **S**
 
 This teaching document does not replace care from a qualified clinician.

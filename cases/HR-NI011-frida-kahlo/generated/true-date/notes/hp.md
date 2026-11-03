@@ -46,10 +46,7 @@ This fictional modern episode addresses the presenting concerns below. **S**
 ## Medications and allergies
 
 - Oxycodone 10 mg oral tablet, one tablet every 6 hours as needed for pain, no more than four a day (60 MME a day) **S**
-- Oxycodone 10 mg oral tablet, one tablet three times daily as needed for pain **S**
-- Oxycodone 5 mg oral tablet, one tablet at bedtime as needed for pain **S**
 - Duloxetine 30 mg delayed-release oral capsule, one capsule daily **S**
-- Duloxetine 60 mg delayed-release oral capsule, one capsule daily **S**
 - Acetaminophen 500 mg oral tablet, two tablets three times daily **S**
 - Diclofenac sodium 1% topical gel, 2 g to the right ankle four times daily **S**
 - Cholecalciferol (vitamin D3) 2,000 units oral tablet, one tablet daily **S**

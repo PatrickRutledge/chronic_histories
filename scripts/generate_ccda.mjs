@@ -231,8 +231,8 @@ const allergyEntries = clinical.allergies.map((allergy, index) => {
   </entry>`;
 }).join("");
 
-const medicationRows = clinical.medications.map((medication, index) => `<tr ID="medication-${index + 1}"><td>${x(medication.display)}</td><td>${x(medication.frequency.text)}</td><td>${x(ROUTES[medication.route].display)}</td><td>${x(medication.start_date)}${medication.end_date ? ` to ${x(medication.end_date)}` : ""}</td><td>${x(medication.status)}</td><td>${grade(medication)}</td></tr>`).join("");
-const medicationEntries = clinical.medications.map((medication, index) => {
+const medicationRowList = clinical.medications.map((medication, index) => `<tr ID="medication-${index + 1}"><td>${x(medication.display)}</td><td>${x(medication.frequency.text)}</td><td>${x(ROUTES[medication.route].display)}</td><td>${x(medication.start_date)}${medication.end_date ? ` to ${x(medication.end_date)}` : ""}</td><td>${x(medication.status)}</td><td>${grade(medication)}</td></tr>`);
+const medicationEntryList = clinical.medications.map((medication, index) => {
   const route = ROUTES[medication.route];
   const dose = medication.dose.unit === "1" ? `<doseQuantity value="${medication.dose.value}"/>` : `<doseQuantity value="${medication.dose.value}" unit="${x(medication.dose.unit)}"/>`;
   const indications = medication.indication_problem_ids.map(problemId => {
@@ -267,7 +267,11 @@ const medicationEntries = clinical.medications.map((medication, index) => {
       </consumable>${indications}
     </substanceAdministration>
   </entry>`;
-}).join("");
+});
+const medicationRows = medicationRowList.join("");
+const medicationEntries = medicationEntryList.join("");
+// A note document lists the medications started by its date; the CCD keeps the whole history.
+const startedBy = (date) => clinical.medications.map((medication, index) => [medication, index]).filter(([medication]) => !date || medication.start_date <= date).map(([, index]) => index);
 
 const procedureRows = clinical.procedures.map((procedure, index) => `<tr ID="procedure-${index + 1}"><td>${x(procedure.display)}</td><td>${x(procedure.period.start)}${procedure.period.end ? ` to ${x(procedure.period.end)}` : ""}</td><td>${x(procedure.status)}</td><td>${grade(procedure)}</td></tr>`).join("");
 const procedureEntries = clinical.procedures.map((procedure, index) => `
@@ -579,9 +583,9 @@ const vitalsSection = (date) => {
     : emptySection({ templateRoot: "2.16.840.1.113883.10.20.22.2.4.1", extension: "2015-08-01", code: "8716-3", title: "Vital Signs", explanation: "Vital signs not recorded at this visit." });
 };
 const allergiesSection = () => section({ templateRoot: "2.16.840.1.113883.10.20.22.2.6.1", extension: "2015-08-01", code: "48765-2", display: "Allergies and adverse reactions Document", title: "Allergies and Intolerances", text: table(["Allergy", "Reaction", "Status", "Evidence"], allergyRows), entries: allergyEntries });
-const medicationsSection = () => clinical.medications.length
-  ? section({ templateRoot: "2.16.840.1.113883.10.20.22.2.1.1", extension: "2014-06-09", code: "10160-0", display: "History of Medication use Narrative", title: "Medications", text: table(["Medication", "Frequency", "Route", "Dates", "Status", "Evidence"], medicationRows), entries: medicationEntries })
-  : emptySection({ templateRoot: "2.16.840.1.113883.10.20.22.2.1.1", extension: "2014-06-09", code: "10160-0", title: "Medications", explanation: "No current medications. The synthetic care plan does not include medication." });
+const medicationsSection = (date) => startedBy(date).length
+  ? section({ templateRoot: "2.16.840.1.113883.10.20.22.2.1.1", extension: "2014-06-09", code: "10160-0", display: "History of Medication use Narrative", title: "Medications", text: table(["Medication", "Frequency", "Route", "Dates", "Status", "Evidence"], startedBy(date).map(index => medicationRowList[index]).join("")), entries: startedBy(date).map(index => medicationEntryList[index]).join("") })
+  : emptySection({ templateRoot: "2.16.840.1.113883.10.20.22.2.1.1", extension: "2014-06-09", code: "10160-0", title: "Medications", explanation: clinical.medications.length ? "No medications started by this date." : "No current medications. The synthetic care plan does not include medication." });
 const problemsSection = (date) => `
 <component>
   <section>
@@ -767,7 +771,7 @@ noteDocuments.set("hp-01.xml", noteDocument({
     reasonForVisitSection(visits[0]),
     hpiSection("This fictional modern episode addresses the presenting concerns below."),
     pastHistorySection(), familySection(), socialSection(),
-    allergiesSection(), medicationsSection(), reviewOfSystemsSection(), generalStatusSection(),
+    allergiesSection(), medicationsSection(firstVisitDate), reviewOfSystemsSection(), generalStatusSection(),
     physicalExamSection(firstVisitDate), vitalsSection(firstVisitDate), resultsSection(firstVisitDate),
     problemsSection(firstVisitDate), assessmentSection("", firstVisitDate),
     planSection({ items: interventionItems(data.care_plan.interventions), withOrder: Boolean(referralStep) }),
@@ -785,14 +789,14 @@ visits.forEach((visit, index) => {
     serviceEventTemplate: `<templateId root="2.16.840.1.113883.10.20.21.3.1"/>`,
     body: doc ? [
       chiefComplaintSection(doc), fullHpiSection(doc), fullRosSection(doc),
-      medicationsSection(), allergiesSection(),
+      medicationsSection(visit.date), allergiesSection(),
       vitalsSection(visit.date), resultsSection(visit.date), fullExamSection(doc, visit.date),
       problemsSection(visit.date), assessmentAndPlanSection(doc, n),
       ...(doc.advance_care_planning ? [advanceDirectivesSection(doc)] : []),
     ] : [
       subjectiveSection(visit, followUp), objectiveSection(visit),
       vitalsSection(visit.date), resultsSection(visit.date),
-      medicationsSection(), allergiesSection(), problemsSection(visit.date),
+      medicationsSection(visit.date), allergiesSection(), problemsSection(visit.date),
       assessmentSection("", visit.date),
       planSection({ items: followUp ? followUpPlanItems(visit, n) : interventionItems(data.care_plan.interventions) }),
     ],
@@ -810,7 +814,7 @@ if (referralStep) {
     body: [
       reasonForReferralSection(),
       hpiSection(consultation?.referral.pertinent_history ?? "Referral for the concerns below, which began before the index visit."),
-      allergiesSection(), medicationsSection(), problemsSection(firstVisitDate),
+      allergiesSection(), medicationsSection(firstVisitDate), problemsSection(firstVisitDate),
       pastHistorySection(), familySection(), socialSection(),
       vitalsSection(firstVisitDate), resultsSection(firstVisitDate),
       assessmentSection("", firstVisitDate),
@@ -828,7 +832,7 @@ if (referralStep) {
     body: [
       reasonForReferralSection(),
       consultation ? consultHpiSection() : hpiSection(`Seen in ${consultant.specialty.toLowerCase()} consultation at the request of ${data.identity.synthetic_identity.fictional_primary_clinician}.`),
-      allergiesSection(), medicationsSection(), problemsSection(consultVisit.date),
+      allergiesSection(), medicationsSection(consultVisit.date), problemsSection(consultVisit.date),
       consultation ? consultExamSection(consultVisit.date) : physicalExamSection(consultVisit.date), resultsSection(consultVisit.date),
       consultation ? consultAssessmentSection() : assessmentSection(p("Coordinated follow-up with the primary clinician is appropriate."), consultVisit.date),
       planSection({ items: consultation ? consultPlanItems() : interventionItems(data.care_plan.interventions.filter(item => !isConsultStep(item))) }),

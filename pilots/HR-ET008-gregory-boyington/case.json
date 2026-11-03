@@ -5,7 +5,7 @@
     "synthetic": true,
     "banner": "SYNTHETIC RECORD, NOT A REAL MEDICAL RECORD",
     "real_historical_name": true,
-    "public_release_status": "approved"
+    "public_release_status": "draft"
   },
   "identity": {
     "person_id": "ET008",
@@ -340,6 +340,16 @@
         "encounter_id": "ENC-003",
         "date": "2026-09-30",
         "purpose": "Three-month recovery care-plan review"
+      },
+      {
+        "encounter_id": "ENC-004",
+        "date": "2026-10-09",
+        "purpose": "Same-day sick visit for low back pain after lifting"
+      },
+      {
+        "encounter_id": "ENC-005",
+        "date": "2026-10-28",
+        "purpose": "Adult preventive visit"
       }
     ]
   },
@@ -401,6 +411,32 @@
         "clinical_status": "active",
         "verification_status": "provisional",
         "problem_placement": "both_with_link"
+      },
+      {
+        "id": "PRB-003",
+        "display": "Acute lumbar muscle strain after lifting, resolved",
+        "status": "draft",
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/sid/icd-10-cm",
+            "code": "S39.012A",
+            "display": "Strain of muscle, fascia and tendon of lower back, initial encounter",
+            "version": "FY2026",
+            "validation_status": "validated",
+            "validated_on": "2026-11-03"
+          }
+        ],
+        "provenance": {
+          "evidence_grade": "S",
+          "claim_ids": [],
+          "synthetic_reason": "Synthetic intercurrent illness at an unscheduled visit; it does not echo a documented illness or injury.",
+          "author": "The Human Record generator",
+          "created": "2026-11-03T10:00:00-05:00"
+        },
+        "clinical_status": "resolved",
+        "verification_status": "confirmed",
+        "problem_placement": "active",
+        "recorded_date": "2026-10-09"
       }
     ],
     "medications": [],
@@ -664,6 +700,58 @@
           "author": "The Human Record generator",
           "created": "2026-11-01T14:00:00-05:00"
         }
+      },
+      {
+        "id": "OBS-PHQ9-004",
+        "display": "Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]",
+        "status": "final",
+        "effective_date": "2026-10-28",
+        "value": 2,
+        "unit": "{score}",
+        "coding": [
+          {
+            "system": "http://loinc.org",
+            "code": "44261-6",
+            "display": "Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]",
+            "version": "2.81",
+            "validation_status": "validated",
+            "validated_on": "2026-11-03"
+          }
+        ],
+        "provenance": {
+          "evidence_grade": "S",
+          "claim_ids": [],
+          "synthetic_reason": "Synthetic same-day depression screen at the preventive visit.",
+          "author": "The Human Record generator",
+          "created": "2026-11-03T10:00:00-05:00"
+        }
+      },
+      {
+        "id": "OBS-AUDITC-004",
+        "display": "Total score [AUDIT-C]",
+        "status": "final",
+        "effective_date": "2026-10-28",
+        "value": 1,
+        "unit": "{score}",
+        "coding": [
+          {
+            "system": "http://loinc.org",
+            "code": "75626-2",
+            "display": "Total score [AUDIT-C]",
+            "version": "2.81",
+            "validation_status": "validated",
+            "validated_on": "2026-11-03"
+          }
+        ],
+        "provenance": {
+          "evidence_grade": "S",
+          "claim_ids": [
+            "CLM-0008"
+          ],
+          "synthetic_reason": "Synthetic alcohol monitoring at the preventive visit; not a claim of permanent remission.",
+          "author": "The Human Record generator",
+          "created": "2026-11-03T10:00:00-05:00"
+        }
       }
     ],
     "procedures": [
@@ -732,6 +820,46 @@
           "synthetic_reason": "Synthetic adult immunization history in the modern frame; not a historical assertion.",
           "author": "The Human Record generator",
           "created": "2026-11-01T14:00:00-05:00"
+        }
+      },
+      {
+        "id": "IMM-003",
+        "display": "Influenza vaccine, 2026-2027 season",
+        "status": "completed",
+        "date": "2026-10-28",
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/sid/cvx",
+            "code": "140",
+            "display": "Influenza, split virus, trivalent, PF"
+          }
+        ],
+        "provenance": {
+          "evidence_grade": "S",
+          "claim_ids": [],
+          "synthetic_reason": "Synthetic adult immunization history in the modern frame; not a historical assertion.",
+          "author": "The Human Record generator",
+          "created": "2026-11-03T10:00:00-05:00"
+        }
+      },
+      {
+        "id": "IMM-004",
+        "display": "Pneumococcal conjugate vaccine (PCV20)",
+        "status": "completed",
+        "date": "2026-10-28",
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/sid/cvx",
+            "code": "216",
+            "display": "Pneumococcal conjugate PCV20, polysaccharide CRM197 conjugate, adjuvant, PF"
+          }
+        ],
+        "provenance": {
+          "evidence_grade": "S",
+          "claim_ids": [],
+          "synthetic_reason": "Synthetic adult immunization for an alcohol use disorder risk indication; not a historical assertion.",
+          "author": "The Human Record generator",
+          "created": "2026-11-03T10:00:00-05:00"
         }
       }
     ],
@@ -824,6 +952,266 @@
           "synthetic_reason": "Synthetic modern EHR encounter.",
           "author": "The Human Record generator",
           "created": "2026-11-01T14:00:00-05:00"
+        },
+        "visit_type": "chronic_care",
+        "type_coding": {
+          "system": "http://snomed.info/sct",
+          "code": "390906007",
+          "display": "Follow-up encounter",
+          "validation_status": "validated",
+          "validated_on": "2026-11-03"
+        },
+        "documentation": {
+          "chief_complaint": "Six-week alcohol use disorder and PTSD follow-up",
+          "hpi": {
+            "narrative": "Mr. Boyington returns six weeks after his intake visit, where he chose behavioral treatment for alcohol use disorder and was referred for trauma-focused psychotherapy. He began prolonged exposure therapy with Dr. Lee in behavioral health in early July and has attended five weekly sessions; Dr. Lee's consultation report came this morning. He has also gone to his veteran recovery peer group most weeks. Before treatment he drank most days, usually seven to nine drinks. In the six weeks since intake he drank on about four days, usually five beers. After a run of nightmares in the third week of therapy, when the imaginal exposure work began, he had one day of more than six drinks. He did not drive and called a peer from his group the next morning. He has had no tremor, sweats, or withdrawal symptoms. He sleeps about five and a half hours, with nightmares about twice a week instead of most nights, and he startles less at loud noises. He has had no thoughts of suicide or self-harm since intake and still keeps the written safety plan in his wallet. He has lost 1.3 kg and attributes it to fewer drinks.",
+            "elements": [
+              {
+                "label": "Drinking since intake",
+                "value": "About four drinking days in six weeks, usually five beers; one day of more than six drinks after a run of nightmares; AUDIT-C 5, down from 10"
+              },
+              {
+                "label": "Trauma symptoms",
+                "value": "Nightmares about twice a week, down from most nights; less startle; PCL-5 31, down from 39"
+              },
+              {
+                "label": "Mood",
+                "value": "Somewhat better; PHQ-9 6, down from 9, with item 9 scored 0"
+              },
+              {
+                "label": "Treatment engagement",
+                "value": "Five prolonged exposure sessions with Dr. Lee; recovery peer group most weeks"
+              },
+              {
+                "label": "Safety",
+                "value": "No suicidal thoughts, intent, or plan since intake; safety plan kept and reviewed"
+              },
+              {
+                "label": "Medicines",
+                "value": "None, including no over-the-counter sleep aids"
+              }
+            ]
+          },
+          "ros": [
+            {
+              "system": "Constitutional",
+              "status": "negative",
+              "finding": "Weight down 1.3 kg, which he attributes to drinking less; no fever or night sweats"
+            },
+            {
+              "system": "Gastrointestinal",
+              "status": "negative",
+              "finding": "No abdominal pain, vomiting, black stool, or jaundice"
+            },
+            {
+              "system": "Neurological",
+              "status": "negative",
+              "finding": "No tremor, seizures, or numbness in the feet"
+            },
+            {
+              "system": "Psychiatric",
+              "status": "positive",
+              "finding": "Nightmares about twice a week, intrusive memories after therapy sessions, less startle; no suicidal thoughts; no cravings most days"
+            },
+            {
+              "system": "Sleep",
+              "status": "positive",
+              "finding": "About five and a half hours a night with early waking"
+            }
+          ],
+          "exam": [
+            {
+              "system": "General",
+              "finding": "Alert, well groomed, no smell of alcohol; no tremor or sweating"
+            },
+            {
+              "system": "Eyes",
+              "finding": "Sclerae anicteric"
+            },
+            {
+              "system": "Abdomen",
+              "finding": "Soft and non-tender; liver edge not palpable; no spider angiomas or palmar erythema"
+            },
+            {
+              "system": "Mental status",
+              "finding": "Calm and engaged; mood “better, still on edge”; affect mildly anxious and congruent; thought process linear; no suicidal or homicidal ideation; insight and judgment good"
+            }
+          ],
+          "assessment_plan": [
+            {
+              "problem_id": "PRB-001",
+              "display": "Alcohol use disorder, early recovery with one heavy-drinking day",
+              "assessment": "AUDIT-C has fallen from 10 to 5 and drinking days from most days to about four in six weeks. The one heavy-drinking day followed a run of nightmares early in exposure therapy, a common and expected strain point, and he used his relapse plan the next day. Blood pressure has fallen to 130/84 mmHg and weight by 1.3 kg. No withdrawal signs and no sign of liver disease on examination",
+              "plan": [
+                "Continue behavioral treatment and the veteran recovery peer group",
+                "Naltrexone and acamprosate offered again; he prefers to continue without medication for now and will reconsider if heavy drinking recurs",
+                "Relapse plan updated: on nights after a hard therapy session, call a peer and keep no alcohol in the house",
+                "Hepatic panel and GGT to be drawn with the preventive-visit blood tests in the fall, as he prefers a single blood draw"
+              ]
+            },
+            {
+              "problem_id": "PRB-002",
+              "display": "Post-traumatic stress disorder, improving in trauma-focused psychotherapy",
+              "assessment": "PCL-5 has fallen from 39 to 31, an 8-point fall, short of the 10 points usually taken as a meaningful change, but nightmares and startle are improving. Dr. Lee confirms the diagnosis and recommends finishing the prolonged exposure course",
+              "plan": [
+                "Continue weekly prolonged exposure with Dr. Lee",
+                "No benzodiazepines or sedative sleep medicines",
+                "Repeat PCL-5, AUDIT-C, and PHQ-9 at twelve weeks"
+              ]
+            },
+            {
+              "display": "Suicide risk and safety plan",
+              "assessment": "No suicidal ideation, intent, or plan since intake, and PHQ-9 item 9 is 0. Protective factors are unchanged: engagement in treatment, veteran and recovery peers, and a strong sense of service. Low acute risk",
+              "plan": [
+                "Safety plan reviewed and still current; lethal-means safety unchanged since intake",
+                "Crisis line number confirmed in his phone: 988, press 1 for the Veterans Crisis Line"
+              ]
+            },
+            {
+              "display": "Sleep disturbance with nightmares",
+              "assessment": "Improving with trauma treatment and less drinking; still about five and a half hours a night",
+              "plan": [
+                "Regular rise time, no alcohol as a sleep aid, and wind-down routine after therapy evenings",
+                "If insomnia persists after the therapy course, offer cognitive behavioral therapy for insomnia"
+              ]
+            }
+          ],
+          "monitoring": [
+            {
+              "domain": "survey",
+              "measure": "AUDIT-C",
+              "cadence": "Baseline, then at six and twelve weeks by the care plan, and at every visit in early recovery",
+              "status": "completed_today",
+              "detail": "5, down from 10; one heavy-drinking day since intake",
+              "observation_ids": [
+                "OBS-AUDITC-002"
+              ],
+              "guideline_ids": [
+                "GL-SUD-2021"
+              ]
+            },
+            {
+              "domain": "survey",
+              "measure": "PCL-5",
+              "cadence": "Baseline and during trauma-focused psychotherapy; care plan at six and twelve weeks",
+              "status": "completed_today",
+              "detail": "31, down 8 points from 39",
+              "observation_ids": [
+                "OBS-PCL5-002"
+              ],
+              "guideline_ids": [
+                "GL-PTSD-2023"
+              ]
+            },
+            {
+              "domain": "survey",
+              "measure": "PHQ-9",
+              "cadence": "Baseline, then periodically while symptoms are followed",
+              "status": "completed_today",
+              "detail": "6, down from 9; item 9 scored 0. No depressive disorder is diagnosed",
+              "observation_ids": [
+                "OBS-PHQ9-002"
+              ],
+              "guideline_ids": [
+                "GL-CMID-2026",
+                "GL-PTSD-2023"
+              ]
+            },
+            {
+              "domain": "survey",
+              "measure": "Suicide-risk reassessment and safety plan review",
+              "cadence": "Every visit",
+              "status": "completed_today",
+              "detail": "No ideation, intent, or plan since the intake safety assessment; safety plan reviewed and current; lethal-means safety unchanged",
+              "guideline_ids": [
+                "GL-CMID-2026",
+                "GL-PTSD-2023",
+                "GL-SUD-2021"
+              ]
+            },
+            {
+              "domain": "referral",
+              "measure": "Trauma-focused psychotherapy (prolonged exposure)",
+              "cadence": "Weekly course, usually 8 to 15 sessions",
+              "status": "up_to_date",
+              "detail": "Five sessions with Dr. Lee since early July; consultation report received today",
+              "guideline_ids": [
+                "GL-PTSD-2023"
+              ]
+            },
+            {
+              "domain": "self_management",
+              "measure": "Recovery peer group and relapse plan",
+              "cadence": "Weekly group; plan reviewed every visit",
+              "status": "completed_today",
+              "detail": "Attends most weeks; relapse plan updated for nights after therapy sessions",
+              "guideline_ids": [
+                "GL-SUD-2021",
+                "GL-NIAAA-AUD"
+              ]
+            },
+            {
+              "domain": "medication_safety",
+              "measure": "Offer of medication for alcohol use disorder",
+              "cadence": "At diagnosis and whenever drinking goals are not met",
+              "status": "completed_today",
+              "detail": "Naltrexone and acamprosate re-offered after the heavy-drinking day; he prefers to continue behavioral treatment",
+              "guideline_ids": [
+                "GL-SUD-2021",
+                "GL-NIAAA-AUD"
+              ]
+            },
+            {
+              "domain": "laboratory",
+              "measure": "Hepatic panel and GGT",
+              "cadence": "Baseline with heavy drinking, and before starting naltrexone",
+              "status": "deferred",
+              "detail": "Not drawn at intake despite near-daily heavy drinking, a gap in the baseline workup. No medication depends on it and there is no sign of liver disease today, so no harm is expected. Planned with his preventive-visit blood tests in the fall, his preference",
+              "guideline_ids": [
+                "GL-SUD-2021",
+                "GL-NIAAA-AUD"
+              ]
+            },
+            {
+              "domain": "medication_safety",
+              "measure": "Avoid benzodiazepines and sedative-hypnotics",
+              "cadence": "Every visit",
+              "status": "completed_today",
+              "detail": "None prescribed; no over-the-counter sleep aids",
+              "guideline_ids": [
+                "GL-PTSD-2023",
+                "GL-SUD-2021"
+              ]
+            },
+            {
+              "domain": "examination",
+              "measure": "Blood pressure, weight, and signs of intoxication, withdrawal, or liver disease",
+              "cadence": "Every visit",
+              "status": "completed_today",
+              "detail": "130/84 mmHg, down from 134/86; weight 87.1 kg, down 1.3 kg; no withdrawal signs or liver stigmata",
+              "guideline_ids": [
+                "GL-SUD-2021",
+                "GL-PTSD-2023"
+              ]
+            },
+            {
+              "domain": "self_management",
+              "measure": "Sleep and nightmares",
+              "cadence": "Every visit",
+              "status": "completed_today",
+              "detail": "About five and a half hours a night; nightmares about twice a week, down from most nights",
+              "guideline_ids": [
+                "GL-PTSD-2023"
+              ]
+            }
+          ],
+          "follow_up": "Weekly prolonged exposure with Dr. Lee and the recovery peer group. Three-month care-plan review with AUDIT-C, PCL-5, and PHQ-9. Call or use the crisis line at any time for thoughts of suicide or a return to heavy drinking",
+          "guideline_ids": [
+            "GL-SUD-2021",
+            "GL-PTSD-2023",
+            "GL-NIAAA-AUD",
+            "GL-CMID-2026"
+          ]
         }
       },
       {
@@ -837,6 +1225,788 @@
           "synthetic_reason": "Synthetic modern EHR encounter.",
           "author": "The Human Record generator",
           "created": "2026-11-01T14:00:00-05:00"
+        },
+        "visit_type": "chronic_care",
+        "type_coding": {
+          "system": "http://snomed.info/sct",
+          "code": "390906007",
+          "display": "Follow-up encounter",
+          "validation_status": "validated",
+          "validated_on": "2026-11-03"
+        },
+        "documentation": {
+          "chief_complaint": "Three-month recovery care-plan review",
+          "hpi": {
+            "narrative": "Mr. Boyington returns for his three-month review. He finished the prolonged exposure course with Dr. Lee last week, after nine sessions. He has had no heavy-drinking day since the one in July. In the past month he drank on two occasions, two beers each time, and both times he stopped as he had planned. He still goes to his veteran recovery peer group most weeks. Nightmares now come about once every week or two, he sleeps about six and a half hours, and he can watch news footage of aircraft without leaving the room. His mood is good and he has taken on more work. He has had no thoughts of suicide or self-harm and has reviewed his safety plan with Dr. Lee at the last session. He has lost another 1.3 kg.",
+            "elements": [
+              {
+                "label": "Drinking",
+                "value": "Two occasions in the past month, two beers each; no heavy-drinking day since July; AUDIT-C 2"
+              },
+              {
+                "label": "Trauma symptoms",
+                "value": "Nightmares about once every week or two; less avoidance; PCL-5 23"
+              },
+              {
+                "label": "Mood",
+                "value": "Good; PHQ-9 3 with item 9 scored 0"
+              },
+              {
+                "label": "Treatment",
+                "value": "Prolonged exposure completed last week after nine sessions; recovery peer group continues"
+              },
+              {
+                "label": "Safety",
+                "value": "No suicidal thoughts, intent, or plan; safety plan reviewed"
+              },
+              {
+                "label": "Medicines",
+                "value": "None"
+              }
+            ]
+          },
+          "ros": [
+            {
+              "system": "Constitutional",
+              "status": "negative",
+              "finding": "Energy better; weight down another 1.3 kg"
+            },
+            {
+              "system": "Gastrointestinal",
+              "status": "negative",
+              "finding": "No abdominal pain, black stool, or jaundice"
+            },
+            {
+              "system": "Neurological",
+              "status": "negative",
+              "finding": "No tremor or numbness"
+            },
+            {
+              "system": "Psychiatric",
+              "status": "positive",
+              "finding": "Occasional nightmares; intrusive memories much less frequent; no suicidal thoughts; mood good"
+            },
+            {
+              "system": "Sleep",
+              "status": "negative",
+              "finding": "About six and a half hours a night; rarely wakes early"
+            }
+          ],
+          "exam": [
+            {
+              "system": "General",
+              "finding": "Alert, relaxed, and well groomed; no tremor"
+            },
+            {
+              "system": "Abdomen",
+              "finding": "Soft and non-tender; liver edge not palpable"
+            },
+            {
+              "system": "Mental status",
+              "finding": "Euthymic, with full and reactive affect; thought process linear; no suicidal or homicidal ideation; insight and judgment good"
+            }
+          ],
+          "assessment_plan": [
+            {
+              "problem_id": "PRB-001",
+              "display": "Alcohol use disorder, improving; twelve-week goal met",
+              "assessment": "AUDIT-C 2, down from 10, meeting the twelve-week goal. He drinks rarely and lightly and has had no heavy-drinking day for about nine weeks. Recovery is not assumed to be permanent: a lapse during exposure therapy was managed well, and the plan prepares for others. Blood pressure 126/80 mmHg and weight 85.8 kg have both improved",
+              "plan": [
+                "Continue the recovery peer group and the written relapse plan; his stated goal remains not drinking",
+                "Medication for alcohol use disorder is not needed now and remains open if heavy drinking returns",
+                "Hepatic panel and GGT with the preventive-visit blood tests next month"
+              ]
+            },
+            {
+              "problem_id": "PRB-002",
+              "display": "Post-traumatic stress disorder, much improved after prolonged exposure",
+              "assessment": "PCL-5 23, a 16-point fall from 39, which is a clinically meaningful change and below the 25 goal. Prolonged exposure is complete",
+              "plan": [
+                "Booster session with Dr. Lee available on request, or sooner if symptoms return",
+                "Repeat PCL-5 at the next recovery check-in in about three months"
+              ]
+            },
+            {
+              "display": "Suicide risk and safety plan",
+              "assessment": "No ideation, intent, or plan; PHQ-9 item 9 is 0; protective factors are stronger. Low acute risk",
+              "plan": [
+                "Safety plan kept current; crisis line 988, press 1"
+              ]
+            },
+            {
+              "display": "Sleep disturbance with nightmares",
+              "assessment": "Largely resolved; cognitive behavioral therapy for insomnia is not needed now",
+              "plan": [
+                "Keep the regular sleep schedule and no alcohol as a sleep aid"
+              ]
+            }
+          ],
+          "monitoring": [
+            {
+              "domain": "survey",
+              "measure": "AUDIT-C",
+              "cadence": "Baseline, then at six and twelve weeks by the care plan, and at every visit in early recovery",
+              "status": "completed_today",
+              "detail": "2, down from 10; goal of 3 or lower met",
+              "observation_ids": [
+                "OBS-AUDITC-003"
+              ],
+              "guideline_ids": [
+                "GL-SUD-2021"
+              ]
+            },
+            {
+              "domain": "survey",
+              "measure": "PCL-5",
+              "cadence": "Baseline and during trauma-focused psychotherapy; care plan at six and twelve weeks",
+              "status": "completed_today",
+              "detail": "23, down 16 points from 39; goal of 25 or lower met",
+              "observation_ids": [
+                "OBS-PCL5-003"
+              ],
+              "guideline_ids": [
+                "GL-PTSD-2023"
+              ]
+            },
+            {
+              "domain": "survey",
+              "measure": "PHQ-9",
+              "cadence": "Baseline, then periodically while symptoms are followed",
+              "status": "completed_today",
+              "detail": "3, down from 9; item 9 scored 0",
+              "observation_ids": [
+                "OBS-PHQ9-003"
+              ],
+              "guideline_ids": [
+                "GL-CMID-2026",
+                "GL-PTSD-2023"
+              ]
+            },
+            {
+              "domain": "survey",
+              "measure": "Suicide-risk reassessment and safety plan review",
+              "cadence": "Every visit",
+              "status": "completed_today",
+              "detail": "No ideation, intent, or plan; safety plan reviewed and current",
+              "guideline_ids": [
+                "GL-CMID-2026",
+                "GL-PTSD-2023",
+                "GL-SUD-2021"
+              ]
+            },
+            {
+              "domain": "referral",
+              "measure": "Trauma-focused psychotherapy (prolonged exposure)",
+              "cadence": "Weekly course, usually 8 to 15 sessions",
+              "status": "completed_today",
+              "detail": "Course completed last week after nine sessions; booster session available",
+              "guideline_ids": [
+                "GL-PTSD-2023"
+              ]
+            },
+            {
+              "domain": "self_management",
+              "measure": "Recovery peer group and relapse plan",
+              "cadence": "Weekly group; plan reviewed every visit",
+              "status": "completed_today",
+              "detail": "Attends most weeks; relapse plan reviewed",
+              "guideline_ids": [
+                "GL-SUD-2021",
+                "GL-NIAAA-AUD"
+              ]
+            },
+            {
+              "domain": "medication_safety",
+              "measure": "Offer of medication for alcohol use disorder",
+              "cadence": "At diagnosis and whenever drinking goals are not met",
+              "status": "not_indicated",
+              "detail": "Drinking goals met; medication remains an option if heavy drinking returns",
+              "guideline_ids": [
+                "GL-SUD-2021",
+                "GL-NIAAA-AUD"
+              ]
+            },
+            {
+              "domain": "laboratory",
+              "measure": "Hepatic panel and GGT",
+              "cadence": "Baseline with heavy drinking, and before starting naltrexone",
+              "status": "due",
+              "detail": "Still not drawn (see the six-week visit); planned with the preventive-visit blood tests next month",
+              "guideline_ids": [
+                "GL-SUD-2021",
+                "GL-NIAAA-AUD"
+              ]
+            },
+            {
+              "domain": "medication_safety",
+              "measure": "Avoid benzodiazepines and sedative-hypnotics",
+              "cadence": "Every visit",
+              "status": "completed_today",
+              "detail": "None prescribed",
+              "guideline_ids": [
+                "GL-PTSD-2023",
+                "GL-SUD-2021"
+              ]
+            },
+            {
+              "domain": "examination",
+              "measure": "Blood pressure, weight, and signs of intoxication, withdrawal, or liver disease",
+              "cadence": "Every visit",
+              "status": "completed_today",
+              "detail": "126/80 mmHg; weight 85.8 kg, down 2.6 kg since intake; no tremor or liver stigmata",
+              "guideline_ids": [
+                "GL-SUD-2021",
+                "GL-PTSD-2023"
+              ]
+            },
+            {
+              "domain": "self_management",
+              "measure": "Sleep and nightmares",
+              "cadence": "Every visit",
+              "status": "completed_today",
+              "detail": "About six and a half hours a night; nightmares every week or two",
+              "guideline_ids": [
+                "GL-PTSD-2023"
+              ]
+            }
+          ],
+          "follow_up": "Preventive visit next month with blood tests. Recovery check-in in about three months with AUDIT-C, PCL-5, and PHQ-9. Call or use the crisis line at any time",
+          "guideline_ids": [
+            "GL-SUD-2021",
+            "GL-PTSD-2023",
+            "GL-NIAAA-AUD",
+            "GL-CMID-2026"
+          ]
+        }
+      },
+      {
+        "id": "ENC-004",
+        "display": "Same-day sick visit for low back pain after lifting",
+        "status": "finished",
+        "date": "2026-10-09",
+        "visit_type": "sick",
+        "type_coding": {
+          "system": "http://snomed.info/sct",
+          "code": "185345009",
+          "display": "Encounter for symptom",
+          "validation_status": "validated",
+          "validated_on": "2026-11-03"
+        },
+        "documentation": {
+          "chief_complaint": "Low back pain for two days after lifting",
+          "billing_note": "Problem-oriented office visit, established patient",
+          "hpi": {
+            "narrative": "Mr. Boyington asked for a same-day visit for low back pain. Two days ago, while helping a friend move, he lifted a heavy box with his back bent and felt a sudden pull across the left lower back. The pain is a dull ache with sharp catches when he bends, twists, or gets out of a chair, and it is easing a little each day. It does not travel into the legs. He has no numbness, tingling, or weakness, and no change in bladder or bowel control or numbness between the legs. He has had no fever, weight loss beyond the expected loss since he cut down on drinking, or prior back injury. Ice and walking help. The pain woke him on both nights, and on the second night he had a nightmare for the first time in about two weeks. He felt an urge to have a drink to get back to sleep, did not, and called a peer from his recovery group instead. He has not drunk alcohol since his review last week. He has taken two doses of ibuprofen 400 mg. A friend offered him leftover muscle relaxant tablets, which he declined and asked about today.",
+            "elements": [
+              {
+                "label": "Onset",
+                "value": "Two days ago, lifting a heavy box with his back bent"
+              },
+              {
+                "label": "Location",
+                "value": "Left lower back; no radiation into the legs"
+              },
+              {
+                "label": "Duration",
+                "value": "Two days, easing slightly each day"
+              },
+              {
+                "label": "Character",
+                "value": "Dull ache with sharp catches on bending, twisting, and standing up"
+              },
+              {
+                "label": "Severity",
+                "value": "Moderate; 6 of 10 at worst, 3 of 10 at rest; woke him both nights"
+              },
+              {
+                "label": "Timing",
+                "value": "Worse with movement and after sitting; stiff in the morning"
+              },
+              {
+                "label": "Context",
+                "value": "Helping a friend move; no prior back injury"
+              },
+              {
+                "label": "Modifying factors",
+                "value": "Ice and walking help; two doses of ibuprofen 400 mg; no alcohol"
+              },
+              {
+                "label": "Associated signs and symptoms",
+                "value": "One nightmare and a craving on the second night, managed with his relapse plan. Denies leg pain, numbness, weakness, bladder or bowel change, saddle numbness, and fever"
+              }
+            ]
+          },
+          "ros": [
+            {
+              "system": "Constitutional",
+              "status": "negative",
+              "finding": "No fever, chills, or unexplained weight loss"
+            },
+            {
+              "system": "Musculoskeletal",
+              "status": "positive",
+              "finding": "Left low back pain and stiffness; no other joint pain"
+            },
+            {
+              "system": "Neurological",
+              "status": "negative",
+              "finding": "No leg numbness, tingling, or weakness; no saddle numbness"
+            },
+            {
+              "system": "Genitourinary",
+              "status": "negative",
+              "finding": "No urinary retention, incontinence, or dysuria"
+            },
+            {
+              "system": "Gastrointestinal",
+              "status": "negative",
+              "finding": "No abdominal pain, heartburn, black stool, or bowel control change"
+            },
+            {
+              "system": "Psychiatric",
+              "status": "positive",
+              "finding": "One nightmare and a craving to drink on the second night, both managed; no suicidal thoughts"
+            }
+          ],
+          "exam": [
+            {
+              "system": "General",
+              "finding": "Alert and comfortable sitting; rises from the chair slowly with a hand on the armrest; no smell of alcohol"
+            },
+            {
+              "system": "Back",
+              "finding": "Tenderness and spasm of the left lumbar paraspinal muscles; no midline or bony tenderness; flexion limited by pain to fingertips at the knees"
+            },
+            {
+              "system": "Neurological",
+              "finding": "Straight-leg raise negative on both sides; strength 5/5 in the legs, including ankle and great-toe dorsiflexion; knee and ankle reflexes 2+ and equal; light-touch sensation normal"
+            },
+            {
+              "system": "Abdomen",
+              "finding": "Soft and non-tender; no costovertebral angle tenderness"
+            },
+            {
+              "system": "Mental status",
+              "finding": "Calm and engaged; mood good; no suicidal ideation"
+            }
+          ],
+          "assessment_plan": [
+            {
+              "problem_id": "PRB-003",
+              "display": "Acute lumbar muscle strain, without nerve involvement or red flags",
+              "assessment": "Mechanical low back pain after a lifting injury, with a normal neurological examination and no red flags such as bladder or bowel change, saddle numbness, fever, cancer history, or major trauma. Imaging is not indicated. Most acute strains improve within a few weeks",
+              "plan": [
+                "Stay active and walk; avoid bed rest. Superficial heat or ice for 15 to 20 minutes several times a day",
+                "Ibuprofen 400 mg up to three times a day with food for up to seven days; take it only on days without alcohol, because the combination raises the risk of stomach bleeding",
+                "If ibuprofen upsets his stomach, acetaminophen up to 2 g a day instead, kept at that lower limit because of his drinking history",
+                "No muscle relaxants or opioids. Both cause sedation that adds to alcohol, and the leftover tablets from a friend should not be taken; he agrees",
+                "Lift with the knees and hold loads close to the body; gentle back exercises handout given"
+              ]
+            },
+            {
+              "problem_id": "PRB-001",
+              "display": "Alcohol use disorder in early recovery",
+              "assessment": "Pain and broken sleep triggered a craving, which he managed with his relapse plan. No drinking since last week's review",
+              "plan": [
+                "Keep no alcohol in the house while the pain disturbs his sleep and continue the peer group",
+                "Call the clinic or his peer contact if the cravings return"
+              ]
+            },
+            {
+              "problem_id": "PRB-002",
+              "display": "Post-traumatic stress disorder, improved",
+              "assessment": "A single nightmare after a pain-broken night, against his recent pattern. No suicidal thoughts; the safety plan remains current",
+              "plan": [
+                "Use the sleep routine from therapy; a booster session with Dr. Lee is available if nightmares become more frequent"
+              ]
+            }
+          ],
+          "follow_up": "Preventive visit in about three weeks, where the back will be rechecked. Return sooner for pain spreading below the knee, leg numbness or weakness, any bladder or bowel change, numbness between the legs, or fever. Call or use the crisis line, 988 then 1, at any time",
+          "guideline_ids": [
+            "GL-ACP-LBP-2017",
+            "GL-VADOD-LBP-2022",
+            "GL-SUD-2021"
+          ]
+        },
+        "provenance": {
+          "evidence_grade": "S",
+          "claim_ids": [],
+          "synthetic_reason": "Synthetic unscheduled sick visit; the injury is not a historical claim.",
+          "author": "The Human Record generator",
+          "created": "2026-11-03T10:00:00-05:00"
+        }
+      },
+      {
+        "id": "ENC-005",
+        "display": "Adult preventive visit",
+        "status": "finished",
+        "date": "2026-10-28",
+        "visit_type": "preventive_adult",
+        "type_coding": {
+          "system": "http://snomed.info/sct",
+          "code": "86013001",
+          "display": "Periodic reevaluation and management of healthy individual",
+          "validation_status": "validated",
+          "validated_on": "2026-11-03"
+        },
+        "documentation": {
+          "chief_complaint": "Adult preventive visit; no new complaints",
+          "billing_note": "CPT 99396 (periodic preventive medicine, established patient, 40 to 64 years) with CPT 99497 (advance care planning); CPT 90656 and 90677 with 90471 and 90472 (influenza and pneumococcal conjugate vaccines and administration)",
+          "hpi": {
+            "narrative": "Mr. Boyington comes for his adult preventive visit, four weeks after his three-month recovery review. The back strain from earlier this month settled within ten days with walking, heat, and a few days of ibuprofen, and he is back to his usual activity. In the past month he drank on one occasion, two beers at a friend's barbecue, and stopped there; he has had no heavy-drinking day since July. He continues his veteran recovery peer group most weeks. Nightmares are infrequent and he sleeps about six and a half hours. He has had no thoughts of suicide and keeps his safety plan current. He has had no emergency visits or hospital stays. He takes no regular medicines or supplements. He completed the health risk assessment before the visit.",
+            "elements": [
+              {
+                "label": "Visit",
+                "value": "Adult preventive visit, age 44, established patient"
+              },
+              {
+                "label": "Recent illness",
+                "value": "Lumbar strain earlier this month, resolved"
+              },
+              {
+                "label": "Alcohol",
+                "value": "One occasion of two beers in the past month; AUDIT-C 1"
+              },
+              {
+                "label": "Active conditions",
+                "value": "Alcohol use disorder in early recovery and PTSD after a completed course of prolonged exposure, both improved"
+              },
+              {
+                "label": "Safety",
+                "value": "No suicidal thoughts; safety plan current"
+              },
+              {
+                "label": "Medicines",
+                "value": "None regularly; no supplements"
+              }
+            ]
+          },
+          "health_risk_assessment": [
+            {
+              "domain": "Self-rated health",
+              "finding": "Good, and better than in the summer"
+            },
+            {
+              "domain": "Psychosocial",
+              "finding": "Stable housing; support from family, veteran peers, and his recovery group; work stress manageable"
+            },
+            {
+              "domain": "Alcohol and drugs",
+              "finding": "One drinking occasion in the past month, two beers; no cannabis or other nonprescribed drug use"
+            },
+            {
+              "domain": "Tobacco",
+              "finding": "No current tobacco or nicotine use"
+            },
+            {
+              "domain": "Physical activity",
+              "finding": "Brisk walking 30 minutes on most days; back exercises since the strain"
+            },
+            {
+              "domain": "Nutrition",
+              "finding": "Regular meals; eats out several times a week; drinks more water and coffee in place of alcohol"
+            },
+            {
+              "domain": "Sleep",
+              "finding": "About six and a half hours; occasional nightmares"
+            },
+            {
+              "domain": "Activities of daily living",
+              "finding": "Independent in all basic and instrumental activities of daily living"
+            },
+            {
+              "domain": "Home and personal safety",
+              "finding": "Smoke detectors working; wears a seat belt; does not drive after drinking; medicines and any firearms stored locked, as in his safety plan; feels safe at home"
+            },
+            {
+              "domain": "Vision, hearing, and dental",
+              "finding": "No vision or hearing concerns; dental cleaning more than a year ago"
+            }
+          ],
+          "ros": [
+            {
+              "system": "Constitutional",
+              "status": "negative",
+              "finding": "Weight down 3.0 kg since the summer, which he attributes to drinking less; no fever, fatigue, or night sweats"
+            },
+            {
+              "system": "Eyes",
+              "status": "negative",
+              "finding": "No change in vision"
+            },
+            {
+              "system": "Ears, nose, mouth, and throat",
+              "status": "negative",
+              "finding": "No hearing change, mouth sores, or hoarseness"
+            },
+            {
+              "system": "Cardiovascular",
+              "status": "negative",
+              "finding": "No chest pain, palpitations, or ankle swelling"
+            },
+            {
+              "system": "Respiratory",
+              "status": "negative",
+              "finding": "No cough or breathlessness"
+            },
+            {
+              "system": "Gastrointestinal",
+              "status": "negative",
+              "finding": "No heartburn, abdominal pain, black stool, or blood in the stool"
+            },
+            {
+              "system": "Genitourinary",
+              "status": "negative",
+              "finding": "No urinary symptoms"
+            },
+            {
+              "system": "Musculoskeletal",
+              "status": "negative",
+              "finding": "Back pain resolved; no joint pain"
+            },
+            {
+              "system": "Integumentary",
+              "status": "negative",
+              "finding": "No new or changing skin lesions"
+            },
+            {
+              "system": "Neurological",
+              "status": "negative",
+              "finding": "No headache, numbness, tremor, or weakness"
+            },
+            {
+              "system": "Psychiatric",
+              "status": "negative",
+              "finding": "Mood good; PHQ-9 score 2 with item 9 scored 0; occasional nightmares; no suicidal thoughts"
+            },
+            {
+              "system": "Endocrine",
+              "status": "negative",
+              "finding": "No polyuria, polydipsia, or heat or cold intolerance"
+            },
+            {
+              "system": "Hematologic",
+              "status": "negative",
+              "finding": "No easy bruising or bleeding"
+            }
+          ],
+          "exam": [
+            {
+              "system": "Constitutional",
+              "finding": "Alert and well-appearing; BMI 27.0"
+            },
+            {
+              "system": "Eyes",
+              "finding": "Sclerae anicteric; pupils equal and reactive"
+            },
+            {
+              "system": "Ears, nose, and throat",
+              "finding": "Tympanic membranes normal; oropharynx clear; dentition fair"
+            },
+            {
+              "system": "Neck",
+              "finding": "No thyroid enlargement or nodes"
+            },
+            {
+              "system": "Cardiovascular",
+              "finding": "Regular rhythm; no murmur; pedal pulses present; no edema"
+            },
+            {
+              "system": "Respiratory",
+              "finding": "Clear to auscultation bilaterally"
+            },
+            {
+              "system": "Abdomen",
+              "finding": "Soft and non-tender; liver edge not palpable; no masses"
+            },
+            {
+              "system": "Musculoskeletal",
+              "finding": "Full, pain-free lumbar flexion; no paraspinal tenderness"
+            },
+            {
+              "system": "Skin",
+              "finding": "No spider angiomas, palmar erythema, or suspicious lesions"
+            },
+            {
+              "system": "Neurological",
+              "finding": "No tremor; gait and strength normal"
+            },
+            {
+              "system": "Psychiatric",
+              "finding": "Euthymic and engaged; no suicidal ideation; judgment and insight intact"
+            }
+          ],
+          "assessment_plan": [
+            {
+              "display": "Adult preventive visit completed",
+              "assessment": "Health risk assessment reviewed and a written prevention plan given. Depression, drug use, and tobacco screens are negative. Blood pressure 124/78 mmHg is normal and has fallen from 134/86 at intake as his drinking fell",
+              "plan": [
+                "Next preventive visit in one year"
+              ]
+            },
+            {
+              "problem_id": "PRB-001",
+              "display": "Alcohol use disorder in early recovery",
+              "assessment": "AUDIT-C 1, with no heavy-drinking day since July. Alcohol use disorder is a risk indication for pneumococcal vaccination at his age. The baseline liver tests missed at intake are ordered today",
+              "plan": [
+                "Continue the recovery peer group and relapse plan",
+                "Hepatic panel and GGT ordered today with the preventive blood tests",
+                "Pneumococcal conjugate vaccine given today"
+              ]
+            },
+            {
+              "problem_id": "PRB-002",
+              "display": "Post-traumatic stress disorder, improved after prolonged exposure",
+              "assessment": "Nightmares infrequent; no suicidal thoughts. Safety plan current",
+              "plan": [
+                "PCL-5 at the recovery check-in in about two months; booster session with Dr. Lee on request"
+              ]
+            },
+            {
+              "problem_id": "PRB-003",
+              "display": "Acute lumbar muscle strain",
+              "assessment": "Resolved within ten days without imaging or prescription medicines",
+              "plan": [
+                "Continue the back exercises and safe lifting"
+              ]
+            }
+          ],
+          "prevention_plan": [
+            {
+              "service": "Depression screening",
+              "status": "completed_today",
+              "detail": "PHQ-9 score 2 with item 9 scored 0; consistent with his safety assessment",
+              "guideline_ids": [
+                "GL-USPSTF-DEP-2023"
+              ]
+            },
+            {
+              "service": "Unhealthy alcohol use",
+              "status": "completed_today",
+              "detail": "Known alcohol use disorder followed in his recovery care; AUDIT-C 1 today",
+              "guideline_ids": [
+                "GL-SUD-2021"
+              ]
+            },
+            {
+              "service": "Unhealthy drug use screening",
+              "status": "completed_today",
+              "detail": "No nonprescribed drug use",
+              "guideline_ids": [
+                "GL-USPSTF-DRUG-2020"
+              ]
+            },
+            {
+              "service": "Tobacco use",
+              "status": "completed_today",
+              "detail": "No current tobacco or nicotine use",
+              "guideline_ids": [
+                "GL-USPSTF-TOB-2021"
+              ]
+            },
+            {
+              "service": "Blood pressure screening",
+              "status": "completed_today",
+              "detail": "124/78 mmHg; recheck at each visit",
+              "guideline_ids": [
+                "GL-USPSTF-BP-2021"
+              ]
+            },
+            {
+              "service": "Diabetes screening",
+              "status": "ordered",
+              "detail": "Age 35 to 70 with overweight (BMI 27.0); HbA1c ordered",
+              "guideline_ids": [
+                "GL-USPSTF-DM-2021"
+              ]
+            },
+            {
+              "service": "Cholesterol and cardiovascular risk assessment",
+              "status": "ordered",
+              "detail": "Lipid panel ordered to calculate his ten-year cardiovascular risk for the statin decision",
+              "guideline_ids": [
+                "GL-USPSTF-STATIN-2022"
+              ]
+            },
+            {
+              "service": "HIV screening",
+              "status": "ordered",
+              "detail": "One-time antigen and antibody test, with his consent; no prior result on record",
+              "guideline_ids": [
+                "GL-USPSTF-HIV-2019"
+              ]
+            },
+            {
+              "service": "Hepatitis C screening",
+              "status": "ordered",
+              "detail": "One-time antibody test with reflex RNA, with his consent",
+              "guideline_ids": [
+                "GL-USPSTF-HCV-2020"
+              ]
+            },
+            {
+              "service": "Hepatitis B screening",
+              "status": "ordered",
+              "detail": "One-time triple panel; hepatitis B vaccination will be offered if he is not immune",
+              "guideline_ids": [
+                "GL-CDC-HBV-2023"
+              ]
+            },
+            {
+              "service": "Influenza vaccine",
+              "status": "completed_today",
+              "detail": "This season's vaccine given today"
+            },
+            {
+              "service": "Pneumococcal vaccine",
+              "status": "completed_today",
+              "detail": "PCV20 given today because alcohol use disorder is a risk indication at his age; no further pneumococcal doses needed",
+              "guideline_ids": [
+                "GL-ACIP-PCV-2022"
+              ]
+            },
+            {
+              "service": "Tetanus booster",
+              "status": "up_to_date",
+              "detail": "Tdap about six years ago; next booster due in about three and a half years"
+            },
+            {
+              "service": "COVID-19 vaccine",
+              "status": "due",
+              "detail": "Discussed; he plans to get this season's vaccine at his pharmacy"
+            },
+            {
+              "service": "Colorectal cancer screening",
+              "status": "due",
+              "detail": "Starts at 45, which he reaches in December. Options were discussed today; he leans toward colonoscopy and will decide at his next visit",
+              "guideline_ids": [
+                "GL-USPSTF-CRC-2021"
+              ]
+            },
+            {
+              "service": "Lung cancer, abdominal aortic aneurysm, and prostate cancer screening",
+              "status": "not_indicated",
+              "detail": "Not recommended at his age"
+            },
+            {
+              "service": "Dental care",
+              "status": "due",
+              "detail": "More than a year since his last cleaning; he will book one"
+            }
+          ],
+          "advance_care_planning": "Brief voluntary discussion, with his consent. He has named a health care agent and would like to put his wishes in writing; advance directive forms were given. He wants full treatment, including hospital and intensive care, for any illness from which he could recover. He will bring the completed forms to a future visit.",
+          "follow_up": "Results of the hepatic panel, GGT, HbA1c, lipid panel, and HIV, hepatitis C, and hepatitis B tests will be sent when available, with a statin discussion if his cardiovascular risk calls for one. Recovery check-in with AUDIT-C, PCL-5, and PHQ-9 in about two months. Next preventive visit in one year. Call or use the crisis line, 988 then 1, at any time",
+          "guideline_ids": [
+            "GL-PREV-2026",
+            "GL-SUD-2021"
+          ]
+        },
+        "provenance": {
+          "evidence_grade": "S",
+          "claim_ids": [],
+          "synthetic_reason": "Synthetic adult preventive visit.",
+          "author": "The Human Record generator",
+          "created": "2026-11-03T10:00:00-05:00"
         }
       }
     ],
@@ -1041,6 +2211,140 @@
           "author": "The Human Record generator",
           "created": "2026-11-01T14:00:00-05:00"
         }
+      },
+      {
+        "id": "VSET-004",
+        "date": "2026-10-09",
+        "measurements": [
+          {
+            "code": "8302-2",
+            "display": "Body height",
+            "value": 178,
+            "unit": "cm"
+          },
+          {
+            "code": "29463-7",
+            "display": "Body weight",
+            "value": 85.9,
+            "unit": "kg"
+          },
+          {
+            "code": "39156-5",
+            "display": "Body mass index (BMI) [Ratio]",
+            "value": 27.1,
+            "unit": "kg/m2"
+          },
+          {
+            "code": "8480-6",
+            "display": "Systolic blood pressure",
+            "value": 136,
+            "unit": "mm[Hg]"
+          },
+          {
+            "code": "8462-4",
+            "display": "Diastolic blood pressure",
+            "value": 84,
+            "unit": "mm[Hg]"
+          },
+          {
+            "code": "8867-4",
+            "display": "Heart rate",
+            "value": 82,
+            "unit": "/min"
+          },
+          {
+            "code": "9279-1",
+            "display": "Respiratory rate",
+            "value": 16,
+            "unit": "/min"
+          },
+          {
+            "code": "8310-5",
+            "display": "Body temperature",
+            "value": 36.7,
+            "unit": "Cel"
+          },
+          {
+            "code": "59408-5",
+            "display": "Oxygen saturation in Arterial blood by Pulse oximetry",
+            "value": 98,
+            "unit": "%"
+          }
+        ],
+        "provenance": {
+          "evidence_grade": "S",
+          "claim_ids": [],
+          "synthetic_reason": "Synthetic visit 4 vital signs for longitudinal testing.",
+          "author": "The Human Record generator",
+          "created": "2026-11-03T10:00:00-05:00"
+        }
+      },
+      {
+        "id": "VSET-005",
+        "date": "2026-10-28",
+        "measurements": [
+          {
+            "code": "8302-2",
+            "display": "Body height",
+            "value": 178,
+            "unit": "cm"
+          },
+          {
+            "code": "29463-7",
+            "display": "Body weight",
+            "value": 85.4,
+            "unit": "kg"
+          },
+          {
+            "code": "39156-5",
+            "display": "Body mass index (BMI) [Ratio]",
+            "value": 27.0,
+            "unit": "kg/m2"
+          },
+          {
+            "code": "8480-6",
+            "display": "Systolic blood pressure",
+            "value": 124,
+            "unit": "mm[Hg]"
+          },
+          {
+            "code": "8462-4",
+            "display": "Diastolic blood pressure",
+            "value": 78,
+            "unit": "mm[Hg]"
+          },
+          {
+            "code": "8867-4",
+            "display": "Heart rate",
+            "value": 70,
+            "unit": "/min"
+          },
+          {
+            "code": "9279-1",
+            "display": "Respiratory rate",
+            "value": 14,
+            "unit": "/min"
+          },
+          {
+            "code": "8310-5",
+            "display": "Body temperature",
+            "value": 36.6,
+            "unit": "Cel"
+          },
+          {
+            "code": "59408-5",
+            "display": "Oxygen saturation in Arterial blood by Pulse oximetry",
+            "value": 98,
+            "unit": "%"
+          }
+        ],
+        "provenance": {
+          "evidence_grade": "S",
+          "claim_ids": [],
+          "synthetic_reason": "Synthetic visit 5 vital signs for longitudinal testing.",
+          "author": "The Human Record generator",
+          "created": "2026-11-03T10:00:00-05:00"
+        }
       }
     ],
     "social_history": [
@@ -1197,6 +2501,94 @@
         "author": "The Human Record generator",
         "created": "2026-11-01T14:00:00-05:00"
       }
+    },
+    "consultation": {
+      "referral": {
+        "question": "Co-occurring alcohol use disorder and post-traumatic stress disorder in a 44-year-old veteran. Please confirm the PTSD diagnosis, provide trauma-focused psychotherapy alongside his alcohol treatment, and share your assessment of risk",
+        "urgency": "Routine, within two weeks",
+        "pertinent_history": "Combat service and prolonged captivity as a prisoner of war, with nightmares, startle, avoidance, and broken sleep; he drinks at night to get to sleep. Drinks most days, usually seven to nine drinks; AUDIT-C 10, PCL-5 39, PHQ-9 9 with item 9 scored 0. No withdrawal history. Today's structured safety assessment found no current suicidal ideation, intent, or plan; access to lethal means was reviewed and a collaborative safety plan written. He chose behavioral treatment for alcohol use disorder over medication for now and takes no medicines. Supports include family, veteran peers, and a recovery peer group",
+        "questions": [
+          "Does he meet criteria for PTSD, and is a PCL-5 of 39 a reasonable baseline for measuring progress?",
+          "Which trauma-focused psychotherapy do you recommend, and can it start while he is still drinking?",
+          "How should his alcohol treatment be coordinated with trauma therapy, and is there a point at which you would advise adding medication?",
+          "Please reassess suicide risk and help keep his safety plan current",
+          "What do you advise for his sleep and nightmares?"
+        ]
+      },
+      "consultant_note": {
+        "history": "Mr. Boyington was referred by Dr. Marquez for evaluation and trauma-focused psychotherapy. At the first session in early July a structured diagnostic interview confirmed post-traumatic stress disorder related to combat and captivity, with intrusive memories, nightmares, avoidance of reminders, hypervigilance, and startle. He chose prolonged exposure therapy and has attended five weekly sessions. The run of nightmares that followed the start of imaginal exposure in the third week was followed by one day of heavy drinking; he used his relapse plan and returned to the next session. He now drinks on about four days in six weeks, has fewer nightmares, and startles less. He reports no suicidal thoughts since intake and keeps his safety plan with him",
+        "data_reviewed": "Dr. Marquez's referral and intake safety assessment, and today's AUDIT-C, PCL-5, and PHQ-9 alongside the intake scores",
+        "exam": [
+          {
+            "system": "Appearance and behavior",
+            "finding": "Well groomed, calm, good eye contact; no tremor or signs of intoxication"
+          },
+          {
+            "system": "Speech",
+            "finding": "Normal rate, volume, and rhythm"
+          },
+          {
+            "system": "Mood and affect",
+            "finding": "Mood “better, still on edge”; affect mildly anxious, congruent, and reactive"
+          },
+          {
+            "system": "Thought process",
+            "finding": "Linear and goal-directed"
+          },
+          {
+            "system": "Thought content",
+            "finding": "No suicidal or homicidal ideation, intent, or plan; trauma-related intrusive memories without psychotic content"
+          },
+          {
+            "system": "Perception",
+            "finding": "No hallucinations"
+          },
+          {
+            "system": "Cognition",
+            "finding": "Alert and fully oriented; attention and memory intact on interview"
+          },
+          {
+            "system": "Insight and judgment",
+            "finding": "Good; links drinking to nightmares and uses his relapse plan"
+          }
+        ],
+        "assessment": [
+          {
+            "problem_id": "PRB-002",
+            "display": "Post-traumatic stress disorder",
+            "assessment": "Diagnosis confirmed. The intake PCL-5 of 39 is a valid baseline. Today's 31 is an 8-point fall, short of the 10 points usually taken as meaningful change, but the course is early and nightmares and startle are improving"
+          },
+          {
+            "problem_id": "PRB-001",
+            "display": "Alcohol use disorder",
+            "assessment": "Drinking has fallen from most days to about four days in six weeks (AUDIT-C 10 to 5). The single heavy-drinking day followed the expected rise in distress early in exposure work, not disengagement. Concurrent treatment of both disorders is appropriate and does not need to wait for abstinence"
+          },
+          {
+            "display": "Suicide risk",
+            "assessment": "Low acute risk: no current ideation, intent, plan, or preparatory behavior, and PHQ-9 item 9 is 0. Chronic risk factors are male sex, veteran status, alcohol use disorder, and PTSD; protective factors are engagement in treatment, veteran and recovery peers, family support, and a strong sense of service. The safety plan was reviewed with him today and remains current"
+          },
+          {
+            "display": "Sleep disturbance with nightmares",
+            "assessment": "Nightmares are part of the PTSD and are already easing with exposure therapy and less drinking"
+          }
+        ],
+        "recommendations": [
+          "Continue weekly prolonged exposure; I expect about four more sessions to complete the course",
+          "Continue behavioral alcohol treatment and the veteran recovery peer group. Revisit naltrexone or acamprosate with Dr. Marquez if heavy-drinking days recur during the rest of therapy",
+          "Avoid benzodiazepines and sedative sleep medicines, which can undermine exposure therapy and add to the risk with alcohol",
+          "Plan for nights after hard sessions: a call to a peer, no alcohol in the house, and the wind-down routine from therapy",
+          "Repeat PCL-5, AUDIT-C, and PHQ-9 at twelve weeks",
+          "For sleep, keep a regular rise time and do not use alcohol as a sleep aid; if insomnia persists after the course, cognitive behavioral therapy for insomnia",
+          "Keep the safety plan current, with the crisis line (988, press 1) in his phone"
+        ],
+        "communication": "Report sent to Dr. Marquez and discussed with her the same day; he agrees with the plan",
+        "follow_up": "Weekly prolonged exposure through the end of the course, then a booster session on request. Behavioral health will see him sooner for a rise in PCL-5, a return to heavy drinking, or any suicidal thoughts"
+      },
+      "guideline_ids": [
+        "GL-PTSD-2023",
+        "GL-SUD-2021",
+        "GL-NIAAA-AUD"
+      ]
     }
   },
   "care_plan": {
@@ -1362,6 +2754,111 @@
         "publisher": "National Institute on Alcohol Abuse and Alcoholism",
         "url": "https://www.niaaa.nih.gov/health-professionals-communities/core-resource-on-alcohol/recommend-evidence-based-treatment-know-options",
         "version_or_year": "2026 accessed"
+      },
+      {
+        "guideline_id": "GL-CMID-2026",
+        "title": "CMID: Clinical Monitoring Intelligence Database, depression monograph",
+        "publisher": "Aether Forge",
+        "url": "https://patrickrutledge.github.io/topthirty/",
+        "version_or_year": "2026"
+      },
+      {
+        "guideline_id": "GL-ACP-LBP-2017",
+        "title": "Noninvasive Treatments for Acute, Subacute, and Chronic Low Back Pain: A Clinical Practice Guideline From the American College of Physicians",
+        "publisher": "American College of Physicians (Annals of Internal Medicine)",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/28192789/",
+        "version_or_year": "2017"
+      },
+      {
+        "guideline_id": "GL-VADOD-LBP-2022",
+        "title": "VA/DoD Clinical Practice Guideline for the Diagnosis and Treatment of Low Back Pain",
+        "publisher": "U.S. Department of Veterans Affairs and Department of Defense",
+        "url": "https://www.healthquality.va.gov/guidelines/pain/lbp/",
+        "version_or_year": "2022"
+      },
+      {
+        "guideline_id": "GL-PREV-2026",
+        "title": "Medicare Preventive Services reference: visit templates, screening cascades, and documentation elements",
+        "publisher": "Aether Forge",
+        "url": "https://patrickrutledge.github.io/preventative_services/",
+        "version_or_year": "2026"
+      },
+      {
+        "guideline_id": "GL-USPSTF-DEP-2023",
+        "title": "Depression and Suicide Risk in Adults: Screening",
+        "publisher": "U.S. Preventive Services Task Force",
+        "url": "https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/screening-depression-suicide-risk-adults",
+        "version_or_year": "2023"
+      },
+      {
+        "guideline_id": "GL-USPSTF-DRUG-2020",
+        "title": "Unhealthy Drug Use: Screening",
+        "publisher": "U.S. Preventive Services Task Force",
+        "url": "https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/drug-use-illicit-screening",
+        "version_or_year": "2020"
+      },
+      {
+        "guideline_id": "GL-USPSTF-TOB-2021",
+        "title": "Tobacco Smoking Cessation in Adults, Including Pregnant Persons: Interventions",
+        "publisher": "U.S. Preventive Services Task Force",
+        "url": "https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/tobacco-use-in-adults-and-pregnant-women-counseling-and-interventions",
+        "version_or_year": "2021"
+      },
+      {
+        "guideline_id": "GL-USPSTF-BP-2021",
+        "title": "Hypertension in Adults: Screening",
+        "publisher": "U.S. Preventive Services Task Force",
+        "url": "https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/hypertension-in-adults-screening",
+        "version_or_year": "2021"
+      },
+      {
+        "guideline_id": "GL-USPSTF-STATIN-2022",
+        "title": "Statin Use for the Primary Prevention of Cardiovascular Disease in Adults: Preventive Medication",
+        "publisher": "U.S. Preventive Services Task Force",
+        "url": "https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/statin-use-in-adults-preventive-medication",
+        "version_or_year": "2022"
+      },
+      {
+        "guideline_id": "GL-USPSTF-DM-2021",
+        "title": "Prediabetes and Type 2 Diabetes: Screening",
+        "publisher": "U.S. Preventive Services Task Force",
+        "url": "https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/screening-for-prediabetes-and-type-2-diabetes",
+        "version_or_year": "2021"
+      },
+      {
+        "guideline_id": "GL-USPSTF-HIV-2019",
+        "title": "Human Immunodeficiency Virus (HIV) Infection: Screening",
+        "publisher": "U.S. Preventive Services Task Force",
+        "url": "https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/human-immunodeficiency-virus-hiv-infection-screening",
+        "version_or_year": "2019"
+      },
+      {
+        "guideline_id": "GL-USPSTF-HCV-2020",
+        "title": "Hepatitis C Virus Infection in Adolescents and Adults: Screening",
+        "publisher": "U.S. Preventive Services Task Force",
+        "url": "https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/hepatitis-c-screening",
+        "version_or_year": "2020"
+      },
+      {
+        "guideline_id": "GL-CDC-HBV-2023",
+        "title": "Screening and Testing for Hepatitis B Virus Infection: CDC Recommendations — United States, 2023",
+        "publisher": "Centers for Disease Control and Prevention (MMWR Recommendations and Reports)",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/36893044/",
+        "version_or_year": "2023"
+      },
+      {
+        "guideline_id": "GL-USPSTF-CRC-2021",
+        "title": "Colorectal Cancer: Screening",
+        "publisher": "U.S. Preventive Services Task Force",
+        "url": "https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/colorectal-cancer-screening",
+        "version_or_year": "2021"
+      },
+      {
+        "guideline_id": "GL-ACIP-PCV-2022",
+        "title": "Use of 15-Valent Pneumococcal Conjugate Vaccine and 20-Valent Pneumococcal Conjugate Vaccine Among U.S. Adults: Updated Recommendations of the Advisory Committee on Immunization Practices — United States, 2022",
+        "publisher": "Centers for Disease Control and Prevention (MMWR)",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/35085226/",
+        "version_or_year": "2022"
       }
     ]
   },
@@ -1373,10 +2870,8 @@
       "notes": "JSON Schema, project checks, CDA XSD, C-CDA R2.1 Schematron, FHIR R4, and US Core 6.1.0 with zero errors."
     },
     "clinical_review": {
-      "status": "passed",
-      "reviewer": "Pat Rutledge, Aether Forge",
-      "reviewed_on": "2026-11-02",
-      "notes": "Clinician approved."
+      "status": "in_progress",
+      "notes": "Reopened 2026-11-03: focused visits, a preventive visit, a sick visit, and the consultation were added. The 2026-11-02 approval covered the earlier content."
     },
     "provenance_review": {
       "status": "passed",
@@ -1385,10 +2880,8 @@
       "notes": "Accepted as sufficient for release. Open items at acceptance: Government sources and military scholarly biography review logged; primary memoir verification remains pending."
     },
     "safe_messaging_review": {
-      "status": "passed",
-      "reviewer": "Pat Rutledge, Aether Forge",
-      "reviewed_on": "2026-11-02",
-      "notes": "Content judged appropriate."
+      "status": "in_progress",
+      "notes": "Reopened 2026-11-03: focused visits, a preventive visit, a sick visit, and the consultation were added. The 2026-11-02 approval covered the earlier content."
     }
   }
 }

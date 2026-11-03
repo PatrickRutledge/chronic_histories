@@ -47,7 +47,6 @@ This fictional modern episode addresses the presenting concerns below. **S**
 - Diphenhydramine 25 mg oral capsule, one capsule by mouth at bedtime **S**
 - Enoxaparin 40 mg/0.4 mL prefilled syringe, inject 40 mg under the skin daily through day 35 after surgery **S**
 - Cholecalciferol 50 mcg (2,000 units) oral tablet, one tablet by mouth daily **S**
-- Zoledronic acid 5 mg/100 mL intravenous infusion over at least 15 minutes, once yearly **S**
 - No known allergy **S**
 
 ## Past medical history

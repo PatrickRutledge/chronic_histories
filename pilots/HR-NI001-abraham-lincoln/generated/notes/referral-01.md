@@ -9,11 +9,23 @@
 - Fictional author: Elena Marquez, MD
 - Calendar frame: modern shifted
 
+- To: Priya Natarajan, MD, Psychiatry
+- Urgency: Routine; booked for the day of his six-week review. No current suicidal ideation
+
 ## Referral question
 
-Please evaluate the active concerns and advise on the guideline-linked interventions in this fictional episode. **S**
+Moderate major depressive disorder, single episode, in a 32-year-old attorney starting sertraline 50 mg daily. Please confirm the diagnosis, look for bipolar spectrum illness, review his suicide risk and safety plan, and advise on medication management and psychotherapy. **S**
+
+## Questions for the consultant
+
+1. Do you agree with the diagnosis of a single, moderate, uncomplicated episode of major depressive disorder, and is there any sign of bipolar spectrum illness or another condition that would change treatment?
+2. Is sertraline 50 mg daily an appropriate first choice, and when should the dose be increased?
+3. Please review his suicide risk and the collaborative safety plan.
+4. Would you add psychotherapy, and how long should treatment continue after remission?
 
 ## Pertinent history
+
+Low mood, loss of interest, and poor sleep over several weeks are affecting his legal work and friendships, with reduced concentration and missed work. PHQ-9 14. No current suicidal ideation, intent, or plan; access to lethal means reviewed; collaborative safety plan with crisis resources, including the 988 Suicide & Crisis Lifeline, completed today. Protective factors: close friendships, a sense of purpose in public service, and engagement in treatment. No earlier depressive episode is documented. His mother died when he was nine and his older sister in his late teens. No tobacco or alcohol use; no known allergy. Sertraline 50 mg daily started today after shared decision-making; he prefers medication to psychotherapy. **S**
 
 - Abraham Lincoln was born February 12, 1809, near what is now Hodgenville, Kentucky. **D**
 - In 1859 Lincoln described himself as "six feet, four inches, nearly" in height. **D**
@@ -28,7 +40,13 @@ Please evaluate the active concerns and advise on the guideline-linked intervent
 
 Baseline: Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]: 14. All results are synthetic.
 
-## Requested recommendations
+BP 118/74 mmHg; pulse 74 bpm; respirations 14/min; temperature 36.7 °C; oxygen saturation 99% on room air; weight 82 kg; BMI 22 kg/m². All vital signs are synthetic.
+
+## Current medications
+
+- Sertraline 50 mg oral tablet, one tablet by mouth daily **S**
+
+## Plan so far
 
 - Use shared decision-making to choose monotherapy for uncomplicated major depression; patient prefers medication over psychotherapy. Guideline: VA/DoD Clinical Practice Guideline for the Management of Major Depressive Disorder (2022) **S**
 - Start sertraline 50 mg daily; review expected time to benefit, common adverse effects, and how to reach the clinic. Guideline: VA/DoD Clinical Practice Guideline for the Management of Major Depressive Disorder (2022) **S**

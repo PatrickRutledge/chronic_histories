@@ -41,7 +41,7 @@ This fictional modern episode addresses the presenting concern below. **S**
 
 ## Medications and allergies
 
-- No medication regimen generated. **S**
+- No medications before this visit. **S**
 - No known allergy **S**
 
 ## Past medical history
@@ -91,5 +91,3 @@ Current ideation: absent; intent: absent; plan: absent; access reviewed: yes. Di
 ## Guideline basis
 
 - VA/DoD Clinical Practice Guideline for Management of Posttraumatic Stress Disorder and Acute Stress Disorder (2023), United States Department of Veterans Affairs and Department of Defense
-- VA/DoD Clinical Practice Guideline for Assessment and Management of Patients at Risk for Suicide (2024), United States Department of Veterans Affairs and Department of Defense
-- VA/DoD Clinical Practice Guideline for Management of Chronic Insomnia Disorder and Obstructive Sleep Apnea (2025), United States Department of Veterans Affairs and Department of Defense

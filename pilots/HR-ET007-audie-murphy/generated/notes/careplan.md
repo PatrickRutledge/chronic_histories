@@ -31,5 +31,6 @@
 - 2026-06-30: Primary care intake and behavioral health assessment **S**
 - 2026-08-11: Six-week results and treatment follow-up **S**
 - 2026-09-30: Three-month care-plan review **S**
+- 2026-10-27: Adult preventive visit **S**
 
 This teaching document does not replace care from a qualified clinician.

@@ -32,5 +32,6 @@
 - 2026-06-30: Primary care and integrated behavioral health intake **S**
 - 2026-08-11: Six-week alcohol and trauma treatment follow-up **S**
 - 2026-09-30: Three-month recovery care-plan review **S**
+- 2026-10-28: Adult preventive visit **S**
 
 This teaching document does not replace care from a qualified clinician.

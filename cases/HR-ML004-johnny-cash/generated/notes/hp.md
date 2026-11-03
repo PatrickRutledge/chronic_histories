@@ -43,12 +43,9 @@ This fictional modern episode addresses the presenting concerns below. **S**
 
 - Metformin 500 mg oral tablet, one tablet by mouth twice daily with meals **S**
 - Metformin 1000 mg oral tablet, one tablet by mouth twice daily with meals **S**
-- Sitagliptin 100 mg oral tablet, one tablet by mouth daily **S**
 - Atorvastatin 40 mg oral tablet, one tablet by mouth daily **S**
 - Latanoprost 0.005% ophthalmic solution, one drop in each eye at bedtime **S**
 - Dorzolamide 2% ophthalmic solution, one drop in each eye twice daily **S**
-- Midodrine 2.5 mg oral tablet, one tablet by mouth three times daily, last dose by 6 PM **S**
-- Midodrine 5 mg oral tablet, one tablet by mouth three times daily, last dose by 6 PM **S**
 - No known allergy **S**
 
 ## Past medical history

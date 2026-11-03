@@ -32,5 +32,6 @@
 - 2026-06-30: Primary care visit for low mood and sleep disturbance **S**
 - 2026-08-11: Six-week depression treatment follow-up **S**
 - 2026-09-30: Twelve-week depression care-plan review **S**
+- 2026-10-27: Adult preventive visit **S**
 
 This teaching document does not replace care from a qualified clinician.

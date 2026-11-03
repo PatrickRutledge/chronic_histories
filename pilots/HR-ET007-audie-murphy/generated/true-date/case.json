@@ -5,7 +5,7 @@
     "synthetic": true,
     "banner": "SYNTHETIC RECORD, NOT A REAL MEDICAL RECORD",
     "real_historical_name": true,
-    "public_release_status": "approved"
+    "public_release_status": "draft"
   },
   "identity": {
     "person_id": "ET007",
@@ -380,6 +380,16 @@
         "encounter_id": "ENC-003",
         "date": "1964-09-30",
         "purpose": "Three-month care-plan review"
+      },
+      {
+        "encounter_id": "ENC-004",
+        "date": "1964-10-06",
+        "purpose": "Same-day sick visit for a cold and cough"
+      },
+      {
+        "encounter_id": "ENC-005",
+        "date": "1964-10-27",
+        "purpose": "Adult preventive visit"
       }
     ]
   },
@@ -440,6 +450,32 @@
         "clinical_status": "active",
         "verification_status": "provisional",
         "problem_placement": "both_with_link"
+      },
+      {
+        "id": "PRB-003",
+        "display": "Acute viral upper respiratory infection (common cold), resolved without antibiotics",
+        "status": "draft",
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/sid/icd-10-cm",
+            "code": "J06.9",
+            "display": "Acute upper respiratory infection, unspecified",
+            "version": "FY2026",
+            "validation_status": "validated",
+            "validated_on": "2026-11-03"
+          }
+        ],
+        "provenance": {
+          "evidence_grade": "S",
+          "claim_ids": [],
+          "synthetic_reason": "Synthetic intercurrent illness at an unscheduled visit; it does not echo a documented illness.",
+          "author": "The Human Record generator",
+          "created": "2026-11-03T09:00:00-05:00"
+        },
+        "clinical_status": "resolved",
+        "verification_status": "confirmed",
+        "problem_placement": "active",
+        "recorded_date": "1964-10-06"
       }
     ],
     "medications": [],
@@ -631,6 +667,59 @@
           "author": "The Human Record generator",
           "created": "2026-11-01T12:00:00-05:00"
         }
+      },
+      {
+        "id": "OBS-PHQ9-004",
+        "display": "PHQ-9 total score",
+        "status": "final",
+        "effective_date": "1964-10-27",
+        "value": 3,
+        "unit": "{score}",
+        "coding": [
+          {
+            "system": "http://loinc.org",
+            "code": "44261-6",
+            "display": "Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]",
+            "version": "2.81",
+            "validation_status": "validated",
+            "validated_on": "2026-11-03"
+          }
+        ],
+        "provenance": {
+          "evidence_grade": "S",
+          "claim_ids": [
+            "CLM-0006"
+          ],
+          "synthetic_reason": "Synthetic depression screen at the adult preventive visit; item-level responses are not generated.",
+          "author": "The Human Record generator",
+          "created": "2026-11-03T09:00:00-05:00"
+        }
+      },
+      {
+        "id": "OBS-AUDITC-001",
+        "display": "Total score [AUDIT-C]",
+        "label": "AUDIT-C",
+        "status": "final",
+        "effective_date": "1964-10-27",
+        "value": 0,
+        "unit": "{score}",
+        "coding": [
+          {
+            "system": "http://loinc.org",
+            "code": "75626-2",
+            "display": "Total score [AUDIT-C]",
+            "version": "2.81",
+            "validation_status": "validated",
+            "validated_on": "2026-11-03"
+          }
+        ],
+        "provenance": {
+          "evidence_grade": "S",
+          "claim_ids": [],
+          "synthetic_reason": "Synthetic alcohol screen consistent with SOC-002; the unsourced roster alcohol assertion is not adopted.",
+          "author": "The Human Record generator",
+          "created": "2026-11-03T09:00:00-05:00"
+        }
       }
     ],
     "procedures": [
@@ -701,6 +790,28 @@
           "synthetic_reason": "Synthetic adult immunization history in the modern frame; not a historical assertion.",
           "author": "The Human Record generator",
           "created": "2026-11-01T12:00:00-05:00"
+        }
+      },
+      {
+        "id": "IMM-003",
+        "display": "Influenza vaccine, 1964-1965 season",
+        "status": "completed",
+        "date": "1964-10-27",
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/sid/cvx",
+            "code": "140",
+            "display": "Influenza, split virus, trivalent, PF",
+            "validation_status": "validated",
+            "validated_on": "2026-11-03"
+          }
+        ],
+        "provenance": {
+          "evidence_grade": "S",
+          "claim_ids": [],
+          "synthetic_reason": "Synthetic adult immunization in the modern frame; not a historical assertion.",
+          "author": "The Human Record generator",
+          "created": "2026-11-03T09:00:00-05:00"
         }
       }
     ],
@@ -794,6 +905,294 @@
           "synthetic_reason": "Synthetic modern EHR encounter.",
           "author": "The Human Record generator",
           "created": "2026-11-01T12:00:00-05:00"
+        },
+        "visit_type": "chronic_care",
+        "type_coding": {
+          "system": "http://snomed.info/sct",
+          "code": "390906007",
+          "display": "Follow-up encounter",
+          "validation_status": "validated",
+          "validated_on": "2026-11-03"
+        },
+        "documentation": {
+          "chief_complaint": "Six-week PTSD and insomnia follow-up",
+          "hpi": {
+            "narrative": "Mr. Murphy returns six weeks after his intake visit for post-traumatic stress disorder and chronic insomnia. He has attended five weekly sessions of Cognitive Processing Therapy with Dr. Lee and completes the practice assignments between sessions; Dr. Lee's consultation report arrived today. His nightmares have fallen from most nights to two or three nights a week. He uses the agreed sleep routine on five to six nights a week and now falls asleep in about 30 minutes instead of more than an hour, although he still wakes once or twice on most nights. He startles less easily and concentrates better at work, and his mood is better. He has had no thoughts of suicide or self-harm since the intake visit. He carries his safety plan, has the 988 Suicide & Crisis Lifeline saved in his phone, and reports that the lethal-means steps agreed at intake remain in place. He drinks no alcohol, uses no cannabis or other drugs, and takes no medicines or sleep aids. No one has noticed loud snoring or pauses in his breathing, and he is not sleepy during the day.",
+            "elements": [
+              {
+                "label": "Interval change",
+                "value": "Fewer nightmares, quicker sleep onset, better concentration and mood"
+              },
+              {
+                "label": "Nightmares",
+                "value": "Two or three nights a week, down from most nights"
+              },
+              {
+                "label": "Sleep",
+                "value": "Asleep in about 30 minutes; wakes once or twice most nights; routine used five to six nights a week"
+              },
+              {
+                "label": "Treatment engagement",
+                "value": "Five Cognitive Processing Therapy sessions; practice assignments completed"
+              },
+              {
+                "label": "Safety",
+                "value": "No suicidal thoughts, intent, or plan since intake; safety plan in use"
+              },
+              {
+                "label": "Substances",
+                "value": "No alcohol, cannabis, other drugs, or sleep aids"
+              }
+            ]
+          },
+          "ros": [
+            {
+              "system": "Constitutional",
+              "status": "negative",
+              "finding": "Energy improving; no weight change of note"
+            },
+            {
+              "system": "Respiratory",
+              "status": "negative",
+              "finding": "No loud snoring or witnessed pauses in breathing"
+            },
+            {
+              "system": "Cardiovascular",
+              "status": "negative",
+              "finding": "No chest pain or daytime palpitations"
+            },
+            {
+              "system": "Neurological",
+              "status": "negative",
+              "finding": "No dizziness or daytime sleepiness"
+            },
+            {
+              "system": "Psychiatric",
+              "status": "positive",
+              "finding": "Nightmares two or three nights a week; mood improved; no suicidal thoughts"
+            }
+          ],
+          "exam": [
+            {
+              "system": "General",
+              "finding": "Well groomed, relaxed in the waiting room, on time"
+            },
+            {
+              "system": "Mental status: appearance and behavior",
+              "finding": "Cooperative with good eye contact; briefly restless when describing nightmares"
+            },
+            {
+              "system": "Mental status: speech",
+              "finding": "Normal rate, volume, and rhythm"
+            },
+            {
+              "system": "Mental status: mood and affect",
+              "finding": "Mood \"better than in June\"; affect mildly anxious, reactive, and less constricted than at intake"
+            },
+            {
+              "system": "Mental status: thought process and content",
+              "finding": "Linear and goal directed; no suicidal or homicidal ideation, intent, or plan; no delusions"
+            },
+            {
+              "system": "Mental status: perception",
+              "finding": "No hallucinations; no dissociation during the visit"
+            },
+            {
+              "system": "Mental status: cognition",
+              "finding": "Alert and fully oriented; attention and recall intact in conversation"
+            },
+            {
+              "system": "Mental status: insight and judgment",
+              "finding": "Good"
+            }
+          ],
+          "assessment_plan": [
+            {
+              "problem_id": "PRB-001",
+              "display": "Post-traumatic stress disorder, improving with Cognitive Processing Therapy",
+              "assessment": "PCL-5 fell from 42 to 31, an 11-point drop that exceeds the 10 points usually taken as a clinically meaningful change. A score of 31 is still at the edge of the 31 to 33 range that suggests probable PTSD, so the full course is needed. Dr. Lee's evaluation confirms the diagnosis",
+              "plan": [
+                "Complete the Cognitive Processing Therapy course with Dr. Lee, aiming for at least eight sessions by the twelve-week review",
+                "No PTSD medication, in line with his preference and Dr. Lee's advice; revisit only if the response stalls",
+                "Repeat the PCL-5 and PHQ-9 at the twelve-week review"
+              ]
+            },
+            {
+              "display": "Depressive symptoms",
+              "assessment": "PHQ-9 fell from 11 to 7. Dr. Lee's interview today found that the low mood, poor sleep, and poor concentration are part of the PTSD, with no separate major depressive episode and no history of mania or hypomania",
+              "plan": [
+                "No separate depression treatment",
+                "PHQ-9 continues at each review alongside the PCL-5"
+              ]
+            },
+            {
+              "problem_id": "PRB-002",
+              "display": "Chronic insomnia, improving",
+              "assessment": "Sleep onset about 30 minutes and nightmares two or three nights a week, with the sleep routine used on five to six nights a week, which meets the six-week sleep goal. No symptoms of sleep apnea",
+              "plan": [
+                "Continue the sleep routine, stimulus control, and a fixed wake time",
+                "No sleep medication, and no over-the-counter sedating sleep aids",
+                "Offer cognitive behavioral therapy for insomnia if the insomnia persists after the trauma-focused course"
+              ]
+            },
+            {
+              "display": "Suicide risk review",
+              "assessment": "No suicidal ideation, intent, plan, or preparatory behavior since intake on a structured since-last-visit screen. Protective factors are unchanged: engagement in treatment, family and peer supports, and purposeful work and service identity. Acute risk remains low and outpatient care remains appropriate",
+              "plan": [
+                "Safety plan reviewed with him and unchanged; the lethal-means steps from intake remain in place",
+                "Crisis resources reconfirmed, including the 988 Suicide & Crisis Lifeline (press 1 for the Veterans Crisis Line)"
+              ]
+            }
+          ],
+          "monitoring": [
+            {
+              "domain": "survey",
+              "measure": "PCL-5",
+              "cadence": "Baseline, then at set intervals during treatment (care plan: six and twelve weeks)",
+              "status": "completed_today",
+              "detail": "31, down 11 points from 42 at intake",
+              "observation_ids": [
+                "OBS-PCL5-002"
+              ],
+              "guideline_ids": [
+                "GL-PTSD-2023"
+              ]
+            },
+            {
+              "domain": "survey",
+              "measure": "PHQ-9",
+              "cadence": "Baseline; at least monthly during active treatment; periodically in recovery",
+              "status": "completed_today",
+              "detail": "7, down from 11 at intake",
+              "observation_ids": [
+                "OBS-PHQ9-002"
+              ],
+              "guideline_ids": [
+                "GL-CMID-2026"
+              ]
+            },
+            {
+              "domain": "survey",
+              "measure": "PHQ-9 recheck about four weeks after a baseline score of 10 or more",
+              "cadence": "Monthly during active treatment",
+              "status": "deferred",
+              "detail": "Not done. The care plan set checks at six and twelve weeks, so the intake score of 11 waited six weeks instead of about four, a deviation from the CMID schedule. Today's score of 7 shows no harm resulted, and Dr. Lee's interview today found no separate depressive disorder, so the PHQ-9 now follows the PCL-5 schedule",
+              "guideline_ids": [
+                "GL-CMID-2026"
+              ]
+            },
+            {
+              "domain": "referral",
+              "measure": "Behavioral health consultation and diagnostic evaluation",
+              "cadence": "Once, at diagnosis",
+              "status": "completed_today",
+              "detail": "Dr. Lee's report received today: PTSD confirmed; no separate major depressive episode and no history of mania or hypomania, so a bipolar screen (Mood Disorder Questionnaire) is not needed",
+              "guideline_ids": [
+                "GL-PTSD-2023",
+                "GL-CMID-2026"
+              ]
+            },
+            {
+              "domain": "referral",
+              "measure": "Trauma-focused psychotherapy (Cognitive Processing Therapy)",
+              "cadence": "Weekly course of about 12 sessions",
+              "status": "up_to_date",
+              "detail": "Five sessions attended; on track for the goal of eight by the twelve-week review",
+              "guideline_ids": [
+                "GL-PTSD-2023"
+              ]
+            },
+            {
+              "domain": "survey",
+              "measure": "Suicide risk reassessment (C-SSRS screener, since last visit)",
+              "cadence": "Every visit during active treatment",
+              "status": "completed_today",
+              "detail": "Negative: no ideation, intent, plan, or behavior since intake",
+              "guideline_ids": [
+                "GL-SUICIDE-2024",
+                "GL-CMID-2026"
+              ]
+            },
+            {
+              "domain": "self_management",
+              "measure": "Safety plan, lethal-means steps, and crisis resources",
+              "cadence": "Every visit",
+              "status": "completed_today",
+              "detail": "Reviewed and unchanged; 988 Suicide & Crisis Lifeline reconfirmed",
+              "guideline_ids": [
+                "GL-SUICIDE-2024"
+              ]
+            },
+            {
+              "domain": "survey",
+              "measure": "Alcohol and other substance use",
+              "cadence": "At intake and during treatment",
+              "status": "completed_today",
+              "detail": "None, consistent with the intake social history",
+              "guideline_ids": [
+                "GL-PTSD-2023"
+              ]
+            },
+            {
+              "domain": "self_management",
+              "measure": "Sleep diary and agreed sleep routine",
+              "cadence": "Every visit",
+              "status": "completed_today",
+              "detail": "Routine used five to six nights a week; sleep onset about 30 minutes; six-week goal met",
+              "guideline_ids": [
+                "GL-INSOMNIA-2025"
+              ]
+            },
+            {
+              "domain": "survey",
+              "measure": "Obstructive sleep apnea symptom screen",
+              "cadence": "At the insomnia assessment",
+              "status": "completed_today",
+              "detail": "Not documented at the intake visit, a gap in the insomnia assessment; done today: no snoring, witnessed apneas, or daytime sleepiness and BMI 27.3, so sleep testing is not indicated",
+              "guideline_ids": [
+                "GL-INSOMNIA-2025"
+              ]
+            },
+            {
+              "domain": "medication_safety",
+              "measure": "PTSD medication and sedative-hypnotics",
+              "cadence": "If psychotherapy is declined or the response stalls",
+              "status": "not_indicated",
+              "detail": "He chose trauma-focused psychotherapy first and is responding. No benzodiazepines, which the PTSD guideline advises against, and no sleep medicines",
+              "guideline_ids": [
+                "GL-PTSD-2023",
+                "GL-INSOMNIA-2025"
+              ]
+            },
+            {
+              "domain": "examination",
+              "measure": "Mental status examination, vital signs, and weight",
+              "cadence": "Every visit",
+              "status": "completed_today",
+              "detail": "Affect brighter and less constricted; BP 128/82 mmHg; weight 74.2 kg",
+              "guideline_ids": [
+                "GL-PTSD-2023"
+              ]
+            },
+            {
+              "domain": "laboratory",
+              "measure": "Laboratory tests",
+              "cadence": "Only for medication monitoring or a suspected medical cause",
+              "status": "not_indicated",
+              "detail": "No medicines; neither protocol calls for routine laboratory tests",
+              "guideline_ids": [
+                "GL-PTSD-2023",
+                "GL-CMID-2026"
+              ]
+            }
+          ],
+          "follow_up": "Cognitive Processing Therapy continues weekly with Dr. Lee. Twelve-week review with the PCL-5 and PHQ-9. Use the safety plan and call the 988 Suicide & Crisis Lifeline (press 1) at any time if needed",
+          "guideline_ids": [
+            "GL-PTSD-2023",
+            "GL-SUICIDE-2024",
+            "GL-INSOMNIA-2025",
+            "GL-CMID-2026"
+          ]
         }
       },
       {
@@ -807,6 +1206,834 @@
           "synthetic_reason": "Synthetic modern EHR encounter.",
           "author": "The Human Record generator",
           "created": "2026-11-01T12:00:00-05:00"
+        },
+        "visit_type": "chronic_care",
+        "type_coding": {
+          "system": "http://snomed.info/sct",
+          "code": "390906007",
+          "display": "Follow-up encounter",
+          "validation_status": "validated",
+          "validated_on": "2026-11-03"
+        },
+        "documentation": {
+          "chief_complaint": "Twelve-week PTSD and insomnia review",
+          "hpi": {
+            "narrative": "Mr. Murphy returns for his twelve-week review. He finished Cognitive Processing Therapy with Dr. Lee last week after nine sessions and still uses the worksheets when an old belief about blame or danger comes up. His nightmares now come about once a week. He falls asleep within about 20 minutes on most nights, wakes once on some nights and gets back to sleep quickly, and sleeps about six and a half to seven hours. He now goes to crowded places he used to avoid and is concentrating well at work. His mood is good. He has had no thoughts of suicide or self-harm since his last visit, still carries his safety plan, and the lethal-means steps remain in place. He uses no alcohol, drugs, medicines, or sleep aids.",
+            "elements": [
+              {
+                "label": "Interval change",
+                "value": "Therapy course completed; fewer nightmares; less avoidance"
+              },
+              {
+                "label": "Nightmares",
+                "value": "About once a week"
+              },
+              {
+                "label": "Sleep",
+                "value": "Asleep in about 20 minutes; six and a half to seven hours; wakes once on some nights"
+              },
+              {
+                "label": "Treatment",
+                "value": "Nine Cognitive Processing Therapy sessions completed last week"
+              },
+              {
+                "label": "Safety",
+                "value": "No suicidal thoughts, intent, or plan since the last visit; safety plan kept"
+              },
+              {
+                "label": "Substances",
+                "value": "No alcohol, drugs, medicines, or sleep aids"
+              }
+            ]
+          },
+          "ros": [
+            {
+              "system": "Constitutional",
+              "status": "negative",
+              "finding": "Good energy; weight stable"
+            },
+            {
+              "system": "Respiratory",
+              "status": "negative",
+              "finding": "No snoring or witnessed pauses in breathing"
+            },
+            {
+              "system": "Neurological",
+              "status": "negative",
+              "finding": "No daytime sleepiness"
+            },
+            {
+              "system": "Psychiatric",
+              "status": "positive",
+              "finding": "Nightmares about once a week; mood good; no suicidal thoughts"
+            }
+          ],
+          "exam": [
+            {
+              "system": "General",
+              "finding": "Well groomed and at ease"
+            },
+            {
+              "system": "Mental status: appearance and behavior",
+              "finding": "Cooperative, relaxed, good eye contact"
+            },
+            {
+              "system": "Mental status: speech",
+              "finding": "Normal rate, volume, and rhythm"
+            },
+            {
+              "system": "Mental status: mood and affect",
+              "finding": "Mood \"good\"; affect euthymic with full range"
+            },
+            {
+              "system": "Mental status: thought process and content",
+              "finding": "Linear and goal directed; no suicidal or homicidal ideation, intent, or plan"
+            },
+            {
+              "system": "Mental status: cognition",
+              "finding": "Alert and fully oriented; attention intact"
+            },
+            {
+              "system": "Mental status: insight and judgment",
+              "finding": "Good"
+            }
+          ],
+          "assessment_plan": [
+            {
+              "problem_id": "PRB-001",
+              "display": "Post-traumatic stress disorder, much improved after Cognitive Processing Therapy",
+              "assessment": "PCL-5 24, down 18 points from 42 and below the 31 to 33 range that suggests probable PTSD, which meets the goal of 27 or lower. He completed nine sessions, meeting the goal of eight",
+              "plan": [
+                "Keep using the therapy skills and worksheets",
+                "Booster session with Dr. Lee if symptoms return",
+                "No medication",
+                "PCL-5 and PHQ-9 at a primary-care review in three months"
+              ]
+            },
+            {
+              "display": "Depressive symptoms, resolved",
+              "assessment": "PHQ-9 4, in the remission range of 4 or lower",
+              "plan": [
+                "PHQ-9 periodically in recovery, with the PCL-5"
+              ]
+            },
+            {
+              "problem_id": "PRB-002",
+              "display": "Chronic insomnia, improved",
+              "assessment": "Sleep onset about 20 minutes and six and a half to seven hours of sleep, with nightmares about once a week, without medication",
+              "plan": [
+                "Continue the sleep routine and fixed wake time",
+                "Cognitive behavioral therapy for insomnia if the insomnia persists or returns"
+              ]
+            },
+            {
+              "display": "Suicide risk review",
+              "assessment": "No suicidal ideation, intent, plan, or preparatory behavior since the last visit on the structured screen. Protective factors are unchanged, and acute risk remains low",
+              "plan": [
+                "Safety plan reviewed for life after therapy: warning signs, coping steps, and contacts kept, with Dr. Lee's clinic remaining a contact",
+                "Lethal-means steps and the 988 Suicide & Crisis Lifeline (press 1) remain in place"
+              ]
+            }
+          ],
+          "monitoring": [
+            {
+              "domain": "survey",
+              "measure": "PCL-5",
+              "cadence": "Baseline, then at set intervals during treatment (care plan: six and twelve weeks)",
+              "status": "completed_today",
+              "detail": "24, down 18 points from 42; below the probable-PTSD range; goal of 27 or lower met",
+              "observation_ids": [
+                "OBS-PCL5-003"
+              ],
+              "guideline_ids": [
+                "GL-PTSD-2023"
+              ]
+            },
+            {
+              "domain": "survey",
+              "measure": "PHQ-9",
+              "cadence": "Baseline; at least monthly during active treatment; periodically in recovery",
+              "status": "completed_today",
+              "detail": "4, in the remission range; periodic checks in recovery",
+              "observation_ids": [
+                "OBS-PHQ9-003"
+              ],
+              "guideline_ids": [
+                "GL-CMID-2026"
+              ]
+            },
+            {
+              "domain": "referral",
+              "measure": "Trauma-focused psychotherapy (Cognitive Processing Therapy)",
+              "cadence": "Weekly course of about 12 sessions",
+              "status": "up_to_date",
+              "detail": "Course completed last week with nine sessions, meeting the goal of eight; booster sessions available",
+              "guideline_ids": [
+                "GL-PTSD-2023"
+              ]
+            },
+            {
+              "domain": "survey",
+              "measure": "Suicide risk reassessment (C-SSRS screener, since last visit)",
+              "cadence": "Every visit during active treatment",
+              "status": "completed_today",
+              "detail": "Negative: no ideation, intent, plan, or behavior since the last visit",
+              "guideline_ids": [
+                "GL-SUICIDE-2024",
+                "GL-CMID-2026"
+              ]
+            },
+            {
+              "domain": "self_management",
+              "measure": "Safety plan, lethal-means steps, and crisis resources",
+              "cadence": "Every visit",
+              "status": "completed_today",
+              "detail": "Reviewed and updated for life after therapy",
+              "guideline_ids": [
+                "GL-SUICIDE-2024"
+              ]
+            },
+            {
+              "domain": "survey",
+              "measure": "Alcohol and other substance use",
+              "cadence": "At intake and during treatment",
+              "status": "completed_today",
+              "detail": "None",
+              "guideline_ids": [
+                "GL-PTSD-2023"
+              ]
+            },
+            {
+              "domain": "self_management",
+              "measure": "Sleep diary and agreed sleep routine",
+              "cadence": "Every visit",
+              "status": "completed_today",
+              "detail": "Asleep in about 20 minutes; six and a half to seven hours",
+              "guideline_ids": [
+                "GL-INSOMNIA-2025"
+              ]
+            },
+            {
+              "domain": "referral",
+              "measure": "Cognitive behavioral therapy for insomnia",
+              "cadence": "If insomnia persists after PTSD treatment",
+              "status": "not_indicated",
+              "detail": "Insomnia has improved alongside the PTSD; offered if it persists or returns",
+              "guideline_ids": [
+                "GL-INSOMNIA-2025"
+              ]
+            },
+            {
+              "domain": "survey",
+              "measure": "Obstructive sleep apnea symptom screen",
+              "cadence": "At the insomnia assessment; repeat for new symptoms",
+              "status": "up_to_date",
+              "detail": "Negative in August; no new symptoms",
+              "guideline_ids": [
+                "GL-INSOMNIA-2025"
+              ]
+            },
+            {
+              "domain": "medication_safety",
+              "measure": "PTSD medication and sedative-hypnotics",
+              "cadence": "If psychotherapy is declined or the response stalls",
+              "status": "not_indicated",
+              "detail": "Responded to psychotherapy alone; no medicines",
+              "guideline_ids": [
+                "GL-PTSD-2023",
+                "GL-INSOMNIA-2025"
+              ]
+            },
+            {
+              "domain": "examination",
+              "measure": "Mental status examination, vital signs, and weight",
+              "cadence": "Every visit",
+              "status": "completed_today",
+              "detail": "Euthymic with full-range affect; BP 126/80 mmHg; weight 73.9 kg",
+              "guideline_ids": [
+                "GL-PTSD-2023"
+              ]
+            },
+            {
+              "domain": "laboratory",
+              "measure": "Laboratory tests",
+              "cadence": "Only for medication monitoring or a suspected medical cause",
+              "status": "not_indicated",
+              "detail": "No medicines",
+              "guideline_ids": [
+                "GL-PTSD-2023",
+                "GL-CMID-2026"
+              ]
+            }
+          ],
+          "follow_up": "Adult preventive visit next month. PTSD and insomnia review with the PCL-5 and PHQ-9 in three months. Booster session with Dr. Lee as needed; the safety plan and the 988 Suicide & Crisis Lifeline (press 1) remain available at any time",
+          "guideline_ids": [
+            "GL-PTSD-2023",
+            "GL-SUICIDE-2024",
+            "GL-INSOMNIA-2025",
+            "GL-CMID-2026"
+          ]
+        }
+      },
+      {
+        "id": "ENC-004",
+        "display": "Same-day sick visit for a cold and cough",
+        "status": "finished",
+        "date": "1964-10-06",
+        "visit_type": "sick",
+        "type_coding": {
+          "system": "http://snomed.info/sct",
+          "code": "185345009",
+          "display": "Encounter for symptom",
+          "validation_status": "validated",
+          "validated_on": "2026-11-03"
+        },
+        "documentation": {
+          "chief_complaint": "Sore throat, blocked nose, and cough for three days, waking him at night",
+          "billing_note": "Problem-oriented office visit, established patient",
+          "hpi": {
+            "narrative": "Mr. Murphy is a 40-year-old man with post-traumatic stress disorder, much improved after completing Cognitive Processing Therapy last month, and chronic insomnia managed without medication, who asked for a same-day visit. Three days ago he developed a sore throat, followed by a runny and blocked nose and a dry cough. His highest home temperature was 37.8 °C. A home COVID-19 antigen test yesterday was negative. Several coworkers have had colds. For the past two nights the cough and blocked nose have woken him, and he is worried about losing the sleep he has regained. He had thought of buying a \"nighttime\" cold and flu syrup and a decongestant tablet, but wanted to check first because his care plan asks him to avoid sedating sleep aids. So far he has used only honey and throat lozenges. He has no breathlessness, chest pain, ear pain, or facial pain. His nightmares have not increased, his mood is steady, and he has had no thoughts of self-harm.",
+            "elements": [
+              {
+                "label": "Onset",
+                "value": "Three days ago, starting with a sore throat"
+              },
+              {
+                "label": "Location",
+                "value": "Throat, nose, and chest"
+              },
+              {
+                "label": "Duration",
+                "value": "Three days"
+              },
+              {
+                "label": "Character",
+                "value": "Clear runny nose, blocked nose, scratchy throat, dry cough"
+              },
+              {
+                "label": "Severity",
+                "value": "Mild to moderate; sleep broken on two nights"
+              },
+              {
+                "label": "Timing",
+                "value": "Cough and blockage worse when lying down at night"
+              },
+              {
+                "label": "Context",
+                "value": "Coworkers with colds; home COVID-19 antigen test negative yesterday"
+              },
+              {
+                "label": "Modifying factors",
+                "value": "Honey and lozenges help a little; no other remedies taken"
+              },
+              {
+                "label": "Associated signs and symptoms",
+                "value": "Mild tiredness. Denies fever above 37.8 °C, breathlessness, chest pain, ear or facial pain, and sputum"
+              }
+            ]
+          },
+          "ros": [
+            {
+              "system": "Constitutional",
+              "status": "positive",
+              "finding": "Mild tiredness; temperature to 37.8 °C; no chills"
+            },
+            {
+              "system": "Ears, nose, mouth, and throat",
+              "status": "positive",
+              "finding": "Clear rhinorrhea, nasal blockage, sore throat; no ear or facial pain"
+            },
+            {
+              "system": "Respiratory",
+              "status": "positive",
+              "finding": "Dry cough; no breathlessness, wheeze, or sputum"
+            },
+            {
+              "system": "Cardiovascular",
+              "status": "negative",
+              "finding": "No chest pain or palpitations"
+            },
+            {
+              "system": "Gastrointestinal",
+              "status": "negative",
+              "finding": "Eating and drinking normally; no nausea or diarrhea"
+            },
+            {
+              "system": "Psychiatric",
+              "status": "positive",
+              "finding": "Broken sleep on two nights from the cough; nightmares not increased; mood steady; no thoughts of self-harm"
+            }
+          ],
+          "exam": [
+            {
+              "system": "General",
+              "finding": "Alert and well-appearing; mildly congested voice"
+            },
+            {
+              "system": "Ears, nose, and throat",
+              "finding": "Tympanic membranes normal; nasal mucosa red and swollen with clear discharge; pharynx mildly red without exudate; no sinus tenderness"
+            },
+            {
+              "system": "Neck",
+              "finding": "Small, soft, mildly tender anterior cervical nodes"
+            },
+            {
+              "system": "Respiratory",
+              "finding": "Unlabored; clear to auscultation with no crackles or wheeze"
+            },
+            {
+              "system": "Cardiovascular",
+              "finding": "Regular rhythm; no murmur"
+            },
+            {
+              "system": "Mental status",
+              "finding": "Calm, euthymic, not sedated; linear thought"
+            }
+          ],
+          "assessment_plan": [
+            {
+              "problem_id": "PRB-003",
+              "display": "Acute viral upper respiratory infection (common cold)",
+              "assessment": "Day three of a typical cold, with cough and rhinorrhea pointing to a virus. Temperature 37.6 °C, heart rate 86, and a clear chest, so pneumonia is not suspected. Antibiotics, a strep test, and a chest radiograph are not indicated",
+              "plan": [
+                "Honey for the cough, warm fluids, saline nasal rinse, and rest",
+                "Acetaminophen or ibuprofen as needed for sore throat or fever, at label doses",
+                "Repeat the home COVID-19 antigen test in 48 hours and call if it is positive",
+                "The cough may last two to three weeks"
+              ]
+            },
+            {
+              "problem_id": "PRB-002",
+              "display": "Chronic insomnia, disrupted by the cold",
+              "assessment": "Cough and nasal blockage are waking him, and the over-the-counter products he considered would work against his sleep plan",
+              "plan": [
+                "Avoid \"nighttime\" cold products containing diphenhydramine or doxylamine: sedating antihistamines are not recommended as sleep aids, leave next-day grogginess, and would undo the plan of sleeping without sedatives",
+                "Avoid oral decongestants such as pseudoephedrine and phenylephrine, especially after midday, because they can worsen insomnia, raise blood pressure, and bring on a racing heart and jitteriness that can feel like his old hyperarousal",
+                "Avoid alcohol-containing cough syrups",
+                "Saline rinse before bed and the head of the bed raised; honey for night-time cough",
+                "Keep the fixed wake time, and if awake for more than about 20 minutes, get up until sleepy, as in his routine"
+              ]
+            },
+            {
+              "problem_id": "PRB-001",
+              "display": "Post-traumatic stress disorder, much improved",
+              "assessment": "Stable through the illness: nightmares not increased and no suicidal thoughts on a brief check. The safety plan remains in place",
+              "plan": [
+                "Continue the therapy skills and the safety plan",
+                "Adult preventive visit later this month as booked"
+              ]
+            }
+          ],
+          "follow_up": "Call or return for a temperature of 38.5 °C or higher, breathlessness, chest pain, facial or ear pain, symptoms lasting beyond ten days, or worsening after initial improvement. Adult preventive visit later this month as booked",
+          "guideline_ids": [
+            "GL-ARTI-2016",
+            "GL-INSOMNIA-2025"
+          ]
+        },
+        "provenance": {
+          "evidence_grade": "S",
+          "claim_ids": [],
+          "synthetic_reason": "Synthetic unscheduled sick visit.",
+          "author": "The Human Record generator",
+          "created": "2026-11-03T09:00:00-05:00"
+        }
+      },
+      {
+        "id": "ENC-005",
+        "display": "Adult preventive visit",
+        "status": "finished",
+        "date": "1964-10-27",
+        "visit_type": "preventive_adult",
+        "type_coding": {
+          "system": "http://snomed.info/sct",
+          "code": "86013001",
+          "display": "Periodic reevaluation and management of healthy individual",
+          "validation_status": "validated",
+          "validated_on": "2026-11-03"
+        },
+        "documentation": {
+          "chief_complaint": "Adult preventive visit; no new complaints",
+          "billing_note": "CPT 99396 (periodic preventive medicine, established patient, 40 to 64 years) with CPT 99497 (advance care planning); CPT 90656 with 90471 (influenza vaccine and administration)",
+          "hpi": {
+            "narrative": "Mr. Murphy comes for an adult preventive visit, booked at his twelve-week review four weeks ago. The cold he had three weeks ago cleared within about ten days without antibiotics; he used no sedating cold products or decongestants, and his sleep returned to its recent pattern: asleep within about 20 minutes, about seven hours a night, and nightmares less than once a week. Since finishing Cognitive Processing Therapy he has kept up the worksheets and has not needed a booster session. He has had no thoughts of suicide or self-harm and keeps his safety plan. He completed the health risk assessment before the visit and has no new concerns. No lipid, glucose, HIV, hepatitis B, or hepatitis C test is on record.",
+            "elements": [
+              {
+                "label": "Visit",
+                "value": "Adult preventive visit, age 40, established patient"
+              },
+              {
+                "label": "Recent illness",
+                "value": "Common cold three weeks ago, resolved"
+              },
+              {
+                "label": "Behavioral health",
+                "value": "PTSD much improved after nine therapy sessions; no suicidal thoughts; safety plan kept"
+              },
+              {
+                "label": "Medicines",
+                "value": "None; no over-the-counter medicines or supplements"
+              },
+              {
+                "label": "Active conditions",
+                "value": "Post-traumatic stress disorder and chronic insomnia, both improved"
+              },
+              {
+                "label": "Functional status",
+                "value": "Independent; working full time"
+              }
+            ]
+          },
+          "health_risk_assessment": [
+            {
+              "domain": "Self-rated health",
+              "finding": "Good, and better than in the summer"
+            },
+            {
+              "domain": "Psychosocial",
+              "finding": "Close family and veteran peer connections; finds his work purposeful; stress manageable"
+            },
+            {
+              "domain": "Behavioral",
+              "finding": "Never smoker; no alcohol (AUDIT-C 0); no cannabis or other drugs; coffee in the morning only; walks or exercises three or four times a week; eats out several times a week"
+            },
+            {
+              "domain": "Sleep",
+              "finding": "About seven hours a night with the sleep routine; nightmares less than once a week"
+            },
+            {
+              "domain": "Activities of daily living",
+              "finding": "Independent"
+            },
+            {
+              "domain": "Instrumental activities of daily living",
+              "finding": "Independent; manages his own work, money, and appointments"
+            },
+            {
+              "domain": "Home and personal safety",
+              "finding": "Smoke detectors working; wears a seat belt; the safety plan and lethal-means steps from intake remain in place"
+            },
+            {
+              "domain": "Vision, hearing, and dental",
+              "finding": "No vision or hearing concerns; sees a dentist yearly"
+            }
+          ],
+          "ros": [
+            {
+              "system": "Constitutional",
+              "status": "negative",
+              "finding": "Weight stable; no fever, fatigue, or night sweats"
+            },
+            {
+              "system": "Eyes",
+              "status": "negative",
+              "finding": "No change in vision"
+            },
+            {
+              "system": "Ears, nose, mouth, and throat",
+              "status": "negative",
+              "finding": "Cold resolved; no hearing change or sore throat"
+            },
+            {
+              "system": "Cardiovascular",
+              "status": "negative",
+              "finding": "No chest pain, palpitations, or leg swelling"
+            },
+            {
+              "system": "Respiratory",
+              "status": "negative",
+              "finding": "Cough resolved; no breathlessness or snoring"
+            },
+            {
+              "system": "Gastrointestinal",
+              "status": "negative",
+              "finding": "Regular bowel habit; no heartburn, bleeding, or abdominal pain"
+            },
+            {
+              "system": "Genitourinary",
+              "status": "negative",
+              "finding": "No urinary symptoms"
+            },
+            {
+              "system": "Musculoskeletal",
+              "status": "negative",
+              "finding": "No joint pain or back pain"
+            },
+            {
+              "system": "Integumentary",
+              "status": "negative",
+              "finding": "No new or changing skin lesions"
+            },
+            {
+              "system": "Neurological",
+              "status": "negative",
+              "finding": "No weakness, numbness, or dizziness"
+            },
+            {
+              "system": "Psychiatric",
+              "status": "negative",
+              "finding": "Mood good; PHQ-9 score 3; nightmares less than once a week; no thoughts of self-harm"
+            },
+            {
+              "system": "Endocrine",
+              "status": "negative",
+              "finding": "No polyuria, polydipsia, or heat or cold intolerance"
+            },
+            {
+              "system": "Hematologic",
+              "status": "negative",
+              "finding": "No easy bruising or bleeding"
+            }
+          ],
+          "exam": [
+            {
+              "system": "Constitutional",
+              "finding": "Alert and well-appearing; BMI 27.0"
+            },
+            {
+              "system": "Eyes",
+              "finding": "Pupils equal and reactive; conjunctivae clear"
+            },
+            {
+              "system": "Ears, nose, and throat",
+              "finding": "Tympanic membranes normal; nasal mucosa and pharynx normal; dentition in good repair"
+            },
+            {
+              "system": "Neck",
+              "finding": "No thyroid enlargement or nodes"
+            },
+            {
+              "system": "Cardiovascular",
+              "finding": "Regular rhythm; no murmur; pedal pulses present; no edema"
+            },
+            {
+              "system": "Respiratory",
+              "finding": "Clear to auscultation bilaterally"
+            },
+            {
+              "system": "Abdomen",
+              "finding": "Soft and non-tender; no masses or organ enlargement"
+            },
+            {
+              "system": "Musculoskeletal",
+              "finding": "Full range of motion; normal gait"
+            },
+            {
+              "system": "Neurological",
+              "finding": "Alert and oriented; strength and reflexes normal and symmetric"
+            },
+            {
+              "system": "Skin",
+              "finding": "No suspicious lesions"
+            },
+            {
+              "system": "Psychiatric",
+              "finding": "Euthymic with full-range affect; linear thought; no suicidal ideation; judgment and insight intact"
+            }
+          ],
+          "assessment_plan": [
+            {
+              "display": "Adult preventive visit, age 40",
+              "assessment": "Health risk assessment reviewed and a written prevention plan given. Depression (PHQ-9 3), alcohol (AUDIT-C 0), drug use, and tobacco screens are negative",
+              "plan": [
+                "Next preventive visit in one year"
+              ]
+            },
+            {
+              "problem_id": "PRB-001",
+              "display": "Post-traumatic stress disorder, much improved",
+              "assessment": "Sustained recovery after nine Cognitive Processing Therapy sessions: PCL-5 24 at the September review and PHQ-9 3 today. No suicidal ideation since intake, and acute risk remains low",
+              "plan": [
+                "Continue the therapy skills and the safety plan",
+                "PTSD and insomnia review with the PCL-5 and PHQ-9 at the three-month review planned in September",
+                "Booster session with Dr. Lee if symptoms return"
+              ]
+            },
+            {
+              "problem_id": "PRB-002",
+              "display": "Chronic insomnia, improved",
+              "assessment": "About seven hours a night, back to his recent pattern after the cold, without medication",
+              "plan": [
+                "Continue the sleep routine; cognitive behavioral therapy for insomnia if the insomnia returns"
+              ]
+            },
+            {
+              "display": "Blood pressure in the elevated range",
+              "assessment": "Office readings since June have ranged from 124 to 132 mmHg systolic and 78 to 84 mmHg diastolic, 124/78 mmHg today. No diagnosis of hypertension is made from office readings alone",
+              "plan": [
+                "Home blood pressure readings twice a day for one week before the three-month review",
+                "Fasting lipid panel and HbA1c ordered for cardiovascular risk estimation",
+                "Diet and activity counseling given"
+              ]
+            },
+            {
+              "display": "Overweight, BMI 27.0",
+              "assessment": "Weight down 1.3 kg since June",
+              "plan": [
+                "Aim for at least 150 minutes a week of moderate activity, fewer restaurant meals, and less salt"
+              ]
+            }
+          ],
+          "prevention_plan": [
+            {
+              "service": "Depression screening",
+              "status": "completed_today",
+              "detail": "PHQ-9 score 3; already followed in his PTSD care",
+              "guideline_ids": [
+                "GL-USPSTF-DEP-2023"
+              ]
+            },
+            {
+              "service": "Suicide risk",
+              "status": "completed_today",
+              "detail": "No ideation since intake; the safety plan from intake was reviewed",
+              "guideline_ids": [
+                "GL-SUICIDE-2024"
+              ]
+            },
+            {
+              "service": "Unhealthy alcohol use screening",
+              "status": "completed_today",
+              "detail": "AUDIT-C score 0",
+              "guideline_ids": [
+                "GL-USPSTF-ALC-2018"
+              ]
+            },
+            {
+              "service": "Unhealthy drug use screening",
+              "status": "completed_today",
+              "detail": "No cannabis or other drug use",
+              "guideline_ids": [
+                "GL-USPSTF-DRUG-2020"
+              ]
+            },
+            {
+              "service": "Tobacco use",
+              "status": "completed_today",
+              "detail": "Never smoker; no nicotine products",
+              "guideline_ids": [
+                "GL-USPSTF-AB"
+              ]
+            },
+            {
+              "service": "Blood pressure screening",
+              "status": "completed_today",
+              "detail": "124/78 mmHg; office readings in the elevated range since June, so a week of home readings is planned before the next review",
+              "guideline_ids": [
+                "GL-USPSTF-BP-2021"
+              ]
+            },
+            {
+              "service": "Prediabetes and type 2 diabetes screening",
+              "status": "ordered",
+              "detail": "Age 35 to 70 with a BMI of 27.0; HbA1c ordered",
+              "guideline_ids": [
+                "GL-USPSTF-DM-2021"
+              ]
+            },
+            {
+              "service": "Lipid screening and statin assessment",
+              "status": "ordered",
+              "detail": "Age 40; fasting lipid panel ordered to estimate ten-year cardiovascular risk",
+              "guideline_ids": [
+                "GL-USPSTF-STATIN-2022"
+              ]
+            },
+            {
+              "service": "Healthy diet and physical activity counseling",
+              "status": "completed_today",
+              "detail": "Brief counseling for elevated blood pressure readings and a BMI of 27.0",
+              "guideline_ids": [
+                "GL-USPSTF-AB"
+              ]
+            },
+            {
+              "service": "HIV screening",
+              "status": "ordered",
+              "detail": "One-time antigen and antibody test, with his consent; no prior result on record",
+              "guideline_ids": [
+                "GL-USPSTF-HIV-2019"
+              ]
+            },
+            {
+              "service": "Hepatitis C screening",
+              "status": "ordered",
+              "detail": "One-time antibody test with reflex RNA, with his consent",
+              "guideline_ids": [
+                "GL-USPSTF-HCV-2020"
+              ]
+            },
+            {
+              "service": "Hepatitis B screening",
+              "status": "ordered",
+              "detail": "One-time triple panel (surface antigen, surface antibody, and core antibody)",
+              "guideline_ids": [
+                "GL-CDC-HBV-2023"
+              ]
+            },
+            {
+              "service": "Influenza vaccine",
+              "status": "completed_today",
+              "detail": "This season's vaccine given today"
+            },
+            {
+              "service": "Hepatitis B vaccine",
+              "status": "due",
+              "detail": "No record of a prior series; recommended for adults through 59; to start once the screening panel is back"
+            },
+            {
+              "service": "COVID-19 vaccine",
+              "status": "due",
+              "detail": "Discussed; he plans to get this season's vaccine at his pharmacy"
+            },
+            {
+              "service": "Tdap",
+              "status": "up_to_date",
+              "detail": "Given about five and a half years ago; next booster due in about four and a half years"
+            },
+            {
+              "service": "HPV vaccine",
+              "status": "declined",
+              "detail": "Shared decision for adults 27 to 45; after discussion he declined"
+            },
+            {
+              "service": "Colorectal cancer screening",
+              "status": "not_indicated",
+              "detail": "Starts at 45"
+            },
+            {
+              "service": "Prostate cancer screening",
+              "status": "not_indicated",
+              "detail": "Shared decision-making starts at 55"
+            },
+            {
+              "service": "Lung cancer and abdominal aortic aneurysm screening",
+              "status": "not_indicated",
+              "detail": "Never smoker"
+            },
+            {
+              "service": "Zoster vaccine",
+              "status": "not_indicated",
+              "detail": "Starts at 50"
+            },
+            {
+              "service": "Anxiety screening",
+              "status": "not_indicated",
+              "detail": "Already under care for post-traumatic stress disorder"
+            }
+          ],
+          "advance_care_planning": "Voluntary advance care planning discussion of about 20 minutes, with his consent. He has no written health care directive and has not named a health care agent. He would want full treatment, including surgery and intensive care, for any condition from which he could recover. He will choose an agent, talk through his wishes with that person, and bring the completed directive form given today to a future visit.",
+          "follow_up": "Fasting lipid panel, HbA1c, and HIV, hepatitis C, and hepatitis B screening ordered; results will be sent when available. Hepatitis B vaccination once the screening result is back. One week of home blood pressure readings before the PTSD and insomnia review in about two months. Next preventive visit in one year",
+          "guideline_ids": [
+            "GL-PREV-2026",
+            "GL-USPSTF-AB"
+          ]
+        },
+        "provenance": {
+          "evidence_grade": "S",
+          "claim_ids": [],
+          "synthetic_reason": "Synthetic adult preventive visit.",
+          "author": "The Human Record generator",
+          "created": "2026-11-03T09:00:00-05:00"
         }
       }
     ],
@@ -1011,6 +2238,140 @@
           "author": "The Human Record generator",
           "created": "2026-11-01T12:00:00-05:00"
         }
+      },
+      {
+        "id": "VSET-004",
+        "date": "1964-10-06",
+        "measurements": [
+          {
+            "code": "8302-2",
+            "display": "Body height",
+            "value": 165,
+            "unit": "cm"
+          },
+          {
+            "code": "29463-7",
+            "display": "Body weight",
+            "value": 73.6,
+            "unit": "kg"
+          },
+          {
+            "code": "39156-5",
+            "display": "Body mass index (BMI) [Ratio]",
+            "value": 27,
+            "unit": "kg/m2"
+          },
+          {
+            "code": "8480-6",
+            "display": "Systolic blood pressure",
+            "value": 126,
+            "unit": "mm[Hg]"
+          },
+          {
+            "code": "8462-4",
+            "display": "Diastolic blood pressure",
+            "value": 80,
+            "unit": "mm[Hg]"
+          },
+          {
+            "code": "8867-4",
+            "display": "Heart rate",
+            "value": 86,
+            "unit": "/min"
+          },
+          {
+            "code": "9279-1",
+            "display": "Respiratory rate",
+            "value": 16,
+            "unit": "/min"
+          },
+          {
+            "code": "8310-5",
+            "display": "Body temperature",
+            "value": 37.6,
+            "unit": "Cel"
+          },
+          {
+            "code": "59408-5",
+            "display": "Oxygen saturation in Arterial blood by Pulse oximetry",
+            "value": 98,
+            "unit": "%"
+          }
+        ],
+        "provenance": {
+          "evidence_grade": "S",
+          "claim_ids": [],
+          "synthetic_reason": "Synthetic sick-visit vital signs; not historical measurements.",
+          "author": "The Human Record generator",
+          "created": "2026-11-03T09:00:00-05:00"
+        }
+      },
+      {
+        "id": "VSET-005",
+        "date": "1964-10-27",
+        "measurements": [
+          {
+            "code": "8302-2",
+            "display": "Body height",
+            "value": 165,
+            "unit": "cm"
+          },
+          {
+            "code": "29463-7",
+            "display": "Body weight",
+            "value": 73.5,
+            "unit": "kg"
+          },
+          {
+            "code": "39156-5",
+            "display": "Body mass index (BMI) [Ratio]",
+            "value": 27,
+            "unit": "kg/m2"
+          },
+          {
+            "code": "8480-6",
+            "display": "Systolic blood pressure",
+            "value": 124,
+            "unit": "mm[Hg]"
+          },
+          {
+            "code": "8462-4",
+            "display": "Diastolic blood pressure",
+            "value": 78,
+            "unit": "mm[Hg]"
+          },
+          {
+            "code": "8867-4",
+            "display": "Heart rate",
+            "value": 70,
+            "unit": "/min"
+          },
+          {
+            "code": "9279-1",
+            "display": "Respiratory rate",
+            "value": 14,
+            "unit": "/min"
+          },
+          {
+            "code": "8310-5",
+            "display": "Body temperature",
+            "value": 36.6,
+            "unit": "Cel"
+          },
+          {
+            "code": "59408-5",
+            "display": "Oxygen saturation in Arterial blood by Pulse oximetry",
+            "value": 99,
+            "unit": "%"
+          }
+        ],
+        "provenance": {
+          "evidence_grade": "S",
+          "claim_ids": [],
+          "synthetic_reason": "Synthetic preventive-visit vital signs; not historical measurements.",
+          "author": "The Human Record generator",
+          "created": "2026-11-03T09:00:00-05:00"
+        }
       }
     ],
     "social_history": [
@@ -1165,6 +2526,88 @@
         "author": "The Human Record generator",
         "created": "2026-11-01T12:00:00-05:00"
       }
+    },
+    "consultation": {
+      "referral": {
+        "question": "Chronic combat-related post-traumatic stress symptoms in a 40-year-old veteran, with chronic insomnia and depressive symptoms. Please confirm the diagnosis, provide trauma-focused psychotherapy, and advise on sleep, the depressive symptoms, and suicide risk",
+        "urgency": "Routine, within two weeks. No current suicidal ideation, intent, or plan; a collaborative safety plan was completed today",
+        "pertinent_history": "Long-standing nightmares on most nights, trouble falling and staying asleep, hypervigilance, a strong startle, avoidance of crowds, and low mood since his combat service, with poor concentration at work. PCL-5 42 and PHQ-9 11 today. No current thoughts of suicide, intent, or plan. Access to lethal means was reviewed, and a collaborative safety and lethal-means plan with crisis resources, including the 988 Suicide & Crisis Lifeline, was completed today. No alcohol in the past year, no tobacco or drugs, and no medicines. He prefers to start with psychotherapy rather than medication. Strengths: family and veteran peer supports, purposeful work, and a strong service identity",
+        "questions": [
+          "Does he meet criteria for post-traumatic stress disorder, and are the depressive symptoms part of it or a separate depressive disorder?",
+          "Is he a good candidate for trauma-focused psychotherapy such as Cognitive Processing Therapy, and can your service provide it?",
+          "How should the insomnia and nightmares be treated before any sleep medication is considered?",
+          "What is your formulation of his suicide risk, and do you have any changes to the safety plan?"
+        ]
+      },
+      "consultant_note": {
+        "history": "Mr. Murphy was referred by Dr. Marquez at his intake visit six weeks ago. I evaluated him at the start of care and have since delivered five weekly sessions of Cognitive Processing Therapy; this report answers the referral questions. He describes intrusive memories and nightmares of combat, avoidance of reminders and crowds, beliefs about blame and constant danger, and hypervigilance with a strong startle, present for many years and made worse by poor sleep. He engages well and completes the practice assignments. Since starting therapy his nightmares have fallen from most nights to two or three a week, he falls asleep sooner with the agreed sleep routine, and he concentrates better at work. He has had no thoughts of suicide, intent, plan, or preparatory behavior since intake and keeps the safety plan with him. He uses no alcohol, drugs, or medicines. He has had no manic or hypomanic episodes and no psychotic symptoms",
+        "data_reviewed": "Dr. Marquez's intake note and safety plan, the intake PCL-5 and PHQ-9, today's repeat scores, and his therapy practice assignments",
+        "exam": [
+          {
+            "system": "Appearance and behavior",
+            "finding": "Well groomed; cooperative with good eye contact; briefly restless when describing nightmares"
+          },
+          {
+            "system": "Speech",
+            "finding": "Normal rate, volume, and rhythm"
+          },
+          {
+            "system": "Mood and affect",
+            "finding": "Mood \"better than in June\"; affect mildly anxious, reactive, and less constricted than at intake"
+          },
+          {
+            "system": "Thought process and content",
+            "finding": "Linear and goal directed; no suicidal or homicidal ideation, intent, or plan; no delusions"
+          },
+          {
+            "system": "Perception",
+            "finding": "No hallucinations; no dissociation during the session"
+          },
+          {
+            "system": "Cognition",
+            "finding": "Alert and fully oriented; attention and recall intact"
+          },
+          {
+            "system": "Insight and judgment",
+            "finding": "Good"
+          }
+        ],
+        "assessment": [
+          {
+            "problem_id": "PRB-001",
+            "display": "Post-traumatic stress disorder, chronic, combat-related",
+            "assessment": "Confirmed on clinical interview against DSM-5-TR criteria, with intrusion, avoidance, negative changes in thinking and mood, and arousal symptoms all present at evaluation. He is responding to Cognitive Processing Therapy: the PCL-5 fell 11 points, from 42 to 31, a clinically meaningful change, but 31 is still near the probable-PTSD range, so the full course should be completed"
+          },
+          {
+            "display": "Depressive symptoms",
+            "assessment": "The low mood, poor sleep, and poor concentration track the PTSD symptoms and are improving with them (PHQ-9 11 to 7). There is no separate major depressive episode on interview and no history of mania or hypomania, so no separate depressive disorder is diagnosed and a bipolar screen is not needed"
+          },
+          {
+            "problem_id": "PRB-002",
+            "display": "Chronic insomnia with trauma-related nightmares",
+            "assessment": "Improving with the sleep routine, used on five to six nights a week, and with the trauma-focused work. He reports no snoring, witnessed apneas, or daytime sleepiness"
+          },
+          {
+            "display": "Suicide risk formulation",
+            "assessment": "Acute risk is low: no current ideation, intent, plan, or preparatory behavior; active engagement in treatment; and strong protective factors in his family and peer supports, purposeful work, and service identity. Chronic risk is higher than in the general population because of combat exposure, PTSD, and chronic insomnia. The collaborative safety and lethal-means plan from intake is appropriate and needs no change. Outpatient care is appropriate"
+          }
+        ],
+        "recommendations": [
+          "Complete the Cognitive Processing Therapy course, with a goal of at least eight sessions by the twelve-week review",
+          "No PTSD medication at present, given his preference and his response; reconsider only if the response stalls",
+          "Continue the sleep routine and stimulus control; offer cognitive behavioral therapy for insomnia if the insomnia persists after the course; no sleep medication now",
+          "Avoid benzodiazepines and over-the-counter sedating sleep aids",
+          "No separate depression treatment; repeat the PHQ-9 with the PCL-5 at the twelve-week review",
+          "Review the safety plan at each primary-care visit and therapy session, keeping the lethal-means steps and the 988 Suicide & Crisis Lifeline (press 1 for the Veterans Crisis Line) in place"
+        ],
+        "communication": "Discussed with Dr. Marquez today; Mr. Murphy agrees with the plan and has a copy of this report",
+        "follow_up": "Weekly Cognitive Processing Therapy with me to the end of the course, then booster sessions as needed. Primary care repeats the PCL-5 and PHQ-9 at the twelve-week review. I will see him sooner for any suicidal thoughts or a stall in progress"
+      },
+      "guideline_ids": [
+        "GL-PTSD-2023",
+        "GL-SUICIDE-2024",
+        "GL-INSOMNIA-2025"
+      ]
     }
   },
   "care_plan": {
@@ -1318,6 +2761,97 @@
         "publisher": "United States Department of Veterans Affairs and Department of Defense",
         "url": "https://www.healthquality.va.gov/guidelines/CD/insomnia/index.asp",
         "version_or_year": "2025"
+      },
+      {
+        "guideline_id": "GL-CMID-2026",
+        "title": "CMID: Clinical Monitoring Intelligence Database, depression monograph",
+        "publisher": "Aether Forge",
+        "url": "https://patrickrutledge.github.io/topthirty/",
+        "version_or_year": "2026"
+      },
+      {
+        "guideline_id": "GL-ARTI-2016",
+        "title": "Appropriate Antibiotic Use for Acute Respiratory Tract Infection in Adults: Advice for High-Value Care From the American College of Physicians and the Centers for Disease Control and Prevention",
+        "publisher": "American College of Physicians and Centers for Disease Control and Prevention",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/26785402/",
+        "version_or_year": "2016"
+      },
+      {
+        "guideline_id": "GL-PREV-2026",
+        "title": "Medicare Preventive Services reference: visit templates, screening cascades, and documentation elements",
+        "publisher": "Aether Forge",
+        "url": "https://patrickrutledge.github.io/preventative_services/",
+        "version_or_year": "2026"
+      },
+      {
+        "guideline_id": "GL-USPSTF-AB",
+        "title": "USPSTF A and B Recommendations",
+        "publisher": "U.S. Preventive Services Task Force",
+        "url": "https://www.uspreventiveservicestaskforce.org/uspstf/recommendation-topics/uspstf-a-and-b-recommendations",
+        "version_or_year": "2026"
+      },
+      {
+        "guideline_id": "GL-USPSTF-DEP-2023",
+        "title": "Depression and Suicide Risk in Adults: Screening",
+        "publisher": "U.S. Preventive Services Task Force",
+        "url": "https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/screening-depression-suicide-risk-adults",
+        "version_or_year": "2023"
+      },
+      {
+        "guideline_id": "GL-USPSTF-ALC-2018",
+        "title": "Unhealthy Alcohol Use in Adolescents and Adults: Screening and Behavioral Counseling Interventions",
+        "publisher": "U.S. Preventive Services Task Force",
+        "url": "https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/unhealthy-alcohol-use-in-adolescents-and-adults-screening-and-behavioral-counseling-interventions",
+        "version_or_year": "2018"
+      },
+      {
+        "guideline_id": "GL-USPSTF-DRUG-2020",
+        "title": "Unhealthy Drug Use: Screening",
+        "publisher": "U.S. Preventive Services Task Force",
+        "url": "https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/drug-use-illicit-screening",
+        "version_or_year": "2020"
+      },
+      {
+        "guideline_id": "GL-USPSTF-BP-2021",
+        "title": "Hypertension in Adults: Screening",
+        "publisher": "U.S. Preventive Services Task Force",
+        "url": "https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/hypertension-in-adults-screening",
+        "version_or_year": "2021"
+      },
+      {
+        "guideline_id": "GL-USPSTF-DM-2021",
+        "title": "Prediabetes and Type 2 Diabetes: Screening",
+        "publisher": "U.S. Preventive Services Task Force",
+        "url": "https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/screening-for-prediabetes-and-type-2-diabetes",
+        "version_or_year": "2021"
+      },
+      {
+        "guideline_id": "GL-USPSTF-STATIN-2022",
+        "title": "Statin Use for the Primary Prevention of Cardiovascular Disease in Adults: Preventive Medication",
+        "publisher": "U.S. Preventive Services Task Force",
+        "url": "https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/statin-use-in-adults-preventive-medication",
+        "version_or_year": "2022"
+      },
+      {
+        "guideline_id": "GL-USPSTF-HIV-2019",
+        "title": "Human Immunodeficiency Virus (HIV) Infection: Screening",
+        "publisher": "U.S. Preventive Services Task Force",
+        "url": "https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/human-immunodeficiency-virus-hiv-infection-screening",
+        "version_or_year": "2019"
+      },
+      {
+        "guideline_id": "GL-USPSTF-HCV-2020",
+        "title": "Hepatitis C Virus Infection in Adolescents and Adults: Screening",
+        "publisher": "U.S. Preventive Services Task Force",
+        "url": "https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/hepatitis-c-screening",
+        "version_or_year": "2020"
+      },
+      {
+        "guideline_id": "GL-CDC-HBV-2023",
+        "title": "Screening and Testing for Hepatitis B Virus Infection: CDC Recommendations, United States, 2023",
+        "publisher": "Centers for Disease Control and Prevention",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/36893044/",
+        "version_or_year": "2023"
       }
     ]
   },
@@ -1329,10 +2863,8 @@
       "notes": "JSON Schema, project checks, CDA XSD, C-CDA R2.1 Schematron, FHIR R4, and US Core 6.1.0 with zero errors."
     },
     "clinical_review": {
-      "status": "passed",
-      "reviewer": "Pat Rutledge, Aether Forge",
-      "reviewed_on": "2026-11-02",
-      "notes": "Clinician approved."
+      "status": "in_progress",
+      "notes": "Reopened 2026-11-03: focused visits, a preventive visit, a sick visit, and the consultation were added. The 2026-11-02 approval covered the earlier content."
     },
     "provenance_review": {
       "status": "passed",
@@ -1341,10 +2873,8 @@
       "notes": "Accepted as sufficient for release. Open items at acceptance: Government sources identified; primary memoir and medical-record evidence still needed."
     },
     "safe_messaging_review": {
-      "status": "passed",
-      "reviewer": "Pat Rutledge, Aether Forge",
-      "reviewed_on": "2026-11-02",
-      "notes": "Content judged appropriate."
+      "status": "in_progress",
+      "notes": "Reopened 2026-11-03: focused visits, a preventive visit, a sick visit, and the consultation were added. The 2026-11-02 approval covered the earlier content."
     }
   }
 }

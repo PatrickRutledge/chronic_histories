@@ -46,9 +46,7 @@ This fictional modern episode addresses the presenting concerns below. **S**
 
 ## Medications and allergies
 
-- Cyclosporine (modified) 100 mg oral capsule, one capsule twice daily, dose adjusted to trough levels by hematology **S**
-- Eltrombopag 75 mg oral tablet, two tablets (150 mg) once daily on an empty stomach **S**
-- Acyclovir 400 mg oral tablet, one tablet twice daily during immunosuppression **S**
+- No medications before this visit. **S**
 - No known allergy **S**
 
 ## Past medical history

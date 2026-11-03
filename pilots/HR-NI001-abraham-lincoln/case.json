@@ -5,7 +5,7 @@
     "synthetic": true,
     "banner": "SYNTHETIC RECORD, NOT A REAL MEDICAL RECORD",
     "real_historical_name": true,
-    "public_release_status": "approved"
+    "public_release_status": "draft"
   },
   "identity": {
     "person_id": "NI001",
@@ -570,6 +570,16 @@
         "encounter_id": "ENC-003",
         "date": "2026-09-30",
         "purpose": "Twelve-week depression care-plan review"
+      },
+      {
+        "encounter_id": "ENC-004",
+        "date": "2026-10-09",
+        "purpose": "Same-day sick visit for a poison ivy rash"
+      },
+      {
+        "encounter_id": "ENC-005",
+        "date": "2026-10-27",
+        "purpose": "Adult preventive visit"
       }
     ]
   },
@@ -602,6 +612,32 @@
         "clinical_status": "active",
         "verification_status": "provisional",
         "problem_placement": "both_with_link"
+      },
+      {
+        "id": "PRB-002",
+        "display": "Allergic contact dermatitis from poison ivy, extensive, resolved with a tapering course of prednisone",
+        "status": "draft",
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/sid/icd-10-cm",
+            "code": "L23.7",
+            "display": "Allergic contact dermatitis due to plants, except food",
+            "version": "FY2026",
+            "validation_status": "validated",
+            "validated_on": "2026-11-03"
+          }
+        ],
+        "provenance": {
+          "evidence_grade": "S",
+          "claim_ids": [],
+          "synthetic_reason": "Synthetic intercurrent illness at an unscheduled visit; it does not echo a documented illness.",
+          "author": "The Human Record generator",
+          "created": "2026-11-03T09:00:00-05:00"
+        },
+        "clinical_status": "resolved",
+        "verification_status": "confirmed",
+        "problem_placement": "active",
+        "recorded_date": "2026-10-09"
       }
     ],
     "medications": [
@@ -638,6 +674,42 @@
           "synthetic_reason": "Synthetic medication chosen through shared decision-making as monotherapy for uncomplicated MDD; not a historical treatment.",
           "author": "The Human Record generator",
           "created": "2026-11-02T15:00:00-05:00"
+        }
+      },
+      {
+        "id": "MED-002",
+        "display": "Prednisone 20 mg oral tablet, tapering course: three tablets each morning for 5 days, two for 5 days, then one for 5 days",
+        "status": "completed",
+        "coding": [
+          {
+            "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+            "code": "312615",
+            "display": "prednisone 20 MG Oral Tablet",
+            "validation_status": "validated",
+            "validated_on": "2026-11-03"
+          }
+        ],
+        "dose": {
+          "value": 3,
+          "unit": "1"
+        },
+        "route": "oral",
+        "frequency": {
+          "period": 1,
+          "period_unit": "d",
+          "text": "Each morning with breakfast: 60 mg for 5 days, 40 mg for 5 days, then 20 mg for 5 days"
+        },
+        "start_date": "2026-10-09",
+        "end_date": "2026-10-23",
+        "indication_problem_ids": [
+          "PRB-002"
+        ],
+        "provenance": {
+          "evidence_grade": "S",
+          "claim_ids": [],
+          "synthetic_reason": "Synthetic 15-day prednisone taper for extensive poison ivy dermatitis; not a historical treatment.",
+          "author": "The Human Record generator",
+          "created": "2026-11-03T09:00:00-05:00"
         }
       }
     ],
@@ -742,6 +814,84 @@
           "author": "The Human Record generator",
           "created": "2026-11-02T15:00:00-05:00"
         }
+      },
+      {
+        "id": "OBS-PHQ9-PREV",
+        "display": "Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]",
+        "label": "PHQ-9",
+        "status": "final",
+        "effective_date": "2026-10-27",
+        "value": 3,
+        "unit": "{score}",
+        "coding": [
+          {
+            "system": "http://loinc.org",
+            "code": "44261-6",
+            "display": "Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]",
+            "version": "2.81",
+            "validation_status": "validated",
+            "validated_on": "2026-11-03"
+          }
+        ],
+        "provenance": {
+          "evidence_grade": "S",
+          "claim_ids": [],
+          "synthetic_reason": "Synthetic continuation-phase PHQ-9 at the preventive visit; item 9 scored 0.",
+          "author": "The Human Record generator",
+          "created": "2026-11-03T09:00:00-05:00"
+        }
+      },
+      {
+        "id": "OBS-GAD7-PREV",
+        "display": "Generalized anxiety disorder 7 item (GAD-7) total score [Reported.PHQ]",
+        "label": "GAD-7",
+        "status": "final",
+        "effective_date": "2026-10-27",
+        "value": 2,
+        "unit": "{score}",
+        "coding": [
+          {
+            "system": "http://loinc.org",
+            "code": "70274-6",
+            "display": "Generalized anxiety disorder 7 item (GAD-7) total score [Reported.PHQ]",
+            "version": "2.81",
+            "validation_status": "validated",
+            "validated_on": "2026-11-03"
+          }
+        ],
+        "provenance": {
+          "evidence_grade": "S",
+          "claim_ids": [],
+          "synthetic_reason": "Synthetic anxiety screen in the minimal range.",
+          "author": "The Human Record generator",
+          "created": "2026-11-03T09:00:00-05:00"
+        }
+      },
+      {
+        "id": "OBS-AUDITC-PREV",
+        "display": "Total score [AUDIT-C]",
+        "label": "AUDIT-C",
+        "status": "final",
+        "effective_date": "2026-10-27",
+        "value": 0,
+        "unit": "{score}",
+        "coding": [
+          {
+            "system": "http://loinc.org",
+            "code": "75626-2",
+            "display": "Total score [AUDIT-C]",
+            "version": "2.81",
+            "validation_status": "validated",
+            "validated_on": "2026-11-03"
+          }
+        ],
+        "provenance": {
+          "evidence_grade": "S",
+          "claim_ids": [],
+          "synthetic_reason": "Synthetic alcohol screen, consistent with the social history; not a historical assertion.",
+          "author": "The Human Record generator",
+          "created": "2026-11-03T09:00:00-05:00"
+        }
       }
     ],
     "procedures": [],
@@ -784,6 +934,28 @@
           "synthetic_reason": "Synthetic adult immunization history in the modern frame; not a historical assertion.",
           "author": "The Human Record generator",
           "created": "2026-11-02T15:00:00-05:00"
+        }
+      },
+      {
+        "id": "IMM-003",
+        "display": "Influenza vaccine, 2026-2027 season",
+        "status": "completed",
+        "date": "2026-10-27",
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/sid/cvx",
+            "code": "140",
+            "display": "Influenza, split virus, trivalent, PF",
+            "validation_status": "validated",
+            "validated_on": "2026-11-03"
+          }
+        ],
+        "provenance": {
+          "evidence_grade": "S",
+          "claim_ids": [],
+          "synthetic_reason": "Synthetic adult immunization history in the modern frame; not a historical assertion.",
+          "author": "The Human Record generator",
+          "created": "2026-11-03T09:00:00-05:00"
         }
       }
     ],
@@ -933,6 +1105,245 @@
           "synthetic_reason": "Synthetic modern EHR encounter.",
           "author": "The Human Record generator",
           "created": "2026-11-02T15:00:00-05:00"
+        },
+        "visit_type": "chronic_care",
+        "type_coding": {
+          "system": "http://snomed.info/sct",
+          "code": "390906007",
+          "display": "Follow-up encounter",
+          "validation_status": "validated",
+          "validated_on": "2026-11-03"
+        },
+        "documentation": {
+          "chief_complaint": "Six-week depression treatment follow-up",
+          "hpi": {
+            "narrative": "Mr. Lincoln returns six weeks after starting sertraline 50 mg daily for a moderate depressive episode. His mood is brighter on most days, and he is enjoying his work again. He is back at court on his usual schedule and writes letters to friends two or three times a week. He falls asleep within half an hour and wakes once a night, compared with the broken sleep he described at intake, and his concentration on long briefs is better. Mild nausea in the first two weeks settled by the third week. He has had no headache, diarrhea, restlessness, or sexual side effects. He misses about one dose every two weeks. He has had no suicidal thoughts since the intake visit and still carries his safety plan. He drinks no alcohol. He saw Dr. Natarajan of psychiatry this morning.",
+            "elements": [
+              {
+                "label": "Interval change",
+                "value": "Mood brighter on most days; back to court work and letters to friends"
+              },
+              {
+                "label": "Sleep",
+                "value": "Asleep within half an hour; wakes once a night"
+              },
+              {
+                "label": "Medication tolerance",
+                "value": "Nausea resolved by week three; no other adverse effects"
+              },
+              {
+                "label": "Adherence",
+                "value": "Misses about one dose every two weeks"
+              },
+              {
+                "label": "Safety",
+                "value": "No suicidal thoughts since intake; safety plan carried"
+              },
+              {
+                "label": "PHQ-9",
+                "value": "9, down from 14"
+              }
+            ]
+          },
+          "ros": [
+            {
+              "system": "Constitutional",
+              "status": "negative",
+              "finding": "Energy improving; no weight change of note"
+            },
+            {
+              "system": "Gastrointestinal",
+              "status": "negative",
+              "finding": "Early nausea resolved; no diarrhea, heartburn, or bleeding"
+            },
+            {
+              "system": "Genitourinary",
+              "status": "negative",
+              "finding": "No sexual side effects"
+            },
+            {
+              "system": "Neurological",
+              "status": "negative",
+              "finding": "No headache, tremor, or restlessness"
+            },
+            {
+              "system": "Psychiatric",
+              "status": "positive",
+              "finding": "Low mood easing but not gone; sleep and concentration better; no suicidal thoughts, elevated mood, or racing thoughts"
+            }
+          ],
+          "exam": [
+            {
+              "system": "General",
+              "finding": "Tall, neatly dressed, comfortable, and engaged"
+            },
+            {
+              "system": "Mental status",
+              "finding": "Alert and oriented; mood \"better, not yet myself\"; affect mildly constricted but brighter and reactive, with humor; thought process linear; no suicidal ideation or psychotic features; insight and judgment good"
+            },
+            {
+              "system": "Neurological",
+              "finding": "No tremor; gait normal"
+            }
+          ],
+          "assessment_plan": [
+            {
+              "problem_id": "PRB-001",
+              "display": "Major depressive disorder, single episode, moderate, with partial response at six weeks",
+              "assessment": "The PHQ-9 has fallen from 14 to 9, a 36 percent reduction: a partial response that is still short of the 50 percent reduction that defines response, but improving steadily on a well-tolerated dose. Psychiatry agrees with the diagnosis and found no bipolar or psychotic features. Suicide risk remains low, with no ideation since intake and the protective factors from the intake assessment unchanged",
+              "plan": [
+                "Continue sertraline 50 mg daily, as Dr. Natarajan advised",
+                "Increase to 100 mg if the PHQ-9 is not below 5 at the twelve-week review",
+                "Nurse telephone check with a PHQ-9 in about four weeks",
+                "Collaborative safety plan reviewed and unchanged; 988 Suicide & Crisis Lifeline and the clinic number confirmed",
+                "Continue the two valued activities each week; psychotherapy remains available if he wants it",
+                "Avoid regular NSAIDs, tramadol, triptans, St John's wort, and dextromethorphan without checking first, because of interactions with sertraline"
+              ]
+            }
+          ],
+          "monitoring": [
+            {
+              "domain": "survey",
+              "measure": "PHQ-9",
+              "cadence": "Baseline, then at least monthly during acute treatment; every 2 to 4 weeks in continuation",
+              "status": "completed_today",
+              "detail": "9, down from 14 at intake (36 percent): partial response, not yet the 50 percent reduction that defines response",
+              "observation_ids": [
+                "OBS-PHQ9-002"
+              ],
+              "guideline_ids": [
+                "GL-CMID-2026",
+                "GL-MDD-2022"
+              ]
+            },
+            {
+              "domain": "survey",
+              "measure": "PHQ-9 at four weeks",
+              "cadence": "At least monthly during acute treatment",
+              "status": "deferred",
+              "detail": "Not done: the care plan set the first review at six weeks, so no score was taken at four weeks, a deviation from the protocol. No harm resulted: today's score has fallen 5 points and he has no suicidal thoughts. Corrective action: a nurse telephone PHQ-9 in about four weeks, so the seven weeks to the twelve-week review are not left unmeasured",
+              "guideline_ids": [
+                "GL-CMID-2026",
+                "GL-MDD-2022"
+              ]
+            },
+            {
+              "domain": "survey",
+              "measure": "Suicide risk reassessment (C-SSRS Since Last Visit and PHQ-9 item 9)",
+              "cadence": "Every visit during active treatment",
+              "status": "completed_today",
+              "detail": "No suicidal thoughts, intent, plan, or behavior since the intake visit; PHQ-9 item 9 scored 0. Protective factors unchanged. Collaborative safety plan reviewed with him: he carries his copy and has 988 and the clinic number saved",
+              "guideline_ids": [
+                "GL-CMID-2026",
+                "GL-SUICIDE-2024"
+              ]
+            },
+            {
+              "domain": "medication_safety",
+              "measure": "Sertraline tolerability check two weeks after starting",
+              "cadence": "2 weeks after starting and after each dose change",
+              "status": "deferred",
+              "detail": "Not done: no contact was scheduled between the intake visit and today, a deviation from the protocol, which also calls for closer contact in the first weeks of an antidepressant. No harm resulted judging by today's review: the mild nausea settled by the third week, and he has had no restlessness, agitation, or suicidal thoughts. Corrective action: a nurse telephone check one to two weeks after any future start or dose change is now in his plan",
+              "guideline_ids": [
+                "GL-CMID-2026",
+                "GL-MDD-2022"
+              ]
+            },
+            {
+              "domain": "medication_safety",
+              "measure": "Adherence and adverse-effect review",
+              "cadence": "Every visit during active treatment",
+              "status": "completed_today",
+              "detail": "Misses about one dose every two weeks; nausea resolved; no headache, diarrhea, tremor, restlessness, sexual side effects, bruising, or bleeding",
+              "guideline_ids": [
+                "GL-CMID-2026",
+                "GL-MDD-2022"
+              ]
+            },
+            {
+              "domain": "survey",
+              "measure": "Mood Disorder Questionnaire (bipolar screen)",
+              "cadence": "Once at the initial depression workup",
+              "status": "deferred",
+              "detail": "Not given at intake, a deviation from the protocol. Dr. Natarajan's interview today found no past periods of elevated or irritable mood, reduced need for sleep, or racing thoughts, so bipolar disorder is not suspected, and no harm resulted: he has had no activation on sertraline. The questionnaire will be used if hypomanic features appear",
+              "guideline_ids": [
+                "GL-CMID-2026",
+                "GL-MDD-2022"
+              ]
+            },
+            {
+              "domain": "examination",
+              "measure": "Weight, BMI, and blood pressure",
+              "cadence": "Baseline metabolic review, then with each tolerability check",
+              "status": "completed_today",
+              "detail": "Weight 82.4 kg, up 0.4 kg since intake; BMI 22.1; blood pressure 116/72 mmHg",
+              "guideline_ids": [
+                "GL-CMID-2026",
+                "GL-MDD-2022"
+              ]
+            },
+            {
+              "domain": "examination",
+              "measure": "Mental status examination",
+              "cadence": "Every visit",
+              "status": "completed_today",
+              "detail": "Brighter, reactive affect; linear thinking; no suicidal ideation or psychotic features",
+              "guideline_ids": [
+                "GL-CMID-2026",
+                "GL-MDD-2022"
+              ]
+            },
+            {
+              "domain": "laboratory",
+              "measure": "Drug levels and metabolic laboratory monitoring",
+              "cadence": "Lithium, valproate, carbamazepine, or second-generation antipsychotic therapy",
+              "status": "not_indicated",
+              "detail": "Sertraline monotherapy needs no routine laboratory monitoring",
+              "guideline_ids": [
+                "GL-CMID-2026",
+                "GL-MDD-2022"
+              ]
+            },
+            {
+              "domain": "examination",
+              "measure": "Abnormal Involuntary Movement Scale (AIMS)",
+              "cadence": "Every 6 months on antipsychotic therapy",
+              "status": "not_indicated",
+              "detail": "No antipsychotic medicine",
+              "guideline_ids": [
+                "GL-CMID-2026",
+                "GL-MDD-2022"
+              ]
+            },
+            {
+              "domain": "referral",
+              "measure": "Psychiatry consultation",
+              "cadence": "At diagnosis, as the care plan specifies",
+              "status": "completed_today",
+              "detail": "Seen by Dr. Natarajan this morning. She agrees with the diagnosis and with sertraline monotherapy, found no bipolar or psychotic features, and judged acute suicide risk low",
+              "guideline_ids": [
+                "GL-CMID-2026",
+                "GL-MDD-2022"
+              ]
+            },
+            {
+              "domain": "self_management",
+              "measure": "Behavioral activation: two valued activities each week",
+              "cadence": "Every visit",
+              "status": "completed_today",
+              "detail": "Court work and letters to friends resumed; goal met",
+              "guideline_ids": [
+                "GL-CMID-2026",
+                "GL-MDD-2022"
+              ]
+            }
+          ],
+          "follow_up": "Nurse telephone check with a PHQ-9 in about four weeks. Twelve-week depression review in seven weeks. Call the clinic or 988 at any time if his mood worsens or suicidal thoughts appear",
+          "guideline_ids": [
+            "GL-MDD-2022",
+            "GL-SUICIDE-2024",
+            "GL-CMID-2026"
+          ]
         }
       },
       {
@@ -948,6 +1359,764 @@
           "synthetic_reason": "Synthetic modern EHR encounter.",
           "author": "The Human Record generator",
           "created": "2026-11-02T15:00:00-05:00"
+        },
+        "visit_type": "chronic_care",
+        "type_coding": {
+          "system": "http://snomed.info/sct",
+          "code": "390906007",
+          "display": "Follow-up encounter",
+          "validation_status": "validated",
+          "validated_on": "2026-11-03"
+        },
+        "documentation": {
+          "chief_complaint": "Twelve-week depression care-plan review",
+          "hpi": {
+            "narrative": "Mr. Lincoln returns twelve weeks after starting sertraline 50 mg daily. He says he feels like himself again. He sleeps about seven hours, has kept up his court work and letters, and has added evening walks with a law colleague. His interest in his cases and his friends has returned, and his concentration is back to normal. He has had no side effects since the early nausea and still misses about one dose every two weeks. He has had no suicidal thoughts. The nurse telephone check planned for four weeks after his last visit did not take place. He asks how long he will need to keep taking the medicine.",
+            "elements": [
+              {
+                "label": "Interval change",
+                "value": "Feels like himself; interest and concentration back to normal"
+              },
+              {
+                "label": "Sleep",
+                "value": "About seven hours a night"
+              },
+              {
+                "label": "Medication tolerance",
+                "value": "No adverse effects since the early nausea"
+              },
+              {
+                "label": "Adherence",
+                "value": "Misses about one dose every two weeks"
+              },
+              {
+                "label": "Safety",
+                "value": "No suicidal thoughts"
+              },
+              {
+                "label": "PHQ-9",
+                "value": "4, down from 14"
+              },
+              {
+                "label": "Patient question",
+                "value": "How long to continue sertraline"
+              }
+            ]
+          },
+          "ros": [
+            {
+              "system": "Constitutional",
+              "status": "negative",
+              "finding": "Good energy; weight up 1 kg since intake"
+            },
+            {
+              "system": "Gastrointestinal",
+              "status": "negative",
+              "finding": "No nausea, diarrhea, or bleeding"
+            },
+            {
+              "system": "Genitourinary",
+              "status": "negative",
+              "finding": "No sexual side effects"
+            },
+            {
+              "system": "Neurological",
+              "status": "negative",
+              "finding": "No headache, tremor, or restlessness"
+            },
+            {
+              "system": "Psychiatric",
+              "status": "negative",
+              "finding": "Mood good; sleeping well; no suicidal thoughts, elevated mood, or racing thoughts"
+            }
+          ],
+          "exam": [
+            {
+              "system": "General",
+              "finding": "Well, relaxed, and good-humored"
+            },
+            {
+              "system": "Mental status",
+              "finding": "Alert and oriented; mood \"good\"; affect full and reactive; thought process linear; no suicidal ideation or psychotic features; insight and judgment good"
+            },
+            {
+              "system": "Neurological",
+              "finding": "No tremor"
+            }
+          ],
+          "assessment_plan": [
+            {
+              "problem_id": "PRB-001",
+              "display": "Major depressive disorder, single episode, moderate, with remission-range score at twelve weeks",
+              "assessment": "The PHQ-9 has fallen from 14 to 4, a 71 percent reduction, meeting the goal of a score below 5. Remission is confirmed if the score stays at 4 or below for a month. No dose increase is needed. Suicide risk remains low",
+              "plan": [
+                "Continue sertraline 50 mg daily for at least six months after remission, then review tapering together; do not stop it suddenly",
+                "PHQ-9 every two to four weeks in the continuation phase, the first at his adult preventive visit in about four weeks",
+                "Collaborative safety plan reviewed and kept for the continuation phase; 988 and the clinic number confirmed",
+                "Keep up the walks, court work, and letters"
+              ]
+            }
+          ],
+          "monitoring": [
+            {
+              "domain": "survey",
+              "measure": "PHQ-9",
+              "cadence": "Baseline, then at least monthly during acute treatment; every 2 to 4 weeks in continuation",
+              "status": "completed_today",
+              "detail": "4, down from 14 at intake (71 percent): response and a remission-range score; the goal of below 5 is met",
+              "observation_ids": [
+                "OBS-PHQ9-003"
+              ],
+              "guideline_ids": [
+                "GL-CMID-2026",
+                "GL-MDD-2022"
+              ]
+            },
+            {
+              "domain": "survey",
+              "measure": "Interim PHQ-9 by nurse telephone check",
+              "cadence": "At least monthly during acute treatment",
+              "status": "deferred",
+              "detail": "The telephone PHQ-9 planned at the six-week visit for about four weeks later was not made, so seven weeks passed without a score, a second deviation from the monthly cadence. No harm resulted: he improved steadily and reports no suicidal thoughts in the interval. Corrective action: continuation-phase PHQ-9s every two to four weeks are booked, the first at his preventive visit in about four weeks",
+              "guideline_ids": [
+                "GL-CMID-2026",
+                "GL-MDD-2022"
+              ]
+            },
+            {
+              "domain": "survey",
+              "measure": "Suicide risk reassessment (C-SSRS Since Last Visit and PHQ-9 item 9)",
+              "cadence": "Every visit during active treatment",
+              "status": "completed_today",
+              "detail": "No suicidal thoughts, intent, plan, or behavior since the last visit; PHQ-9 item 9 scored 0. Safety plan reviewed and kept for the continuation phase",
+              "guideline_ids": [
+                "GL-CMID-2026",
+                "GL-SUICIDE-2024"
+              ]
+            },
+            {
+              "domain": "medication_safety",
+              "measure": "Adherence and adverse-effect review",
+              "cadence": "Every visit during active treatment",
+              "status": "completed_today",
+              "detail": "Misses about one dose every two weeks; no adverse effects",
+              "guideline_ids": [
+                "GL-CMID-2026",
+                "GL-MDD-2022"
+              ]
+            },
+            {
+              "domain": "medication_safety",
+              "measure": "Tolerability check after a dose change",
+              "cadence": "1 to 2 weeks after each dose change",
+              "status": "not_indicated",
+              "detail": "Dose unchanged; no increase needed",
+              "guideline_ids": [
+                "GL-CMID-2026",
+                "GL-MDD-2022"
+              ]
+            },
+            {
+              "domain": "medication_safety",
+              "measure": "Continuation of sertraline at the remission dose",
+              "cadence": "At least six months after remission",
+              "status": "up_to_date",
+              "detail": "Continue 50 mg daily for at least six months, then review tapering together",
+              "guideline_ids": [
+                "GL-CMID-2026",
+                "GL-MDD-2022"
+              ]
+            },
+            {
+              "domain": "examination",
+              "measure": "Weight, BMI, and blood pressure",
+              "cadence": "With each tolerability check",
+              "status": "completed_today",
+              "detail": "Weight 83.0 kg, up 1.0 kg since intake; BMI 22.3; blood pressure 114/72 mmHg",
+              "guideline_ids": [
+                "GL-CMID-2026",
+                "GL-MDD-2022"
+              ]
+            },
+            {
+              "domain": "examination",
+              "measure": "Mental status examination",
+              "cadence": "Every visit",
+              "status": "completed_today",
+              "detail": "Full, reactive affect; linear thinking; no suicidal ideation or psychotic features",
+              "guideline_ids": [
+                "GL-CMID-2026",
+                "GL-MDD-2022"
+              ]
+            },
+            {
+              "domain": "survey",
+              "measure": "Mood Disorder Questionnaire (bipolar screen)",
+              "cadence": "Repeat if hypomanic features emerge",
+              "status": "not_indicated",
+              "detail": "Bipolar disorder was not suspected at the psychiatry consultation, and no hypomanic features have appeared",
+              "guideline_ids": [
+                "GL-CMID-2026",
+                "GL-MDD-2022"
+              ]
+            },
+            {
+              "domain": "laboratory",
+              "measure": "Drug levels and metabolic laboratory monitoring",
+              "cadence": "Lithium, valproate, carbamazepine, or second-generation antipsychotic therapy",
+              "status": "not_indicated",
+              "detail": "Sertraline monotherapy needs no routine laboratory monitoring",
+              "guideline_ids": [
+                "GL-CMID-2026",
+                "GL-MDD-2022"
+              ]
+            },
+            {
+              "domain": "referral",
+              "measure": "Psychiatry review",
+              "cadence": "If response stalls, after a failed dose increase, or for new risk",
+              "status": "up_to_date",
+              "detail": "Consultation completed six weeks ago; none of the criteria for another review are met",
+              "guideline_ids": [
+                "GL-CMID-2026",
+                "GL-MDD-2022"
+              ]
+            },
+            {
+              "domain": "referral",
+              "measure": "Psychotherapy for relapse prevention (CBT, interpersonal therapy, or mindfulness-based cognitive therapy)",
+              "cadence": "In continuation for patients at high risk of relapse",
+              "status": "not_indicated",
+              "detail": "A single uncomplicated episode in stable remission is not high risk; it stays available if he wants it",
+              "guideline_ids": [
+                "GL-MDD-2022"
+              ]
+            },
+            {
+              "domain": "self_management",
+              "measure": "Behavioral activation and sleep routine",
+              "cadence": "Every visit",
+              "status": "completed_today",
+              "detail": "Court work, letters, and evening walks continue; sleeping about seven hours",
+              "guideline_ids": [
+                "GL-CMID-2026",
+                "GL-MDD-2022"
+              ]
+            }
+          ],
+          "follow_up": "Adult preventive visit in about four weeks, with a PHQ-9. Depression review every two to four weeks in the continuation phase. Call the clinic or 988 at any time if his mood worsens",
+          "guideline_ids": [
+            "GL-MDD-2022",
+            "GL-SUICIDE-2024",
+            "GL-CMID-2026"
+          ]
+        }
+      },
+      {
+        "id": "ENC-004",
+        "display": "Same-day sick visit for a poison ivy rash",
+        "status": "finished",
+        "date": "2026-10-09",
+        "visit_type": "sick",
+        "type_coding": {
+          "system": "http://snomed.info/sct",
+          "code": "185345009",
+          "display": "Encounter for symptom",
+          "validation_status": "validated",
+          "validated_on": "2026-11-03"
+        },
+        "documentation": {
+          "chief_complaint": "Itchy, blistering rash on the arms, neck, and legs for two days",
+          "billing_note": "Problem-oriented office visit, established patient",
+          "hpi": {
+            "narrative": "Mr. Lincoln is a 32-year-old man with major depressive disorder, single episode, in early remission on sertraline 50 mg daily (PHQ-9 4 nine days ago), who asked for a same-day visit. Three days ago he spent an afternoon in shorts and a short-sleeved shirt clearing overgrown brush and vines at a friend's property. The next morning itchy red streaks appeared on both forearms, then blisters, spreading over two days to the backs of both hands, the right side of his neck, and both shins. The itch woke him repeatedly on the last two nights, and he worries that the poor sleep means his depression is coming back. He says his mood itself is unchanged and he has had no suicidal thoughts. Calamine lotion and cool showers help briefly. He has not yet washed the clothes or gloves he wore. He has no fever, eye swelling, genital involvement, or trouble breathing, and he has never had a stomach ulcer.",
+            "elements": [
+              {
+                "label": "Onset",
+                "value": "The morning after clearing brush and vines three days ago"
+              },
+              {
+                "label": "Location",
+                "value": "Both forearms, backs of both hands, right side of the neck, and both shins"
+              },
+              {
+                "label": "Duration",
+                "value": "Two days, still spreading"
+              },
+              {
+                "label": "Character",
+                "value": "Itchy red streaks and blisters, some weeping"
+              },
+              {
+                "label": "Severity",
+                "value": "Severe itch; sleep broken on two nights"
+              },
+              {
+                "label": "Timing",
+                "value": "Itch worst at night"
+              },
+              {
+                "label": "Context",
+                "value": "Outdoor brush clearing with bare arms and legs"
+              },
+              {
+                "label": "Modifying factors",
+                "value": "Calamine and cool showers help briefly"
+              },
+              {
+                "label": "Associated signs and symptoms",
+                "value": "Poor sleep from itch. Denies fever, eye or facial swelling, genital rash, wheeze, low mood, and suicidal thoughts"
+              }
+            ]
+          },
+          "ros": [
+            {
+              "system": "Constitutional",
+              "status": "negative",
+              "finding": "No fever or chills; tired from broken sleep"
+            },
+            {
+              "system": "Eyes",
+              "status": "negative",
+              "finding": "No eyelid swelling or eye irritation"
+            },
+            {
+              "system": "Respiratory",
+              "status": "negative",
+              "finding": "No cough, wheeze, or breathlessness"
+            },
+            {
+              "system": "Gastrointestinal",
+              "status": "negative",
+              "finding": "No heartburn, abdominal pain, or black stools; no past ulcer"
+            },
+            {
+              "system": "Integumentary",
+              "status": "positive",
+              "finding": "Itchy blistering rash on the arms, hands, neck, and shins; no pus or spreading redness"
+            },
+            {
+              "system": "Psychiatric",
+              "status": "positive",
+              "finding": "Sleep broken by itch for two nights; mood steady; no suicidal thoughts, elevated mood, or racing thoughts"
+            }
+          ],
+          "exam": [
+            {
+              "system": "General",
+              "finding": "Tired, uncomfortable from itch, in no distress"
+            },
+            {
+              "system": "Skin",
+              "finding": "Linear and streaky red papules and vesicles, coalescing into weeping plaques, on both forearms and the backs of both hands, the right side of the neck, and both shins; about a fifth of the body surface. No honey-colored crusts, pustules, or spreading cellulitis. Face, eyelids, and genitals spared"
+            },
+            {
+              "system": "Eyes",
+              "finding": "No periorbital edema; conjunctivae clear"
+            },
+            {
+              "system": "Lymph nodes",
+              "finding": "No enlarged nodes in the neck, axillae, or groin"
+            },
+            {
+              "system": "Mental status",
+              "finding": "Tired but euthymic and engaged; affect full; thought process linear; no suicidal ideation"
+            }
+          ],
+          "assessment_plan": [
+            {
+              "problem_id": "PRB-002",
+              "display": "Allergic contact dermatitis from poison ivy, extensive",
+              "assessment": "Classic linear vesicles after brush clearing, over about 20 percent of the body surface and including both hands. At this extent topical steroids alone are not enough, so a systemic course is indicated, tapered over two to three weeks because a short course or dose pack often lets the rash rebound. There is no sign of secondary infection",
+              "plan": [
+                "Prednisone 60 mg each morning with breakfast for 5 days, then 40 mg for 5 days, then 20 mg for 5 days",
+                "Cool compresses, calamine lotion, and colloidal oatmeal baths for the itch",
+                "Wash the clothes, gloves, and tools he wore with soap and water, because the plant oil stays on them; the blister fluid does not spread the rash",
+                "Learn to recognize the plant, and wear long sleeves, trousers, and gloves for outdoor work"
+              ]
+            },
+            {
+              "problem_id": "PRB-001",
+              "display": "Major depressive disorder, single episode, in early remission",
+              "assessment": "Mood is stable and the sleep loss is explained by itch. Prednisone at this dose can cause insomnia, irritability, mood elevation, or low mood, so he needs closer watching during the course. Psychiatry found no bipolar features. Prednisone with sertraline slightly raises the risk of stomach bleeding",
+              "plan": [
+                "Continue sertraline 50 mg daily without change",
+                "Take prednisone in the morning to protect sleep",
+                "Avoid ibuprofen, naproxen, and aspirin during the course",
+                "Avoid nighttime diphenhydramine: sedating antihistamines do little for poison ivy itch and leave him groggy the next morning",
+                "Collaborative safety plan reviewed. Call the clinic for two nights without sleep, racing thoughts, unusual energy or irritability, or a return of low mood, and call 988 at any time",
+                "Nurse telephone check in four days on the rash, sleep, and mood"
+              ]
+            }
+          ],
+          "follow_up": "Nurse telephone check in four days. Return sooner for pus, spreading redness, fever, eye or facial swelling, or the mood changes above. Adult preventive visit as booked, with a PHQ-9",
+          "guideline_ids": [
+            "GL-ACD-AFP-2010",
+            "GL-CMID-2026"
+          ]
+        },
+        "provenance": {
+          "evidence_grade": "S",
+          "claim_ids": [],
+          "synthetic_reason": "Synthetic unscheduled sick visit.",
+          "author": "The Human Record generator",
+          "created": "2026-11-03T09:00:00-05:00"
+        }
+      },
+      {
+        "id": "ENC-005",
+        "display": "Adult preventive visit",
+        "status": "finished",
+        "date": "2026-10-27",
+        "visit_type": "preventive_adult",
+        "type_coding": {
+          "system": "http://snomed.info/sct",
+          "code": "86013001",
+          "display": "Periodic reevaluation and management of healthy individual",
+          "validation_status": "validated",
+          "validated_on": "2026-11-03"
+        },
+        "documentation": {
+          "chief_complaint": "Adult preventive visit; no new complaints",
+          "billing_note": "CPT 99395 (periodic preventive medicine, established patient, 18 to 39 years); CPT 90656 with 90471 (influenza vaccine, trivalent, preservative free, and administration)",
+          "hpi": {
+            "narrative": "Mr. Lincoln returns for an adult preventive visit, four weeks after his twelve-week depression review. He completed the health risk assessment before the visit. The poison ivy rash cleared during the prednisone taper, which he finished four days ago, with no rebound. He slept more lightly on the first three nights of the 60 mg dose but had no mood change, racing thoughts, or irritability, and the nurse telephone check four days into the course found the rash improving and his sleep back to normal. His mood has stayed good, his PHQ-9 is 3 today, and he has had no suicidal thoughts. He continues sertraline 50 mg daily and misses about one dose every two weeks. He walks most evenings and is working full days.",
+            "elements": [
+              {
+                "label": "Visit",
+                "value": "Adult preventive visit, established patient"
+              },
+              {
+                "label": "Recent illness",
+                "value": "Poison ivy dermatitis, cleared; prednisone taper finished four days ago"
+              },
+              {
+                "label": "Depression",
+                "value": "In remission for about a month on sertraline 50 mg; PHQ-9 3"
+              },
+              {
+                "label": "Safety events",
+                "value": "No emergency visits, hospital stays, or injuries"
+              },
+              {
+                "label": "Medicines",
+                "value": "Sertraline 50 mg daily; no over-the-counter medicines or supplements"
+              },
+              {
+                "label": "Functional status",
+                "value": "Independent in all activities; working full days"
+              }
+            ]
+          },
+          "health_risk_assessment": [
+            {
+              "domain": "Self-rated health",
+              "finding": "Good, and better than in the summer"
+            },
+            {
+              "domain": "Psychosocial",
+              "finding": "Close friend and law colleagues; values correspondence and storytelling; work stress manageable; no loneliness"
+            },
+            {
+              "domain": "Behavioral",
+              "finding": "No current tobacco or nicotine use; no alcohol; no nonprescribed drugs; walks most evenings; regular meals; sleeps about seven hours"
+            },
+            {
+              "domain": "Activities of daily living",
+              "finding": "Independent"
+            },
+            {
+              "domain": "Instrumental activities of daily living",
+              "finding": "Manages his own medicines, money, and work schedule"
+            },
+            {
+              "domain": "Home and personal safety",
+              "finding": "Smoke detectors working; wears a seat belt; access to lethal means reviewed again and unchanged since the intake review"
+            },
+            {
+              "domain": "Sexual health",
+              "finding": "Asked privately; no concerns"
+            },
+            {
+              "domain": "Vision, hearing, and dental",
+              "finding": "No vision or hearing concerns; sees a dentist yearly"
+            }
+          ],
+          "ros": [
+            {
+              "system": "Constitutional",
+              "status": "negative",
+              "finding": "Weight stable; no fever, fatigue, or night sweats"
+            },
+            {
+              "system": "Eyes",
+              "status": "negative",
+              "finding": "No change in vision"
+            },
+            {
+              "system": "Ears, nose, mouth, and throat",
+              "status": "negative",
+              "finding": "No hearing change, sore throat, or dental pain"
+            },
+            {
+              "system": "Cardiovascular",
+              "status": "negative",
+              "finding": "No chest pain, palpitations, or ankle swelling"
+            },
+            {
+              "system": "Respiratory",
+              "status": "negative",
+              "finding": "No cough or breathlessness"
+            },
+            {
+              "system": "Gastrointestinal",
+              "status": "negative",
+              "finding": "Regular bowel habit; no heartburn, bleeding, or abdominal pain"
+            },
+            {
+              "system": "Genitourinary",
+              "status": "negative",
+              "finding": "No urinary symptoms; no sexual side effects"
+            },
+            {
+              "system": "Musculoskeletal",
+              "status": "negative",
+              "finding": "No joint pain or injury"
+            },
+            {
+              "system": "Integumentary",
+              "status": "negative",
+              "finding": "Rash cleared; no new or changing skin lesions"
+            },
+            {
+              "system": "Neurological",
+              "status": "negative",
+              "finding": "No headache, numbness, or weakness"
+            },
+            {
+              "system": "Psychiatric",
+              "status": "negative",
+              "finding": "Mood good; sleeping about seven hours; PHQ-9 3 with item 9 scored 0; GAD-7 2; no suicidal thoughts"
+            },
+            {
+              "system": "Endocrine",
+              "status": "negative",
+              "finding": "No heat or cold intolerance, polyuria, or polydipsia"
+            }
+          ],
+          "exam": [
+            {
+              "system": "Constitutional",
+              "finding": "Alert and well-appearing; BMI 22.4"
+            },
+            {
+              "system": "Eyes",
+              "finding": "Pupils equal and reactive; conjunctivae clear"
+            },
+            {
+              "system": "Ears, nose, and throat",
+              "finding": "Tympanic membranes normal; oropharynx normal; teeth in good repair"
+            },
+            {
+              "system": "Neck",
+              "finding": "No thyroid enlargement or nodes"
+            },
+            {
+              "system": "Cardiovascular",
+              "finding": "Regular rhythm; normal heart sounds; pedal pulses present"
+            },
+            {
+              "system": "Respiratory",
+              "finding": "Clear to auscultation bilaterally"
+            },
+            {
+              "system": "Abdomen",
+              "finding": "Soft and non-tender; no masses"
+            },
+            {
+              "system": "Musculoskeletal",
+              "finding": "Full range of motion; normal gait"
+            },
+            {
+              "system": "Skin",
+              "finding": "Faint fading pink streaks on the forearms and shins where the rash was; no blisters or infection"
+            },
+            {
+              "system": "Neurological",
+              "finding": "Strength and coordination normal"
+            },
+            {
+              "system": "Psychiatric",
+              "finding": "Euthymic, articulate, and humorous; affect full; no suicidal ideation; judgment and insight good"
+            }
+          ],
+          "assessment_plan": [
+            {
+              "display": "Adult preventive visit completed",
+              "assessment": "Health risk assessment reviewed and a written prevention plan given. Anxiety, alcohol, drug use, and tobacco screens are negative. Blood pressure 116/70 mmHg is normal",
+              "plan": [
+                "Next preventive visit in one year"
+              ]
+            },
+            {
+              "problem_id": "PRB-001",
+              "display": "Major depressive disorder, single episode, in remission",
+              "assessment": "PHQ-9 3 today, with item 9 scored 0, after 4 at the twelve-week review: the score has stayed in the remission range for about a month, which confirms remission. The prednisone course caused only brief light sleep. Suicide risk remains low",
+              "plan": [
+                "Continue sertraline 50 mg daily for at least six months from remission, then review tapering together",
+                "PHQ-9 every two to four weeks in the continuation phase; the next one by nurse telephone check in about four weeks",
+                "Collaborative safety plan reviewed and kept; 988 and the clinic number confirmed"
+              ]
+            },
+            {
+              "problem_id": "PRB-002",
+              "display": "Poison ivy dermatitis",
+              "assessment": "Resolved after the 15-day prednisone taper, without rebound or infection",
+              "plan": [
+                "Long sleeves, trousers, and gloves for brush clearing; wash clothes and tools afterwards"
+              ]
+            }
+          ],
+          "prevention_plan": [
+            {
+              "service": "Depression screening and monitoring",
+              "status": "completed_today",
+              "detail": "PHQ-9 3, with item 9 scored 0; already monitored every two to four weeks in his depression care",
+              "guideline_ids": [
+                "GL-USPSTF-DEP-2023",
+                "GL-CMID-2026"
+              ]
+            },
+            {
+              "service": "Anxiety screening",
+              "status": "completed_today",
+              "detail": "GAD-7 2",
+              "guideline_ids": [
+                "GL-USPSTF-ANX-2023"
+              ]
+            },
+            {
+              "service": "Unhealthy alcohol use screening",
+              "status": "completed_today",
+              "detail": "AUDIT-C 0",
+              "guideline_ids": [
+                "GL-USPSTF-ALC-2018"
+              ]
+            },
+            {
+              "service": "Unhealthy drug use screening",
+              "status": "completed_today",
+              "detail": "No nonprescribed drug use",
+              "guideline_ids": [
+                "GL-USPSTF-DRUG-2020"
+              ]
+            },
+            {
+              "service": "Tobacco use",
+              "status": "completed_today",
+              "detail": "No current tobacco or nicotine use",
+              "guideline_ids": [
+                "GL-USPSTF-TOB-2021"
+              ]
+            },
+            {
+              "service": "Blood pressure screening",
+              "status": "completed_today",
+              "detail": "116/70 mmHg; recheck at least every three to five years",
+              "guideline_ids": [
+                "GL-USPSTF-BP-2021"
+              ]
+            },
+            {
+              "service": "HIV screening",
+              "status": "ordered",
+              "detail": "One-time antigen and antibody test, with his consent; no prior result on record",
+              "guideline_ids": [
+                "GL-USPSTF-HIV-2019"
+              ]
+            },
+            {
+              "service": "Hepatitis C screening",
+              "status": "ordered",
+              "detail": "One-time antibody test with reflex RNA, with his consent",
+              "guideline_ids": [
+                "GL-USPSTF-HCV-2020"
+              ]
+            },
+            {
+              "service": "Hepatitis B screening",
+              "status": "ordered",
+              "detail": "One-time triple panel (surface antigen, surface antibody, and core antibody)",
+              "guideline_ids": [
+                "GL-CDC-HBV-2023"
+              ]
+            },
+            {
+              "service": "Influenza vaccine",
+              "status": "completed_today",
+              "detail": "This season's inactivated vaccine given today"
+            },
+            {
+              "service": "Hepatitis B vaccine",
+              "status": "due",
+              "detail": "No record of a prior series; he prefers to start it when the screening panel is back"
+            },
+            {
+              "service": "COVID-19 vaccine",
+              "status": "due",
+              "detail": "Discussed; he plans to get this season's vaccine at his pharmacy"
+            },
+            {
+              "service": "Tdap",
+              "status": "up_to_date",
+              "detail": "Given about four and a half years ago; next booster in about five and a half years"
+            },
+            {
+              "service": "HPV vaccine",
+              "status": "declined",
+              "detail": "Shared decision for adults 27 to 45; after discussion he declined"
+            },
+            {
+              "service": "Live vaccines after prednisone",
+              "status": "not_indicated",
+              "detail": "None is due. Because he took at least 20 mg of prednisone a day for 15 days, any live vaccine would wait a month after the course"
+            },
+            {
+              "service": "Healthy diet and physical activity",
+              "status": "completed_today",
+              "detail": "Walks most evenings; encouraged to keep at least 150 minutes of moderate activity a week"
+            },
+            {
+              "service": "Cholesterol and statin assessment",
+              "status": "not_indicated",
+              "detail": "Statin assessment starts at 40; no cardiovascular risk factors are recorded",
+              "guideline_ids": [
+                "GL-USPSTF-STATIN-2022"
+              ]
+            },
+            {
+              "service": "Diabetes screening",
+              "status": "not_indicated",
+              "detail": "For adults 35 to 70 with overweight or obesity; his BMI is 22.4"
+            },
+            {
+              "service": "Colorectal cancer screening",
+              "status": "not_indicated",
+              "detail": "Starts at 45"
+            }
+          ],
+          "advance_care_planning": "Brief voluntary discussion, with his consent. He has no advance directive. He wants full treatment, including hospital care, for any illness from which he could recover. He will choose a health care agent and complete the state advance directive form given to him today, and bring it to a future visit.",
+          "follow_up": "HIV, hepatitis C, and hepatitis B results will be sent when available, with a plan for the hepatitis B vaccine. Nurse telephone PHQ-9 in about four weeks. Depression review in three months. Next preventive visit in one year",
+          "guideline_ids": [
+            "GL-PREV-2026"
+          ]
+        },
+        "provenance": {
+          "evidence_grade": "S",
+          "claim_ids": [],
+          "synthetic_reason": "Synthetic adult preventive visit in the modern frame; screening results are not historical claims.",
+          "author": "The Human Record generator",
+          "created": "2026-11-03T09:00:00-05:00"
         }
       }
     ],
@@ -1158,6 +2327,144 @@
           "author": "The Human Record generator",
           "created": "2026-11-02T15:00:00-05:00"
         }
+      },
+      {
+        "id": "VSET-004",
+        "date": "2026-10-09",
+        "measurements": [
+          {
+            "code": "8302-2",
+            "display": "Body height",
+            "value": 193,
+            "unit": "cm"
+          },
+          {
+            "code": "29463-7",
+            "display": "Body weight",
+            "value": 83.2,
+            "unit": "kg"
+          },
+          {
+            "code": "39156-5",
+            "display": "Body mass index (BMI) [Ratio]",
+            "value": 22.3,
+            "unit": "kg/m2"
+          },
+          {
+            "code": "8480-6",
+            "display": "Systolic blood pressure",
+            "value": 120,
+            "unit": "mm[Hg]"
+          },
+          {
+            "code": "8462-4",
+            "display": "Diastolic blood pressure",
+            "value": 74,
+            "unit": "mm[Hg]"
+          },
+          {
+            "code": "8867-4",
+            "display": "Heart rate",
+            "value": 72,
+            "unit": "/min"
+          },
+          {
+            "code": "9279-1",
+            "display": "Respiratory rate",
+            "value": 14,
+            "unit": "/min"
+          },
+          {
+            "code": "8310-5",
+            "display": "Body temperature",
+            "value": 36.8,
+            "unit": "Cel"
+          },
+          {
+            "code": "59408-5",
+            "display": "Oxygen saturation in Arterial blood by Pulse oximetry",
+            "value": 99,
+            "unit": "%"
+          }
+        ],
+        "provenance": {
+          "evidence_grade": "S",
+          "claim_ids": [
+            "CLM-0003"
+          ],
+          "synthetic_reason": "Synthetic vital signs; height reflects the documented self-description but is not a historical measurement.",
+          "author": "The Human Record generator",
+          "created": "2026-11-03T09:00:00-05:00"
+        }
+      },
+      {
+        "id": "VSET-005",
+        "date": "2026-10-27",
+        "measurements": [
+          {
+            "code": "8302-2",
+            "display": "Body height",
+            "value": 193,
+            "unit": "cm"
+          },
+          {
+            "code": "29463-7",
+            "display": "Body weight",
+            "value": 83.4,
+            "unit": "kg"
+          },
+          {
+            "code": "39156-5",
+            "display": "Body mass index (BMI) [Ratio]",
+            "value": 22.4,
+            "unit": "kg/m2"
+          },
+          {
+            "code": "8480-6",
+            "display": "Systolic blood pressure",
+            "value": 116,
+            "unit": "mm[Hg]"
+          },
+          {
+            "code": "8462-4",
+            "display": "Diastolic blood pressure",
+            "value": 70,
+            "unit": "mm[Hg]"
+          },
+          {
+            "code": "8867-4",
+            "display": "Heart rate",
+            "value": 64,
+            "unit": "/min"
+          },
+          {
+            "code": "9279-1",
+            "display": "Respiratory rate",
+            "value": 14,
+            "unit": "/min"
+          },
+          {
+            "code": "8310-5",
+            "display": "Body temperature",
+            "value": 36.6,
+            "unit": "Cel"
+          },
+          {
+            "code": "59408-5",
+            "display": "Oxygen saturation in Arterial blood by Pulse oximetry",
+            "value": 99,
+            "unit": "%"
+          }
+        ],
+        "provenance": {
+          "evidence_grade": "S",
+          "claim_ids": [
+            "CLM-0003"
+          ],
+          "synthetic_reason": "Synthetic vital signs; height reflects the documented self-description but is not a historical measurement.",
+          "author": "The Human Record generator",
+          "created": "2026-11-03T09:00:00-05:00"
+        }
       }
     ],
     "social_history": [
@@ -1298,6 +2605,89 @@
         "author": "The Human Record generator",
         "created": "2026-11-02T15:00:00-05:00"
       }
+    },
+    "consultation": {
+      "referral": {
+        "question": "Moderate major depressive disorder, single episode, in a 32-year-old attorney starting sertraline 50 mg daily. Please confirm the diagnosis, look for bipolar spectrum illness, review his suicide risk and safety plan, and advise on medication management and psychotherapy",
+        "urgency": "Routine; booked for the day of his six-week review. No current suicidal ideation",
+        "pertinent_history": "Low mood, loss of interest, and poor sleep over several weeks are affecting his legal work and friendships, with reduced concentration and missed work. PHQ-9 14. No current suicidal ideation, intent, or plan; access to lethal means reviewed; collaborative safety plan with crisis resources, including the 988 Suicide & Crisis Lifeline, completed today. Protective factors: close friendships, a sense of purpose in public service, and engagement in treatment. No earlier depressive episode is documented. His mother died when he was nine and his older sister in his late teens. No tobacco or alcohol use; no known allergy. Sertraline 50 mg daily started today after shared decision-making; he prefers medication to psychotherapy",
+        "questions": [
+          "Do you agree with the diagnosis of a single, moderate, uncomplicated episode of major depressive disorder, and is there any sign of bipolar spectrum illness or another condition that would change treatment?",
+          "Is sertraline 50 mg daily an appropriate first choice, and when should the dose be increased?",
+          "Please review his suicide risk and the collaborative safety plan.",
+          "Would you add psychotherapy, and how long should treatment continue after remission?"
+        ]
+      },
+      "consultant_note": {
+        "history": "Mr. Lincoln is seen at the request of Dr. Marquez six weeks after starting sertraline 50 mg daily for a depressive episode with low mood, loss of interest, poor sleep, and poor concentration. His mood is brighter on most days, he is back at court on his usual schedule, and he writes to friends again. He falls asleep within half an hour and wakes once a night. Mild nausea settled by the third week; he has had no restlessness, agitation, or sexual side effects, and he misses about one dose every two weeks. He describes no past periods of elevated or irritable mood, reduced need for sleep, racing thoughts, or unusual risk-taking, and no hallucinations or unusual beliefs. He uses no alcohol, tobacco, or other drugs. He has had no suicidal thoughts since the intake visit and carries his safety plan. No prior suicidal behavior is recorded. He lost his mother at nine and his older sister in his late teens, and he spoke about those losses without current preoccupation. He prefers to continue medication alone for now",
+        "data_reviewed": "PHQ-9 14 at intake and 9 today; the intake safety assessment and collaborative safety plan; today's vital signs; the medication list. No laboratory tests are on record, and none are needed for sertraline",
+        "exam": [
+          {
+            "system": "Appearance and behavior",
+            "finding": "Tall, neatly dressed, good eye contact, cooperative and engaged"
+          },
+          {
+            "system": "Speech",
+            "finding": "Normal rate and volume; articulate, with dry humor"
+          },
+          {
+            "system": "Mood and affect",
+            "finding": "Mood \"better, not yet myself\"; affect mildly constricted but brighter and reactive"
+          },
+          {
+            "system": "Thought process",
+            "finding": "Linear and goal-directed"
+          },
+          {
+            "system": "Thought content",
+            "finding": "No suicidal or homicidal ideation, intent, or plan; no delusions"
+          },
+          {
+            "system": "Perception",
+            "finding": "No hallucinations"
+          },
+          {
+            "system": "Cognition",
+            "finding": "Alert and oriented; attention and memory intact in conversation"
+          },
+          {
+            "system": "Insight and judgment",
+            "finding": "Good"
+          }
+        ],
+        "assessment": [
+          {
+            "problem_id": "PRB-001",
+            "display": "Major depressive disorder, single episode, moderate",
+            "assessment": "Diagnosis confirmed. The episode is uncomplicated: no psychotic features, no substance use, and no earlier episode on record. The PHQ-9 has fallen from 14 to 9 in six weeks, a 36 percent reduction: a partial response that is still improving on a well-tolerated starting dose"
+          },
+          {
+            "display": "Bipolar spectrum illness",
+            "assessment": "Not suspected. There is no history of hypomanic or manic symptoms and no activation on sertraline. No Mood Disorder Questionnaire was done at intake; after this interview it adds little now"
+          },
+          {
+            "display": "Suicide risk",
+            "assessment": "Acute risk is low: no ideation, intent, plan, or preparatory behavior; access to lethal means has been reviewed; he is engaged in care and has strong protective factors in his friendships and his sense of purpose. The active depressive episode keeps risk above his baseline until remission. The collaborative safety plan is appropriate, and outpatient care is the right setting"
+          }
+        ],
+        "recommendations": [
+          "Continue sertraline 50 mg daily; he is improving steadily and tolerating it well",
+          "Increase to 100 mg if the PHQ-9 is not below 5 at the twelve-week review",
+          "PHQ-9 at least monthly until remission, so a nurse telephone check in about four weeks, then every two to four weeks in the continuation phase",
+          "Reassess suicide risk at every visit with the C-SSRS Since Last Visit or PHQ-9 item 9, and keep the safety plan current; 988 at any time",
+          "After remission, continue sertraline at the dose that achieved it for at least six months, then taper gradually with his clinician rather than stopping suddenly",
+          "Psychotherapy (cognitive behavioral or interpersonal therapy) is a reasonable addition but not required for an uncomplicated episode. He prefers medication alone, and the guideline supports monotherapy; offer it again if his response stalls or he relapses",
+          "No laboratory monitoring is needed for sertraline. Avoid regular NSAIDs and other serotonergic drugs such as tramadol, triptans, St John's wort, and dextromethorphan without checking first",
+          "Reassess for bipolar disorder, using the Mood Disorder Questionnaire, if elevated mood, reduced need for sleep, or racing thoughts appear"
+        ],
+        "communication": "Discussed with Dr. Marquez in person today; the patient agrees with the plan",
+        "follow_up": "Primary care will continue measurement-based care on the CMID schedule. Psychiatry will see him again if the PHQ-9 has not halved after a dose increase, for any suicidal ideation, or for features of bipolar disorder"
+      },
+      "guideline_ids": [
+        "GL-MDD-2022",
+        "GL-SUICIDE-2024",
+        "GL-CMID-2026"
+      ]
     }
   },
   "care_plan": {
@@ -1452,6 +2842,97 @@
         "publisher": "United States Department of Veterans Affairs and Department of Defense",
         "url": "https://healthquality.va.gov/HEALTHQUALITY/guidelines/mh/srb/index.asp",
         "version_or_year": "2024"
+      },
+      {
+        "guideline_id": "GL-CMID-2026",
+        "title": "CMID: Clinical Monitoring Intelligence Database, depression, bipolar, and mood disorders monograph",
+        "publisher": "Aether Forge",
+        "url": "https://patrickrutledge.github.io/topthirty/",
+        "version_or_year": "2026"
+      },
+      {
+        "guideline_id": "GL-ACD-AFP-2010",
+        "title": "Usatine RP, Riojas M. Diagnosis and Management of Contact Dermatitis. Am Fam Physician. 2010;82(3):249-255",
+        "publisher": "American Academy of Family Physicians (American Family Physician; PubMed 20672788)",
+        "url": "https://www.aafp.org/pubs/afp/issues/2010/0801/p249.html",
+        "version_or_year": "2010"
+      },
+      {
+        "guideline_id": "GL-PREV-2026",
+        "title": "Medicare Preventive Services reference: visit templates, screening cascades, and documentation elements",
+        "publisher": "Aether Forge",
+        "url": "https://patrickrutledge.github.io/preventative_services/",
+        "version_or_year": "2026"
+      },
+      {
+        "guideline_id": "GL-USPSTF-DEP-2023",
+        "title": "Depression and Suicide Risk in Adults: Screening",
+        "publisher": "U.S. Preventive Services Task Force",
+        "url": "https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/screening-depression-suicide-risk-adults",
+        "version_or_year": "2023"
+      },
+      {
+        "guideline_id": "GL-USPSTF-ANX-2023",
+        "title": "Anxiety Disorders in Adults: Screening",
+        "publisher": "U.S. Preventive Services Task Force",
+        "url": "https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/anxiety-adults-screening",
+        "version_or_year": "2023"
+      },
+      {
+        "guideline_id": "GL-USPSTF-ALC-2018",
+        "title": "Unhealthy Alcohol Use in Adolescents and Adults: Screening and Behavioral Counseling Interventions",
+        "publisher": "U.S. Preventive Services Task Force",
+        "url": "https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/unhealthy-alcohol-use-in-adolescents-and-adults-screening-and-behavioral-counseling-interventions",
+        "version_or_year": "2018"
+      },
+      {
+        "guideline_id": "GL-USPSTF-DRUG-2020",
+        "title": "Unhealthy Drug Use: Screening",
+        "publisher": "U.S. Preventive Services Task Force",
+        "url": "https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/drug-use-illicit-screening",
+        "version_or_year": "2020"
+      },
+      {
+        "guideline_id": "GL-USPSTF-TOB-2021",
+        "title": "Tobacco Smoking Cessation in Adults, Including Pregnant Persons: Interventions",
+        "publisher": "U.S. Preventive Services Task Force",
+        "url": "https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/tobacco-use-in-adults-and-pregnant-women-counseling-and-interventions",
+        "version_or_year": "2021"
+      },
+      {
+        "guideline_id": "GL-USPSTF-BP-2021",
+        "title": "Hypertension in Adults: Screening",
+        "publisher": "U.S. Preventive Services Task Force",
+        "url": "https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/hypertension-in-adults-screening",
+        "version_or_year": "2021"
+      },
+      {
+        "guideline_id": "GL-USPSTF-HIV-2019",
+        "title": "Human Immunodeficiency Virus (HIV) Infection: Screening",
+        "publisher": "U.S. Preventive Services Task Force",
+        "url": "https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/human-immunodeficiency-virus-hiv-infection-screening",
+        "version_or_year": "2019"
+      },
+      {
+        "guideline_id": "GL-USPSTF-HCV-2020",
+        "title": "Hepatitis C Virus Infection in Adolescents and Adults: Screening",
+        "publisher": "U.S. Preventive Services Task Force",
+        "url": "https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/hepatitis-c-screening",
+        "version_or_year": "2020"
+      },
+      {
+        "guideline_id": "GL-CDC-HBV-2023",
+        "title": "Screening and Testing for Hepatitis B Virus Infection: CDC Recommendations — United States, 2023",
+        "publisher": "Centers for Disease Control and Prevention (MMWR Recommendations and Reports)",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/36893044/",
+        "version_or_year": "2023"
+      },
+      {
+        "guideline_id": "GL-USPSTF-STATIN-2022",
+        "title": "Statin Use for the Primary Prevention of Cardiovascular Disease in Adults: Preventive Medication",
+        "publisher": "U.S. Preventive Services Task Force",
+        "url": "https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/statin-use-in-adults-preventive-medication",
+        "version_or_year": "2022"
       }
     ]
   },
@@ -1463,10 +2944,8 @@
       "notes": "JSON Schema, project checks, CDA XSD, C-CDA R2.1 Schematron, FHIR R4, and US Core 6.1.0 with zero errors."
     },
     "clinical_review": {
-      "status": "passed",
-      "reviewer": "Pat Rutledge, Aether Forge",
-      "reviewed_on": "2026-11-02",
-      "notes": "Clinician approved."
+      "status": "in_progress",
+      "notes": "Reopened 2026-11-03: focused visits, a preventive visit, a sick visit, and the consultation were added. The 2026-11-02 approval covered the earlier content."
     },
     "provenance_review": {
       "status": "passed",
@@ -1475,10 +2954,8 @@
       "notes": "Accepted as sufficient for release. Open items at acceptance: Primary letters, NPS sources, and PubMed abstracts logged; full texts of retrospective-diagnosis papers not reviewed."
     },
     "safe_messaging_review": {
-      "status": "passed",
-      "reviewer": "Pat Rutledge, Aether Forge",
-      "reviewed_on": "2026-11-02",
-      "notes": "Content judged appropriate."
+      "status": "in_progress",
+      "notes": "Reopened 2026-11-03: focused visits, a preventive visit, a sick visit, and the consultation were added. The 2026-11-02 approval covered the earlier content."
     }
   }
 }

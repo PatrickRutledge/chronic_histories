@@ -39,7 +39,7 @@ This fictional modern episode addresses the presenting concern below. **S**
 
 ## Medications and allergies
 
-- No medication regimen generated. **S**
+- No medications before this visit. **S**
 - No known allergy **S**
 
 ## Past medical history

@@ -48,7 +48,7 @@
       <addr use="WP"><streetAddressLine>100 Forge Way</streetAddressLine><city>Aetherton</city><state>OR</state><postalCode>00000</postalCode><country>US</country></addr></representedCustodianOrganization></assignedCustodian>
   </custodian>
   <documentationOf>
-    <serviceEvent classCode="PCPR"><effectiveTime><low value="18410630"/><high value="18410930"/></effectiveTime></serviceEvent>
+    <serviceEvent classCode="PCPR"><effectiveTime><low value="18410630"/><high value="18411027"/></effectiveTime></serviceEvent>
   </documentationOf>
   <component>
     <structuredBody>
@@ -99,7 +99,7 @@
     <templateId root="2.16.840.1.113883.10.20.22.2.1.1" extension="2014-06-09"/>
     <code code="10160-0" codeSystem="2.16.840.1.113883.6.1" displayName="History of Medication use Narrative"/>
     <title>Medications</title>
-    <text><table><thead><tr><th>Medication</th><th>Frequency</th><th>Route</th><th>Dates</th><th>Status</th><th>Evidence</th></tr></thead><tbody><tr ID="medication-1"><td>Sertraline 50 mg oral tablet, one tablet by mouth daily</td><td>One tablet by mouth daily</td><td>Oral route</td><td>1841-06-30</td><td>active</td><td>S</td></tr></tbody></table></text>
+    <text><table><thead><tr><th>Medication</th><th>Frequency</th><th>Route</th><th>Dates</th><th>Status</th><th>Evidence</th></tr></thead><tbody><tr ID="medication-1"><td>Sertraline 50 mg oral tablet, one tablet by mouth daily</td><td>One tablet by mouth daily</td><td>Oral route</td><td>1841-06-30</td><td>active</td><td>S</td></tr><tr ID="medication-2"><td>Prednisone 20 mg oral tablet, tapering course: three tablets each morning for 5 days, two for 5 days, then one for 5 days</td><td>Each morning with breakfast: 60 mg for 5 days, 40 mg for 5 days, then 20 mg for 5 days</td><td>Oral route</td><td>1841-10-09 to 1841-10-23</td><td>completed</td><td>S</td></tr></tbody></table></text>
 
   <entry typeCode="DRIV">
     <substanceAdministration classCode="SBADM" moodCode="EVN">
@@ -128,6 +128,33 @@
       </entryRelationship>
     </substanceAdministration>
   </entry>
+  <entry typeCode="DRIV">
+    <substanceAdministration classCode="SBADM" moodCode="EVN">
+      <templateId root="2.16.840.1.113883.10.20.22.4.16" extension="2014-06-09"/>
+      <id root="13858d3f-990d-4608-8db0-aa5d62e2e12d"/>
+      <text><reference value="#medication-2"/></text>
+      <statusCode code="completed"/>
+      <effectiveTime xsi:type="IVL_TS"><low value="18411009"/><high value="18411023"/></effectiveTime>
+      <effectiveTime xsi:type="PIVL_TS" institutionSpecified="false" operator="A"><period value="1" unit="d"/></effectiveTime>
+      <routeCode code="C38288" codeSystem="2.16.840.1.113883.3.26.1.1" codeSystemName="NCI Thesaurus" displayName="Oral route"/>
+      <doseQuantity value="3"/>
+      <consumable>
+        <manufacturedProduct classCode="MANU">
+          <templateId root="2.16.840.1.113883.10.20.22.4.23" extension="2014-06-09"/>
+          <manufacturedMaterial><code code="312615" codeSystem="2.16.840.1.113883.6.88" displayName="prednisone 20 MG Oral Tablet"/></manufacturedMaterial>
+        </manufacturedProduct>
+      </consumable>
+      <entryRelationship typeCode="RSON">
+        <observation classCode="OBS" moodCode="EVN">
+          <templateId root="2.16.840.1.113883.10.20.22.4.19" extension="2014-06-09"/>
+          <id root="14c9995a-5230-4d6e-b27d-1a7ae7b68849"/>
+          <code code="55607006" codeSystem="2.16.840.1.113883.6.96" displayName="Problem"/>
+          <statusCode code="completed"/>
+          <value xsi:type="CD" code="L23.7" codeSystem="2.16.840.1.113883.6.90" displayName="Allergic contact dermatitis due to plants, except food"/>
+        </observation>
+      </entryRelationship>
+    </substanceAdministration>
+  </entry>
   </section>
 </component>
 
@@ -145,7 +172,7 @@
     <templateId root="2.16.840.1.113883.10.20.22.2.2.1" extension="2015-08-01"/>
     <code code="11369-6" codeSystem="2.16.840.1.113883.6.1" displayName="History of Immunization Narrative"/>
     <title>Immunizations</title>
-    <text><table><thead><tr><th>Date</th><th>Vaccine</th><th>Status</th><th>Evidence</th></tr></thead><tbody><tr ID="immunization-1"><td>1837-04-11</td><td>Tdap vaccine</td><td>completed</td><td>S</td></tr><tr ID="immunization-2"><td>1840-10-20</td><td>Influenza vaccine, 1840-1841 season</td><td>completed</td><td>S</td></tr></tbody></table></text>
+    <text><table><thead><tr><th>Date</th><th>Vaccine</th><th>Status</th><th>Evidence</th></tr></thead><tbody><tr ID="immunization-1"><td>1837-04-11</td><td>Tdap vaccine</td><td>completed</td><td>S</td></tr><tr ID="immunization-2"><td>1840-10-20</td><td>Influenza vaccine, 1840-1841 season</td><td>completed</td><td>S</td></tr><tr ID="immunization-3"><td>1841-10-27</td><td>Influenza vaccine, 1841-1842 season</td><td>completed</td><td>S</td></tr></tbody></table></text>
 
   <entry typeCode="DRIV">
     <substanceAdministration classCode="SBADM" moodCode="EVN" negationInd="false">
@@ -169,6 +196,21 @@
       <text><reference value="#immunization-2"/></text>
       <statusCode code="completed"/>
       <effectiveTime value="18401020"/>
+      <consumable>
+        <manufacturedProduct classCode="MANU">
+          <templateId root="2.16.840.1.113883.10.20.22.4.54" extension="2014-06-09"/>
+          <manufacturedMaterial><code code="140" codeSystem="2.16.840.1.113883.12.292" displayName="Influenza, split virus, trivalent, PF"/></manufacturedMaterial>
+        </manufacturedProduct>
+      </consumable>
+    </substanceAdministration>
+  </entry>
+  <entry typeCode="DRIV">
+    <substanceAdministration classCode="SBADM" moodCode="EVN" negationInd="false">
+      <templateId root="2.16.840.1.113883.10.20.22.4.52" extension="2015-08-01"/>
+      <id root="e5bcc3fc-71aa-4a3b-a6ee-38623ca5fd59"/>
+      <text><reference value="#immunization-3"/></text>
+      <statusCode code="completed"/>
+      <effectiveTime value="18411027"/>
       <consumable>
         <manufacturedProduct classCode="MANU">
           <templateId root="2.16.840.1.113883.10.20.22.4.54" extension="2014-06-09"/>
@@ -260,8 +302,8 @@
     <templateId root="2.16.840.1.113883.10.20.22.2.8"/>
     <code code="51848-0" codeSystem="2.16.840.1.113883.6.1" displayName="Evaluation note"/>
     <title>Assessment</title>
-    <text><list><item>Major depressive disorder, single episode, moderate; synthetic modern diagnosis linked to documented low mood and its retrospective interpretation: active, provisional [S]</item></list>
-<paragraph>Most recent measures: Patient Health Questionnaire 9 item (PHQ-9) total score [Reported] 4 on 1841-09-30 [S]</paragraph>
+    <text><list><item>Major depressive disorder, single episode, moderate; synthetic modern diagnosis linked to documented low mood and its retrospective interpretation: active, provisional [S]</item><item>Allergic contact dermatitis from poison ivy, extensive, resolved with a tapering course of prednisone: resolved, confirmed [S]</item></list>
+<paragraph>Most recent measures: Patient Health Questionnaire 9 item (PHQ-9) total score [Reported] 3 on 1841-10-27; Generalized anxiety disorder 7 item (GAD-7) total score [Reported.PHQ] 2 on 1841-10-27; Total score [AUDIT-C] 0 on 1841-10-27 [S]</paragraph>
 <paragraph>Strengths and supports: Supports: close friend and law colleagues; values correspondence and storytelling [S]</paragraph></text>
 
   </section>
@@ -275,6 +317,10 @@
   <tr ID="problem-1">
     <td>Major depressive disorder, single episode, moderate; synthetic modern diagnosis linked to documented low mood and its retrospective interpretation</td><td>active</td><td>provisional</td>
     <td>F32.1</td><td>S — Synthetic active diagnosis for the teaching episode; the historical depression label remains R.</td>
+  </tr>
+  <tr ID="problem-2">
+    <td>Allergic contact dermatitis from poison ivy, extensive, resolved with a tapering course of prednisone</td><td>resolved</td><td>confirmed</td>
+    <td>L23.7</td><td>S — Synthetic intercurrent illness at an unscheduled visit; it does not echo a documented illness.</td>
   </tr></tbody></table></text>
 
   <entry typeCode="DRIV">
@@ -297,6 +343,26 @@
       </entryRelationship>
     </act>
   </entry>
+  <entry typeCode="DRIV">
+    <act classCode="ACT" moodCode="EVN">
+      <templateId root="2.16.840.1.113883.10.20.22.4.3" extension="2015-08-01"/>
+      <id root="5c6a85f4-03a4-44e1-a439-b177c3122d45"/>
+      <code code="CONC" codeSystem="2.16.840.1.113883.5.6" displayName="Concern"/>
+      <statusCode code="active"/>
+      <effectiveTime><low value="18411009"/></effectiveTime>
+      <entryRelationship typeCode="SUBJ">
+        <observation classCode="OBS" moodCode="EVN">
+          <templateId root="2.16.840.1.113883.10.20.22.4.4" extension="2015-08-01"/>
+          <id root="ad38d866-0846-48c7-8569-515a1c0a15ba"/>
+          <code code="55607006" codeSystem="2.16.840.1.113883.6.96" displayName="Problem"/>
+          <text><reference value="#problem-2"/></text>
+          <statusCode code="completed"/>
+          <effectiveTime><low value="18411009"/></effectiveTime>
+          <value xsi:type="CD" code="L23.7" codeSystem="2.16.840.1.113883.6.90" displayName="Allergic contact dermatitis due to plants, except food"/>
+        </observation>
+      </entryRelationship>
+    </act>
+  </entry>
         </section>
       </component>
       <component>
@@ -307,7 +373,10 @@
           <text><table><thead><tr><th>Date</th><th>Measure</th><th>Value</th><th>Unit</th><th>Reference range</th><th>Flag</th><th>Provenance</th></tr></thead><tbody>
   <tr ID="result-1"><td>1841-06-30</td><td>Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]</td><td>14</td><td>{score}</td><td></td><td></td><td>S</td></tr>
   <tr ID="result-2"><td>1841-08-11</td><td>Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]</td><td>9</td><td>{score}</td><td></td><td></td><td>S</td></tr>
-  <tr ID="result-3"><td>1841-09-30</td><td>Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]</td><td>4</td><td>{score}</td><td></td><td></td><td>S</td></tr></tbody></table></text>
+  <tr ID="result-3"><td>1841-09-30</td><td>Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]</td><td>4</td><td>{score}</td><td></td><td></td><td>S</td></tr>
+  <tr ID="result-4"><td>1841-10-27</td><td>Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]</td><td>3</td><td>{score}</td><td></td><td></td><td>S</td></tr>
+  <tr ID="result-5"><td>1841-10-27</td><td>Generalized anxiety disorder 7 item (GAD-7) total score [Reported.PHQ]</td><td>2</td><td>{score}</td><td></td><td></td><td>S</td></tr>
+  <tr ID="result-6"><td>1841-10-27</td><td>Total score [AUDIT-C]</td><td>0</td><td>{score}</td><td></td><td></td><td>S</td></tr></tbody></table></text>
 
   <entry typeCode="DRIV">
     <organizer classCode="CLUSTER" moodCode="EVN">
@@ -315,7 +384,7 @@
       <id root="ec005885-1963-4637-a784-4d099a158f4d"/>
       <code code="44261-6" codeSystem="2.16.840.1.113883.6.1" displayName="Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]"/>
       <statusCode code="completed"/>
-      <effectiveTime><low value="18410630"/><high value="18410930"/></effectiveTime>
+      <effectiveTime><low value="18410630"/><high value="18411027"/></effectiveTime>
 
       <component>
         <observation classCode="OBS" moodCode="EVN">
@@ -350,6 +419,59 @@
           <value xsi:type="PQ" value="4" unit="{score}"/>
         </observation>
       </component>
+      <component>
+        <observation classCode="OBS" moodCode="EVN">
+          <templateId root="2.16.840.1.113883.10.20.22.4.2" extension="2015-08-01"/>
+          <id root="9acecd20-bb45-424e-9c48-5cb0891a2dab"/>
+          <code code="44261-6" codeSystem="2.16.840.1.113883.6.1" displayName="Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]"/>
+          <text><reference value="#result-4"/></text>
+          <statusCode code="completed"/>
+          <effectiveTime value="18411027"/>
+          <value xsi:type="PQ" value="3" unit="{score}"/>
+        </observation>
+      </component>
+    </organizer>
+  </entry>
+  <entry typeCode="DRIV">
+    <organizer classCode="CLUSTER" moodCode="EVN">
+      <templateId root="2.16.840.1.113883.10.20.22.4.1" extension="2015-08-01"/>
+      <id root="4842371b-e530-4ce2-a578-e998231a7862"/>
+      <code code="70274-6" codeSystem="2.16.840.1.113883.6.1" displayName="Generalized anxiety disorder 7 item (GAD-7) total score [Reported.PHQ]"/>
+      <statusCode code="completed"/>
+      <effectiveTime><low value="18411027"/><high value="18411027"/></effectiveTime>
+
+      <component>
+        <observation classCode="OBS" moodCode="EVN">
+          <templateId root="2.16.840.1.113883.10.20.22.4.2" extension="2015-08-01"/>
+          <id root="88131305-de73-4b8e-95eb-ee9eabb80e50"/>
+          <code code="70274-6" codeSystem="2.16.840.1.113883.6.1" displayName="Generalized anxiety disorder 7 item (GAD-7) total score [Reported.PHQ]"/>
+          <text><reference value="#result-5"/></text>
+          <statusCode code="completed"/>
+          <effectiveTime value="18411027"/>
+          <value xsi:type="PQ" value="2" unit="{score}"/>
+        </observation>
+      </component>
+    </organizer>
+  </entry>
+  <entry typeCode="DRIV">
+    <organizer classCode="CLUSTER" moodCode="EVN">
+      <templateId root="2.16.840.1.113883.10.20.22.4.1" extension="2015-08-01"/>
+      <id root="d9055591-ac95-4b18-b168-a913b313dbbd"/>
+      <code code="75626-2" codeSystem="2.16.840.1.113883.6.1" displayName="Total score [AUDIT-C]"/>
+      <statusCode code="completed"/>
+      <effectiveTime><low value="18411027"/><high value="18411027"/></effectiveTime>
+
+      <component>
+        <observation classCode="OBS" moodCode="EVN">
+          <templateId root="2.16.840.1.113883.10.20.22.4.2" extension="2015-08-01"/>
+          <id root="74ced09c-11b2-4286-bd84-e96c160c6e04"/>
+          <code code="75626-2" codeSystem="2.16.840.1.113883.6.1" displayName="Total score [AUDIT-C]"/>
+          <text><reference value="#result-6"/></text>
+          <statusCode code="completed"/>
+          <effectiveTime value="18411027"/>
+          <value xsi:type="PQ" value="0" unit="{score}"/>
+        </observation>
+      </component>
     </organizer>
   </entry>
         </section>
@@ -382,7 +504,25 @@
   <tr ID="vital-3-6"><td>1841-09-30</td><td>Heart rate</td><td>66</td><td>/min</td><td>S</td></tr>
   <tr ID="vital-3-7"><td>1841-09-30</td><td>Respiratory rate</td><td>14</td><td>/min</td><td>S</td></tr>
   <tr ID="vital-3-8"><td>1841-09-30</td><td>Body temperature</td><td>36.7</td><td>Cel</td><td>S</td></tr>
-  <tr ID="vital-3-9"><td>1841-09-30</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>99</td><td>%</td><td>S</td></tr></tbody></table></text>
+  <tr ID="vital-3-9"><td>1841-09-30</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>99</td><td>%</td><td>S</td></tr>
+  <tr ID="vital-4-1"><td>1841-10-09</td><td>Body height</td><td>193</td><td>cm</td><td>S</td></tr>
+  <tr ID="vital-4-2"><td>1841-10-09</td><td>Body weight</td><td>83.2</td><td>kg</td><td>S</td></tr>
+  <tr ID="vital-4-3"><td>1841-10-09</td><td>Body mass index (BMI) [Ratio]</td><td>22.3</td><td>kg/m2</td><td>S</td></tr>
+  <tr ID="vital-4-4"><td>1841-10-09</td><td>Systolic blood pressure</td><td>120</td><td>mm[Hg]</td><td>S</td></tr>
+  <tr ID="vital-4-5"><td>1841-10-09</td><td>Diastolic blood pressure</td><td>74</td><td>mm[Hg]</td><td>S</td></tr>
+  <tr ID="vital-4-6"><td>1841-10-09</td><td>Heart rate</td><td>72</td><td>/min</td><td>S</td></tr>
+  <tr ID="vital-4-7"><td>1841-10-09</td><td>Respiratory rate</td><td>14</td><td>/min</td><td>S</td></tr>
+  <tr ID="vital-4-8"><td>1841-10-09</td><td>Body temperature</td><td>36.8</td><td>Cel</td><td>S</td></tr>
+  <tr ID="vital-4-9"><td>1841-10-09</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>99</td><td>%</td><td>S</td></tr>
+  <tr ID="vital-5-1"><td>1841-10-27</td><td>Body height</td><td>193</td><td>cm</td><td>S</td></tr>
+  <tr ID="vital-5-2"><td>1841-10-27</td><td>Body weight</td><td>83.4</td><td>kg</td><td>S</td></tr>
+  <tr ID="vital-5-3"><td>1841-10-27</td><td>Body mass index (BMI) [Ratio]</td><td>22.4</td><td>kg/m2</td><td>S</td></tr>
+  <tr ID="vital-5-4"><td>1841-10-27</td><td>Systolic blood pressure</td><td>116</td><td>mm[Hg]</td><td>S</td></tr>
+  <tr ID="vital-5-5"><td>1841-10-27</td><td>Diastolic blood pressure</td><td>70</td><td>mm[Hg]</td><td>S</td></tr>
+  <tr ID="vital-5-6"><td>1841-10-27</td><td>Heart rate</td><td>64</td><td>/min</td><td>S</td></tr>
+  <tr ID="vital-5-7"><td>1841-10-27</td><td>Respiratory rate</td><td>14</td><td>/min</td><td>S</td></tr>
+  <tr ID="vital-5-8"><td>1841-10-27</td><td>Body temperature</td><td>36.6</td><td>Cel</td><td>S</td></tr>
+  <tr ID="vital-5-9"><td>1841-10-27</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>99</td><td>%</td><td>S</td></tr></tbody></table></text>
   <entry typeCode="DRIV">
     <organizer classCode="CLUSTER" moodCode="EVN">
       <templateId root="2.16.840.1.113883.10.20.22.4.26" extension="2015-08-01"/>
@@ -409,6 +549,24 @@
       <statusCode code="completed"/><effectiveTime value="18410930"/>
       <component><observation classCode="OBS" moodCode="EVN"><templateId root="2.16.840.1.113883.10.20.22.4.27" extension="2014-06-09"/><id root="37b55b72-4df0-473e-bd6f-4e90601bdcb5"/><code code="8302-2" codeSystem="2.16.840.1.113883.6.1" displayName="Body height"/><text><reference value="#vital-3-1"/></text><statusCode code="completed"/><effectiveTime value="18410930"/><value xsi:type="PQ" value="193" unit="cm"/></observation></component><component><observation classCode="OBS" moodCode="EVN"><templateId root="2.16.840.1.113883.10.20.22.4.27" extension="2014-06-09"/><id root="a8e34a2e-42b4-4122-a534-e0bcb965fa1f"/><code code="29463-7" codeSystem="2.16.840.1.113883.6.1" displayName="Body weight"/><text><reference value="#vital-3-2"/></text><statusCode code="completed"/><effectiveTime value="18410930"/><value xsi:type="PQ" value="83" unit="kg"/></observation></component><component><observation classCode="OBS" moodCode="EVN"><templateId root="2.16.840.1.113883.10.20.22.4.27" extension="2014-06-09"/><id root="d9a929ad-21a1-4ae3-8dd1-d0fcc62e8182"/><code code="39156-5" codeSystem="2.16.840.1.113883.6.1" displayName="Body mass index (BMI) [Ratio]"/><text><reference value="#vital-3-3"/></text><statusCode code="completed"/><effectiveTime value="18410930"/><value xsi:type="PQ" value="22.3" unit="kg/m2"/></observation></component><component><observation classCode="OBS" moodCode="EVN"><templateId root="2.16.840.1.113883.10.20.22.4.27" extension="2014-06-09"/><id root="60bb51a2-b947-41c0-ad4d-54be63d3c2a5"/><code code="8480-6" codeSystem="2.16.840.1.113883.6.1" displayName="Systolic blood pressure"/><text><reference value="#vital-3-4"/></text><statusCode code="completed"/><effectiveTime value="18410930"/><value xsi:type="PQ" value="114" unit="mm[Hg]"/></observation></component><component><observation classCode="OBS" moodCode="EVN"><templateId root="2.16.840.1.113883.10.20.22.4.27" extension="2014-06-09"/><id root="61f6b70b-72d6-4b2c-acc1-0e15fa483c28"/><code code="8462-4" codeSystem="2.16.840.1.113883.6.1" displayName="Diastolic blood pressure"/><text><reference value="#vital-3-5"/></text><statusCode code="completed"/><effectiveTime value="18410930"/><value xsi:type="PQ" value="72" unit="mm[Hg]"/></observation></component><component><observation classCode="OBS" moodCode="EVN"><templateId root="2.16.840.1.113883.10.20.22.4.27" extension="2014-06-09"/><id root="0784473c-da17-4c54-8382-f518692a8563"/><code code="8867-4" codeSystem="2.16.840.1.113883.6.1" displayName="Heart rate"/><text><reference value="#vital-3-6"/></text><statusCode code="completed"/><effectiveTime value="18410930"/><value xsi:type="PQ" value="66" unit="/min"/></observation></component><component><observation classCode="OBS" moodCode="EVN"><templateId root="2.16.840.1.113883.10.20.22.4.27" extension="2014-06-09"/><id root="72c64828-bb4d-4e22-912b-5344291c847d"/><code code="9279-1" codeSystem="2.16.840.1.113883.6.1" displayName="Respiratory rate"/><text><reference value="#vital-3-7"/></text><statusCode code="completed"/><effectiveTime value="18410930"/><value xsi:type="PQ" value="14" unit="/min"/></observation></component><component><observation classCode="OBS" moodCode="EVN"><templateId root="2.16.840.1.113883.10.20.22.4.27" extension="2014-06-09"/><id root="3e67f06b-e5a6-4989-8c5c-23cc30f8b5bd"/><code code="8310-5" codeSystem="2.16.840.1.113883.6.1" displayName="Body temperature"/><text><reference value="#vital-3-8"/></text><statusCode code="completed"/><effectiveTime value="18410930"/><value xsi:type="PQ" value="36.7" unit="Cel"/></observation></component><component><observation classCode="OBS" moodCode="EVN"><templateId root="2.16.840.1.113883.10.20.22.4.27" extension="2014-06-09"/><id root="8ffeca73-8223-4aa6-aa1d-aa2ee70f15d7"/><code code="59408-5" codeSystem="2.16.840.1.113883.6.1" displayName="Oxygen saturation in Arterial blood by Pulse oximetry"/><text><reference value="#vital-3-9"/></text><statusCode code="completed"/><effectiveTime value="18410930"/><value xsi:type="PQ" value="99" unit="%"/></observation></component>
     </organizer>
+  </entry>
+  <entry typeCode="DRIV">
+    <organizer classCode="CLUSTER" moodCode="EVN">
+      <templateId root="2.16.840.1.113883.10.20.22.4.26" extension="2015-08-01"/>
+      <id root="dd4595dc-8566-4550-b960-57c67d672238"/>
+      <code code="74728-7" codeSystem="2.16.840.1.113883.6.1" displayName="Vital signs, weight, height, head circumference, oximetry, BMI, and BSA panel - HL7.FHIR.R4"/>
+      <statusCode code="completed"/><effectiveTime value="18411009"/>
+      <component><observation classCode="OBS" moodCode="EVN"><templateId root="2.16.840.1.113883.10.20.22.4.27" extension="2014-06-09"/><id root="20275efa-c378-48c5-a6b4-e0fee7fa8a9b"/><code code="8302-2" codeSystem="2.16.840.1.113883.6.1" displayName="Body height"/><text><reference value="#vital-4-1"/></text><statusCode code="completed"/><effectiveTime value="18411009"/><value xsi:type="PQ" value="193" unit="cm"/></observation></component><component><observation classCode="OBS" moodCode="EVN"><templateId root="2.16.840.1.113883.10.20.22.4.27" extension="2014-06-09"/><id root="ecd90a66-f07a-4420-939f-c1236882a25f"/><code code="29463-7" codeSystem="2.16.840.1.113883.6.1" displayName="Body weight"/><text><reference value="#vital-4-2"/></text><statusCode code="completed"/><effectiveTime value="18411009"/><value xsi:type="PQ" value="83.2" unit="kg"/></observation></component><component><observation classCode="OBS" moodCode="EVN"><templateId root="2.16.840.1.113883.10.20.22.4.27" extension="2014-06-09"/><id root="f85b5986-f4f4-4711-b636-e58681633e10"/><code code="39156-5" codeSystem="2.16.840.1.113883.6.1" displayName="Body mass index (BMI) [Ratio]"/><text><reference value="#vital-4-3"/></text><statusCode code="completed"/><effectiveTime value="18411009"/><value xsi:type="PQ" value="22.3" unit="kg/m2"/></observation></component><component><observation classCode="OBS" moodCode="EVN"><templateId root="2.16.840.1.113883.10.20.22.4.27" extension="2014-06-09"/><id root="e631bf47-23fd-460d-b4e8-efadec330a40"/><code code="8480-6" codeSystem="2.16.840.1.113883.6.1" displayName="Systolic blood pressure"/><text><reference value="#vital-4-4"/></text><statusCode code="completed"/><effectiveTime value="18411009"/><value xsi:type="PQ" value="120" unit="mm[Hg]"/></observation></component><component><observation classCode="OBS" moodCode="EVN"><templateId root="2.16.840.1.113883.10.20.22.4.27" extension="2014-06-09"/><id root="c301dd47-b3f4-49cf-90c3-ed8db0e750fc"/><code code="8462-4" codeSystem="2.16.840.1.113883.6.1" displayName="Diastolic blood pressure"/><text><reference value="#vital-4-5"/></text><statusCode code="completed"/><effectiveTime value="18411009"/><value xsi:type="PQ" value="74" unit="mm[Hg]"/></observation></component><component><observation classCode="OBS" moodCode="EVN"><templateId root="2.16.840.1.113883.10.20.22.4.27" extension="2014-06-09"/><id root="207b9f0e-a349-4e85-bcc0-c4eb65670048"/><code code="8867-4" codeSystem="2.16.840.1.113883.6.1" displayName="Heart rate"/><text><reference value="#vital-4-6"/></text><statusCode code="completed"/><effectiveTime value="18411009"/><value xsi:type="PQ" value="72" unit="/min"/></observation></component><component><observation classCode="OBS" moodCode="EVN"><templateId root="2.16.840.1.113883.10.20.22.4.27" extension="2014-06-09"/><id root="9060d9d8-9033-41fe-b5ea-fa15e131936b"/><code code="9279-1" codeSystem="2.16.840.1.113883.6.1" displayName="Respiratory rate"/><text><reference value="#vital-4-7"/></text><statusCode code="completed"/><effectiveTime value="18411009"/><value xsi:type="PQ" value="14" unit="/min"/></observation></component><component><observation classCode="OBS" moodCode="EVN"><templateId root="2.16.840.1.113883.10.20.22.4.27" extension="2014-06-09"/><id root="d82ec655-205b-4bc9-8504-0d7760deddab"/><code code="8310-5" codeSystem="2.16.840.1.113883.6.1" displayName="Body temperature"/><text><reference value="#vital-4-8"/></text><statusCode code="completed"/><effectiveTime value="18411009"/><value xsi:type="PQ" value="36.8" unit="Cel"/></observation></component><component><observation classCode="OBS" moodCode="EVN"><templateId root="2.16.840.1.113883.10.20.22.4.27" extension="2014-06-09"/><id root="3b3232fe-eef1-40e4-bfe4-5cfff25d2aad"/><code code="59408-5" codeSystem="2.16.840.1.113883.6.1" displayName="Oxygen saturation in Arterial blood by Pulse oximetry"/><text><reference value="#vital-4-9"/></text><statusCode code="completed"/><effectiveTime value="18411009"/><value xsi:type="PQ" value="99" unit="%"/></observation></component>
+    </organizer>
+  </entry>
+  <entry typeCode="DRIV">
+    <organizer classCode="CLUSTER" moodCode="EVN">
+      <templateId root="2.16.840.1.113883.10.20.22.4.26" extension="2015-08-01"/>
+      <id root="8affcc02-2f41-4bf2-941c-a5fd701e085d"/>
+      <code code="74728-7" codeSystem="2.16.840.1.113883.6.1" displayName="Vital signs, weight, height, head circumference, oximetry, BMI, and BSA panel - HL7.FHIR.R4"/>
+      <statusCode code="completed"/><effectiveTime value="18411027"/>
+      <component><observation classCode="OBS" moodCode="EVN"><templateId root="2.16.840.1.113883.10.20.22.4.27" extension="2014-06-09"/><id root="499e2721-bf9c-443f-90d4-8b898ee51c3c"/><code code="8302-2" codeSystem="2.16.840.1.113883.6.1" displayName="Body height"/><text><reference value="#vital-5-1"/></text><statusCode code="completed"/><effectiveTime value="18411027"/><value xsi:type="PQ" value="193" unit="cm"/></observation></component><component><observation classCode="OBS" moodCode="EVN"><templateId root="2.16.840.1.113883.10.20.22.4.27" extension="2014-06-09"/><id root="fafb092b-d120-42da-8290-9711a00b69ba"/><code code="29463-7" codeSystem="2.16.840.1.113883.6.1" displayName="Body weight"/><text><reference value="#vital-5-2"/></text><statusCode code="completed"/><effectiveTime value="18411027"/><value xsi:type="PQ" value="83.4" unit="kg"/></observation></component><component><observation classCode="OBS" moodCode="EVN"><templateId root="2.16.840.1.113883.10.20.22.4.27" extension="2014-06-09"/><id root="5cc47df5-639f-47e3-8e99-f87cc1dbd673"/><code code="39156-5" codeSystem="2.16.840.1.113883.6.1" displayName="Body mass index (BMI) [Ratio]"/><text><reference value="#vital-5-3"/></text><statusCode code="completed"/><effectiveTime value="18411027"/><value xsi:type="PQ" value="22.4" unit="kg/m2"/></observation></component><component><observation classCode="OBS" moodCode="EVN"><templateId root="2.16.840.1.113883.10.20.22.4.27" extension="2014-06-09"/><id root="4659779d-e953-48af-95dc-f6d2afd8965c"/><code code="8480-6" codeSystem="2.16.840.1.113883.6.1" displayName="Systolic blood pressure"/><text><reference value="#vital-5-4"/></text><statusCode code="completed"/><effectiveTime value="18411027"/><value xsi:type="PQ" value="116" unit="mm[Hg]"/></observation></component><component><observation classCode="OBS" moodCode="EVN"><templateId root="2.16.840.1.113883.10.20.22.4.27" extension="2014-06-09"/><id root="27f6943f-153e-4efb-8cba-a01b5a7bc3e5"/><code code="8462-4" codeSystem="2.16.840.1.113883.6.1" displayName="Diastolic blood pressure"/><text><reference value="#vital-5-5"/></text><statusCode code="completed"/><effectiveTime value="18411027"/><value xsi:type="PQ" value="70" unit="mm[Hg]"/></observation></component><component><observation classCode="OBS" moodCode="EVN"><templateId root="2.16.840.1.113883.10.20.22.4.27" extension="2014-06-09"/><id root="7eeb90d8-afee-4509-a625-352fc96fbfcb"/><code code="8867-4" codeSystem="2.16.840.1.113883.6.1" displayName="Heart rate"/><text><reference value="#vital-5-6"/></text><statusCode code="completed"/><effectiveTime value="18411027"/><value xsi:type="PQ" value="64" unit="/min"/></observation></component><component><observation classCode="OBS" moodCode="EVN"><templateId root="2.16.840.1.113883.10.20.22.4.27" extension="2014-06-09"/><id root="115a6671-59eb-4bd1-a43c-99806df90d6a"/><code code="9279-1" codeSystem="2.16.840.1.113883.6.1" displayName="Respiratory rate"/><text><reference value="#vital-5-7"/></text><statusCode code="completed"/><effectiveTime value="18411027"/><value xsi:type="PQ" value="14" unit="/min"/></observation></component><component><observation classCode="OBS" moodCode="EVN"><templateId root="2.16.840.1.113883.10.20.22.4.27" extension="2014-06-09"/><id root="79243ca9-8fc6-40c5-aab2-9ff27d0f7afa"/><code code="8310-5" codeSystem="2.16.840.1.113883.6.1" displayName="Body temperature"/><text><reference value="#vital-5-8"/></text><statusCode code="completed"/><effectiveTime value="18411027"/><value xsi:type="PQ" value="36.6" unit="Cel"/></observation></component><component><observation classCode="OBS" moodCode="EVN"><templateId root="2.16.840.1.113883.10.20.22.4.27" extension="2014-06-09"/><id root="b2b0833a-c44a-4639-800c-7ad56ffc598b"/><code code="59408-5" codeSystem="2.16.840.1.113883.6.1" displayName="Oxygen saturation in Arterial blood by Pulse oximetry"/><text><reference value="#vital-5-9"/></text><statusCode code="completed"/><effectiveTime value="18411027"/><value xsi:type="PQ" value="99" unit="%"/></observation></component>
+    </organizer>
   </entry></section></component>
       <component>
         <section>
@@ -418,7 +576,9 @@
           <text><table><thead><tr><th>Date</th><th>Purpose</th><th>Status</th><th>Provenance</th></tr></thead><tbody>
   <tr ID="encounter-1"><td>1841-06-30</td><td>Primary care visit for low mood and sleep disturbance</td><td>finished</td><td>S</td></tr>
   <tr ID="encounter-2"><td>1841-08-11</td><td>Six-week depression treatment follow-up</td><td>finished</td><td>S</td></tr>
-  <tr ID="encounter-3"><td>1841-09-30</td><td>Twelve-week depression care-plan review</td><td>finished</td><td>S</td></tr></tbody></table></text>
+  <tr ID="encounter-3"><td>1841-09-30</td><td>Twelve-week depression care-plan review</td><td>finished</td><td>S</td></tr>
+  <tr ID="encounter-4"><td>1841-10-09</td><td>Same-day sick visit for a poison ivy rash</td><td>finished</td><td>S</td></tr>
+  <tr ID="encounter-5"><td>1841-10-27</td><td>Adult preventive visit</td><td>finished</td><td>S</td></tr></tbody></table></text>
 
   <entry typeCode="DRIV">
     <encounter classCode="ENC" moodCode="EVN">
@@ -433,7 +593,7 @@
     <encounter classCode="ENC" moodCode="EVN">
       <templateId root="2.16.840.1.113883.10.20.22.4.49" extension="2015-08-01"/>
       <id root="5bb85203-8104-4fc9-aee7-9e0f5702604f"/>
-      <code nullFlavor="UNK"><originalText><reference value="#encounter-2"/></originalText></code>
+      <code code="390906007" codeSystem="2.16.840.1.113883.6.96" displayName="Follow-up encounter"><originalText><reference value="#encounter-2"/></originalText></code>
       <statusCode code="completed"/>
       <effectiveTime value="18410811"/>
     </encounter>
@@ -442,9 +602,27 @@
     <encounter classCode="ENC" moodCode="EVN">
       <templateId root="2.16.840.1.113883.10.20.22.4.49" extension="2015-08-01"/>
       <id root="3f217cc9-ff87-4245-a173-b0970132fba3"/>
-      <code nullFlavor="UNK"><originalText><reference value="#encounter-3"/></originalText></code>
+      <code code="390906007" codeSystem="2.16.840.1.113883.6.96" displayName="Follow-up encounter"><originalText><reference value="#encounter-3"/></originalText></code>
       <statusCode code="completed"/>
       <effectiveTime value="18410930"/>
+    </encounter>
+  </entry>
+  <entry typeCode="DRIV">
+    <encounter classCode="ENC" moodCode="EVN">
+      <templateId root="2.16.840.1.113883.10.20.22.4.49" extension="2015-08-01"/>
+      <id root="b0315de3-bdd1-42c5-b292-071c83cdb71b"/>
+      <code code="185345009" codeSystem="2.16.840.1.113883.6.96" displayName="Encounter for symptom"><originalText><reference value="#encounter-4"/></originalText></code>
+      <statusCode code="completed"/>
+      <effectiveTime value="18411009"/>
+    </encounter>
+  </entry>
+  <entry typeCode="DRIV">
+    <encounter classCode="ENC" moodCode="EVN">
+      <templateId root="2.16.840.1.113883.10.20.22.4.49" extension="2015-08-01"/>
+      <id root="60f7ac8a-8256-42f1-b211-1491fb177c60"/>
+      <code code="86013001" codeSystem="2.16.840.1.113883.6.96" displayName="Periodic reevaluation and management of healthy individual"><originalText><reference value="#encounter-5"/></originalText></code>
+      <statusCode code="completed"/>
+      <effectiveTime value="18411027"/>
     </encounter>
   </entry>
         </section>

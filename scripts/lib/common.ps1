@@ -11,7 +11,7 @@ function Get-NormalizedSha256([string]$Path) {
 # Generated files that the build manifest covers, relative to the case directory.
 function Get-GeneratedFiles([string]$CaseDirectory) {
     $generated = Join-Path $CaseDirectory 'generated'
-    $fixed = 'index.html', 'fhir-bundle.json', 'ccda.xml', 'ccda.html', 'provenance.csv' | ForEach-Object { "generated/$_" }
+    $fixed = 'index.html', 'review.html', 'fhir-bundle.json', 'ccda.xml', 'ccda.html', 'provenance.csv' | ForEach-Object { "generated/$_" }
     $listed = {
         param([string]$Folder, [string]$Filter)
         @(Get-ChildItem -LiteralPath (Join-Path $CaseDirectory $Folder) -Filter $Filter -File -ErrorAction SilentlyContinue |

@@ -33,5 +33,6 @@
 - 1964-06-30: Primary care intake and behavioral health assessment **S**
 - 1964-08-11: Six-week results and treatment follow-up **S**
 - 1964-09-30: Three-month care-plan review **S**
+- 1964-10-27: Adult preventive visit **S**
 
 This teaching document does not replace care from a qualified clinician.

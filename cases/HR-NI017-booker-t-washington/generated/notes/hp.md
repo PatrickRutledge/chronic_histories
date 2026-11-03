@@ -41,9 +41,6 @@ This fictional modern episode addresses the presenting concerns below. **S**
 
 - Amlodipine 10 mg oral tablet, one tablet by mouth daily **S**
 - Losartan 50 mg oral tablet, one tablet by mouth daily **S**
-- Losartan 100 mg oral tablet, one tablet by mouth daily **S**
-- Dapagliflozin 10 mg oral tablet, one tablet by mouth daily **S**
-- Chlorthalidone 25 mg oral tablet, one-half tablet (12.5 mg) by mouth daily **S**
 - Atorvastatin 20 mg oral tablet, one tablet by mouth daily **S**
 - No known allergy **S**
 

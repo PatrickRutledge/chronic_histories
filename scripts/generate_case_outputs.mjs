@@ -1,6 +1,7 @@
 import fs from "node:fs/promises";
 import path from "node:path";
 import { NAMESPACE, ROUTES, TRUE_DATE_NOTICE, deterministicUuid, isTrueDateFrame, outputDirFor, parseClinician, splitName } from "./lib/common.mjs";
+import { reviewPage } from "./lib/review_page.mjs";
 import { INTERPRETATIONS, documentationOf, isConsultStep, isLab, isUnscheduled, rangeText, visitLabels, withUnit } from "./lib/episode.mjs";
 
 const inputPath = process.argv[2];
@@ -167,7 +168,7 @@ ${isTrueDateFrame(data) ? `  <div class="banner">${esc(TRUE_DATE_NOTICE)}</div>
       <div class="downloads">
         <a href="../case.json">Canonical JSON</a>
         <a href="fhir-bundle.json">FHIR R4 draft</a>
-        <a href="ccda.html">C-CDA R2.1 summary</a> <a href="ccda.xml">(XML)</a>
+        <a href="ccda.html">C-CDA R2.1 summary</a> <a href="ccda.xml">(XML)</a>${isTrueDateFrame(data) ? "" : ` <a href="review.html">Review checklist</a>`}
         <a href="../sources.md">Evidence dossier</a>
       </div>
     </section>
@@ -613,5 +614,11 @@ const bundle = {
 
 await fs.mkdir(outputDir, { recursive: true });
 await fs.writeFile(path.join(outputDir, "index.html"), html, "utf8");
+// The review checklist belongs to the modern record, beside its dossier.
+if (!isTrueDateFrame(data)) {
+  const sourcesPath = path.join(path.dirname(absoluteInput), "sources.md");
+  const sourcesText = await fs.readFile(sourcesPath, "utf8").catch(() => "");
+  await fs.writeFile(path.join(outputDir, "review.html"), reviewPage(data, sourcesText), "utf8");
+}
 await fs.writeFile(path.join(outputDir, "fhir-bundle.json"), `${JSON.stringify(bundle, null, 2)}\n`, "utf8");
 console.log(JSON.stringify({ case_id: data.case_id, outputDir, resources: fhirEntries.length }));
