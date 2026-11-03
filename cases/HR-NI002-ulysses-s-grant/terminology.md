@@ -47,7 +47,8 @@ Reference ranges are typical adult ranges chosen for the teaching record; interp
 
 ## Encounter types
 
-- Sick visit (ENC-005): SNOMED CT 185345009 (Encounter for symptom), validated November 3, 2026. The four scheduled visits carry no encounter type code.
+- Focused chronic-care visits (ENC-002, ENC-003, ENC-004): SNOMED CT 390906007 (Follow-up encounter), validated November 3, 2026.
+- Sick visit (ENC-005): SNOMED CT 185345009 (Encounter for symptom), validated November 3, 2026. The index visit (ENC-001) carries no encounter type code.
 
 ## Vital signs
 

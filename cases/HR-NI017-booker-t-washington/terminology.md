@@ -44,7 +44,7 @@ eGFR values are calculated from the synthetic creatinine with the 2021 CKD-EPI c
 
 - Electrocardiogram: SNOMED CT 29303009. Funduscopic examination: SNOMED CT 53524009 (Ophthalmoscopy). Renal ultrasound: SNOMED CT 306005 (Echography of kidney). Transthoracic echocardiography: SNOMED CT 433236007.
 - Immunizations: CVX 140 (influenza, two seasons), 216 (PCV20), 189 (HepB-CpG, two doses), 187 (recombinant zoster, dose 1), and 115 (Tdap).
-- Encounter types: SNOMED CT 185345009 (encounter for symptom) for the August sick visit and 86013001 (periodic reevaluation and management of healthy individual) for the adult preventive visit. The services are named in plain text as CPT 99396 and CPT 99497; CPT is not used as a coded value.
+- Encounter types: SNOMED CT 390906007 (follow-up encounter) for the four focused chronic-care visits, 185345009 (encounter for symptom) for the August sick visit and 86013001 (periodic reevaluation and management of healthy individual) for the adult preventive visit. The services are named in plain text as CPT 99396 and CPT 99497; CPT is not used as a coded value.
 - No known allergy: SNOMED CT 716186003.
 - Family relationship: HL7 RoleCode MTH (mother). Cause of death is not recorded.
 

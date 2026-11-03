@@ -51,7 +51,7 @@ Reference ranges are typical adult ranges chosen for the teaching record; interp
 ## Procedures, immunizations, and family history
 
 - Diabetic foot examination: SNOMED CT 401191002.
-- Encounter type: SNOMED CT 281038008 (geriatric annual health check) for the subsequent annual wellness visit. The services are named in plain text as HCPCS G0439 and CPT 99497; HCPCS and CPT are not used as coded values.
+- Encounter types: SNOMED CT 390906007 (follow-up encounter) for the three focused chronic-care visits and 281038008 (geriatric annual health check) for the subsequent annual wellness visit. The services are named in plain text as HCPCS G0439 and CPT 99497; HCPCS and CPT are not used as coded values.
 - Optical coherence tomography of retina: SNOMED CT 700070005, at the first and six-month visits.
 - Threshold automated static perimetry, central 24 degrees: SNOMED CT 392536003, at the first and six-month visits.
 - Immunizations: CVX 135 (high-dose influenza), 216 (PCV20), and 187 (recombinant zoster).

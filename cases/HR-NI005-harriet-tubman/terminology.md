@@ -45,7 +45,7 @@ The Epworth Sleepiness Scale and HIT-6 have no LOINC codes on the terminology se
 
 - EEG: SNOMED CT 54550000. MRI of brain: SNOMED CT 816077007. Ambulatory EEG: SNOMED CT 252735006. Polysomnography: SNOMED CT 60554003. Multiple sleep latency test: SNOMED CT 252731002.
 - Immunizations: CVX 135 (high-dose influenza, two seasons), 216 (PCV20), 303 (RSV, adjuvanted), 187 (recombinant zoster), and 115 (Tdap).
-- Encounter types: SNOMED CT 185345009 (encounter for symptom) for the September sick visit and 281038008 (geriatric annual health check) for the annual wellness visit. The services are named in plain text as HCPCS G0439 and CPT 99497; HCPCS and CPT are not used as coded values.
+- Encounter types: SNOMED CT 390906007 (follow-up encounter) for the three focused chronic-care visits, 185345009 (encounter for symptom) for the September sick visit and 281038008 (geriatric annual health check) for the annual wellness visit. The services are named in plain text as HCPCS G0439 and CPT 99497; HCPCS and CPT are not used as coded values.
 - No known allergy: SNOMED CT 716186003.
 - No family history is recorded.
 

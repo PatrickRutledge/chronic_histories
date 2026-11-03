@@ -54,9 +54,10 @@ Reference ranges are typical adult female ranges chosen for the teaching record;
 
 ## Encounter types
 
+- Focused chronic-care visits (ENC-002, ENC-003, ENC-004): SNOMED CT 390906007 (Follow-up encounter), validated November 3, 2026.
 - Sick visit (ENC-005): SNOMED CT 185345009 (Encounter for symptom).
 - Adult preventive visit (ENC-006): SNOMED CT 86013001 (Periodic reevaluation and management of healthy individual).
-- The new codes were validated on November 3, 2026. The four scheduled visits carry no encounter type code.
+- The new codes were validated on November 3, 2026. The index visit (ENC-001) carries no encounter type code.
 
 ## Vital signs
 

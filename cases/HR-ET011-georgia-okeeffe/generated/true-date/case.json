@@ -1840,6 +1840,271 @@
           "synthetic_reason": "Synthetic modern EHR encounter.",
           "author": "The Human Record generator",
           "created": "2026-11-02T15:00:00-05:00"
+        },
+        "visit_type": "chronic_care",
+        "type_coding": {
+          "system": "http://snomed.info/sct",
+          "code": "390906007",
+          "display": "Follow-up encounter",
+          "validation_status": "validated",
+          "validated_on": "2026-11-03"
+        },
+        "documentation": {
+          "chief_complaint": "Retina evaluation of new distortion and blur in the left eye",
+          "hpi": {
+            "narrative": "Ms. O'Keeffe is seen in the retina clinic two days after her primary care visit, where new distortion and a blurred central spot in the left eye were found on the Amsler grid. Over the past few weeks straight lines on her canvases and door frames have looked bent with the left eye, and small print and fine color differences have become hard to judge. The right eye seems unchanged. She has had no eye pain, redness, flashes, or new floaters. She takes no blood thinners and no other medicines. She paints daily and is afraid of losing the central vision she needs for her work.",
+            "elements": [
+              {
+                "label": "Onset",
+                "value": "Over the past few weeks"
+              },
+              {
+                "label": "Symptoms",
+                "value": "Bent lines and a central blurred spot, left eye; trouble with small print and fine color differences"
+              },
+              {
+                "label": "Fellow eye",
+                "value": "No change noticed in the right eye"
+              },
+              {
+                "label": "Pertinent negatives",
+                "value": "No pain, redness, flashes, or new floaters"
+              },
+              {
+                "label": "Medicines",
+                "value": "None; no anticoagulants"
+              },
+              {
+                "label": "Patient concern",
+                "value": "Keeping the central vision she needs to paint"
+              }
+            ]
+          },
+          "ros": [
+            {
+              "system": "Eyes",
+              "status": "positive",
+              "finding": "Distortion and a central blurred spot in the left eye; no pain, redness, flashes, or floaters"
+            },
+            {
+              "system": "Constitutional",
+              "status": "negative",
+              "finding": "No weight loss or fatigue"
+            },
+            {
+              "system": "Neurological",
+              "status": "negative",
+              "finding": "No headache, double vision, or weakness"
+            },
+            {
+              "system": "Psychiatric",
+              "status": "positive",
+              "finding": "Worried about losing the vision she needs to paint; mood otherwise steady"
+            }
+          ],
+          "exam": [
+            {
+              "system": "Visual acuity",
+              "finding": "Best-corrected 78 letters right and 55 letters left"
+            },
+            {
+              "system": "Intraocular pressure",
+              "finding": "15 mmHg right and 16 mmHg left before injection"
+            },
+            {
+              "system": "Anterior segment",
+              "finding": "Quiet in both eyes"
+            },
+            {
+              "system": "Dilated fundus, left eye",
+              "finding": "Gray-green subretinal lesion under the fovea with surrounding fluid; large drusen"
+            },
+            {
+              "system": "Dilated fundus, right eye",
+              "finding": "Large drusen and pigment changes; no fluid or hemorrhage"
+            },
+            {
+              "system": "OCT",
+              "finding": "Left eye: subretinal fluid, central subfield thickness 418 µm. Both eyes: large drusen"
+            },
+            {
+              "system": "After injection, left eye",
+              "finding": "Optic nerve head perfused; counts fingers; no pain"
+            }
+          ],
+          "assessment_plan": [
+            {
+              "problem_id": "PRB-001",
+              "display": "Neovascular age-related macular degeneration, left eye, active",
+              "assessment": "New subfoveal choroidal neovascularization with subretinal fluid on OCT (central subfield thickness 418 µm) and acuity reduced to 55 letters. First intravitreal aflibercept 2 mg injection given today without complication",
+              "plan": [
+                "Aflibercept 2 mg every four weeks for three loading doses, then treat-and-extend while the macula stays dry",
+                "Return in four weeks for acuity, OCT, pressure, and the second injection",
+                "Call the same day for pain, increasing redness, worsening vision, light sensitivity, or a curtain over the vision"
+              ]
+            },
+            {
+              "problem_id": "PRB-002",
+              "display": "Intermediate dry age-related macular degeneration, right eye",
+              "assessment": "Large drusen with no neovascularization. This eye now carries most of her reading and driving vision",
+              "plan": [
+                "Start the AREDS2 supplement daily (vitamin C, vitamin E, lutein, zeaxanthin, zinc, and copper; no beta-carotene)",
+                "Daily Amsler grid checks of each eye, with a same-day call for any new distortion",
+                "Dilated examination of the right eye at each retina visit"
+              ]
+            }
+          ],
+          "monitoring": [
+            {
+              "domain": "examination",
+              "measure": "Best-corrected visual acuity (ETDRS letters)",
+              "cadence": "Every injection visit",
+              "status": "completed_today",
+              "detail": "Baseline before treatment: 78 letters right, 55 letters left",
+              "observation_ids": [
+                "OBS-VAOD-V2",
+                "OBS-VAOS-V2"
+              ],
+              "guideline_ids": [
+                "GL-AAO-AMD-2024",
+                "GL-CMID-2026"
+              ]
+            },
+            {
+              "domain": "imaging",
+              "measure": "Optical coherence tomography of the macula",
+              "cadence": "Every injection visit",
+              "status": "completed_today",
+              "detail": "Both eyes. Left: subretinal fluid, central subfield thickness 418 µm. Both: large drusen",
+              "observation_ids": [
+                "OBS-CSTOS-V2"
+              ],
+              "guideline_ids": [
+                "GL-AAO-AMD-2024"
+              ]
+            },
+            {
+              "domain": "imaging",
+              "measure": "Fluorescein angiography or OCT angiography",
+              "cadence": "At diagnosis of suspected neovascular AMD",
+              "status": "deferred",
+              "detail": "Not performed. OCT and fundus findings were typical, so treatment began the same day without angiography, a departure from the PPP's diagnostic recommendation. Angiography will be done if the response to loading is poor or the picture becomes atypical",
+              "guideline_ids": [
+                "GL-AAO-AMD-2024"
+              ]
+            },
+            {
+              "domain": "examination",
+              "measure": "Intraocular pressure before and after injection",
+              "cadence": "Every injection visit",
+              "status": "completed_today",
+              "detail": "Before injection 15 mmHg right and 16 mmHg left. After injection the check was by optic nerve perfusion and counting fingers rather than a second pressure reading",
+              "observation_ids": [
+                "OBS-IOPOD-V2",
+                "OBS-IOPOS-V2"
+              ],
+              "guideline_ids": [
+                "GL-AAO-AMD-2024",
+                "GL-CMID-2026"
+              ]
+            },
+            {
+              "domain": "examination",
+              "measure": "Comprehensive dilated eye examination",
+              "cadence": "Every 1 to 2 years at 65 or older",
+              "status": "completed_today",
+              "detail": "Acuity, pressure, slit-lamp, and dilated fundus examination of both eyes today",
+              "guideline_ids": [
+                "GL-CMID-2026"
+              ]
+            },
+            {
+              "domain": "examination",
+              "measure": "Dilated examination of the fellow (right) eye",
+              "cadence": "Every injection visit",
+              "status": "completed_today",
+              "detail": "Large drusen; no fluid or hemorrhage",
+              "guideline_ids": [
+                "GL-AAO-AMD-2024"
+              ]
+            },
+            {
+              "domain": "medication_safety",
+              "measure": "Intravitreal injection safety",
+              "cadence": "Every injection visit",
+              "status": "completed_today",
+              "detail": "Povidone-iodine preparation; no complication; first loading dose",
+              "guideline_ids": [
+                "GL-AAO-AMD-2024"
+              ]
+            },
+            {
+              "domain": "self_management",
+              "measure": "Teaching on warning signs of endophthalmitis and retinal detachment",
+              "cadence": "Every injection visit",
+              "status": "completed_today",
+              "detail": "Taught today with written instructions in large print",
+              "guideline_ids": [
+                "GL-AAO-AMD-2024"
+              ]
+            },
+            {
+              "domain": "self_management",
+              "measure": "Daily home Amsler grid, each eye",
+              "cadence": "Daily",
+              "status": "completed_today",
+              "detail": "Reviewed her technique with each eye covered in turn",
+              "guideline_ids": [
+                "GL-AAO-AMD-2024"
+              ]
+            },
+            {
+              "domain": "medication_safety",
+              "measure": "AREDS2 supplement for intermediate AMD",
+              "cadence": "Daily, long term",
+              "status": "completed_today",
+              "detail": "Started today; the formula without beta-carotene",
+              "guideline_ids": [
+                "GL-AAO-AMD-2024"
+              ]
+            },
+            {
+              "domain": "survey",
+              "measure": "Functional vision assessment (reading, color, driving, work)",
+              "cadence": "At diagnosis; again with change",
+              "status": "completed_today",
+              "detail": "Trouble with small print and fine color judgment; drives short routes by day",
+              "guideline_ids": [
+                "GL-CMID-2026"
+              ]
+            },
+            {
+              "domain": "referral",
+              "measure": "Low-vision rehabilitation, with home fall-risk review and a driving assessment",
+              "cadence": "Once central vision is reduced; review as vision changes",
+              "status": "referred",
+              "detail": "Referral sent today",
+              "guideline_ids": [
+                "GL-AAO-AMD-2024",
+                "GL-CMID-2026"
+              ]
+            },
+            {
+              "domain": "survey",
+              "measure": "Depression screen (PHQ-2)",
+              "cadence": "At follow-up, because vision loss raises the risk of depression; periodically at 65 or older",
+              "status": "due",
+              "detail": "Score 1 two days ago; repeat at the July primary care review",
+              "guideline_ids": [
+                "GL-CMID-2026"
+              ]
+            }
+          ],
+          "follow_up": "Retina visit in four weeks for acuity, OCT, pressure, and the second injection. Same-day call for warning signs or new distortion in either eye",
+          "guideline_ids": [
+            "GL-AAO-AMD-2024",
+            "GL-CMID-2026"
+          ]
         }
       },
       {
@@ -1856,6 +2121,233 @@
           "synthetic_reason": "Synthetic modern EHR encounter.",
           "author": "The Human Record generator",
           "created": "2026-11-02T15:00:00-05:00"
+        },
+        "visit_type": "chronic_care",
+        "type_coding": {
+          "system": "http://snomed.info/sct",
+          "code": "390906007",
+          "display": "Follow-up encounter",
+          "validation_status": "validated",
+          "validated_on": "2026-11-03"
+        },
+        "documentation": {
+          "chief_complaint": "Four-week retina visit and second loading injection, left eye",
+          "hpi": {
+            "narrative": "Ms. O'Keeffe returns four weeks after her first aflibercept injection. Lines on her canvases look less bent with the left eye, and the gray spot is smaller. She had a small red patch on the white of the eye after the injection that faded within a week, and no pain, redness, or loss of vision. Her daily Amsler checks show no change in the right eye. She takes the AREDS2 supplement every day and is still painting daily.",
+            "elements": [
+              {
+                "label": "Interval change",
+                "value": "Less distortion and a smaller central spot in the left eye"
+              },
+              {
+                "label": "After the first injection",
+                "value": "Small red patch on the white of the eye that faded within a week; no pain or vision loss"
+              },
+              {
+                "label": "Amsler grid",
+                "value": "Daily checks; right eye unchanged"
+              },
+              {
+                "label": "Adherence",
+                "value": "AREDS2 supplement daily"
+              }
+            ]
+          },
+          "ros": [
+            {
+              "system": "Eyes",
+              "status": "positive",
+              "finding": "Milder distortion in the left eye; no pain, light sensitivity, flashes, or floaters"
+            },
+            {
+              "system": "Constitutional",
+              "status": "negative",
+              "finding": "No fatigue or weight change"
+            },
+            {
+              "system": "Psychiatric",
+              "status": "negative",
+              "finding": "Encouraged by the change; sleeping well"
+            }
+          ],
+          "exam": [
+            {
+              "system": "Visual acuity",
+              "finding": "Best-corrected 64 letters left, up from 55"
+            },
+            {
+              "system": "Intraocular pressure",
+              "finding": "15 mmHg left before injection"
+            },
+            {
+              "system": "Anterior segment",
+              "finding": "Quiet; no inflammation after the first injection"
+            },
+            {
+              "system": "Dilated fundus, left eye",
+              "finding": "Lesion smaller, with less subretinal fluid"
+            },
+            {
+              "system": "Dilated fundus, right eye",
+              "finding": "Large drusen unchanged; no fluid or hemorrhage"
+            },
+            {
+              "system": "OCT, left eye",
+              "finding": "Residual subretinal fluid; central subfield thickness 322 µm, down from 418"
+            },
+            {
+              "system": "After injection, left eye",
+              "finding": "Optic nerve head perfused; counts fingers; no pain"
+            }
+          ],
+          "assessment_plan": [
+            {
+              "problem_id": "PRB-001",
+              "display": "Neovascular age-related macular degeneration, left eye, responding",
+              "assessment": "Gain of 9 letters (55 to 64) and central subfield thickness down from 418 to 322 µm, with residual fluid. Second loading injection given today without complication",
+              "plan": [
+                "Third loading injection in four weeks",
+                "Same-day call for warning signs"
+              ]
+            },
+            {
+              "problem_id": "PRB-002",
+              "display": "Intermediate dry age-related macular degeneration, right eye",
+              "assessment": "Stable on dilated examination; no new distortion",
+              "plan": [
+                "Continue the AREDS2 supplement and daily Amsler checks"
+              ]
+            }
+          ],
+          "monitoring": [
+            {
+              "domain": "examination",
+              "measure": "Best-corrected visual acuity (ETDRS letters)",
+              "cadence": "Every injection visit",
+              "status": "completed_today",
+              "detail": "Left 64 letters, up 9 from baseline. The right eye is followed by Amsler grid and dilated examination during loading",
+              "observation_ids": [
+                "OBS-VAOS-V3"
+              ],
+              "guideline_ids": [
+                "GL-AAO-AMD-2024",
+                "GL-CMID-2026"
+              ]
+            },
+            {
+              "domain": "imaging",
+              "measure": "Optical coherence tomography of the macula",
+              "cadence": "Every injection visit",
+              "status": "completed_today",
+              "detail": "Left eye: central subfield thickness 322 µm with residual fluid",
+              "observation_ids": [
+                "OBS-CSTOS-V3"
+              ],
+              "guideline_ids": [
+                "GL-AAO-AMD-2024"
+              ]
+            },
+            {
+              "domain": "examination",
+              "measure": "Intraocular pressure before and after injection",
+              "cadence": "Every injection visit",
+              "status": "completed_today",
+              "detail": "Before injection 15 mmHg left; after injection, optic nerve perfused and counting fingers",
+              "observation_ids": [
+                "OBS-IOPOS-V3"
+              ],
+              "guideline_ids": [
+                "GL-AAO-AMD-2024",
+                "GL-CMID-2026"
+              ]
+            },
+            {
+              "domain": "imaging",
+              "measure": "Fluorescein angiography or OCT angiography",
+              "cadence": "If the response is poor or the picture atypical",
+              "status": "not_indicated",
+              "detail": "Responding as expected to loading, which supports the diagnosis",
+              "guideline_ids": [
+                "GL-AAO-AMD-2024"
+              ]
+            },
+            {
+              "domain": "examination",
+              "measure": "Dilated examination of the fellow (right) eye",
+              "cadence": "Every injection visit",
+              "status": "completed_today",
+              "detail": "Large drusen unchanged; no fluid",
+              "guideline_ids": [
+                "GL-AAO-AMD-2024"
+              ]
+            },
+            {
+              "domain": "medication_safety",
+              "measure": "Intravitreal injection safety",
+              "cadence": "Every injection visit",
+              "status": "completed_today",
+              "detail": "Small subconjunctival hemorrhage after the first injection, resolved; no inflammation. Second loading dose today",
+              "guideline_ids": [
+                "GL-AAO-AMD-2024"
+              ]
+            },
+            {
+              "domain": "self_management",
+              "measure": "Teaching on warning signs of endophthalmitis and retinal detachment",
+              "cadence": "Every injection visit",
+              "status": "completed_today",
+              "detail": "Reviewed again",
+              "guideline_ids": [
+                "GL-AAO-AMD-2024"
+              ]
+            },
+            {
+              "domain": "self_management",
+              "measure": "Daily home Amsler grid, each eye",
+              "cadence": "Daily",
+              "status": "completed_today",
+              "detail": "Daily checks recorded; no change in the right eye",
+              "guideline_ids": [
+                "GL-AAO-AMD-2024"
+              ]
+            },
+            {
+              "domain": "medication_safety",
+              "measure": "AREDS2 supplement for intermediate AMD",
+              "cadence": "Daily, long term",
+              "status": "completed_today",
+              "detail": "Taking it daily",
+              "guideline_ids": [
+                "GL-AAO-AMD-2024"
+              ]
+            },
+            {
+              "domain": "referral",
+              "measure": "Low-vision rehabilitation, with home fall-risk review and a driving assessment",
+              "cadence": "Once central vision is reduced; review as vision changes",
+              "status": "referred",
+              "detail": "Evaluation booked for next month",
+              "guideline_ids": [
+                "GL-AAO-AMD-2024",
+                "GL-CMID-2026"
+              ]
+            },
+            {
+              "domain": "survey",
+              "measure": "Depression screen (PHQ-2)",
+              "cadence": "At follow-up, because vision loss raises the risk of depression; periodically at 65 or older",
+              "status": "due",
+              "detail": "Planned at the July primary care review",
+              "guideline_ids": [
+                "GL-CMID-2026"
+              ]
+            }
+          ],
+          "follow_up": "Retina visit in four weeks for the third loading injection",
+          "guideline_ids": [
+            "GL-AAO-AMD-2024",
+            "GL-CMID-2026"
+          ]
         }
       },
       {
@@ -1872,6 +2364,228 @@
           "synthetic_reason": "Synthetic modern EHR encounter.",
           "author": "The Human Record generator",
           "created": "2026-11-02T15:00:00-05:00"
+        },
+        "visit_type": "chronic_care",
+        "type_coding": {
+          "system": "http://snomed.info/sct",
+          "code": "390906007",
+          "display": "Follow-up encounter",
+          "validation_status": "validated",
+          "validated_on": "2026-11-03"
+        },
+        "documentation": {
+          "chief_complaint": "Third loading injection and end-of-loading review, left eye",
+          "hpi": {
+            "narrative": "Ms. O'Keeffe returns four weeks after her second injection, eight weeks after starting treatment. Straight lines look nearly straight again with the left eye, and she can read newspaper headlines and judge color in the studio better than in March. She has had no pain, redness, or loss of vision after either injection. Daily Amsler checks show no change in the right eye. She takes the AREDS2 supplement daily. Her low-vision rehabilitation evaluation took place this month, and the home visit and driving assessment are under way.",
+            "elements": [
+              {
+                "label": "Interval change",
+                "value": "Distortion nearly gone in the left eye; color judgment better"
+              },
+              {
+                "label": "Injection tolerance",
+                "value": "No pain, redness, or vision loss after two injections"
+              },
+              {
+                "label": "Amsler grid",
+                "value": "Daily checks; right eye unchanged"
+              },
+              {
+                "label": "Low-vision rehabilitation",
+                "value": "Evaluation done; home visit and driving assessment under way"
+              }
+            ]
+          },
+          "ros": [
+            {
+              "system": "Eyes",
+              "status": "positive",
+              "finding": "Slight residual blur in the left eye; no pain, flashes, or floaters"
+            },
+            {
+              "system": "Constitutional",
+              "status": "negative",
+              "finding": "Weight stable; good energy"
+            },
+            {
+              "system": "Musculoskeletal",
+              "status": "negative",
+              "finding": "No falls"
+            },
+            {
+              "system": "Psychiatric",
+              "status": "negative",
+              "finding": "Mood good; painting daily"
+            }
+          ],
+          "exam": [
+            {
+              "system": "Visual acuity",
+              "finding": "Best-corrected 69 letters left, up from 55"
+            },
+            {
+              "system": "Intraocular pressure",
+              "finding": "14 mmHg left before injection"
+            },
+            {
+              "system": "Anterior segment",
+              "finding": "Quiet"
+            },
+            {
+              "system": "Dilated fundus, left eye",
+              "finding": "Lesion flat, with no fluid or hemorrhage"
+            },
+            {
+              "system": "Dilated fundus, right eye",
+              "finding": "Large drusen unchanged; no fluid or hemorrhage"
+            },
+            {
+              "system": "OCT, left eye",
+              "finding": "Dry macula; central subfield thickness 274 µm"
+            },
+            {
+              "system": "After injection, left eye",
+              "finding": "Optic nerve head perfused; counts fingers; no pain"
+            }
+          ],
+          "assessment_plan": [
+            {
+              "problem_id": "PRB-001",
+              "display": "Neovascular age-related macular degeneration, left eye, dry after loading",
+              "assessment": "Loading phase complete. Acuity has risen 14 letters (55 to 69) and the macula is dry (central subfield thickness 274 µm), meeting both loading goals. Third injection given today without complication",
+              "plan": [
+                "Begin treat-and-extend: next injection in eight weeks, aflibercept's standard interval after loading",
+                "Extend by two weeks at each visit while the macula stays dry; shorten if fluid returns"
+              ]
+            },
+            {
+              "problem_id": "PRB-002",
+              "display": "Intermediate dry age-related macular degeneration, right eye",
+              "assessment": "Stable",
+              "plan": [
+                "Continue the AREDS2 supplement and daily Amsler checks"
+              ]
+            }
+          ],
+          "monitoring": [
+            {
+              "domain": "examination",
+              "measure": "Best-corrected visual acuity (ETDRS letters)",
+              "cadence": "Every injection visit",
+              "status": "completed_today",
+              "detail": "Left 69 letters, up 14 from baseline; loading goal met",
+              "observation_ids": [
+                "OBS-VAOS-V4"
+              ],
+              "guideline_ids": [
+                "GL-AAO-AMD-2024",
+                "GL-CMID-2026"
+              ]
+            },
+            {
+              "domain": "imaging",
+              "measure": "Optical coherence tomography of the macula",
+              "cadence": "Every injection visit",
+              "status": "completed_today",
+              "detail": "Left eye dry; central subfield thickness 274 µm",
+              "observation_ids": [
+                "OBS-CSTOS-V4"
+              ],
+              "guideline_ids": [
+                "GL-AAO-AMD-2024"
+              ]
+            },
+            {
+              "domain": "examination",
+              "measure": "Intraocular pressure before and after injection",
+              "cadence": "Every injection visit",
+              "status": "completed_today",
+              "detail": "Before injection 14 mmHg left; after injection, optic nerve perfused and counting fingers",
+              "observation_ids": [
+                "OBS-IOPOS-V4"
+              ],
+              "guideline_ids": [
+                "GL-AAO-AMD-2024",
+                "GL-CMID-2026"
+              ]
+            },
+            {
+              "domain": "examination",
+              "measure": "Dilated examination of the fellow (right) eye",
+              "cadence": "Every injection visit",
+              "status": "completed_today",
+              "detail": "Large drusen unchanged; no fluid",
+              "guideline_ids": [
+                "GL-AAO-AMD-2024"
+              ]
+            },
+            {
+              "domain": "medication_safety",
+              "measure": "Intravitreal injection safety",
+              "cadence": "Every injection visit",
+              "status": "completed_today",
+              "detail": "No complication after three injections; last loading dose today",
+              "guideline_ids": [
+                "GL-AAO-AMD-2024"
+              ]
+            },
+            {
+              "domain": "self_management",
+              "measure": "Teaching on warning signs of endophthalmitis and retinal detachment",
+              "cadence": "Every injection visit",
+              "status": "completed_today",
+              "detail": "Reviewed again before the longer interval",
+              "guideline_ids": [
+                "GL-AAO-AMD-2024"
+              ]
+            },
+            {
+              "domain": "self_management",
+              "measure": "Daily home Amsler grid, each eye",
+              "cadence": "Daily",
+              "status": "completed_today",
+              "detail": "Daily checks recorded; no change in the right eye",
+              "guideline_ids": [
+                "GL-AAO-AMD-2024"
+              ]
+            },
+            {
+              "domain": "medication_safety",
+              "measure": "AREDS2 supplement for intermediate AMD",
+              "cadence": "Daily, long term",
+              "status": "completed_today",
+              "detail": "Taking it daily",
+              "guideline_ids": [
+                "GL-AAO-AMD-2024"
+              ]
+            },
+            {
+              "domain": "referral",
+              "measure": "Low-vision rehabilitation, with home fall-risk review and a driving assessment",
+              "cadence": "Once central vision is reduced; review as vision changes",
+              "status": "referred",
+              "detail": "Evaluation done this month; home visit and driving assessment under way",
+              "guideline_ids": [
+                "GL-AAO-AMD-2024",
+                "GL-CMID-2026"
+              ]
+            },
+            {
+              "domain": "survey",
+              "measure": "Depression screen (PHQ-2)",
+              "cadence": "At follow-up, because vision loss raises the risk of depression; periodically at 65 or older",
+              "status": "due",
+              "detail": "Planned at the July primary care review",
+              "guideline_ids": [
+                "GL-CMID-2026"
+              ]
+            }
+          ],
+          "follow_up": "Retina visit in eight weeks, with the primary care review of vision rehabilitation on the same day",
+          "guideline_ids": [
+            "GL-AAO-AMD-2024",
+            "GL-CMID-2026"
+          ]
         }
       },
       {
@@ -1888,6 +2602,271 @@
           "synthetic_reason": "Synthetic modern EHR encounter.",
           "author": "The Human Record generator",
           "created": "2026-11-02T15:00:00-05:00"
+        },
+        "visit_type": "chronic_care",
+        "type_coding": {
+          "system": "http://snomed.info/sct",
+          "code": "390906007",
+          "display": "Follow-up encounter",
+          "validation_status": "validated",
+          "validated_on": "2026-11-03"
+        },
+        "documentation": {
+          "chief_complaint": "Treat-and-extend retina visit and primary care review of vision rehabilitation",
+          "hpi": {
+            "narrative": "Ms. O'Keeffe returns eight weeks after her third injection, the first extended interval. Her left-eye vision has held, with no new distortion, and daily Amsler checks of each eye show no change. Low-vision rehabilitation is complete: task lighting and a stand magnifier are set up in the studio, and high-contrast labels mark her paints and household controls. She is painting daily. The driving assessment cleared her for short local routes by day. She takes the AREDS2 supplement daily and has had no falls.",
+            "elements": [
+              {
+                "label": "Interval change",
+                "value": "Left-eye vision stable over eight weeks; no new distortion"
+              },
+              {
+                "label": "Amsler grid",
+                "value": "Daily checks of each eye; no change"
+              },
+              {
+                "label": "Low-vision rehabilitation",
+                "value": "Task lighting, stand magnifier, and high-contrast labels in place"
+              },
+              {
+                "label": "Driving",
+                "value": "Cleared for short local routes by day"
+              },
+              {
+                "label": "Function",
+                "value": "Painting daily; independent at home; no falls"
+              }
+            ]
+          },
+          "ros": [
+            {
+              "system": "Eyes",
+              "status": "negative",
+              "finding": "No new distortion, blur, pain, flashes, or floaters"
+            },
+            {
+              "system": "Constitutional",
+              "status": "negative",
+              "finding": "Weight stable; good energy"
+            },
+            {
+              "system": "Musculoskeletal",
+              "status": "negative",
+              "finding": "No falls"
+            },
+            {
+              "system": "Psychiatric",
+              "status": "negative",
+              "finding": "Mood good; PHQ-2 score 0"
+            }
+          ],
+          "exam": [
+            {
+              "system": "General",
+              "finding": "Well, energetic"
+            },
+            {
+              "system": "Visual acuity",
+              "finding": "Best-corrected 77 letters right and 70 letters left"
+            },
+            {
+              "system": "Intraocular pressure",
+              "finding": "15 mmHg in each eye before injection"
+            },
+            {
+              "system": "Anterior segment",
+              "finding": "Quiet in both eyes"
+            },
+            {
+              "system": "Dilated fundus, left eye",
+              "finding": "No fluid or hemorrhage"
+            },
+            {
+              "system": "Dilated fundus, right eye",
+              "finding": "Large drusen unchanged; no fluid or hemorrhage"
+            },
+            {
+              "system": "OCT, both eyes",
+              "finding": "Left eye dry, central subfield thickness 268 µm. Right eye large drusen without fluid"
+            },
+            {
+              "system": "After injection, left eye",
+              "finding": "Optic nerve head perfused; counts fingers; no pain"
+            }
+          ],
+          "assessment_plan": [
+            {
+              "problem_id": "PRB-001",
+              "display": "Neovascular age-related macular degeneration, left eye, inactive on treat-and-extend",
+              "assessment": "Dry after eight weeks (central subfield thickness 268 µm), with acuity 70 letters, up 15 from baseline. Fourth injection given today without complication",
+              "plan": [
+                "Extend the next interval to ten weeks",
+                "Same-day call for new distortion or warning signs"
+              ]
+            },
+            {
+              "problem_id": "PRB-002",
+              "display": "Intermediate dry age-related macular degeneration, right eye",
+              "assessment": "Stable: 77 letters, no fluid on OCT, no change on Amsler checks",
+              "plan": [
+                "Continue the AREDS2 supplement, daily Amsler checks, and dilated examination at each retina visit"
+              ]
+            }
+          ],
+          "monitoring": [
+            {
+              "domain": "examination",
+              "measure": "Best-corrected visual acuity (ETDRS letters)",
+              "cadence": "Every injection visit",
+              "status": "completed_today",
+              "detail": "77 letters right and 70 letters left",
+              "observation_ids": [
+                "OBS-VAOD-V5",
+                "OBS-VAOS-V5"
+              ],
+              "guideline_ids": [
+                "GL-AAO-AMD-2024",
+                "GL-CMID-2026"
+              ]
+            },
+            {
+              "domain": "imaging",
+              "measure": "Optical coherence tomography of the macula",
+              "cadence": "Every injection visit",
+              "status": "completed_today",
+              "detail": "Both eyes. Left dry at 268 µm; right drusen without fluid",
+              "observation_ids": [
+                "OBS-CSTOS-V5"
+              ],
+              "guideline_ids": [
+                "GL-AAO-AMD-2024"
+              ]
+            },
+            {
+              "domain": "examination",
+              "measure": "Intraocular pressure before and after injection",
+              "cadence": "Every injection visit",
+              "status": "completed_today",
+              "detail": "Before injection 15 mmHg in each eye; after injection, optic nerve perfused and counting fingers",
+              "observation_ids": [
+                "OBS-IOPOD-V5",
+                "OBS-IOPOS-V5"
+              ],
+              "guideline_ids": [
+                "GL-AAO-AMD-2024",
+                "GL-CMID-2026"
+              ]
+            },
+            {
+              "domain": "examination",
+              "measure": "Dilated examination of the fellow (right) eye",
+              "cadence": "Every injection visit",
+              "status": "completed_today",
+              "detail": "Large drusen unchanged; no fluid on OCT",
+              "guideline_ids": [
+                "GL-AAO-AMD-2024"
+              ]
+            },
+            {
+              "domain": "examination",
+              "measure": "Comprehensive dilated eye examination",
+              "cadence": "Every 1 to 2 years at 65 or older",
+              "status": "up_to_date",
+              "detail": "Both eyes examined in full at the March retina consultation and again today",
+              "guideline_ids": [
+                "GL-CMID-2026"
+              ]
+            },
+            {
+              "domain": "medication_safety",
+              "measure": "Intravitreal injection safety",
+              "cadence": "Every injection visit",
+              "status": "completed_today",
+              "detail": "Fourth injection; no complication to date",
+              "guideline_ids": [
+                "GL-AAO-AMD-2024"
+              ]
+            },
+            {
+              "domain": "self_management",
+              "measure": "Teaching on warning signs of endophthalmitis and retinal detachment",
+              "cadence": "Every injection visit",
+              "status": "completed_today",
+              "detail": "Reviewed again before the ten-week interval",
+              "guideline_ids": [
+                "GL-AAO-AMD-2024"
+              ]
+            },
+            {
+              "domain": "self_management",
+              "measure": "Daily home Amsler grid, each eye",
+              "cadence": "Daily",
+              "status": "completed_today",
+              "detail": "Daily checks recorded; no change in either eye",
+              "guideline_ids": [
+                "GL-AAO-AMD-2024"
+              ]
+            },
+            {
+              "domain": "medication_safety",
+              "measure": "AREDS2 supplement for intermediate AMD",
+              "cadence": "Daily, long term",
+              "status": "completed_today",
+              "detail": "Taking it daily",
+              "guideline_ids": [
+                "GL-AAO-AMD-2024"
+              ]
+            },
+            {
+              "domain": "referral",
+              "measure": "Low-vision rehabilitation, with home fall-risk review and a driving assessment",
+              "cadence": "Once central vision is reduced; review as vision changes",
+              "status": "up_to_date",
+              "detail": "Completed since the last visit: lighting, magnifier, and labels in place; cleared for short local daytime driving. Review if vision changes",
+              "guideline_ids": [
+                "GL-AAO-AMD-2024",
+                "GL-CMID-2026"
+              ]
+            },
+            {
+              "domain": "survey",
+              "measure": "Functional vision assessment (reading, color, driving, work)",
+              "cadence": "At diagnosis; again with change",
+              "status": "completed_today",
+              "detail": "Painting daily with aids; reading with the magnifier; daytime local driving only",
+              "guideline_ids": [
+                "GL-CMID-2026"
+              ]
+            },
+            {
+              "domain": "survey",
+              "measure": "Depression screen (PHQ-2)",
+              "cadence": "At follow-up, because vision loss raises the risk of depression; periodically at 65 or older",
+              "status": "completed_today",
+              "detail": "Score 0, down from 1 at intake",
+              "observation_ids": [
+                "OBS-PHQ2-V5"
+              ],
+              "guideline_ids": [
+                "GL-CMID-2026"
+              ]
+            },
+            {
+              "domain": "survey",
+              "measure": "Cognitive screen (Mini-Cog)",
+              "cadence": "Annually at 65 or older",
+              "status": "up_to_date",
+              "detail": "5 of 5 at intake in March; next at the annual wellness visit",
+              "guideline_ids": [
+                "GL-CMID-2026"
+              ]
+            }
+          ],
+          "follow_up": "Retina visit in ten weeks for acuity, OCT, pressure, and the fifth injection. Annual wellness visit in the fall",
+          "guideline_ids": [
+            "GL-AAO-AMD-2024",
+            "GL-CMID-2026"
+          ]
         }
       },
       {

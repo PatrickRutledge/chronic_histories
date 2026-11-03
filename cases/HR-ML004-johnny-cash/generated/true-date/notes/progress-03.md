@@ -136,7 +136,7 @@ A written copy was given to the patient. **S**
 
 | Service | Status | Detail |
 |---|---|---|
-| Influenza vaccine | Up to date | High-dose vaccine given last autumn; next dose due this autumn |
+| Influenza vaccine | Up to date | High-dose vaccine given last season; next dose due when the next season's vaccine is available |
 | COVID-19 vaccine | Due | Recommended at his age and with diabetes; he will get it at his pharmacy |
 | Pneumococcal vaccine | Up to date | PCV20 given at the first visit two months ago; no further doses needed |
 | Recombinant zoster vaccine | Due | Dose 1 planned for the three-month review, dose 2 two to six months later |
@@ -162,7 +162,7 @@ Voluntary advance care planning discussion of about 20 minutes, with his consent
 ## Guideline basis
 
 - Standards of Care in Diabetes—2025 (2025), American Diabetes Association
-- CMID: Clinical Monitoring Intelligence Database, diabetes and glaucoma monographs (2026), Aether Forge
+- CMID: Clinical Monitoring Intelligence Database, diabetes, glaucoma, and hyperlipidemia monographs (2026), Aether Forge
 - Medicare Wellness Visits (Medicare Learning Network) (2026), Centers for Medicare & Medicaid Services
 - Medicare Preventive Services reference: visit templates, screening cascades, and documentation elements (2026), Aether Forge
 

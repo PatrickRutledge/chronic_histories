@@ -153,7 +153,7 @@ Voluntary advance care planning discussion of about 20 minutes, with his consent
 ## Guideline basis
 
 - Alzheimer's Association clinical practice guideline for the Diagnostic Evaluation, Testing, Counseling, and Disclosure of Suspected Alzheimer's Disease and Related Disorders (DETeCD-ADRD) (2024), Alzheimer's Association
-- CMID: Clinical Monitoring Intelligence Database, Alzheimer's disease and hip/pelvic fracture monographs (2026), Aether Forge
+- CMID: Clinical Monitoring Intelligence Database, Alzheimer's disease, hip/pelvic fracture, and osteoporosis monographs (2026), Aether Forge
 - Medicare Wellness Visits (Medicare Learning Network) (2026), Centers for Medicare & Medicaid Services
 - Medicare Preventive Services reference: visit templates, screening cascades, and documentation elements (2026), Aether Forge
 

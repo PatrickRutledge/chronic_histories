@@ -50,7 +50,7 @@ Zarit Burden Interview, FAST stage, Lawton IADL, Timed Up and Go, NPI-Q, and the
 - Assessment of risk in home environment: SNOMED CT 718855003.
 - Advance care planning: SNOMED CT 713603004.
 - Dual energy X-ray absorptiometry: SNOMED CT 241686001.
-- Encounter type: SNOMED CT 281038008 (geriatric annual health check) for the subsequent annual wellness visit. The services are named in plain text as HCPCS G0439 and CPT 99497; HCPCS and CPT are not used as coded values.
+- Encounter types: SNOMED CT 390906007 (follow-up encounter) for the three focused chronic-care visits and 281038008 (geriatric annual health check) for the subsequent annual wellness visit. The services are named in plain text as HCPCS G0439 and CPT 99497; HCPCS and CPT are not used as coded values.
 - Immunizations: CVX 135 (high-dose influenza, the 2025-2026 dose and the 2026-2027 dose given at the annual wellness visit) and 216 (PCV20).
 - No known allergy: SNOMED CT 716186003.
 - Family relationships: HL7 RoleCode FTH (father), MTH (mother), and BRO (brother).

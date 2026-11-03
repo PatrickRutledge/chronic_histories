@@ -44,6 +44,7 @@ Reference ranges are typical adult female ranges chosen for the teaching record;
 - YAG laser posterior capsulotomy: SNOMED CT 309556000.
 - Immunizations: CVX 140 (influenza), 216 (PCV20), and 115 (Tdap).
 - No known allergy: SNOMED CT 716186003.
+- Encounter types: SNOMED CT 390906007 (follow-up encounter) for the three focused chronic-care visits.
 - Family relationships: HL7 RoleCode MTH (mother) and SIS (sister).
 
 ## Vital signs

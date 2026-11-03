@@ -33,7 +33,7 @@ LOINC 57109-1 has no laterality; the label states that it is the left eye. Refer
 - Optical coherence tomography of retina: SNOMED CT 700070005, at each retina visit.
 - Intravitreal injection of anti-vascular endothelial growth factor: SNOMED CT 1004045004, four injections.
 - Immunizations: CVX 135 (high-dose influenza, two seasons) and 187 (recombinant zoster, two doses).
-- Encounter types: SNOMED CT 185345009 (encounter for symptom) for the August sick visit and 281038008 (geriatric annual health check) for the annual wellness visit. The services are named in plain text as HCPCS G0439 and CPT 99497; HCPCS and CPT are not used as coded values.
+- Encounter types: SNOMED CT 390906007 (follow-up encounter) for the four focused chronic-care visits, 185345009 (encounter for symptom) for the August sick visit and 281038008 (geriatric annual health check) for the annual wellness visit. The services are named in plain text as HCPCS G0439 and CPT 99497; HCPCS and CPT are not used as coded values.
 - No known allergy: SNOMED CT 716186003.
 - Family relationships: HL7 RoleCode MTH (mother) and FTH (father). Causes of death are not recorded.
 
