@@ -24,6 +24,9 @@ A case ID is never reused for a different person.
 
 ### Fixed
 
+- The C-CDA links on the review page opened a blank page: every document referenced a `ccda.xsl` stylesheet that was never generated, and browsers do not apply XSLT to local files anyway. The reference is removed, and each C-CDA document now has a readable HTML copy beside it (`ccda.html`, `ccda/*.html`), linked from the review page with the XML.
+- The review page listed only three progress notes. It now lists one per visit, and a new section links every C-CDA note document.
+- FDR had no evidence dossier, so the review page's dossier link was broken. `sources.md` and `terminology.md` are added, and validation now requires both for every case in `pilots/` and `cases/`.
 - Change since baseline in progress notes compared the wrong instrument when a case used two (Murphy's PHQ-9 showed his PCL-5 baseline). True-date notes were missing from the build manifest because of a broken path.
 
 ### Changed

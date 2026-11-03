@@ -11,18 +11,18 @@ function Get-NormalizedSha256([string]$Path) {
 # Generated files that the build manifest covers, relative to the case directory.
 function Get-GeneratedFiles([string]$CaseDirectory) {
     $generated = Join-Path $CaseDirectory 'generated'
-    $fixed = 'index.html', 'fhir-bundle.json', 'ccda.xml', 'provenance.csv' | ForEach-Object { "generated/$_" }
+    $fixed = 'index.html', 'fhir-bundle.json', 'ccda.xml', 'ccda.html', 'provenance.csv' | ForEach-Object { "generated/$_" }
     $listed = {
         param([string]$Folder, [string]$Filter)
         @(Get-ChildItem -LiteralPath (Join-Path $CaseDirectory $Folder) -Filter $Filter -File -ErrorAction SilentlyContinue |
             Sort-Object Name | ForEach-Object { "$Folder/$($_.Name)" })
     }
     # True-date variant, derived from the modern case (docs/date-shifting.md).
-    $trueDate = 'case.json', 'index.html', 'fhir-bundle.json', 'ccda.xml', 'provenance.csv' | ForEach-Object { "generated/true-date/$_" }
+    $trueDate = 'case.json', 'index.html', 'fhir-bundle.json', 'ccda.xml', 'ccda.html', 'provenance.csv' | ForEach-Object { "generated/true-date/$_" }
     return @($fixed) +
-        (& $listed 'generated/notes' '*.md') + (& $listed 'generated/ccda' '*.xml') +
+        (& $listed 'generated/notes' '*.md') + (& $listed 'generated/ccda' '*.xml') + (& $listed 'generated/ccda' '*.html') +
         $trueDate +
-        (& $listed 'generated/true-date/notes' '*.md') + (& $listed 'generated/true-date/ccda' '*.xml')
+        (& $listed 'generated/true-date/notes' '*.md') + (& $listed 'generated/true-date/ccda' '*.xml') + (& $listed 'generated/true-date/ccda' '*.html')
 }
 
 # Every case in the repository: pilots and test fixtures.

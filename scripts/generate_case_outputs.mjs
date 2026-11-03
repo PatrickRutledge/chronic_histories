@@ -92,17 +92,25 @@ const visits = data.synthetic_episode.visit_schedule.map(visit => `
 const reviewRows = Object.entries(data.review).map(([name, review]) => `
   <tr><td>${esc(name.replaceAll("_", " "))}</td><td>${esc(review.status)}</td><td>${esc(review.notes ?? "")}</td></tr>`).join("");
 
+const visitNumbers = data.synthetic_episode.visit_schedule.map((visit, index) => String(index + 1).padStart(2, "0"));
+const specialty = data.identity.synthetic_identity.fictional_consultant.specialty;
 const supportingDocuments = [
   ["History and physical", "notes/hp.md"],
-  ["Progress note 01", "notes/progress-01.md"],
-  ["Progress note 02", "notes/progress-02.md"],
-  ["Progress note 03", "notes/progress-03.md"],
+  ...visitNumbers.map(n => [`Progress note ${n}`, `notes/progress-${n}.md`]),
   [`${data.identity.synthetic_identity.fictional_consultant.specialty} referral`, "notes/referral-01.md"],
   [`${data.identity.synthetic_identity.fictional_consultant.specialty} consultation`, "notes/consult-01.md"],
   ["Patient care plan", "notes/careplan.md"],
   ["Teaching note", "notes/teaching-note.md"],
   ["Provenance CSV", "provenance.csv"]
 ].map(([label, href]) => `<li><a href="${href}">${label}</a></li>`).join("");
+
+// The C-CDA note documents written by generate_ccda.mjs: one H&P, one progress note per visit,
+// and a referral and consultation when the plan includes a referral step.
+const ccdaDocuments = [
+  ["History and physical", "hp-01"],
+  ...visitNumbers.map(n => [`Progress note ${n}`, `progress-${n}`]),
+  ...(data.care_plan.interventions.some(isConsultStep) ? [[`${specialty} referral`, "referral-01"], [`${specialty} consultation`, "consult-01"]] : []),
+].map(([label, name]) => `<li><a href="ccda/${name}.html">${label}</a> <a href="ccda/${name}.xml">(XML)</a></li>`).join("");
 
 const html = `<!doctype html>
 <html lang="en">
@@ -156,7 +164,7 @@ ${isTrueDateFrame(data) ? `  <div class="banner">${esc(TRUE_DATE_NOTICE)}</div>
       <div class="downloads">
         <a href="../case.json">Canonical JSON</a>
         <a href="fhir-bundle.json">FHIR R4 draft</a>
-        <a href="ccda.xml">C-CDA R2.1 draft</a>
+        <a href="ccda.html">C-CDA R2.1 summary</a> <a href="ccda.xml">(XML)</a>
         <a href="../sources.md">Evidence dossier</a>
       </div>
     </section>
@@ -174,6 +182,7 @@ ${isTrueDateFrame(data) ? `  <div class="banner">${esc(TRUE_DATE_NOTICE)}</div>
     <section><h2>Interventions</h2><table><thead><tr><th>Intervention</th><th>Status</th><th>Guideline</th></tr></thead><tbody>${interventionRows}</tbody></table></section>
     <section><h2>Planned encounters</h2><ul>${visits}</ul></section>
     <section><h2>Supporting documents</h2><ul>${supportingDocuments}</ul></section>
+    <section><h2>C-CDA note documents</h2><p class="muted">Each link opens a readable copy; the XML beside it is the exchange file.</p><ul>${ccdaDocuments}</ul></section>
     <section><h2>Sources</h2><table><thead><tr><th>ID</th><th>Source</th><th>Publisher</th><th>Type</th></tr></thead><tbody>${sourceRows}</tbody></table></section>
     <section><h2>Review status</h2><table><thead><tr><th>Review</th><th>Status</th><th>Notes</th></tr></thead><tbody>${reviewRows}</tbody></table></section>
   </main>

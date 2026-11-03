@@ -18,6 +18,13 @@ foreach ($required in @($casePath, $schemaPath, $fhirPath, $ccdaPath)) {
         throw "Missing required file: $required"
     }
 }
+# Released-track cases carry an evidence dossier and terminology notes; the review page links the dossier.
+$isReleaseTrack = (Split-Path -Leaf (Split-Path -Parent $CaseDirectory)) -in @('pilots', 'cases')
+if ($isReleaseTrack) {
+    foreach ($dossier in 'sources.md', 'terminology.md') {
+        if (-not (Test-Path -LiteralPath (Join-Path $CaseDirectory $dossier))) { throw "Missing required file: $dossier" }
+    }
+}
 if (-not (Test-Path -LiteralPath $notesPath)) { throw "Missing notes directory: $notesPath" }
 if (-not (Test-Path -LiteralPath $provenancePath)) { throw "Missing provenance file: $provenancePath" }
 

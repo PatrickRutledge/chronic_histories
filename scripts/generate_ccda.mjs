@@ -1,5 +1,6 @@
 import fs from "node:fs/promises";
 import path from "node:path";
+import { cdaToHtml } from "./lib/cda_html.mjs";
 import { ADMINISTRATIVE_GENDER, FICTIONAL_FACILITY_CONTACT, ROUTES, TRUE_DATE_NOTICE, deterministicUuid, isTrueDateFrame, oidFor, outputDirFor, parseClinician, splitName } from "./lib/common.mjs";
 import { INTERPRETATIONS, claimsAtIndex, goalProgress, isConsultStep, isLab, labelOf, laterClaimsNote, medicationChanges, midSentence, rangeText, resultChanges, sentence, withUnit } from "./lib/episode.mjs";
 
@@ -378,7 +379,6 @@ const custodianXml = `  <custodian>
   </custodian>`;
 
 const xml = `<?xml version="1.0" encoding="UTF-8"?>
-<?xml-stylesheet type="text/xsl" href="ccda.xsl"?>
 <ClinicalDocument xmlns="urn:hl7-org:v3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <realmCode code="US"/>
   <typeId root="2.16.840.1.113883.1.3" extension="POCD_HD000040"/>
@@ -762,8 +762,13 @@ if (referralStep) {
 await fs.mkdir(outputDir, { recursive: true });
 const normalizedXml = xml.replace(/[ \t]+$/gm, "");
 await fs.writeFile(path.join(outputDir, "ccda.xml"), normalizedXml, "utf8");
+await fs.writeFile(path.join(outputDir, "ccda.html"), cdaToHtml(normalizedXml), "utf8");
 const notesDir = path.join(outputDir, "ccda");
 await fs.rm(notesDir, { recursive: true, force: true });
 await fs.mkdir(notesDir, { recursive: true });
-for (const [name, document] of noteDocuments) await fs.writeFile(path.join(notesDir, name), document.replace(/[ \t]+$/gm, ""), "utf8");
+for (const [name, document] of noteDocuments) {
+  const normalized = document.replace(/[ \t]+$/gm, "");
+  await fs.writeFile(path.join(notesDir, name), normalized, "utf8");
+  await fs.writeFile(path.join(notesDir, name.replace(/\.xml$/, ".html")), cdaToHtml(normalized), "utf8");
+}
 console.log(JSON.stringify({ case_id: data.case_id, output: path.join(outputDir, "ccda.xml"), documentUuid }));

@@ -1,0 +1,32 @@
+# Sources — Franklin D. Roosevelt
+
+> **SYNTHETIC RECORD, NOT A REAL MEDICAL RECORD**
+
+Accessed November 2, 2026. The canonical source metadata and claim links are in `case.json`.
+
+## Historical evidence
+
+1. U.S. National Park Service. “Springwood: Birthplace and Home to Franklin D. Roosevelt” (Teaching with Historic Places). Supports his birth on January 30, 1882, at Springwood in Hyde Park; the 1921 polio; his father’s death in 1900 and his mother’s in September 1941; and his death of a cerebral hemorrhage at Warm Springs on April 12, 1945. https://home.nps.gov/articles/springwood-birthplace-and-home-to-franklin-d-roosevelt-teaching-with-historic-places.htm
+2. Franklin D. Roosevelt Presidential Library and Museum. “FDR and Polio.” Supports the summer 1921 onset at Campobello, Dr. Robert Lovett’s diagnosis of infantile paralysis on August 25, 1921, lasting paraplegia, and leg braces from January 1922. https://fdrlibrary.org/polio
+3. Autenrieth M. “The Dying President.” U.S. National Park Service, Home of Franklin D. Roosevelt National Historic Site, April 10, 2021. Supports the March 27, 1944 examination at Bethesda (blood pressure 186/108, unchecked since February 27, 1941; enlarged heart, congestive heart failure, and a mitral murmur), treatment with digitalis, reduced work and weight, cigarettes limited to ten a day, and blood pressures of 170/88 to 240/130 at Warm Springs. https://www.nps.gov/elro/blogs/the-dying-president.htm
+4. Susmano A. “Franklin Delano Roosevelt’s last illness.” *Hektoen International*, Spring 2012. Secondary medical summary of Bruenn’s account. Supports the 1944 findings (cyanosis, breathlessness, rales), the low-sodium and weight-reduction diet, the May 1941 iron deficiency anemia with hemoglobin 4.5 g/100 mL, and blood pressure up to 260/150 in February 1945. https://hekint.org/2017/01/31/franklin-delano-roosevelts-last-illness/
+5. Goldman AS, Schmalstieg EJ, Freeman DH Jr, Goldman DA, Schmalstieg FC Jr. “What was the cause of Franklin Delano Roosevelt’s paralytic illness?” *Journal of Medical Biography* 2003;11(4):232–240. Abstract reviewed. A Bayesian analysis favoring Guillain-Barré syndrome over polio; graded **R** and disputed. https://pubmed.ncbi.nlm.nih.gov/14562158/
+6. HISTMED Master Roster v3. Internal project source. Its clinical claims were provisional and were not treated as independent corroboration.
+7. University of Arizona Health Sciences Library. “FDR: Secret Illness” collection guide. Gives the citation for Bruenn HG, “Clinical notes on the illness and death of President Franklin D. Roosevelt,” *Annals of Internal Medicine* 1970;72(4):579–591. The 1970 article itself was not reviewed, so it is linked as context only. https://lib.arizona.edu/hsl/materials/collections/secret-illness/fdr
+
+## Clinical guidance
+
+1. 2022 AHA/ACC/HFSA Guideline for the Management of Heart Failure. Guideline-directed medical therapy, iron repletion in HFrEF, and repeat echocardiography after titration. https://www.ahajournals.org/doi/10.1161/CIR.0000000000001063
+2. 2025 AHA/ACC multisociety Guideline for the Prevention, Detection, Evaluation, and Management of High Blood Pressure in Adults. Blood pressure target below 130/80. https://www.ahajournals.org/doi/10.1161/CIR.0000000000001356
+3. CMID: Clinical Monitoring Intelligence Database (Aether Forge, 2026), heart failure and hypertension monographs. Laboratory and visit intervals: a basic metabolic panel one to two weeks after starting or titrating renin-angiotensin or mineralocorticoid antagonist therapy, then every three to six months; KCCQ every three to six months; echocardiography three to six months after guideline-directed therapy. https://patrickrutledge.github.io/topthirty/
+4. U.S. Preventive Services Task Force. Tobacco Smoking Cessation in Adults, Including Pregnant Persons: Interventions (2021). https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/tobacco-use-in-adults-and-pregnant-women-counseling-and-interventions
+
+## Editorial resolutions
+
+- **Index age.** The modern episode presents Roosevelt at 62, his age at the March 27, 1944 examination. The index visit falls on March 27, so the true-date variant lands on the documented examination date. Past medical history and family history include only events before then; the 1945 readings and his death remain in the historical timeline.
+- **Modern diagnosis.** Bruenn’s 1944 diagnoses of hypertension, hypertensive heart disease, and left ventricular failure are documented (**D**). The synthetic episode makes them a modern diagnosis of hypertensive heart failure with reduced ejection fraction, treated with therapies that did not exist in 1944.
+- **Contested cause of paralysis.** The contemporaneous diagnosis was polio, so the problem list records sequelae of poliomyelitis (ICD-10-CM B91), verification provisional. The Guillain-Barré proposal is graded **R** and kept off the active problem list.
+- **Anemia.** The 1941 anemia is documented in a secondary source and graded **D** with certainty probable. The modern iron deficiency is synthetic and is linked to it, not derived from it.
+- **Disability.** He uses a wheelchair throughout the episode. Height is reported, weight is measured on a wheelchair scale, and heart failure symptoms are judged by wheelchair propulsion and orthopnea rather than walking distance.
+- **Not used.** The melanoma hypothesis about his final illness was not verified for this case and is not recorded. The completeness of Bruenn’s 1970 account is debated by historians; the case relies on the two sources that summarize it.
+- Roosevelt died in 1945, so the recent-death review rule does not apply. Ordinary clinical, provenance, and safe-messaging reviews remain required.
