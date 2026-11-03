@@ -1,0 +1,621 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Florence Nightingale — The Human Record</title>
+  <style>
+    :root { --navy:#17365d; --blue:#1f4e78; --pale:#eef5fa; --ink:#1f2933; --muted:#66788a; --amber:#fff2cc; --red:#f8d7da; --green:#d9ead3; }
+    * { box-sizing:border-box; }
+    body { margin:0; font:16px/1.5 Arial, sans-serif; color:var(--ink); background:#f6f8fa; }
+    header { background:var(--navy); color:white; padding:24px max(24px,calc((100vw - 1180px)/2)); }
+    header h1 { margin:4px 0; font-size:30px; }
+    .banner { background:#b42318; color:white; font-weight:700; text-align:center; padding:10px; letter-spacing:.03em; }
+    main { max-width:1180px; margin:24px auto 60px; padding:0 24px; }
+    section { background:white; border:1px solid #d9e1e8; border-radius:8px; margin:18px 0; padding:20px; }
+    h2 { color:var(--navy); margin:0 0 14px; font-size:22px; }
+    h3 { color:var(--blue); }
+    .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:12px; }
+    .card { background:var(--pale); border-left:4px solid var(--blue); padding:12px; }
+    .label { color:var(--muted); font-size:13px; text-transform:uppercase; letter-spacing:.04em; }
+    table { width:100%; border-collapse:collapse; }
+    th { background:var(--blue); color:white; text-align:left; }
+    th,td { padding:9px; border-bottom:1px solid #dfe6ec; vertical-align:top; }
+    .badge { display:inline-block; min-width:28px; text-align:center; font-weight:700; border-radius:12px; padding:2px 8px; }
+    .grade-D { background:var(--green); } .grade-R { background:var(--amber); } .grade-S { background:var(--red); }
+    .muted { color:var(--muted); font-size:14px; }
+    .relationship { color:var(--muted); font-size:12px; }
+    .downloads a { display:inline-block; margin:4px 8px 4px 0; padding:8px 12px; background:var(--blue); color:white; text-decoration:none; border-radius:5px; }
+    @media (max-width:700px) { table { display:block; overflow-x:auto; } }
+  </style>
+</head>
+<body>
+  <div class="banner">SYNTHETIC RECORD, NOT A REAL MEDICAL RECORD</div>
+  <div class="banner">True-date frame: synthetic events are moved into the patient&#39;s historical lifetime. Codes, instruments, and treatments remain modern and are anachronistic.</div>
+  <header>
+    <div>The Human Record</div>
+    <h1>Florence Nightingale</h1>
+    <div>Case HR-NI004-TD · Modern EHR teaching episode · Draft for review</div>
+  </header>
+  <main>
+    <section>
+      <h2>Review summary</h2>
+      <div class="grid">
+        <div class="card"><div class="label">Historical dates</div>May 12, 1820 – August 13, 1910</div>
+        <div class="card"><div class="label">Synthetic DOB</div>1820-05-12</div>
+        <div class="card"><div class="label">Index visit</div>1858-03-02 at age 37</div>
+        <div class="card"><div class="label">Synthetic MRN</div>HR-NI004-SYN-TD</div>
+      </div>
+      <p><strong>Teaching objective:</strong> Recognize post-infectious myalgic encephalomyelitis/chronic fatigue syndrome in a 37-year-old nurse administrator and statistician, make the diagnosis by clinical criteria after a focused set of exclusion tests (including a reasoned decision about past brucellosis), and manage it by NICE NG206 and CDC guidance: energy management and pacing without graded exercise therapy, orthostatic intolerance measures, sleep and pain care, mood screening, function scales, and workplace adjustments that protect the productive working life that matters most to her.</p>
+      <div class="downloads">
+        <a href="../case.json">Canonical JSON</a>
+        <a href="fhir-bundle.json">FHIR R4 draft</a>
+        <a href="ccda.html">C-CDA R2.1 summary</a> <a href="ccda.xml">(XML)</a>
+        <a href="../sources.md">Evidence dossier</a>
+      </div>
+    </section>
+    <section><h2>Historical timeline</h2><table><thead><tr><th>Date</th><th>Event</th><th>Claims</th></tr></thead><tbody>
+  <tr><td>May 12, 1820</td><td>Born in Florence, Italy.</td><td>CLM-0001</td></tr>
+  <tr><td>November 1854</td><td>Arrived at Scutari with a party of thirty-eight nurses.</td><td>CLM-0002</td></tr>
+  <tr><td>May 1855</td><td>Fell dangerously ill with Crimean fever at Balaclava.</td><td>CLM-0003, CLM-0004</td></tr>
+  <tr><td>1856</td><td>Returned to England and pressed for a royal commission on army health.</td><td>CLM-0005</td></tr>
+  <tr><td>August 1857</td><td>Overworked and ill during the commission; rest at Malvern; took to her bed or couch but kept working.</td><td>CLM-0006</td></tr>
+  <tr><td>1858</td><td>Completed her 830-page statistical report on army health; elected to the Statistical Society.</td><td>CLM-0007</td></tr>
+  <tr><td>1861</td><td>Further severe episode; unable to walk, with what was described as spondylitis.</td><td>CLM-0009</td></tr>
+  <tr><td>1907</td><td>First woman appointed to the Order of Merit; by then she rarely left her room.</td><td>CLM-0008, CLM-0011</td></tr>
+  <tr><td>August 13, 1910</td><td>Died in her sleep at 10 South Street, London, aged 90.</td><td>CLM-0012</td></tr></tbody></table></section>
+    <section><h2>Evidence claims</h2><p class="muted">D = documented, R = retrospective, S = synthetic.</p><table><thead><tr><th>Grade</th><th>Claim</th><th>Certainty</th><th>Sources</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>Florence Nightingale was born on May 12, 1820, in Florence, Italy, where her parents were on a European tour; her elder sister, Frances Parthenope, was born in 1819.</strong></td>
+    <td>confirmed</td>
+    <td><a href="https://mathshistory.st-andrews.ac.uk/DNB/Nightingale.html" target="_blank" rel="noreferrer">Baly ME, Matthew HCG. Nightingale, Florence (1820-1910), reformer of Army Medical Services and of nursing organization. Oxford Dictionary of National Biography, 2004</a> <span class="relationship">supports</span><br><a href="https://collection.sciencemuseumgroup.org.uk/people/ap24367" target="_blank" rel="noreferrer">Nightingale, Florence 1820 - 1910</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>In October 1854 she led a party of thirty-eight nurses from London to the British military hospitals at Scutari, arriving in November 1854.</strong></td>
+    <td>confirmed</td>
+    <td><a href="https://mathshistory.st-andrews.ac.uk/DNB/Nightingale.html" target="_blank" rel="noreferrer">Baly ME, Matthew HCG. Nightingale, Florence (1820-1910), reformer of Army Medical Services and of nursing organization. Oxford Dictionary of National Biography, 2004</a> <span class="relationship">supports</span><br><a href="https://www.nam.ac.uk/explore/florence-nightingale-lady-lamp" target="_blank" rel="noreferrer">Florence Nightingale: The Lady with the Lamp</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>In May 1855, a few days after crossing to Balaclava to inspect the hospitals in the Crimea, she fell ill with what the army doctors called Crimean fever. She was carried to the Castle Hospital, was dangerously ill and, by her own later account, very near to death; she was reported out of danger on May 24 and made a slow and painful recovery before returning to work at Scutari.</strong><div class="muted">Contemporary label; no laboratory diagnosis was possible. She herself called it typhus.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://mathshistory.st-andrews.ac.uk/DNB/Nightingale.html" target="_blank" rel="noreferrer">Baly ME, Matthew HCG. Nightingale, Florence (1820-1910), reformer of Army Medical Services and of nursing organization. Oxford Dictionary of National Biography, 2004</a> <span class="relationship">supports</span><br><a href="https://www.gutenberg.org/ebooks/40057" target="_blank" rel="noreferrer">Cook ET. The Life of Florence Nightingale, Volume 1. London: Macmillan; 1913</a> <span class="relationship">supports</span><br><a href="https://www.nam.ac.uk/explore/florence-nightingale-lady-lamp" target="_blank" rel="noreferrer">Florence Nightingale: The Lady with the Lamp</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-R" title="Retrospective">R</span></td>
+    <td><strong>Modern writers have interpreted her Crimean fever as brucellosis and her long later illness as chronic brucellosis.</strong><div class="muted">Retrospective interpretation without laboratory confirmation. The 1998 review argues that 32 years of illness fit chronic brucellosis; the biography of record calls the fever probably brucellosis, citing the 1995 BMJ analysis. Used only as context; it is not a diagnosis in the historical record.</div></td>
+    <td>possible</td>
+    <td><a href="https://mathshistory.st-andrews.ac.uk/DNB/Nightingale.html" target="_blank" rel="noreferrer">Baly ME, Matthew HCG. Nightingale, Florence (1820-1910), reformer of Army Medical Services and of nursing organization. Oxford Dictionary of National Biography, 2004</a> <span class="relationship">supports</span><br><a href="https://pubmed.ncbi.nlm.nih.gov/8541764/" target="_blank" rel="noreferrer">Young DA. Florence Nightingale&#39;s fever. BMJ 1995;311(7021):1697-1700. PMID 8541764</a> <span class="relationship">supports</span><br><a href="https://pubmed.ncbi.nlm.nih.gov/9801534/" target="_blank" rel="noreferrer">Dossey BM. Florence Nightingale. Her Crimean fever and chronic illness. J Holist Nurs 1998;16(2):168-196. PMID 9801534</a> <span class="relationship">supports</span><br><a href="https://blog.oup.com/2015/08/florence-nightingale-syphilis-death/" target="_blank" rel="noreferrer">Mackowiak PA. Florence Nightingale&#39;s syphilis that wasn&#39;t. OUPblog, August 13, 2015</a> <span class="relationship">supports</span><br><a href="https://collection.sciencemuseumgroup.org.uk/people/ap24367" target="_blank" rel="noreferrer">Nightingale, Florence 1820 - 1910</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>She returned to England in the summer of 1856, emaciated and tense, and pressed for a royal commission on the health of the army, which was established in 1857.</strong><div class="muted">The biography of record gives July 1856 for her return; the National Army Museum gives August 1856.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://mathshistory.st-andrews.ac.uk/DNB/Nightingale.html" target="_blank" rel="noreferrer">Baly ME, Matthew HCG. Nightingale, Florence (1820-1910), reformer of Army Medical Services and of nursing organization. Oxford Dictionary of National Biography, 2004</a> <span class="relationship">supports</span><br><a href="https://www.nam.ac.uk/explore/florence-nightingale-lady-lamp" target="_blank" rel="noreferrer">Florence Nightingale: The Lady with the Lamp</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>In 1857, while working on her report for the commission, she was overworking and in failing health; she sought rest at Malvern in August and September and again in December, but would not stop working. She collapsed with cardiac symptoms so severe that it was thought she would die, and afterward suffered from nausea, insomnia, and palpitations. On her doctors&#39; orders she took to her bed or couch but continued to work, the beginning of about twenty years of invalidism.</strong><div class="muted">Contemporary descriptions. The biography of record suggests the collapse was probably a sequel of the Crimean fever; that link is interpretation, not documented diagnosis.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://mathshistory.st-andrews.ac.uk/DNB/Nightingale.html" target="_blank" rel="noreferrer">Baly ME, Matthew HCG. Nightingale, Florence (1820-1910), reformer of Army Medical Services and of nursing organization. Oxford Dictionary of National Biography, 2004</a> <span class="relationship">supports</span><br><a href="https://www.gutenberg.org/ebooks/40057" target="_blank" rel="noreferrer">Cook ET. The Life of Florence Nightingale, Volume 1. London: Macmillan; 1913</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>Her own 830-page report, Notes on Matters Affecting the Health, Efficiency, and Hospital Administration of the British Army (1858), used statistical evidence to show how much army mortality was due to conditions in the hospitals. She was elected to the Statistical Society, the first woman member.</strong><div class="muted">The biography of record dates her election to 1858; the National Army Museum gives 1859.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://mathshistory.st-andrews.ac.uk/DNB/Nightingale.html" target="_blank" rel="noreferrer">Baly ME, Matthew HCG. Nightingale, Florence (1820-1910), reformer of Army Medical Services and of nursing organization. Oxford Dictionary of National Biography, 2004</a> <span class="relationship">supports</span><br><a href="https://www.nam.ac.uk/explore/florence-nightingale-lady-lamp" target="_blank" rel="noreferrer">Florence Nightingale: The Lady with the Lamp</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>Although often confined to her bed or her room for decades, she directed reform largely by correspondence, writing some 13,000 letters and publishing more than 200 books, reports, and pamphlets on hospital planning and organization.</strong><div class="muted">Her working life from bed is documented and is part of the teaching point.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://collection.sciencemuseumgroup.org.uk/people/ap24367" target="_blank" rel="noreferrer">Nightingale, Florence 1820 - 1910</a> <span class="relationship">supports</span><br><a href="https://mathshistory.st-andrews.ac.uk/DNB/Nightingale.html" target="_blank" rel="noreferrer">Baly ME, Matthew HCG. Nightingale, Florence (1820-1910), reformer of Army Medical Services and of nursing organization. Oxford Dictionary of National Biography, 2004</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>In 1861 she had a further severe episode in which she was unable to walk and suffered what her biographers describe as alarming spondylitis.</strong><div class="muted">The basis of the spondylitis label is not recorded; it is sometimes cited as a feature of chronic brucellosis, which remains an interpretation.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://mathshistory.st-andrews.ac.uk/DNB/Nightingale.html" target="_blank" rel="noreferrer">Baly ME, Matthew HCG. Nightingale, Florence (1820-1910), reformer of Army Medical Services and of nursing organization. Oxford Dictionary of National Biography, 2004</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-R" title="Retrospective">R</span></td>
+    <td><strong>Her prolonged illness has also been read retrospectively as what is now called myalgic encephalomyelitis/chronic fatigue syndrome, while other writers have proposed neurasthenia, a psychosomatic illness, or illness used to secure time for work.</strong><div class="muted">Competing retrospective readings with no agreement; none is a documented diagnosis.</div></td>
+    <td>disputed</td>
+    <td><a href="https://www.nam.ac.uk/explore/florence-nightingale-lady-lamp" target="_blank" rel="noreferrer">Florence Nightingale: The Lady with the Lamp</a> <span class="relationship">supports</span><br><a href="https://blog.oup.com/2015/08/florence-nightingale-syphilis-death/" target="_blank" rel="noreferrer">Mackowiak PA. Florence Nightingale&#39;s syphilis that wasn&#39;t. OUPblog, August 13, 2015</a> <span class="relationship">supports</span><br><a href="https://mathshistory.st-andrews.ac.uk/DNB/Nightingale.html" target="_blank" rel="noreferrer">Baly ME, Matthew HCG. Nightingale, Florence (1820-1910), reformer of Army Medical Services and of nursing organization. Oxford Dictionary of National Biography, 2004</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>She spent almost the whole of her last fifteen years in her room in South Street, London; her eyesight was failing by the late 1880s, and from 1902 she could write only with great difficulty. In 1907 she became the first woman appointed to the Order of Merit.</strong></td>
+    <td>confirmed</td>
+    <td><a href="https://mathshistory.st-andrews.ac.uk/DNB/Nightingale.html" target="_blank" rel="noreferrer">Baly ME, Matthew HCG. Nightingale, Florence (1820-1910), reformer of Army Medical Services and of nursing organization. Oxford Dictionary of National Biography, 2004</a> <span class="relationship">supports</span><br><a href="https://www.nam.ac.uk/explore/florence-nightingale-lady-lamp" target="_blank" rel="noreferrer">Florence Nightingale: The Lady with the Lamp</a> <span class="relationship">supports</span><br><a href="https://collection.sciencemuseumgroup.org.uk/people/ap24367" target="_blank" rel="noreferrer">Nightingale, Florence 1820 - 1910</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>She died in her sleep in her room at 10 South Street, Park Lane, London, on August 13, 1910, aged 90.</strong><div class="muted">One medical historian gives old age and heart failure as the cause; no death certificate was reviewed.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://mathshistory.st-andrews.ac.uk/DNB/Nightingale.html" target="_blank" rel="noreferrer">Baly ME, Matthew HCG. Nightingale, Florence (1820-1910), reformer of Army Medical Services and of nursing organization. Oxford Dictionary of National Biography, 2004</a> <span class="relationship">supports</span><br><a href="https://collection.sciencemuseumgroup.org.uk/people/ap24367" target="_blank" rel="noreferrer">Nightingale, Florence 1820 - 1910</a> <span class="relationship">supports</span><br><a href="https://www.nam.ac.uk/explore/florence-nightingale-lady-lamp" target="_blank" rel="noreferrer">Florence Nightingale: The Lady with the Lamp</a> <span class="relationship">supports</span><br><a href="https://blog.oup.com/2015/08/florence-nightingale-syphilis-death/" target="_blank" rel="noreferrer">Mackowiak PA. Florence Nightingale&#39;s syphilis that wasn&#39;t. OUPblog, August 13, 2015</a> <span class="relationship">supports</span></td>
+  </tr></tbody></table></section>
+    <section><h2>Modern synthetic problem list</h2><table><thead><tr><th>Grade</th><th>Problem</th><th>Clinical status</th><th>Verification</th><th>Placement</th><th>Historical claims</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Myalgic encephalomyelitis/chronic fatigue syndrome, post-infectious, moderate severity, with orthostatic intolerance; synthetic modern diagnosis by NICE and IOM criteria, linked to her documented Crimean fever and decades of illness, which are only retrospectively and disputedly read as ME/CFS</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>both_with_link</td>
+    <td>CLM-0003, CLM-0006, CLM-0010</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Personal history of brucellosis diagnosed by serology during an overseas field-hospital deployment and treated with six weeks of doxycycline and rifampin; no evidence of relapse</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td>CLM-0003, CLM-0004</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Vitamin D deficiency</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Acute viral upper respiratory infection with a short ME/CFS flare, resolved without antibiotics</td>
+    <td>resolved</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td></td>
+  </tr></tbody></table></section>
+    <section><h2>Synthetic outcome measures</h2><table><thead><tr><th>Grade</th><th>Date</th><th>Measure</th><th>Result</th><th>Coding</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1858-03-02</td>
+    <td>Hemoglobin [Mass/volume] in Blood</td>
+    <td>12.9 g/dL<div class="muted">Reference 11.6-15 g/dL</div></td>
+    <td>http://loinc.org · 718-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1858-03-02</td>
+    <td>Leukocytes [#/volume] in Blood by Automated count</td>
+    <td>5.8 10*3/uL<div class="muted">Reference 3.4-10.8 10*3/uL</div></td>
+    <td>http://loinc.org · 6690-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1858-03-02</td>
+    <td>Platelets [#/volume] in Blood by Automated count</td>
+    <td>246 10*3/uL<div class="muted">Reference 150-450 10*3/uL</div></td>
+    <td>http://loinc.org · 777-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1858-03-02</td>
+    <td>Sodium [Moles/volume] in Serum or Plasma</td>
+    <td>139 mmol/L<div class="muted">Reference 135-145 mmol/L</div></td>
+    <td>http://loinc.org · 2951-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1858-03-02</td>
+    <td>Potassium [Moles/volume] in Serum or Plasma</td>
+    <td>4.2 mmol/L<div class="muted">Reference 3.5-5.1 mmol/L</div></td>
+    <td>http://loinc.org · 2823-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1858-03-02</td>
+    <td>Creatinine [Mass/volume] in Serum or Plasma</td>
+    <td>0.72 mg/dL<div class="muted">Reference 0.59-1.04 mg/dL</div></td>
+    <td>http://loinc.org · 2160-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1858-03-02</td>
+    <td>Glomerular filtration rate [Volume Rate/Area] in Serum, Plasma or Blood by Creatinine-based formula (CKD-EPI 1853)/1.73 sq M</td>
+    <td>110 mL/min/1.73 m²<div class="muted">Reference &gt;=60 mL/min/1.73 m²</div></td>
+    <td>http://loinc.org · 98979-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1858-03-02</td>
+    <td>Glucose [Mass/volume] in Serum or Plasma</td>
+    <td>86 mg/dL<div class="muted">Reference 70-99 mg/dL</div></td>
+    <td>http://loinc.org · 2345-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1858-03-02</td>
+    <td>Calcium [Mass/volume] in Serum or Plasma</td>
+    <td>9.3 mg/dL<div class="muted">Reference 8.6-10.2 mg/dL</div></td>
+    <td>http://loinc.org · 17861-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1858-03-02</td>
+    <td>Albumin [Mass/volume] in Serum or Plasma</td>
+    <td>4.3 g/dL<div class="muted">Reference 3.5-5.2 g/dL</div></td>
+    <td>http://loinc.org · 1751-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1858-03-02</td>
+    <td>Alanine aminotransferase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>16 U/L<div class="muted">Reference 7-35 U/L</div></td>
+    <td>http://loinc.org · 1742-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1858-03-02</td>
+    <td>Aspartate aminotransferase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>19 U/L<div class="muted">Reference 10-35 U/L</div></td>
+    <td>http://loinc.org · 1920-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1858-03-02</td>
+    <td>Alkaline phosphatase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>68 U/L<div class="muted">Reference 44-121 U/L</div></td>
+    <td>http://loinc.org · 6768-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1858-03-02</td>
+    <td>Bilirubin.total [Mass/volume] in Serum or Plasma</td>
+    <td>0.6 mg/dL<div class="muted">Reference 0.1-1.2 mg/dL</div></td>
+    <td>http://loinc.org · 1975-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1858-03-02</td>
+    <td>Phosphate [Mass/volume] in Serum or Plasma</td>
+    <td>3.6 mg/dL<div class="muted">Reference 2.5-4.5 mg/dL</div></td>
+    <td>http://loinc.org · 2777-1</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1858-03-02</td>
+    <td>Erythrocyte [Sedimentation Rate] in Blood by Westergren method</td>
+    <td>8 mm/h<div class="muted">Reference &lt;=20 mm/h</div></td>
+    <td>http://loinc.org · 4537-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1858-03-02</td>
+    <td>C reactive protein [Mass/volume] in Serum or Plasma</td>
+    <td>1.2 mg/L<div class="muted">Reference &lt;=5 mg/L</div></td>
+    <td>http://loinc.org · 1988-5</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1858-03-02</td>
+    <td>Thyrotropin [Units/volume] in Serum or Plasma</td>
+    <td>1.9 mIU/L<div class="muted">Reference 0.45-4.5 mIU/L</div></td>
+    <td>http://loinc.org · 3016-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1858-03-02</td>
+    <td>Hemoglobin A1c/Hemoglobin.total in Blood</td>
+    <td>5.1%<div class="muted">Reference &lt;=5.6%</div></td>
+    <td>http://loinc.org · 4548-4</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1858-03-02</td>
+    <td>Ferritin [Mass/volume] in Serum or Plasma</td>
+    <td>48 ng/mL<div class="muted">Reference 30-150 ng/mL</div></td>
+    <td>http://loinc.org · 2276-4</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1858-03-02</td>
+    <td>Tissue transglutaminase IgA Ab [Units/volume] in Serum</td>
+    <td>1 U/mL<div class="muted">Reference &lt;=3.9 U/mL</div></td>
+    <td>http://loinc.org · 31017-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1858-03-02</td>
+    <td>Creatine kinase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>92 U/L<div class="muted">Reference 26-192 U/L</div></td>
+    <td>http://loinc.org · 2157-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1858-03-02</td>
+    <td>Cortisol [Mass/volume] in Serum or Plasma</td>
+    <td>14.2 ug/dL<div class="muted">Reference 6.2-19.4 ug/dL</div></td>
+    <td>http://loinc.org · 2143-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1858-03-02</td>
+    <td>Cobalamin (Vitamin B12) [Mass/volume] in Serum or Plasma</td>
+    <td>410 pg/mL<div class="muted">Reference 232-1245 pg/mL</div></td>
+    <td>http://loinc.org · 2132-9</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1858-03-02</td>
+    <td>Folate [Mass/volume] in Serum or Plasma</td>
+    <td>12.4 ng/mL<div class="muted">Reference &gt;=5.9 ng/mL</div></td>
+    <td>http://loinc.org · 2284-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1858-03-02</td>
+    <td>25-Hydroxyvitamin D3+25-Hydroxyvitamin D2 [Mass/volume] in Serum or Plasma</td>
+    <td>17 ng/mL (low)<div class="muted">Reference 30-100 ng/mL</div></td>
+    <td>http://loinc.org · 62292-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1858-03-02</td>
+    <td>Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]</td>
+    <td>8</td>
+    <td>http://loinc.org · 44261-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1858-03-02</td>
+    <td>Generalized anxiety disorder 7 item (GAD-7) total score [Reported.PHQ]</td>
+    <td>5</td>
+    <td>http://loinc.org · 70274-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1858-03-02</td>
+    <td>PROMIS fatigue - version 1.0 Tscore</td>
+    <td>71</td>
+    <td>http://loinc.org · 77864-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1858-03-02</td>
+    <td>PROMIS physical function - version 1.0 Tscore</td>
+    <td>32</td>
+    <td>http://loinc.org · 77866-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1858-03-02</td>
+    <td>Pain severity - 0-10 verbal numeric rating [Score] - Reported</td>
+    <td>4</td>
+    <td>http://loinc.org · 72514-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1858-06-01</td>
+    <td>Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]</td>
+    <td>6</td>
+    <td>http://loinc.org · 44261-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1858-06-01</td>
+    <td>PROMIS fatigue - version 1.0 Tscore</td>
+    <td>67</td>
+    <td>http://loinc.org · 77864-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1858-06-01</td>
+    <td>PROMIS physical function - version 1.0 Tscore</td>
+    <td>35</td>
+    <td>http://loinc.org · 77866-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1858-06-01</td>
+    <td>Pain severity - 0-10 verbal numeric rating [Score] - Reported</td>
+    <td>3</td>
+    <td>http://loinc.org · 72514-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1858-09-14</td>
+    <td>25-Hydroxyvitamin D3+25-Hydroxyvitamin D2 [Mass/volume] in Serum or Plasma</td>
+    <td>34 ng/mL<div class="muted">Reference 30-100 ng/mL</div></td>
+    <td>http://loinc.org · 62292-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1858-09-14</td>
+    <td>Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]</td>
+    <td>5</td>
+    <td>http://loinc.org · 44261-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1858-09-14</td>
+    <td>Generalized anxiety disorder 7 item (GAD-7) total score [Reported.PHQ]</td>
+    <td>4</td>
+    <td>http://loinc.org · 70274-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1858-09-14</td>
+    <td>PROMIS fatigue - version 1.0 Tscore</td>
+    <td>64</td>
+    <td>http://loinc.org · 77864-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1858-09-14</td>
+    <td>PROMIS physical function - version 1.0 Tscore</td>
+    <td>38</td>
+    <td>http://loinc.org · 77866-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1858-09-14</td>
+    <td>Pain severity - 0-10 verbal numeric rating [Score] - Reported</td>
+    <td>3</td>
+    <td>http://loinc.org · 72514-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1858-10-12</td>
+    <td>Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]</td>
+    <td>4</td>
+    <td>http://loinc.org · 44261-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1858-10-12</td>
+    <td>Generalized anxiety disorder 7 item (GAD-7) total score [Reported.PHQ]</td>
+    <td>3</td>
+    <td>http://loinc.org · 70274-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1858-10-12</td>
+    <td>Total score [AUDIT-C]</td>
+    <td>1</td>
+    <td>http://loinc.org · 75626-2</td>
+  </tr></tbody></table></section>
+    <section><h2>Synthetic vital signs</h2><table><thead><tr><th>Date</th><th>Measure</th><th>Result</th><th>LOINC</th><th>Grade</th></tr></thead><tbody>
+  <tr><td>1858-03-02</td><td>Body height</td><td>170 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1858-03-02</td><td>Body weight</td><td>55 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1858-03-02</td><td>Body mass index (BMI) [Ratio]</td><td>19 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1858-03-02</td><td>Systolic blood pressure</td><td>104 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1858-03-02</td><td>Diastolic blood pressure</td><td>66 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1858-03-02</td><td>Heart rate</td><td>78 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1858-03-02</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1858-03-02</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1858-03-02</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>99 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1858-03-16</td><td>Body height</td><td>170 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1858-03-16</td><td>Body weight</td><td>55.2 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1858-03-16</td><td>Body mass index (BMI) [Ratio]</td><td>19.1 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1858-03-16</td><td>Systolic blood pressure</td><td>106 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1858-03-16</td><td>Diastolic blood pressure</td><td>68 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1858-03-16</td><td>Heart rate</td><td>76 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1858-03-16</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1858-03-16</td><td>Body temperature</td><td>36.5 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1858-03-16</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>99 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1858-06-01</td><td>Body height</td><td>170 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1858-06-01</td><td>Body weight</td><td>55.6 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1858-06-01</td><td>Body mass index (BMI) [Ratio]</td><td>19.2 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1858-06-01</td><td>Systolic blood pressure</td><td>108 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1858-06-01</td><td>Diastolic blood pressure</td><td>68 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1858-06-01</td><td>Heart rate</td><td>74 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1858-06-01</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1858-06-01</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1858-06-01</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>99 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1858-09-14</td><td>Body height</td><td>170 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1858-09-14</td><td>Body weight</td><td>56 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1858-09-14</td><td>Body mass index (BMI) [Ratio]</td><td>19.4 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1858-09-14</td><td>Systolic blood pressure</td><td>108 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1858-09-14</td><td>Diastolic blood pressure</td><td>70 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1858-09-14</td><td>Heart rate</td><td>72 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1858-09-14</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1858-09-14</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1858-09-14</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>99 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1858-07-20</td><td>Body height</td><td>170 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1858-07-20</td><td>Body weight</td><td>55.4 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1858-07-20</td><td>Body mass index (BMI) [Ratio]</td><td>19.2 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1858-07-20</td><td>Systolic blood pressure</td><td>102 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1858-07-20</td><td>Diastolic blood pressure</td><td>64 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1858-07-20</td><td>Heart rate</td><td>92 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1858-07-20</td><td>Respiratory rate</td><td>16 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1858-07-20</td><td>Body temperature</td><td>37.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1858-07-20</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>98 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1858-10-12</td><td>Body height</td><td>170 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1858-10-12</td><td>Body weight</td><td>56.1 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1858-10-12</td><td>Body mass index (BMI) [Ratio]</td><td>19.4 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1858-10-12</td><td>Systolic blood pressure</td><td>108 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1858-10-12</td><td>Diastolic blood pressure</td><td>68 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1858-10-12</td><td>Heart rate</td><td>72 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1858-10-12</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1858-10-12</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1858-10-12</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>99 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr></tbody></table></section>
+    <section><h2>Social, functional, and mental status</h2><h3>Social history</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Occupation: director of nursing quality and hospital statistics for a regional health system; previously led nurses on an overseas field-hospital deployment; now works about three hours a day from home, much of it lying on a sofa or in bed</li><li><span class="badge grade-S" title="Synthetic">S</span> Never smoker; alcohol rarely; no other substance use; simple diet; drinks about 1.2 L of fluid a day</li><li><span class="badge grade-S" title="Synthetic">S</span> Lives alone in a ground-floor apartment; groceries delivered; a housekeeper helps twice a week</li><li><span class="badge grade-S" title="Synthetic">S</span> Supports: a small team of trusted colleagues who visit her at home to work, and a wide network of correspondents</li></ul><h3>Functional status</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Moderate ME/CFS at intake: independent in self-care but housebound most days, walks about 10 minutes before symptoms worsen, and needs a rest after showering; works about three hours a day, reclined, in short blocks</li><li><span class="badge grade-S" title="Synthetic">S</span> By the six-month review: fewer crashes, out of the house twice a week, and working four to five hours a day in planned blocks with rest between</li></ul><h3>Mental status</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Alert, precise, and articulate; tires visibly toward the end of a long conversation and loses words at times</li><li><span class="badge grade-S" title="Synthetic">S</span> Mood frustrated by her limits but not depressed; no hopelessness; PHQ-9 score 8 drawn mainly from the fatigue, sleep, and concentration items, with item 9 scored 0</li></ul></section>
+    
+    <section><h2>Allergies and medications</h2><h3>Allergies</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> No known allergy</li></ul><h3>Medications</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Acetaminophen 500 mg oral tablet, one to two tablets by mouth every 6 hours as needed for muscle pain or headache, no more than 3 g a day</li><li><span class="badge grade-S" title="Synthetic">S</span> Cholecalciferol (vitamin D3) 50 mcg (2,000 units) oral tablet, one tablet by mouth daily</li></ul></section>
+    <section><h2>Procedures and immunizations</h2><h3>Procedures</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Ten-minute passive standing test (NASA lean test): heart rate 66/min supine and 92/min at 10 minutes (rise of 26/min); blood pressure 106/68 supine and 102/70 standing; lightheadedness and leg mottling from minute 6; no orthostatic hypotension and below the 30/min threshold for postural tachycardia syndrome</li><li><span class="badge grade-S" title="Synthetic">S</span> Repeat ten-minute passive standing test: heart rate 68/min supine and 86/min at 10 minutes (rise of 18/min); blood pressure 108/70 supine and 106/72 standing; mild lightheadedness only after minute 8</li></ul><h3>Immunizations</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> 1842-09-20: Hepatitis B vaccine, adult three-dose series completed</li><li><span class="badge grade-S" title="Synthetic">S</span> 1853-09-13: Tdap vaccine</li><li><span class="badge grade-S" title="Synthetic">S</span> 1857-10-20: Influenza vaccine, 1857-1858 season</li><li><span class="badge grade-S" title="Synthetic">S</span> 1858-10-12: Influenza vaccine, 1858-1859 season</li></ul></section>
+    <section><h2>Past medical history</h2><p class="muted">True biography with historical dates; not part of the synthetic care timeline.</p><ul><li><span class="badge grade-D" title="Documented">D</span> May 1855: Crimean fever at Balaclava: dangerously ill and near death, then a slow and painful recovery; she called it typhus <span class="muted">(CLM-0003)</span></li><li><span class="badge grade-R" title="Retrospective">R</span> May 1855: Retrospective interpretation of the Crimean fever as brucellosis, without laboratory confirmation (possible, not established) <span class="muted">(CLM-0004)</span></li><li><span class="badge grade-D" title="Documented">D</span> August 1857: Overwork and failing health during the army health commission, with rest at Malvern, a collapse with cardiac symptoms, then nausea, insomnia, and palpitations; took to her bed or couch on doctors&#39; orders but kept working <span class="muted">(CLM-0006)</span></li></ul><h3>Family history</h3><p class="muted">No family medical history is documented in the logged sources. Family history of real relatives is never synthesized.</p></section>
+    <section><h2>Care-plan goals</h2><table><thead><tr><th>Goal</th><th>Target date</th><th>Status</th><th>Outcome</th></tr></thead><tbody>
+  <tr><td>Agree an energy management plan with a stable baseline and no more than one crash a month by the six-month review</td><td>1858-09-14</td><td>completed</td><td>One flare in three months, after a cold; no crash from overexertion since the summer</td></tr>
+  <tr><td>Keep working within her energy limits, aiming for four hours a day in planned blocks by the six-month review</td><td>1858-09-14</td><td>completed</td><td>Working four to five hours a day in 45-minute blocks with rest between</td></tr>
+  <tr><td>Fewer orthostatic symptoms with fluids, salt, compression, and seated or reclined tasks by the three-month review</td><td>1858-06-01</td><td>completed</td><td>Lightheaded on standing two or three times a week instead of daily</td></tr>
+  <tr><td>Replete vitamin D to 30 ng/mL or higher</td><td>1858-09-14</td><td>completed</td><td>25-hydroxyvitamin D 34 ng/mL</td></tr></tbody></table></section>
+    <section><h2>Interventions</h2><table><thead><tr><th>Intervention</th><th>Status</th><th>Guideline</th></tr></thead><tbody>
+  <tr><td>Diagnose ME/CFS by clinical criteria after exclusion tests, explain that it is a real illness with no diagnostic test, and give her a written care and support plan, including a flare plan</td><td>completed</td><td>GL-NICE-MECFS-2021, GL-CDC-MECFS</td></tr>
+  <tr><td>Energy management led by the patient: an activity and symptom diary, planned rest before and between tasks, work broken into short blocks, and heart-rate awareness; no graded exercise therapy or fixed increases in activity</td><td>completed</td><td>GL-NICE-MECFS-2021, GL-CDC-MECFS, GL-MAYO-MECFS-2023</td></tr>
+  <tr><td>Infectious diseases consultation to look for relapsed or focal brucellosis or another persisting infection before attributing her symptoms to ME/CFS</td><td>completed</td><td>GL-NICE-MECFS-2021, GL-CDC-BRUC, GL-BRUC-2005</td></tr>
+  <tr><td>Orthostatic intolerance measures: 2 to 2.5 L of fluid a day, more salt with meals, waist-high compression garments, and tasks done seated or reclined; repeat the standing test at six months</td><td>completed</td><td>GL-NICE-MECFS-2021, GL-MAYO-MECFS-2023</td></tr>
+  <tr><td>Sleep, pain, and cognitive symptom care: a regular sleep window with rest periods kept short, acetaminophen as needed, no sedatives or opioids, and memory aids for work</td><td>completed</td><td>GL-NICE-MECFS-2021, GL-CDC-MECFS</td></tr>
+  <tr><td>Vitamin D repletion with cholecalciferol 2,000 units daily, rechecked after about three months</td><td>completed</td><td>GL-NICE-MECFS-2021</td></tr>
+  <tr><td>Review the care plan at every visit, with PHQ-9, PROMIS fatigue and physical function scores, and a pain score; primary care review at least yearly and more often while the plan is new</td><td>completed</td><td>GL-NICE-MECFS-2021</td></tr>
+  <tr><td>Workplace adjustments: home working, a reclined workstation, flexible hours, and meetings by video or at her home</td><td>completed</td><td>GL-NICE-MECFS-2021, GL-CDC-MECFS</td></tr></tbody></table></section>
+    <section><h2>Planned encounters</h2><ul>
+  <li><strong>1858-03-02</strong> — New patient visit for nearly three years of exhausting fatigue that worsens after exertion <span class="muted">(ENC-001)</span></li>
+  <li><strong>1858-03-16</strong> — Two-week review of exclusion tests, ME/CFS diagnosis and care plan, and infectious diseases consultation <span class="muted">(ENC-002)</span></li>
+  <li><strong>1858-06-01</strong> — Three-month ME/CFS energy management review <span class="muted">(ENC-003)</span></li>
+  <li><strong>1858-07-20</strong> — Same-day sick visit for a cold with an ME/CFS flare <span class="muted">(ENC-005, unscheduled)</span></li>
+  <li><strong>1858-09-14</strong> — Six-month ME/CFS care plan review <span class="muted">(ENC-004)</span></li>
+  <li><strong>1858-10-12</strong> — Adult preventive visit <span class="muted">(ENC-006)</span></li></ul></section>
+    <section><h2>Supporting documents</h2><ul><li><a href="notes/hp.md">History and physical</a></li><li><a href="notes/progress-01.md">Progress note 01</a></li><li><a href="notes/progress-02.md">Progress note 02 — Focused Visit (Follow-up)</a></li><li><a href="notes/progress-03.md">Progress note 03 — Focused Visit (Follow-up)</a></li><li><a href="notes/progress-04.md">Progress note 04 — Sick Visit</a></li><li><a href="notes/progress-05.md">Progress note 05 — Focused Visit (Care-plan review)</a></li><li><a href="notes/progress-06.md">Progress note 06 — Preventive Visit</a></li><li><a href="notes/referral-01.md">Infectious Diseases referral</a></li><li><a href="notes/consult-01.md">Infectious Diseases consultation</a></li><li><a href="notes/careplan.md">Patient care plan</a></li><li><a href="notes/teaching-note.md">Teaching note</a></li><li><a href="provenance.csv">Provenance CSV</a></li></ul></section>
+    <section><h2>C-CDA note documents</h2><p class="muted">Each link opens a readable copy; the XML beside it is the exchange file.</p><ul><li><a href="ccda/hp-01.html">History and physical</a> <a href="ccda/hp-01.xml">(XML)</a></li><li><a href="ccda/progress-01.html">Progress note 01</a> <a href="ccda/progress-01.xml">(XML)</a></li><li><a href="ccda/progress-02.html">Progress note 02 — Focused Visit (Follow-up)</a> <a href="ccda/progress-02.xml">(XML)</a></li><li><a href="ccda/progress-03.html">Progress note 03 — Focused Visit (Follow-up)</a> <a href="ccda/progress-03.xml">(XML)</a></li><li><a href="ccda/progress-04.html">Progress note 04 — Sick Visit</a> <a href="ccda/progress-04.xml">(XML)</a></li><li><a href="ccda/progress-05.html">Progress note 05 — Focused Visit (Care-plan review)</a> <a href="ccda/progress-05.xml">(XML)</a></li><li><a href="ccda/progress-06.html">Progress note 06 — Preventive Visit</a> <a href="ccda/progress-06.xml">(XML)</a></li><li><a href="ccda/referral-01.html">Infectious Diseases referral</a> <a href="ccda/referral-01.xml">(XML)</a></li><li><a href="ccda/consult-01.html">Infectious Diseases consultation</a> <a href="ccda/consult-01.xml">(XML)</a></li></ul></section>
+    <section><h2>Sources</h2><table><thead><tr><th>ID</th><th>Source</th><th>Publisher</th><th>Type</th></tr></thead><tbody>
+  <tr>
+    <td>SRC-0001</td>
+    <td><a href="https://mathshistory.st-andrews.ac.uk/DNB/Nightingale.html" target="_blank" rel="noreferrer">Baly ME, Matthew HCG. Nightingale, Florence (1820-1910), reformer of Army Medical Services and of nursing organization. Oxford Dictionary of National Biography, 2004</a></td>
+    <td>Oxford University Press; text reproduced by the MacTutor History of Mathematics archive, University of St Andrews</td>
+    <td>biography</td>
+  </tr>
+  <tr>
+    <td>SRC-0002</td>
+    <td><a href="https://www.gutenberg.org/ebooks/40057" target="_blank" rel="noreferrer">Cook ET. The Life of Florence Nightingale, Volume 1. London: Macmillan; 1913</a></td>
+    <td>Project Gutenberg (eBook 40057)</td>
+    <td>biography</td>
+  </tr>
+  <tr>
+    <td>SRC-0003</td>
+    <td><a href="https://www.nam.ac.uk/explore/florence-nightingale-lady-lamp" target="_blank" rel="noreferrer">Florence Nightingale: The Lady with the Lamp</a></td>
+    <td>National Army Museum</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0004</td>
+    <td><a href="https://collection.sciencemuseumgroup.org.uk/people/ap24367" target="_blank" rel="noreferrer">Nightingale, Florence 1820 - 1910</a></td>
+    <td>Science Museum Group Collection</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0005</td>
+    <td><a href="https://pubmed.ncbi.nlm.nih.gov/8541764/" target="_blank" rel="noreferrer">Young DA. Florence Nightingale&#39;s fever. BMJ 1995;311(7021):1697-1700. PMID 8541764</a></td>
+    <td>BMJ (PubMed record)</td>
+    <td>scholarly</td>
+  </tr>
+  <tr>
+    <td>SRC-0006</td>
+    <td><a href="https://pubmed.ncbi.nlm.nih.gov/9801534/" target="_blank" rel="noreferrer">Dossey BM. Florence Nightingale. Her Crimean fever and chronic illness. J Holist Nurs 1998;16(2):168-196. PMID 9801534</a></td>
+    <td>Journal of Holistic Nursing (PubMed abstract)</td>
+    <td>scholarly</td>
+  </tr>
+  <tr>
+    <td>SRC-0007</td>
+    <td><a href="https://blog.oup.com/2015/08/florence-nightingale-syphilis-death/" target="_blank" rel="noreferrer">Mackowiak PA. Florence Nightingale&#39;s syphilis that wasn&#39;t. OUPblog, August 13, 2015</a></td>
+    <td>Oxford University Press</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0008</td>
+    <td><a href="https://humanrecord.example.org/internal/HISTMED_Master_Roster_v3.xlsx" target="_blank" rel="noreferrer">HISTMED Master Roster v3</a></td>
+    <td>The Human Record project</td>
+    <td>other</td>
+  </tr></tbody></table></section>
+    <section><h2>Review status</h2><table><thead><tr><th>Review</th><th>Status</th><th>Notes</th></tr></thead><tbody>
+  <tr><td>schema validation</td><td>not_started</td><td>Run scripts/build.ps1 -Conformance.</td></tr>
+  <tr><td>clinical review</td><td>not_started</td><td>Awaiting clinician review; check the ME/CFS exclusion tests, the decision not to repeat Brucella serology, and the pacing plan without graded exercise.</td></tr>
+  <tr><td>provenance review</td><td>not_started</td><td>Oxford DNB entry (via MacTutor), the 1913 Cook biography, the National Army Museum and Science Museum Group pages, two PubMed records, and a medical historian&#39;s essay logged; the BMJ full text could not be retrieved.</td></tr>
+  <tr><td>safe messaging review</td><td>not_started</td><td>Retrospective psychiatric readings of her illness are not used; mood screens are negative, so no safety assessment applies.</td></tr></tbody></table></section>
+  </main>
+</body>
+</html>

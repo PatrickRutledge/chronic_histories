@@ -1,0 +1,432 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Theodore Roosevelt — The Human Record</title>
+  <style>
+    :root { --navy:#17365d; --blue:#1f4e78; --pale:#eef5fa; --ink:#1f2933; --muted:#66788a; --amber:#fff2cc; --red:#f8d7da; --green:#d9ead3; }
+    * { box-sizing:border-box; }
+    body { margin:0; font:16px/1.5 Arial, sans-serif; color:var(--ink); background:#f6f8fa; }
+    header { background:var(--navy); color:white; padding:24px max(24px,calc((100vw - 1180px)/2)); }
+    header h1 { margin:4px 0; font-size:30px; }
+    .banner { background:#b42318; color:white; font-weight:700; text-align:center; padding:10px; letter-spacing:.03em; }
+    main { max-width:1180px; margin:24px auto 60px; padding:0 24px; }
+    section { background:white; border:1px solid #d9e1e8; border-radius:8px; margin:18px 0; padding:20px; }
+    h2 { color:var(--navy); margin:0 0 14px; font-size:22px; }
+    h3 { color:var(--blue); }
+    .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:12px; }
+    .card { background:var(--pale); border-left:4px solid var(--blue); padding:12px; }
+    .label { color:var(--muted); font-size:13px; text-transform:uppercase; letter-spacing:.04em; }
+    table { width:100%; border-collapse:collapse; }
+    th { background:var(--blue); color:white; text-align:left; }
+    th,td { padding:9px; border-bottom:1px solid #dfe6ec; vertical-align:top; }
+    .badge { display:inline-block; min-width:28px; text-align:center; font-weight:700; border-radius:12px; padding:2px 8px; }
+    .grade-D { background:var(--green); } .grade-R { background:var(--amber); } .grade-S { background:var(--red); }
+    .muted { color:var(--muted); font-size:14px; }
+    .relationship { color:var(--muted); font-size:12px; }
+    .downloads a { display:inline-block; margin:4px 8px 4px 0; padding:8px 12px; background:var(--blue); color:white; text-decoration:none; border-radius:5px; }
+    @media (max-width:700px) { table { display:block; overflow-x:auto; } }
+  </style>
+</head>
+<body>
+  <div class="banner">SYNTHETIC RECORD, NOT A REAL MEDICAL RECORD</div>
+  <header>
+    <div>The Human Record</div>
+    <h1>Theodore Roosevelt</h1>
+    <div>Case HR-NI012 · Modern EHR teaching episode · Draft for review</div>
+  </header>
+  <main>
+    <section>
+      <h2>Review summary</h2>
+      <div class="grid">
+        <div class="card"><div class="label">Historical dates</div>October 27, 1858 – January 6, 1919</div>
+        <div class="card"><div class="label">Synthetic DOB</div>2002-10-27</div>
+        <div class="card"><div class="label">Index visit</div>2026-03-09 at age 23</div>
+        <div class="card"><div class="label">Synthetic MRN</div>HR-NI012-SYN</div>
+      </div>
+      <p><strong>Teaching objective:</strong> Confirm and classify persistent asthma with spirometry in a 23-year-old athlete with lifelong asthma, replace reliever-only treatment with GINA Track 1 budesonide-formoterol maintenance-and-reliever therapy, phenotype type 2 inflammation, teach inhaler technique and a written action plan, and monitor control, lung function, and exacerbation risk on the CMID schedule, while addressing his belief that exercise alone can cure asthma.</p>
+      <div class="downloads">
+        <a href="../case.json">Canonical JSON</a>
+        <a href="fhir-bundle.json">FHIR R4 draft</a>
+        <a href="ccda.html">C-CDA R2.1 summary</a> <a href="ccda.xml">(XML)</a> <a href="review.html">Review checklist</a>
+        <a href="../sources.md">Evidence dossier</a>
+      </div>
+    </section>
+    <section><h2>Historical timeline</h2><table><thead><tr><th>Date</th><th>Event</th><th>Claims</th></tr></thead><tbody>
+  <tr><td>October 27, 1858</td><td>Born in New York City.</td><td>CLM-0001</td></tr>
+  <tr><td>1860s</td><td>Severe childhood asthma, with night attacks and trips away to find air he could breathe.</td><td>CLM-0002, CLM-0005</td></tr>
+  <tr><td>1872</td><td>First spectacles for near-sightedness; an asthma attack sends him to Moosehead Lake, and he begins boxing and physical training.</td><td>CLM-0003, CLM-0004</td></tr>
+  <tr><td>1878</td><td>Father died shortly after a diagnosis of stomach cancer.</td><td>CLM-0007</td></tr>
+  <tr><td>June 1880</td><td>Graduated from Harvard.</td><td>CLM-0006</td></tr>
+  <tr><td>1881</td><td>Elected to the New York State Assembly.</td><td>CLM-0006</td></tr>
+  <tr><td>1914</td><td>Fever, a leg injury, and heavy weight loss on an expedition in Brazil.</td><td>CLM-0008</td></tr>
+  <tr><td>January 6, 1919</td><td>Died at Sagamore Hill, Oyster Bay, New York.</td><td>CLM-0009</td></tr></tbody></table></section>
+    <section><h2>Evidence claims</h2><p class="muted">D = documented, R = retrospective, S = synthetic.</p><table><thead><tr><th>Grade</th><th>Claim</th><th>Certainty</th><th>Sources</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>Theodore Roosevelt was born at 28 East 20th Street, New York City, on October 27, 1858.</strong></td>
+    <td>confirmed</td>
+    <td><a href="https://www.nps.gov/thri/theodorerooseveltbio.htm" target="_blank" rel="noreferrer">The Life of Theodore Roosevelt</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>In his autobiography Roosevelt wrote that he was a sickly, delicate boy who suffered much from asthma and frequently had to be taken away on trips to find a place where he could breathe; he remembered sitting up in bed gasping at night as a very small child.</strong><div class="muted">His own account of severe childhood asthma; the National Park Service also records frequent chronic asthma attacks in childhood.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.gutenberg.org/ebooks/3335" target="_blank" rel="noreferrer">Roosevelt T. Theodore Roosevelt: An Autobiography. New York: Macmillan; 1913</a> <span class="relationship">supports</span><br><a href="https://www.nps.gov/thri/theodorerooseveltbio.htm" target="_blank" rel="noreferrer">The Life of Theodore Roosevelt</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>When he was nearly fourteen, during an attack of asthma, he was sent alone to Moosehead Lake; after two other boys on the stage-coach easily overpowered him, he began boxing lessons and a long program of physical training, with his father&#39;s approval.</strong><div class="muted">Documents the start of the exercise program he credited with his improvement.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.gutenberg.org/ebooks/3335" target="_blank" rel="noreferrer">Roosevelt T. Theodore Roosevelt: An Autobiography. New York: Macmillan; 1913</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>Roosevelt wrote that he was very near-sighted as a boy without knowing it, and that at about thirteen, after he could not read a distant billboard, he got his first pair of spectacles.</strong></td>
+    <td>confirmed</td>
+    <td><a href="https://www.gutenberg.org/ebooks/3335" target="_blank" rel="noreferrer">Roosevelt T. Theodore Roosevelt: An Autobiography. New York: Macmillan; 1913</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-R" title="Retrospective">R</span></td>
+    <td><strong>A 2015 review of the historical record in the Journal of Allergy and Clinical Immunology: In Practice concluded that his respiratory problems began in early childhood, that the record gives strong evidence for poorly controlled persistent asthma, that the asthma became relatively quiet in adolescence when his exercise program began at about 12, and that he continued to have serious exacerbations in adolescence and adulthood; it found little if any support for the claim that his asthma was psychosomatic.</strong><div class="muted">A modern retrospective classification of a documented illness. The Theodore Roosevelt Center similarly states that his symptoms eased as he grew but that he continued to suffer from asthma throughout his life. The dates of individual adult exacerbations were not verified.</div></td>
+    <td>probable</td>
+    <td><a href="https://pubmed.ncbi.nlm.nih.gov/26271837/" target="_blank" rel="noreferrer">Camargo CA Jr, Roosevelt T. The Misunderstood Asthma of Theodore Roosevelt. J Allergy Clin Immunol Pract. 2015;3(5):696-701.e1. doi:10.1016/j.jaip.2015.06.010</a> <span class="relationship">supports</span><br><a href="https://www.theodorerooseveltcenter.org/encyclopedia/strenuous-life/asthma/" target="_blank" rel="noreferrer">Asthma (TR Encyclopedia: The Strenuous Life)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>Roosevelt received his Bachelor of Arts degree from Harvard in June 1880 and was elected to the New York State Assembly in 1881.</strong><div class="muted">Used for the synthetic modern occupation.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.nps.gov/thri/theodorerooseveltbio.htm" target="_blank" rel="noreferrer">The Life of Theodore Roosevelt</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>His father, Theodore Roosevelt Sr., died in 1878 shortly after being diagnosed with stomach cancer.</strong></td>
+    <td>confirmed</td>
+    <td><a href="https://www.nps.gov/thri/theodorerooseveltbio.htm" target="_blank" rel="noreferrer">The Life of Theodore Roosevelt</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>On a 1914 expedition in Brazil he contracted what was called jungle fever, injured his leg, and lost sixty pounds.</strong><div class="muted">After the index age; recorded in the historical timeline only.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.nps.gov/thri/theodorerooseveltbio.htm" target="_blank" rel="noreferrer">The Life of Theodore Roosevelt</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>Roosevelt died on January 6, 1919, at Sagamore Hill, Oyster Bay, New York, at 60; the National Park Service attributes his death to a blood clot that had lodged in his heart.</strong><div class="muted">The contemporary account does not establish whether the clot was a pulmonary embolism or a coronary event; it is reported as written.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.nps.gov/thri/theodorerooseveltbio.htm" target="_blank" rel="noreferrer">The Life of Theodore Roosevelt</a> <span class="relationship">supports</span><br><a href="https://www.nps.gov/people/life-of-theodore-roosevelt.htm" target="_blank" rel="noreferrer">Life of Theodore Roosevelt</a> <span class="relationship">supports</span></td>
+  </tr></tbody></table></section>
+    <section><h2>Modern synthetic problem list</h2><table><thead><tr><th>Grade</th><th>Problem</th><th>Clinical status</th><th>Verification</th><th>Placement</th><th>Historical claims</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Moderate persistent asthma, uncontrolled at intake, with reversible airflow obstruction on spirometry; synthetic modern diagnosis linked to his documented lifelong asthma</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>both_with_link</td>
+    <td>CLM-0002, CLM-0005</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Myopia, both eyes, corrected with glasses since boyhood</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>both_with_link</td>
+    <td>CLM-0004</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Moderate asthma exacerbation triggered by a viral cold, treated in the office with a five-day prednisone course; resolved</td>
+    <td>resolved</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td>CLM-0005</td>
+  </tr></tbody></table></section>
+    <section><h2>Synthetic outcome measures</h2><table><thead><tr><th>Grade</th><th>Date</th><th>Measure</th><th>Result</th><th>Coding</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-09</td>
+    <td>FEV1 --pre bronchodilation</td>
+    <td>3.2 L (low)<div class="muted">Reference &gt;=3.65 L</div></td>
+    <td>http://loinc.org · 20157-4</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-09</td>
+    <td>FEV1 measured/predicted</td>
+    <td>72% (low)<div class="muted">Reference &gt;=80%</div></td>
+    <td>http://loinc.org · 20152-5</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-09</td>
+    <td>Forced vital capacity [Volume] Respiratory system</td>
+    <td>4.8 L<div class="muted">Reference &gt;=4.4 L</div></td>
+    <td>http://loinc.org · 19870-5</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-09</td>
+    <td>FEV1/FVC</td>
+    <td>0.67 (low)<div class="muted">Reference &gt;=0.72</div></td>
+    <td>http://loinc.org · 19926-5</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-09</td>
+    <td>FEV1 --post bronchodilation</td>
+    <td>3.74 L<div class="muted">Reference &gt;=3.65 L</div></td>
+    <td>http://loinc.org · 20155-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-09</td>
+    <td>Total score [ACT]</td>
+    <td>13</td>
+    <td>http://loinc.org · 82668-5</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-09</td>
+    <td>Patient Health Questionnaire 2 item (PHQ-2) total score [Reported]</td>
+    <td>0</td>
+    <td>http://loinc.org · 55758-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-04-06</td>
+    <td>Total score [ACT]</td>
+    <td>18</td>
+    <td>http://loinc.org · 82668-5</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-04-06</td>
+    <td>Fractional concentration of exhaled nitric oxide</td>
+    <td>46 [ppb] (high)<div class="muted">Reference &lt;=25 [ppb]</div></td>
+    <td>http://loinc.org · 96269-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-04-06</td>
+    <td>Eosinophils [#/volume] in Blood by Automated count</td>
+    <td>0.42 10*3/uL<div class="muted">Reference 0-0.5 10*3/uL</div></td>
+    <td>http://loinc.org · 711-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-04-06</td>
+    <td>IgE [Units/volume] in Serum or Plasma</td>
+    <td>260 [IU]/mL (high)<div class="muted">Reference &lt;=100 [IU]/mL</div></td>
+    <td>http://loinc.org · 19113-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-04-06</td>
+    <td>European house dust mite IgE Ab [Units/volume] in Serum</td>
+    <td>8.4 k[IU]/L (high)<div class="muted">Reference &lt;=0.35 k[IU]/L</div></td>
+    <td>http://loinc.org · 6096-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-06-08</td>
+    <td>FEV1</td>
+    <td>3.98 L<div class="muted">Reference &gt;=3.65 L</div></td>
+    <td>http://loinc.org · 20150-9</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-06-08</td>
+    <td>FEV1 measured/predicted</td>
+    <td>89%<div class="muted">Reference &gt;=80%</div></td>
+    <td>http://loinc.org · 20152-5</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-06-08</td>
+    <td>Forced vital capacity [Volume] Respiratory system</td>
+    <td>5.02 L<div class="muted">Reference &gt;=4.4 L</div></td>
+    <td>http://loinc.org · 19870-5</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-06-08</td>
+    <td>FEV1/FVC</td>
+    <td>0.79<div class="muted">Reference &gt;=0.72</div></td>
+    <td>http://loinc.org · 19926-5</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-06-08</td>
+    <td>Maximum expiratory gas flow Respiratory system airway by Peak flow meter</td>
+    <td>605 L/min<div class="muted">Reference 80 percent or more of his personal best of 610 L/min (green zone)</div></td>
+    <td>http://loinc.org · 19935-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-06-08</td>
+    <td>Total score [ACT]</td>
+    <td>22</td>
+    <td>http://loinc.org · 82668-5</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-09-14</td>
+    <td>Maximum expiratory gas flow Respiratory system airway by Peak flow meter</td>
+    <td>590 L/min<div class="muted">Reference 80 percent or more of his personal best of 610 L/min (green zone)</div></td>
+    <td>http://loinc.org · 19935-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-09-14</td>
+    <td>Total score [ACT]</td>
+    <td>21</td>
+    <td>http://loinc.org · 82668-5</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-08-03</td>
+    <td>Maximum expiratory gas flow Respiratory system airway by Peak flow meter</td>
+    <td>420 L/min (low)<div class="muted">Reference 80 percent or more of his personal best of 610 L/min (green zone)</div></td>
+    <td>http://loinc.org · 19935-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-10-19</td>
+    <td>Patient Health Questionnaire 2 item (PHQ-2) total score [Reported]</td>
+    <td>0</td>
+    <td>http://loinc.org · 55758-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-10-19</td>
+    <td>Total score [AUDIT-C]</td>
+    <td>1</td>
+    <td>http://loinc.org · 75626-2</td>
+  </tr></tbody></table></section>
+    <section><h2>Synthetic vital signs</h2><table><thead><tr><th>Date</th><th>Measure</th><th>Result</th><th>LOINC</th><th>Grade</th></tr></thead><tbody>
+  <tr><td>2026-03-09</td><td>Body height</td><td>175 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-09</td><td>Body weight</td><td>72 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-09</td><td>Body mass index (BMI) [Ratio]</td><td>23.5 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-09</td><td>Systolic blood pressure</td><td>118 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-09</td><td>Diastolic blood pressure</td><td>72 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-09</td><td>Heart rate</td><td>84 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-09</td><td>Respiratory rate</td><td>18 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-09</td><td>Body temperature</td><td>36.8 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-09</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>96 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-06</td><td>Body height</td><td>175 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-06</td><td>Body weight</td><td>72.4 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-06</td><td>Body mass index (BMI) [Ratio]</td><td>23.6 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-06</td><td>Systolic blood pressure</td><td>116 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-06</td><td>Diastolic blood pressure</td><td>70 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-06</td><td>Heart rate</td><td>76 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-06</td><td>Respiratory rate</td><td>16 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-06</td><td>Body temperature</td><td>36.7 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-06</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>97 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-08</td><td>Body height</td><td>175 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-08</td><td>Body weight</td><td>73 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-08</td><td>Body mass index (BMI) [Ratio]</td><td>23.8 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-08</td><td>Systolic blood pressure</td><td>118 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-08</td><td>Diastolic blood pressure</td><td>74 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-08</td><td>Heart rate</td><td>70 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-08</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-08</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-08</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>98 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-09-14</td><td>Body height</td><td>175 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-09-14</td><td>Body weight</td><td>73.2 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-09-14</td><td>Body mass index (BMI) [Ratio]</td><td>23.9 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-09-14</td><td>Systolic blood pressure</td><td>116 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-09-14</td><td>Diastolic blood pressure</td><td>72 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-09-14</td><td>Heart rate</td><td>68 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-09-14</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-09-14</td><td>Body temperature</td><td>36.7 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-09-14</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>98 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-08-03</td><td>Body height</td><td>175 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-08-03</td><td>Body weight</td><td>72.2 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-08-03</td><td>Body mass index (BMI) [Ratio]</td><td>23.6 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-08-03</td><td>Systolic blood pressure</td><td>122 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-08-03</td><td>Diastolic blood pressure</td><td>76 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-08-03</td><td>Heart rate</td><td>98 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-08-03</td><td>Respiratory rate</td><td>20 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-08-03</td><td>Body temperature</td><td>37.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-08-03</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>95 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-19</td><td>Body height</td><td>175 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-19</td><td>Body weight</td><td>73.5 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-19</td><td>Body mass index (BMI) [Ratio]</td><td>24 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-19</td><td>Systolic blood pressure</td><td>118 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-19</td><td>Diastolic blood pressure</td><td>70 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-19</td><td>Heart rate</td><td>66 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-19</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-19</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-19</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>98 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr></tbody></table></section>
+    <section><h2>Social, functional, and mental status</h2><h3>Social history</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Occupation: first-term state legislator, also writing a naval history; long days in session and frequent public speaking</li><li><span class="badge grade-S" title="Synthetic">S</span> Never smoker; does not vape; drinks alcohol rarely; no drug use</li><li><span class="badge grade-S" title="Synthetic">S</span> Exercise: boxes three times a week, rows, and takes long hill walks most weekends; believes hard training is what controls his asthma</li><li><span class="badge grade-S" title="Synthetic">S</span> Lives in an older city apartment with wall-to-wall carpet; no pets; no visible mold; no workplace fumes or dusts</li><li><span class="badge grade-S" title="Synthetic">S</span> Supports: close friends, a boxing coach, and colleagues at work</li></ul><h3>Functional status</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> At intake, breathlessness ends his boxing rounds early and stops him rowing hard; night cough wakes him about twice a week</li><li><span class="badge grade-S" title="Synthetic">S</span> Back to full boxing, rowing, and hiking without limiting symptoms by the three-month review</li></ul><h3>Mental status</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Alert, energetic, and talkative; asks detailed questions about every treatment</li><li><span class="badge grade-S" title="Synthetic">S</span> Mood good; PHQ-2 negative</li></ul></section>
+    
+    <section><h2>Allergies and medications</h2><h3>Allergies</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> No known allergy</li></ul><h3>Medications</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Albuterol 90 mcg/actuation inhaler, two inhalations as needed for wheeze (bought after an urgent care visit; used most days before intake)</li><li><span class="badge grade-S" title="Synthetic">S</span> Budesonide-formoterol 160/4.5 mcg inhaler, two inhalations twice daily for maintenance</li><li><span class="badge grade-S" title="Synthetic">S</span> Budesonide-formoterol 160/4.5 mcg inhaler, one inhalation as needed for symptoms and before exercise; no more than 12 inhalations a day in total</li><li><span class="badge grade-S" title="Synthetic">S</span> Prednisone 20 mg oral tablet, two tablets (40 mg) by mouth each morning for 5 days</li></ul></section>
+    <section><h2>Procedures and immunizations</h2><h3>Procedures</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Spirometry before and after albuterol 400 mcg: FEV1 3.20 L (72 percent predicted), FEV1/FVC 0.67, FEV1 rising to 3.74 L after bronchodilator</li><li><span class="badge grade-S" title="Synthetic">S</span> Written asthma action plan with symptom and peak-flow zones; peak flow meter issued</li><li><span class="badge grade-S" title="Synthetic">S</span> Spirometry after three months of controller therapy: FEV1 3.98 L (89 percent predicted), FEV1/FVC 0.79</li></ul><h3>Immunizations</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> 2025-10-14: Influenza vaccine, 2025-2026 season</li><li><span class="badge grade-S" title="Synthetic">S</span> 2019-08-12: Tdap vaccine</li><li><span class="badge grade-S" title="Synthetic">S</span> 2014-04-07: HPV 9-valent vaccine, two-dose series completed</li><li><span class="badge grade-S" title="Synthetic">S</span> 2026-04-06: Pneumococcal conjugate vaccine PCV20</li><li><span class="badge grade-S" title="Synthetic">S</span> 2026-10-19: Influenza vaccine, 2026-2027 season</li></ul></section>
+    <section><h2>Past medical history</h2><p class="muted">True biography with historical dates; not part of the synthetic care timeline.</p><ul><li><span class="badge grade-D" title="Documented">D</span> 1860s: Severe childhood asthma, with night attacks in which he sat up in bed gasping, and trips away from home to find a place where he could breathe <span class="muted">(CLM-0002)</span></li><li><span class="badge grade-D" title="Documented">D</span> 1872: Near-sightedness discovered at about thirteen; first spectacles <span class="muted">(CLM-0004)</span></li><li><span class="badge grade-D" title="Documented">D</span> 1872: Asthma attack at nearly fourteen, after which he was sent to Moosehead Lake and began boxing and a program of physical training <span class="muted">(CLM-0003)</span></li></ul><h3>Family history</h3><ul><li><span class="badge grade-D" title="Documented">D</span> father: Died in 1878, shortly after a diagnosis of stomach cancer</li></ul></section>
+    <section><h2>Care-plan goals</h2><table><thead><tr><th>Goal</th><th>Target date</th><th>Status</th><th>Outcome</th></tr></thead><tbody>
+  <tr><td>Asthma Control Test score of 20 or more by the three-month review</td><td>2026-06-08</td><td>completed</td><td>ACT rose from 13 to 22</td></tr>
+  <tr><td>FEV1 of 80 percent predicted or more on spirometry after stabilization</td><td>2026-06-08</td><td>completed</td><td>FEV1 89 percent predicted with a normal FEV1/FVC ratio</td></tr>
+  <tr><td>No exacerbation needing oral corticosteroids over the six months after starting controller therapy</td><td>2026-09-14</td><td>active</td><td>Not met: one moderate exacerbation with a cold in August needed a five-day prednisone course; the goal continues for the next six months</td></tr>
+  <tr><td>Return to full boxing and rowing training without limiting symptoms</td><td>2026-06-08</td><td>completed</td><td>Training fully by the three-month review, using one reliever inhalation before sessions</td></tr></tbody></table></section>
+    <section><h2>Interventions</h2><table><thead><tr><th>Intervention</th><th>Status</th><th>Guideline</th></tr></thead><tbody>
+  <tr><td>Stop reliever-only albuterol and start budesonide-formoterol maintenance-and-reliever therapy at Step 4 (two inhalations twice daily plus one as needed, up to 12 a day), with a spacer and inhaler-technique teaching</td><td>completed</td><td>GL-GINA-2025, GL-NAEPP-2020</td></tr>
+  <tr><td>Written asthma action plan with symptom and peak-flow zones (green 80 percent or more of personal best, yellow 50 to 79 percent, red below 50 percent), reviewed at every visit and after every exacerbation</td><td>completed</td><td>GL-CMID-2026, GL-GINA-2025, GL-NAEPP-2020</td></tr>
+  <tr><td>Pulmonology referral to confirm the diagnosis, assess type 2 inflammation, and advise on exercise-induced symptoms, allergen measures, and treatment step</td><td>completed</td><td>GL-GINA-2025, GL-NAEPP-2020</td></tr>
+  <tr><td>Asthma Control Test, inhaler technique, adherence, reliever use, triggers, and exacerbation history at every visit; review one to three months after starting controller therapy, then every three to twelve months, and within one week of any exacerbation; spirometry at diagnosis, three to six months after stabilization, then every one to two years</td><td>completed</td><td>GL-CMID-2026, GL-GINA-2025, GL-NAEPP-2020</td></tr>
+  <tr><td>Explain that exercise improves fitness but does not treat airway inflammation; take one reliever inhalation before boxing or rowing; use dust-mite-impermeable bedding covers once sensitization is shown</td><td>completed</td><td>GL-NAEPP-2020, GL-GINA-2025</td></tr>
+  <tr><td>Yearly influenza vaccine, pneumococcal vaccination for chronic lung disease, and COVID-19 vaccination by CDC guidance</td><td>completed</td><td>GL-CMID-2026, GL-ACIP-PNEUMO</td></tr></tbody></table></section>
+    <section><h2>Planned encounters</h2><ul>
+  <li><strong>2026-03-09</strong> — Primary care visit for frequent wheeze, night cough, and breathlessness during training <span class="muted">(ENC-001)</span></li>
+  <li><strong>2026-04-06</strong> — Four-week asthma review after starting maintenance-and-reliever therapy, with pulmonology consultation <span class="muted">(ENC-002)</span></li>
+  <li><strong>2026-06-08</strong> — Three-month asthma review with repeat spirometry <span class="muted">(ENC-003)</span></li>
+  <li><strong>2026-08-03</strong> — Same-day sick visit for wheeze and chest tightness with a cold <span class="muted">(ENC-005, unscheduled)</span></li>
+  <li><strong>2026-09-14</strong> — Six-month asthma review after a summer exacerbation <span class="muted">(ENC-004)</span></li>
+  <li><strong>2026-10-19</strong> — Periodic adult preventive visit <span class="muted">(ENC-006)</span></li></ul></section>
+    <section><h2>Supporting documents</h2><ul><li><a href="notes/hp.md">History and physical</a></li><li><a href="notes/progress-01.md">Progress note 01</a></li><li><a href="notes/progress-02.md">Progress note 02 — Focused Visit (Follow-up)</a></li><li><a href="notes/progress-03.md">Progress note 03 — Focused Visit (Follow-up)</a></li><li><a href="notes/progress-04.md">Progress note 04 — Sick Visit</a></li><li><a href="notes/progress-05.md">Progress note 05 — Focused Visit (Care-plan review)</a></li><li><a href="notes/progress-06.md">Progress note 06 — Preventive Visit</a></li><li><a href="notes/referral-01.md">Pulmonology referral</a></li><li><a href="notes/consult-01.md">Pulmonology consultation</a></li><li><a href="notes/careplan.md">Patient care plan</a></li><li><a href="notes/teaching-note.md">Teaching note</a></li><li><a href="provenance.csv">Provenance CSV</a></li></ul></section>
+    <section><h2>C-CDA note documents</h2><p class="muted">Each link opens a readable copy; the XML beside it is the exchange file.</p><ul><li><a href="ccda/hp-01.html">History and physical</a> <a href="ccda/hp-01.xml">(XML)</a></li><li><a href="ccda/progress-01.html">Progress note 01</a> <a href="ccda/progress-01.xml">(XML)</a></li><li><a href="ccda/progress-02.html">Progress note 02 — Focused Visit (Follow-up)</a> <a href="ccda/progress-02.xml">(XML)</a></li><li><a href="ccda/progress-03.html">Progress note 03 — Focused Visit (Follow-up)</a> <a href="ccda/progress-03.xml">(XML)</a></li><li><a href="ccda/progress-04.html">Progress note 04 — Sick Visit</a> <a href="ccda/progress-04.xml">(XML)</a></li><li><a href="ccda/progress-05.html">Progress note 05 — Focused Visit (Care-plan review)</a> <a href="ccda/progress-05.xml">(XML)</a></li><li><a href="ccda/progress-06.html">Progress note 06 — Preventive Visit</a> <a href="ccda/progress-06.xml">(XML)</a></li><li><a href="ccda/referral-01.html">Pulmonology referral</a> <a href="ccda/referral-01.xml">(XML)</a></li><li><a href="ccda/consult-01.html">Pulmonology consultation</a> <a href="ccda/consult-01.xml">(XML)</a></li></ul></section>
+    <section><h2>Sources</h2><table><thead><tr><th>ID</th><th>Source</th><th>Publisher</th><th>Type</th></tr></thead><tbody>
+  <tr>
+    <td>SRC-0001</td>
+    <td><a href="https://www.nps.gov/thri/theodorerooseveltbio.htm" target="_blank" rel="noreferrer">The Life of Theodore Roosevelt</a></td>
+    <td>U.S. National Park Service, Theodore Roosevelt Birthplace National Historic Site</td>
+    <td>government</td>
+  </tr>
+  <tr>
+    <td>SRC-0002</td>
+    <td><a href="https://www.gutenberg.org/ebooks/3335" target="_blank" rel="noreferrer">Roosevelt T. Theodore Roosevelt: An Autobiography. New York: Macmillan; 1913</a></td>
+    <td>Project Gutenberg (eBook 3335)</td>
+    <td>primary</td>
+  </tr>
+  <tr>
+    <td>SRC-0003</td>
+    <td><a href="https://pubmed.ncbi.nlm.nih.gov/26271837/" target="_blank" rel="noreferrer">Camargo CA Jr, Roosevelt T. The Misunderstood Asthma of Theodore Roosevelt. J Allergy Clin Immunol Pract. 2015;3(5):696-701.e1. doi:10.1016/j.jaip.2015.06.010</a></td>
+    <td>PubMed (PMID 26271837)</td>
+    <td>scholarly</td>
+  </tr>
+  <tr>
+    <td>SRC-0004</td>
+    <td><a href="https://www.theodorerooseveltcenter.org/encyclopedia/strenuous-life/asthma/" target="_blank" rel="noreferrer">Asthma (TR Encyclopedia: The Strenuous Life)</a></td>
+    <td>Theodore Roosevelt Center at Dickinson State University</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0005</td>
+    <td><a href="https://www.nps.gov/people/life-of-theodore-roosevelt.htm" target="_blank" rel="noreferrer">Life of Theodore Roosevelt</a></td>
+    <td>U.S. National Park Service</td>
+    <td>government</td>
+  </tr>
+  <tr>
+    <td>SRC-0006</td>
+    <td><a href="https://humanrecord.example.org/internal/HISTMED_Master_Roster_v3.xlsx" target="_blank" rel="noreferrer">HISTMED Master Roster v3</a></td>
+    <td>The Human Record project</td>
+    <td>other</td>
+  </tr></tbody></table></section>
+    <section><h2>Review status</h2><table><thead><tr><th>Review</th><th>Status</th><th>Notes</th></tr></thead><tbody>
+  <tr><td>schema validation</td><td>not_started</td><td>Run scripts/build.ps1 -Conformance.</td></tr>
+  <tr><td>clinical review</td><td>not_started</td><td>Awaiting clinician review; check the MART step, the exacerbation management, and the deviation recorded for the missed post-exacerbation review.</td></tr>
+  <tr><td>provenance review</td><td>not_started</td><td>NPS pages, the 1913 autobiography (Project Gutenberg), the 2015 asthma review (PubMed abstract), and the Theodore Roosevelt Center page logged; roster claims of depression and boxing brain injury were not used.</td></tr>
+  <tr><td>safe messaging review</td><td>not_started</td><td>No behavioral-health diagnosis; the 1884 deaths in his family fall after the index date and are not used; death recorded without detail.</td></tr></tbody></table></section>
+  </main>
+</body>
+</html>

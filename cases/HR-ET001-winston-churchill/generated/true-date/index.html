@@ -1,0 +1,534 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Winston Churchill — The Human Record</title>
+  <style>
+    :root { --navy:#17365d; --blue:#1f4e78; --pale:#eef5fa; --ink:#1f2933; --muted:#66788a; --amber:#fff2cc; --red:#f8d7da; --green:#d9ead3; }
+    * { box-sizing:border-box; }
+    body { margin:0; font:16px/1.5 Arial, sans-serif; color:var(--ink); background:#f6f8fa; }
+    header { background:var(--navy); color:white; padding:24px max(24px,calc((100vw - 1180px)/2)); }
+    header h1 { margin:4px 0; font-size:30px; }
+    .banner { background:#b42318; color:white; font-weight:700; text-align:center; padding:10px; letter-spacing:.03em; }
+    main { max-width:1180px; margin:24px auto 60px; padding:0 24px; }
+    section { background:white; border:1px solid #d9e1e8; border-radius:8px; margin:18px 0; padding:20px; }
+    h2 { color:var(--navy); margin:0 0 14px; font-size:22px; }
+    h3 { color:var(--blue); }
+    .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:12px; }
+    .card { background:var(--pale); border-left:4px solid var(--blue); padding:12px; }
+    .label { color:var(--muted); font-size:13px; text-transform:uppercase; letter-spacing:.04em; }
+    table { width:100%; border-collapse:collapse; }
+    th { background:var(--blue); color:white; text-align:left; }
+    th,td { padding:9px; border-bottom:1px solid #dfe6ec; vertical-align:top; }
+    .badge { display:inline-block; min-width:28px; text-align:center; font-weight:700; border-radius:12px; padding:2px 8px; }
+    .grade-D { background:var(--green); } .grade-R { background:var(--amber); } .grade-S { background:var(--red); }
+    .muted { color:var(--muted); font-size:14px; }
+    .relationship { color:var(--muted); font-size:12px; }
+    .downloads a { display:inline-block; margin:4px 8px 4px 0; padding:8px 12px; background:var(--blue); color:white; text-decoration:none; border-radius:5px; }
+    @media (max-width:700px) { table { display:block; overflow-x:auto; } }
+  </style>
+</head>
+<body>
+  <div class="banner">SYNTHETIC RECORD, NOT A REAL MEDICAL RECORD</div>
+  <div class="banner">True-date frame: synthetic events are moved into the patient&#39;s historical lifetime. Codes, instruments, and treatments remain modern and are anachronistic.</div>
+  <header>
+    <div>The Human Record</div>
+    <h1>Winston Churchill</h1>
+    <div>Case HR-ET001-TD · Modern EHR teaching episode · Draft for review</div>
+  </header>
+  <main>
+    <section>
+      <h2>Review summary</h2>
+      <div class="grid">
+        <div class="card"><div class="label">Historical dates</div>30 November 1874 – 24 January 1965</div>
+        <div class="card"><div class="label">Synthetic DOB</div>1874-11-30</div>
+        <div class="card"><div class="label">Index visit</div>1953-07-01 at age 78</div>
+        <div class="card"><div class="label">Synthetic MRN</div>HR-ET001-SYN-TD</div>
+      </div>
+      <p><strong>Teaching objective:</strong> Manage the first three months after a minor right-hemisphere lacunar stroke in a 78-year-old who intends to return to demanding public work: a 21-day dual antiplatelet course then clopidogrel alone, a high-intensity statin, blood pressure lowered to below 130/80 without orthostatic hypotension, prolonged rhythm monitoring for atrial fibrillation, rehabilitation, and measurement-based screening for post-stroke depression, cognitive change, unhealthy alcohol use, and cigar smoking on the CMID stroke schedule.</p>
+      <div class="downloads">
+        <a href="../case.json">Canonical JSON</a>
+        <a href="fhir-bundle.json">FHIR R4 draft</a>
+        <a href="ccda.html">C-CDA R2.1 summary</a> <a href="ccda.xml">(XML)</a>
+        <a href="../sources.md">Evidence dossier</a>
+      </div>
+    </section>
+    <section><h2>Historical timeline</h2><table><thead><tr><th>Date</th><th>Event</th><th>Claims</th></tr></thead><tbody>
+  <tr><td>30 November 1874</td><td>Born at Blenheim Palace, Oxfordshire.</td><td>CLM-0001</td></tr>
+  <tr><td>1895</td><td>Father died at 45; cause disputed.</td><td>CLM-0013</td></tr>
+  <tr><td>December 1941</td><td>Chest pain at the White House; cardiac interpretation disputed.</td><td>CLM-0002</td></tr>
+  <tr><td>December 1943</td><td>Critical pneumonia in Tunis treated with sulfonamides.</td><td>CLM-0003</td></tr>
+  <tr><td>August 1949</td><td>First stroke, at Cap d&#39;Ail.</td><td>CLM-0004</td></tr>
+  <tr><td>23 June 1953</td><td>Stroke with left hemiparesis at 10 Downing Street; concealed at the time.</td><td>CLM-0005, CLM-0006</td></tr>
+  <tr><td>18 August 1953</td><td>Chaired his first Cabinet meeting after the stroke.</td><td>CLM-0007, CLM-0008</td></tr>
+  <tr><td>October 1953</td><td>Speech to the Conservative Party Conference.</td><td>CLM-0007</td></tr>
+  <tr><td>1955</td><td>Resigned as Prime Minister because of poor health.</td><td>CLM-0001</td></tr>
+  <tr><td>1962</td><td>Fractured hip; admitted to the Middlesex Hospital.</td><td>CLM-0012</td></tr>
+  <tr><td>24 January 1965</td><td>Died in London about two weeks after a final stroke.</td><td>CLM-0001, CLM-0012</td></tr></tbody></table></section>
+    <section><h2>Evidence claims</h2><p class="muted">D = documented, R = retrospective, S = synthetic.</p><table><thead><tr><th>Grade</th><th>Claim</th><th>Certainty</th><th>Sources</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>Winston Churchill was born on 30 November 1874 at Blenheim Palace, Oxfordshire, and died in London on 24 January 1965. He was Prime Minister from 1940 to 1945 and from 1951 to 1955, when poor health forced him to resign.</strong></td>
+    <td>confirmed</td>
+    <td><a href="https://www.gov.uk/government/history/past-prime-ministers/winston-churchill" target="_blank" rel="noreferrer">Past Prime Ministers: Sir Winston Churchill</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-R" title="Retrospective">R</span></td>
+    <td><strong>In December 1941, during a visit to the White House, Churchill developed dull chest pain after opening a window with great effort. His physician interpreted it as a heart attack, but a cardiologist found no evidence of heart disease, and a later review judges the symptoms probably musculoskeletal.</strong><div class="muted">A contested cardiac interpretation; kept off the problem list.</div></td>
+    <td>disputed</td>
+    <td><a href="https://archives.chu.cam.ac.uk/news/review-of-winston-churchills-illnesses-1886-1965" target="_blank" rel="noreferrer">Crisp A. Review of &quot;Winston Churchill&#39;s Illnesses 1886-1965&quot; by Allister Vale and John Scadding</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>His most critical episode of pneumonia was in December 1943 in Tunis; it was treated with sulfonamides, which proved effective.</strong></td>
+    <td>confirmed</td>
+    <td><a href="https://archives.chu.cam.ac.uk/news/review-of-winston-churchills-illnesses-1886-1965" target="_blank" rel="noreferrer">Crisp A. Review of &quot;Winston Churchill&#39;s Illnesses 1886-1965&quot; by Allister Vale and John Scadding</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>Churchill had his first stroke in 1949, a less serious attack in August 1949 while staying at Cap d&#39;Ail that his physician described as spasm of a small artery. He was seen on multiple occasions from 1950 to 1952 for further cerebrovascular episodes, including transient ischemic attacks.</strong><div class="muted">Prior cerebrovascular events before the 1953 stroke; the authors conclude he had bilateral cerebrovascular disease by 1953.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC6194955" target="_blank" rel="noreferrer">Scadding JW, Vale JA. Winston Churchill&#39;s acute stroke in June 1953. J R Soc Med. 2018;111(10):347-358 (PMC6194955)</a> <span class="relationship">supports</span><br><a href="https://winstonchurchill.org/publications/churchill-bulletin/bulletin-093-mar-2016/churchill-s-secret/" target="_blank" rel="noreferrer">Mather JH. Churchill&#39;s Secret: A Medical Analysis of the New Drama from ITV. Churchill Bulletin 93</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>On the evening of 23 June 1953, while hosting a dinner at 10 Downing Street, Churchill had a stroke consisting of a left hemiparesis, with sagging of the left side of the mouth and impaired articulation. The deficit was greatest about three days after onset, then fluctuated and gradually recovered; the course is consistent with a small lacunar infarct.</strong><div class="muted">The documented anchor for the synthetic right-hemisphere lacunar infarct.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC6194955" target="_blank" rel="noreferrer">Scadding JW, Vale JA. Winston Churchill&#39;s acute stroke in June 1953. J R Soc Med. 2018;111(10):347-358 (PMC6194955)</a> <span class="relationship">supports</span><br><a href="https://winstonchurchill.org/publications/churchill-bulletin/bulletin-093-mar-2016/churchill-s-secret/" target="_blank" rel="noreferrer">Mather JH. Churchill&#39;s Secret: A Medical Analysis of the New Drama from ITV. Churchill Bulletin 93</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>The 1953 stroke was concealed at the time: no member of the Cabinet noticed anything wrong at the dinner, and nothing about it was published until Churchill mentioned it about a year later. It has not been a secret since his physician&#39;s account was published in 1966.</strong></td>
+    <td>confirmed</td>
+    <td><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC6194955" target="_blank" rel="noreferrer">Scadding JW, Vale JA. Winston Churchill&#39;s acute stroke in June 1953. J R Soc Med. 2018;111(10):347-358 (PMC6194955)</a> <span class="relationship">supports</span><br><a href="https://winstonchurchill.org/publications/churchill-bulletin/bulletin-093-mar-2016/churchill-s-secret/" target="_blank" rel="noreferrer">Mather JH. Churchill&#39;s Secret: A Medical Analysis of the New Drama from ITV. Churchill Bulletin 93</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>Churchill recovered steadily: by 12 August 1953 his neurologist found about 90 percent recovery of power in the left face and limbs, he chaired his first Cabinet meeting since the illness on 18 August, and in October 1953 he gave a successful speech to the annual Conservative Party Conference.</strong><div class="muted">Documents the return to full work and public speaking that the synthetic goals echo.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC6194955" target="_blank" rel="noreferrer">Scadding JW, Vale JA. Winston Churchill&#39;s acute stroke in June 1953. J R Soc Med. 2018;111(10):347-358 (PMC6194955)</a> <span class="relationship">supports</span><br><a href="https://winstonchurchill.org/publications/churchill-bulletin/bulletin-093-mar-2016/churchill-s-secret/" target="_blank" rel="noreferrer">Mather JH. Churchill&#39;s Secret: A Medical Analysis of the New Drama from ITV. Churchill Bulletin 93</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>During the recovery his blood pressure was recorded as 170/90 mmHg on 25 July 1953, and as 145/90 mmHg with a regular pulse of 70 on 24 August 1953.</strong><div class="muted">Supports elevated blood pressure after the stroke; no hypertension diagnosis is stated in the source.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC6194955" target="_blank" rel="noreferrer">Scadding JW, Vale JA. Winston Churchill&#39;s acute stroke in June 1953. J R Soc Med. 2018;111(10):347-358 (PMC6194955)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>During the convalescence he was described as very despondent, with spells of apathy, and he wept readily when moved, for example by poetry.</strong><div class="muted">Consistent with post-stroke low mood and emotional lability; no depressive disorder is diagnosed in the source.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC6194955" target="_blank" rel="noreferrer">Scadding JW, Vale JA. Winston Churchill&#39;s acute stroke in June 1953. J R Soc Med. 2018;111(10):347-358 (PMC6194955)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-R" title="Retrospective">R</span></td>
+    <td><strong>His physician diagnosed clinical depression, which became accepted lore as Churchill&#39;s &quot;black dog&quot;; the 2020 study by Vale and Scadding argues convincingly against this diagnosis.</strong><div class="muted">A retrospective, disputed interpretation; not used as a diagnosis in the modern episode.</div></td>
+    <td>disputed</td>
+    <td><a href="https://archives.chu.cam.ac.uk/news/review-of-winston-churchills-illnesses-1886-1965" target="_blank" rel="noreferrer">Crisp A. Review of &quot;Winston Churchill&#39;s Illnesses 1886-1965&quot; by Allister Vale and John Scadding</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>Smoking and alcohol were long-standing risk factors. A 1943 fluid chart listed champagne 10 oz, brandy 2 oz, and whisky and soda 8 oz, and accounts of the 1953 convalescence describe his usual cigar and whisky and soda.</strong><div class="muted">Documents habitual cigar smoking and daily drinking; quantities over his life are not documented.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://archives.chu.cam.ac.uk/news/review-of-winston-churchills-illnesses-1886-1965" target="_blank" rel="noreferrer">Crisp A. Review of &quot;Winston Churchill&#39;s Illnesses 1886-1965&quot; by Allister Vale and John Scadding</a> <span class="relationship">supports</span><br><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC6194955" target="_blank" rel="noreferrer">Scadding JW, Vale JA. Winston Churchill&#39;s acute stroke in June 1953. J R Soc Med. 2018;111(10):347-358 (PMC6194955)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>Recurrent cerebrovascular episodes marked his final decades. In 1962 he was admitted to the Middlesex Hospital in London with a fractured hip, and in January 1965, after a final stroke, he lived about another fourteen days.</strong></td>
+    <td>confirmed</td>
+    <td><a href="https://archives.chu.cam.ac.uk/news/review-of-winston-churchills-illnesses-1886-1965" target="_blank" rel="noreferrer">Crisp A. Review of &quot;Winston Churchill&#39;s Illnesses 1886-1965&quot; by Allister Vale and John Scadding</a> <span class="relationship">supports</span><br><a href="https://www.gov.uk/government/history/past-prime-ministers/winston-churchill" target="_blank" rel="noreferrer">Past Prime Ministers: Sir Winston Churchill</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-R" title="Retrospective">R</span></td>
+    <td><strong>His father, Lord Randolph Churchill, died in 1895 aged 45 after a progressive illness with speech and hearing problems, dizziness, palpitations, and numbness of the hands and feet. Syphilis was long assumed; a brain tumor has been argued as more likely, and the cause cannot be determined with certainty.</strong><div class="muted">Cause of death not established; recorded as a disputed family history.</div></td>
+    <td>disputed</td>
+    <td><a href="https://winstonchurchill.org/publications/finest-hour/finest-hour-117/keeping-the-memory-green-and-the-record-accurate-leading-churchill-myths-6-lord-randolph-churchill-died-of-syphilis/" target="_blank" rel="noreferrer">Mather JH. Leading Churchill Myths (6): Lord Randolph Churchill Died of Syphilis. Finest Hour 117</a> <span class="relationship">supports</span></td>
+  </tr></tbody></table></section>
+    <section><h2>Modern synthetic problem list</h2><table><thead><tr><th>Grade</th><th>Problem</th><th>Clinical status</th><th>Verification</th><th>Placement</th><th>Historical claims</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Mild left hemiparesis and dysarthria after a right-hemisphere lacunar infarct eight days before intake; synthetic modern episode linked to the documented 1880 stroke</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>both_with_link</td>
+    <td>CLM-0005, CLM-0004</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Essential hypertension</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td>CLM-0008</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Nicotine dependence, cigars, six to eight a day</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td>CLM-0011</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Orthostatic hypotension after antihypertensive intensification in hot weather, resolved after reducing amlodipine</td>
+    <td>resolved</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td></td>
+  </tr></tbody></table></section>
+    <section><h2>Synthetic outcome measures</h2><table><thead><tr><th>Grade</th><th>Date</th><th>Measure</th><th>Result</th><th>Coding</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1953-07-01</td>
+    <td>Sodium [Moles/volume] in Serum or Plasma</td>
+    <td>139 mmol/L<div class="muted">Reference 135-145 mmol/L</div></td>
+    <td>http://loinc.org · 2951-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1953-07-01</td>
+    <td>Potassium [Moles/volume] in Serum or Plasma</td>
+    <td>4.3 mmol/L<div class="muted">Reference 3.5-5.1 mmol/L</div></td>
+    <td>http://loinc.org · 2823-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1953-07-01</td>
+    <td>Creatinine [Mass/volume] in Serum or Plasma</td>
+    <td>0.98 mg/dL<div class="muted">Reference 0.74-1.35 mg/dL</div></td>
+    <td>http://loinc.org · 2160-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1953-07-01</td>
+    <td>Glomerular filtration rate [Volume Rate/Area] in Serum, Plasma or Blood by Creatinine-based formula (CKD-EPI 1948)/1.73 sq M</td>
+    <td>79 mL/min/1.73 m²<div class="muted">Reference &gt;=60 mL/min/1.73 m²</div></td>
+    <td>http://loinc.org · 98979-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1953-07-01</td>
+    <td>Glucose [Mass/volume] in Serum or Plasma</td>
+    <td>97 mg/dL<div class="muted">Reference 70-99 mg/dL</div></td>
+    <td>http://loinc.org · 2345-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1953-07-01</td>
+    <td>Hemoglobin [Mass/volume] in Blood</td>
+    <td>14.2 g/dL<div class="muted">Reference 13.2-16.6 g/dL</div></td>
+    <td>http://loinc.org · 718-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1953-07-01</td>
+    <td>Platelets [#/volume] in Blood by Automated count</td>
+    <td>245 10*3/uL<div class="muted">Reference 150-400 10*3/uL</div></td>
+    <td>http://loinc.org · 777-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1953-07-01</td>
+    <td>Hemoglobin A1c/Hemoglobin.total in Blood</td>
+    <td>5.5%<div class="muted">Reference &lt;=5.6%</div></td>
+    <td>http://loinc.org · 4548-4</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1953-07-01</td>
+    <td>Alanine aminotransferase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>30 U/L<div class="muted">Reference 7-56 U/L</div></td>
+    <td>http://loinc.org · 1742-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1953-07-01</td>
+    <td>Total score [NIH Stroke Scale]</td>
+    <td>2</td>
+    <td>http://loinc.org · 72089-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1953-07-01</td>
+    <td>Total score [MoCA]</td>
+    <td>26</td>
+    <td>http://loinc.org · 72172-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1953-07-01</td>
+    <td>Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]</td>
+    <td>8</td>
+    <td>http://loinc.org · 44261-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1953-07-01</td>
+    <td>Total score [AUDIT-C]</td>
+    <td>8</td>
+    <td>http://loinc.org · 75626-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1953-07-15</td>
+    <td>Total score [NIH Stroke Scale]</td>
+    <td>1</td>
+    <td>http://loinc.org · 72089-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1953-08-19</td>
+    <td>Cholesterol [Mass/volume] in Serum or Plasma</td>
+    <td>128 mg/dL<div class="muted">Reference &lt;=199 mg/dL</div></td>
+    <td>http://loinc.org · 2093-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1953-08-19</td>
+    <td>Cholesterol in HDL [Mass/volume] in Serum or Plasma</td>
+    <td>48 mg/dL<div class="muted">Reference &gt;=40 mg/dL</div></td>
+    <td>http://loinc.org · 2085-9</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1953-08-19</td>
+    <td>Triglyceride [Mass/volume] in Serum or Plasma</td>
+    <td>110 mg/dL<div class="muted">Reference &lt;=149 mg/dL</div></td>
+    <td>http://loinc.org · 2571-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1953-08-19</td>
+    <td>Cholesterol in LDL [Mass/volume] in Serum or Plasma by calculation</td>
+    <td>58 mg/dL<div class="muted">Reference &lt;=99 mg/dL</div></td>
+    <td>http://loinc.org · 13457-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1953-08-19</td>
+    <td>Alanine aminotransferase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>28 U/L<div class="muted">Reference 7-56 U/L</div></td>
+    <td>http://loinc.org · 1742-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1953-08-19</td>
+    <td>Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]</td>
+    <td>6</td>
+    <td>http://loinc.org · 44261-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1953-08-19</td>
+    <td>Total score [AUDIT-C]</td>
+    <td>5</td>
+    <td>http://loinc.org · 75626-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1953-10-07</td>
+    <td>Modified rankin scale</td>
+    <td>1</td>
+    <td>http://loinc.org · 75859-9</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1953-10-07</td>
+    <td>Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]</td>
+    <td>4</td>
+    <td>http://loinc.org · 44261-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1953-07-29</td>
+    <td>Sodium [Moles/volume] in Serum or Plasma</td>
+    <td>137 mmol/L<div class="muted">Reference 135-145 mmol/L</div></td>
+    <td>http://loinc.org · 2951-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1953-07-29</td>
+    <td>Potassium [Moles/volume] in Serum or Plasma</td>
+    <td>4.6 mmol/L<div class="muted">Reference 3.5-5.1 mmol/L</div></td>
+    <td>http://loinc.org · 2823-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1953-07-29</td>
+    <td>Creatinine [Mass/volume] in Serum or Plasma</td>
+    <td>1.12 mg/dL<div class="muted">Reference 0.74-1.35 mg/dL</div></td>
+    <td>http://loinc.org · 2160-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1953-07-29</td>
+    <td>Glomerular filtration rate [Volume Rate/Area] in Serum, Plasma or Blood by Creatinine-based formula (CKD-EPI 1948)/1.73 sq M</td>
+    <td>67 mL/min/1.73 m²<div class="muted">Reference &gt;=60 mL/min/1.73 m²</div></td>
+    <td>http://loinc.org · 98979-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1953-07-29</td>
+    <td>Glucose [Mass/volume] in Serum or Plasma</td>
+    <td>94 mg/dL<div class="muted">Reference 70-99 mg/dL</div></td>
+    <td>http://loinc.org · 2345-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1953-07-29</td>
+    <td>Total score [NIH Stroke Scale]</td>
+    <td>1</td>
+    <td>http://loinc.org · 72089-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1953-10-28</td>
+    <td>Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]</td>
+    <td>3</td>
+    <td>http://loinc.org · 44261-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1953-10-28</td>
+    <td>Total score [MoCA]</td>
+    <td>27</td>
+    <td>http://loinc.org · 72172-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1953-10-28</td>
+    <td>Total score [AUDIT-C]</td>
+    <td>5</td>
+    <td>http://loinc.org · 75626-2</td>
+  </tr></tbody></table></section>
+    <section><h2>Synthetic vital signs</h2><table><thead><tr><th>Date</th><th>Measure</th><th>Result</th><th>LOINC</th><th>Grade</th></tr></thead><tbody>
+  <tr><td>1953-07-01</td><td>Body height</td><td>168 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1953-07-01</td><td>Body weight</td><td>80 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1953-07-01</td><td>Body mass index (BMI) [Ratio]</td><td>28.3 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1953-07-01</td><td>Systolic blood pressure</td><td>152 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1953-07-01</td><td>Diastolic blood pressure</td><td>86 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1953-07-01</td><td>Heart rate</td><td>72 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1953-07-01</td><td>Respiratory rate</td><td>16 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1953-07-01</td><td>Body temperature</td><td>36.7 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1953-07-01</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>96 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1953-07-15</td><td>Body height</td><td>168 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1953-07-15</td><td>Body weight</td><td>79.6 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1953-07-15</td><td>Body mass index (BMI) [Ratio]</td><td>28.2 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1953-07-15</td><td>Systolic blood pressure</td><td>138 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1953-07-15</td><td>Diastolic blood pressure</td><td>80 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1953-07-15</td><td>Heart rate</td><td>70 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1953-07-15</td><td>Respiratory rate</td><td>16 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1953-07-15</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1953-07-15</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>96 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1953-08-19</td><td>Body height</td><td>168 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1953-08-19</td><td>Body weight</td><td>79 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1953-08-19</td><td>Body mass index (BMI) [Ratio]</td><td>28 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1953-08-19</td><td>Systolic blood pressure</td><td>128 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1953-08-19</td><td>Diastolic blood pressure</td><td>76 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1953-08-19</td><td>Heart rate</td><td>70 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1953-08-19</td><td>Respiratory rate</td><td>16 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1953-08-19</td><td>Body temperature</td><td>36.7 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1953-08-19</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>97 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1953-10-07</td><td>Body height</td><td>168 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1953-10-07</td><td>Body weight</td><td>78.6 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1953-10-07</td><td>Body mass index (BMI) [Ratio]</td><td>27.8 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1953-10-07</td><td>Systolic blood pressure</td><td>126 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1953-10-07</td><td>Diastolic blood pressure</td><td>74 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1953-10-07</td><td>Heart rate</td><td>68 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1953-10-07</td><td>Respiratory rate</td><td>16 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1953-10-07</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1953-10-07</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>97 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1953-07-29</td><td>Body height</td><td>168 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1953-07-29</td><td>Body weight</td><td>78.8 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1953-07-29</td><td>Body mass index (BMI) [Ratio]</td><td>27.9 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1953-07-29</td><td>Systolic blood pressure</td><td>118 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1953-07-29</td><td>Diastolic blood pressure</td><td>68 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1953-07-29</td><td>Heart rate</td><td>76 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1953-07-29</td><td>Respiratory rate</td><td>16 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1953-07-29</td><td>Body temperature</td><td>36.8 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1953-07-29</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>97 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1953-10-28</td><td>Body height</td><td>168 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1953-10-28</td><td>Body weight</td><td>78.4 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1953-10-28</td><td>Body mass index (BMI) [Ratio]</td><td>27.8 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1953-10-28</td><td>Systolic blood pressure</td><td>124 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1953-10-28</td><td>Diastolic blood pressure</td><td>72 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1953-10-28</td><td>Heart rate</td><td>68 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1953-10-28</td><td>Respiratory rate</td><td>16 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1953-10-28</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1953-10-28</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>97 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr></tbody></table></section>
+    <section><h2>Social, functional, and mental status</h2><h3>Social history</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Occupation: senior national political leader with very long working days, late-night work, and frequent major speeches; on leave since the stroke</li><li><span class="badge grade-S" title="Synthetic">S</span> Tobacco: smokes six to eight cigars a day, drawing on them without inhaling deeply and often letting them go out; lifelong habit; no cigarettes</li><li><span class="badge grade-S" title="Synthetic">S</span> Alcohol: drinks every day: whisky well diluted with soda through the day, wine or champagne with dinner, and brandy afterwards; AUDIT-C 8 at intake</li><li><span class="badge grade-S" title="Synthetic">S</span> Activity: little planned exercise; walks about the house and garden; afternoon nap most days</li><li><span class="badge grade-S" title="Synthetic">S</span> Supports: married and lives with his spouse; adult children; a large, devoted staff</li></ul><h3>Functional status</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Walks with a stick outdoors; left hand clumsy with buttons and writing; independent in self-care with extra time; modified Rankin Scale about 2 at intake</li><li><span class="badge grade-S" title="Synthetic">S</span> Walking without a stick, writing normally, and back at full work by about three months; modified Rankin Scale 1</li></ul><h3>Mental status</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Alert, articulate, and quick-witted; speech mildly slurred in long sentences at intake</li><li><span class="badge grade-S" title="Synthetic">S</span> Mood low at times since the stroke, with apathy and poor sleep; tears up readily when moved by poetry or music, more than before; denies thoughts of death or self-harm; PHQ-9 8, item 9 scored 0</li></ul></section>
+    
+    <section><h2>Allergies and medications</h2><h3>Allergies</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> No known allergy</li></ul><h3>Medications</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Aspirin 81 mg delayed-release oral tablet, one tablet by mouth daily for 21 days with clopidogrel</li><li><span class="badge grade-S" title="Synthetic">S</span> Clopidogrel 75 mg oral tablet, one tablet by mouth daily (after a 300 mg loading dose in the hospital)</li><li><span class="badge grade-S" title="Synthetic">S</span> Atorvastatin 80 mg oral tablet, one tablet by mouth daily</li><li><span class="badge grade-S" title="Synthetic">S</span> Amlodipine 5 mg oral tablet, one tablet by mouth daily</li><li><span class="badge grade-S" title="Synthetic">S</span> Amlodipine 10 mg oral tablet, one tablet by mouth daily</li><li><span class="badge grade-S" title="Synthetic">S</span> Lisinopril 5 mg oral tablet, one tablet by mouth daily</li><li><span class="badge grade-S" title="Synthetic">S</span> Amlodipine 5 mg oral tablet, one tablet by mouth daily</li></ul></section>
+    <section><h2>Procedures and immunizations</h2><h3>Procedures</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> MRI of the brain in the hospital: acute 12 mm lacunar infarct in the right internal capsule and corona radiata; chronic small-vessel white-matter changes in both hemispheres; no hemorrhage</li><li><span class="badge grade-S" title="Synthetic">S</span> CT angiography of the head and neck in the hospital: no carotid, vertebral, or intracranial stenosis or occlusion</li><li><span class="badge grade-S" title="Synthetic">S</span> Transthoracic echocardiography with bubble study in the hospital: normal left ventricular size and function, mild left ventricular hypertrophy, normal left atrium, no thrombus, no shunt</li><li><span class="badge grade-S" title="Synthetic">S</span> 12-lead electrocardiogram: sinus rhythm 72/min, left ventricular hypertrophy by voltage, no atrial fibrillation</li><li><span class="badge grade-S" title="Synthetic">S</span> 30-day ambulatory ECG monitoring: sinus rhythm throughout, occasional atrial ectopic beats, no atrial fibrillation or flutter</li><li><span class="badge grade-S" title="Synthetic">S</span> Outpatient physical and occupational therapy for left-sided weakness and hand dexterity, twice weekly, completed</li></ul><h3>Immunizations</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> 1952-10-14: High-dose influenza vaccine, 1952-1953 season</li><li><span class="badge grade-S" title="Synthetic">S</span> 1949-11-07: Pneumococcal conjugate vaccine PCV20</li><li><span class="badge grade-S" title="Synthetic">S</span> 1951-09-23: Respiratory syncytial virus vaccine, single dose</li><li><span class="badge grade-S" title="Synthetic">S</span> 1946-05-20: Recombinant zoster vaccine, two-dose series completed</li><li><span class="badge grade-S" title="Synthetic">S</span> 1945-03-12: Tdap vaccine</li><li><span class="badge grade-S" title="Synthetic">S</span> 1953-10-28: High-dose influenza vaccine, 1953-1954 season</li></ul></section>
+    <section><h2>Past medical history</h2><p class="muted">True biography with historical dates; not part of the synthetic care timeline.</p><ul><li><span class="badge grade-R" title="Retrospective">R</span> December 1941: Chest pain at the White House after straining to open a window; read at the time as a heart attack, but no heart disease was found and the episode was probably musculoskeletal (disputed) <span class="muted">(CLM-0002)</span></li><li><span class="badge grade-D" title="Documented">D</span> December 1943: Critical pneumonia in Tunis, treated with sulfonamides <span class="muted">(CLM-0003)</span></li><li><span class="badge grade-D" title="Documented">D</span> August 1949: First stroke, a less serious attack at Cap d&#39;Ail described as spasm of a small artery <span class="muted">(CLM-0004)</span></li><li><span class="badge grade-D" title="Documented">D</span> 1950 to 1952: Further cerebrovascular episodes, including transient ischemic attacks, from 1950 to 1952 <span class="muted">(CLM-0004)</span></li><li><span class="badge grade-D" title="Documented">D</span> 23 June 1953: Stroke at a dinner at 10 Downing Street: left hemiparesis with a drooping mouth and slurred speech, worst on the third day; kept secret at the time <span class="muted">(CLM-0005, CLM-0006)</span></li></ul><h3>Family history</h3><ul><li><span class="badge grade-R" title="Retrospective">R</span> father: Died in 1895 at 45 after a progressive illness with speech and hearing problems, dizziness, and numbness; cause disputed and not established in the cited source</li></ul></section>
+    <section><h2>Care-plan goals</h2><table><thead><tr><th>Goal</th><th>Target date</th><th>Status</th><th>Outcome</th></tr></thead><tbody>
+  <tr><td>Lower blood pressure below 130/80 mmHg without orthostatic symptoms by the eight-week review</td><td>1953-08-19</td><td>completed</td><td>Blood pressure 128/76 mmHg on amlodipine 5 mg and lisinopril 5 mg; no orthostatic fall</td></tr>
+  <tr><td>Lower LDL cholesterol below 70 mg/dL by the eight-week review</td><td>1953-08-19</td><td>completed</td><td>LDL cholesterol 58 mg/dL on atorvastatin 80 mg</td></tr>
+  <tr><td>Return to full work and public speaking by about three months after the stroke</td><td>1953-10-07</td><td>completed</td><td>Back at full work; modified Rankin Scale 1</td></tr>
+  <tr><td>Keep to no more than two drinks on any day</td><td>1953-10-07</td><td>active</td><td>AUDIT-C from 8 to 5; no longer drinking six or more on one occasion, but still above two drinks on some days</td></tr>
+  <tr><td>Cut down to three cigars a day as a step toward stopping</td><td>1953-10-07</td><td>completed</td><td>Three cigars a day; not ready to stop</td></tr></tbody></table></section>
+    <section><h2>Interventions</h2><table><thead><tr><th>Intervention</th><th>Status</th><th>Guideline</th></tr></thead><tbody>
+  <tr><td>Aspirin with clopidogrel for 21 days after the minor stroke, then clopidogrel 75 mg alone</td><td>completed</td><td>GL-STROKE-2021, GL-CMID-2026</td></tr>
+  <tr><td>Atorvastatin 80 mg with a lipid panel 4 to 12 weeks after starting, aiming for LDL cholesterol below 70 mg/dL</td><td>completed</td><td>GL-STROKE-2021, GL-CMID-2026</td></tr>
+  <tr><td>Lower blood pressure below 130/80 with amlodipine and lisinopril, checking standing blood pressure at each visit and a basic metabolic panel 1 to 2 weeks after starting lisinopril</td><td>completed</td><td>GL-STROKE-2021, GL-HTN-2025, GL-CMID-2026</td></tr>
+  <tr><td>Neurology consultation to confirm the stroke mechanism, set the antiplatelet plan after the 21-day course, decide on prolonged cardiac rhythm monitoring, and advise on return to work and public speaking</td><td>completed</td><td>GL-STROKE-2021, GL-ARRH-2024</td></tr>
+  <tr><td>Outpatient physical and occupational therapy for left-sided weakness, with fall-risk review at every visit</td><td>completed</td><td>GL-PCAS-2021, GL-CMID-2026</td></tr>
+  <tr><td>PHQ-9 at the first visit and at each review while symptoms persist, MoCA again within the first year, and attention to post-stroke tearfulness</td><td>completed</td><td>GL-PCAS-2021, GL-CMID-2026</td></tr>
+  <tr><td>Brief interventions at every visit for unhealthy alcohol use (AUDIT-C, no more than two drinks a day) and cigar smoking, with nicotine replacement offered</td><td>completed</td><td>GL-STROKE-2021, GL-USPSTF-ALCOHOL-2018, GL-TOBACCO-2021</td></tr>
+  <tr><td>Yearly influenza vaccine and current COVID-19 vaccine</td><td>completed</td><td>GL-STROKE-2021, GL-CMID-2026</td></tr></tbody></table></section>
+    <section><h2>Planned encounters</h2><ul>
+  <li><strong>1953-07-01</strong> — Primary care transition visit eight days after a minor ischemic stroke <span class="muted">(ENC-001)</span></li>
+  <li><strong>1953-07-15</strong> — Two-week stroke review at the end of dual antiplatelet therapy, and neurology consultation <span class="muted">(ENC-002)</span></li>
+  <li><strong>1953-07-29</strong> — Same-day sick visit for lightheadedness on standing <span class="muted">(ENC-005, unscheduled)</span></li>
+  <li><strong>1953-08-19</strong> — Eight-week stroke and blood pressure review with lipid panel and rhythm-monitor results <span class="muted">(ENC-003)</span></li>
+  <li><strong>1953-10-07</strong> — Three-month stroke review before returning to public speaking <span class="muted">(ENC-004)</span></li>
+  <li><strong>1953-10-28</strong> — Subsequent annual wellness visit <span class="muted">(ENC-006)</span></li></ul></section>
+    <section><h2>Supporting documents</h2><ul><li><a href="notes/hp.md">History and physical</a></li><li><a href="notes/progress-01.md">Progress note 01</a></li><li><a href="notes/progress-02.md">Progress note 02 — Focused Visit (Follow-up)</a></li><li><a href="notes/progress-03.md">Progress note 03 — Sick Visit</a></li><li><a href="notes/progress-04.md">Progress note 04 — Focused Visit (Follow-up)</a></li><li><a href="notes/progress-05.md">Progress note 05 — Focused Visit (Care-plan review)</a></li><li><a href="notes/progress-06.md">Progress note 06 — Annual Wellness Visit, Subsequent</a></li><li><a href="notes/referral-01.md">Neurology referral</a></li><li><a href="notes/consult-01.md">Neurology consultation</a></li><li><a href="notes/careplan.md">Patient care plan</a></li><li><a href="notes/teaching-note.md">Teaching note</a></li><li><a href="provenance.csv">Provenance CSV</a></li></ul></section>
+    <section><h2>C-CDA note documents</h2><p class="muted">Each link opens a readable copy; the XML beside it is the exchange file.</p><ul><li><a href="ccda/hp-01.html">History and physical</a> <a href="ccda/hp-01.xml">(XML)</a></li><li><a href="ccda/progress-01.html">Progress note 01</a> <a href="ccda/progress-01.xml">(XML)</a></li><li><a href="ccda/progress-02.html">Progress note 02 — Focused Visit (Follow-up)</a> <a href="ccda/progress-02.xml">(XML)</a></li><li><a href="ccda/progress-03.html">Progress note 03 — Sick Visit</a> <a href="ccda/progress-03.xml">(XML)</a></li><li><a href="ccda/progress-04.html">Progress note 04 — Focused Visit (Follow-up)</a> <a href="ccda/progress-04.xml">(XML)</a></li><li><a href="ccda/progress-05.html">Progress note 05 — Focused Visit (Care-plan review)</a> <a href="ccda/progress-05.xml">(XML)</a></li><li><a href="ccda/progress-06.html">Progress note 06 — Annual Wellness Visit, Subsequent</a> <a href="ccda/progress-06.xml">(XML)</a></li><li><a href="ccda/referral-01.html">Neurology referral</a> <a href="ccda/referral-01.xml">(XML)</a></li><li><a href="ccda/consult-01.html">Neurology consultation</a> <a href="ccda/consult-01.xml">(XML)</a></li></ul></section>
+    <section><h2>Sources</h2><table><thead><tr><th>ID</th><th>Source</th><th>Publisher</th><th>Type</th></tr></thead><tbody>
+  <tr>
+    <td>SRC-0001</td>
+    <td><a href="https://www.gov.uk/government/history/past-prime-ministers/winston-churchill" target="_blank" rel="noreferrer">Past Prime Ministers: Sir Winston Churchill</a></td>
+    <td>UK Government (GOV.UK)</td>
+    <td>government</td>
+  </tr>
+  <tr>
+    <td>SRC-0002</td>
+    <td><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC6194955" target="_blank" rel="noreferrer">Scadding JW, Vale JA. Winston Churchill&#39;s acute stroke in June 1953. J R Soc Med. 2018;111(10):347-358 (PMC6194955)</a></td>
+    <td>Journal of the Royal Society of Medicine</td>
+    <td>scholarly</td>
+  </tr>
+  <tr>
+    <td>SRC-0003</td>
+    <td><a href="https://archives.chu.cam.ac.uk/news/review-of-winston-churchills-illnesses-1886-1965" target="_blank" rel="noreferrer">Crisp A. Review of &quot;Winston Churchill&#39;s Illnesses 1886-1965&quot; by Allister Vale and John Scadding</a></td>
+    <td>Churchill Archives Centre, University of Cambridge</td>
+    <td>scholarly</td>
+  </tr>
+  <tr>
+    <td>SRC-0004</td>
+    <td><a href="https://winstonchurchill.org/publications/churchill-bulletin/bulletin-093-mar-2016/churchill-s-secret/" target="_blank" rel="noreferrer">Mather JH. Churchill&#39;s Secret: A Medical Analysis of the New Drama from ITV. Churchill Bulletin 93</a></td>
+    <td>International Churchill Society</td>
+    <td>scholarly</td>
+  </tr>
+  <tr>
+    <td>SRC-0005</td>
+    <td><a href="https://winstonchurchill.org/publications/finest-hour/finest-hour-117/keeping-the-memory-green-and-the-record-accurate-leading-churchill-myths-6-lord-randolph-churchill-died-of-syphilis/" target="_blank" rel="noreferrer">Mather JH. Leading Churchill Myths (6): Lord Randolph Churchill Died of Syphilis. Finest Hour 117</a></td>
+    <td>International Churchill Society</td>
+    <td>scholarly</td>
+  </tr>
+  <tr>
+    <td>SRC-0006</td>
+    <td><a href="https://humanrecord.example.org/internal/HISTMED_Master_Roster_v3.xlsx" target="_blank" rel="noreferrer">HISTMED Master Roster v3</a></td>
+    <td>The Human Record project</td>
+    <td>other</td>
+  </tr></tbody></table></section>
+    <section><h2>Review status</h2><table><thead><tr><th>Review</th><th>Status</th><th>Notes</th></tr></thead><tbody>
+  <tr><td>schema validation</td><td>not_started</td><td>Run scripts/build.ps1 -Conformance.</td></tr>
+  <tr><td>clinical review</td><td>not_started</td><td>Awaiting clinician review; check the 21-day dual antiplatelet course, the blood pressure titration in a 78-year-old, and the decision not to diagnose a depressive disorder.</td></tr>
+  <tr><td>provenance review</td><td>not_started</td><td>GOV.UK, the 2018 JRSM paper, the Churchill Archives Centre review, and two International Churchill Society articles logged; the roster&#39;s alcohol use disorder, PTSD, and obesity labels were not verified and are not used.</td></tr>
+  <tr><td>safe messaging review</td><td>not_started</td><td>The black dog depression is R and disputed. Post-stroke mood symptoms are mild (PHQ-9 below 10, item 9 scored 0), no behavioral-health diagnosis is coded, and the alcohol and tobacco content is limited to sourced history and modern screening.</td></tr></tbody></table></section>
+  </main>
+</body>
+</html>

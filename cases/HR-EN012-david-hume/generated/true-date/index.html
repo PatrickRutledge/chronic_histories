@@ -1,0 +1,680 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>David Hume — The Human Record</title>
+  <style>
+    :root { --navy:#17365d; --blue:#1f4e78; --pale:#eef5fa; --ink:#1f2933; --muted:#66788a; --amber:#fff2cc; --red:#f8d7da; --green:#d9ead3; }
+    * { box-sizing:border-box; }
+    body { margin:0; font:16px/1.5 Arial, sans-serif; color:var(--ink); background:#f6f8fa; }
+    header { background:var(--navy); color:white; padding:24px max(24px,calc((100vw - 1180px)/2)); }
+    header h1 { margin:4px 0; font-size:30px; }
+    .banner { background:#b42318; color:white; font-weight:700; text-align:center; padding:10px; letter-spacing:.03em; }
+    main { max-width:1180px; margin:24px auto 60px; padding:0 24px; }
+    section { background:white; border:1px solid #d9e1e8; border-radius:8px; margin:18px 0; padding:20px; }
+    h2 { color:var(--navy); margin:0 0 14px; font-size:22px; }
+    h3 { color:var(--blue); }
+    .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:12px; }
+    .card { background:var(--pale); border-left:4px solid var(--blue); padding:12px; }
+    .label { color:var(--muted); font-size:13px; text-transform:uppercase; letter-spacing:.04em; }
+    table { width:100%; border-collapse:collapse; }
+    th { background:var(--blue); color:white; text-align:left; }
+    th,td { padding:9px; border-bottom:1px solid #dfe6ec; vertical-align:top; }
+    .badge { display:inline-block; min-width:28px; text-align:center; font-weight:700; border-radius:12px; padding:2px 8px; }
+    .grade-D { background:var(--green); } .grade-R { background:var(--amber); } .grade-S { background:var(--red); }
+    .muted { color:var(--muted); font-size:14px; }
+    .relationship { color:var(--muted); font-size:12px; }
+    .downloads a { display:inline-block; margin:4px 8px 4px 0; padding:8px 12px; background:var(--blue); color:white; text-decoration:none; border-radius:5px; }
+    @media (max-width:700px) { table { display:block; overflow-x:auto; } }
+  </style>
+</head>
+<body>
+  <div class="banner">SYNTHETIC RECORD, NOT A REAL MEDICAL RECORD</div>
+  <div class="banner">True-date frame: synthetic events are moved into the patient&#39;s historical lifetime. Codes, instruments, and treatments remain modern and are anachronistic.</div>
+  <header>
+    <div>The Human Record</div>
+    <h1>David Hume</h1>
+    <div>Case HR-EN012-TD · Modern EHR teaching episode · Draft for review</div>
+  </header>
+  <main>
+    <section>
+      <h2>Review summary</h2>
+      <div class="grid">
+        <div class="card"><div class="label">Historical dates</div>May 7, 1711 – August 25, 1776</div>
+        <div class="card"><div class="label">Synthetic DOB</div>1711-05-07</div>
+        <div class="card"><div class="label">Index visit</div>1775-05-11 at age 64</div>
+        <div class="card"><div class="label">Synthetic MRN</div>HR-EN012-SYN-TD</div>
+      </div>
+      <p><strong>Teaching objective:</strong> Recognize iron deficiency anemia with a change in bowel habit in a man of 64 as possible colorectal cancer; complete colonoscopy, staging CT, and CEA; coordinate preoperative intravenous iron, resection, and three months of adjuvant CAPOX; and begin survivorship surveillance on the CMID schedule with neuropathy and distress checks.</p>
+      <div class="downloads">
+        <a href="../case.json">Canonical JSON</a>
+        <a href="fhir-bundle.json">FHIR R4 draft</a>
+        <a href="ccda.html">C-CDA R2.1 summary</a> <a href="ccda.xml">(XML)</a>
+        <a href="../sources.md">Evidence dossier</a>
+      </div>
+    </section>
+    <section><h2>Historical timeline</h2><table><thead><tr><th>Date</th><th>Event</th><th>Claims</th></tr></thead><tbody>
+  <tr><td>May 7, 1711 (April 26, 1711, Old Style)</td><td>Born at Edinburgh.</td><td>CLM-0001</td></tr>
+  <tr><td>September 1729</td><td>Beginning of a long illness described in his letter to a physician.</td><td>CLM-0003</td></tr>
+  <tr><td>1749</td><td>His mother had died by the time he went to live at his brother&#39;s house.</td><td>CLM-0002</td></tr>
+  <tr><td>Spring 1775</td><td>Struck with a disorder in his bowels.</td><td>CLM-0004</td></tr>
+  <tr><td>Early 1776</td><td>Attending physician describes a hemorrhage in the upper intestines.</td><td>CLM-0005</td></tr>
+  <tr><td>April 18, 1776</td><td>Finished My Own Life.</td><td>CLM-0004</td></tr>
+  <tr><td>May 13, 1776</td><td>Wrote from Bath that his physicians disagreed about the diagnosis.</td><td>CLM-0006, CLM-0007</td></tr>
+  <tr><td>August 20, 1776</td><td>Described his illness as a diarrhoea of two years.</td><td>CLM-0008</td></tr>
+  <tr><td>August 25, 1776</td><td>Died at Edinburgh; no examination after death.</td><td>CLM-0009, CLM-0010</td></tr></tbody></table></section>
+    <section><h2>Evidence claims</h2><p class="muted">D = documented, R = retrospective, S = synthetic.</p><table><thead><tr><th>Grade</th><th>Claim</th><th>Certainty</th><th>Sources</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>David Hume was born at Edinburgh on April 26, 1711, Old Style (May 7, 1711, in the Gregorian calendar), the second son of Joseph Hume of Ninewells in Berwickshire.</strong><div class="muted">The New Style date is the Old Style date plus eleven days; Britain adopted the Gregorian calendar in 1752.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://davidhume.org/texts/mol/" target="_blank" rel="noreferrer">Hume D. My Own Life (dated April 18, 1776)</a> <span class="relationship">supports</span><br><a href="https://www.gutenberg.org/ebooks/42843" target="_blank" rel="noreferrer">Burton JH. Life and Correspondence of David Hume, Volume 1. Edinburgh: William Tait; 1846</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>In My Own Life Hume wrote that his father died when he was an infant, leaving him, an elder brother, and a sister in their mother&#39;s care, and that his mother had died by the time he went to live at his brother&#39;s country house in 1749.</strong><div class="muted">No cause of death is given for either parent in this source.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://davidhume.org/texts/mol/" target="_blank" rel="noreferrer">Hume D. My Own Life (dated April 18, 1776)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>In a letter to a physician written about 1734, Hume described an illness beginning about September 1729, when he was eighteen: loss of his ardour for study, scurvy spots on his fingers, and from about April 1730 a watery mouth, which his physician called &#39;the disease of the learned&#39;; he was treated with bitters, anti-hysteric pills, a pint of claret a day, and riding, and in 1731 had a ravenous appetite and palpitations.</strong><div class="muted">Contemporary description and label only; no modern diagnosis is inferred.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.gutenberg.org/ebooks/42843" target="_blank" rel="noreferrer">Burton JH. Life and Correspondence of David Hume, Volume 1. Edinburgh: William Tait; 1846</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>In My Own Life, dated April 18, 1776, Hume wrote that in spring 1775 he was struck with a disorder in his bowels, which at first gave him no alarm but which he came to judge mortal and incurable; he wrote that he had suffered very little pain and that his spirits had never abated.</strong><div class="muted">The documented onset that anchors the synthetic episode. His equanimity is recorded here as sourced history only.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://davidhume.org/texts/mol/" target="_blank" rel="noreferrer">Hume D. My Own Life (dated April 18, 1776)</a> <span class="relationship">supports</span><br><a href="https://www.gutenberg.org/ebooks/42844" target="_blank" rel="noreferrer">Burton JH. Life and Correspondence of David Hume, Volume 2. Edinburgh: William Tait; 1846</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>In an undated letter written early in 1776, the physician attending Hume reported that he had been declining slowly for several years and more rapidly for about a year, with a sensation of excessive heat chiefly at night, and inferred a hemorrhage in the upper part of the intestines; the letter reports Hume&#39;s statement that his mother had the same constitution and died of the same disorder.</strong><div class="muted">Contemporary physician&#39;s inference; the family history is Hume&#39;s own report as relayed in the letter.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.gutenberg.org/ebooks/42844" target="_blank" rel="noreferrer">Burton JH. Life and Correspondence of David Hume, Volume 2. Edinburgh: William Tait; 1846</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>Writing from Bath on May 13, 1776, Hume reported that his physicians disagreed about his disorder: one called it a hemorrhage, another a stricture (&#39;spincture&#39;) of the colon that would be easy to cure, and a third a bilious complaint.</strong><div class="muted">Documents that no agreed diagnosis was reached in his lifetime.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.gutenberg.org/ebooks/42844" target="_blank" rel="noreferrer">Burton JH. Life and Correspondence of David Hume, Volume 2. Edinburgh: William Tait; 1846</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>Hume left Edinburgh in late April 1776, passing Morpeth on April 23, and travelled by London to Bath to take the waters; an early improvement had faded by June, and he returned to Edinburgh.</strong></td>
+    <td>confirmed</td>
+    <td><a href="https://www.gutenberg.org/ebooks/42844" target="_blank" rel="noreferrer">Burton JH. Life and Correspondence of David Hume, Volume 2. Edinburgh: William Tait; 1846</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>In a letter of August 20, 1776, Hume described his distemper as a diarrhoea, or disorder in his bowels, which had been gradually undermining him for two years and had been visibly hastening his end within the last six months.</strong></td>
+    <td>confirmed</td>
+    <td><a href="https://www.gutenberg.org/ebooks/42844" target="_blank" rel="noreferrer">Burton JH. Life and Correspondence of David Hume, Volume 2. Edinburgh: William Tait; 1846</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>Hume died at Edinburgh about four in the afternoon on August 25, 1776, aged 65; his physician wrote that he remained perfectly sensible and free from much pain to the last. His body was not opened after death, so the cause of his illness was never established.</strong><div class="muted">Record the death as a fact without graphic detail.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.gutenberg.org/ebooks/42844" target="_blank" rel="noreferrer">Burton JH. Life and Correspondence of David Hume, Volume 2. Edinburgh: William Tait; 1846</a> <span class="relationship">supports</span><br><a href="https://plato.stanford.edu/entries/hume/" target="_blank" rel="noreferrer">Qu H, Radcliffe ES. David Hume. Stanford Encyclopedia of Philosophy</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-R" title="Retrospective">R</span></td>
+    <td><strong>Hume&#39;s final illness has been interpreted retrospectively as colon cancer; a modern essay calls his death &#39;probably from colon cancer,&#39; and a reference work describes a terminal abdominal cancer.</strong><div class="muted">Retrospective interpretation without pathology. Spread to the liver is sometimes suggested but was not confirmed in a fetched source and is not asserted.</div></td>
+    <td>possible</td>
+    <td><a href="https://www.wilsonquarterly.com/quarterly/_/death-hume/" target="_blank" rel="noreferrer">Miller S. The Death of Hume. The Wilson Quarterly</a> <span class="relationship">supports</span><br><a href="https://plato.stanford.edu/entries/hume/" target="_blank" rel="noreferrer">Qu H, Radcliffe ES. David Hume. Stanford Encyclopedia of Philosophy</a> <span class="relationship">supports</span><br><a href="https://pubmed.ncbi.nlm.nih.gov/11621530/" target="_blank" rel="noreferrer">Wilkinson J. The last illness of David Hume. Proc R Coll Physicians Edinb. 1988;18(1):72-79. PMID 11621530</a> <span class="relationship">context</span></td>
+  </tr></tbody></table></section>
+    <section><h2>Modern synthetic problem list</h2><table><thead><tr><th>Grade</th><th>Problem</th><th>Clinical status</th><th>Verification</th><th>Placement</th><th>Historical claims</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Adenocarcinoma of the sigmoid colon, suspected at presentation, confirmed by colonoscopic biopsy one week later, and staged IIIB (pT3 N1a M0) at resection; mismatch-repair proficient; synthetic modern diagnosis linked to the documented 1775 bowel disorder and its retrospective interpretation as colon cancer</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>both_with_link</td>
+    <td>CLM-0004, CLM-0005, CLM-0010</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Iron deficiency anemia from chronic blood loss from the colon tumor</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td>CLM-0005</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Hemangioma of the liver, 9 mm, segment VI; incidental finding characterized by MRI, not a metastasis</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td>CLM-0010</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Acute viral upper respiratory infection during adjuvant chemotherapy, without fever or neutropenia; resolved</td>
+    <td>resolved</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Oxaliplatin-induced sensory peripheral neuropathy, grade 1, fingertips and toe tips, without functional impairment</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td></td>
+  </tr></tbody></table></section>
+    <section><h2>Synthetic outcome measures</h2><table><thead><tr><th>Grade</th><th>Date</th><th>Measure</th><th>Result</th><th>Coding</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1775-05-11</td>
+    <td>Hemoglobin [Mass/volume] in Blood</td>
+    <td>10.6 g/dL (low)<div class="muted">Reference 13.2-16.6 g/dL</div></td>
+    <td>http://loinc.org · 718-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1775-05-11</td>
+    <td>MCV [Entitic mean volume] in Red Blood Cells by Automated count</td>
+    <td>74 fL (low)<div class="muted">Reference 80-100 fL</div></td>
+    <td>http://loinc.org · 787-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1775-05-11</td>
+    <td>Leukocytes [#/volume] in Blood by Automated count</td>
+    <td>7.4 10*3/uL<div class="muted">Reference 4-11 10*3/uL</div></td>
+    <td>http://loinc.org · 6690-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1775-05-11</td>
+    <td>Platelets [#/volume] in Blood by Automated count</td>
+    <td>438 10*3/uL (high)<div class="muted">Reference 150-400 10*3/uL</div></td>
+    <td>http://loinc.org · 777-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1775-05-11</td>
+    <td>Ferritin [Mass/volume] in Serum or Plasma</td>
+    <td>9 ng/mL (low)<div class="muted">Reference 30-400 ng/mL</div></td>
+    <td>http://loinc.org · 2276-4</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1775-05-11</td>
+    <td>Iron saturation [Mass Fraction] in Serum or Plasma</td>
+    <td>6% (low)<div class="muted">Reference 20-50%</div></td>
+    <td>http://loinc.org · 2502-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1775-05-11</td>
+    <td>Sodium [Moles/volume] in Serum or Plasma</td>
+    <td>139 mmol/L<div class="muted">Reference 135-145 mmol/L</div></td>
+    <td>http://loinc.org · 2951-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1775-05-11</td>
+    <td>Potassium [Moles/volume] in Serum or Plasma</td>
+    <td>4.2 mmol/L<div class="muted">Reference 3.5-5.1 mmol/L</div></td>
+    <td>http://loinc.org · 2823-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1775-05-11</td>
+    <td>Creatinine [Mass/volume] in Serum or Plasma</td>
+    <td>0.94 mg/dL<div class="muted">Reference 0.74-1.35 mg/dL</div></td>
+    <td>http://loinc.org · 2160-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1775-05-11</td>
+    <td>Glomerular filtration rate [Volume Rate/Area] in Serum, Plasma or Blood by Creatinine-based formula (CKD-EPI 1770)/1.73 sq M</td>
+    <td>91 mL/min/1.73 m²<div class="muted">Reference &gt;=60 mL/min/1.73 m²</div></td>
+    <td>http://loinc.org · 98979-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1775-05-11</td>
+    <td>Alanine aminotransferase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>22 U/L<div class="muted">Reference 7-55 U/L</div></td>
+    <td>http://loinc.org · 1742-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1775-05-11</td>
+    <td>Albumin [Mass/volume] in Serum or Plasma</td>
+    <td>3.8 g/dL<div class="muted">Reference 3.5-5 g/dL</div></td>
+    <td>http://loinc.org · 1751-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1775-05-11</td>
+    <td>Patient Health Questionnaire 2 item (PHQ-2) total score [Reported]</td>
+    <td>1</td>
+    <td>http://loinc.org · 55758-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1775-06-01</td>
+    <td>Carcinoembryonic Ag [Mass/volume] in Serum or Plasma</td>
+    <td>6.4 ng/mL (high)<div class="muted">Reference &lt;=3 ng/mL</div></td>
+    <td>http://loinc.org · 2039-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1775-06-01</td>
+    <td>Hemoglobin [Mass/volume] in Blood</td>
+    <td>10.3 g/dL (low)<div class="muted">Reference 13.2-16.6 g/dL</div></td>
+    <td>http://loinc.org · 718-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1775-06-01</td>
+    <td>Alanine aminotransferase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>24 U/L<div class="muted">Reference 7-55 U/L</div></td>
+    <td>http://loinc.org · 1742-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1775-06-01</td>
+    <td>Aspartate aminotransferase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>21 U/L<div class="muted">Reference 8-48 U/L</div></td>
+    <td>http://loinc.org · 1920-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1775-06-01</td>
+    <td>Alkaline phosphatase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>88 U/L<div class="muted">Reference 40-129 U/L</div></td>
+    <td>http://loinc.org · 6768-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1775-06-01</td>
+    <td>Bilirubin.total [Mass/volume] in Serum or Plasma</td>
+    <td>0.6 mg/dL<div class="muted">Reference 0.1-1.2 mg/dL</div></td>
+    <td>http://loinc.org · 1975-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1775-07-13</td>
+    <td>Carcinoembryonic Ag [Mass/volume] in Serum or Plasma</td>
+    <td>2.2 ng/mL<div class="muted">Reference &lt;=3 ng/mL</div></td>
+    <td>http://loinc.org · 2039-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1775-07-13</td>
+    <td>Hemoglobin [Mass/volume] in Blood</td>
+    <td>12.4 g/dL (low)<div class="muted">Reference 13.2-16.6 g/dL</div></td>
+    <td>http://loinc.org · 718-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1775-07-13</td>
+    <td>MCV [Entitic mean volume] in Red Blood Cells by Automated count</td>
+    <td>82 fL<div class="muted">Reference 80-100 fL</div></td>
+    <td>http://loinc.org · 787-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1775-07-13</td>
+    <td>Leukocytes [#/volume] in Blood by Automated count</td>
+    <td>6.8 10*3/uL<div class="muted">Reference 4-11 10*3/uL</div></td>
+    <td>http://loinc.org · 6690-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1775-07-13</td>
+    <td>Neutrophils [#/volume] in Blood by Automated count</td>
+    <td>4.1 10*3/uL<div class="muted">Reference 1.5-7.7 10*3/uL</div></td>
+    <td>http://loinc.org · 751-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1775-07-13</td>
+    <td>Platelets [#/volume] in Blood by Automated count</td>
+    <td>312 10*3/uL<div class="muted">Reference 150-400 10*3/uL</div></td>
+    <td>http://loinc.org · 777-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1775-07-13</td>
+    <td>Ferritin [Mass/volume] in Serum or Plasma</td>
+    <td>186 ng/mL<div class="muted">Reference 30-400 ng/mL</div></td>
+    <td>http://loinc.org · 2276-4</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1775-07-13</td>
+    <td>Iron saturation [Mass Fraction] in Serum or Plasma</td>
+    <td>24%<div class="muted">Reference 20-50%</div></td>
+    <td>http://loinc.org · 2502-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1775-07-13</td>
+    <td>Creatinine [Mass/volume] in Serum or Plasma</td>
+    <td>0.96 mg/dL<div class="muted">Reference 0.74-1.35 mg/dL</div></td>
+    <td>http://loinc.org · 2160-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1775-07-13</td>
+    <td>Glomerular filtration rate [Volume Rate/Area] in Serum, Plasma or Blood by Creatinine-based formula (CKD-EPI 1770)/1.73 sq M</td>
+    <td>88 mL/min/1.73 m²<div class="muted">Reference &gt;=60 mL/min/1.73 m²</div></td>
+    <td>http://loinc.org · 98979-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1775-07-13</td>
+    <td>Alanine aminotransferase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>20 U/L<div class="muted">Reference 7-55 U/L</div></td>
+    <td>http://loinc.org · 1742-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1775-07-13</td>
+    <td>Bilirubin.total [Mass/volume] in Serum or Plasma</td>
+    <td>0.5 mg/dL<div class="muted">Reference 0.1-1.2 mg/dL</div></td>
+    <td>http://loinc.org · 1975-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1775-07-13</td>
+    <td>Albumin [Mass/volume] in Serum or Plasma</td>
+    <td>3.9 g/dL<div class="muted">Reference 3.5-5 g/dL</div></td>
+    <td>http://loinc.org · 1751-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1775-07-13</td>
+    <td>Patient Health Questionnaire 2 item (PHQ-2) total score [Reported]</td>
+    <td>1</td>
+    <td>http://loinc.org · 55758-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1775-10-19</td>
+    <td>Carcinoembryonic Ag [Mass/volume] in Serum or Plasma</td>
+    <td>1.8 ng/mL<div class="muted">Reference &lt;=3 ng/mL</div></td>
+    <td>http://loinc.org · 2039-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1775-10-19</td>
+    <td>Hemoglobin [Mass/volume] in Blood</td>
+    <td>12.8 g/dL (low)<div class="muted">Reference 13.2-16.6 g/dL</div></td>
+    <td>http://loinc.org · 718-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1775-10-19</td>
+    <td>MCV [Entitic mean volume] in Red Blood Cells by Automated count</td>
+    <td>89 fL<div class="muted">Reference 80-100 fL</div></td>
+    <td>http://loinc.org · 787-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1775-10-19</td>
+    <td>Leukocytes [#/volume] in Blood by Automated count</td>
+    <td>5.2 10*3/uL<div class="muted">Reference 4-11 10*3/uL</div></td>
+    <td>http://loinc.org · 6690-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1775-10-19</td>
+    <td>Neutrophils [#/volume] in Blood by Automated count</td>
+    <td>2.9 10*3/uL<div class="muted">Reference 1.5-7.7 10*3/uL</div></td>
+    <td>http://loinc.org · 751-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1775-10-19</td>
+    <td>Platelets [#/volume] in Blood by Automated count</td>
+    <td>128 10*3/uL (low)<div class="muted">Reference 150-400 10*3/uL</div></td>
+    <td>http://loinc.org · 777-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1775-10-19</td>
+    <td>Creatinine [Mass/volume] in Serum or Plasma</td>
+    <td>0.92 mg/dL<div class="muted">Reference 0.74-1.35 mg/dL</div></td>
+    <td>http://loinc.org · 2160-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1775-10-19</td>
+    <td>Glomerular filtration rate [Volume Rate/Area] in Serum, Plasma or Blood by Creatinine-based formula (CKD-EPI 1770)/1.73 sq M</td>
+    <td>93 mL/min/1.73 m²<div class="muted">Reference &gt;=60 mL/min/1.73 m²</div></td>
+    <td>http://loinc.org · 98979-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1775-10-19</td>
+    <td>Alanine aminotransferase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>31 U/L<div class="muted">Reference 7-55 U/L</div></td>
+    <td>http://loinc.org · 1742-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1775-10-19</td>
+    <td>Bilirubin.total [Mass/volume] in Serum or Plasma</td>
+    <td>0.7 mg/dL<div class="muted">Reference 0.1-1.2 mg/dL</div></td>
+    <td>http://loinc.org · 1975-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1775-10-19</td>
+    <td>Patient Health Questionnaire 2 item (PHQ-2) total score [Reported]</td>
+    <td>0</td>
+    <td>http://loinc.org · 55758-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1775-09-08</td>
+    <td>Leukocytes [#/volume] in Blood by Automated count</td>
+    <td>4.6 10*3/uL<div class="muted">Reference 4-11 10*3/uL</div></td>
+    <td>http://loinc.org · 6690-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1775-09-08</td>
+    <td>Neutrophils [#/volume] in Blood by Automated count</td>
+    <td>2.4 10*3/uL<div class="muted">Reference 1.5-7.7 10*3/uL</div></td>
+    <td>http://loinc.org · 751-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1775-09-08</td>
+    <td>Hemoglobin [Mass/volume] in Blood</td>
+    <td>12.1 g/dL (low)<div class="muted">Reference 13.2-16.6 g/dL</div></td>
+    <td>http://loinc.org · 718-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1775-09-08</td>
+    <td>Platelets [#/volume] in Blood by Automated count</td>
+    <td>156 10*3/uL<div class="muted">Reference 150-400 10*3/uL</div></td>
+    <td>http://loinc.org · 777-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1775-10-28</td>
+    <td>Cholesterol [Mass/volume] in Serum or Plasma</td>
+    <td>196 mg/dL<div class="muted">Reference &lt;=199 mg/dL</div></td>
+    <td>http://loinc.org · 2093-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1775-10-28</td>
+    <td>Cholesterol in HDL [Mass/volume] in Serum or Plasma</td>
+    <td>52 mg/dL<div class="muted">Reference &gt;=40 mg/dL</div></td>
+    <td>http://loinc.org · 2085-9</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1775-10-28</td>
+    <td>Cholesterol in LDL [Mass/volume] in Serum or Plasma by calculation</td>
+    <td>118 mg/dL (high)<div class="muted">Reference &lt;=99 mg/dL</div></td>
+    <td>http://loinc.org · 13457-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1775-10-28</td>
+    <td>Hemoglobin A1c/Hemoglobin.total in Blood</td>
+    <td>5.5%<div class="muted">Reference &lt;=5.6%</div></td>
+    <td>http://loinc.org · 4548-4</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1775-10-28</td>
+    <td>Patient Health Questionnaire 2 item (PHQ-2) total score [Reported]</td>
+    <td>0</td>
+    <td>http://loinc.org · 55758-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1775-10-28</td>
+    <td>Total score [AUDIT-C]</td>
+    <td>4</td>
+    <td>http://loinc.org · 75626-2</td>
+  </tr></tbody></table></section>
+    <section><h2>Synthetic vital signs</h2><table><thead><tr><th>Date</th><th>Measure</th><th>Result</th><th>LOINC</th><th>Grade</th></tr></thead><tbody>
+  <tr><td>1775-05-11</td><td>Body height</td><td>178 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1775-05-11</td><td>Body weight</td><td>88 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1775-05-11</td><td>Body mass index (BMI) [Ratio]</td><td>27.8 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1775-05-11</td><td>Systolic blood pressure</td><td>132 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1775-05-11</td><td>Diastolic blood pressure</td><td>80 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1775-05-11</td><td>Heart rate</td><td>92 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1775-05-11</td><td>Respiratory rate</td><td>16 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1775-05-11</td><td>Body temperature</td><td>36.8 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1775-05-11</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>98 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1775-06-01</td><td>Body height</td><td>178 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1775-06-01</td><td>Body weight</td><td>87.2 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1775-06-01</td><td>Body mass index (BMI) [Ratio]</td><td>27.5 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1775-06-01</td><td>Systolic blood pressure</td><td>130 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1775-06-01</td><td>Diastolic blood pressure</td><td>78 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1775-06-01</td><td>Heart rate</td><td>88 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1775-06-01</td><td>Respiratory rate</td><td>16 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1775-06-01</td><td>Body temperature</td><td>36.7 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1775-06-01</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>98 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1775-07-13</td><td>Body height</td><td>178 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1775-07-13</td><td>Body weight</td><td>82.5 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1775-07-13</td><td>Body mass index (BMI) [Ratio]</td><td>26 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1775-07-13</td><td>Systolic blood pressure</td><td>124 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1775-07-13</td><td>Diastolic blood pressure</td><td>76 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1775-07-13</td><td>Heart rate</td><td>78 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1775-07-13</td><td>Respiratory rate</td><td>16 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1775-07-13</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1775-07-13</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>98 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1775-10-19</td><td>Body height</td><td>178 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1775-10-19</td><td>Body weight</td><td>81 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1775-10-19</td><td>Body mass index (BMI) [Ratio]</td><td>25.6 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1775-10-19</td><td>Systolic blood pressure</td><td>122 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1775-10-19</td><td>Diastolic blood pressure</td><td>74 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1775-10-19</td><td>Heart rate</td><td>76 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1775-10-19</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1775-10-19</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1775-10-19</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>99 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1775-09-08</td><td>Body height</td><td>178 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1775-09-08</td><td>Body weight</td><td>81.6 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1775-09-08</td><td>Body mass index (BMI) [Ratio]</td><td>25.8 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1775-09-08</td><td>Systolic blood pressure</td><td>118 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1775-09-08</td><td>Diastolic blood pressure</td><td>72 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1775-09-08</td><td>Heart rate</td><td>84 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1775-09-08</td><td>Respiratory rate</td><td>16 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1775-09-08</td><td>Body temperature</td><td>37.3 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1775-09-08</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>97 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1775-10-28</td><td>Body height</td><td>178 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1775-10-28</td><td>Body weight</td><td>81.4 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1775-10-28</td><td>Body mass index (BMI) [Ratio]</td><td>25.7 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1775-10-28</td><td>Systolic blood pressure</td><td>122 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1775-10-28</td><td>Diastolic blood pressure</td><td>74 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1775-10-28</td><td>Heart rate</td><td>72 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1775-10-28</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1775-10-28</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1775-10-28</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>98 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr></tbody></table></section>
+    <section><h2>Social, functional, and mental status</h2><h3>Social history</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Occupation: writer and historian; works at his desk most mornings and is revising his books for new editions</li><li><span class="badge grade-S" title="Synthetic">S</span> Never smoker; one to two glasses of red wine with dinner most evenings; enjoys rich food; walks in town but takes little other exercise</li><li><span class="badge grade-S" title="Synthetic">S</span> Lives in his own town house in Edinburgh with a housekeeper; independent</li><li><span class="badge grade-S" title="Synthetic">S</span> Supports: a wide circle of friends who come to supper each week, and family nearby</li></ul><h3>Functional status</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Independent in all activities of daily living; tires walking up the hill to the old town at intake</li><li><span class="badge grade-S" title="Synthetic">S</span> Walking 30 minutes a day and writing every morning at the end of chemotherapy</li></ul><h3>Mental status</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Alert, genial, and wry; asks for plain facts about the diagnosis and prognosis</li><li><span class="badge grade-S" title="Synthetic">S</span> Mood good; PHQ-2 negative</li></ul></section>
+    
+    <section><h2>Allergies and medications</h2><h3>Allergies</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> No known allergy</li></ul><h3>Medications</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Ferric carboxymaltose 750 mg intravenous infusion, two doses one week apart</li><li><span class="badge grade-S" title="Synthetic">S</span> Capecitabine 500 mg oral tablet, four tablets (1749 mg, 1000 mg/m²) by mouth twice daily on days 1 to 14 of each 21-day cycle, four cycles</li><li><span class="badge grade-S" title="Synthetic">S</span> Oxaliplatin 130 mg/m² (260 mg) intravenous infusion on day 1 of each 21-day cycle, four cycles</li><li><span class="badge grade-S" title="Synthetic">S</span> Ondansetron 8 mg oral tablet, one tablet by mouth every 8 hours as needed for nausea during chemotherapy</li><li><span class="badge grade-S" title="Synthetic">S</span> Loperamide 2 mg oral capsule, two capsules after the first loose stool, then one after each loose stool, no more than eight a day</li></ul></section>
+    <section><h2>Procedures and immunizations</h2><h3>Procedures</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Colonoscopy to the cecum with biopsy: 4 cm ulcerated, partly circumferential, non-obstructing mass at 28 cm in the sigmoid colon, tattooed; no other lesions. Biopsy: moderately differentiated adenocarcinoma, mismatch-repair proteins (MLH1, PMS2, MSH2, MSH6) intact</li><li><span class="badge grade-S" title="Synthetic">S</span> CT of the chest, abdomen, and pelvis with contrast: sigmoid wall thickening with two pericolic lymph nodes up to 7 mm; lungs clear; one 9 mm indeterminate low-density lesion in liver segment VI</li><li><span class="badge grade-S" title="Synthetic">S</span> MRI of the liver with contrast: the 9 mm segment VI lesion is a typical hemangioma, with peripheral nodular enhancement and progressive fill-in; no liver metastases</li><li><span class="badge grade-S" title="Synthetic">S</span> Laparoscopic sigmoid colectomy with primary anastomosis and no stoma. Pathology: adenocarcinoma, moderately differentiated, pT3 N1a (1 of 22 nodes), margins clear, no lymphovascular or perineural invasion; stage IIIB</li><li><span class="badge grade-S" title="Synthetic">S</span> Adjuvant CAPOX chemotherapy, four 21-day cycles (three months), given by medical oncology</li></ul><h3>Immunizations</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> 1774-10-14: Influenza vaccine, 1774-1775 season</li><li><span class="badge grade-S" title="Synthetic">S</span> 1768-03-12: Tdap vaccine</li><li><span class="badge grade-S" title="Synthetic">S</span> 1775-10-28: Influenza vaccine, 1775-1776 season</li><li><span class="badge grade-S" title="Synthetic">S</span> 1775-10-28: Pneumococcal conjugate vaccine PCV20</li></ul></section>
+    <section><h2>Past medical history</h2><p class="muted">True biography with historical dates; not part of the synthetic care timeline.</p><ul><li><span class="badge grade-D" title="Documented">D</span> September 1729: Illness from about the age of eighteen, given the contemporary label &#39;the disease of the learned&#39;, with scurvy spots on the fingers, a watery mouth, and later a ravenous appetite and palpitations; treated with bitters, anti-hysteric pills, claret, and daily riding <span class="muted">(CLM-0003)</span></li></ul><h3>Family history</h3><ul><li><span class="badge grade-D" title="Documented">D</span> father: Died when Hume was an infant; cause not recorded in the cited source</li><li><span class="badge grade-D" title="Documented">D</span> mother: Died before 1749; a physician&#39;s letter of early 1776 reports Hume&#39;s statement that she had the same constitution and died of the same bowel disorder, which the source does not describe further</li></ul></section>
+    <section><h2>Care-plan goals</h2><table><thead><tr><th>Goal</th><th>Target date</th><th>Status</th><th>Outcome</th></tr></thead><tbody>
+  <tr><td>Complete diagnosis, staging, and curative resection within six weeks of presentation</td><td>1775-07-13</td><td>completed</td><td>Colonoscopy in eight days, staging complete in three and a half weeks, colectomy at five weeks</td></tr>
+  <tr><td>Replete iron stores before surgery and recover hemoglobin by the postoperative review</td><td>1775-07-13</td><td>completed</td><td>Ferritin 186 ng/mL and hemoglobin 12.4 g/dL four weeks after surgery, up from 9 ng/mL and 10.6 g/dL</td></tr>
+  <tr><td>Complete three months of adjuvant CAPOX with neuropathy no worse than grade 1</td><td>1775-10-19</td><td>completed</td><td>Four cycles completed on schedule; grade 1 sensory neuropathy</td></tr>
+  <tr><td>Start survivorship surveillance with a written survivorship care plan</td><td>1775-10-19</td><td>completed</td><td>Survivorship care plan given; CEA 1.8 ng/mL; CT and colonoscopy dates set</td></tr></tbody></table></section>
+    <section><h2>Interventions</h2><table><thead><tr><th>Intervention</th><th>Status</th><th>Guideline</th></tr></thead><tbody>
+  <tr><td>Colonoscopy with biopsy, CT of the chest, abdomen, and pelvis, and baseline CEA for iron deficiency anemia with rectal bleeding in a man of 64</td><td>completed</td><td>GL-AGA-IDA-2020, GL-NCCN-COLON-2025, GL-CMID-2026</td></tr>
+  <tr><td>Medical oncology consultation to review staging, the indeterminate liver lesion, the order of treatment, and adjuvant therapy</td><td>completed</td><td>GL-NCCN-COLON-2025</td></tr>
+  <tr><td>Intravenous ferric carboxymaltose before surgery to correct iron deficiency anemia, with ferritin and blood count rechecked six to eight weeks later</td><td>completed</td><td>GL-AGA-IDA-2020, GL-CMID-2026</td></tr>
+  <tr><td>Laparoscopic sigmoid colectomy with lymph node dissection by the colorectal surgery team</td><td>completed</td><td>GL-NCCN-COLON-2025</td></tr>
+  <tr><td>Three months (four cycles) of adjuvant CAPOX for low-risk stage III disease, after DPYD genotyping, with neuropathy, blood count, and diarrhea checks at every visit</td><td>completed</td><td>GL-IDEA-2018, GL-NCCN-COLON-2025, GL-CMID-2026</td></tr>
+  <tr><td>Survivorship surveillance: history, examination, and CEA every 3 to 6 months for 2 years, then every 6 months to 5 years; CT of the chest, abdomen, and pelvis every 6 to 12 months for 5 years; colonoscopy one year after resection</td><td>completed</td><td>GL-CMID-2026, GL-ASCRS-2021, GL-ACS-CRC-2015</td></tr>
+  <tr><td>Distress and depression screening at each visit, at least 150 minutes of activity a week, alcohol at or below one drink a day, and a written survivorship care plan</td><td>completed</td><td>GL-ACS-CRC-2015, GL-CMID-2026</td></tr></tbody></table></section>
+    <section><h2>Planned encounters</h2><ul>
+  <li><strong>1775-05-11</strong> — Primary care visit for three months of looser stools with dark blood, tiredness, and weight loss <span class="muted">(ENC-001)</span></li>
+  <li><strong>1775-06-01</strong> — Review of colonoscopy, biopsy, and staging CT; intravenous iron; medical oncology consultation <span class="muted">(ENC-002)</span></li>
+  <li><strong>1775-07-13</strong> — Review four weeks after laparoscopic sigmoid colectomy, before adjuvant chemotherapy <span class="muted">(ENC-003)</span></li>
+  <li><strong>1775-09-08</strong> — Same-day sick visit for a head cold and cough during chemotherapy <span class="muted">(ENC-005, unscheduled)</span></li>
+  <li><strong>1775-10-19</strong> — Review two weeks after completing adjuvant CAPOX and start of survivorship surveillance <span class="muted">(ENC-004)</span></li>
+  <li><strong>1775-10-28</strong> — Adult preventive visit <span class="muted">(ENC-006)</span></li></ul></section>
+    <section><h2>Supporting documents</h2><ul><li><a href="notes/hp.md">History and physical</a></li><li><a href="notes/progress-01.md">Progress note 01</a></li><li><a href="notes/progress-02.md">Progress note 02 — Focused Visit (Follow-up)</a></li><li><a href="notes/progress-03.md">Progress note 03 — Focused Visit (Follow-up)</a></li><li><a href="notes/progress-04.md">Progress note 04 — Sick Visit</a></li><li><a href="notes/progress-05.md">Progress note 05 — Focused Visit (Care-plan review)</a></li><li><a href="notes/progress-06.md">Progress note 06 — Preventive Visit</a></li><li><a href="notes/referral-01.md">Medical Oncology referral</a></li><li><a href="notes/consult-01.md">Medical Oncology consultation</a></li><li><a href="notes/careplan.md">Patient care plan</a></li><li><a href="notes/teaching-note.md">Teaching note</a></li><li><a href="provenance.csv">Provenance CSV</a></li></ul></section>
+    <section><h2>C-CDA note documents</h2><p class="muted">Each link opens a readable copy; the XML beside it is the exchange file.</p><ul><li><a href="ccda/hp-01.html">History and physical</a> <a href="ccda/hp-01.xml">(XML)</a></li><li><a href="ccda/progress-01.html">Progress note 01</a> <a href="ccda/progress-01.xml">(XML)</a></li><li><a href="ccda/progress-02.html">Progress note 02 — Focused Visit (Follow-up)</a> <a href="ccda/progress-02.xml">(XML)</a></li><li><a href="ccda/progress-03.html">Progress note 03 — Focused Visit (Follow-up)</a> <a href="ccda/progress-03.xml">(XML)</a></li><li><a href="ccda/progress-04.html">Progress note 04 — Sick Visit</a> <a href="ccda/progress-04.xml">(XML)</a></li><li><a href="ccda/progress-05.html">Progress note 05 — Focused Visit (Care-plan review)</a> <a href="ccda/progress-05.xml">(XML)</a></li><li><a href="ccda/progress-06.html">Progress note 06 — Preventive Visit</a> <a href="ccda/progress-06.xml">(XML)</a></li><li><a href="ccda/referral-01.html">Medical Oncology referral</a> <a href="ccda/referral-01.xml">(XML)</a></li><li><a href="ccda/consult-01.html">Medical Oncology consultation</a> <a href="ccda/consult-01.xml">(XML)</a></li></ul></section>
+    <section><h2>Sources</h2><table><thead><tr><th>ID</th><th>Source</th><th>Publisher</th><th>Type</th></tr></thead><tbody>
+  <tr>
+    <td>SRC-0001</td>
+    <td><a href="https://davidhume.org/texts/mol/" target="_blank" rel="noreferrer">Hume D. My Own Life (dated April 18, 1776)</a></td>
+    <td>Hume Texts Online</td>
+    <td>primary</td>
+  </tr>
+  <tr>
+    <td>SRC-0002</td>
+    <td><a href="https://www.gutenberg.org/ebooks/42843" target="_blank" rel="noreferrer">Burton JH. Life and Correspondence of David Hume, Volume 1. Edinburgh: William Tait; 1846</a></td>
+    <td>Project Gutenberg (eBook 42843)</td>
+    <td>biography</td>
+  </tr>
+  <tr>
+    <td>SRC-0003</td>
+    <td><a href="https://www.gutenberg.org/ebooks/42844" target="_blank" rel="noreferrer">Burton JH. Life and Correspondence of David Hume, Volume 2. Edinburgh: William Tait; 1846</a></td>
+    <td>Project Gutenberg (eBook 42844)</td>
+    <td>biography</td>
+  </tr>
+  <tr>
+    <td>SRC-0004</td>
+    <td><a href="https://plato.stanford.edu/entries/hume/" target="_blank" rel="noreferrer">Qu H, Radcliffe ES. David Hume. Stanford Encyclopedia of Philosophy</a></td>
+    <td>Stanford University</td>
+    <td>scholarly</td>
+  </tr>
+  <tr>
+    <td>SRC-0005</td>
+    <td><a href="https://www.wilsonquarterly.com/quarterly/_/death-hume/" target="_blank" rel="noreferrer">Miller S. The Death of Hume. The Wilson Quarterly</a></td>
+    <td>The Wilson Quarterly</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0006</td>
+    <td><a href="https://pubmed.ncbi.nlm.nih.gov/11621530/" target="_blank" rel="noreferrer">Wilkinson J. The last illness of David Hume. Proc R Coll Physicians Edinb. 1988;18(1):72-79. PMID 11621530</a></td>
+    <td>PubMed</td>
+    <td>scholarly</td>
+  </tr>
+  <tr>
+    <td>SRC-0007</td>
+    <td><a href="https://humanrecord.example.org/internal/HISTMED_Master_Roster_v3.xlsx" target="_blank" rel="noreferrer">HISTMED Master Roster v3</a></td>
+    <td>The Human Record project</td>
+    <td>other</td>
+  </tr></tbody></table></section>
+    <section><h2>Review status</h2><table><thead><tr><th>Review</th><th>Status</th><th>Notes</th></tr></thead><tbody>
+  <tr><td>schema validation</td><td>not_started</td><td>Run scripts/build.ps1 -Conformance.</td></tr>
+  <tr><td>clinical review</td><td>not_started</td><td>Awaiting clinician review; check the CAPOX duration choice, the liver lesion work-up, and the surveillance schedule.</td></tr>
+  <tr><td>provenance review</td><td>not_started</td><td>My Own Life (Hume Texts Online), the 1846 Burton biography (Project Gutenberg), the Stanford Encyclopedia entry, and a magazine essay logged; the 1988 article on his last illness was not read, and liver spread is not asserted.</td></tr>
+  <tr><td>safe messaging review</td><td>not_started</td><td>No behavioral-health diagnosis; the youthful illness is reported with its contemporary label and flagged sensitive; death recorded without graphic detail.</td></tr></tbody></table></section>
+  </main>
+</body>
+</html>

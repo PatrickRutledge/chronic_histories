@@ -377,7 +377,8 @@ foreach ($otherDir in Get-AllCaseDirectories $repoRoot) {
     $markers = @($other.identity.display_name, $other.identity.synthetic_identity.mrn) + @($other.identity.aliases) | Where-Object { $_ }
     foreach ($file in $scanFiles) {
         foreach ($marker in $markers) {
-            if ($scanText[$file] -match [regex]::Escape($marker)) { $errors.Add("$(Split-Path -Leaf $file) contains '$marker' from case $($other.case_id)") }
+            # Whole words, case-sensitive: short aliases such as "Ike" or "Cash" must not match "likely" or "cash".
+            if ($scanText[$file] -cmatch "(?<!\w)$([regex]::Escape($marker))(?!\w)") { $errors.Add("$(Split-Path -Leaf $file) contains '$marker' from case $($other.case_id)") }
         }
     }
 }
