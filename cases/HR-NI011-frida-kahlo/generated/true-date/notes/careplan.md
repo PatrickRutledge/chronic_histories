@@ -39,6 +39,7 @@
 - 1944-09-17: New primary care visit for chronic back, pelvic, and right leg pain on long-term opioid therapy **S**
 - 1944-10-01: Physical medicine and rehabilitation consultation for a multimodal rehabilitation plan **S**
 - 1944-10-15: Four-week chronic pain follow-up with the first opioid dose reduction **S**
+- 1944-10-22: Adult preventive visit **S**
 - 1944-10-29: Six-week chronic pain review of function, mood, and the opioid taper **S**
 
 This teaching document does not replace care from a qualified clinician.

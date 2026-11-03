@@ -40,5 +40,6 @@
 - 1897-04-20: Neurology consultation with EEG and brain MRI **S**
 - 1897-05-18: Review of ambulatory EEG and sleep studies; four-week headache check **S**
 - 1897-08-17: Three-month sleepiness and headache review **S**
+- 1897-10-13: Subsequent annual wellness visit **S**
 
 This teaching document does not replace care from a qualified clinician.

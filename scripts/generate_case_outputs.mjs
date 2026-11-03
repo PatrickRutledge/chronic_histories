@@ -343,6 +343,7 @@ for (const medication of data.clinical.medications) {
       reasonReference: medication.indication_problem_ids.map(problemId => ({ reference: urn(slug(problemId)) })),
       dosageInstruction: [{
         text: medication.frequency.text,
+        ...(medication.as_needed ? { asNeededBoolean: true } : {}),
         timing: { repeat: { frequency: 1, period: medication.frequency.period, periodUnit: medication.frequency.period_unit, boundsPeriod: { start: medication.start_date, ...(medication.end_date ? { end: medication.end_date } : {}) } } },
         route: { coding: [{ system: "http://snomed.info/sct", code: route.snomed, display: route.display }] },
         doseAndRate: [{ doseQuantity: { value: medication.dose.value, unit: medication.dose.unit, system: "http://unitsofmeasure.org", code: medication.dose.unit } }]

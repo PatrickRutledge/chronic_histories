@@ -465,6 +465,16 @@
         "encounter_id": "ENC-004",
         "date": "2026-08-17",
         "purpose": "Three-month sleepiness and headache review"
+      },
+      {
+        "encounter_id": "ENC-005",
+        "date": "2026-09-28",
+        "purpose": "Same-day sick visit for vomiting and diarrhea"
+      },
+      {
+        "encounter_id": "ENC-006",
+        "date": "2026-10-13",
+        "purpose": "Subsequent annual wellness visit"
       }
     ]
   },
@@ -579,6 +589,32 @@
         "clinical_status": "active",
         "verification_status": "confirmed",
         "problem_placement": "both_with_link"
+      },
+      {
+        "id": "PRB-005",
+        "display": "Acute viral gastroenteritis with mild dehydration and a prerenal creatinine rise while taking candesartan, resolved",
+        "status": "draft",
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/sid/icd-10-cm",
+            "code": "A08.4",
+            "display": "Viral intestinal infection, unspecified",
+            "version": "FY2026",
+            "validation_status": "validated",
+            "validated_on": "2026-11-03"
+          }
+        ],
+        "provenance": {
+          "evidence_grade": "S",
+          "claim_ids": [],
+          "synthetic_reason": "Synthetic intercurrent illness at an unscheduled visit; it does not echo a documented illness.",
+          "author": "The Human Record generator",
+          "created": "2026-11-03T09:00:00-05:00"
+        },
+        "clinical_status": "resolved",
+        "verification_status": "confirmed",
+        "problem_placement": "active",
+        "recorded_date": "2026-09-28"
       }
     ],
     "medications": [
@@ -651,7 +687,8 @@
           "synthetic_reason": "Synthetic limited acute treatment to avoid medication overuse.",
           "author": "The Human Record generator",
           "created": "2026-11-02T20:00:00-05:00"
-        }
+        },
+        "as_needed": true
       },
       {
         "id": "MED-003",
@@ -1709,6 +1746,442 @@
           "author": "The Human Record generator",
           "created": "2026-11-02T20:00:00-05:00"
         }
+      },
+      {
+        "id": "OBS-NA-SICK",
+        "display": "Sodium [Moles/volume] in Serum or Plasma",
+        "label": "Sodium",
+        "status": "final",
+        "category": "laboratory",
+        "effective_date": "2026-09-28",
+        "value": 136,
+        "unit": "mmol/L",
+        "reference_range": {
+          "low": 135,
+          "high": 145
+        },
+        "interpretation": "N",
+        "panel": {
+          "code": "51990-0",
+          "display": "Basic metabolic panel - Blood"
+        },
+        "coding": [
+          {
+            "system": "http://loinc.org",
+            "code": "2951-2",
+            "display": "Sodium [Moles/volume] in Serum or Plasma",
+            "version": "2.81",
+            "validation_status": "validated",
+            "validated_on": "2026-11-03"
+          }
+        ],
+        "provenance": {
+          "evidence_grade": "S",
+          "claim_ids": [],
+          "synthetic_reason": "Synthetic metabolic panel during gastroenteritis while taking candesartan: prerenal creatinine rise from volume depletion.",
+          "author": "The Human Record generator",
+          "created": "2026-11-03T09:00:00-05:00"
+        }
+      },
+      {
+        "id": "OBS-K-SICK",
+        "display": "Potassium [Moles/volume] in Serum or Plasma",
+        "label": "Potassium",
+        "status": "final",
+        "category": "laboratory",
+        "effective_date": "2026-09-28",
+        "value": 4.8,
+        "unit": "mmol/L",
+        "reference_range": {
+          "low": 3.5,
+          "high": 5.1
+        },
+        "interpretation": "N",
+        "panel": {
+          "code": "51990-0",
+          "display": "Basic metabolic panel - Blood"
+        },
+        "coding": [
+          {
+            "system": "http://loinc.org",
+            "code": "2823-3",
+            "display": "Potassium [Moles/volume] in Serum or Plasma",
+            "version": "2.81",
+            "validation_status": "validated",
+            "validated_on": "2026-11-03"
+          }
+        ],
+        "provenance": {
+          "evidence_grade": "S",
+          "claim_ids": [],
+          "synthetic_reason": "Synthetic metabolic panel during gastroenteritis while taking candesartan: prerenal creatinine rise from volume depletion.",
+          "author": "The Human Record generator",
+          "created": "2026-11-03T09:00:00-05:00"
+        }
+      },
+      {
+        "id": "OBS-CR-SICK",
+        "display": "Creatinine [Mass/volume] in Serum or Plasma",
+        "label": "Creatinine",
+        "status": "final",
+        "category": "laboratory",
+        "effective_date": "2026-09-28",
+        "value": 1.21,
+        "unit": "mg/dL",
+        "reference_range": {
+          "low": 0.59,
+          "high": 1.04
+        },
+        "interpretation": "H",
+        "panel": {
+          "code": "51990-0",
+          "display": "Basic metabolic panel - Blood"
+        },
+        "coding": [
+          {
+            "system": "http://loinc.org",
+            "code": "2160-0",
+            "display": "Creatinine [Mass/volume] in Serum or Plasma",
+            "version": "2.81",
+            "validation_status": "validated",
+            "validated_on": "2026-11-03"
+          }
+        ],
+        "provenance": {
+          "evidence_grade": "S",
+          "claim_ids": [],
+          "synthetic_reason": "Synthetic metabolic panel during gastroenteritis while taking candesartan: prerenal creatinine rise from volume depletion.",
+          "author": "The Human Record generator",
+          "created": "2026-11-03T09:00:00-05:00"
+        }
+      },
+      {
+        "id": "OBS-EGFR-SICK",
+        "display": "Glomerular filtration rate [Volume Rate/Area] in Serum, Plasma or Blood by Creatinine-based formula (CKD-EPI 2021)/1.73 sq M",
+        "label": "eGFR",
+        "status": "final",
+        "category": "laboratory",
+        "effective_date": "2026-09-28",
+        "value": 47,
+        "unit": "mL/min/{1.73_m2}",
+        "reference_range": {
+          "low": 60
+        },
+        "interpretation": "L",
+        "panel": {
+          "code": "51990-0",
+          "display": "Basic metabolic panel - Blood"
+        },
+        "coding": [
+          {
+            "system": "http://loinc.org",
+            "code": "98979-8",
+            "display": "Glomerular filtration rate [Volume Rate/Area] in Serum, Plasma or Blood by Creatinine-based formula (CKD-EPI 2021)/1.73 sq M",
+            "version": "2.81",
+            "validation_status": "validated",
+            "validated_on": "2026-11-03"
+          }
+        ],
+        "provenance": {
+          "evidence_grade": "S",
+          "claim_ids": [],
+          "synthetic_reason": "Synthetic metabolic panel during gastroenteritis while taking candesartan: prerenal creatinine rise from volume depletion.",
+          "author": "The Human Record generator",
+          "created": "2026-11-03T09:00:00-05:00"
+        }
+      },
+      {
+        "id": "OBS-GLU-SICK",
+        "display": "Glucose [Mass/volume] in Serum or Plasma",
+        "label": "Glucose",
+        "status": "final",
+        "category": "laboratory",
+        "effective_date": "2026-09-28",
+        "value": 88,
+        "unit": "mg/dL",
+        "reference_range": {
+          "low": 70,
+          "high": 99
+        },
+        "interpretation": "N",
+        "panel": {
+          "code": "51990-0",
+          "display": "Basic metabolic panel - Blood"
+        },
+        "coding": [
+          {
+            "system": "http://loinc.org",
+            "code": "2345-7",
+            "display": "Glucose [Mass/volume] in Serum or Plasma",
+            "version": "2.81",
+            "validation_status": "validated",
+            "validated_on": "2026-11-03"
+          }
+        ],
+        "provenance": {
+          "evidence_grade": "S",
+          "claim_ids": [],
+          "synthetic_reason": "Synthetic metabolic panel during gastroenteritis while taking candesartan: prerenal creatinine rise from volume depletion.",
+          "author": "The Human Record generator",
+          "created": "2026-11-03T09:00:00-05:00"
+        }
+      },
+      {
+        "id": "OBS-NA-AWV",
+        "display": "Sodium [Moles/volume] in Serum or Plasma",
+        "label": "Sodium",
+        "status": "final",
+        "category": "laboratory",
+        "effective_date": "2026-10-13",
+        "value": 139,
+        "unit": "mmol/L",
+        "reference_range": {
+          "low": 135,
+          "high": 145
+        },
+        "interpretation": "N",
+        "panel": {
+          "code": "51990-0",
+          "display": "Basic metabolic panel - Blood"
+        },
+        "coding": [
+          {
+            "system": "http://loinc.org",
+            "code": "2951-2",
+            "display": "Sodium [Moles/volume] in Serum or Plasma",
+            "version": "2.81",
+            "validation_status": "validated",
+            "validated_on": "2026-11-03"
+          }
+        ],
+        "provenance": {
+          "evidence_grade": "S",
+          "claim_ids": [],
+          "synthetic_reason": "Synthetic repeat metabolic panel about two weeks after restarting candesartan: creatinine back to baseline.",
+          "author": "The Human Record generator",
+          "created": "2026-11-03T09:00:00-05:00"
+        }
+      },
+      {
+        "id": "OBS-K-AWV",
+        "display": "Potassium [Moles/volume] in Serum or Plasma",
+        "label": "Potassium",
+        "status": "final",
+        "category": "laboratory",
+        "effective_date": "2026-10-13",
+        "value": 4.4,
+        "unit": "mmol/L",
+        "reference_range": {
+          "low": 3.5,
+          "high": 5.1
+        },
+        "interpretation": "N",
+        "panel": {
+          "code": "51990-0",
+          "display": "Basic metabolic panel - Blood"
+        },
+        "coding": [
+          {
+            "system": "http://loinc.org",
+            "code": "2823-3",
+            "display": "Potassium [Moles/volume] in Serum or Plasma",
+            "version": "2.81",
+            "validation_status": "validated",
+            "validated_on": "2026-11-03"
+          }
+        ],
+        "provenance": {
+          "evidence_grade": "S",
+          "claim_ids": [],
+          "synthetic_reason": "Synthetic repeat metabolic panel about two weeks after restarting candesartan: creatinine back to baseline.",
+          "author": "The Human Record generator",
+          "created": "2026-11-03T09:00:00-05:00"
+        }
+      },
+      {
+        "id": "OBS-CR-AWV",
+        "display": "Creatinine [Mass/volume] in Serum or Plasma",
+        "label": "Creatinine",
+        "status": "final",
+        "category": "laboratory",
+        "effective_date": "2026-10-13",
+        "value": 0.9,
+        "unit": "mg/dL",
+        "reference_range": {
+          "low": 0.59,
+          "high": 1.04
+        },
+        "interpretation": "N",
+        "panel": {
+          "code": "51990-0",
+          "display": "Basic metabolic panel - Blood"
+        },
+        "coding": [
+          {
+            "system": "http://loinc.org",
+            "code": "2160-0",
+            "display": "Creatinine [Mass/volume] in Serum or Plasma",
+            "version": "2.81",
+            "validation_status": "validated",
+            "validated_on": "2026-11-03"
+          }
+        ],
+        "provenance": {
+          "evidence_grade": "S",
+          "claim_ids": [],
+          "synthetic_reason": "Synthetic repeat metabolic panel about two weeks after restarting candesartan: creatinine back to baseline.",
+          "author": "The Human Record generator",
+          "created": "2026-11-03T09:00:00-05:00"
+        }
+      },
+      {
+        "id": "OBS-EGFR-AWV",
+        "display": "Glomerular filtration rate [Volume Rate/Area] in Serum, Plasma or Blood by Creatinine-based formula (CKD-EPI 2021)/1.73 sq M",
+        "label": "eGFR",
+        "status": "final",
+        "category": "laboratory",
+        "effective_date": "2026-10-13",
+        "value": 67,
+        "unit": "mL/min/{1.73_m2}",
+        "reference_range": {
+          "low": 60
+        },
+        "interpretation": "N",
+        "panel": {
+          "code": "51990-0",
+          "display": "Basic metabolic panel - Blood"
+        },
+        "coding": [
+          {
+            "system": "http://loinc.org",
+            "code": "98979-8",
+            "display": "Glomerular filtration rate [Volume Rate/Area] in Serum, Plasma or Blood by Creatinine-based formula (CKD-EPI 2021)/1.73 sq M",
+            "version": "2.81",
+            "validation_status": "validated",
+            "validated_on": "2026-11-03"
+          }
+        ],
+        "provenance": {
+          "evidence_grade": "S",
+          "claim_ids": [],
+          "synthetic_reason": "Synthetic repeat metabolic panel about two weeks after restarting candesartan: creatinine back to baseline.",
+          "author": "The Human Record generator",
+          "created": "2026-11-03T09:00:00-05:00"
+        }
+      },
+      {
+        "id": "OBS-GLU-AWV",
+        "display": "Glucose [Mass/volume] in Serum or Plasma",
+        "label": "Glucose",
+        "status": "final",
+        "category": "laboratory",
+        "effective_date": "2026-10-13",
+        "value": 92,
+        "unit": "mg/dL",
+        "reference_range": {
+          "low": 70,
+          "high": 99
+        },
+        "interpretation": "N",
+        "panel": {
+          "code": "51990-0",
+          "display": "Basic metabolic panel - Blood"
+        },
+        "coding": [
+          {
+            "system": "http://loinc.org",
+            "code": "2345-7",
+            "display": "Glucose [Mass/volume] in Serum or Plasma",
+            "version": "2.81",
+            "validation_status": "validated",
+            "validated_on": "2026-11-03"
+          }
+        ],
+        "provenance": {
+          "evidence_grade": "S",
+          "claim_ids": [],
+          "synthetic_reason": "Synthetic repeat metabolic panel about two weeks after restarting candesartan: creatinine back to baseline.",
+          "author": "The Human Record generator",
+          "created": "2026-11-03T09:00:00-05:00"
+        }
+      },
+      {
+        "id": "OBS-PHQ2-AWV",
+        "display": "Patient Health Questionnaire 2 item (PHQ-2) total score [Reported]",
+        "label": "PHQ-2",
+        "status": "final",
+        "effective_date": "2026-10-13",
+        "value": 0,
+        "unit": "{score}",
+        "coding": [
+          {
+            "system": "http://loinc.org",
+            "code": "55758-7",
+            "display": "Patient Health Questionnaire 2 item (PHQ-2) total score [Reported]",
+            "version": "2.81",
+            "validation_status": "validated",
+            "validated_on": "2026-11-03"
+          }
+        ],
+        "provenance": {
+          "evidence_grade": "S",
+          "claim_ids": [],
+          "synthetic_reason": "Synthetic annual depression screen, negative.",
+          "author": "The Human Record generator",
+          "created": "2026-11-03T09:00:00-05:00"
+        }
+      },
+      {
+        "id": "OBS-MINICOG-AWV",
+        "display": "Total score [Mini-Cog]",
+        "label": "Mini-Cog",
+        "status": "final",
+        "effective_date": "2026-10-13",
+        "value": 5,
+        "unit": "{score}",
+        "coding": [
+          {
+            "system": "http://loinc.org",
+            "code": "72233-0",
+            "display": "Total score [Mini-Cog]",
+            "version": "2.81",
+            "validation_status": "validated",
+            "validated_on": "2026-11-03"
+          }
+        ],
+        "provenance": {
+          "evidence_grade": "S",
+          "claim_ids": [],
+          "synthetic_reason": "Synthetic cognitive screen at the annual wellness visit (three-word recall 3 of 3, clock normal).",
+          "author": "The Human Record generator",
+          "created": "2026-11-03T09:00:00-05:00"
+        }
+      },
+      {
+        "id": "OBS-AUDITC-AWV",
+        "display": "Total score [AUDIT-C]",
+        "label": "AUDIT-C",
+        "status": "final",
+        "effective_date": "2026-10-13",
+        "value": 0,
+        "unit": "{score}",
+        "coding": [
+          {
+            "system": "http://loinc.org",
+            "code": "75626-2",
+            "display": "Total score [AUDIT-C]",
+            "version": "2.81",
+            "validation_status": "validated",
+            "validated_on": "2026-11-03"
+          }
+        ],
+        "provenance": {
+          "evidence_grade": "S",
+          "claim_ids": [],
+          "synthetic_reason": "Synthetic alcohol screen.",
+          "author": "The Human Record generator",
+          "created": "2026-11-03T09:00:00-05:00"
+        }
       }
     ],
     "procedures": [
@@ -1924,6 +2397,50 @@
           "author": "The Human Record generator",
           "created": "2026-11-02T20:00:00-05:00"
         }
+      },
+      {
+        "id": "IMM-005",
+        "display": "High-dose influenza vaccine, 2026-2027 season",
+        "status": "completed",
+        "date": "2026-10-13",
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/sid/cvx",
+            "code": "135",
+            "display": "Influenza, high-dose, trivalent, PF",
+            "validation_status": "validated",
+            "validated_on": "2026-11-03"
+          }
+        ],
+        "provenance": {
+          "evidence_grade": "S",
+          "claim_ids": [],
+          "synthetic_reason": "Synthetic adult immunization history in the modern frame; not a historical assertion.",
+          "author": "The Human Record generator",
+          "created": "2026-11-03T09:00:00-05:00"
+        }
+      },
+      {
+        "id": "IMM-006",
+        "display": "RSV vaccine, adjuvanted, single dose",
+        "status": "completed",
+        "date": "2026-10-13",
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/sid/cvx",
+            "code": "303",
+            "display": "RSV, recombinant, protein subunit RSVpreF, adjuvant reconstituted, 0.5 mL, PF",
+            "validation_status": "validated",
+            "validated_on": "2026-11-03"
+          }
+        ],
+        "provenance": {
+          "evidence_grade": "S",
+          "claim_ids": [],
+          "synthetic_reason": "Synthetic single RSV dose recommended at 75 or older.",
+          "author": "The Human Record generator",
+          "created": "2026-11-03T09:00:00-05:00"
+        }
       }
     ],
     "family_history": [],
@@ -2064,6 +2581,538 @@
           "synthetic_reason": "Synthetic modern EHR encounter.",
           "author": "The Human Record generator",
           "created": "2026-11-02T20:00:00-05:00"
+        }
+      },
+      {
+        "id": "ENC-005",
+        "display": "Same-day sick visit for vomiting and diarrhea",
+        "status": "finished",
+        "date": "2026-09-28",
+        "visit_type": "sick",
+        "type_coding": {
+          "system": "http://snomed.info/sct",
+          "code": "185345009",
+          "display": "Encounter for symptom",
+          "validation_status": "validated",
+          "validated_on": "2026-11-03"
+        },
+        "documentation": {
+          "chief_complaint": "Vomiting and watery diarrhea for two days",
+          "billing_note": "Problem-oriented office visit, established patient",
+          "hpi": {
+            "narrative": "Mrs. Tubman is a 75-year-old woman with chronic post-traumatic headache on candesartan 16 mg for prevention and provisional narcolepsy without cataplexy on modafinil 100 mg each morning, who asked for a same-day visit. Two days ago, a day after a community supper at which several other guests later became ill, she developed sudden nausea and vomited four times, followed by watery diarrhea six to eight times a day. The vomiting stopped yesterday; the diarrhea is easing, with three loose stools since midnight. There has been no blood or black stool. Her highest temperature at home was 37.8 °C. She has kept down small sips of water and broth since yesterday afternoon but little food. Her urine has been dark and less frequent, and she has felt light-headed when she stands up, without fainting or falling. She took candesartan and modafinil yesterday and this morning. A dull headache came with the illness; she took acetaminophen on both days and no ibuprofen, keeping to her headache plan. She has had two unplanned sleep episodes in the past two days, both while seated, compared with her recent rare episodes.",
+            "elements": [
+              {
+                "label": "Onset",
+                "value": "Two days ago, a day after a community supper"
+              },
+              {
+                "label": "Location",
+                "value": "Diffuse abdominal cramping"
+              },
+              {
+                "label": "Duration",
+                "value": "Two days; vomiting stopped yesterday"
+              },
+              {
+                "label": "Character",
+                "value": "Watery, non-bloody diarrhea; cramping before stools"
+              },
+              {
+                "label": "Severity",
+                "value": "Moderate; six to eight stools a day at worst, three since midnight"
+              },
+              {
+                "label": "Timing",
+                "value": "Improving"
+              },
+              {
+                "label": "Context",
+                "value": "Other guests at the same supper became ill"
+              },
+              {
+                "label": "Modifying factors",
+                "value": "Small sips of water and broth tolerated since yesterday"
+              },
+              {
+                "label": "Associated signs and symptoms",
+                "value": "Dark, scant urine; light-headed on standing; dull headache; two unplanned sleep episodes while seated. Denies blood in stool, fainting, falls, and fever above 37.8 °C"
+              }
+            ]
+          },
+          "ros": [
+            {
+              "system": "Constitutional",
+              "status": "positive",
+              "finding": "Fatigue; temperature to 37.8 °C at home; poor appetite"
+            },
+            {
+              "system": "Cardiovascular",
+              "status": "positive",
+              "finding": "Light-headed on standing; no chest pain, palpitations, or fainting"
+            },
+            {
+              "system": "Gastrointestinal",
+              "status": "positive",
+              "finding": "Nausea and vomiting, now stopped; watery diarrhea, easing; cramping; no blood, black stool, or severe pain"
+            },
+            {
+              "system": "Genitourinary",
+              "status": "positive",
+              "finding": "Dark urine, passed less often; no dysuria"
+            },
+            {
+              "system": "Neurological",
+              "status": "positive",
+              "finding": "Dull headache with the illness; two unplanned sleep episodes while seated; no new weakness, confusion, or falls"
+            },
+            {
+              "system": "Respiratory",
+              "status": "negative",
+              "finding": "No cough or breathlessness"
+            }
+          ],
+          "exam": [
+            {
+              "system": "General",
+              "finding": "Tired but alert and oriented, conversing normally"
+            },
+            {
+              "system": "Cardiovascular",
+              "finding": "Regular rhythm, pulse 90 seated; on standing for one minute, systolic pressure fell by 12 mm Hg and pulse rose by 14 beats, with mild light-headedness"
+            },
+            {
+              "system": "Mouth",
+              "finding": "Dry mucous membranes"
+            },
+            {
+              "system": "Abdomen",
+              "finding": "Soft, with mild diffuse tenderness and active bowel sounds; no guarding, rebound, distension, or mass"
+            },
+            {
+              "system": "Skin",
+              "finding": "Capillary refill under 3 seconds; skin turgor reduced on the forearm"
+            },
+            {
+              "system": "Neurological",
+              "finding": "No focal deficit; steady gait"
+            }
+          ],
+          "assessment_plan": [
+            {
+              "problem_id": "PRB-005",
+              "display": "Acute viral gastroenteritis, likely norovirus, with mild dehydration",
+              "assessment": "Acute watery, non-bloody diarrhea after a common-source exposure, already improving, with low-grade temperature only. Mild volume depletion: orthostatic change, dry mouth, and a creatinine of 1.21 mg/dL (eGFR 47), up from 0.88 in August, a prerenal rise while taking an angiotensin receptor blocker. Stool testing and antibiotics are not indicated for uncomplicated watery diarrhea of less than a week",
+              "plan": [
+                "Oral rehydration solution in small, frequent amounts, aiming for pale urine; then a normal diet as tolerated",
+                "Loperamide may be used for comfort if there is no fever above 38 °C and no blood in the stool",
+                "Hand washing with soap and water, which works better than alcohol gel against norovirus; clean bathroom surfaces with a bleach solution; do not prepare food for others until 48 hours after symptoms end",
+                "Rise slowly, sit to wash, and have someone nearby when she showers until the light-headedness is gone",
+                "Return or call the same day for blood in the stool, temperature above 38.5 °C, no urine for 12 hours, inability to keep fluids down, fainting, or a fall"
+              ]
+            },
+            {
+              "problem_id": "PRB-002",
+              "display": "Chronic post-traumatic headache on candesartan",
+              "assessment": "Headache with dehydration on two days, managed within her limit of acute medicine on no more than 2 days a week. Candesartan with volume depletion raises the risk of kidney injury",
+              "plan": [
+                "Hold candesartan until she has been eating and drinking normally for a full day, then restart 16 mg daily",
+                "Acetaminophen as needed, no more than 3 g a day and within her 2-days-a-week limit; no ibuprofen or other NSAIDs, which can harm the kidneys during dehydration and risk a return of medication-overuse headache",
+                "Repeat the basic metabolic panel one to two weeks after restarting candesartan, at the wellness visit"
+              ]
+            },
+            {
+              "problem_id": "PRB-001",
+              "display": "Provisional narcolepsy without cataplexy on modafinil",
+              "assessment": "More unplanned sleep episodes during an acute illness, as expected with poor sleep and dehydration",
+              "plan": [
+                "Continue modafinil 100 mg each morning once she is keeping fluids down",
+                "Keep the two scheduled naps and add rest as needed; sit down for tasks while she is unwell"
+              ]
+            }
+          ],
+          "follow_up": "Nurse telephone check in two days. Wellness visit in about two weeks, with a repeat basic metabolic panel",
+          "guideline_ids": [
+            "GL-IDSA-DIARRHEA-2017",
+            "GL-ICHD3-2018",
+            "GL-AASM-HYPERSOMNOLENCE-2021"
+          ]
+        },
+        "provenance": {
+          "evidence_grade": "S",
+          "claim_ids": [],
+          "synthetic_reason": "Synthetic unscheduled sick visit.",
+          "author": "The Human Record generator",
+          "created": "2026-11-03T09:00:00-05:00"
+        }
+      },
+      {
+        "id": "ENC-006",
+        "display": "Subsequent annual wellness visit",
+        "status": "finished",
+        "date": "2026-10-13",
+        "visit_type": "annual_wellness_subsequent",
+        "type_coding": {
+          "system": "http://snomed.info/sct",
+          "code": "281038008",
+          "display": "Geriatric annual health check",
+          "validation_status": "validated",
+          "validated_on": "2026-11-03"
+        },
+        "documentation": {
+          "chief_complaint": "Subsequent annual wellness visit; no new complaints",
+          "billing_note": "HCPCS G0439 (subsequent annual wellness visit) with CPT 99497 (advance care planning), both on the same day",
+          "hpi": {
+            "narrative": "Mrs. Tubman returns for her subsequent annual wellness visit, two weeks after a sick visit for viral gastroenteritis. She completed the health risk assessment before the visit. The illness resolved within four days; she restarted candesartan once she was eating and drinking normally, and the light-headedness has gone. Since her last wellness visit she has had no falls, emergency visits, or hospital stays. She takes candesartan and modafinil every day, uses acetaminophen about once a week, and has taken no ibuprofen since the spring. Her headache diary shows headache days holding near the August level. With modafinil and two scheduled naps, unplanned sleep episodes are again rare and happen only while she is seated. She does not drive. She runs a busy household and is active in her church. Her one concern is safety at home if a sleep episode comes on while she is cooking or bathing.",
+            "elements": [
+              {
+                "label": "Visit",
+                "value": "Subsequent annual wellness visit"
+              },
+              {
+                "label": "New concern",
+                "value": "Safety while cooking and bathing if a sleep episode comes on"
+              },
+              {
+                "label": "Safety events",
+                "value": "No falls, emergency visits, or hospital stays in the past year"
+              },
+              {
+                "label": "Medicines",
+                "value": "Candesartan 16 mg and modafinil 100 mg daily; acetaminophen about once a week; no NSAIDs"
+              },
+              {
+                "label": "Active conditions",
+                "value": "Chronic post-traumatic headache, improved on prevention; provisional narcolepsy without cataplexy, improved on modafinil and scheduled naps"
+              },
+              {
+                "label": "Functional status",
+                "value": "Independent in all activities and instrumental activities of daily living; does not drive"
+              }
+            ]
+          },
+          "health_risk_assessment": [
+            {
+              "domain": "Self-rated health",
+              "finding": "Good, and better than in the spring"
+            },
+            {
+              "domain": "Psychosocial",
+              "finding": "Busy household, active church life, and a wide circle of friends; no loneliness; her history of childhood trauma is acknowledged and she prefers to discuss it only as it bears on her care"
+            },
+            {
+              "domain": "Behavioral",
+              "finding": "No tobacco or alcohol; walks daily and does heavy housework and gardening; regular meals; night sleep about seven hours plus two 15-minute scheduled naps"
+            },
+            {
+              "domain": "Activities of daily living",
+              "finding": "Independent in bathing, dressing, eating, toileting, and transfers"
+            },
+            {
+              "domain": "Instrumental activities of daily living",
+              "finding": "Cooks, shops, manages her own medicines and money; travels as a passenger or by bus; does not drive"
+            },
+            {
+              "domain": "Home safety",
+              "finding": "Smoke detectors working; gas stove without an automatic shut-off; takes tub baths alone; stairs with a handrail on one side; uses a step stool to reach high shelves"
+            },
+            {
+              "domain": "Sleep and alertness",
+              "finding": "Unplanned sleep episodes rare and only while seated; none while standing, walking, or cooking since starting modafinil"
+            },
+            {
+              "domain": "Hearing and vision",
+              "finding": "No hearing concerns; reading glasses; no eye examination on record in recent years"
+            },
+            {
+              "domain": "Memory",
+              "finding": "No concerns"
+            }
+          ],
+          "ros": [
+            {
+              "system": "Constitutional",
+              "status": "negative",
+              "finding": "Weight back toward her usual; no fatigue beyond her baseline, fever, or appetite change"
+            },
+            {
+              "system": "Eyes",
+              "status": "negative",
+              "finding": "No change in vision with reading glasses"
+            },
+            {
+              "system": "Ears, nose, mouth, and throat",
+              "status": "negative",
+              "finding": "No hearing change, tinnitus, or vertigo"
+            },
+            {
+              "system": "Cardiovascular",
+              "status": "negative",
+              "finding": "No chest pain, palpitations, light-headedness, or ankle swelling"
+            },
+            {
+              "system": "Respiratory",
+              "status": "negative",
+              "finding": "No cough or breathlessness"
+            },
+            {
+              "system": "Gastrointestinal",
+              "status": "negative",
+              "finding": "Diarrhea resolved; regular bowel habit; no bleeding"
+            },
+            {
+              "system": "Genitourinary",
+              "status": "negative",
+              "finding": "No urgency, incontinence, or dysuria"
+            },
+            {
+              "system": "Musculoskeletal",
+              "status": "negative",
+              "finding": "No falls, joint pain, or change in gait"
+            },
+            {
+              "system": "Integumentary",
+              "status": "negative",
+              "finding": "No new or changing skin lesions"
+            },
+            {
+              "system": "Neurological",
+              "status": "positive",
+              "finding": "Headaches on some days, near her August level; rare unplanned sleep episodes while seated; no weakness, numbness, confusion, or convulsive events"
+            },
+            {
+              "system": "Psychiatric",
+              "status": "negative",
+              "finding": "Mood steady; no anxiety or intrusive memories troubling her now; PHQ-2 score 0"
+            },
+            {
+              "system": "Endocrine",
+              "status": "negative",
+              "finding": "No polyuria, polydipsia, or heat or cold intolerance"
+            }
+          ],
+          "exam": [
+            {
+              "system": "Constitutional",
+              "finding": "Alert, direct, and well-appearing; weight 51.2 kg, up from 50.7 kg at the sick visit"
+            },
+            {
+              "system": "Head",
+              "finding": "Healed depression in the left frontal skull, non-tender"
+            },
+            {
+              "system": "Eyes",
+              "finding": "Pupils equal and reactive; near vision adequate with reading glasses"
+            },
+            {
+              "system": "Ears",
+              "finding": "Canals clear; whispered-voice test passed on both sides"
+            },
+            {
+              "system": "Neck",
+              "finding": "No thyroid enlargement or nodes; no carotid bruits"
+            },
+            {
+              "system": "Cardiovascular",
+              "finding": "Regular rhythm; no murmur; pedal pulses present; no edema; no orthostatic change in blood pressure"
+            },
+            {
+              "system": "Respiratory",
+              "finding": "Clear to auscultation bilaterally"
+            },
+            {
+              "system": "Abdomen",
+              "finding": "Soft and non-tender"
+            },
+            {
+              "system": "Musculoskeletal",
+              "finding": "Timed Up and Go 10 seconds with a steady gait; rises from a chair without using her arms"
+            },
+            {
+              "system": "Neurological",
+              "finding": "Oriented; Mini-Cog 5 of 5 (recall 3 of 3, clock normal); no focal deficit"
+            },
+            {
+              "system": "Psychiatric",
+              "finding": "Euthymic and engaged; judgment and insight intact"
+            }
+          ],
+          "assessment_plan": [
+            {
+              "display": "Subsequent annual wellness visit completed",
+              "assessment": "Health risk assessment reviewed, personalized prevention plan updated, and a written copy given. Depression, alcohol, and cognitive screens are negative",
+              "plan": [
+                "Next annual wellness visit in one year"
+              ]
+            },
+            {
+              "problem_id": "PRB-005",
+              "display": "Viral gastroenteritis with a prerenal creatinine rise, resolved",
+              "assessment": "Creatinine 0.9 mg/dL (eGFR 67) on candesartan, back to her baseline",
+              "plan": [
+                "No further testing for this illness",
+                "Sick-day rule: hold candesartan on any day she has vomiting or diarrhea and cannot keep fluids down, and restart when she can"
+              ]
+            },
+            {
+              "problem_id": "PRB-002",
+              "display": "Chronic post-traumatic headache",
+              "assessment": "Improved on candesartan, without medication overuse. Blood pressure 126/76 mmHg",
+              "plan": [
+                "Continue candesartan 16 mg daily and the headache diary",
+                "Acetaminophen no more than 2 days a week; no NSAIDs"
+              ]
+            },
+            {
+              "problem_id": "PRB-001",
+              "display": "Provisional narcolepsy without cataplexy",
+              "assessment": "Improved on modafinil and scheduled naps; episodes are rare and only while seated",
+              "plan": [
+                "Continue modafinil 100 mg each morning and two scheduled naps",
+                "Home safety for sleep episodes: cook with a timer and stay in the kitchen while the stove is on, or use the microwave when tired; take showers instead of tub baths, or bathe only when someone else is home; no ladders or step stools; keep things she uses often within reach",
+                "She does not drive; she should not start driving without first discussing it with her sleep specialist"
+              ]
+            },
+            {
+              "display": "Fall risk",
+              "assessment": "Low by screening, with no falls in the past year and a Timed Up and Go of 10 seconds. Sudden sleep episodes and the light-headedness she had during dehydration are her main risks",
+              "plan": [
+                "Add a second stair handrail",
+                "Continue daily walking and housework for strength and balance",
+                "Sit down at once if she feels a sleep episode coming on"
+              ]
+            }
+          ],
+          "prevention_plan": [
+            {
+              "service": "Influenza vaccine, current season",
+              "status": "completed_today",
+              "detail": "High-dose vaccine given today"
+            },
+            {
+              "service": "RSV vaccine",
+              "status": "completed_today",
+              "detail": "Single adjuvanted dose given today; recommended at 75 or older; no further doses"
+            },
+            {
+              "service": "COVID-19 vaccine, current season",
+              "status": "due",
+              "detail": "Recommended at her age; she plans to get it at her pharmacy"
+            },
+            {
+              "service": "Pneumococcal vaccine",
+              "status": "up_to_date",
+              "detail": "PCV20 given in April; no further doses needed"
+            },
+            {
+              "service": "Recombinant zoster vaccine",
+              "status": "up_to_date",
+              "detail": "Two-dose series completed three years ago"
+            },
+            {
+              "service": "Tetanus booster",
+              "status": "up_to_date",
+              "detail": "Tdap five years ago; next dose due in five years"
+            },
+            {
+              "service": "Bone density (DXA)",
+              "status": "ordered",
+              "detail": "No prior scan on record; recommended for women 65 and older, and a fall during a sleep episode could cause a fracture",
+              "guideline_ids": [
+                "GL-USPSTF-OSTEO-2025"
+              ]
+            },
+            {
+              "service": "Depression screening",
+              "status": "completed_today",
+              "detail": "PHQ-2 score 0"
+            },
+            {
+              "service": "Alcohol misuse screening",
+              "status": "completed_today",
+              "detail": "AUDIT-C score 0"
+            },
+            {
+              "service": "Cognitive assessment",
+              "status": "completed_today",
+              "detail": "Mini-Cog 5 of 5; MoCA 26 in April"
+            },
+            {
+              "service": "Falls prevention",
+              "status": "completed_today",
+              "detail": "Timed Up and Go 10 seconds; home-safety advice for sleep episodes given",
+              "guideline_ids": [
+                "GL-USPSTF-FALLS-2024"
+              ]
+            },
+            {
+              "service": "Hearing",
+              "status": "completed_today",
+              "detail": "Whispered-voice test passed on both sides"
+            },
+            {
+              "service": "Eye examination",
+              "status": "due",
+              "detail": "No eye examination on record in recent years; she will book with an optometrist"
+            },
+            {
+              "service": "Cholesterol screening",
+              "status": "ordered",
+              "detail": "No lipid panel on record; ordered with the next blood draw"
+            },
+            {
+              "service": "Diabetes screening",
+              "status": "up_to_date",
+              "detail": "Glucose normal on every metabolic panel this year"
+            },
+            {
+              "service": "Hepatitis C screening",
+              "status": "ordered",
+              "detail": "One-time screening recommended through age 79; none on record",
+              "guideline_ids": [
+                "GL-USPSTF-HCV-2020"
+              ]
+            },
+            {
+              "service": "Colorectal cancer screening",
+              "status": "ordered",
+              "detail": "No prior screening on record; recommended through age 75. Stool FIT kit given today",
+              "guideline_ids": [
+                "GL-USPSTF-CRC-2021"
+              ]
+            },
+            {
+              "service": "Breast cancer screening",
+              "status": "declined",
+              "detail": "Evidence is insufficient from 75; after discussion she prefers not to have further mammograms"
+            },
+            {
+              "service": "Cervical cancer screening",
+              "status": "not_indicated",
+              "detail": "Not recommended after 65 with adequate prior screening"
+            },
+            {
+              "service": "Lung cancer and abdominal aortic aneurysm screening",
+              "status": "not_indicated",
+              "detail": "Never smoker"
+            }
+          ],
+          "advance_care_planning": "Voluntary advance care planning discussion of about 20 minutes, with her consent and at her pace. She has named a health care agent and completed a written health care directive today; a copy is now in the chart. Her faith guides her decisions. She wants full treatment for reversible illness, including hospital care. She would not want resuscitation or prolonged life support if she could no longer know the people around her. She will share these wishes with her agent.",
+          "follow_up": "DXA scan, lipid panel, and hepatitis C test ordered; FIT kit to return by mail. COVID-19 vaccine at her pharmacy. Headache and sleep review with her neurologist on its usual schedule. Next annual wellness visit in one year",
+          "guideline_ids": [
+            "GL-AWV-CMS",
+            "GL-PREV-2026",
+            "GL-AASM-HYPERSOMNOLENCE-2021"
+          ]
+        },
+        "provenance": {
+          "evidence_grade": "S",
+          "claim_ids": [
+            "CLM-0004"
+          ],
+          "synthetic_reason": "Synthetic Medicare annual wellness visit; the safety plan is shaped by her documented sleep spells.",
+          "author": "The Human Record generator",
+          "created": "2026-11-03T09:00:00-05:00"
         }
       }
     ],
@@ -2334,6 +3383,140 @@
           "synthetic_reason": "Synthetic vital signs; no measurements from her lifetime are recorded in the cited sources.",
           "author": "The Human Record generator",
           "created": "2026-11-02T20:00:00-05:00"
+        }
+      },
+      {
+        "id": "VSET-005",
+        "date": "2026-09-28",
+        "measurements": [
+          {
+            "code": "8302-2",
+            "display": "Body height",
+            "value": 152,
+            "unit": "cm"
+          },
+          {
+            "code": "29463-7",
+            "display": "Body weight",
+            "value": 50.7,
+            "unit": "kg"
+          },
+          {
+            "code": "39156-5",
+            "display": "Body mass index (BMI) [Ratio]",
+            "value": 21.9,
+            "unit": "kg/m2"
+          },
+          {
+            "code": "8480-6",
+            "display": "Systolic blood pressure",
+            "value": 112,
+            "unit": "mm[Hg]"
+          },
+          {
+            "code": "8462-4",
+            "display": "Diastolic blood pressure",
+            "value": 68,
+            "unit": "mm[Hg]"
+          },
+          {
+            "code": "8867-4",
+            "display": "Heart rate",
+            "value": 90,
+            "unit": "/min"
+          },
+          {
+            "code": "9279-1",
+            "display": "Respiratory rate",
+            "value": 16,
+            "unit": "/min"
+          },
+          {
+            "code": "8310-5",
+            "display": "Body temperature",
+            "value": 37.4,
+            "unit": "Cel"
+          },
+          {
+            "code": "59408-5",
+            "display": "Oxygen saturation in Arterial blood by Pulse oximetry",
+            "value": 98,
+            "unit": "%"
+          }
+        ],
+        "provenance": {
+          "evidence_grade": "S",
+          "claim_ids": [],
+          "synthetic_reason": "Synthetic vital signs; no measurements from her lifetime are recorded in the cited sources.",
+          "author": "The Human Record generator",
+          "created": "2026-11-03T09:00:00-05:00"
+        }
+      },
+      {
+        "id": "VSET-006",
+        "date": "2026-10-13",
+        "measurements": [
+          {
+            "code": "8302-2",
+            "display": "Body height",
+            "value": 152,
+            "unit": "cm"
+          },
+          {
+            "code": "29463-7",
+            "display": "Body weight",
+            "value": 51.2,
+            "unit": "kg"
+          },
+          {
+            "code": "39156-5",
+            "display": "Body mass index (BMI) [Ratio]",
+            "value": 22.2,
+            "unit": "kg/m2"
+          },
+          {
+            "code": "8480-6",
+            "display": "Systolic blood pressure",
+            "value": 126,
+            "unit": "mm[Hg]"
+          },
+          {
+            "code": "8462-4",
+            "display": "Diastolic blood pressure",
+            "value": 76,
+            "unit": "mm[Hg]"
+          },
+          {
+            "code": "8867-4",
+            "display": "Heart rate",
+            "value": 74,
+            "unit": "/min"
+          },
+          {
+            "code": "9279-1",
+            "display": "Respiratory rate",
+            "value": 14,
+            "unit": "/min"
+          },
+          {
+            "code": "8310-5",
+            "display": "Body temperature",
+            "value": 36.6,
+            "unit": "Cel"
+          },
+          {
+            "code": "59408-5",
+            "display": "Oxygen saturation in Arterial blood by Pulse oximetry",
+            "value": 98,
+            "unit": "%"
+          }
+        ],
+        "provenance": {
+          "evidence_grade": "S",
+          "claim_ids": [],
+          "synthetic_reason": "Synthetic vital signs; no measurements from her lifetime are recorded in the cited sources.",
+          "author": "The Human Record generator",
+          "created": "2026-11-03T09:00:00-05:00"
         }
       }
     ],
@@ -2694,6 +3877,55 @@
         "publisher": "American Headache Society",
         "url": "https://doi.org/10.1111/head.14153",
         "version_or_year": "2021"
+      },
+      {
+        "guideline_id": "GL-IDSA-DIARRHEA-2017",
+        "title": "2017 Infectious Diseases Society of America Clinical Practice Guidelines for the Diagnosis and Management of Infectious Diarrhea (Shane AL, et al. Clin Infect Dis 2017;65(12):e45-e80)",
+        "publisher": "Infectious Diseases Society of America",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/29053792/",
+        "version_or_year": "2017"
+      },
+      {
+        "guideline_id": "GL-AWV-CMS",
+        "title": "Medicare Wellness Visits (Medicare Learning Network)",
+        "publisher": "Centers for Medicare & Medicaid Services",
+        "url": "https://www.cms.gov/outreach-and-education/medicare-learning-network-mln/mlnproducts/preventive-services/medicare-wellness-visits.html",
+        "version_or_year": "2026"
+      },
+      {
+        "guideline_id": "GL-PREV-2026",
+        "title": "Medicare Preventive Services reference: visit templates, screening cascades, and documentation elements",
+        "publisher": "Aether Forge",
+        "url": "https://patrickrutledge.github.io/preventative_services/",
+        "version_or_year": "2026"
+      },
+      {
+        "guideline_id": "GL-USPSTF-OSTEO-2025",
+        "title": "Osteoporosis to Prevent Fractures: Screening",
+        "publisher": "U.S. Preventive Services Task Force",
+        "url": "https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/osteoporosis-screening",
+        "version_or_year": "2025"
+      },
+      {
+        "guideline_id": "GL-USPSTF-FALLS-2024",
+        "title": "Falls Prevention in Community-Dwelling Older Adults: Interventions",
+        "publisher": "U.S. Preventive Services Task Force",
+        "url": "https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/falls-prevention-community-dwelling-older-adults-interventions",
+        "version_or_year": "2024"
+      },
+      {
+        "guideline_id": "GL-USPSTF-CRC-2021",
+        "title": "Colorectal Cancer: Screening",
+        "publisher": "U.S. Preventive Services Task Force",
+        "url": "https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/colorectal-cancer-screening",
+        "version_or_year": "2021"
+      },
+      {
+        "guideline_id": "GL-USPSTF-HCV-2020",
+        "title": "Hepatitis C Virus Infection in Adolescents and Adults: Screening",
+        "publisher": "U.S. Preventive Services Task Force",
+        "url": "https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/hepatitis-c-screening",
+        "version_or_year": "2020"
       }
     ]
   },

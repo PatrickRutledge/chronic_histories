@@ -130,8 +130,8 @@ A written copy was given to the patient. **S**
 
 | Service | Status | Detail |
 |---|---|---|
-| Influenza vaccine, 2026-2027 | Completed today | High-dose vaccine given today |
-| COVID-19 vaccine, 2026-2027 | Due | Recommended at her age; she plans to get it at her pharmacy |
+| Influenza vaccine, this season | Completed today | High-dose vaccine given today |
+| COVID-19 vaccine, this season | Due | Recommended at her age; she plans to get it at her pharmacy |
 | Pneumococcal vaccine | Up to date | PCV20 given in March; no further doses needed |
 | RSV vaccine | Up to date | Single dose given in March |
 | Recombinant zoster vaccine | Up to date | Two-dose series completed four years ago |

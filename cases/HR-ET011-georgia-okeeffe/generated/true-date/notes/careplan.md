@@ -40,5 +40,6 @@
 - 1968-04-09: Four-week retina follow-up with OCT and second injection **S**
 - 1968-05-07: Eight-week retina follow-up with OCT and third injection **S**
 - 1968-07-02: Treat-and-extend retina visit and primary care review of vision rehabilitation **S**
+- 1968-10-15: Subsequent annual wellness visit **S**
 
 This teaching document does not replace care from a qualified clinician.

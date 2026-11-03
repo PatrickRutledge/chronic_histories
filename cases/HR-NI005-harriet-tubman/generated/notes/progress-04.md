@@ -50,4 +50,4 @@ Active problems: Recurrent sudden sleep episodes since an adolescent traumatic b
 ## Plan
 
 - Continue the care plan agreed on 2026-04-06. The care-plan document lists every intervention. **S**
-- Scheduled episode complete. Continue routine follow-up. **S**
+- Next visit 2026-10-13: subsequent annual wellness visit. **S**

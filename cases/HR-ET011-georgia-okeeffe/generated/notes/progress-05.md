@@ -43,4 +43,4 @@ Active problems: Neovascular (wet) age-related macular degeneration, left eye, w
 ## Plan
 
 - Continue the care plan agreed on 2026-03-10. The care-plan document lists every intervention. **S**
-- Scheduled episode complete. Continue routine follow-up. **S**
+- Next visit 2026-10-15: subsequent annual wellness visit. **S**

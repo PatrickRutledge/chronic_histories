@@ -478,6 +478,11 @@
         "encounter_id": "ENC-004",
         "date": "2026-07-14",
         "purpose": "Six-month post-fracture, dementia, and caregiver review"
+      },
+      {
+        "encounter_id": "ENC-005",
+        "date": "2026-10-13",
+        "purpose": "Subsequent annual wellness visit"
       }
     ]
   },
@@ -787,7 +792,8 @@
           "synthetic_reason": "Synthetic hospital discharge prescription, stopped at the first visit because pain was controlled and opioids raise the risk of delirium and falls.",
           "author": "The Human Record generator",
           "created": "2026-11-02T15:00:00-05:00"
-        }
+        },
+        "as_needed": true
       },
       {
         "id": "MED-004",
@@ -2002,6 +2008,32 @@
           "author": "The Human Record generator",
           "created": "2026-11-02T15:00:00-05:00"
         }
+      },
+      {
+        "id": "OBS-PHQ2-AWV",
+        "display": "Patient Health Questionnaire 2 item (PHQ-2) total score [Reported]",
+        "label": "PHQ-2",
+        "status": "final",
+        "effective_date": "2026-10-13",
+        "value": 0,
+        "unit": "{score}",
+        "coding": [
+          {
+            "system": "http://loinc.org",
+            "code": "55758-7",
+            "display": "Patient Health Questionnaire 2 item (PHQ-2) total score [Reported]",
+            "version": "2.81",
+            "validation_status": "validated",
+            "validated_on": "2026-11-03"
+          }
+        ],
+        "provenance": {
+          "evidence_grade": "S",
+          "claim_ids": [],
+          "synthetic_reason": "Synthetic negative depression screen at the annual wellness visit, asked of the patient directly with caregiver corroboration.",
+          "author": "The Human Record generator",
+          "created": "2026-11-03T09:00:00-05:00"
+        }
       }
     ],
     "procedures": [
@@ -2154,6 +2186,28 @@
           "synthetic_reason": "Synthetic vaccination recommended at age 65 or older.",
           "author": "The Human Record generator",
           "created": "2026-11-02T15:00:00-05:00"
+        }
+      },
+      {
+        "id": "IMM-003",
+        "display": "High-dose influenza vaccine, 2026-2027 season",
+        "status": "completed",
+        "date": "2026-10-13",
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/sid/cvx",
+            "code": "135",
+            "display": "Influenza, high-dose, trivalent, PF",
+            "validation_status": "validated",
+            "validated_on": "2026-11-03"
+          }
+        ],
+        "provenance": {
+          "evidence_grade": "S",
+          "claim_ids": [],
+          "synthetic_reason": "Synthetic yearly influenza vaccination at age 65 or older.",
+          "author": "The Human Record generator",
+          "created": "2026-11-03T09:00:00-05:00"
         }
       }
     ],
@@ -2370,6 +2424,358 @@
           "synthetic_reason": "Synthetic modern EHR encounter.",
           "author": "The Human Record generator",
           "created": "2026-11-02T15:00:00-05:00"
+        }
+      },
+      {
+        "id": "ENC-005",
+        "display": "Subsequent annual wellness visit",
+        "status": "finished",
+        "date": "2026-10-13",
+        "visit_type": "annual_wellness_subsequent",
+        "type_coding": {
+          "system": "http://snomed.info/sct",
+          "code": "281038008",
+          "display": "Geriatric annual health check",
+          "validation_status": "validated",
+          "validated_on": "2026-11-03"
+        },
+        "documentation": {
+          "chief_complaint": "Subsequent annual wellness visit; no new complaints from him or his caregivers",
+          "billing_note": "HCPCS G0439 (subsequent annual wellness visit) with CPT 99497 (advance care planning), both on the same day",
+          "hpi": {
+            "narrative": "Mr. Reagan is a 90-year-old man with moderate Alzheimer's disease (FAST stage 5) who returns for his subsequent annual wellness visit, three months after his six-month review after the right hip fracture repair. He answered the health risk assessment himself, with a caregiver reading each question aloud and confirming the answers he could not recall. He has had no falls, emergency visits, or hospital stays since he went home after the operation. He walks in the house and garden with a front-wheeled walker and standby supervision. His caregivers give his medicines from a weekly organizer and report no missed doses and no new over-the-counter medicines or supplements. The evening restlessness is mild and unchanged, and an unhurried evening routine still settles it. He says he feels well and enjoys his time outdoors.",
+            "elements": [
+              {
+                "label": "Visit",
+                "value": "Subsequent annual wellness visit"
+              },
+              {
+                "label": "Context",
+                "value": "Health risk assessment answered by the patient with caregiver help because of dementia"
+              },
+              {
+                "label": "Safety events",
+                "value": "No falls, emergency visits, or hospital stays since the fracture repair"
+              },
+              {
+                "label": "Medicines",
+                "value": "Donepezil and vitamin D given by his caregivers from a weekly organizer; no missed doses; no new over-the-counter medicines"
+              },
+              {
+                "label": "Active conditions",
+                "value": "Moderate Alzheimer's disease; osteoporosis with a healed right hip fracture on zoledronic acid; history of falling"
+              },
+              {
+                "label": "Functional status",
+                "value": "Barthel Index 85 at the six-month review; walks with a walker and supervision; needs help with all instrumental activities of daily living"
+              }
+            ]
+          },
+          "health_risk_assessment": [
+            {
+              "domain": "Self-rated health",
+              "finding": "Good, in his words"
+            },
+            {
+              "domain": "Psychosocial",
+              "finding": "Lives at home with his spouse and a home health aide; visits from family and church friends; weekly respite continues for his caregivers"
+            },
+            {
+              "domain": "Behavioral",
+              "finding": "No tobacco use; no alcohol since the fracture; walks in the house and garden daily with supervision; eats regular meals; sleeps through most nights"
+            },
+            {
+              "domain": "Activities of daily living",
+              "finding": "Needs help with bathing and dressing and standby help on stairs; feeds himself; continent"
+            },
+            {
+              "domain": "Instrumental activities of daily living",
+              "finding": "Caregivers manage medicines, money, meals, and transport"
+            },
+            {
+              "domain": "Home safety",
+              "finding": "Grab bars, raised toilet seat, and night lights in place since the home safety assessment; rugs removed; smoke detectors working"
+            },
+            {
+              "domain": "Falls",
+              "finding": "No falls since the fracture; his caregivers remain watchful at night"
+            },
+            {
+              "domain": "Hearing and vision",
+              "finding": "No new concern reported"
+            },
+            {
+              "domain": "Memory",
+              "finding": "Known moderate Alzheimer's disease; his caregivers notice no change since the summer"
+            }
+          ],
+          "ros": [
+            {
+              "system": "Constitutional",
+              "status": "negative",
+              "finding": "Weight stable; appetite good; no fever or new fatigue"
+            },
+            {
+              "system": "Eyes",
+              "status": "negative",
+              "finding": "No eye pain or new visual complaint"
+            },
+            {
+              "system": "Ears, nose, mouth, and throat",
+              "status": "negative",
+              "finding": "No ear pain, sore throat, or trouble chewing or swallowing"
+            },
+            {
+              "system": "Cardiovascular",
+              "status": "negative",
+              "finding": "No chest pain, fainting, lightheadedness on standing, or ankle swelling"
+            },
+            {
+              "system": "Respiratory",
+              "status": "negative",
+              "finding": "No cough or breathlessness"
+            },
+            {
+              "system": "Gastrointestinal",
+              "status": "negative",
+              "finding": "No nausea, diarrhea, or constipation on donepezil; no bleeding"
+            },
+            {
+              "system": "Genitourinary",
+              "status": "negative",
+              "finding": "No new urinary symptoms reported"
+            },
+            {
+              "system": "Musculoskeletal",
+              "status": "negative",
+              "finding": "No right hip pain; no falls; walking steadier with the walker"
+            },
+            {
+              "system": "Integumentary",
+              "status": "negative",
+              "finding": "No skin breakdown or pressure areas"
+            },
+            {
+              "system": "Neurological",
+              "status": "positive",
+              "finding": "Known memory loss, unchanged by his caregivers' account; no new weakness, tremor, or fainting"
+            },
+            {
+              "system": "Psychiatric",
+              "status": "positive",
+              "finding": "Mild evening restlessness, unchanged; no hallucinations, aggression, or low mood; PHQ-2 score 0"
+            },
+            {
+              "system": "Endocrine",
+              "status": "negative",
+              "finding": "No heat or cold intolerance, thirst, or frequent urination"
+            },
+            {
+              "system": "Hematologic",
+              "status": "negative",
+              "finding": "No easy bruising or bleeding"
+            }
+          ],
+          "exam": [
+            {
+              "system": "Constitutional",
+              "finding": "Alert, pleasant, and sociable; well groomed; weight stable from the summer"
+            },
+            {
+              "system": "Eyes",
+              "finding": "Pupils equal and reactive; conjunctivae clear"
+            },
+            {
+              "system": "Ears",
+              "finding": "Canals clear; follows conversation in a quiet room"
+            },
+            {
+              "system": "Neck",
+              "finding": "No thyroid enlargement or nodes"
+            },
+            {
+              "system": "Cardiovascular",
+              "finding": "Regular rhythm at 62 per minute; no murmur; no edema; blood pressure 126/70 mmHg seated and 122/70 mmHg standing, without symptoms"
+            },
+            {
+              "system": "Respiratory",
+              "finding": "Clear to auscultation bilaterally"
+            },
+            {
+              "system": "Abdomen",
+              "finding": "Soft and non-tender; healed old surgical scar"
+            },
+            {
+              "system": "Musculoskeletal",
+              "finding": "Right hip incision well healed; painless hip movement; Timed Up and Go 15 seconds with the walker, improved from 16 seconds at the six-month review"
+            },
+            {
+              "system": "Neurological",
+              "finding": "Oriented to person and place, not to date; repeats familiar stories; follows one-step commands; no focal weakness. Cognitive function assessed by direct observation and the known diagnosis"
+            },
+            {
+              "system": "Psychiatric",
+              "finding": "Cheerful and engaged; no agitation during the visit"
+            },
+            {
+              "system": "Skin",
+              "finding": "Intact over the sacrum and heels; no pressure injury"
+            }
+          ],
+          "assessment_plan": [
+            {
+              "display": "Subsequent annual wellness visit completed",
+              "assessment": "Health risk assessment reviewed, personalized prevention plan updated, and a written copy given to the patient and his caregivers. The depression screen is negative. Cognition was assessed by direct observation in a man with established moderate dementia; a Mini-Cog would not add information and would only cause distress, so none was given",
+              "plan": [
+                "Next annual wellness visit in one year"
+              ]
+            },
+            {
+              "problem_id": "PRB-002",
+              "display": "Dementia due to Alzheimer's disease, moderate (FAST stage 5)",
+              "assessment": "Stable by observation and his caregivers' account, with no change in FAST stage. Evening restlessness is mild and responds to routine. Heart rate 62 on donepezil, with no fainting or falls",
+              "plan": [
+                "Continue donepezil 10 mg each morning",
+                "MoCA, FAST stage, and ADL and IADL scores at the yearly dementia review in about four months, on the CMID schedule",
+                "Continue the evening routine; no antipsychotic or sedative"
+              ]
+            },
+            {
+              "problem_id": "PRB-003",
+              "display": "Osteoporosis with a healed right hip fragility fracture",
+              "assessment": "Fracture clinically healed. First zoledronic acid infusion six months ago, without problems",
+              "plan": [
+                "Continue cholecalciferol 2,000 units daily and calcium from food",
+                "Calcium and kidney function before the second zoledronic acid infusion in about six months"
+              ]
+            },
+            {
+              "problem_id": "PRB-006",
+              "display": "History of falling",
+              "assessment": "No falls since the fracture. Timed Up and Go 15 seconds with the walker; fall risk remains high because of dementia and age",
+              "plan": [
+                "Continue the home exercise program, the walker, and supervision on stairs and at night",
+                "Keep night lights and the cleared walkways; review every new medicine against the Beers Criteria"
+              ]
+            },
+            {
+              "display": "Caregiver support",
+              "assessment": "Weekly respite and the home health aide continue",
+              "plan": [
+                "Zarit Burden Interview at the yearly review",
+                "Alzheimer's Association support services remain available to the family"
+              ]
+            }
+          ],
+          "prevention_plan": [
+            {
+              "service": "Influenza vaccine, this season",
+              "status": "completed_today",
+              "detail": "High-dose vaccine given today"
+            },
+            {
+              "service": "COVID-19 vaccine, this season",
+              "status": "due",
+              "detail": "Recommended at his age; his caregivers will arrange it at the pharmacy"
+            },
+            {
+              "service": "Pneumococcal vaccine",
+              "status": "up_to_date",
+              "detail": "PCV20 given six months ago; no further doses needed"
+            },
+            {
+              "service": "RSV vaccine",
+              "status": "due",
+              "detail": "Single dose recommended at 75 or older; no dose on record"
+            },
+            {
+              "service": "Recombinant zoster vaccine",
+              "status": "due",
+              "detail": "Two-dose series recommended; no dose on record"
+            },
+            {
+              "service": "Tetanus booster",
+              "status": "due",
+              "detail": "No booster on record; to be given with the next vaccine"
+            },
+            {
+              "service": "Depression screening",
+              "status": "completed_today",
+              "detail": "PHQ-2 score 0, asked of him directly with caregiver corroboration; GDS-15 continues at the dementia reviews"
+            },
+            {
+              "service": "Alcohol misuse screening",
+              "status": "not_indicated",
+              "detail": "No alcohol since the fracture, confirmed by his caregivers; a scored screen was not used"
+            },
+            {
+              "service": "Cognitive assessment",
+              "status": "completed_today",
+              "detail": "Direct observation in established moderate dementia; formal MoCA and FAST staging at the yearly dementia review"
+            },
+            {
+              "service": "Falls prevention",
+              "status": "completed_today",
+              "detail": "Timed Up and Go 15 seconds with a walker; exercise, supervision, and home-safety measures continue",
+              "guideline_ids": [
+                "GL-USPSTF-FALLS-2024"
+              ]
+            },
+            {
+              "service": "Bone health",
+              "status": "up_to_date",
+              "detail": "DXA six months ago; zoledronic acid yearly, next infusion in about six months; vitamin D continues"
+            },
+            {
+              "service": "Hearing and vision",
+              "status": "completed_today",
+              "detail": "Asked in the health risk assessment; no new concern"
+            },
+            {
+              "service": "Diabetes screening",
+              "status": "up_to_date",
+              "detail": "Glucose normal on the basic metabolic panel six months ago"
+            },
+            {
+              "service": "Cholesterol screening",
+              "status": "not_indicated",
+              "detail": "At 90 with moderate dementia, a statin for primary prevention would not serve his goals of care"
+            },
+            {
+              "service": "Colorectal cancer surveillance",
+              "status": "not_indicated",
+              "detail": "Colon cancer operated on decades ago; further colonoscopy at 90 would not serve his goals of care"
+            },
+            {
+              "service": "Prostate, lung cancer, and abdominal aortic aneurysm screening",
+              "status": "not_indicated",
+              "detail": "Not recommended at his age"
+            },
+            {
+              "service": "Hepatitis C screening",
+              "status": "not_indicated",
+              "detail": "One-time screening is recommended only to age 79"
+            }
+          ],
+          "advance_care_planning": "Voluntary advance care planning discussion of about 20 minutes, with his consent, with the patient taking part as he was able and his health care agent present. The health care agent named earlier this year and the POLST form completed in the spring were reviewed and remain unchanged. He said he wants to stay at home. The discussion covered what the later stages of Alzheimer's disease can bring, including trouble with eating and swallowing and more frequent infections, careful hand feeding as an alternative to tube feeding, the place of hospital transfer, and hospice when he becomes eligible. No decisions were changed today. The plan will be revisited at any change in stage or after a hospital stay.",
+          "follow_up": "Yearly dementia review with MoCA, FAST stage, ADL and IADL scores, and the Zarit Burden Interview in about four months. Calcium and kidney function before the second zoledronic acid infusion in about six months. Next annual wellness visit in one year",
+          "guideline_ids": [
+            "GL-AWV-CMS",
+            "GL-PREV-2026",
+            "GL-CMID-2026",
+            "GL-ALZ-2024"
+          ],
+          "health_risk_assessment_method": "Answered by the patient with a caregiver reading the questions and adding what he could not recall."
+        },
+        "provenance": {
+          "evidence_grade": "S",
+          "claim_ids": [
+            "CLM-0003",
+            "CLM-0006"
+          ],
+          "synthetic_reason": "Synthetic Medicare annual wellness visit; no synthetic illness episode is added under the recent-death rule.",
+          "author": "The Human Record generator",
+          "created": "2026-11-03T09:00:00-05:00"
         }
       }
     ],
@@ -2648,6 +3054,75 @@
           "synthetic_reason": "Synthetic seated vital signs. Standing blood pressures for the fall-risk assessment are recorded in the functional status.",
           "author": "The Human Record generator",
           "created": "2026-11-02T15:00:00-05:00"
+        }
+      },
+      {
+        "id": "VSET-005",
+        "date": "2026-10-13",
+        "measurements": [
+          {
+            "code": "8302-2",
+            "display": "Body height",
+            "value": 185,
+            "unit": "cm"
+          },
+          {
+            "code": "29463-7",
+            "display": "Body weight",
+            "value": 78.2,
+            "unit": "kg"
+          },
+          {
+            "code": "39156-5",
+            "display": "Body mass index (BMI) [Ratio]",
+            "value": 22.8,
+            "unit": "kg/m2"
+          },
+          {
+            "code": "8480-6",
+            "display": "Systolic blood pressure",
+            "value": 126,
+            "unit": "mm[Hg]"
+          },
+          {
+            "code": "8462-4",
+            "display": "Diastolic blood pressure",
+            "value": 70,
+            "unit": "mm[Hg]"
+          },
+          {
+            "code": "8867-4",
+            "display": "Heart rate",
+            "value": 62,
+            "unit": "/min"
+          },
+          {
+            "code": "9279-1",
+            "display": "Respiratory rate",
+            "value": 16,
+            "unit": "/min"
+          },
+          {
+            "code": "8310-5",
+            "display": "Body temperature",
+            "value": 36.6,
+            "unit": "Cel"
+          },
+          {
+            "code": "59408-5",
+            "display": "Oxygen saturation in Arterial blood by Pulse oximetry",
+            "value": 97,
+            "unit": "%"
+          }
+        ],
+        "provenance": {
+          "evidence_grade": "S",
+          "claim_ids": [
+            "CLM-0006"
+          ],
+          "synthetic_reason": "Synthetic seated vital signs at the annual wellness visit, continuing the trend of the earlier visits.",
+          "author": "The Human Record generator",
+          "created": "2026-11-03T09:00:00-05:00"
         }
       }
     ],
@@ -3049,6 +3524,27 @@
         "publisher": "Aether Forge",
         "url": "https://patrickrutledge.github.io/topthirty/",
         "version_or_year": "2026"
+      },
+      {
+        "guideline_id": "GL-AWV-CMS",
+        "title": "Medicare Wellness Visits (Medicare Learning Network)",
+        "publisher": "Centers for Medicare & Medicaid Services",
+        "url": "https://www.cms.gov/outreach-and-education/medicare-learning-network-mln/mlnproducts/preventive-services/medicare-wellness-visits.html",
+        "version_or_year": "2026"
+      },
+      {
+        "guideline_id": "GL-PREV-2026",
+        "title": "Medicare Preventive Services reference: visit templates, screening cascades, and documentation elements",
+        "publisher": "Aether Forge",
+        "url": "https://patrickrutledge.github.io/preventative_services/",
+        "version_or_year": "2026"
+      },
+      {
+        "guideline_id": "GL-USPSTF-FALLS-2024",
+        "title": "Falls Prevention in Community-Dwelling Older Adults: Interventions",
+        "publisher": "U.S. Preventive Services Task Force",
+        "url": "https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/falls-prevention-community-dwelling-older-adults-interventions",
+        "version_or_year": "2024"
       }
     ]
   },

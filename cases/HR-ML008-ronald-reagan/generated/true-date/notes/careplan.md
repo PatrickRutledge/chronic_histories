@@ -40,5 +40,6 @@
 - 2001-02-24: Neurology consultation for Alzheimer's disease staging, medication review, and evening restlessness **S**
 - 2001-04-14: Three-month post-fracture visit with bone density testing and zoledronic acid **S**
 - 2001-07-14: Six-month post-fracture, dementia, and caregiver review **S**
+- 2001-10-13: Subsequent annual wellness visit **S**
 
 This teaching document does not replace care from a qualified clinician.

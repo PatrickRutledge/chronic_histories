@@ -38,5 +38,6 @@
 - 2026-04-09: Four-week retina follow-up with OCT and second injection **S**
 - 2026-05-07: Eight-week retina follow-up with OCT and third injection **S**
 - 2026-07-02: Treat-and-extend retina visit and primary care review of vision rehabilitation **S**
+- 2026-10-15: Subsequent annual wellness visit **S**
 
 This teaching document does not replace care from a qualified clinician.

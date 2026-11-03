@@ -433,8 +433,8 @@
     <templateId root="2.16.840.1.113883.10.20.22.2.8"/>
     <code code="51848-0" codeSystem="2.16.840.1.113883.6.1" displayName="Evaluation note"/>
     <title>Assessment</title>
-    <text><list><item>Squamous cell carcinoma of the right tonsillar pillar, p16-negative, suspected at presentation and confirmed by biopsy at the otolaryngology visit; linked to the documented 1885 diagnosis: active, confirmed [S]</item><item>Nicotine dependence, cigars, about ten a day for more than forty years: active, confirmed [S]</item><item>Painful swallowing with oropharyngeal dysphagia from the tonsillar tumor: active, confirmed [S]</item><item>Unintended weight loss from painful swallowing, about 2 kg before presentation and 9% of body weight by the end of treatment: active, confirmed [S]</item></list>
-<paragraph>Most recent measures: Hemoglobin [Mass/volume] in Blood 11.9 on 1884-10-22; Leukocytes [#/volume] in Blood by Automated count 3.6 on 1884-10-22; Platelets [#/volume] in Blood by Automated count 168 on 1884-10-22; Sodium [Moles/volume] in Serum or Plasma 136 on 1884-10-22; Potassium [Moles/volume] in Serum or Plasma 4 on 1884-10-22; Creatinine [Mass/volume] in Serum or Plasma 1.12 on 1884-10-22; Glomerular filtration rate [Volume Rate/Area] in Serum, Plasma or Blood by Creatinine-based formula (CKD-EPI 1879)/1.73 sq M 74 on 1884-10-22; Glucose [Mass/volume] in Serum or Plasma 94 on 1884-10-22; Albumin [Mass/volume] in Serum or Plasma 3.3 on 1884-10-22; Thyrotropin [Units/volume] in Serum or Plasma 1.8 on 1884-07-07; Pain severity - 0-10 verbal numeric rating [Score] - Reported 3 on 1884-10-22; Patient Health Questionnaire 2 item (PHQ-2) total score [Reported] 1 on 1884-10-22 [S]</paragraph>
+    <text><list><item>Squamous cell carcinoma of the right tonsillar pillar, p16-negative, suspected at presentation and confirmed by biopsy at the otolaryngology visit; linked to the documented 1885 diagnosis: active, confirmed [S]</item><item>Nicotine dependence, cigars, about ten a day for more than forty years: active, confirmed [S]</item><item>Painful swallowing with oropharyngeal dysphagia from the tonsillar tumor: active, confirmed [S]</item><item>Unintended weight loss from painful swallowing, about 2 kg before presentation and 9% of body weight by the end of treatment: active, confirmed [S]</item><item>Acute viral bronchitis after a head cold during the cancer workup, resolved without antibiotics: resolved, confirmed [S]</item></list>
+<paragraph>Most recent measures: Hemoglobin [Mass/volume] in Blood 11.9 on 1884-10-22; Leukocytes [#/volume] in Blood by Automated count 3.6 on 1884-10-22; Platelets [#/volume] in Blood by Automated count 168 on 1884-10-22; Sodium [Moles/volume] in Serum or Plasma 136 on 1884-10-22; Potassium [Moles/volume] in Serum or Plasma 4 on 1884-10-22; Creatinine [Mass/volume] in Serum or Plasma 1.12 on 1884-10-22; Glomerular filtration rate [Volume Rate/Area] in Serum, Plasma or Blood by Creatinine-based formula (CKD-EPI 1879)/1.73 sq M 74 on 1884-10-22; Glucose [Mass/volume] in Serum or Plasma 94 on 1884-10-22; Albumin [Mass/volume] in Serum or Plasma 3.3 on 1884-10-22; Thyrotropin [Units/volume] in Serum or Plasma 1.8 on 1884-07-07; Pain severity - 0-10 verbal numeric rating [Score] - Reported 6 on 1884-07-28; Patient Health Questionnaire 2 item (PHQ-2) total score [Reported] 1 on 1884-10-22 [S]</paragraph>
 <paragraph>Strengths and supports: Supports: spouse and adult children, one of whom helps with appointments and meals [S]</paragraph></text>
 
   </section>
@@ -460,6 +460,10 @@
   <tr ID="problem-4">
     <td>Unintended weight loss from painful swallowing, about 2 kg before presentation and 9% of body weight by the end of treatment</td><td>active</td><td>confirmed</td>
     <td>R63.4</td><td>S — Synthetic finding from the measured weights.</td>
+  </tr>
+  <tr ID="problem-5">
+    <td>Acute viral bronchitis after a head cold during the cancer workup, resolved without antibiotics</td><td>resolved</td><td>confirmed</td>
+    <td>J20.9</td><td>S — Synthetic intercurrent illness at an unscheduled visit; it does not echo a documented illness.</td>
   </tr></tbody></table></text>
 
   <entry typeCode="DRIV">
@@ -542,6 +546,26 @@
       </entryRelationship>
     </act>
   </entry>
+  <entry typeCode="DRIV">
+    <act classCode="ACT" moodCode="EVN">
+      <templateId root="2.16.840.1.113883.10.20.22.4.3" extension="2015-08-01"/>
+      <id root="4fcce2c4-2253-48e0-ad3b-ff4dfd5e05ae"/>
+      <code code="CONC" codeSystem="2.16.840.1.113883.5.6" displayName="Concern"/>
+      <statusCode code="active"/>
+      <effectiveTime><low value="18840728"/></effectiveTime>
+      <entryRelationship typeCode="SUBJ">
+        <observation classCode="OBS" moodCode="EVN">
+          <templateId root="2.16.840.1.113883.10.20.22.4.4" extension="2015-08-01"/>
+          <id root="6953bbda-f507-42ca-8788-2ef1b2c6dd12"/>
+          <code code="55607006" codeSystem="2.16.840.1.113883.6.96" displayName="Problem"/>
+          <text><reference value="#problem-5"/></text>
+          <statusCode code="completed"/>
+          <effectiveTime><low value="18840728"/></effectiveTime>
+          <value xsi:type="CD" code="J20.9" codeSystem="2.16.840.1.113883.6.90" displayName="Acute bronchitis, unspecified"/>
+        </observation>
+      </entryRelationship>
+    </act>
+  </entry>
         </section>
       </component>
       <component>
@@ -584,7 +608,8 @@
   <tr ID="result-32"><td>1884-10-22</td><td>Glucose [Mass/volume] in Serum or Plasma</td><td>94</td><td>mg/dL</td><td>70-99 mg/dL</td><td>Normal</td><td>S</td></tr>
   <tr ID="result-33"><td>1884-10-22</td><td>Albumin [Mass/volume] in Serum or Plasma</td><td>3.3</td><td>g/dL</td><td>3.5-5 g/dL</td><td>Low</td><td>S</td></tr>
   <tr ID="result-34"><td>1884-10-22</td><td>Pain severity - 0-10 verbal numeric rating [Score] - Reported</td><td>3</td><td>{score}</td><td></td><td></td><td>S</td></tr>
-  <tr ID="result-35"><td>1884-10-22</td><td>Patient Health Questionnaire 2 item (PHQ-2) total score [Reported]</td><td>1</td><td>{score}</td><td></td><td></td><td>S</td></tr></tbody></table></text>
+  <tr ID="result-35"><td>1884-10-22</td><td>Patient Health Questionnaire 2 item (PHQ-2) total score [Reported]</td><td>1</td><td>{score}</td><td></td><td></td><td>S</td></tr>
+  <tr ID="result-36"><td>1884-07-28</td><td>Pain severity - 0-10 verbal numeric rating [Score] - Reported</td><td>6</td><td>{score}</td><td></td><td></td><td>S</td></tr></tbody></table></text>
 
   <entry typeCode="DRIV">
     <organizer classCode="CLUSTER" moodCode="EVN">
@@ -892,6 +917,17 @@
           <statusCode code="completed"/>
           <effectiveTime value="18841022"/>
           <value xsi:type="PQ" value="3" unit="{score}"/>
+        </observation>
+      </component>
+      <component>
+        <observation classCode="OBS" moodCode="EVN">
+          <templateId root="2.16.840.1.113883.10.20.22.4.2" extension="2015-08-01"/>
+          <id root="b5dce09c-4537-40b2-8cd2-c7b6f3800a6a"/>
+          <code code="72514-3" codeSystem="2.16.840.1.113883.6.1" displayName="Pain severity - 0-10 verbal numeric rating [Score] - Reported"/>
+          <text><reference value="#result-36"/></text>
+          <statusCode code="completed"/>
+          <effectiveTime value="18840728"/>
+          <value xsi:type="PQ" value="6" unit="{score}"/>
         </observation>
       </component>
     </organizer>
@@ -1306,7 +1342,16 @@
   <tr ID="vital-4-6"><td>1884-10-22</td><td>Heart rate</td><td>84</td><td>/min</td><td>S</td></tr>
   <tr ID="vital-4-7"><td>1884-10-22</td><td>Respiratory rate</td><td>16</td><td>/min</td><td>S</td></tr>
   <tr ID="vital-4-8"><td>1884-10-22</td><td>Body temperature</td><td>36.9</td><td>Cel</td><td>S</td></tr>
-  <tr ID="vital-4-9"><td>1884-10-22</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>97</td><td>%</td><td>S</td></tr></tbody></table></text>
+  <tr ID="vital-4-9"><td>1884-10-22</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>97</td><td>%</td><td>S</td></tr>
+  <tr ID="vital-5-1"><td>1884-07-28</td><td>Body height</td><td>173</td><td>cm</td><td>S</td></tr>
+  <tr ID="vital-5-2"><td>1884-07-28</td><td>Body weight</td><td>76.5</td><td>kg</td><td>S</td></tr>
+  <tr ID="vital-5-3"><td>1884-07-28</td><td>Body mass index (BMI) [Ratio]</td><td>25.6</td><td>kg/m2</td><td>S</td></tr>
+  <tr ID="vital-5-4"><td>1884-07-28</td><td>Systolic blood pressure</td><td>130</td><td>mm[Hg]</td><td>S</td></tr>
+  <tr ID="vital-5-5"><td>1884-07-28</td><td>Diastolic blood pressure</td><td>78</td><td>mm[Hg]</td><td>S</td></tr>
+  <tr ID="vital-5-6"><td>1884-07-28</td><td>Heart rate</td><td>86</td><td>/min</td><td>S</td></tr>
+  <tr ID="vital-5-7"><td>1884-07-28</td><td>Respiratory rate</td><td>18</td><td>/min</td><td>S</td></tr>
+  <tr ID="vital-5-8"><td>1884-07-28</td><td>Body temperature</td><td>37.5</td><td>Cel</td><td>S</td></tr>
+  <tr ID="vital-5-9"><td>1884-07-28</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>96</td><td>%</td><td>S</td></tr></tbody></table></text>
   <entry typeCode="DRIV">
     <organizer classCode="CLUSTER" moodCode="EVN">
       <templateId root="2.16.840.1.113883.10.20.22.4.26" extension="2015-08-01"/>
@@ -1342,6 +1387,15 @@
       <statusCode code="completed"/><effectiveTime value="18841022"/>
       <component><observation classCode="OBS" moodCode="EVN"><templateId root="2.16.840.1.113883.10.20.22.4.27" extension="2014-06-09"/><id root="191aa700-b978-458c-bfb3-79312c8ba958"/><code code="8302-2" codeSystem="2.16.840.1.113883.6.1" displayName="Body height"/><text><reference value="#vital-4-1"/></text><statusCode code="completed"/><effectiveTime value="18841022"/><value xsi:type="PQ" value="173" unit="cm"/></observation></component><component><observation classCode="OBS" moodCode="EVN"><templateId root="2.16.840.1.113883.10.20.22.4.27" extension="2014-06-09"/><id root="4b5d3db8-5b01-4709-bad5-c75eefedf65f"/><code code="29463-7" codeSystem="2.16.840.1.113883.6.1" displayName="Body weight"/><text><reference value="#vital-4-2"/></text><statusCode code="completed"/><effectiveTime value="18841022"/><value xsi:type="PQ" value="71" unit="kg"/></observation></component><component><observation classCode="OBS" moodCode="EVN"><templateId root="2.16.840.1.113883.10.20.22.4.27" extension="2014-06-09"/><id root="7673df0e-e6b5-41ce-9176-e67bf6858f5a"/><code code="39156-5" codeSystem="2.16.840.1.113883.6.1" displayName="Body mass index (BMI) [Ratio]"/><text><reference value="#vital-4-3"/></text><statusCode code="completed"/><effectiveTime value="18841022"/><value xsi:type="PQ" value="23.7" unit="kg/m2"/></observation></component><component><observation classCode="OBS" moodCode="EVN"><templateId root="2.16.840.1.113883.10.20.22.4.27" extension="2014-06-09"/><id root="c5f28c5b-05b9-4edb-bbae-ed441cbf75a0"/><code code="8480-6" codeSystem="2.16.840.1.113883.6.1" displayName="Systolic blood pressure"/><text><reference value="#vital-4-4"/></text><statusCode code="completed"/><effectiveTime value="18841022"/><value xsi:type="PQ" value="118" unit="mm[Hg]"/></observation></component><component><observation classCode="OBS" moodCode="EVN"><templateId root="2.16.840.1.113883.10.20.22.4.27" extension="2014-06-09"/><id root="fa30d90d-544f-4d8e-b0d9-6e02634a7c01"/><code code="8462-4" codeSystem="2.16.840.1.113883.6.1" displayName="Diastolic blood pressure"/><text><reference value="#vital-4-5"/></text><statusCode code="completed"/><effectiveTime value="18841022"/><value xsi:type="PQ" value="72" unit="mm[Hg]"/></observation></component><component><observation classCode="OBS" moodCode="EVN"><templateId root="2.16.840.1.113883.10.20.22.4.27" extension="2014-06-09"/><id root="54cb6675-0c2b-475e-b681-f89048af7389"/><code code="8867-4" codeSystem="2.16.840.1.113883.6.1" displayName="Heart rate"/><text><reference value="#vital-4-6"/></text><statusCode code="completed"/><effectiveTime value="18841022"/><value xsi:type="PQ" value="84" unit="/min"/></observation></component><component><observation classCode="OBS" moodCode="EVN"><templateId root="2.16.840.1.113883.10.20.22.4.27" extension="2014-06-09"/><id root="a65e7723-4171-45eb-9f39-6365e07fc0cf"/><code code="9279-1" codeSystem="2.16.840.1.113883.6.1" displayName="Respiratory rate"/><text><reference value="#vital-4-7"/></text><statusCode code="completed"/><effectiveTime value="18841022"/><value xsi:type="PQ" value="16" unit="/min"/></observation></component><component><observation classCode="OBS" moodCode="EVN"><templateId root="2.16.840.1.113883.10.20.22.4.27" extension="2014-06-09"/><id root="27280198-aa63-4ff6-bbb8-1d07bbd71597"/><code code="8310-5" codeSystem="2.16.840.1.113883.6.1" displayName="Body temperature"/><text><reference value="#vital-4-8"/></text><statusCode code="completed"/><effectiveTime value="18841022"/><value xsi:type="PQ" value="36.9" unit="Cel"/></observation></component><component><observation classCode="OBS" moodCode="EVN"><templateId root="2.16.840.1.113883.10.20.22.4.27" extension="2014-06-09"/><id root="0f213cab-1d10-413d-a89c-60a9a0934876"/><code code="59408-5" codeSystem="2.16.840.1.113883.6.1" displayName="Oxygen saturation in Arterial blood by Pulse oximetry"/><text><reference value="#vital-4-9"/></text><statusCode code="completed"/><effectiveTime value="18841022"/><value xsi:type="PQ" value="97" unit="%"/></observation></component>
     </organizer>
+  </entry>
+  <entry typeCode="DRIV">
+    <organizer classCode="CLUSTER" moodCode="EVN">
+      <templateId root="2.16.840.1.113883.10.20.22.4.26" extension="2015-08-01"/>
+      <id root="3d414916-3f05-4caa-9cdd-8f7c28a16027"/>
+      <code code="74728-7" codeSystem="2.16.840.1.113883.6.1" displayName="Vital signs, weight, height, head circumference, oximetry, BMI, and BSA panel - HL7.FHIR.R4"/>
+      <statusCode code="completed"/><effectiveTime value="18840728"/>
+      <component><observation classCode="OBS" moodCode="EVN"><templateId root="2.16.840.1.113883.10.20.22.4.27" extension="2014-06-09"/><id root="c1b50cc9-63fb-4a07-8140-13cb23f63065"/><code code="8302-2" codeSystem="2.16.840.1.113883.6.1" displayName="Body height"/><text><reference value="#vital-5-1"/></text><statusCode code="completed"/><effectiveTime value="18840728"/><value xsi:type="PQ" value="173" unit="cm"/></observation></component><component><observation classCode="OBS" moodCode="EVN"><templateId root="2.16.840.1.113883.10.20.22.4.27" extension="2014-06-09"/><id root="f3673090-31a7-4d38-a443-3e0ece6f74b8"/><code code="29463-7" codeSystem="2.16.840.1.113883.6.1" displayName="Body weight"/><text><reference value="#vital-5-2"/></text><statusCode code="completed"/><effectiveTime value="18840728"/><value xsi:type="PQ" value="76.5" unit="kg"/></observation></component><component><observation classCode="OBS" moodCode="EVN"><templateId root="2.16.840.1.113883.10.20.22.4.27" extension="2014-06-09"/><id root="63c43e98-8c34-4c95-918f-b43e35ee016a"/><code code="39156-5" codeSystem="2.16.840.1.113883.6.1" displayName="Body mass index (BMI) [Ratio]"/><text><reference value="#vital-5-3"/></text><statusCode code="completed"/><effectiveTime value="18840728"/><value xsi:type="PQ" value="25.6" unit="kg/m2"/></observation></component><component><observation classCode="OBS" moodCode="EVN"><templateId root="2.16.840.1.113883.10.20.22.4.27" extension="2014-06-09"/><id root="4e9f2234-9a3d-4b72-98a7-3256a98d72a9"/><code code="8480-6" codeSystem="2.16.840.1.113883.6.1" displayName="Systolic blood pressure"/><text><reference value="#vital-5-4"/></text><statusCode code="completed"/><effectiveTime value="18840728"/><value xsi:type="PQ" value="130" unit="mm[Hg]"/></observation></component><component><observation classCode="OBS" moodCode="EVN"><templateId root="2.16.840.1.113883.10.20.22.4.27" extension="2014-06-09"/><id root="e82d716c-e573-4f5a-b14a-5a91738c0ec9"/><code code="8462-4" codeSystem="2.16.840.1.113883.6.1" displayName="Diastolic blood pressure"/><text><reference value="#vital-5-5"/></text><statusCode code="completed"/><effectiveTime value="18840728"/><value xsi:type="PQ" value="78" unit="mm[Hg]"/></observation></component><component><observation classCode="OBS" moodCode="EVN"><templateId root="2.16.840.1.113883.10.20.22.4.27" extension="2014-06-09"/><id root="21359292-283a-4741-a3be-e23ede941b15"/><code code="8867-4" codeSystem="2.16.840.1.113883.6.1" displayName="Heart rate"/><text><reference value="#vital-5-6"/></text><statusCode code="completed"/><effectiveTime value="18840728"/><value xsi:type="PQ" value="86" unit="/min"/></observation></component><component><observation classCode="OBS" moodCode="EVN"><templateId root="2.16.840.1.113883.10.20.22.4.27" extension="2014-06-09"/><id root="cfedda45-1084-436a-83a3-0fb696eddcd2"/><code code="9279-1" codeSystem="2.16.840.1.113883.6.1" displayName="Respiratory rate"/><text><reference value="#vital-5-7"/></text><statusCode code="completed"/><effectiveTime value="18840728"/><value xsi:type="PQ" value="18" unit="/min"/></observation></component><component><observation classCode="OBS" moodCode="EVN"><templateId root="2.16.840.1.113883.10.20.22.4.27" extension="2014-06-09"/><id root="8a902e97-b778-44af-b4cf-907b2bab8e79"/><code code="8310-5" codeSystem="2.16.840.1.113883.6.1" displayName="Body temperature"/><text><reference value="#vital-5-8"/></text><statusCode code="completed"/><effectiveTime value="18840728"/><value xsi:type="PQ" value="37.5" unit="Cel"/></observation></component><component><observation classCode="OBS" moodCode="EVN"><templateId root="2.16.840.1.113883.10.20.22.4.27" extension="2014-06-09"/><id root="6e372224-2d11-4ae7-ae25-e331e6eb75d0"/><code code="59408-5" codeSystem="2.16.840.1.113883.6.1" displayName="Oxygen saturation in Arterial blood by Pulse oximetry"/><text><reference value="#vital-5-9"/></text><statusCode code="completed"/><effectiveTime value="18840728"/><value xsi:type="PQ" value="96" unit="%"/></observation></component>
+    </organizer>
   </entry></section></component>
       <component>
         <section>
@@ -1352,7 +1406,8 @@
   <tr ID="encounter-1"><td>1884-07-07</td><td>Primary care visit for four weeks of right-sided throat pain and painful swallowing in a heavy cigar smoker</td><td>finished</td><td>S</td></tr>
   <tr ID="encounter-2"><td>1884-07-21</td><td>Otolaryngology consultation with flexible laryngoscopy and biopsy of the right tonsillar lesion</td><td>finished</td><td>S</td></tr>
   <tr ID="encounter-3"><td>1884-08-04</td><td>Primary care visit after staging to coordinate nutrition, dental care, tobacco cessation, and symptom control before treatment</td><td>finished</td><td>S</td></tr>
-  <tr ID="encounter-4"><td>1884-10-22</td><td>Primary care visit three weeks after completing chemoradiation directed by the head and neck oncology team</td><td>finished</td><td>S</td></tr></tbody></table></text>
+  <tr ID="encounter-4"><td>1884-10-22</td><td>Primary care visit three weeks after completing chemoradiation directed by the head and neck oncology team</td><td>finished</td><td>S</td></tr>
+  <tr ID="encounter-5"><td>1884-07-28</td><td>Same-day sick visit for a head cold and cough during the cancer workup</td><td>finished</td><td>S</td></tr></tbody></table></text>
 
   <entry typeCode="DRIV">
     <encounter classCode="ENC" moodCode="EVN">
@@ -1388,6 +1443,15 @@
       <code nullFlavor="UNK"><originalText><reference value="#encounter-4"/></originalText></code>
       <statusCode code="completed"/>
       <effectiveTime value="18841022"/>
+    </encounter>
+  </entry>
+  <entry typeCode="DRIV">
+    <encounter classCode="ENC" moodCode="EVN">
+      <templateId root="2.16.840.1.113883.10.20.22.4.49" extension="2015-08-01"/>
+      <id root="82a4367c-a1fb-45a6-85bb-2a63787f1bb8"/>
+      <code code="185345009" codeSystem="2.16.840.1.113883.6.96" displayName="Encounter for symptom"><originalText><reference value="#encounter-5"/></originalText></code>
+      <statusCode code="completed"/>
+      <effectiveTime value="18840728"/>
     </encounter>
   </entry>
         </section>

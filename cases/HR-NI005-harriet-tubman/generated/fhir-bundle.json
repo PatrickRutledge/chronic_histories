@@ -312,6 +312,70 @@
       }
     },
     {
+      "fullUrl": "urn:uuid:788c50d5-74c4-4375-b671-9c4763642a14",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "prb-005",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition-problems-health-concerns"
+          ],
+          "tag": [
+            {
+              "system": "https://github.com/PatrickRutledge/chronic_histories/fhir/evidence-grade",
+              "code": "S"
+            }
+          ]
+        },
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "resolved"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+                "code": "problem-list-item",
+                "display": "Problem List Item"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "text": "Acute viral gastroenteritis with mild dehydration and a prerenal creatinine rise while taking candesartan, resolved",
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "A08.4",
+              "display": "Viral intestinal infection, unspecified"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "urn:uuid:def05491-c251-4fdf-a184-b92779821f3f"
+        },
+        "recordedDate": "2026-04-06",
+        "note": [
+          {
+            "text": "Synthetic teaching-case problem. Evidence grade S. Historical claims: ."
+          }
+        ]
+      }
+    },
+    {
       "fullUrl": "urn:uuid:e9ac9e30-98fb-402a-aa83-31f706d82486",
       "resource": {
         "resourceType": "Condition",
@@ -685,6 +749,7 @@
         "dosageInstruction": [
           {
             "text": "Two tablets by mouth as needed, at most 2 days a week",
+            "asNeededBoolean": true,
             "timing": {
               "repeat": {
                 "frequency": 1,
@@ -1267,6 +1332,74 @@
       }
     },
     {
+      "fullUrl": "urn:uuid:657ed5b0-acc2-479d-b561-d7dc942042bb",
+      "resource": {
+        "resourceType": "Immunization",
+        "id": "imm-005",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-immunization"
+          ],
+          "tag": [
+            {
+              "system": "https://github.com/PatrickRutledge/chronic_histories/fhir/evidence-grade",
+              "code": "S"
+            }
+          ]
+        },
+        "status": "completed",
+        "vaccineCode": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/cvx",
+              "code": "135",
+              "display": "Influenza, high-dose, trivalent, PF"
+            }
+          ],
+          "text": "High-dose influenza vaccine, 2026-2027 season"
+        },
+        "patient": {
+          "reference": "urn:uuid:def05491-c251-4fdf-a184-b92779821f3f"
+        },
+        "occurrenceDateTime": "2026-10-13",
+        "primarySource": false
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:a3c09f5f-100c-4d2c-8ce7-b55c59366919",
+      "resource": {
+        "resourceType": "Immunization",
+        "id": "imm-006",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-immunization"
+          ],
+          "tag": [
+            {
+              "system": "https://github.com/PatrickRutledge/chronic_histories/fhir/evidence-grade",
+              "code": "S"
+            }
+          ]
+        },
+        "status": "completed",
+        "vaccineCode": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/cvx",
+              "code": "303",
+              "display": "RSV, recombinant, protein subunit RSVpreF, adjuvant reconstituted, 0.5 mL, PF"
+            }
+          ],
+          "text": "RSV vaccine, adjuvanted, single dose"
+        },
+        "patient": {
+          "reference": "urn:uuid:def05491-c251-4fdf-a184-b92779821f3f"
+        },
+        "occurrenceDateTime": "2026-10-13",
+        "primarySource": false
+      }
+    },
+    {
       "fullUrl": "urn:uuid:b30a6128-6044-4076-9a26-3b798078ca26",
       "resource": {
         "resourceType": "Encounter",
@@ -1407,6 +1540,102 @@
         "period": {
           "start": "2026-08-17",
           "end": "2026-08-17"
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:2db33bbb-55e6-4e31-aea5-753029f38ae2",
+      "resource": {
+        "resourceType": "Encounter",
+        "id": "enc-005",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-encounter"
+          ],
+          "tag": [
+            {
+              "system": "https://github.com/PatrickRutledge/chronic_histories/fhir/evidence-grade",
+              "code": "S"
+            }
+          ]
+        },
+        "status": "finished",
+        "class": {
+          "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+          "code": "AMB",
+          "display": "ambulatory"
+        },
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "185345009",
+                "display": "Encounter for symptom"
+              }
+            ],
+            "text": "Same-day sick visit for vomiting and diarrhea"
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "Vomiting and watery diarrhea for two days"
+          }
+        ],
+        "subject": {
+          "reference": "urn:uuid:def05491-c251-4fdf-a184-b92779821f3f"
+        },
+        "period": {
+          "start": "2026-09-28",
+          "end": "2026-09-28"
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:966edfa4-020e-47ad-a258-1864c38da3d1",
+      "resource": {
+        "resourceType": "Encounter",
+        "id": "enc-006",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-encounter"
+          ],
+          "tag": [
+            {
+              "system": "https://github.com/PatrickRutledge/chronic_histories/fhir/evidence-grade",
+              "code": "S"
+            }
+          ]
+        },
+        "status": "finished",
+        "class": {
+          "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+          "code": "AMB",
+          "display": "ambulatory"
+        },
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "281038008",
+                "display": "Geriatric annual health check"
+              }
+            ],
+            "text": "Subsequent annual wellness visit"
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "Subsequent annual wellness visit; no new complaints"
+          }
+        ],
+        "subject": {
+          "reference": "urn:uuid:def05491-c251-4fdf-a184-b92779821f3f"
+        },
+        "period": {
+          "start": "2026-10-13",
+          "end": "2026-10-13"
         }
       }
     },
@@ -3520,6 +3749,989 @@
       }
     },
     {
+      "fullUrl": "urn:uuid:ed0d0988-6a83-4c2c-9ac9-27a497969199",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-na-sick",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-lab"
+          ],
+          "tag": [
+            {
+              "system": "https://github.com/PatrickRutledge/chronic_histories/fhir/evidence-grade",
+              "code": "S"
+            }
+          ]
+        },
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "2951-2",
+              "display": "Sodium [Moles/volume] in Serum or Plasma"
+            }
+          ],
+          "text": "Sodium [Moles/volume] in Serum or Plasma"
+        },
+        "subject": {
+          "reference": "urn:uuid:def05491-c251-4fdf-a184-b92779821f3f"
+        },
+        "effectiveDateTime": "2026-09-28",
+        "valueQuantity": {
+          "value": 136,
+          "unit": "mmol/L",
+          "system": "http://unitsofmeasure.org",
+          "code": "mmol/L"
+        },
+        "interpretation": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation",
+                "code": "N",
+                "display": "Normal"
+              }
+            ]
+          }
+        ],
+        "referenceRange": [
+          {
+            "low": {
+              "value": 135,
+              "unit": "mmol/L",
+              "system": "http://unitsofmeasure.org",
+              "code": "mmol/L"
+            },
+            "high": {
+              "value": 145,
+              "unit": "mmol/L",
+              "system": "http://unitsofmeasure.org",
+              "code": "mmol/L"
+            },
+            "text": "135-145 mmol/L"
+          }
+        ],
+        "note": [
+          {
+            "text": "Synthetic teaching-case result. Evidence grade S."
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:b0e35d03-3d4a-4a9c-8279-975892b2a465",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-k-sick",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-lab"
+          ],
+          "tag": [
+            {
+              "system": "https://github.com/PatrickRutledge/chronic_histories/fhir/evidence-grade",
+              "code": "S"
+            }
+          ]
+        },
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "2823-3",
+              "display": "Potassium [Moles/volume] in Serum or Plasma"
+            }
+          ],
+          "text": "Potassium [Moles/volume] in Serum or Plasma"
+        },
+        "subject": {
+          "reference": "urn:uuid:def05491-c251-4fdf-a184-b92779821f3f"
+        },
+        "effectiveDateTime": "2026-09-28",
+        "valueQuantity": {
+          "value": 4.8,
+          "unit": "mmol/L",
+          "system": "http://unitsofmeasure.org",
+          "code": "mmol/L"
+        },
+        "interpretation": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation",
+                "code": "N",
+                "display": "Normal"
+              }
+            ]
+          }
+        ],
+        "referenceRange": [
+          {
+            "low": {
+              "value": 3.5,
+              "unit": "mmol/L",
+              "system": "http://unitsofmeasure.org",
+              "code": "mmol/L"
+            },
+            "high": {
+              "value": 5.1,
+              "unit": "mmol/L",
+              "system": "http://unitsofmeasure.org",
+              "code": "mmol/L"
+            },
+            "text": "3.5-5.1 mmol/L"
+          }
+        ],
+        "note": [
+          {
+            "text": "Synthetic teaching-case result. Evidence grade S."
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:ae5e37a8-b593-4dd5-8966-8ea0381a9550",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-cr-sick",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-lab"
+          ],
+          "tag": [
+            {
+              "system": "https://github.com/PatrickRutledge/chronic_histories/fhir/evidence-grade",
+              "code": "S"
+            }
+          ]
+        },
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "2160-0",
+              "display": "Creatinine [Mass/volume] in Serum or Plasma"
+            }
+          ],
+          "text": "Creatinine [Mass/volume] in Serum or Plasma"
+        },
+        "subject": {
+          "reference": "urn:uuid:def05491-c251-4fdf-a184-b92779821f3f"
+        },
+        "effectiveDateTime": "2026-09-28",
+        "valueQuantity": {
+          "value": 1.21,
+          "unit": "mg/dL",
+          "system": "http://unitsofmeasure.org",
+          "code": "mg/dL"
+        },
+        "interpretation": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation",
+                "code": "H",
+                "display": "High"
+              }
+            ]
+          }
+        ],
+        "referenceRange": [
+          {
+            "low": {
+              "value": 0.59,
+              "unit": "mg/dL",
+              "system": "http://unitsofmeasure.org",
+              "code": "mg/dL"
+            },
+            "high": {
+              "value": 1.04,
+              "unit": "mg/dL",
+              "system": "http://unitsofmeasure.org",
+              "code": "mg/dL"
+            },
+            "text": "0.59-1.04 mg/dL"
+          }
+        ],
+        "note": [
+          {
+            "text": "Synthetic teaching-case result. Evidence grade S."
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:fa02a063-e629-4b00-a642-7a61628294c7",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-egfr-sick",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-lab"
+          ],
+          "tag": [
+            {
+              "system": "https://github.com/PatrickRutledge/chronic_histories/fhir/evidence-grade",
+              "code": "S"
+            }
+          ]
+        },
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "98979-8",
+              "display": "Glomerular filtration rate [Volume Rate/Area] in Serum, Plasma or Blood by Creatinine-based formula (CKD-EPI 2021)/1.73 sq M"
+            }
+          ],
+          "text": "Glomerular filtration rate [Volume Rate/Area] in Serum, Plasma or Blood by Creatinine-based formula (CKD-EPI 2021)/1.73 sq M"
+        },
+        "subject": {
+          "reference": "urn:uuid:def05491-c251-4fdf-a184-b92779821f3f"
+        },
+        "effectiveDateTime": "2026-09-28",
+        "valueQuantity": {
+          "value": 47,
+          "unit": "mL/min/{1.73_m2}",
+          "system": "http://unitsofmeasure.org",
+          "code": "mL/min/{1.73_m2}"
+        },
+        "interpretation": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation",
+                "code": "L",
+                "display": "Low"
+              }
+            ]
+          }
+        ],
+        "referenceRange": [
+          {
+            "low": {
+              "value": 60,
+              "unit": "mL/min/{1.73_m2}",
+              "system": "http://unitsofmeasure.org",
+              "code": "mL/min/{1.73_m2}"
+            },
+            "text": ">=60 mL/min/1.73 m²"
+          }
+        ],
+        "note": [
+          {
+            "text": "Synthetic teaching-case result. Evidence grade S."
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:25bda4a3-f50f-47a9-9df5-0ad52ae5efbe",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-glu-sick",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-lab"
+          ],
+          "tag": [
+            {
+              "system": "https://github.com/PatrickRutledge/chronic_histories/fhir/evidence-grade",
+              "code": "S"
+            }
+          ]
+        },
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "2345-7",
+              "display": "Glucose [Mass/volume] in Serum or Plasma"
+            }
+          ],
+          "text": "Glucose [Mass/volume] in Serum or Plasma"
+        },
+        "subject": {
+          "reference": "urn:uuid:def05491-c251-4fdf-a184-b92779821f3f"
+        },
+        "effectiveDateTime": "2026-09-28",
+        "valueQuantity": {
+          "value": 88,
+          "unit": "mg/dL",
+          "system": "http://unitsofmeasure.org",
+          "code": "mg/dL"
+        },
+        "interpretation": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation",
+                "code": "N",
+                "display": "Normal"
+              }
+            ]
+          }
+        ],
+        "referenceRange": [
+          {
+            "low": {
+              "value": 70,
+              "unit": "mg/dL",
+              "system": "http://unitsofmeasure.org",
+              "code": "mg/dL"
+            },
+            "high": {
+              "value": 99,
+              "unit": "mg/dL",
+              "system": "http://unitsofmeasure.org",
+              "code": "mg/dL"
+            },
+            "text": "70-99 mg/dL"
+          }
+        ],
+        "note": [
+          {
+            "text": "Synthetic teaching-case result. Evidence grade S."
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:7d71b2e9-aa89-4c26-a26a-d269761444be",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-na-awv",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-lab"
+          ],
+          "tag": [
+            {
+              "system": "https://github.com/PatrickRutledge/chronic_histories/fhir/evidence-grade",
+              "code": "S"
+            }
+          ]
+        },
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "2951-2",
+              "display": "Sodium [Moles/volume] in Serum or Plasma"
+            }
+          ],
+          "text": "Sodium [Moles/volume] in Serum or Plasma"
+        },
+        "subject": {
+          "reference": "urn:uuid:def05491-c251-4fdf-a184-b92779821f3f"
+        },
+        "effectiveDateTime": "2026-10-13",
+        "valueQuantity": {
+          "value": 139,
+          "unit": "mmol/L",
+          "system": "http://unitsofmeasure.org",
+          "code": "mmol/L"
+        },
+        "interpretation": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation",
+                "code": "N",
+                "display": "Normal"
+              }
+            ]
+          }
+        ],
+        "referenceRange": [
+          {
+            "low": {
+              "value": 135,
+              "unit": "mmol/L",
+              "system": "http://unitsofmeasure.org",
+              "code": "mmol/L"
+            },
+            "high": {
+              "value": 145,
+              "unit": "mmol/L",
+              "system": "http://unitsofmeasure.org",
+              "code": "mmol/L"
+            },
+            "text": "135-145 mmol/L"
+          }
+        ],
+        "note": [
+          {
+            "text": "Synthetic teaching-case result. Evidence grade S."
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:7b99e09e-1271-4f0b-a747-18dcfda505e1",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-k-awv",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-lab"
+          ],
+          "tag": [
+            {
+              "system": "https://github.com/PatrickRutledge/chronic_histories/fhir/evidence-grade",
+              "code": "S"
+            }
+          ]
+        },
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "2823-3",
+              "display": "Potassium [Moles/volume] in Serum or Plasma"
+            }
+          ],
+          "text": "Potassium [Moles/volume] in Serum or Plasma"
+        },
+        "subject": {
+          "reference": "urn:uuid:def05491-c251-4fdf-a184-b92779821f3f"
+        },
+        "effectiveDateTime": "2026-10-13",
+        "valueQuantity": {
+          "value": 4.4,
+          "unit": "mmol/L",
+          "system": "http://unitsofmeasure.org",
+          "code": "mmol/L"
+        },
+        "interpretation": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation",
+                "code": "N",
+                "display": "Normal"
+              }
+            ]
+          }
+        ],
+        "referenceRange": [
+          {
+            "low": {
+              "value": 3.5,
+              "unit": "mmol/L",
+              "system": "http://unitsofmeasure.org",
+              "code": "mmol/L"
+            },
+            "high": {
+              "value": 5.1,
+              "unit": "mmol/L",
+              "system": "http://unitsofmeasure.org",
+              "code": "mmol/L"
+            },
+            "text": "3.5-5.1 mmol/L"
+          }
+        ],
+        "note": [
+          {
+            "text": "Synthetic teaching-case result. Evidence grade S."
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:4f9c12a3-249d-48cc-8415-14b516b6ea8a",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-cr-awv",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-lab"
+          ],
+          "tag": [
+            {
+              "system": "https://github.com/PatrickRutledge/chronic_histories/fhir/evidence-grade",
+              "code": "S"
+            }
+          ]
+        },
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "2160-0",
+              "display": "Creatinine [Mass/volume] in Serum or Plasma"
+            }
+          ],
+          "text": "Creatinine [Mass/volume] in Serum or Plasma"
+        },
+        "subject": {
+          "reference": "urn:uuid:def05491-c251-4fdf-a184-b92779821f3f"
+        },
+        "effectiveDateTime": "2026-10-13",
+        "valueQuantity": {
+          "value": 0.9,
+          "unit": "mg/dL",
+          "system": "http://unitsofmeasure.org",
+          "code": "mg/dL"
+        },
+        "interpretation": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation",
+                "code": "N",
+                "display": "Normal"
+              }
+            ]
+          }
+        ],
+        "referenceRange": [
+          {
+            "low": {
+              "value": 0.59,
+              "unit": "mg/dL",
+              "system": "http://unitsofmeasure.org",
+              "code": "mg/dL"
+            },
+            "high": {
+              "value": 1.04,
+              "unit": "mg/dL",
+              "system": "http://unitsofmeasure.org",
+              "code": "mg/dL"
+            },
+            "text": "0.59-1.04 mg/dL"
+          }
+        ],
+        "note": [
+          {
+            "text": "Synthetic teaching-case result. Evidence grade S."
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:9ade7bc3-7759-41db-b2ba-f2e76dbd252a",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-egfr-awv",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-lab"
+          ],
+          "tag": [
+            {
+              "system": "https://github.com/PatrickRutledge/chronic_histories/fhir/evidence-grade",
+              "code": "S"
+            }
+          ]
+        },
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "98979-8",
+              "display": "Glomerular filtration rate [Volume Rate/Area] in Serum, Plasma or Blood by Creatinine-based formula (CKD-EPI 2021)/1.73 sq M"
+            }
+          ],
+          "text": "Glomerular filtration rate [Volume Rate/Area] in Serum, Plasma or Blood by Creatinine-based formula (CKD-EPI 2021)/1.73 sq M"
+        },
+        "subject": {
+          "reference": "urn:uuid:def05491-c251-4fdf-a184-b92779821f3f"
+        },
+        "effectiveDateTime": "2026-10-13",
+        "valueQuantity": {
+          "value": 67,
+          "unit": "mL/min/{1.73_m2}",
+          "system": "http://unitsofmeasure.org",
+          "code": "mL/min/{1.73_m2}"
+        },
+        "interpretation": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation",
+                "code": "N",
+                "display": "Normal"
+              }
+            ]
+          }
+        ],
+        "referenceRange": [
+          {
+            "low": {
+              "value": 60,
+              "unit": "mL/min/{1.73_m2}",
+              "system": "http://unitsofmeasure.org",
+              "code": "mL/min/{1.73_m2}"
+            },
+            "text": ">=60 mL/min/1.73 m²"
+          }
+        ],
+        "note": [
+          {
+            "text": "Synthetic teaching-case result. Evidence grade S."
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:178c64b2-d4a8-4a1c-a2bf-5d5a00abeb1f",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-glu-awv",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-lab"
+          ],
+          "tag": [
+            {
+              "system": "https://github.com/PatrickRutledge/chronic_histories/fhir/evidence-grade",
+              "code": "S"
+            }
+          ]
+        },
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "2345-7",
+              "display": "Glucose [Mass/volume] in Serum or Plasma"
+            }
+          ],
+          "text": "Glucose [Mass/volume] in Serum or Plasma"
+        },
+        "subject": {
+          "reference": "urn:uuid:def05491-c251-4fdf-a184-b92779821f3f"
+        },
+        "effectiveDateTime": "2026-10-13",
+        "valueQuantity": {
+          "value": 92,
+          "unit": "mg/dL",
+          "system": "http://unitsofmeasure.org",
+          "code": "mg/dL"
+        },
+        "interpretation": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation",
+                "code": "N",
+                "display": "Normal"
+              }
+            ]
+          }
+        ],
+        "referenceRange": [
+          {
+            "low": {
+              "value": 70,
+              "unit": "mg/dL",
+              "system": "http://unitsofmeasure.org",
+              "code": "mg/dL"
+            },
+            "high": {
+              "value": 99,
+              "unit": "mg/dL",
+              "system": "http://unitsofmeasure.org",
+              "code": "mg/dL"
+            },
+            "text": "70-99 mg/dL"
+          }
+        ],
+        "note": [
+          {
+            "text": "Synthetic teaching-case result. Evidence grade S."
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:fc5253d3-d990-470a-86d4-00281c6786e2",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-phq2-awv",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-screening-assessment"
+          ],
+          "tag": [
+            {
+              "system": "https://github.com/PatrickRutledge/chronic_histories/fhir/evidence-grade",
+              "code": "S"
+            }
+          ]
+        },
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "survey",
+                "display": "Survey"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "55758-7",
+              "display": "Patient Health Questionnaire 2 item (PHQ-2) total score [Reported]"
+            }
+          ],
+          "text": "Patient Health Questionnaire 2 item (PHQ-2) total score [Reported]"
+        },
+        "subject": {
+          "reference": "urn:uuid:def05491-c251-4fdf-a184-b92779821f3f"
+        },
+        "effectiveDateTime": "2026-10-13",
+        "valueQuantity": {
+          "value": 0,
+          "unit": "{score}",
+          "system": "http://unitsofmeasure.org",
+          "code": "{score}"
+        },
+        "note": [
+          {
+            "text": "Synthetic teaching-case result. Evidence grade S."
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:9a45b1b0-1ecd-44cf-8bf4-613c6e8d0410",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-minicog-awv",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-screening-assessment"
+          ],
+          "tag": [
+            {
+              "system": "https://github.com/PatrickRutledge/chronic_histories/fhir/evidence-grade",
+              "code": "S"
+            }
+          ]
+        },
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "survey",
+                "display": "Survey"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "72233-0",
+              "display": "Total score [Mini-Cog]"
+            }
+          ],
+          "text": "Total score [Mini-Cog]"
+        },
+        "subject": {
+          "reference": "urn:uuid:def05491-c251-4fdf-a184-b92779821f3f"
+        },
+        "effectiveDateTime": "2026-10-13",
+        "valueQuantity": {
+          "value": 5,
+          "unit": "{score}",
+          "system": "http://unitsofmeasure.org",
+          "code": "{score}"
+        },
+        "note": [
+          {
+            "text": "Synthetic teaching-case result. Evidence grade S."
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:b3ded015-2a68-4e52-a05c-ceddb499dbd2",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-auditc-awv",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-screening-assessment"
+          ],
+          "tag": [
+            {
+              "system": "https://github.com/PatrickRutledge/chronic_histories/fhir/evidence-grade",
+              "code": "S"
+            }
+          ]
+        },
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "survey",
+                "display": "Survey"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "75626-2",
+              "display": "Total score [AUDIT-C]"
+            }
+          ],
+          "text": "Total score [AUDIT-C]"
+        },
+        "subject": {
+          "reference": "urn:uuid:def05491-c251-4fdf-a184-b92779821f3f"
+        },
+        "effectiveDateTime": "2026-10-13",
+        "valueQuantity": {
+          "value": 0,
+          "unit": "{score}",
+          "system": "http://unitsofmeasure.org",
+          "code": "{score}"
+        },
+        "note": [
+          {
+            "text": "Synthetic teaching-case result. Evidence grade S."
+          }
+        ]
+      }
+    },
+    {
       "fullUrl": "urn:uuid:cd648205-2556-458d-9740-188409cdb9d6",
       "resource": {
         "resourceType": "Observation",
@@ -5428,6 +6640,960 @@
       }
     },
     {
+      "fullUrl": "urn:uuid:3a7ea2c0-4571-4308-b05a-91c63cd73736",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "vset-005-8302-2",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-body-height"
+          ],
+          "tag": [
+            {
+              "system": "https://github.com/PatrickRutledge/chronic_histories/fhir/evidence-grade",
+              "code": "S"
+            }
+          ]
+        },
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "vital-signs",
+                "display": "Vital Signs"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "8302-2",
+              "display": "Body height"
+            }
+          ],
+          "text": "Body height"
+        },
+        "subject": {
+          "reference": "urn:uuid:def05491-c251-4fdf-a184-b92779821f3f"
+        },
+        "effectiveDateTime": "2026-09-28",
+        "valueQuantity": {
+          "value": 152,
+          "unit": "cm",
+          "system": "http://unitsofmeasure.org",
+          "code": "cm"
+        },
+        "note": [
+          {
+            "text": "Synthetic vital sign; not a historical measurement."
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:56fa7e8f-dabb-46ae-bef9-620323afd417",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "vset-005-29463-7",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-body-weight"
+          ],
+          "tag": [
+            {
+              "system": "https://github.com/PatrickRutledge/chronic_histories/fhir/evidence-grade",
+              "code": "S"
+            }
+          ]
+        },
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "vital-signs",
+                "display": "Vital Signs"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "29463-7",
+              "display": "Body weight"
+            }
+          ],
+          "text": "Body weight"
+        },
+        "subject": {
+          "reference": "urn:uuid:def05491-c251-4fdf-a184-b92779821f3f"
+        },
+        "effectiveDateTime": "2026-09-28",
+        "valueQuantity": {
+          "value": 50.7,
+          "unit": "kg",
+          "system": "http://unitsofmeasure.org",
+          "code": "kg"
+        },
+        "note": [
+          {
+            "text": "Synthetic vital sign; not a historical measurement."
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:446acc0c-fd23-46b3-bac1-d9b2d019e185",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "vset-005-39156-5",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-bmi"
+          ],
+          "tag": [
+            {
+              "system": "https://github.com/PatrickRutledge/chronic_histories/fhir/evidence-grade",
+              "code": "S"
+            }
+          ]
+        },
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "vital-signs",
+                "display": "Vital Signs"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "39156-5",
+              "display": "Body mass index (BMI) [Ratio]"
+            }
+          ],
+          "text": "Body mass index (BMI) [Ratio]"
+        },
+        "subject": {
+          "reference": "urn:uuid:def05491-c251-4fdf-a184-b92779821f3f"
+        },
+        "effectiveDateTime": "2026-09-28",
+        "valueQuantity": {
+          "value": 21.9,
+          "unit": "kg/m2",
+          "system": "http://unitsofmeasure.org",
+          "code": "kg/m2"
+        },
+        "note": [
+          {
+            "text": "Synthetic vital sign; not a historical measurement."
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:982d5fa6-8f2f-4bb6-a041-8079324430b2",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "vset-005-8867-4",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-heart-rate"
+          ],
+          "tag": [
+            {
+              "system": "https://github.com/PatrickRutledge/chronic_histories/fhir/evidence-grade",
+              "code": "S"
+            }
+          ]
+        },
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "vital-signs",
+                "display": "Vital Signs"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "8867-4",
+              "display": "Heart rate"
+            }
+          ],
+          "text": "Heart rate"
+        },
+        "subject": {
+          "reference": "urn:uuid:def05491-c251-4fdf-a184-b92779821f3f"
+        },
+        "effectiveDateTime": "2026-09-28",
+        "valueQuantity": {
+          "value": 90,
+          "unit": "/min",
+          "system": "http://unitsofmeasure.org",
+          "code": "/min"
+        },
+        "note": [
+          {
+            "text": "Synthetic vital sign; not a historical measurement."
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:ef077b24-390c-4e60-921c-8cee7b51926c",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "vset-005-9279-1",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-respiratory-rate"
+          ],
+          "tag": [
+            {
+              "system": "https://github.com/PatrickRutledge/chronic_histories/fhir/evidence-grade",
+              "code": "S"
+            }
+          ]
+        },
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "vital-signs",
+                "display": "Vital Signs"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "9279-1",
+              "display": "Respiratory rate"
+            }
+          ],
+          "text": "Respiratory rate"
+        },
+        "subject": {
+          "reference": "urn:uuid:def05491-c251-4fdf-a184-b92779821f3f"
+        },
+        "effectiveDateTime": "2026-09-28",
+        "valueQuantity": {
+          "value": 16,
+          "unit": "/min",
+          "system": "http://unitsofmeasure.org",
+          "code": "/min"
+        },
+        "note": [
+          {
+            "text": "Synthetic vital sign; not a historical measurement."
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:b60f181f-1202-44e7-99f0-05018e207002",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "vset-005-8310-5",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-body-temperature"
+          ],
+          "tag": [
+            {
+              "system": "https://github.com/PatrickRutledge/chronic_histories/fhir/evidence-grade",
+              "code": "S"
+            }
+          ]
+        },
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "vital-signs",
+                "display": "Vital Signs"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "8310-5",
+              "display": "Body temperature"
+            }
+          ],
+          "text": "Body temperature"
+        },
+        "subject": {
+          "reference": "urn:uuid:def05491-c251-4fdf-a184-b92779821f3f"
+        },
+        "effectiveDateTime": "2026-09-28",
+        "valueQuantity": {
+          "value": 37.4,
+          "unit": "Cel",
+          "system": "http://unitsofmeasure.org",
+          "code": "Cel"
+        },
+        "note": [
+          {
+            "text": "Synthetic vital sign; not a historical measurement."
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:7ec7eedc-7a7a-43bf-9409-07d1ef604611",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "vset-005-59408-5",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-pulse-oximetry"
+          ],
+          "tag": [
+            {
+              "system": "https://github.com/PatrickRutledge/chronic_histories/fhir/evidence-grade",
+              "code": "S"
+            }
+          ]
+        },
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "vital-signs",
+                "display": "Vital Signs"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "59408-5",
+              "display": "Oxygen saturation in Arterial blood by Pulse oximetry"
+            },
+            {
+              "system": "http://loinc.org",
+              "code": "2708-6",
+              "display": "Oxygen saturation in Arterial blood"
+            }
+          ],
+          "text": "Oxygen saturation in Arterial blood by Pulse oximetry"
+        },
+        "subject": {
+          "reference": "urn:uuid:def05491-c251-4fdf-a184-b92779821f3f"
+        },
+        "effectiveDateTime": "2026-09-28",
+        "valueQuantity": {
+          "value": 98,
+          "unit": "%",
+          "system": "http://unitsofmeasure.org",
+          "code": "%"
+        },
+        "note": [
+          {
+            "text": "Synthetic vital sign; not a historical measurement."
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:838042e6-c20b-460c-be07-19beaab5cafb",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "vset-005-85354-9",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-blood-pressure"
+          ],
+          "tag": [
+            {
+              "system": "https://github.com/PatrickRutledge/chronic_histories/fhir/evidence-grade",
+              "code": "S"
+            }
+          ]
+        },
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "vital-signs",
+                "display": "Vital Signs"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "85354-9",
+              "display": "Blood pressure panel with all children optional"
+            }
+          ],
+          "text": "Blood pressure panel with all children optional"
+        },
+        "subject": {
+          "reference": "urn:uuid:def05491-c251-4fdf-a184-b92779821f3f"
+        },
+        "effectiveDateTime": "2026-09-28",
+        "component": [
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "8480-6",
+                  "display": "Systolic blood pressure"
+                }
+              ],
+              "text": "Systolic blood pressure"
+            },
+            "valueQuantity": {
+              "value": 112,
+              "unit": "mm[Hg]",
+              "system": "http://unitsofmeasure.org",
+              "code": "mm[Hg]"
+            }
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "8462-4",
+                  "display": "Diastolic blood pressure"
+                }
+              ],
+              "text": "Diastolic blood pressure"
+            },
+            "valueQuantity": {
+              "value": 68,
+              "unit": "mm[Hg]",
+              "system": "http://unitsofmeasure.org",
+              "code": "mm[Hg]"
+            }
+          }
+        ],
+        "note": [
+          {
+            "text": "Synthetic vital sign; not a historical measurement."
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:3a2f4be5-e48f-4b9a-9953-f39f86db6cc7",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "vset-006-8302-2",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-body-height"
+          ],
+          "tag": [
+            {
+              "system": "https://github.com/PatrickRutledge/chronic_histories/fhir/evidence-grade",
+              "code": "S"
+            }
+          ]
+        },
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "vital-signs",
+                "display": "Vital Signs"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "8302-2",
+              "display": "Body height"
+            }
+          ],
+          "text": "Body height"
+        },
+        "subject": {
+          "reference": "urn:uuid:def05491-c251-4fdf-a184-b92779821f3f"
+        },
+        "effectiveDateTime": "2026-10-13",
+        "valueQuantity": {
+          "value": 152,
+          "unit": "cm",
+          "system": "http://unitsofmeasure.org",
+          "code": "cm"
+        },
+        "note": [
+          {
+            "text": "Synthetic vital sign; not a historical measurement."
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:849ccd59-30a2-49b8-a563-c13a0d4725ef",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "vset-006-29463-7",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-body-weight"
+          ],
+          "tag": [
+            {
+              "system": "https://github.com/PatrickRutledge/chronic_histories/fhir/evidence-grade",
+              "code": "S"
+            }
+          ]
+        },
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "vital-signs",
+                "display": "Vital Signs"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "29463-7",
+              "display": "Body weight"
+            }
+          ],
+          "text": "Body weight"
+        },
+        "subject": {
+          "reference": "urn:uuid:def05491-c251-4fdf-a184-b92779821f3f"
+        },
+        "effectiveDateTime": "2026-10-13",
+        "valueQuantity": {
+          "value": 51.2,
+          "unit": "kg",
+          "system": "http://unitsofmeasure.org",
+          "code": "kg"
+        },
+        "note": [
+          {
+            "text": "Synthetic vital sign; not a historical measurement."
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:118d7a4a-ed39-475d-a567-ce3debec2623",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "vset-006-39156-5",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-bmi"
+          ],
+          "tag": [
+            {
+              "system": "https://github.com/PatrickRutledge/chronic_histories/fhir/evidence-grade",
+              "code": "S"
+            }
+          ]
+        },
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "vital-signs",
+                "display": "Vital Signs"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "39156-5",
+              "display": "Body mass index (BMI) [Ratio]"
+            }
+          ],
+          "text": "Body mass index (BMI) [Ratio]"
+        },
+        "subject": {
+          "reference": "urn:uuid:def05491-c251-4fdf-a184-b92779821f3f"
+        },
+        "effectiveDateTime": "2026-10-13",
+        "valueQuantity": {
+          "value": 22.2,
+          "unit": "kg/m2",
+          "system": "http://unitsofmeasure.org",
+          "code": "kg/m2"
+        },
+        "note": [
+          {
+            "text": "Synthetic vital sign; not a historical measurement."
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:460bf96b-ae68-40ae-937c-d2fb069c86fb",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "vset-006-8867-4",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-heart-rate"
+          ],
+          "tag": [
+            {
+              "system": "https://github.com/PatrickRutledge/chronic_histories/fhir/evidence-grade",
+              "code": "S"
+            }
+          ]
+        },
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "vital-signs",
+                "display": "Vital Signs"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "8867-4",
+              "display": "Heart rate"
+            }
+          ],
+          "text": "Heart rate"
+        },
+        "subject": {
+          "reference": "urn:uuid:def05491-c251-4fdf-a184-b92779821f3f"
+        },
+        "effectiveDateTime": "2026-10-13",
+        "valueQuantity": {
+          "value": 74,
+          "unit": "/min",
+          "system": "http://unitsofmeasure.org",
+          "code": "/min"
+        },
+        "note": [
+          {
+            "text": "Synthetic vital sign; not a historical measurement."
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:ce8a0116-f401-4cd4-950a-1b810ffd4f46",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "vset-006-9279-1",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-respiratory-rate"
+          ],
+          "tag": [
+            {
+              "system": "https://github.com/PatrickRutledge/chronic_histories/fhir/evidence-grade",
+              "code": "S"
+            }
+          ]
+        },
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "vital-signs",
+                "display": "Vital Signs"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "9279-1",
+              "display": "Respiratory rate"
+            }
+          ],
+          "text": "Respiratory rate"
+        },
+        "subject": {
+          "reference": "urn:uuid:def05491-c251-4fdf-a184-b92779821f3f"
+        },
+        "effectiveDateTime": "2026-10-13",
+        "valueQuantity": {
+          "value": 14,
+          "unit": "/min",
+          "system": "http://unitsofmeasure.org",
+          "code": "/min"
+        },
+        "note": [
+          {
+            "text": "Synthetic vital sign; not a historical measurement."
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:db2b4bbf-fae6-4069-9a1f-7150f474f29a",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "vset-006-8310-5",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-body-temperature"
+          ],
+          "tag": [
+            {
+              "system": "https://github.com/PatrickRutledge/chronic_histories/fhir/evidence-grade",
+              "code": "S"
+            }
+          ]
+        },
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "vital-signs",
+                "display": "Vital Signs"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "8310-5",
+              "display": "Body temperature"
+            }
+          ],
+          "text": "Body temperature"
+        },
+        "subject": {
+          "reference": "urn:uuid:def05491-c251-4fdf-a184-b92779821f3f"
+        },
+        "effectiveDateTime": "2026-10-13",
+        "valueQuantity": {
+          "value": 36.6,
+          "unit": "Cel",
+          "system": "http://unitsofmeasure.org",
+          "code": "Cel"
+        },
+        "note": [
+          {
+            "text": "Synthetic vital sign; not a historical measurement."
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:7844bfbf-34e7-45f4-b1ea-7099e023b4ba",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "vset-006-59408-5",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-pulse-oximetry"
+          ],
+          "tag": [
+            {
+              "system": "https://github.com/PatrickRutledge/chronic_histories/fhir/evidence-grade",
+              "code": "S"
+            }
+          ]
+        },
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "vital-signs",
+                "display": "Vital Signs"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "59408-5",
+              "display": "Oxygen saturation in Arterial blood by Pulse oximetry"
+            },
+            {
+              "system": "http://loinc.org",
+              "code": "2708-6",
+              "display": "Oxygen saturation in Arterial blood"
+            }
+          ],
+          "text": "Oxygen saturation in Arterial blood by Pulse oximetry"
+        },
+        "subject": {
+          "reference": "urn:uuid:def05491-c251-4fdf-a184-b92779821f3f"
+        },
+        "effectiveDateTime": "2026-10-13",
+        "valueQuantity": {
+          "value": 98,
+          "unit": "%",
+          "system": "http://unitsofmeasure.org",
+          "code": "%"
+        },
+        "note": [
+          {
+            "text": "Synthetic vital sign; not a historical measurement."
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:329ee4d4-b642-4d4a-949f-ce9dcc909734",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "vset-006-85354-9",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-blood-pressure"
+          ],
+          "tag": [
+            {
+              "system": "https://github.com/PatrickRutledge/chronic_histories/fhir/evidence-grade",
+              "code": "S"
+            }
+          ]
+        },
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "vital-signs",
+                "display": "Vital Signs"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "85354-9",
+              "display": "Blood pressure panel with all children optional"
+            }
+          ],
+          "text": "Blood pressure panel with all children optional"
+        },
+        "subject": {
+          "reference": "urn:uuid:def05491-c251-4fdf-a184-b92779821f3f"
+        },
+        "effectiveDateTime": "2026-10-13",
+        "component": [
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "8480-6",
+                  "display": "Systolic blood pressure"
+                }
+              ],
+              "text": "Systolic blood pressure"
+            },
+            "valueQuantity": {
+              "value": 126,
+              "unit": "mm[Hg]",
+              "system": "http://unitsofmeasure.org",
+              "code": "mm[Hg]"
+            }
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "8462-4",
+                  "display": "Diastolic blood pressure"
+                }
+              ],
+              "text": "Diastolic blood pressure"
+            },
+            "valueQuantity": {
+              "value": 76,
+              "unit": "mm[Hg]",
+              "system": "http://unitsofmeasure.org",
+              "code": "mm[Hg]"
+            }
+          }
+        ],
+        "note": [
+          {
+            "text": "Synthetic vital sign; not a historical measurement."
+          }
+        ]
+      }
+    },
+    {
       "fullUrl": "urn:uuid:424ac685-f151-4cf6-9775-dd7d446d693b",
       "resource": {
         "resourceType": "Observation",
@@ -5878,7 +8044,7 @@
         },
         "period": {
           "start": "2026-04-06",
-          "end": "2026-08-17"
+          "end": "2026-10-13"
         },
         "addresses": [
           {
@@ -5892,6 +8058,9 @@
           },
           {
             "reference": "urn:uuid:3066dcf8-f022-4360-89e4-2a0e11f7ec9c"
+          },
+          {
+            "reference": "urn:uuid:788c50d5-74c4-4375-b671-9c4763642a14"
           }
         ],
         "goal": [

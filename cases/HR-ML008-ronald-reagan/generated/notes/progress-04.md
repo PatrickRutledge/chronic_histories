@@ -46,4 +46,4 @@ Active problems: Alzheimer's disease with late onset, disclosed in 1994; Dementi
 ## Plan
 
 - Continue the care plan agreed on 2026-02-10. The care-plan document lists every intervention. **S**
-- Scheduled episode complete. Continue routine follow-up. **S**
+- Next visit 2026-10-13: subsequent annual wellness visit. **S**

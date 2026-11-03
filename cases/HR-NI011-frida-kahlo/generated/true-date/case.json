@@ -488,9 +488,19 @@
         "purpose": "Physical medicine and rehabilitation consultation for a multimodal rehabilitation plan"
       },
       {
+        "encounter_id": "ENC-005",
+        "date": "1944-10-08",
+        "purpose": "Same-day sick visit for a common cold on long-term opioid therapy"
+      },
+      {
         "encounter_id": "ENC-003",
         "date": "1944-10-15",
         "purpose": "Four-week chronic pain follow-up with the first opioid dose reduction"
+      },
+      {
+        "encounter_id": "ENC-006",
+        "date": "1944-10-22",
+        "purpose": "Adult preventive visit"
       },
       {
         "encounter_id": "ENC-004",
@@ -634,6 +644,32 @@
         "clinical_status": "active",
         "verification_status": "confirmed",
         "problem_placement": "active"
+      },
+      {
+        "id": "PRB-006",
+        "display": "Acute viral upper respiratory infection (common cold), resolved without antibiotics",
+        "status": "draft",
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/sid/icd-10-cm",
+            "code": "J06.9",
+            "display": "Acute upper respiratory infection, unspecified",
+            "version": "FY2026",
+            "validation_status": "validated",
+            "validated_on": "2026-11-03"
+          }
+        ],
+        "provenance": {
+          "evidence_grade": "S",
+          "claim_ids": [],
+          "synthetic_reason": "Synthetic intercurrent illness at an unscheduled visit; it does not echo a documented illness.",
+          "author": "The Human Record generator",
+          "created": "2026-11-03T09:00:00-05:00"
+        },
+        "clinical_status": "resolved",
+        "verification_status": "confirmed",
+        "problem_placement": "active",
+        "recorded_date": "1944-10-08"
       }
     ],
     "medications": [
@@ -672,7 +708,8 @@
           "synthetic_reason": "Synthetic long-term opioid therapy prescribed elsewhere before this episode; continued unchanged at first.",
           "author": "The Human Record generator",
           "created": "2026-11-02T15:00:00-05:00"
-        }
+        },
+        "as_needed": true
       },
       {
         "id": "MED-002",
@@ -708,7 +745,8 @@
           "synthetic_reason": "Synthetic first step of a collaborative taper; with MED-003 the total is 35 mg (52.5 MME) a day, about 12% lower.",
           "author": "The Human Record generator",
           "created": "2026-11-02T15:00:00-05:00"
-        }
+        },
+        "as_needed": true
       },
       {
         "id": "MED-003",
@@ -744,7 +782,8 @@
           "synthetic_reason": "Synthetic bedtime dose kept during the first taper step to protect sleep.",
           "author": "The Human Record generator",
           "created": "2026-11-02T15:00:00-05:00"
-        }
+        },
+        "as_needed": true
       },
       {
         "id": "MED-004",
@@ -922,6 +961,42 @@
           "author": "The Human Record generator",
           "created": "2026-11-02T15:00:00-05:00"
         }
+      },
+      {
+        "id": "MED-009",
+        "display": "Naloxone 4 mg nasal spray, one spray into one nostril for suspected opioid overdose; may repeat in the other nostril",
+        "status": "active",
+        "coding": [
+          {
+            "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+            "code": "1725059",
+            "display": "naloxone hydrochloride 40 MG/ML Nasal Spray",
+            "validation_status": "validated",
+            "validated_on": "2026-11-03"
+          }
+        ],
+        "dose": {
+          "value": 4,
+          "unit": "mg"
+        },
+        "route": "nasal",
+        "frequency": {
+          "period": 3,
+          "period_unit": "min",
+          "text": "For suspected opioid overdose: one spray into one nostril and call 911; if there is no response after 2 to 3 minutes, give a second spray in the other nostril"
+        },
+        "start_date": "1944-09-17",
+        "indication_problem_ids": [
+          "PRB-004"
+        ],
+        "provenance": {
+          "evidence_grade": "S",
+          "claim_ids": [],
+          "synthetic_reason": "Synthetic naloxone co-prescription with long-term opioid therapy, dispensed at the first visit as the care plan records; now coded with the nasal route.",
+          "author": "The Human Record generator",
+          "created": "2026-11-03T09:00:00-05:00"
+        },
+        "as_needed": true
       }
     ],
     "allergies": [
@@ -1287,6 +1362,136 @@
           "author": "The Human Record generator",
           "created": "2026-11-02T15:00:00-05:00"
         }
+      },
+      {
+        "id": "OBS-PEG-SICK",
+        "display": "Mean score [PEG]",
+        "label": "PEG pain and function score (0-10)",
+        "status": "final",
+        "effective_date": "1944-10-08",
+        "value": 7,
+        "unit": "{score}",
+        "coding": [
+          {
+            "system": "http://loinc.org",
+            "code": "91147-9",
+            "display": "Mean score [PEG]",
+            "version": "2.81",
+            "validation_status": "validated",
+            "validated_on": "2026-11-03"
+          }
+        ],
+        "provenance": {
+          "evidence_grade": "S",
+          "claim_ids": [],
+          "synthetic_reason": "Synthetic PEG score; coughing aggravates her back and pelvic pain.",
+          "author": "The Human Record generator",
+          "created": "2026-11-03T09:00:00-05:00"
+        }
+      },
+      {
+        "id": "OBS-PEG-PREV",
+        "display": "Mean score [PEG]",
+        "label": "PEG pain and function score (0-10)",
+        "status": "final",
+        "effective_date": "1944-10-22",
+        "value": 5.7,
+        "unit": "{score}",
+        "coding": [
+          {
+            "system": "http://loinc.org",
+            "code": "91147-9",
+            "display": "Mean score [PEG]",
+            "version": "2.81",
+            "validation_status": "validated",
+            "validated_on": "2026-11-03"
+          }
+        ],
+        "provenance": {
+          "evidence_grade": "S",
+          "claim_ids": [],
+          "synthetic_reason": "Synthetic PEG score one week after the first opioid dose reduction.",
+          "author": "The Human Record generator",
+          "created": "2026-11-03T09:00:00-05:00"
+        }
+      },
+      {
+        "id": "OBS-PHQ9-PREV",
+        "display": "Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]",
+        "label": "PHQ-9",
+        "status": "final",
+        "effective_date": "1944-10-22",
+        "value": 5,
+        "unit": "{score}",
+        "coding": [
+          {
+            "system": "http://loinc.org",
+            "code": "44261-6",
+            "display": "Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]",
+            "version": "2.81",
+            "validation_status": "validated",
+            "validated_on": "2026-11-03"
+          }
+        ],
+        "provenance": {
+          "evidence_grade": "S",
+          "claim_ids": [],
+          "synthetic_reason": "Synthetic PHQ-9 in the mild range at the preventive visit; item 9 scored 0.",
+          "author": "The Human Record generator",
+          "created": "2026-11-03T09:00:00-05:00"
+        }
+      },
+      {
+        "id": "OBS-GAD7-PREV",
+        "display": "Generalized anxiety disorder 7 item (GAD-7) total score [Reported.PHQ]",
+        "label": "GAD-7",
+        "status": "final",
+        "effective_date": "1944-10-22",
+        "value": 4,
+        "unit": "{score}",
+        "coding": [
+          {
+            "system": "http://loinc.org",
+            "code": "70274-6",
+            "display": "Generalized anxiety disorder 7 item (GAD-7) total score [Reported.PHQ]",
+            "version": "2.81",
+            "validation_status": "validated",
+            "validated_on": "2026-11-03"
+          }
+        ],
+        "provenance": {
+          "evidence_grade": "S",
+          "claim_ids": [],
+          "synthetic_reason": "Synthetic anxiety screen in the minimal range.",
+          "author": "The Human Record generator",
+          "created": "2026-11-03T09:00:00-05:00"
+        }
+      },
+      {
+        "id": "OBS-AUDITC-PREV",
+        "display": "Total score [AUDIT-C]",
+        "label": "AUDIT-C",
+        "status": "final",
+        "effective_date": "1944-10-22",
+        "value": 1,
+        "unit": "{score}",
+        "coding": [
+          {
+            "system": "http://loinc.org",
+            "code": "75626-2",
+            "display": "Total score [AUDIT-C]",
+            "version": "2.81",
+            "validation_status": "validated",
+            "validated_on": "2026-11-03"
+          }
+        ],
+        "provenance": {
+          "evidence_grade": "S",
+          "claim_ids": [],
+          "synthetic_reason": "Synthetic alcohol screen below the risk threshold; not a historical assertion.",
+          "author": "The Human Record generator",
+          "created": "2026-11-03T09:00:00-05:00"
+        }
       }
     ],
     "procedures": [
@@ -1430,6 +1635,28 @@
           "synthetic_reason": "Synthetic adult immunization history in the modern frame; not a historical assertion.",
           "author": "The Human Record generator",
           "created": "2026-11-02T15:00:00-05:00"
+        }
+      },
+      {
+        "id": "IMM-003",
+        "display": "Hepatitis B vaccine, adjuvanted (HepB-CpG), dose 1 of 2",
+        "status": "completed",
+        "date": "1944-10-22",
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/sid/cvx",
+            "code": "189",
+            "display": "HepB-CpG",
+            "validation_status": "validated",
+            "validated_on": "2026-11-03"
+          }
+        ],
+        "provenance": {
+          "evidence_grade": "S",
+          "claim_ids": [],
+          "synthetic_reason": "Synthetic adult immunization in the modern frame; not a historical assertion.",
+          "author": "The Human Record generator",
+          "created": "2026-11-03T09:00:00-05:00"
         }
       }
     ],
@@ -1608,6 +1835,583 @@
           "synthetic_reason": "Synthetic modern EHR encounter.",
           "author": "The Human Record generator",
           "created": "2026-11-02T15:00:00-05:00"
+        }
+      },
+      {
+        "id": "ENC-005",
+        "display": "Same-day sick visit for a common cold on long-term opioid therapy",
+        "status": "finished",
+        "date": "1944-10-08",
+        "visit_type": "sick",
+        "type_coding": {
+          "system": "http://snomed.info/sct",
+          "code": "185345009",
+          "display": "Encounter for symptom",
+          "validation_status": "validated",
+          "validated_on": "2026-11-03"
+        },
+        "documentation": {
+          "chief_complaint": "Sore throat, runny nose, and cough for three days",
+          "billing_note": "Problem-oriented office visit, established patient",
+          "hpi": {
+            "narrative": "Ms. Kahlo is a 37-year-old woman with chronic post-traumatic back, pelvic, and right leg pain on long-term oxycodone (60 MME a day), who asked for a same-day visit. Her duloxetine was increased to 60 mg a week ago at the rehabilitation visit, and she takes acetaminophen 1 g three times a day. Three days ago she developed a scratchy throat, then a clear runny nose, congestion, and a dry cough. Several of the students who come to her studio have had colds. Home COVID-19 antigen tests on the first and third days were negative. Her highest home temperature was 37.8 °C. Coughing fits jolt her lower back and pelvis, and the pain is worse at night, but she has kept to no more than four oxycodone tablets a day. She bought a nighttime cold and flu liquid at the pharmacy and brought it unopened to ask whether it is safe. Its label lists acetaminophen, dextromethorphan, and doxylamine. She missed one aquatic therapy session. Her oxycodone dose has not changed, and she has had no yawning, gooseflesh, stomach cramps, diarrhea, or restlessness.",
+            "elements": [
+              {
+                "label": "Onset",
+                "value": "Three days ago"
+              },
+              {
+                "label": "Location",
+                "value": "Throat, nose, and chest"
+              },
+              {
+                "label": "Duration",
+                "value": "Three days"
+              },
+              {
+                "label": "Character",
+                "value": "Scratchy throat, clear nasal discharge, dry cough"
+              },
+              {
+                "label": "Severity",
+                "value": "Moderate; coughing fits worsen her back and pelvic pain"
+              },
+              {
+                "label": "Timing",
+                "value": "Cough worse at night"
+              },
+              {
+                "label": "Context",
+                "value": "Colds among her students; oxycodone dose unchanged; duloxetine increased a week ago"
+              },
+              {
+                "label": "Modifying factors",
+                "value": "Warm drinks and honey help; she has not used the cold medicine she bought"
+              },
+              {
+                "label": "Associated signs and symptoms",
+                "value": "Fatigue. Denies fever above 37.8 °C, breathlessness, wheeze, ear or facial pain, vomiting, and diarrhea"
+              }
+            ]
+          },
+          "ros": [
+            {
+              "system": "Constitutional",
+              "status": "positive",
+              "finding": "Fatigue; temperature to 37.8 °C at home; no rigors"
+            },
+            {
+              "system": "Ears, nose, mouth, and throat",
+              "status": "positive",
+              "finding": "Sore throat, clear rhinorrhea, and congestion; no ear pain, facial pain, or trouble swallowing"
+            },
+            {
+              "system": "Respiratory",
+              "status": "positive",
+              "finding": "Dry cough; no breathlessness, wheeze, or sputum"
+            },
+            {
+              "system": "Cardiovascular",
+              "status": "negative",
+              "finding": "No chest pain or palpitations"
+            },
+            {
+              "system": "Gastrointestinal",
+              "status": "negative",
+              "finding": "No nausea, vomiting, abdominal cramps, or diarrhea; bowel habit unchanged"
+            },
+            {
+              "system": "Musculoskeletal",
+              "status": "positive",
+              "finding": "Lower back and pelvic pain worse with coughing; no new injury and no falls"
+            },
+            {
+              "system": "Neurological",
+              "status": "negative",
+              "finding": "Right leg burning unchanged; no new weakness or numbness; no bladder or bowel control change"
+            },
+            {
+              "system": "Psychiatric",
+              "status": "negative",
+              "finding": "Mood steady; sleep broken by cough; no restlessness or anxiety"
+            }
+          ],
+          "exam": [
+            {
+              "system": "General",
+              "finding": "Alert, congested, and talkative; seated with her cane beside her; not drowsy"
+            },
+            {
+              "system": "Eyes",
+              "finding": "Pupils equal, 4 mm, and reactive; no tearing"
+            },
+            {
+              "system": "Ears, nose, and throat",
+              "finding": "Tympanic membranes normal; nasal mucosa red and swollen with clear discharge; pharynx mildly red without exudate or tonsillar swelling"
+            },
+            {
+              "system": "Neck",
+              "finding": "Small, soft, mildly tender anterior cervical nodes"
+            },
+            {
+              "system": "Respiratory",
+              "finding": "Unlabored; clear to auscultation; no crackles or wheeze"
+            },
+            {
+              "system": "Cardiovascular",
+              "finding": "Regular rhythm; no murmur"
+            },
+            {
+              "system": "Musculoskeletal",
+              "finding": "Lumbar paraspinal tenderness as at intake; healed lumbar surgical scars; gait with cane and limp unchanged"
+            },
+            {
+              "system": "Neurological",
+              "finding": "Right leg strength and sensation unchanged from intake"
+            }
+          ],
+          "assessment_plan": [
+            {
+              "problem_id": "PRB-006",
+              "display": "Acute viral upper respiratory infection (common cold)",
+              "assessment": "Cough and runny nose point to a viral cause, so a strep test is not needed. Temperature 37.6 °C, heart rate 88, respiratory rate 16, oxygen saturation 98 percent, and a clear chest make pneumonia unlikely. A chest radiograph and antibiotics are not indicated",
+              "plan": [
+                "Supportive care: honey in warm drinks, saline nasal spray, throat lozenges, and rest",
+                "Keep her scheduled acetaminophen at 1 g three times a day. It also treats the sore throat and fever. Take no other product containing acetaminophen, because she is already at the 3 g daily limit",
+                "Do not use the nighttime cold liquid. Doxylamine adds sedation and slows breathing with oxycodone, dextromethorphan with duloxetine raises the risk of serotonin toxicity, and its acetaminophen would exceed her daily limit",
+                "Avoid codeine or hydrocodone cough syrups and sedating antihistamines. Oral NSAIDs are not added, because with duloxetine they raise the risk of stomach bleeding and she already uses diclofenac gel",
+                "Repeat a home COVID-19 antigen test in 48 hours. If it is positive, call the same day. Her mobility disability makes her eligible for antiviral treatment, and ritonavir-boosted nirmatrelvir raises oxycodone levels, so any antiviral needs a drug-interaction review first",
+                "The cough may last up to two to three weeks"
+              ]
+            },
+            {
+              "problem_id": "PRB-004",
+              "display": "Long-term opioid therapy, 60 MME a day",
+              "assessment": "No sedation; pupils normal. Her symptoms are not opioid withdrawal: the dose has not changed, and the fever, sore throat, and sick contacts point to infection. A respiratory infection and sedating cold medicines both add to opioid risk",
+              "plan": [
+                "Continue oxycodone 10 mg up to four times a day, with no extra doses",
+                "Naloxone nasal spray confirmed at home and in date; reviewed when to use it",
+                "The first dose reduction stays planned for next week's visit if she has recovered. If she is still unwell, it can move by a week, as the taper plan allows"
+              ]
+            },
+            {
+              "problem_id": "PRB-001",
+              "display": "Chronic post-traumatic back and pelvic pain, aggravated by coughing",
+              "assessment": "PEG 7.0, the same as at the rehabilitation visit. No red flags: no new neurological deficit, no bladder or bowel change, no fall, and no high fever",
+              "plan": [
+                "Hug a pillow against the abdomen when coughing; heat to the lower back",
+                "Continue duloxetine 60 mg daily and the gentle home exercises",
+                "Pause aquatic therapy until she has been fever-free for 24 hours, then resume"
+              ]
+            }
+          ],
+          "follow_up": "Next scheduled visit in one week. Call or return sooner for a temperature above 38.3 °C, breathlessness, symptoms that worsen after improving or last beyond ten days, or new leg weakness. Anyone with her who finds her very drowsy or breathing slowly should give naloxone and call 911",
+          "guideline_ids": [
+            "GL-ARTI-2016",
+            "GL-CDC-OPIOID-2022"
+          ]
+        },
+        "provenance": {
+          "evidence_grade": "S",
+          "claim_ids": [],
+          "synthetic_reason": "Synthetic unscheduled sick visit; the illness is not a historical claim.",
+          "author": "The Human Record generator",
+          "created": "2026-11-03T09:00:00-05:00"
+        }
+      },
+      {
+        "id": "ENC-006",
+        "display": "Adult preventive visit",
+        "status": "finished",
+        "date": "1944-10-22",
+        "visit_type": "preventive_adult",
+        "type_coding": {
+          "system": "http://snomed.info/sct",
+          "code": "86013001",
+          "display": "Periodic reevaluation and management of healthy individual",
+          "validation_status": "validated",
+          "validated_on": "2026-11-03"
+        },
+        "documentation": {
+          "chief_complaint": "Adult preventive visit; no new complaints",
+          "billing_note": "CPT 99395 (periodic preventive medicine, established patient, 18 to 39 years); CPT 90739 with 90471 (hepatitis B vaccine, adjuvanted, two-dose schedule, and administration)",
+          "hpi": {
+            "narrative": "Ms. Kahlo returns for an adult preventive visit, booked separately from her pain care. The cold she had two weeks ago cleared within ten days without antibiotics. One week ago her oxycodone was reduced from 60 to 52.5 MME a day, and she reports no withdrawal symptoms and pain she can manage, with a PEG of 5.7 today. She attends physical therapy twice a week and cognitive behavioral therapy weekly, and she has had no falls since starting care here. She received this season's influenza vaccine last week. She does not recall when she last had cervical cancer screening, and no result is on record. She explains that lying on an examination table with her legs raised aggravates her back and hip pain, so she would prefer to avoid a speculum examination if she can. She completed the health risk assessment before the visit.",
+            "elements": [
+              {
+                "label": "Visit",
+                "value": "Adult preventive visit, established patient"
+              },
+              {
+                "label": "Recent illness",
+                "value": "Common cold two weeks ago, resolved"
+              },
+              {
+                "label": "Safety events",
+                "value": "No falls, emergency visits, or hospital stays since starting care here"
+              },
+              {
+                "label": "Medicines",
+                "value": "Taking all as prescribed with a weekly pill organizer; oxycodone kept in a locked box"
+              },
+              {
+                "label": "Active conditions",
+                "value": "Chronic post-traumatic pain on a gradual opioid taper, right ankle osteoarthritis, polio sequelae of the right leg, vitamin D deficiency"
+              },
+              {
+                "label": "Functional status",
+                "value": "Walks short distances with a cane; wheelchair for longer outings; paints daily"
+              }
+            ]
+          },
+          "health_risk_assessment": [
+            {
+              "domain": "Self-rated health",
+              "finding": "Fair, and improving since starting the rehabilitation program"
+            },
+            {
+              "domain": "Psychosocial",
+              "finding": "Married and living in the house she grew up in; a younger sister nearby, students, and many friends visit; no loneliness; frustration with pain is easing"
+            },
+            {
+              "domain": "Behavioral",
+              "finding": "No current tobacco or nicotine use; alcohol once a month or less; no nonprescribed drugs; regular meals; physical therapy exercises daily; sleeps six to seven hours, sometimes broken by pain"
+            },
+            {
+              "domain": "Activities of daily living",
+              "finding": "Independent in bathing, dressing, eating, toileting, and transfers, using a shower chair"
+            },
+            {
+              "domain": "Instrumental activities of daily living",
+              "finding": "Manages her own medicines, money, and teaching schedule; needs a driver or taxi for longer trips"
+            },
+            {
+              "domain": "Home safety",
+              "finding": "Smoke detectors working; no grab bars in the bathroom; courtyard steps without a rail; medicines stored in a locked box"
+            },
+            {
+              "domain": "Personal safety",
+              "finding": "Asked privately; she feels safe at home"
+            },
+            {
+              "domain": "Reproductive health",
+              "finding": "Not planning a pregnancy; preferred not to discuss her reproductive history further today, and that was respected"
+            },
+            {
+              "domain": "Vision, hearing, and dental",
+              "finding": "No vision or hearing concerns; sees a dentist regularly"
+            }
+          ],
+          "ros": [
+            {
+              "system": "Constitutional",
+              "status": "negative",
+              "finding": "Weight stable; no fever, fatigue, or night sweats"
+            },
+            {
+              "system": "Eyes",
+              "status": "negative",
+              "finding": "No change in vision"
+            },
+            {
+              "system": "Ears, nose, mouth, and throat",
+              "status": "negative",
+              "finding": "Cold resolved; no hearing change or sore throat"
+            },
+            {
+              "system": "Cardiovascular",
+              "status": "negative",
+              "finding": "No chest pain, palpitations, or ankle swelling"
+            },
+            {
+              "system": "Respiratory",
+              "status": "negative",
+              "finding": "Cough resolved; no breathlessness"
+            },
+            {
+              "system": "Gastrointestinal",
+              "status": "negative",
+              "finding": "Regular bowel habit; no heartburn, bleeding, or abdominal pain"
+            },
+            {
+              "system": "Genitourinary",
+              "status": "negative",
+              "finding": "No urinary symptoms; no abnormal vaginal bleeding or discharge"
+            },
+            {
+              "system": "Musculoskeletal",
+              "status": "positive",
+              "finding": "Chronic back, pelvic, right leg, and right ankle pain, no worse since the dose reduction"
+            },
+            {
+              "system": "Integumentary",
+              "status": "negative",
+              "finding": "No new or changing skin lesions; no skin breakdown under the brace or shoe lift"
+            },
+            {
+              "system": "Neurological",
+              "status": "positive",
+              "finding": "Chronic burning in the right leg, unchanged; no new weakness, numbness, or bladder or bowel change"
+            },
+            {
+              "system": "Psychiatric",
+              "status": "negative",
+              "finding": "Mood steady; PHQ-9 score 5 with item 9 scored 0; GAD-7 score 4"
+            },
+            {
+              "system": "Endocrine",
+              "status": "negative",
+              "finding": "No heat or cold intolerance, polyuria, or polydipsia"
+            },
+            {
+              "system": "Hematologic",
+              "status": "negative",
+              "finding": "No easy bruising or bleeding"
+            }
+          ],
+          "exam": [
+            {
+              "system": "Constitutional",
+              "finding": "Alert and well-appearing; BMI 19.7"
+            },
+            {
+              "system": "Eyes",
+              "finding": "Pupils equal and reactive; conjunctivae clear"
+            },
+            {
+              "system": "Ears, nose, and throat",
+              "finding": "Tympanic membranes normal; nasal mucosa and pharynx normal"
+            },
+            {
+              "system": "Neck",
+              "finding": "No thyroid enlargement or nodes"
+            },
+            {
+              "system": "Cardiovascular",
+              "finding": "Regular rhythm; no murmur; pedal pulses present"
+            },
+            {
+              "system": "Respiratory",
+              "finding": "Clear to auscultation bilaterally"
+            },
+            {
+              "system": "Abdomen",
+              "finding": "Soft and non-tender; no masses"
+            },
+            {
+              "system": "Musculoskeletal",
+              "finding": "Right leg shorter and thinner than the left, with the foot turned outward; bony enlargement and reduced motion of the right ankle; lumbar paraspinal tenderness; healed lumbar surgical scars"
+            },
+            {
+              "system": "Neurological",
+              "finding": "Right leg weakness and reduced reflexes unchanged from intake; Timed Up and Go 14 seconds with her cane and shoe lift"
+            },
+            {
+              "system": "Skin",
+              "finding": "No pressure areas from the brace or shoe lift; no suspicious lesions"
+            },
+            {
+              "system": "Psychiatric",
+              "finding": "Warm, witty, and direct; not sedated; judgment and insight intact"
+            }
+          ],
+          "assessment_plan": [
+            {
+              "display": "Adult preventive visit completed",
+              "assessment": "Health risk assessment reviewed and a written prevention plan given. Depression, anxiety, alcohol, drug use, tobacco, and personal-safety screens are negative. Blood pressure 114/70 mmHg is normal",
+              "plan": [
+                "Next preventive visit in one year"
+              ]
+            },
+            {
+              "problem_id": "PRB-003",
+              "display": "Fall risk from right leg weakness and shortening after polio and the old fractures",
+              "assessment": "Raised: a Timed Up and Go of 14 seconds, a cane, and oxycodone and duloxetine, which can both cause dizziness. No falls since starting care here",
+              "plan": [
+                "Continue gait and balance training in physical therapy and wear the shoe lift",
+                "Install bathroom grab bars and a rail on the courtyard steps; night lights on the route to the bathroom",
+                "Avoid sedating medicines, including over-the-counter sleep aids and antihistamines"
+              ]
+            },
+            {
+              "problem_id": "PRB-004",
+              "display": "Long-term opioid therapy on a gradual taper, 52.5 MME a day",
+              "assessment": "One week after the first reduction she has no withdrawal symptoms and her function is holding. Storage is safe and naloxone is at home",
+              "plan": [
+                "No change today; the taper is reviewed at next week's scheduled visit",
+                "If she ever plans a pregnancy or becomes pregnant, call before changing any medicine. Oxycodone should not be stopped suddenly, and her medicines would be reviewed together ahead of time"
+              ]
+            },
+            {
+              "problem_id": "PRB-005",
+              "display": "Vitamin D deficiency",
+              "assessment": "On repletion; low bone-loading activity and the leg weakness add to bone risk",
+              "plan": [
+                "Continue cholecalciferol 2,000 units daily",
+                "Recheck 25-hydroxyvitamin D about three months after starting"
+              ]
+            }
+          ],
+          "prevention_plan": [
+            {
+              "service": "Cervical cancer screening",
+              "status": "completed_today",
+              "detail": "Primary HPV test on a sample she collected herself in the clinic, chosen because positioning for a speculum examination aggravates her back and hip pain. Result to follow; if negative, repeat in five years",
+              "guideline_ids": [
+                "GL-USPSTF-CERV-2018"
+              ]
+            },
+            {
+              "service": "Depression screening",
+              "status": "completed_today",
+              "detail": "PHQ-9 score 5, mild, with item 9 scored 0; already followed every two to four weeks in her pain care",
+              "guideline_ids": [
+                "GL-USPSTF-DEP-2023"
+              ]
+            },
+            {
+              "service": "Anxiety screening",
+              "status": "completed_today",
+              "detail": "GAD-7 score 4",
+              "guideline_ids": [
+                "GL-USPSTF-ANX-2023"
+              ]
+            },
+            {
+              "service": "Unhealthy alcohol use screening",
+              "status": "completed_today",
+              "detail": "AUDIT-C score 1. Advised to avoid alcohol while taking oxycodone, because together they slow breathing",
+              "guideline_ids": [
+                "GL-USPSTF-ALC-2018"
+              ]
+            },
+            {
+              "service": "Unhealthy drug use screening",
+              "status": "completed_today",
+              "detail": "No nonprescribed drug use. The prescription drug monitoring program shows a single prescriber",
+              "guideline_ids": [
+                "GL-USPSTF-DRUG-2020"
+              ]
+            },
+            {
+              "service": "Tobacco use",
+              "status": "completed_today",
+              "detail": "No current tobacco or nicotine use",
+              "guideline_ids": [
+                "GL-USPSTF-TOB-2021"
+              ]
+            },
+            {
+              "service": "Blood pressure screening",
+              "status": "completed_today",
+              "detail": "114/70 mmHg; recheck at least every three to five years",
+              "guideline_ids": [
+                "GL-USPSTF-BP-2021"
+              ]
+            },
+            {
+              "service": "HIV screening",
+              "status": "ordered",
+              "detail": "One-time antigen and antibody test, with her consent; no prior result on record",
+              "guideline_ids": [
+                "GL-USPSTF-HIV-2019"
+              ]
+            },
+            {
+              "service": "Hepatitis C screening",
+              "status": "ordered",
+              "detail": "One-time antibody test with reflex RNA, with her consent",
+              "guideline_ids": [
+                "GL-USPSTF-HCV-2020"
+              ]
+            },
+            {
+              "service": "Hepatitis B screening",
+              "status": "ordered",
+              "detail": "One-time triple panel (surface antigen, surface antibody, and core antibody), drawn before today's vaccine dose",
+              "guideline_ids": [
+                "GL-CDC-HBV-2023"
+              ]
+            },
+            {
+              "service": "Intimate partner violence screening",
+              "status": "completed_today",
+              "detail": "Asked privately with a brief screening tool; negative. Resources given, as for every patient",
+              "guideline_ids": [
+                "GL-USPSTF-IPV-2025"
+              ]
+            },
+            {
+              "service": "Pregnancy intention and contraception",
+              "status": "completed_today",
+              "detail": "Asked privately. She is not planning a pregnancy and reviewed contraceptive options; she will decide later and can return to discuss them. She preferred not to discuss her reproductive history further, and that was respected"
+            },
+            {
+              "service": "Folic acid",
+              "status": "completed_today",
+              "detail": "Counseled that anyone who could become pregnant should take 0.4 to 0.8 mg of folic acid daily; she will consider a supplement",
+              "guideline_ids": [
+                "GL-USPSTF-FOLIC-2023"
+              ]
+            },
+            {
+              "service": "Influenza vaccine",
+              "status": "up_to_date",
+              "detail": "This season's dose given at last week's visit"
+            },
+            {
+              "service": "Tdap",
+              "status": "up_to_date",
+              "detail": "Given about four and a half years ago; next booster due in about five years"
+            },
+            {
+              "service": "Hepatitis B vaccine",
+              "status": "completed_today",
+              "detail": "No record of a prior series. First dose of the two-dose adjuvanted vaccine given today; second dose in one month"
+            },
+            {
+              "service": "COVID-19 vaccine",
+              "status": "due",
+              "detail": "Discussed; she plans to get this season's vaccine at her pharmacy"
+            },
+            {
+              "service": "HPV vaccine",
+              "status": "declined",
+              "detail": "Shared decision for adults 27 to 45; after discussion she declined"
+            },
+            {
+              "service": "Falls prevention",
+              "status": "completed_today",
+              "detail": "Timed Up and Go 14 seconds; home-safety advice given; gait and balance training continues in physical therapy"
+            },
+            {
+              "service": "Breast cancer screening",
+              "status": "not_indicated",
+              "detail": "Mammography starts at 40. No family history of breast, ovarian, or related cancers is recorded; revisit if that changes"
+            },
+            {
+              "service": "Colorectal cancer screening",
+              "status": "not_indicated",
+              "detail": "Starts at 45"
+            },
+            {
+              "service": "Diabetes and cholesterol screening",
+              "status": "not_indicated",
+              "detail": "Diabetes screening is for adults 35 to 70 with overweight or obesity, and her BMI is 19.7. Statin assessment starts at 40"
+            }
+          ],
+          "advance_care_planning": "Brief voluntary discussion, with her consent. She has named a health care agent and would like to put her wishes in writing; advance directive forms were given. She wants full treatment, including surgery and hospital care, for any illness from which she could recover, and she will bring the completed forms to a future visit.",
+          "follow_up": "Results of the HPV, HIV, hepatitis C, and hepatitis B tests will be sent when available. Second hepatitis B vaccine dose in one month. Chronic pain and taper review at next week's scheduled visit. Next preventive visit in one year",
+          "guideline_ids": [
+            "GL-PREV-2026"
+          ]
+        },
+        "provenance": {
+          "evidence_grade": "S",
+          "claim_ids": [],
+          "synthetic_reason": "Synthetic adult preventive visit in the modern frame; screening results are not historical claims.",
+          "author": "The Human Record generator",
+          "created": "2026-11-03T09:00:00-05:00"
         }
       }
     ],
@@ -1879,6 +2683,140 @@
           "author": "The Human Record generator",
           "created": "2026-11-02T15:00:00-05:00"
         }
+      },
+      {
+        "id": "VSET-005",
+        "date": "1944-10-08",
+        "measurements": [
+          {
+            "code": "8302-2",
+            "display": "Body height",
+            "value": 160,
+            "unit": "cm"
+          },
+          {
+            "code": "29463-7",
+            "display": "Body weight",
+            "value": 50,
+            "unit": "kg"
+          },
+          {
+            "code": "39156-5",
+            "display": "Body mass index (BMI) [Ratio]",
+            "value": 19.5,
+            "unit": "kg/m2"
+          },
+          {
+            "code": "8480-6",
+            "display": "Systolic blood pressure",
+            "value": 118,
+            "unit": "mm[Hg]"
+          },
+          {
+            "code": "8462-4",
+            "display": "Diastolic blood pressure",
+            "value": 72,
+            "unit": "mm[Hg]"
+          },
+          {
+            "code": "8867-4",
+            "display": "Heart rate",
+            "value": 88,
+            "unit": "/min"
+          },
+          {
+            "code": "9279-1",
+            "display": "Respiratory rate",
+            "value": 16,
+            "unit": "/min"
+          },
+          {
+            "code": "8310-5",
+            "display": "Body temperature",
+            "value": 37.6,
+            "unit": "Cel"
+          },
+          {
+            "code": "59408-5",
+            "display": "Oxygen saturation in Arterial blood by Pulse oximetry",
+            "value": 98,
+            "unit": "%"
+          }
+        ],
+        "provenance": {
+          "evidence_grade": "S",
+          "claim_ids": [],
+          "synthetic_reason": "Synthetic vital signs; not historical measurements.",
+          "author": "The Human Record generator",
+          "created": "2026-11-03T09:00:00-05:00"
+        }
+      },
+      {
+        "id": "VSET-006",
+        "date": "1944-10-22",
+        "measurements": [
+          {
+            "code": "8302-2",
+            "display": "Body height",
+            "value": 160,
+            "unit": "cm"
+          },
+          {
+            "code": "29463-7",
+            "display": "Body weight",
+            "value": 50.5,
+            "unit": "kg"
+          },
+          {
+            "code": "39156-5",
+            "display": "Body mass index (BMI) [Ratio]",
+            "value": 19.7,
+            "unit": "kg/m2"
+          },
+          {
+            "code": "8480-6",
+            "display": "Systolic blood pressure",
+            "value": 114,
+            "unit": "mm[Hg]"
+          },
+          {
+            "code": "8462-4",
+            "display": "Diastolic blood pressure",
+            "value": 70,
+            "unit": "mm[Hg]"
+          },
+          {
+            "code": "8867-4",
+            "display": "Heart rate",
+            "value": 76,
+            "unit": "/min"
+          },
+          {
+            "code": "9279-1",
+            "display": "Respiratory rate",
+            "value": 14,
+            "unit": "/min"
+          },
+          {
+            "code": "8310-5",
+            "display": "Body temperature",
+            "value": 36.6,
+            "unit": "Cel"
+          },
+          {
+            "code": "59408-5",
+            "display": "Oxygen saturation in Arterial blood by Pulse oximetry",
+            "value": 99,
+            "unit": "%"
+          }
+        ],
+        "provenance": {
+          "evidence_grade": "S",
+          "claim_ids": [],
+          "synthetic_reason": "Synthetic vital signs; not historical measurements.",
+          "author": "The Human Record generator",
+          "created": "2026-11-03T09:00:00-05:00"
+        }
       }
     ],
     "social_history": [
@@ -2141,7 +3079,7 @@
         "provenance": {
           "evidence_grade": "S",
           "claim_ids": [],
-          "synthetic_reason": "Synthetic risk-mitigation plan; naloxone is listed here because the case schema has no nasal medication route.",
+          "synthetic_reason": "Synthetic risk-mitigation plan; the naloxone nasal spray is also on the medication list.",
           "author": "The Human Record generator",
           "created": "2026-11-02T15:00:00-05:00"
         }
@@ -2237,6 +3175,104 @@
         "publisher": "Aether Forge",
         "url": "https://patrickrutledge.github.io/topthirty/",
         "version_or_year": "2026"
+      },
+      {
+        "guideline_id": "GL-ARTI-2016",
+        "title": "Appropriate Antibiotic Use for Acute Respiratory Tract Infection in Adults: Advice for High-Value Care From the American College of Physicians and the Centers for Disease Control and Prevention",
+        "publisher": "American College of Physicians and Centers for Disease Control and Prevention",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/26785402/",
+        "version_or_year": "2016"
+      },
+      {
+        "guideline_id": "GL-PREV-2026",
+        "title": "Medicare Preventive Services reference: visit templates, screening cascades, and documentation elements",
+        "publisher": "Aether Forge",
+        "url": "https://patrickrutledge.github.io/preventative_services/",
+        "version_or_year": "2026"
+      },
+      {
+        "guideline_id": "GL-USPSTF-CERV-2018",
+        "title": "Cervical Cancer: Screening",
+        "publisher": "U.S. Preventive Services Task Force",
+        "url": "https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/cervical-cancer-screening",
+        "version_or_year": "2018"
+      },
+      {
+        "guideline_id": "GL-USPSTF-DEP-2023",
+        "title": "Depression and Suicide Risk in Adults: Screening",
+        "publisher": "U.S. Preventive Services Task Force",
+        "url": "https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/screening-depression-suicide-risk-adults",
+        "version_or_year": "2023"
+      },
+      {
+        "guideline_id": "GL-USPSTF-ANX-2023",
+        "title": "Anxiety Disorders in Adults: Screening",
+        "publisher": "U.S. Preventive Services Task Force",
+        "url": "https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/anxiety-adults-screening",
+        "version_or_year": "2023"
+      },
+      {
+        "guideline_id": "GL-USPSTF-ALC-2018",
+        "title": "Unhealthy Alcohol Use in Adolescents and Adults: Screening and Behavioral Counseling Interventions",
+        "publisher": "U.S. Preventive Services Task Force",
+        "url": "https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/unhealthy-alcohol-use-in-adolescents-and-adults-screening-and-behavioral-counseling-interventions",
+        "version_or_year": "2018"
+      },
+      {
+        "guideline_id": "GL-USPSTF-DRUG-2020",
+        "title": "Unhealthy Drug Use: Screening",
+        "publisher": "U.S. Preventive Services Task Force",
+        "url": "https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/drug-use-illicit-screening",
+        "version_or_year": "2020"
+      },
+      {
+        "guideline_id": "GL-USPSTF-TOB-2021",
+        "title": "Tobacco Smoking Cessation in Adults, Including Pregnant Persons: Interventions",
+        "publisher": "U.S. Preventive Services Task Force",
+        "url": "https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/tobacco-use-in-adults-and-pregnant-women-counseling-and-interventions",
+        "version_or_year": "2021"
+      },
+      {
+        "guideline_id": "GL-USPSTF-BP-2021",
+        "title": "Hypertension in Adults: Screening",
+        "publisher": "U.S. Preventive Services Task Force",
+        "url": "https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/hypertension-in-adults-screening",
+        "version_or_year": "2021"
+      },
+      {
+        "guideline_id": "GL-USPSTF-HIV-2019",
+        "title": "Human Immunodeficiency Virus (HIV) Infection: Screening",
+        "publisher": "U.S. Preventive Services Task Force",
+        "url": "https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/human-immunodeficiency-virus-hiv-infection-screening",
+        "version_or_year": "2019"
+      },
+      {
+        "guideline_id": "GL-USPSTF-HCV-2020",
+        "title": "Hepatitis C Virus Infection in Adolescents and Adults: Screening",
+        "publisher": "U.S. Preventive Services Task Force",
+        "url": "https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/hepatitis-c-screening",
+        "version_or_year": "2020"
+      },
+      {
+        "guideline_id": "GL-CDC-HBV-2023",
+        "title": "Screening and Testing for Hepatitis B Virus Infection: CDC Recommendations — United States, 2023",
+        "publisher": "Centers for Disease Control and Prevention (MMWR Recommendations and Reports)",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/36893044/",
+        "version_or_year": "2023"
+      },
+      {
+        "guideline_id": "GL-USPSTF-IPV-2025",
+        "title": "Intimate Partner Violence and Caregiver Abuse of Older or Vulnerable Adults: Screening",
+        "publisher": "U.S. Preventive Services Task Force",
+        "url": "https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/intimate-partner-violence-and-abuse-of-elderly-and-vulnerable-adults-screening",
+        "version_or_year": "2025"
+      },
+      {
+        "guideline_id": "GL-USPSTF-FOLIC-2023",
+        "title": "Folic Acid Supplementation to Prevent Neural Tube Defects: Preventive Medication",
+        "publisher": "U.S. Preventive Services Task Force",
+        "url": "https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/folic-acid-for-the-prevention-of-neural-tube-defects-preventive-medication",
+        "version_or_year": "2023"
       }
     ]
   },

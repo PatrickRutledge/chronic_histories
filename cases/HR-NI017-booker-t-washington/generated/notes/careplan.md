@@ -39,6 +39,7 @@
 - 2026-05-11: One-week blood pressure and kidney safety check with nephrology consultation **S**
 - 2026-06-01: Three-week check after losartan titration and dapagliflozin start **S**
 - 2026-06-29: Four-week check after adding chlorthalidone **S**
+- 2026-09-21: Periodic adult preventive visit **S**
 - 2026-10-26: Six-month blood pressure and chronic kidney disease review **S**
 
 This teaching document does not replace care from a qualified clinician.

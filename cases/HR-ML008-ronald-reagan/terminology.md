@@ -38,6 +38,7 @@
 | 72172-0 | MoCA total score | {score} | survey |
 | 96761-2 | Barthel Index total score | {score} | survey |
 | 48545-8 | GDS-15 total score | {score} | survey |
+| 55758-7 | PHQ-2 total score (annual wellness visit) | {score} | survey |
 
 Reference ranges are typical adult ranges chosen for the teaching record; interpretation flags follow them, and validation checks that every flag agrees with its range. The DXA T-score range uses -1.0 as the lower limit of normal.
 
@@ -49,14 +50,15 @@ Zarit Burden Interview, FAST stage, Lawton IADL, Timed Up and Go, NPI-Q, and the
 - Assessment of risk in home environment: SNOMED CT 718855003.
 - Advance care planning: SNOMED CT 713603004.
 - Dual energy X-ray absorptiometry: SNOMED CT 241686001.
-- Immunizations: CVX 135 (high-dose influenza) and 216 (PCV20).
+- Encounter type: SNOMED CT 281038008 (geriatric annual health check) for the subsequent annual wellness visit. The services are named in plain text as HCPCS G0439 and CPT 99497; HCPCS and CPT are not used as coded values.
+- Immunizations: CVX 135 (high-dose influenza, the 2025-2026 dose and the 2026-2027 dose given at the annual wellness visit) and 216 (PCV20).
 - No known allergy: SNOMED CT 716186003.
 - Family relationships: HL7 RoleCode FTH (father), MTH (mother), and BRO (brother).
 
 ## Vital signs
 
-The four visits use LOINC 8302-2, 29463-7, 39156-5, 8480-6, 8462-4, 8867-4, 9279-1, 8310-5, and 59408-5 with UCUM units. Standing blood pressure is recorded in the functional status narrative.
+The five visits use LOINC 8302-2, 29463-7, 39156-5, 8480-6, 8462-4, 8867-4, 9279-1, 8310-5, and 59408-5 with UCUM units. Standing blood pressure is recorded in the functional status narrative.
 
 ## Review note
 
-Codes were checked against the public terminology server and NLM RxNav on November 2, 2026. They do not imply that Reagan received these diagnoses, tests, or medications during his lifetime.
+Codes were checked against the public terminology server and NLM RxNav on November 2, 2026; the codes for the annual wellness visit were checked on November 3, 2026. They do not imply that Reagan received these diagnoses, tests, or medications during his lifetime.

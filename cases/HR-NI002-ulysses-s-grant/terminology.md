@@ -10,6 +10,7 @@
 | Active problem | ICD-10-CM FY2026 | F17.290 | Nicotine dependence, other tobacco product, uncomplicated | S; linked to documented cigar smoking |
 | Active problem | ICD-10-CM FY2026 | R13.12 | Dysphagia, oropharyngeal phase | S |
 | Active problem | ICD-10-CM FY2026 | R63.4 | Abnormal weight loss | S |
+| Resolved problem | ICD-10-CM FY2026 | J20.9 | Acute bronchitis, unspecified | S; intercurrent illness at the sick visit |
 
 ## Medications (RxNorm)
 
@@ -29,7 +30,7 @@
 | 51990-0 | Basic metabolic panel (organizer) | — | panel |
 | 2951-2, 2823-3, 2160-0, 98979-8, 2345-7 | Sodium, potassium, creatinine, eGFR (CKD-EPI 2021), glucose | mmol/L, mg/dL, mL/min/{1.73_m2} | laboratory |
 | 1751-7, 3016-3 | Albumin, TSH | g/dL, m[IU]/L | laboratory |
-| 72514-3 | Pain severity, 0–10 numeric rating | {score} | survey |
+| 72514-3 | Pain severity, 0–10 numeric rating (also recorded at the sick visit) | {score} | survey |
 | 55758-7 | PHQ-2 total score | {score} | survey |
 
 Reference ranges are typical adult ranges chosen for the teaching record; interpretation flags follow them, and validation checks that every flag agrees with its range.
@@ -44,9 +45,13 @@ Reference ranges are typical adult ranges chosen for the teaching record; interp
 - No known allergy: SNOMED CT 716186003.
 - Family relationships: HL7 RoleCode FTH (father) and MTH (mother). Causes of death are not recorded.
 
+## Encounter types
+
+- Sick visit (ENC-005): SNOMED CT 185345009 (Encounter for symptom), validated November 3, 2026. The four scheduled visits carry no encounter type code.
+
 ## Vital signs
 
-The four visits use LOINC 8302-2, 29463-7, 39156-5, 8480-6, 8462-4, 8867-4, 9279-1, 8310-5, and 59408-5 with UCUM units.
+The five visits use LOINC 8302-2, 29463-7, 39156-5, 8480-6, 8462-4, 8867-4, 9279-1, 8310-5, and 59408-5 with UCUM units.
 
 ## Review note
 

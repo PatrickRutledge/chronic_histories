@@ -1087,6 +1087,7 @@
             },
             "period_unit": {
               "enum": [
+                "min",
                 "h",
                 "d",
                 "wk"
@@ -1118,6 +1119,10 @@
         },
         "provenance": {
           "$ref": "#/$defs/provenance"
+        },
+        "as_needed": {
+          "type": "boolean",
+          "description": "Taken as needed (PRN). The period is then the shortest allowed interval between doses."
         }
       }
     },
@@ -1675,6 +1680,10 @@
             "type": "string"
           },
           "description": "Guidelines this visit follows. Guidelines cited only by visits are left out of the intake H&P and consultation guideline lists."
+        },
+        "health_risk_assessment_method": {
+          "type": "string",
+          "description": "How the health risk assessment was completed. Defaults to self-completion before the visit."
         }
       },
       "allOf": [

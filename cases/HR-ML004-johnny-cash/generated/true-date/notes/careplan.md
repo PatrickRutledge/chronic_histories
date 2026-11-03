@@ -38,6 +38,7 @@
 
 - 2003-02-27: Primary care new-patient visit for diabetes, lightheadedness on standing, and glaucoma follow-up **S**
 - 2003-03-27: Endocrinology consultation for diabetes and autonomic neuropathy **S**
+- 2003-04-24: Subsequent annual wellness visit **S**
 - 2003-05-29: Three-month diabetes, blood pressure, and eye pressure review **S**
 - 2003-08-14: Six-month diabetes review with glaucoma imaging **S**
 

@@ -562,6 +562,11 @@
         "purpose": "Otolaryngology consultation with flexible laryngoscopy and biopsy of the right tonsillar lesion"
       },
       {
+        "encounter_id": "ENC-005",
+        "date": "2026-07-28",
+        "purpose": "Same-day sick visit for a head cold and cough during the cancer workup"
+      },
+      {
         "encounter_id": "ENC-003",
         "date": "2026-08-04",
         "purpose": "Primary care visit after staging to coordinate nutrition, dental care, tobacco cessation, and symptom control before treatment"
@@ -687,6 +692,32 @@
         "clinical_status": "active",
         "verification_status": "confirmed",
         "problem_placement": "active"
+      },
+      {
+        "id": "PRB-005",
+        "display": "Acute viral bronchitis after a head cold during the cancer workup, resolved without antibiotics",
+        "status": "draft",
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/sid/icd-10-cm",
+            "code": "J20.9",
+            "display": "Acute bronchitis, unspecified",
+            "version": "FY2026",
+            "validation_status": "validated",
+            "validated_on": "2026-11-03"
+          }
+        ],
+        "provenance": {
+          "evidence_grade": "S",
+          "claim_ids": [],
+          "synthetic_reason": "Synthetic intercurrent illness at an unscheduled visit; it does not echo a documented illness.",
+          "author": "The Human Record generator",
+          "created": "2026-11-03T09:00:00-05:00"
+        },
+        "clinical_status": "resolved",
+        "verification_status": "confirmed",
+        "problem_placement": "active",
+        "recorded_date": "2026-07-28"
       }
     ],
     "medications": [
@@ -799,7 +830,8 @@
           "synthetic_reason": "Synthetic liquid analgesic for painful swallowing.",
           "author": "The Human Record generator",
           "created": "2026-11-02T15:00:00-05:00"
-        }
+        },
+        "as_needed": true
       },
       {
         "id": "MED-004",
@@ -837,7 +869,8 @@
           "synthetic_reason": "Synthetic topical anesthetic; a modern counterpart to the cocaine used to numb Grant's throat in 1885.",
           "author": "The Human Record generator",
           "created": "2026-11-02T15:00:00-05:00"
-        }
+        },
+        "as_needed": true
       }
     ],
     "allergies": [
@@ -2033,6 +2066,32 @@
           "author": "The Human Record generator",
           "created": "2026-11-02T15:00:00-05:00"
         }
+      },
+      {
+        "id": "OBS-PAIN-SICK",
+        "display": "Pain severity - 0-10 verbal numeric rating [Score] - Reported",
+        "label": "Throat pain (0-10)",
+        "status": "final",
+        "effective_date": "2026-07-28",
+        "value": 6,
+        "unit": "{score}",
+        "coding": [
+          {
+            "system": "http://loinc.org",
+            "code": "72514-3",
+            "display": "Pain severity - 0-10 verbal numeric rating [Score] - Reported",
+            "version": "2.81",
+            "validation_status": "validated",
+            "validated_on": "2026-11-03"
+          }
+        ],
+        "provenance": {
+          "evidence_grade": "S",
+          "claim_ids": [],
+          "synthetic_reason": "Synthetic throat pain score, one point higher with coughing.",
+          "author": "The Human Record generator",
+          "created": "2026-11-03T09:00:00-05:00"
+        }
       }
     ],
     "procedures": [
@@ -2343,6 +2402,189 @@
           "author": "The Human Record generator",
           "created": "2026-11-02T15:00:00-05:00"
         }
+      },
+      {
+        "id": "ENC-005",
+        "display": "Same-day sick visit for a head cold and cough during the cancer workup",
+        "status": "finished",
+        "date": "2026-07-28",
+        "visit_type": "sick",
+        "type_coding": {
+          "system": "http://snomed.info/sct",
+          "code": "185345009",
+          "display": "Encounter for symptom",
+          "validation_status": "validated",
+          "validated_on": "2026-11-03"
+        },
+        "documentation": {
+          "chief_complaint": "Runny nose, cough, and low-grade fever for three days",
+          "billing_note": "Problem-oriented office visit, established patient",
+          "hpi": {
+            "narrative": "Mr. Grant is a 62-year-old man who asked for a same-day visit. Last week the otolaryngologist biopsied an ulcerated lesion of his right tonsillar pillar, and pathology showed p16-negative squamous cell carcinoma. Staging PET/CT is booked for two days from now. He stopped cigars two weeks ago and takes varenicline 1 mg twice daily. Three days ago he developed a runny nose and sneezing, followed by a dry cough. His highest home temperature was 37.8 °C. Several people at a meeting he attended last week have had colds. Home COVID-19 antigen tests on the first and third days were negative. Coughing fits make his right-sided throat pain worse, now 6 of 10, up from 5 last week. He uses the lidocaine rinse before meals and the acetaminophen solution 20 mL up to four times a day. He has taken no other medicines, because he was unsure what was safe. He is still managing soft foods and two supplement drinks a day, and he has not choked or coughed while eating or drinking. His saliva was streaked with blood the day after the biopsy and has been clear since. The urge for a cigar is stronger when he coughs, but he has not smoked. He worries that the cough means the cancer has spread to his lungs.",
+            "elements": [
+              {
+                "label": "Onset",
+                "value": "Three days ago"
+              },
+              {
+                "label": "Location",
+                "value": "Nose, throat, and chest"
+              },
+              {
+                "label": "Duration",
+                "value": "Three days"
+              },
+              {
+                "label": "Character",
+                "value": "Dry cough; clear nasal discharge; sneezing"
+              },
+              {
+                "label": "Severity",
+                "value": "Moderate; coughing raises his throat pain from 5 to 6 of 10"
+              },
+              {
+                "label": "Timing",
+                "value": "Cough worse at night and on waking"
+              },
+              {
+                "label": "Context",
+                "value": "Colds among people at a meeting last week; one week after tonsil biopsy; two weeks after stopping cigars"
+              },
+              {
+                "label": "Modifying factors",
+                "value": "Warm drinks and honey help; lidocaine rinse before meals"
+              },
+              {
+                "label": "Associated signs and symptoms",
+                "value": "Fatigue. Denies sputum, hemoptysis, breathlessness, chest pain, choking or coughing with swallowing, and fever above 37.8 °C"
+              }
+            ]
+          },
+          "ros": [
+            {
+              "system": "Constitutional",
+              "status": "positive",
+              "finding": "Fatigue; temperature to 37.8 °C at home; no rigors or night sweats"
+            },
+            {
+              "system": "Ears, nose, mouth, and throat",
+              "status": "positive",
+              "finding": "Clear rhinorrhea and congestion; right-sided throat pain worse with coughing; no new bleeding from the biopsy site"
+            },
+            {
+              "system": "Respiratory",
+              "status": "positive",
+              "finding": "Dry cough; no sputum, hemoptysis, wheeze, or breathlessness"
+            },
+            {
+              "system": "Cardiovascular",
+              "status": "negative",
+              "finding": "No chest pain, palpitations, or ankle swelling"
+            },
+            {
+              "system": "Gastrointestinal",
+              "status": "negative",
+              "finding": "No vomiting or diarrhea; mild nausea only if varenicline is taken without food"
+            },
+            {
+              "system": "Neurological",
+              "status": "negative",
+              "finding": "No headache, dizziness, or weakness"
+            },
+            {
+              "system": "Psychiatric",
+              "status": "negative",
+              "finding": "Worried about the staging scan; sleep broken by cough; no low mood"
+            }
+          ],
+          "exam": [
+            {
+              "system": "General",
+              "finding": "Tired but well-appearing; speaking in full sentences; mildly hoarse"
+            },
+            {
+              "system": "Ears, nose, and throat",
+              "finding": "Tympanic membranes normal; nasal mucosa red and swollen with clear discharge"
+            },
+            {
+              "system": "Oropharynx",
+              "finding": "Ulcerated lesion of the right tonsillar pillar with a healing biopsy site; no active bleeding, pus, or new swelling"
+            },
+            {
+              "system": "Neck",
+              "finding": "Firm right level II node, unchanged from the CT; no new or tender nodes"
+            },
+            {
+              "system": "Respiratory",
+              "finding": "Unlabored; scattered upper-airway rhonchi that clear with coughing; no crackles, wheeze, or dullness"
+            },
+            {
+              "system": "Cardiovascular",
+              "finding": "Regular rhythm; no murmur"
+            },
+            {
+              "system": "Swallowing screen",
+              "finding": "Drank 90 mL of water without coughing, throat clearing, or a wet voice"
+            }
+          ],
+          "assessment_plan": [
+            {
+              "problem_id": "PRB-005",
+              "display": "Acute bronchitis, likely viral, after an upper respiratory infection",
+              "assessment": "Temperature 37.5 °C, heart rate 86, respiratory rate 18, oxygen saturation 96 percent, and a clear chest make pneumonia unlikely. He passed the water swallow screen and has not choked with meals, so aspiration is also unlikely despite his dysphagia. A chest radiograph and antibiotics are not indicated",
+              "plan": [
+                "Supportive care: honey in warm drinks, saline nasal rinse, and rest",
+                "Continue the acetaminophen solution at no more than 3,000 mg a day. Do not add combination cold or flu products, because most contain more acetaminophen",
+                "Avoid codeine-containing cough syrups. Plain dextromethorphan at night is acceptable if the cough disturbs sleep",
+                "Repeat a home COVID-19 antigen test in 48 hours. If it is positive, call the same day, because antiviral treatment would be offered at his age with cancer",
+                "The cough may last two to three weeks"
+              ]
+            },
+            {
+              "problem_id": "PRB-001",
+              "display": "Squamous cell carcinoma of the right tonsillar pillar, staging in progress",
+              "assessment": "The cough fits a cold and is not a sign of spread to the lungs, which the staging scan will assess. A respiratory infection can cause inflammatory uptake in the chest and neck nodes on PET/CT",
+              "plan": [
+                "Keep the staging PET/CT as booked. Message the head and neck team and radiology about the current cold so any reactive uptake is read in context",
+                "Treatment-planning visit next week as scheduled"
+              ]
+            },
+            {
+              "problem_id": "PRB-002",
+              "display": "Nicotine dependence, cigars, two weeks abstinent",
+              "assessment": "Abstinent on varenicline. Cravings are stronger while he is ill and worried, a common relapse trigger. Coughing can increase for a few weeks after stopping smoking",
+              "plan": [
+                "Continue varenicline 1 mg twice daily after meals",
+                "Brief counseling today: plan for cravings during illness and while waiting for results, and remove remaining cigars from the house",
+                "Offer the state quitline for extra support between visits"
+              ]
+            },
+            {
+              "problem_id": "PRB-003",
+              "display": "Oropharyngeal dysphagia from the tonsillar tumor",
+              "assessment": "Swallowing is unchanged; weight 76.5 kg, down 0.5 kg in a week",
+              "plan": [
+                "Continue soft, calorie-dense foods and two supplement drinks a day",
+                "Keep the 60-minute wait after the lidocaine rinse before eating or drinking, because a numbed throat raises the risk of choking"
+              ]
+            }
+          ],
+          "follow_up": "Nurse telephone check in three days. Call or return the same day for a temperature above 38 °C, breathlessness, coughing or choking with swallowing, sputum or blood, or bleeding from the biopsy site",
+          "guideline_ids": [
+            "GL-ARTI-2016",
+            "GL-TOBACCO-2021",
+            "GL-NCCN-HN-2025"
+          ]
+        },
+        "provenance": {
+          "evidence_grade": "S",
+          "claim_ids": [
+            "CLM-0004"
+          ],
+          "synthetic_reason": "Synthetic unscheduled sick visit between the biopsy and staging; the illness is not a historical claim.",
+          "author": "The Human Record generator",
+          "created": "2026-11-03T09:00:00-05:00"
+        }
       }
     ],
     "vital_sign_sets": [
@@ -2612,6 +2854,73 @@
           "synthetic_reason": "Synthetic vital signs; weights track the expected loss with painful swallowing and treatment. Not historical measurements.",
           "author": "The Human Record generator",
           "created": "2026-11-02T15:00:00-05:00"
+        }
+      },
+      {
+        "id": "VSET-005",
+        "date": "2026-07-28",
+        "measurements": [
+          {
+            "code": "8302-2",
+            "display": "Body height",
+            "value": 173,
+            "unit": "cm"
+          },
+          {
+            "code": "29463-7",
+            "display": "Body weight",
+            "value": 76.5,
+            "unit": "kg"
+          },
+          {
+            "code": "39156-5",
+            "display": "Body mass index (BMI) [Ratio]",
+            "value": 25.6,
+            "unit": "kg/m2"
+          },
+          {
+            "code": "8480-6",
+            "display": "Systolic blood pressure",
+            "value": 130,
+            "unit": "mm[Hg]"
+          },
+          {
+            "code": "8462-4",
+            "display": "Diastolic blood pressure",
+            "value": 78,
+            "unit": "mm[Hg]"
+          },
+          {
+            "code": "8867-4",
+            "display": "Heart rate",
+            "value": 86,
+            "unit": "/min"
+          },
+          {
+            "code": "9279-1",
+            "display": "Respiratory rate",
+            "value": 18,
+            "unit": "/min"
+          },
+          {
+            "code": "8310-5",
+            "display": "Body temperature",
+            "value": 37.5,
+            "unit": "Cel"
+          },
+          {
+            "code": "59408-5",
+            "display": "Oxygen saturation in Arterial blood by Pulse oximetry",
+            "value": 96,
+            "unit": "%"
+          }
+        ],
+        "provenance": {
+          "evidence_grade": "S",
+          "claim_ids": [],
+          "synthetic_reason": "Synthetic vital signs; weights track the expected loss with painful swallowing and treatment. Not historical measurements.",
+          "author": "The Human Record generator",
+          "created": "2026-11-03T09:00:00-05:00"
         }
       }
     ],
@@ -2983,6 +3292,13 @@
         "publisher": "Aether Forge",
         "url": "https://patrickrutledge.github.io/topthirty/",
         "version_or_year": "2026"
+      },
+      {
+        "guideline_id": "GL-ARTI-2016",
+        "title": "Appropriate Antibiotic Use for Acute Respiratory Tract Infection in Adults: Advice for High-Value Care From the American College of Physicians and the Centers for Disease Control and Prevention",
+        "publisher": "American College of Physicians and Centers for Disease Control and Prevention",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/26785402/",
+        "version_or_year": "2016"
       }
     ]
   },

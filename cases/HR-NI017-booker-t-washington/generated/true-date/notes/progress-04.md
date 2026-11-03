@@ -54,4 +54,4 @@ Active problems: Severe hypertension with hypertensive kidney disease; synthetic
 ## Plan
 
 - Continue the care plan agreed on 1915-05-04. The care-plan document lists every intervention. **S**
-- Next visit 1915-10-26: six-month blood pressure and chronic kidney disease review. **S**
+- Next visit 1915-09-21: periodic adult preventive visit. **S**

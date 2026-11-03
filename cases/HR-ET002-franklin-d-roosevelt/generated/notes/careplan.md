@@ -37,5 +37,6 @@
 - 2026-04-10: Two-week heart failure medication safety check and echocardiogram **S**
 - 2026-06-26: Three-month heart failure and blood pressure review **S**
 - 2026-09-25: Six-month heart failure review with repeat echocardiogram **S**
+- 2026-10-23: Periodic adult preventive visit **S**
 
 This teaching document does not replace care from a qualified clinician.

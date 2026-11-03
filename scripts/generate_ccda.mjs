@@ -642,7 +642,7 @@ const chiefComplaintSection = (doc) => plain({
 });
 const fullHpiSection = (doc) => plain({
   templateRoot: "1.3.6.1.4.1.19376.1.5.3.1.3.4", code: "10164-2", display: "History of Present illness Narrative", title: "History of Present Illness",
-  text: `${p(doc.hpi.narrative)}${doc.hpi.elements?.length ? table(["Element", "Detail"], doc.hpi.elements.map(e => `<tr><td>${x(e.label)}</td><td>${x(e.value)}</td></tr>`).join("")) : ""}${doc.health_risk_assessment?.length ? `<paragraph>Health risk assessment, completed by the patient before the visit and reviewed during the visit [S]</paragraph>${table(["Domain", "Finding"], doc.health_risk_assessment.map(e => `<tr><td>${x(e.domain)}</td><td>${x(e.finding)}</td></tr>`).join(""))}` : ""}`,
+  text: `${p(doc.hpi.narrative)}${doc.hpi.elements?.length ? table(["Element", "Detail"], doc.hpi.elements.map(e => `<tr><td>${x(e.label)}</td><td>${x(e.value)}</td></tr>`).join("")) : ""}${doc.health_risk_assessment?.length ? `<paragraph>Health risk assessment. ${x(sentence(doc.health_risk_assessment_method ?? "Completed by the patient before the visit and reviewed during the visit"))} [S]</paragraph>${table(["Domain", "Finding"], doc.health_risk_assessment.map(e => `<tr><td>${x(e.domain)}</td><td>${x(e.finding)}</td></tr>`).join(""))}` : ""}`,
 });
 const fullRosSection = (doc) => plain({
   templateRoot: "1.3.6.1.4.1.19376.1.5.3.1.3.18", code: "10187-3", display: "Review of systems Narrative - Reported", title: "Review of Systems",

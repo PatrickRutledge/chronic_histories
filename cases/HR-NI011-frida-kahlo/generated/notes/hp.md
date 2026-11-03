@@ -51,6 +51,7 @@ This fictional modern episode addresses the presenting concerns below. **S**
 - Acetaminophen 500 mg oral tablet, two tablets three times daily **S**
 - Diclofenac sodium 1% topical gel, 2 g to the right ankle four times daily **S**
 - Cholecalciferol (vitamin D3) 2,000 units oral tablet, one tablet daily **S**
+- Naloxone 4 mg nasal spray, one spray into one nostril for suspected opioid overdose; may repeat in the other nostril **S**
 - No known allergy **S**
 
 ## Past medical history

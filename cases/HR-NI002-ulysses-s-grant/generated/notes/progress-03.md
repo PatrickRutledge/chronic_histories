@@ -1,56 +1,111 @@
-# Progress Note 03 — Follow-up
+# Progress Note 03 — Sick Visit
 
 > **SYNTHETIC RECORD, NOT A REAL MEDICAL RECORD**
 
 - Patient: Ulysses S. Grant (real historical name used in a fictional teaching record)
 - Synthetic MRN: HR-NI002-SYN
-- Date: 2026-08-04
+- Date: 2026-07-28
 - Fictional facility: St. Posthumous Health Center
 - Fictional author: Corinne Batiste, MD
 - Calendar frame: modern shifted
 
-## Subjective
+- Visit type: Sick Visit
+- Services: Problem-oriented office visit, established patient
 
-The patient participates in this fictional follow-up for primary care visit after staging to coordinate nutrition, dental care, tobacco cessation, and symptom control before treatment. **S**
+## Chief complaint
+
+Runny nose, cough, and low-grade fever for three days. **S**
+
+## History of present illness
+
+Mr. Grant is a 62-year-old man who asked for a same-day visit. Last week the otolaryngologist biopsied an ulcerated lesion of his right tonsillar pillar, and pathology showed p16-negative squamous cell carcinoma. Staging PET/CT is booked for two days from now. He stopped cigars two weeks ago and takes varenicline 1 mg twice daily. Three days ago he developed a runny nose and sneezing, followed by a dry cough. His highest home temperature was 37.8 °C. Several people at a meeting he attended last week have had colds. Home COVID-19 antigen tests on the first and third days were negative. Coughing fits make his right-sided throat pain worse, now 6 of 10, up from 5 last week. He uses the lidocaine rinse before meals and the acetaminophen solution 20 mL up to four times a day. He has taken no other medicines, because he was unsure what was safe. He is still managing soft foods and two supplement drinks a day, and he has not choked or coughed while eating or drinking. His saliva was streaked with blood the day after the biopsy and has been clear since. The urge for a cigar is stronger when he coughs, but he has not smoked. He worries that the cough means the cancer has spread to his lungs. **S**
+
+| Element | Detail |
+|---|---|
+| Onset | Three days ago |
+| Location | Nose, throat, and chest |
+| Duration | Three days |
+| Character | Dry cough; clear nasal discharge; sneezing |
+| Severity | Moderate; coughing raises his throat pain from 5 to 6 of 10 |
+| Timing | Cough worse at night and on waking |
+| Context | Colds among people at a meeting last week; one week after tonsil biopsy; two weeks after stopping cigars |
+| Modifying factors | Warm drinks and honey help; lidocaine rinse before meals |
+| Associated signs and symptoms | Fatigue. Denies sputum, hemoptysis, breathlessness, chest pain, choking or coughing with swallowing, and fever above 37.8 °C |
+
+## Review of systems
+
+| System | Result | Finding |
+|---|---|---|
+| Constitutional | Positive | Fatigue; temperature to 37.8 °C at home; no rigors or night sweats |
+| Ears, nose, mouth, and throat | Positive | Clear rhinorrhea and congestion; right-sided throat pain worse with coughing; no new bleeding from the biopsy site |
+| Respiratory | Positive | Dry cough; no sputum, hemoptysis, wheeze, or breathlessness |
+| Cardiovascular | Negative | No chest pain, palpitations, or ankle swelling |
+| Gastrointestinal | Negative | No vomiting or diarrhea; mild nausea only if varenicline is taken without food |
+| Neurological | Negative | No headache, dizziness, or weakness |
+| Psychiatric | Negative | Worried about the staging scan; sleep broken by cough; no low mood |
+
+7 systems reviewed. **S**
+
+## Current medications
+
+- Varenicline 1 mg oral tablet, one tablet twice daily **S**
+- Acetaminophen 160 mg/5 mL oral solution, 20 mL (640 mg) every 6 hours as needed for throat pain **S**
+- Lidocaine viscous 2% solution, 15 mL swish and spit up to every 3 hours as needed for throat pain **S**
+
+## Allergies
+
+- No known allergy **S**
 
 ## Objective
 
-Hemoglobin: 13.8 g/dL; White blood cell count: 7.9 10*3/uL; Platelet count: 255 10*3/uL; Sodium: 138 mmol/L; Potassium: 4.4 mmol/L; Creatinine: 0.95 mg/dL; eGFR: 90 mL/min/1.73 m²; Glucose: 90 mg/dL; Albumin: 3.6 g/dL; Throat pain (0-10): 4; PHQ-2: 2. All results are synthetic.
+BP 130/78 mmHg; pulse 86 bpm; respirations 18/min; temperature 37.5 °C; oxygen saturation 96% on room air; weight 76.5 kg; BMI 25.6 kg/m². All vital signs are synthetic.
 
-BP 128/78 mmHg; pulse 74 bpm; respirations 16/min; temperature 36.8 °C; oxygen saturation 98% on room air; weight 75.5 kg; BMI 25.2 kg/m². All vital signs are synthetic.
+Throat pain (0-10): 6. All results are synthetic.
 
 ## Change since baseline
 
-- Hemoglobin: 14.1 g/dL at baseline, 13.8 g/dL at this visit **S**
-- White blood cell count: 8.4 10*3/uL at baseline, 7.9 10*3/uL at this visit **S**
-- Platelet count: 262 10*3/uL at baseline, 255 10*3/uL at this visit **S**
-- Sodium: 139 mmol/L at baseline, 138 mmol/L at this visit **S**
-- Potassium: 4.3 mmol/L at baseline, 4.4 mmol/L at this visit **S**
-- Creatinine: 0.98 mg/dL at baseline, 0.95 mg/dL at this visit **S**
-- eGFR: 87 mL/min/1.73 m² at baseline, 90 mL/min/1.73 m² at this visit **S**
-- Glucose: 92 mg/dL at baseline, 90 mg/dL at this visit **S**
-- Albumin: 3.9 g/dL at baseline, 3.6 g/dL at this visit **S**
-- Throat pain (0-10): 5 at baseline, 4 at this visit **S**
-- PHQ-2: 1 at baseline, 2 at this visit **S**
+- Throat pain (0-10): 5 at baseline, 6 at this visit **S**
 
-## Assessment
+## Physical examination
 
-Active problems: Squamous cell carcinoma of the right tonsillar pillar, p16-negative, suspected at presentation and confirmed by biopsy at the otolaryngology visit; linked to the documented 1885 diagnosis; Nicotine dependence, cigars, about ten a day for more than forty years; Painful swallowing with oropharyngeal dysphagia from the tonsillar tumor; Unintended weight loss from painful swallowing, about 2 kg before presentation and 9% of body weight by the end of treatment. Strengths and supports remain part of the care plan. **S**
+| System | Finding |
+|---|---|
+| General | Tired but well-appearing; speaking in full sentences; mildly hoarse |
+| Ears, nose, and throat | Tympanic membranes normal; nasal mucosa red and swollen with clear discharge |
+| Oropharynx | Ulcerated lesion of the right tonsillar pillar with a healing biopsy site; no active bleeding, pus, or new swelling |
+| Neck | Firm right level II node, unchanged from the CT; no new or tender nodes |
+| Respiratory | Unlabored; scattered upper-airway rhonchi that clear with coughing; no crackles, wheeze, or dullness |
+| Cardiovascular | Regular rhythm; no murmur |
+| Swallowing screen | Drank 90 mL of water without coughing, throat clearing, or a wet voice |
 
-## Medication changes
+All examination findings are synthetic. **S**
 
-- Continued without change: Varenicline 1 mg oral tablet, one tablet twice daily **S**
-- Continued without change: Acetaminophen 160 mg/5 mL oral solution, 20 mL (640 mg) every 6 hours as needed for throat pain **S**
-- Continued without change: Lidocaine viscous 2% solution, 15 mL swish and spit up to every 3 hours as needed for throat pain **S**
+## Assessment and plan
 
-## Goal progress
+1. **Acute bronchitis, likely viral, after an upper respiratory infection** (J20.9). Temperature 37.5 °C, heart rate 86, respiratory rate 18, oxygen saturation 96 percent, and a clear chest make pneumonia unlikely. He passed the water swallow screen and has not choked with meals, so aspiration is also unlikely despite his dysphagia. A chest radiograph and antibiotics are not indicated. **S**
+   - Supportive care: honey in warm drinks, saline nasal rinse, and rest.
+   - Continue the acetaminophen solution at no more than 3,000 mg a day. Do not add combination cold or flu products, because most contain more acetaminophen.
+   - Avoid codeine-containing cough syrups. Plain dextromethorphan at night is acceptable if the cough disturbs sleep.
+   - Repeat a home COVID-19 antigen test in 48 hours. If it is positive, call the same day, because antiviral treatment would be offered at his age with cancer.
+   - The cough may last two to three weeks.
+2. **Squamous cell carcinoma of the right tonsillar pillar, staging in progress** (C09.1). The cough fits a cold and is not a sign of spread to the lungs, which the staging scan will assess. A respiratory infection can cause inflammatory uptake in the chest and neck nodes on PET/CT. **S**
+   - Keep the staging PET/CT as booked. Message the head and neck team and radiology about the current cold so any reactive uptake is read in context.
+   - Treatment-planning visit next week as scheduled.
+3. **Nicotine dependence, cigars, two weeks abstinent** (F17.290). Abstinent on varenicline. Cravings are stronger while he is ill and worried, a common relapse trigger. Coughing can increase for a few weeks after stopping smoking. **S**
+   - Continue varenicline 1 mg twice daily after meals.
+   - Brief counseling today: plan for cravings during illness and while waiting for results, and remove remaining cigars from the house.
+   - Offer the state quitline for extra support between visits.
+4. **Oropharyngeal dysphagia from the tonsillar tumor** (R13.12). Swallowing is unchanged; weight 76.5 kg, down 0.5 kg in a week. **S**
+   - Continue soft, calorie-dense foods and two supplement drinks a day.
+   - Keep the 60-minute wait after the lidocaine rinse before eating or drinking, because a numbed throat raises the risk of choking.
 
-- Tissue diagnosis within two weeks of the first visit. Outcome by 2026-07-21: Biopsy at the otolaryngology visit two weeks after presentation. **S**
-- Stop all tobacco use before treatment begins. Outcome by 2026-08-04: No cigars since mid-July 2026; varenicline continued. **S**
-- Limit weight loss to less than 10% of baseline weight through treatment. In progress; target 2026-10-22. **S**
-- Keep throat pain at 4 or below on the 0-10 scale most days. In progress; target 2026-10-22. **S**
+## Guideline basis
 
-## Plan
+- NCCN Guidelines Insights: Head and Neck Cancers, Version 2.2025 (2025), National Comprehensive Cancer Network
+- Tobacco Smoking Cessation in Adults, Including Pregnant Persons: Interventions (2021), U.S. Preventive Services Task Force
+- Appropriate Antibiotic Use for Acute Respiratory Tract Infection in Adults: Advice for High-Value Care From the American College of Physicians and the Centers for Disease Control and Prevention (2016), American College of Physicians and Centers for Disease Control and Prevention
 
-- Continue the care plan agreed on 2026-07-07. The care-plan document lists every intervention. **S**
-- Next visit 2026-10-22: primary care visit three weeks after completing chemoradiation directed by the head and neck oncology team. **S**
+## Follow-up
+
+- Nurse telephone check in three days. Call or return the same day for a temperature above 38 °C, breathlessness, coughing or choking with swallowing, sputum or blood, or bleeding from the biopsy site. **S**
+- Next scheduled visit 2026-08-04: primary care visit after staging to coordinate nutrition, dental care, tobacco cessation, and symptom control before treatment. **S**

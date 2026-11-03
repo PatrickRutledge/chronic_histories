@@ -85,7 +85,7 @@ const fullNote = (visit, n, label) => {
     `## Chief complaint\n\n${sentence(doc.chief_complaint)} **S**\n\n`,
     `## History of present illness\n\n${doc.hpi.narrative} **S**\n\n`,
     doc.hpi.elements?.length ? `| Element | Detail |\n|---|---|\n${doc.hpi.elements.map(e => `| ${cell(e.label)} | ${cell(e.value)} |`).join("\n")}\n\n` : "",
-    doc.health_risk_assessment?.length ? `## Health risk assessment\n\nCompleted by the patient before the visit and reviewed during the visit. **S**\n\n| Domain | Finding |\n|---|---|\n${doc.health_risk_assessment.map(e => `| ${cell(e.domain)} | ${cell(e.finding)} |`).join("\n")}\n\n` : "",
+    doc.health_risk_assessment?.length ? `## Health risk assessment\n\n${sentence(doc.health_risk_assessment_method ?? "Completed by the patient before the visit and reviewed during the visit")} **S**\n\n| Domain | Finding |\n|---|---|\n${doc.health_risk_assessment.map(e => `| ${cell(e.domain)} | ${cell(e.finding)} |`).join("\n")}\n\n` : "",
     `## Review of systems\n\n| System | Result | Finding |\n|---|---|---|\n${doc.ros.map(e => `| ${cell(e.system)} | ${e.status === "positive" ? "Positive" : "Negative"} | ${cell(e.finding)} |`).join("\n")}\n\n${doc.ros.length} systems reviewed. **S**\n\n`,
     `## Current medications\n\n${meds.length ? bullets(meds) : "- No current medications. **S**"}\n\n`,
     `## Allergies\n\n${clinical.allergies.length ? bullets(clinical.allergies) : "- No known allergies recorded. **S**"}\n\n`,

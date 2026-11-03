@@ -37,6 +37,7 @@ Active problems: Chronic low back and pelvic pain after remote spinal and pelvic
 - Continued without change: Acetaminophen 500 mg oral tablet, two tablets three times daily **S**
 - Continued without change: Diclofenac sodium 1% topical gel, 2 g to the right ankle four times daily **S**
 - Continued without change: Cholecalciferol (vitamin D3) 2,000 units oral tablet, one tablet daily **S**
+- Continued without change: Naloxone 4 mg nasal spray, one spray into one nostril for suspected opioid overdose; may repeat in the other nostril **S**
 
 ## Goal progress
 

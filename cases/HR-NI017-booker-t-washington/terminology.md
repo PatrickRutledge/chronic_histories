@@ -11,6 +11,7 @@
 | Active problem | ICD-10-CM FY2026 | H35.033 | Hypertensive retinopathy, bilateral | S; linked to documented failing vision |
 | Active problem | ICD-10-CM FY2026 | D63.1 | Anemia in chronic kidney disease | S |
 | Active problem | ICD-10-CM FY2026 | E78.5 | Hyperlipidemia, unspecified | S |
+| Resolved problem | ICD-10-CM FY2026 | S39.012A | Strain of muscle, fascia and tendon of lower back, initial encounter | S; recorded at the August sick visit |
 
 ## Medications (RxNorm)
 
@@ -35,20 +36,22 @@
 | 10230-1 | Left ventricular ejection fraction | % | imaging |
 | 85624-5, 85625-2 | Kidney failure 2-year and 5-year risk (KFRE, four-variable, North American calibration) | % | survey |
 | 44261-6 | PHQ-9 total score | {score} | survey |
+| 75626-2 | AUDIT-C total score (preventive visit) | {score} | survey |
 
 eGFR values are calculated from the synthetic creatinine with the 2021 CKD-EPI creatinine equation for a 59-year-old man. Reference ranges are typical adult ranges chosen for the teaching record; interpretation flags follow them, and validation checks that every flag agrees with its range.
 
 ## Procedures, immunizations, and family history
 
 - Electrocardiogram: SNOMED CT 29303009. Funduscopic examination: SNOMED CT 53524009 (Ophthalmoscopy). Renal ultrasound: SNOMED CT 306005 (Echography of kidney). Transthoracic echocardiography: SNOMED CT 433236007.
-- Immunizations: CVX 140 (influenza), 216 (PCV20), 189 (HepB-CpG, two doses), and 115 (Tdap).
+- Immunizations: CVX 140 (influenza, two seasons), 216 (PCV20), 189 (HepB-CpG, two doses), 187 (recombinant zoster, dose 1), and 115 (Tdap).
+- Encounter types: SNOMED CT 185345009 (encounter for symptom) for the August sick visit and 86013001 (periodic reevaluation and management of healthy individual) for the adult preventive visit. The services are named in plain text as CPT 99396 and CPT 99497; CPT is not used as a coded value.
 - No known allergy: SNOMED CT 716186003.
 - Family relationship: HL7 RoleCode MTH (mother). Cause of death is not recorded.
 
 ## Vital signs
 
-The five visits use LOINC 8302-2, 29463-7, 39156-5, 8480-6, 8462-4, 8867-4, 9279-1, 8310-5, and 59408-5 with UCUM units.
+The seven visits use LOINC 8302-2, 29463-7, 39156-5, 8480-6, 8462-4, 8867-4, 9279-1, 8310-5, and 59408-5 with UCUM units.
 
 ## Review note
 
-Codes were checked against the public terminology server and NLM RxNav on November 2, 2026. They do not imply that Washington received these diagnoses, tests, or medications during his lifetime.
+Codes were checked against the public terminology server and NLM RxNav on November 2, 2026; the codes for the sick and preventive visits were checked on November 3, 2026. They do not imply that Washington received these diagnoses, tests, or medications during his lifetime.

@@ -13,6 +13,7 @@
 | Active problem, provisional | ICD-10-CM FY2026 | B91 | Sequelae of poliomyelitis | S; cause retrospectively disputed (R) |
 | Active problem | ICD-10-CM FY2026 | R73.03 | Prediabetes | S |
 | Active problem | ICD-10-CM FY2026 | E78.5 | Hyperlipidemia, unspecified | S |
+| Resolved problem | ICD-10-CM FY2026 | A08.4 | Viral intestinal infection, unspecified | S; recorded at the July sick visit |
 
 ## Medications (RxNorm)
 
@@ -42,20 +43,22 @@
 | 10230-1 | Left ventricular ejection fraction | % | imaging |
 | 86924-8 | KCCQ-12 overall summary score | {score} | survey |
 | 55758-7 | PHQ-2 total score | {score} | survey |
+| 75626-2 | AUDIT-C total score (preventive visit) | {score} | survey |
 
-Reference ranges are typical adult ranges chosen for the teaching record; interpretation flags follow them, and validation checks that every flag agrees with its range.
+eGFR values are calculated from the synthetic creatinine with the 2021 CKD-EPI creatinine equation for a 62-year-old man. Reference ranges are typical adult ranges chosen for the teaching record; interpretation flags follow them, and validation checks that every flag agrees with its range.
 
 ## Procedures, immunizations, and family history
 
 - Transthoracic echocardiography: SNOMED CT 433236007, at the two-week and six-month visits.
-- Immunizations: CVX 140 (influenza), 216 (PCV20), and 115 (Tdap).
+- Immunizations: CVX 140 (influenza, two seasons), 216 (PCV20), 187 (recombinant zoster, dose 1), and 115 (Tdap).
+- Encounter types: SNOMED CT 185345009 (encounter for symptom) for the July sick visit and 86013001 (periodic reevaluation and management of healthy individual) for the adult preventive visit. The services are named in plain text as CPT 99396 and CPT 99497; CPT is not used as a coded value.
 - No known allergy: SNOMED CT 716186003.
 - Family relationships: HL7 RoleCode FTH (father) and MTH (mother). Causes of death are not recorded.
 
 ## Vital signs
 
-The four visits use LOINC 8302-2, 29463-7, 39156-5, 8480-6, 8462-4, 8867-4, 9279-1, 8310-5, and 59408-5 with UCUM units. Height is reported because the patient uses a wheelchair.
+The six visits use LOINC 8302-2, 29463-7, 39156-5, 8480-6, 8462-4, 8867-4, 9279-1, 8310-5, and 59408-5 with UCUM units. Height is reported because the patient uses a wheelchair.
 
 ## Review note
 
-Codes were checked against the public terminology server and NLM RxNav on November 2, 2026. They do not imply that Roosevelt received these diagnoses, tests, or medications during his lifetime.
+Codes were checked against the public terminology server and NLM RxNav on November 2, 2026; the codes for the sick and preventive visits were checked on November 3, 2026. They do not imply that Roosevelt received these diagnoses, tests, or medications during his lifetime.

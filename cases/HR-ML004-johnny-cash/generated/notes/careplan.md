@@ -36,6 +36,7 @@
 
 - 2026-02-27: Primary care new-patient visit for diabetes, lightheadedness on standing, and glaucoma follow-up **S**
 - 2026-03-27: Endocrinology consultation for diabetes and autonomic neuropathy **S**
+- 2026-04-24: Subsequent annual wellness visit **S**
 - 2026-05-29: Three-month diabetes, blood pressure, and eye pressure review **S**
 - 2026-08-14: Six-month diabetes review with glaucoma imaging **S**
 

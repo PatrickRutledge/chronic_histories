@@ -38,5 +38,6 @@
 - 2026-04-20: Neurology consultation with EEG and brain MRI **S**
 - 2026-05-18: Review of ambulatory EEG and sleep studies; four-week headache check **S**
 - 2026-08-17: Three-month sleepiness and headache review **S**
+- 2026-10-13: Subsequent annual wellness visit **S**
 
 This teaching document does not replace care from a qualified clinician.

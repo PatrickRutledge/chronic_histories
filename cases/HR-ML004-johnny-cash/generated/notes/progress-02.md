@@ -50,4 +50,4 @@ Active problems: Type 2 diabetes mellitus with diabetic autonomic neuropathy; Hb
 ## Plan
 
 - Continue the care plan agreed on 2026-02-27. The care-plan document lists every intervention. **S**
-- Next visit 2026-05-29: three-month diabetes, blood pressure, and eye pressure review. **S**
+- Next visit 2026-04-24: subsequent annual wellness visit. **S**
