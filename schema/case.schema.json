@@ -129,6 +129,7 @@
           "additionalProperties": false,
           "required": [
             "mrn",
+            "ssn",
             "date_of_birth",
             "name_policy",
             "fictional_facility",
@@ -139,6 +140,11 @@
             "mrn": {
               "type": "string",
               "pattern": "^HR-[A-Z0-9-]+-SYN$"
+            },
+            "ssn": {
+              "description": "Made-up Social Security number. The 000 area number is never issued, so it cannot belong to a real person.",
+              "type": "string",
+              "pattern": "^000-[0-9]{2}-[0-9]{4}$"
             },
             "date_of_birth": {
               "type": "string",

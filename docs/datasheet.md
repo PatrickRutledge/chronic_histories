@@ -46,7 +46,7 @@ This datasheet follows the structure of Gebru et al., "Datasheets for Datasets" 
 
 **What is fictional.** Every clinician, facility, MRN, address, phone number, encounter, vital sign, score, medication order, and modern date is synthetic. Clinicians have invented names. The facility is "St. Posthumous Health Center", with an unassigned ZIP code (00000) and a phone number in the 555-0100 to 555-0199 range reserved for fiction.
 
-**Identifiers.** The records contain no real identifiers. Validation rejects anything resembling a Social Security number, a phone number outside the fictional range, or a valid-format NPI.
+**Identifiers.** The records contain no real identifiers. Each patient has a made-up Social Security number in the 000 area, which the Social Security Administration never issues. Validation rejects any other number shaped like a Social Security number, a phone number outside the fictional range, and a valid-format NPI.
 
 **Missing data.** The schema allows partial or approximate historical dates and records conflicting dates as alternatives. Where history is silent, the record says so rather than inventing content. Family history is empty when nothing is sourced.
 

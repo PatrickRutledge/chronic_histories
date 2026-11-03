@@ -345,6 +345,7 @@ const emptySection = ({ templateRoot, extension, code, title, explanation }) => 
 const recordTarget = `  <recordTarget>
     <patientRole>
       <id root="${patientUuid}" extension="${x(data.identity.synthetic_identity.mrn)}"/>
+      <id root="2.16.840.1.113883.4.1" extension="${x(data.identity.synthetic_identity.ssn)}"/>
       <addr nullFlavor="UNK"/>
       <telecom nullFlavor="UNK"/>
       <patient>

@@ -14,7 +14,7 @@ const SUFFIX = "-TD";
 // Keys whose values are synthetic event dates. Any other key holding a full ISO date inside a
 // synthetic subtree is an error, so a new date field cannot silently stay in the modern frame.
 const DATE_KEYS = new Set(["date", "date_of_birth", "index_date", "start_date", "end_date", "effective_date", "target_date", "onset_date", "start", "end"]);
-const METADATA_KEYS = new Set(["created", "validated_on", "version", "guideline_ids"]);
+const METADATA_KEYS = new Set(["created", "validated_on", "version", "guideline_ids", "mrn", "ssn"]);
 const ISO_DATE = /^(\d{4})(-\d{2}-\d{2}.*)?$/;
 const EMBEDDED_DATE = /\d{4}-\d{2}-\d{2}/;
 const TEXT_YEAR = /\b((?:19|20)\d{2})\b/g;

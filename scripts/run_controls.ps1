@@ -71,6 +71,9 @@ try {
     $dir = New-ControlCase 'ssn' { param($c) Add-SocialText $c 'Identifier 123-45-6789' }
     Assert-Control 'Social Security number' (Invoke-Script $build @('-CaseDirectory', $dir)) 'Possible Social Security number'
 
+    $dir = New-ControlCase 'issued-ssn' { param($c) $c.identity.synthetic_identity.ssn = '123-45-6789' }
+    Assert-Control 'case SSN outside the never-issued 000 area' (Invoke-Script $build @('-CaseDirectory', $dir)) 'schema validation'
+
     $dir = New-ControlCase 'phone' { param($c) Add-SocialText $c 'Call 503-867-5309' }
     Assert-Control 'non-fictional phone number' (Invoke-Script $build @('-CaseDirectory', $dir)) 'Phone number outside the fictional'
 

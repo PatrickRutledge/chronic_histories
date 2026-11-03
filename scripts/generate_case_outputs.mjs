@@ -216,7 +216,10 @@ const fhirEntries = [{
     resourceType: "Patient",
     id: `${patientId}-patient`,
     meta: { profile: [`${US_CORE}/us-core-patient`], tag: [{ system: CLASSIFICATION_SYSTEM, code: "synthetic", display: "Synthetic record" }] },
-    identifier: [{ system: `${NAMESPACE}/mrn`, value: data.identity.synthetic_identity.mrn }],
+    identifier: [
+      { system: `${NAMESPACE}/mrn`, value: data.identity.synthetic_identity.mrn },
+      { system: "http://hl7.org/fhir/sid/us-ssn", value: data.identity.synthetic_identity.ssn }
+    ],
     active: true,
     name: [{ use: "official", text: data.identity.display_name, family: humanName.family, given: humanName.given }],
     gender: data.identity.sex,

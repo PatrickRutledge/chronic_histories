@@ -196,6 +196,7 @@ foreach ($noteFile in $noteDocuments) {
     if ($noteFull -ne $case.identity.display_name) { $errors.Add("$($noteFile.Name): patient name '$noteFull' differs from '$($case.identity.display_name)'") }
     if ($role.SelectSingleNode('cda:patient/cda:birthTime', $ns).value -ne $expectedBirth) { $errors.Add("$($noteFile.Name): birth date differs from the case") }
     if ($role.SelectSingleNode('cda:id', $ns).extension -ne $case.identity.synthetic_identity.mrn) { $errors.Add("$($noteFile.Name): MRN differs from the case") }
+    if ($role.SelectSingleNode("cda:id[@root='2.16.840.1.113883.4.1']", $ns).extension -ne $case.identity.synthetic_identity.ssn) { $errors.Add("$($noteFile.Name): SSN differs from the case") }
     if ($noteFile.Name -like 'referral-*' -or $noteFile.Name -like 'consult-*') { $referralCount++ }
 }
 # A referral and its consultation come as a pair, linked by the order ID.
@@ -268,7 +269,7 @@ function Test-NpiChecksum([string]$Digits) {
 }
 foreach ($file in $scanFiles) {
     $name = Split-Path -Leaf $file
-    foreach ($match in [regex]::Matches($scanText[$file], '(?<![\w-])\d{3}-\d{2}-\d{4}(?![\w-])')) { $errors.Add("Possible Social Security number in ${name}: $($match.Value)") }
+    foreach ($match in [regex]::Matches($scanText[$file], '(?<![\w-])(?!000-)\d{3}-\d{2}-\d{4}(?![\w-])')) { $errors.Add("Possible Social Security number in ${name}: $($match.Value)") }
     foreach ($match in [regex]::Matches($scanText[$file], '(?<![\w.-])(?:\+?1[-. ]?)?\(?\d{3}\)?[-. ]\d{3}[-. ]\d{4}(?![\w-])')) {
         if ($match.Value -notmatch '555[-. ]01\d\d$') { $errors.Add("Phone number outside the fictional 555-0100 to 555-0199 range in ${name}: $($match.Value)") }
     }

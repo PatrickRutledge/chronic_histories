@@ -16,7 +16,7 @@ These rules are checked by the build where possible and by reviewers where not.
 
 - **No real patient data.** Never include protected health information, material from a real medical record, or health information about a living person.
 - **Deceased figures only.** If the figure died after 1990, use only what they or their physicians made public. Those cases need extra review before release.
-- **Everything modern is fictional.** Clinicians have invented names. The facility is St. Posthumous Health Center at the fictional address in `scripts/lib/common.mjs`. Phone numbers stay in the 555-0100 to 555-0199 range. Never use a real person's name for a clinician, or a real NPI, Social Security number, or address.
+- **Everything modern is fictional.** Clinicians have invented names. The facility is St. Posthumous Health Center at the fictional address in `scripts/lib/common.mjs`. Phone numbers stay in the 555-0100 to 555-0199 range. Never use a real person's name for a clinician, or a real NPI, Social Security number, or address. The patient's made-up Social Security number goes in `synthetic_identity.ssn` and must start with 000, an area number that is never issued.
 - **Grade every claim.**
   - `D` (documented): supported by a primary or reliable source, such as the person's own writing, an official record, or a public-institution history.
   - `R` (retrospective): a later interpretation, such as a modern diagnosis proposed for a historical figure. Contested diagnoses stay `R` and never become active problems as fact.
