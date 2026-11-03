@@ -1,6 +1,7 @@
 import fs from "node:fs/promises";
 import path from "node:path";
 import { TRUE_DATE_NOTICE, frameLabel, isTrueDateFrame, outputDirFor } from "./lib/common.mjs";
+import { claimsAtIndex, goalProgress as goalStatus, isConsultStep, laterClaimsNote, medicationChanges as medChanges, midSentence, resultChanges as changesAt, sentence, withUnit } from "./lib/episode.mjs";
 
 const inputPath = process.argv[2];
 if (!inputPath) throw new Error("Usage: node scripts/generate_supporting_docs.mjs <case.json>");
@@ -14,35 +15,20 @@ const encounters = new Map(clinical.encounters.map(x => [x.id, x]));
 const evidence = x => x.provenance?.evidence_grade ?? x.evidence_grade ?? "S";
 const bullets = items => items.map(x => `- ${x.display} **${evidence(x)}**`).join("\n");
 const header = (title, date, author = identity.synthetic_identity.fictional_primary_clinician) => `# ${title}\n\n> **${data.record_classification.banner}**\n\n- Patient: ${identity.display_name} (real historical name used in a fictional teaching record)\n- Synthetic MRN: ${identity.synthetic_identity.mrn}\n- Date: ${date}\n- Fictional facility: ${identity.synthetic_identity.fictional_facility}\n- Fictional author: ${author}\n- Calendar frame: ${frameLabel(data)}\n\n${isTrueDateFrame(data) ? `> ${TRUE_DATE_NOTICE}\n\n` : ""}`;
-// UCUM annotations such as {score} are for machines; print the bare value.
-const withUnit = x => /^\{.*\}$/.test(x.unit ?? "") ? `${x.value}` : `${x.value} ${x.unit}`;
 const results = date => {
   const rows = clinical.observations.filter(x => x.effective_date === date);
   return rows.length ? `${rows.map(x => `${x.display}: ${withUnit(x)}`).join("; ")}. All results are synthetic.` : "No condition-specific results recorded.";
 };
-// Change from the first visit for each instrument measured at this visit.
-const resultChanges = date => clinical.observations.filter(x => x.effective_date === date).map(x => {
-  const baseline = clinical.observations.find(b => b.code === x.code && b.effective_date === visits[0].date);
-  return baseline && baseline !== x ? `- ${x.display}: ${withUnit(baseline)} at baseline, ${withUnit(x)} at this visit **S**` : null;
-}).filter(Boolean).join("\n");
+const resultChanges = date => changesAt(data, date).map(({ baseline, current }) => `- ${current.display}: ${withUnit(baseline)} at baseline, ${withUnit(current)} at this visit **S**`).join("\n");
 const vitals = date => {
   const set = clinical.vital_sign_sets.find(x => x.date === date);
   if (!set) return "Vital signs not recorded.";
   const m = new Map(set.measurements.map(x => [x.code, x.value]));
   return `BP ${m.get("8480-6")}/${m.get("8462-4")} mmHg; pulse ${m.get("8867-4")} bpm; respirations ${m.get("9279-1")}/min; temperature ${m.get("8310-5")} °C; oxygen saturation ${m.get("59408-5")}% on room air; weight ${m.get("29463-7")} kg; BMI ${m.get("39156-5")} kg/m². All vital signs are synthetic.`;
 };
-// Clinical notes are written at the index visit, so they cite only claims about events that had
-// happened by then in the true frame. The teaching note still lists every claim.
-const shiftYears = Number(identity.synthetic_identity.date_of_birth.slice(0, 4)) - Number(identity.historical_dates.birth.preferred.iso.slice(0, 4));
-const indexYear = Number(data.synthetic_episode.index_date.slice(0, 4)) - (isTrueDateFrame(data) ? 0 : shiftYears);
-const trueIndexDate = `${String(indexYear).padStart(4, "0")}${data.synthetic_episode.index_date.slice(4)}`;
-const afterIndex = claim => {
-  const events = data.historical_timeline.filter(e => e.claim_ids.includes(claim.claim_id));
-  return events.length > 0 && events.every(e => e.date.iso && e.date.iso > trueIndexDate);
-};
-const claims = data.claims.filter(x => x.evidence_grade !== "S" && !afterIndex(x)).map(x => `- ${x.statement} **${x.evidence_grade}**`).join("\n");
-const laterClaims = data.claims.filter(x => x.evidence_grade !== "S" && afterIndex(x)).length;
-const laterNote = laterClaims ? `\n\n${laterClaims} later historical ${laterClaims === 1 ? "claim is" : "claims are"} omitted because ${laterClaims === 1 ? "it describes events" : "they describe events"} after the index age. See the teaching note.` : "";
+const atIndex = claimsAtIndex(data);
+const claims = atIndex.included.map(x => `- ${x.statement} **${x.evidence_grade}**`).join("\n");
+const laterNote = atIndex.laterCount ? `\n\n${laterClaimsNote(atIndex.laterCount)}` : "";
 const problems = clinical.problems.filter(x => x.clinical_status === "active");
 const strengths = clinical.social_history.filter(x => /support/i.test(x.display));
 const strengthText = strengths.length ? bullets(strengths) : "- Engagement in care and meaningful activity **S**";
@@ -52,29 +38,21 @@ const familyHistory = clinical.family_history.length
   ? clinical.family_history.map(x => `- ${x.relationship.display}: ${x.condition} **${evidence(x)}** (${x.provenance.claim_ids.join(", ")})`).join("\n")
   : "- No family medical history is documented in the logged sources. Family history of real relatives is never synthesized.";
 const consultant = identity.synthetic_identity.fictional_consultant;
-const sentence = text => /[.!?]$/.test(text) ? text : `${text}.`;
-const midSentence = text => /^[A-Z][a-z]/.test(text) ? text[0].toLowerCase() + text.slice(1) : text;
 const planItems = items => items.map(x => {
   const refs = care.guidelines.filter(g => x.guideline_ids.includes(g.guideline_id)).map(g => `${g.title} (${g.version_or_year})`).join("; ");
   return `- ${x.display}${refs ? `. Guideline: ${refs}` : ""} **${evidence(x)}**`;
 }).join("\n");
 const plan = planItems(care.interventions);
-const isConsultStep = x => /\b(consult|consultation|referral|refer)\b/i.test(x.display);
 const consultPlan = planItems(care.interventions.filter(x => !isConsultStep(x)));
 const first = visits[0], second = visits[1] ?? visits[0], third = visits[2] ?? visits.at(-1);
 const safety = clinical.safety_assessment;
 
 const hp = `${header("History and Physical", first.date)}## Reason for visit\n\n${encounters.get(first.encounter_id)?.display ?? "Synthetic longitudinal-care intake"}. **S**\n\n## Historical basis\n\n${claims}${laterNote}\n\nThese claims are historical evidence, not findings from a real modern examination.\n\n## History of present illness\n\nThis fictional modern episode addresses the presenting ${care.health_concerns.length === 1 ? "concern" : "concerns"} below. **S**\n\n${care.health_concerns.map(x => `- ${sentence(x.display)} **${evidence(x)}**`).join("\n")}\n\n## Strengths and supports\n\n${strengthText}\n\n## Medications and allergies\n\n${clinical.medications.length ? bullets(clinical.medications) : "- No medication regimen generated. **S**"}\n${clinical.allergies.length ? bullets(clinical.allergies) : "- No known allergies recorded; clinical review required. **S**"}\n\n## Past medical history\n\nTrue biography with historical dates; these events are not part of the synthetic care timeline.\n\n${pastHistory}\n\n## Procedures and immunizations\n\n${clinical.procedures.length ? clinical.procedures.map(x => `- ${x.period.start}${x.period.end ? ` to ${x.period.end}` : ""}: ${x.display} **${evidence(x)}**`).join("\n") : "- No procedures recorded. **S**"}\n${clinical.immunizations.map(x => `- ${x.date}: ${x.display} **${evidence(x)}**`).join("\n")}\n\n## Family history\n\n${familyHistory}\n\n## Measurements\n\n${results(first.date)}\n\n${vitals(first.date)}\n\n## Examination\n\nMental status: ${clinical.mental_status.map(x => x.display).join("; ")}. Functional status: ${clinical.functional_status.map(x => x.display).join("; ")}. Physical examination is intentionally limited. **S**\n\n## Safety assessment\n\nCurrent ideation: ${safety.current_ideation}; intent: ${safety.intent}; plan: ${safety.plan}; access reviewed: ${safety.access_reviewed ? "yes" : "no"}. Disposition: ${safety.disposition}. This is synthetic and does not convert historical behavior into a current finding. **S**\n\n## Assessment\n\n${problems.map((x, i) => `${i + 1}. ${x.display}; status ${x.status}. **${evidence(x)}**`).join("\n")}\n\n## Plan\n\n${plan}\n\n## Guideline basis\n\n${guidelineText}\n`;
 
-const medicationChanges = visit => clinical.medications.map(x => {
-  if (x.start_date === visit.date) return `- Started: ${x.display} **${evidence(x)}**`;
-  if (x.end_date === visit.date) return `- Stopped: ${x.display} **${evidence(x)}**`;
-  if (x.start_date < visit.date && (!x.end_date || x.end_date > visit.date)) return `- Continued without change: ${x.display} **${evidence(x)}**`;
-  return null;
-}).filter(Boolean).join("\n") || "- No medication changes. **S**";
-const goalProgress = visit => care.goals.map(x => x.target_date <= visit.date
-  ? `- ${sentence(x.display)} Outcome by ${x.target_date}: ${x.outcome}. **${evidence(x)}**`
-  : `- ${sentence(x.display)} In progress; target ${x.target_date}. **${evidence(x)}**`).join("\n");
+const medicationChanges = visit => medChanges(data, visit).map(({ change, med }) => `- ${change}: ${med.display} **${evidence(med)}**`).join("\n") || "- No medication changes. **S**";
+const goalProgress = visit => goalStatus(data, visit).map(({ goal, due }) => due
+  ? `- ${sentence(goal.display)} Outcome by ${goal.target_date}: ${goal.outcome}. **${evidence(goal)}**`
+  : `- ${sentence(goal.display)} In progress; target ${goal.target_date}. **${evidence(goal)}**`).join("\n");
 const followUpPlan = n => {
   const next = visits[n];
   return [

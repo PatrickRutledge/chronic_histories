@@ -24,7 +24,7 @@ BP 128/82 mmHg; pulse 74 bpm; respirations 16/min; temperature 36.7 °C; oxygen 
 ## Change since baseline
 
 - PTSD PCL-5 score: 42 at baseline, 31 at this visit **S**
-- PHQ-9 total score: 42 at baseline, 7 at this visit **S**
+- PHQ-9 total score: 11 at baseline, 7 at this visit **S**
 
 ## Assessment
 
