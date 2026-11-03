@@ -11,11 +11,23 @@
 
 > True-date frame: synthetic events are moved into the patient's historical lifetime. Codes, instruments, and treatments remain modern and are anachronistic.
 
+- To: Ingrid Solvang, MD, Cardiology
+- Urgency: Routine, within two weeks; echocardiogram booked for the same morning
+
 ## Referral question
 
-Please evaluate the active concerns and advise on the guideline-linked interventions in this fictional episode. **S**
+New heart failure in an active 85-year-old woman, likely with preserved ejection fraction. Please confirm the diagnosis, review the echocardiogram, and advise on any specific cause and on therapy. **S**
+
+## Questions for the consultant
+
+1. Does the echocardiogram confirm heart failure with preserved ejection fraction?
+2. Is there any sign of a specific cause, such as cardiac amyloidosis, hypertrophic cardiomyopathy, or significant valve disease, that would change treatment?
+3. Do you agree with adding spironolactone once potassium and kidney function are stable?
+4. Is cardiac rehabilitation or any further testing worthwhile at her level of activity?
 
 ## Pertinent history
+
+Three months of breathlessness after one flight of stairs or a long station platform, with ankle swelling by evening and two-pillow orthopnea. NT-proBNP 1650 pg/mL; ECG shows sinus rhythm and left ventricular hypertrophy by voltage, without atrial fibrillation. Blood pressure 158/86 mmHg. Furosemide 20 mg and empagliflozin 10 mg were started today. Never smoker, no diabetes, kidney function near normal (eGFR 64). **S**
 
 - Susan B. Anthony was born on February 15, 1820, in Adams, Massachusetts, the second child of Daniel and Lucy Read Anthony. **D**
 - Anthony voted in the 1872 presidential election, was arrested at her Rochester home, and was convicted at Canandaigua, New York; she refused to pay the $100 fine. **D**
@@ -29,7 +41,14 @@ Please evaluate the active concerns and advise on the guideline-linked intervent
 
 Baseline: NT-proBNP: 1650 pg/mL (high); Sodium: 138 mmol/L; Potassium: 4.1 mmol/L; Creatinine: 0.88 mg/dL; eGFR: 64 mL/min/1.73 m²; Glucose: 96 mg/dL; Magnesium: 2 mg/dL; Hemoglobin: 12.4 g/dL; Ferritin: 140 ng/mL; Transferrin saturation: 24%; TSH: 2.4 mIU/L; HbA1c: 5.5%; LDL cholesterol: 96 mg/dL; ALT: 18 U/L; KCCQ-12 overall summary: 52; PHQ-2: 0. All results are synthetic.
 
-## Requested recommendations
+BP 158/86 mmHg; pulse 84 bpm; respirations 20/min; temperature 36.7 °C; oxygen saturation 95% on room air; weight 58.5 kg; BMI 21.5 kg/m². All vital signs are synthetic.
+
+## Current medications
+
+- Furosemide 20 mg oral tablet, one tablet by mouth daily **S**
+- Empagliflozin 10 mg oral tablet, one tablet by mouth daily **S**
+
+## Plan so far
 
 - Treat congestion with furosemide and start empagliflozin for HFpEF; move to as-needed furosemide guided by daily weights once euvolemic. Guideline: 2022 AHA/ACC/HFSA Guideline for the Management of Heart Failure (2022); 2023 ACC Expert Consensus Decision Pathway on Management of Heart Failure With Preserved Ejection Fraction (2023) **S**
 - Add low-dose spironolactone for HFpEF with blood pressure above target once potassium and kidney function are stable. Guideline: 2022 AHA/ACC/HFSA Guideline for the Management of Heart Failure (2022); 2023 ACC Expert Consensus Decision Pathway on Management of Heart Failure With Preserved Ejection Fraction (2023) **S**

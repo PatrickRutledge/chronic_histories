@@ -11,11 +11,23 @@
 
 > True-date frame: synthetic events are moved into the patient's historical lifetime. Codes, instruments, and treatments remain modern and are anachronistic.
 
+- To: Tobias Wren, MD, Neurology
+- Urgency: Routine, within two to three weeks
+
 ## Referral question
 
-Please evaluate the active concerns and advise on the guideline-linked interventions in this fictional episode. **S**
+Lifelong sudden spells and near-daily headaches since a severe head injury in early adolescence, in a 75-year-old woman. Please advise whether the spells are focal seizures or sleep attacks, and on headache prevention. **S**
+
+## Questions for the consultant
+
+1. Are the spells focal seizures or sleep attacks, and what testing will tell them apart?
+2. Should antiseizure medicine be started now?
+3. Do you agree this is chronic post-traumatic headache with medication overuse, and which non-sedating preventive would you use?
+4. If the spells are sleep attacks, how should her daytime sleepiness be treated without sedating her?
 
 ## Pertinent history
+
+Since a severe head injury in her early teens she has fallen asleep without warning several times a day, often while seated in conversation or at meetings, waking after a few minutes and picking up where she left off. She has never had weakness with laughter or strong emotion. Headaches on 54 days in the past three months have worsened over the past year despite ibuprofen most days; ibuprofen was stopped today, with acetaminophen limited to 2 days a week and a headache diary. Blood pressure 146/86 mmHg. PROMIS sleep-related impairment T-score 68. Sodium, potassium, creatinine, glucose, hemoglobin, ferritin, TSH, and vitamin B12 are normal. MoCA 26; PHQ-9, GAD-7, and PC-PTSD-5 are below their thresholds. She does not drive and does not want medicine that makes her duller. **S**
 
 - Harriet Tubman was born into slavery in Dorchester County, Maryland, in early 1822 by the National Park Service account, and was named Araminta, or Minty, by her parents, Ben and Rit Ross; she was the fifth of nine children. **D**
 - Her birth year is uncertain: the Dictionary of Canadian Biography gives 1820 or 1821, while the National Park Service and the Maryland State Archives give about 1822. **D**
@@ -30,7 +42,13 @@ Please evaluate the active concerns and advise on the guideline-linked intervent
 
 Baseline: Sodium: 139 mmol/L; Potassium: 4.2 mmol/L; Creatinine: 0.84 mg/dL; eGFR: 72 mL/min/1.73 m²; Glucose: 92 mg/dL; Hemoglobin: 12.6 g/dL; Ferritin: 88 ng/mL; TSH: 1.9 mIU/L; Vitamin B12: 410 pg/mL; PROMIS sleep-related impairment T-score: 68; Headache days in the past 3 months: 54; PHQ-9: 3; GAD-7: 2; PC-PTSD-5: 2; MoCA: 26. All results are synthetic.
 
-## Requested recommendations
+BP 146/86 mmHg; pulse 72 bpm; respirations 14/min; temperature 36.6 °C; oxygen saturation 98% on room air; weight 52 kg; BMI 22.5 kg/m². All vital signs are synthetic.
+
+## Current medications
+
+- Acetaminophen 500 mg oral tablet, two tablets by mouth as needed for headache, no more than 2 days a week **S**
+
+## Plan so far
 
 - Obtain a routine EEG and brain MRI, then capture typical spells on ambulatory EEG with video; start antiseizure medicine only if the spells prove epileptic. Guideline: Evidence-based guideline: Management of an unprovoked first seizure in adults (Krumholz A, et al. Neurology 2015;84(16):1705-1713) (2015) **S**
 - Overnight polysomnography followed by a multiple sleep latency test to evaluate excessive daytime sleepiness. Guideline: Treatment of central disorders of hypersomnolence: an American Academy of Sleep Medicine clinical practice guideline (Maski K, et al. J Clin Sleep Med 2021;17(9):1881-1893) (2021) **S**

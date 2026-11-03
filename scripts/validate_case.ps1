@@ -117,6 +117,20 @@ foreach ($visit in $case.synthetic_episode.visit_schedule) {
     if ($encounter.date -ne $visit.date) { $errors.Add("Encounter date differs from its visit: $($encounter.id)") }
 }
 
+# The referral and consultation are written for the case. Batch records must carry them when the
+# plan has a referral step; problems the consultant assesses must be known by the consultation.
+$hasReferralStep = @($case.care_plan.interventions | Where-Object { $_.display -match '(consult|consultation|referral|refer)' }).Count -gt 0
+$consultDate = if ($case.synthetic_episode.visit_schedule.Count -gt 1) { $case.synthetic_episode.visit_schedule[1].date } else { $case.synthetic_episode.visit_schedule[0].date }
+if ($hasReferralStep -and -not $case.clinical.consultation -and (Split-Path -Leaf (Split-Path -Parent $CaseDirectory)) -eq 'cases') { $errors.Add('Batch record with a referral step has no clinical.consultation') }
+foreach ($item in $case.clinical.consultation.consultant_note.assessment | Where-Object { $_.problem_id }) {
+    $problem = $case.clinical.problems | Where-Object id -eq $item.problem_id
+    if (-not $problem) { $errors.Add("Consultation assesses unknown problem $($item.problem_id)") }
+    elseif ($problem.recorded_date -and $problem.recorded_date -gt $consultDate) { $errors.Add("Consultation assesses $($item.problem_id) before it was recorded") }
+}
+foreach ($guidelineId in $case.clinical.consultation.guideline_ids) {
+    if (-not ($case.care_plan.guidelines | Where-Object guideline_id -eq $guidelineId)) { $errors.Add("Consultation cites unknown guideline $guidelineId") }
+}
+
 # Full encounter notes. Wellness and preventive visits review at least ten systems, carry a
 # health risk assessment, a prevention plan, advance care planning, and a same-day depression
 # screen; a sick visit reviews at least two systems. Problems they address must be known by then.

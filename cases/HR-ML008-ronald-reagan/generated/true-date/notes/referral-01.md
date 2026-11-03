@@ -11,11 +11,23 @@
 
 > True-date frame: synthetic events are moved into the patient's historical lifetime. Codes, instruments, and treatments remain modern and are anachronistic.
 
+- To: Rafael Quintero, MD, Neurology
+- Urgency: Routine, within two weeks, on the same day as his two-week primary care check
+
 ## Referral question
 
-Please evaluate the active concerns and advise on the guideline-linked interventions in this fictional episode. **S**
+Moderate Alzheimer's disease in a 90-year-old man one month after a fall at home and repair of a right hip fracture. Please confirm the stage, review whether donepezil is still worthwhile given his heart rate and fall risk, and advise on mild evening restlessness without antipsychotics. **S**
+
+## Questions for the consultant
+
+1. Do you agree that his dementia is at the moderate stage (FAST stage 5)?
+2. Is donepezil still giving benefit, and is it safe to continue with a heart rate in the low 60s and a recent fall?
+3. How should the evening restlessness and repeated questions be managed without antipsychotics or sedatives?
+4. Would you add memantine now, and is any further testing needed?
 
 ## Pertinent history
+
+Alzheimer's disease diagnosed many years ago, on donepezil 10 mg each morning. Before the fracture he walked independently but needed help choosing clothes and with all instrumental activities of daily living (Lawton IADL 1 of 8), consistent with FAST stage 5. Today MoCA 11 of 30, GDS-15 4, and Confusion Assessment Method negative for delirium. NPI-Q shows mild evening restlessness and repeated questions, with no hallucinations or aggression. Heart rate 64 with no orthostatic drop (128/70 seated, 124/70 standing); Timed Up and Go 24 seconds with a front-wheeled walker and standby help. TSH 2.3. The hospital oxycodone and diphenhydramine were stopped today; scheduled acetaminophen and enoxaparin to day 35 continue, and vitamin D was started for a level of 16 ng/mL. His caregivers' Zarit Burden Interview score is 41 of 88, and caregiver support is being arranged. **S**
 
 - Ronald Reagan was born on February 6, 1911, in Tampico, Illinois, to Jack and Nelle Reagan; his older brother Neil was born in 1908. **D**
 - In a letter to the American people made public on November 5, 1994, Reagan wrote that he had recently been told he was one of the millions of Americans who would be afflicted with Alzheimer's disease, and that as the disease progresses the family often bears a heavy burden. **D**
@@ -30,7 +42,16 @@ Please evaluate the active concerns and advise on the guideline-linked intervent
 
 Baseline: Hemoglobin: 11.1 g/dL (low); Sodium: 137 mmol/L; Potassium: 4.3 mmol/L; Creatinine: 1.12 mg/dL; eGFR: 61 mL/min/1.73 m²; Glucose: 96 mg/dL; Calcium: 9 mg/dL; 25-hydroxyvitamin D: 16 ng/mL (low); Intact PTH: 78 pg/mL (high); Alkaline phosphatase: 134 U/L (high); Magnesium: 2 mg/dL; TSH: 2.3 mIU/L; MoCA: 11; Barthel Index: 55; GDS-15: 4. All results are synthetic.
 
-## Requested recommendations
+BP 128/70 mmHg; pulse 64 bpm; respirations 16/min; temperature 36.6 °C; oxygen saturation 96% on room air; weight 76 kg; BMI 22.2 kg/m². All vital signs are synthetic.
+
+## Current medications
+
+- Donepezil 10 mg oral tablet, one tablet by mouth daily in the morning **S**
+- Acetaminophen 500 mg oral tablet, two tablets (1,000 mg) by mouth three times daily **S**
+- Enoxaparin 40 mg/0.4 mL prefilled syringe, inject 40 mg under the skin daily through day 35 after surgery **S**
+- Cholecalciferol 50 mcg (2,000 units) oral tablet, one tablet by mouth daily **S**
+
+## Plan so far
 
 - Stop oxycodone and diphenhydramine, keep acetaminophen scheduled, and finish 35 days of enoxaparin; review every medicine against the AGS Beers Criteria at each visit. Guideline: Management of Hip Fractures in Older Adults Evidence-Based Clinical Practice Guideline (2021); American Geriatrics Society 2023 updated AGS Beers Criteria for potentially inappropriate medication use in older adults (2023); CMID: Clinical Monitoring Intelligence Database, Alzheimer's disease, hip/pelvic fracture, and osteoporosis monographs (2026) **S**
 - Home physical and occupational therapy, a home safety assessment, and a CDC STEADI fall-risk check at every visit. Guideline: Management of Hip Fractures in Older Adults Evidence-Based Clinical Practice Guideline (2021); CMID: Clinical Monitoring Intelligence Database, Alzheimer's disease, hip/pelvic fracture, and osteoporosis monographs (2026) **S**

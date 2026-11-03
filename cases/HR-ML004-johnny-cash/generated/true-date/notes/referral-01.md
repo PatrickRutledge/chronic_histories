@@ -11,11 +11,24 @@
 
 > True-date frame: synthetic events are moved into the patient's historical lifetime. Codes, instruments, and treatments remain modern and are anachronistic.
 
+- To: Ayesha Rahimi, MD, Endocrinology
+- Urgency: Routine, within four weeks; to coincide with his diabetes check
+
 ## Referral question
 
-Please evaluate the active concerns and advise on the guideline-linked interventions in this fictional episode. **S**
+Type 2 diabetes above goal in a 71-year-old man with autonomic and peripheral neuropathy and orthostatic hypotension. Please confirm whether diabetic autonomic neuropathy explains his lightheadedness on standing, advise on treating it, and help choose add-on glucose-lowering therapy. **S**
+
+## Questions for the consultant
+
+1. Is diabetic autonomic neuropathy a sufficient explanation for his orthostatic hypotension, and should the earlier Shy-Drager label be carried forward?
+2. If the non-drug measures are not enough, which medicine do you recommend, and how should we watch for high pressure lying down?
+3. Which add-on glucose-lowering agent is safest, given his risk of unrecognized low glucose, his falls, and his orthostatic hypotension?
+4. Do you agree with an HbA1c goal below 7.5 percent?
+5. Should his seated blood pressure above 130/80 be treated?
 
 ## Pertinent history
+
+Lightheaded on standing, with two falls in six months; he walks with a cane. Seated blood pressure 146/80 mmHg, falling to 112/68 after three minutes standing, while heart rate rises only from 78 to 82. Numb feet with monofilament and vibration sensation reduced to the ankles. He was once told he had Shy-Drager syndrome and wants to know what he really has. HbA1c 8.6 percent on metformin 500 mg twice daily; eGFR 74, urine albumin-creatinine ratio 18 mg/g, vitamin B12 286 pg/mL, TSH and hemoglobin normal. Severe primary open-angle glaucoma with low vision, followed by the eye clinic; dorzolamide added to latanoprost today. No tobacco or alcohol use. Today metformin was raised to 1000 mg twice daily and atorvastatin 40 mg was started, and he began staged standing, head-of-bed elevation, waist-high compression, and 2 liters of fluid a day. No blood pressure medicine is used. **S**
 
 - J. R. (Johnny) Cash was born on February 26, 1932, in Kingsland, Cleveland County, Arkansas, to Ray and Carrie Cash. **D**
 - Cash's older brother Jack died in a sawmill accident in 1944. **D**
@@ -30,7 +43,16 @@ Please evaluate the active concerns and advise on the guideline-linked intervent
 
 Baseline: HbA1c: 8.6% (high); Sodium: 138 mmol/L; Potassium: 4.4 mmol/L; Creatinine: 1.04 mg/dL; eGFR: 74 mL/min/1.73 m²; Glucose: 186 mg/dL (high); LDL cholesterol: 128 mg/dL (high); Urine albumin-creatinine ratio: 18 mg/g; ALT: 24 U/L; AST: 22 U/L; Vitamin B12: 286 pg/mL; TSH: 1.9 mIU/L; Hemoglobin: 13.8 g/dL; Intraocular pressure, right eye: 22 mmHg (high); Intraocular pressure, left eye: 24 mmHg (high); Mean RNFL thickness by OCT, right eye: 61 um (low); Mean RNFL thickness by OCT, left eye: 57 um (low); Best-corrected visual acuity, right eye (ETDRS letters): 68 (low); Best-corrected visual acuity, left eye (ETDRS letters): 63 (low); PHQ-2: 1; Mini-Cog: 5. All results are synthetic.
 
-## Requested recommendations
+BP 146/80 mmHg; pulse 78 bpm; respirations 16/min; temperature 36.7 °C; oxygen saturation 95% on room air; weight 96 kg; BMI 27.2 kg/m². All vital signs are synthetic.
+
+## Current medications
+
+- Metformin 1000 mg oral tablet, one tablet by mouth twice daily with meals **S**
+- Atorvastatin 40 mg oral tablet, one tablet by mouth daily **S**
+- Latanoprost 0.005% ophthalmic solution, one drop in each eye at bedtime **S**
+- Dorzolamide 2% ophthalmic solution, one drop in each eye twice daily **S**
+
+## Plan so far
 
 - Increase metformin to 1000 mg twice daily and set an individualized HbA1c goal below 7.5%; avoid insulin and sulfonylureas while autonomic neuropathy may blunt warning symptoms of hypoglycemia. Guideline: Standards of Care in Diabetes—2025 (2025); CMID: Clinical Monitoring Intelligence Database, diabetes, glaucoma, and hyperlipidemia monographs (2026) **S**
 - Treat neurogenic orthostatic hypotension: stand up in stages, raise the head of the bed, use waist-high compression, drink 2 liters of fluid a day, then midodrine with the last dose at least four hours before bed; check supine blood pressure at each visit. Guideline: Standards of Care in Diabetes—2025 (2025) **S**

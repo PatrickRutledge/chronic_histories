@@ -55,7 +55,7 @@ Miss Anthony returns two weeks after starting furosemide and empagliflozin for n
 
 BP 146/80 mmHg; pulse 78 bpm; respirations 18/min; temperature 36.6 °C; oxygen saturation 96% on room air; weight 56.8 kg; BMI 20.9 kg/m². All vital signs are synthetic.
 
-Sodium: 137 mmol/L; Potassium: 3.9 mmol/L; Creatinine: 0.96 mg/dL; eGFR: 58 mL/min/1.73 m² (low); Glucose: 94 mg/dL; Magnesium: 1.9 mg/dL; LVEF by echocardiogram: 62%; Left atrial volume index: 42 mL/m2 (high); Mitral E/e' ratio (average): 16 (high). All results are synthetic.
+Sodium: 137 mmol/L; Potassium: 3.9 mmol/L; Creatinine: 0.96 mg/dL; eGFR: 58 mL/min/1.73 m² (low); Glucose: 94 mg/dL; Magnesium: 1.9 mg/dL; LVEF by echocardiogram: 62%; Left atrial volume index: 42 mL/m² (high); Mitral E/e' ratio (average): 16 (high). All results are synthetic.
 
 ## Change since baseline
 

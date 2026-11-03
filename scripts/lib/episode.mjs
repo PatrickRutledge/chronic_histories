@@ -49,7 +49,7 @@ export const INTERPRETATIONS = { N: "Normal", H: "High", L: "Low", HH: "Critical
 // Laboratory and imaging results are measured against a reference range; survey scores are not.
 export const isLab = (observation) => observation.category === "laboratory" || observation.category === "imaging";
 // Human-readable units for prose; the coded value keeps its UCUM unit.
-const UNIT_TEXT = { "mL/min/{1.73_m2}": "mL/min/1.73 m²", "m[IU]/L": "mIU/L", "mm[Hg]": "mmHg", "Cel": "°C" };
+const UNIT_TEXT = { "mL/min/{1.73_m2}": "mL/min/1.73 m²", "mL/m2": "mL/m²", "kg/m2": "kg/m²", "m[IU]/L": "mIU/L", "mm[Hg]": "mmHg", "Cel": "°C" };
 const bare = (value, unit) => {
   if (/^\{.*\}$/.test(unit ?? "")) return `${value}`;
   if (unit === "%") return `${value}%`;

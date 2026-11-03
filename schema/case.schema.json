@@ -443,6 +443,9 @@
             }
           },
           "description": "Structured present-day suicide and self-harm risk assessment. Validation requires it when the episode has a behavioral-health problem or a positive depression screen."
+        },
+        "consultation": {
+          "$ref": "#/$defs/consultation"
         }
       }
     },
@@ -1840,6 +1843,137 @@
           "documentation",
           "type_coding"
         ]
+      }
+    },
+    "consultation": {
+      "description": "The referral and the specialist's consultation, written for this case. Without it the referral and consultation documents fall back to generic text.",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "referral",
+        "consultant_note"
+      ],
+      "properties": {
+        "referral": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "question",
+            "questions"
+          ],
+          "properties": {
+            "question": {
+              "type": "string",
+              "minLength": 1
+            },
+            "urgency": {
+              "type": "string",
+              "minLength": 1
+            },
+            "pertinent_history": {
+              "type": "string",
+              "minLength": 1
+            },
+            "questions": {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          }
+        },
+        "consultant_note": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "history",
+            "exam",
+            "assessment",
+            "recommendations",
+            "follow_up"
+          ],
+          "properties": {
+            "history": {
+              "type": "string",
+              "minLength": 1
+            },
+            "data_reviewed": {
+              "type": "string",
+              "minLength": 1
+            },
+            "exam": {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "system",
+                  "finding"
+                ],
+                "properties": {
+                  "system": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "finding": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                }
+              }
+            },
+            "assessment": {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "display",
+                  "assessment"
+                ],
+                "properties": {
+                  "problem_id": {
+                    "type": "string"
+                  },
+                  "display": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "assessment": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                }
+              }
+            },
+            "recommendations": {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "communication": {
+              "type": "string",
+              "minLength": 1
+            },
+            "follow_up": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        },
+        "guideline_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
       }
     }
   }

@@ -628,9 +628,10 @@ const followUpPlanItems = (visit, n) => {
     next ? `Next visit ${x(next.date)}: ${x(midSentence(encounterOf(next)?.display ?? next.encounter_id))} [S]` : `Scheduled episode complete. Continue routine follow-up${clinical.safety_assessment ? " and the safety plan" : ""} [S]`,
   ];
 };
+const consultation = clinical.consultation;
 const reasonForReferralSection = () => plain({
   templateRoot: "1.3.6.1.4.1.19376.1.5.3.1.3.1", extension: "2014-06-09", code: "42349-1", display: "Reason for referral (narrative)", title: "Reason for Referral",
-  text: `${p(`Please evaluate and advise on ${activeProblems.map(problem => midSentence(problem.coding?.[0]?.display ?? problem.display)).join(" and ")}.`)}${referralStep ? p(sentence(referralStep.display)) : ""}`,
+  text: consultation ? `${p(sentence(consultation.referral.question))}${consultation.referral.urgency ? p(`Urgency: ${consultation.referral.urgency}.`) : ""}<paragraph>Questions for the consultant:</paragraph><list listType="ordered">${consultation.referral.questions.map(q => `<item>${x(sentence(q))}</item>`).join("")}</list>` : `${p(`Please evaluate and advise on ${activeProblems.map(problem => midSentence(problem.coding?.[0]?.display ?? problem.display)).join(" and ")}.`)}${referralStep ? p(sentence(referralStep.display)) : ""}`,
 });
 
 // Full encounter notes: chief complaint, HPI, review of systems, examination, and a combined
@@ -677,6 +678,25 @@ const advanceDirectivesSection = (doc) => plain({
   templateRoot: "2.16.840.1.113883.10.20.22.2.21", extension: "2015-08-01", code: "42348-3", display: "Advance directives", title: "Advance Care Planning",
   text: p(doc.advance_care_planning),
 });
+
+// The consultant's own history, examination, assessment, and recommendations.
+const consultHpiSection = () => plain({
+  templateRoot: "1.3.6.1.4.1.19376.1.5.3.1.3.4", code: "10164-2", display: "History of Present illness Narrative", title: "History of Present Illness",
+  text: `${p(sentence(consultation.consultant_note.history))}${historicalBasis()}`,
+});
+const consultExamSection = (date) => plain({
+  templateRoot: "2.16.840.1.113883.10.20.2.10", extension: "2015-08-01", code: "29545-1", display: "Physical findings note", title: "Physical Exam",
+  text: `${p(clinical.vital_sign_sets.some(item => item.date === date) ? `Vital signs recorded on ${date}; see the referring visit's Vital Signs section.` : "Vital signs not recorded at this visit.")}${table(["System", "Finding"], consultation.consultant_note.exam.map(e => `<tr><td>${x(e.system)}</td><td>${x(e.finding)}</td></tr>`).join(""))}`,
+});
+const consultAssessmentSection = () => section({
+  templateRoot: "2.16.840.1.113883.10.20.22.2.8", code: "51848-0", display: "Evaluation note", title: "Assessment",
+  text: `<list listType="ordered">${consultation.consultant_note.assessment.map(item => `<item>${x(item.display)}${problemById.get(item.problem_id)?.coding?.[0]?.code ? ` (${x(problemById.get(item.problem_id).coding[0].code)})` : ""}. ${x(sentence(item.assessment))} [S]</item>`).join("")}</list>${consultation.consultant_note.data_reviewed ? p(`Data reviewed: ${sentence(consultation.consultant_note.data_reviewed)}`) : ""}`,
+});
+const consultPlanItems = () => [
+  ...consultation.consultant_note.recommendations.map(item => `${x(sentence(item))} [S]`),
+  ...(consultation.consultant_note.communication ? [`${x(sentence(consultation.consultant_note.communication))} [S]`] : []),
+  `Follow-up: ${x(sentence(consultation.consultant_note.follow_up))} [S]`,
+];
 
 // Document header. Every document carries the same patient, birth date, and MRN.
 // Note types require the "entries optional" section templates; the entries-required versions
@@ -789,7 +809,7 @@ if (referralStep) {
 `,
     body: [
       reasonForReferralSection(),
-      hpiSection("Referral for the concerns below, which began before the index visit."),
+      hpiSection(consultation?.referral.pertinent_history ?? "Referral for the concerns below, which began before the index visit."),
       allergiesSection(), medicationsSection(), problemsSection(firstVisitDate),
       pastHistorySection(), familySection(), socialSection(),
       vitalsSection(firstVisitDate), resultsSection(firstVisitDate),
@@ -807,11 +827,11 @@ if (referralStep) {
 `,
     body: [
       reasonForReferralSection(),
-      hpiSection(`Seen in ${consultant.specialty.toLowerCase()} consultation at the request of ${data.identity.synthetic_identity.fictional_primary_clinician}.`),
+      consultation ? consultHpiSection() : hpiSection(`Seen in ${consultant.specialty.toLowerCase()} consultation at the request of ${data.identity.synthetic_identity.fictional_primary_clinician}.`),
       allergiesSection(), medicationsSection(), problemsSection(consultVisit.date),
-      physicalExamSection(consultVisit.date), resultsSection(consultVisit.date),
-      assessmentSection(p("Coordinated follow-up with the primary clinician is appropriate."), consultVisit.date),
-      planSection({ items: interventionItems(data.care_plan.interventions.filter(item => !isConsultStep(item))) }),
+      consultation ? consultExamSection(consultVisit.date) : physicalExamSection(consultVisit.date), resultsSection(consultVisit.date),
+      consultation ? consultAssessmentSection() : assessmentSection(p("Coordinated follow-up with the primary clinician is appropriate."), consultVisit.date),
+      planSection({ items: consultation ? consultPlanItems() : interventionItems(data.care_plan.interventions.filter(item => !isConsultStep(item))) }),
     ],
   }));
 }
