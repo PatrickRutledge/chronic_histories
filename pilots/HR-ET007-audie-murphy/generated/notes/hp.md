@@ -16,7 +16,6 @@ Primary care intake and behavioral health assessment. **S**
 ## Historical basis
 
 - Audie Leon Murphy was born June 20, 1924. **D**
-- Murphy died May 28, 1971, in a private-plane crash near Roanoke, Virginia. **D**
 - Murphy served in World War II and became one of the most decorated United States soldiers of the war. **D**
 - Murphy was wounded in the leg during the January 26, 1945 action near Holtzwihr and was wounded three times during the war. **D**
 - Murphy experienced postwar nightmares and insomnia. **D**
@@ -24,11 +23,15 @@ Primary care intake and behavioral health assessment. **S**
 - Murphy's postwar symptoms are retrospectively described as post-traumatic stress disorder. **R**
 - Murphy reported sleeping with a loaded pistol under his pillow. **D**
 
+1 later historical claim is omitted because it describes events after the index age. See the teaching note.
+
 These claims are historical evidence, not findings from a real modern examination.
 
 ## History of present illness
 
-This fictional modern episode addresses Trauma-related symptoms interfere with sleep, mood, and sense of safety. **S**
+This fictional modern episode addresses the presenting concern below. **S**
+
+- Trauma-related symptoms interfere with sleep, mood, and sense of safety. **S**
 
 ## Strengths and supports
 
@@ -59,7 +62,7 @@ True biography with historical dates; these events are not part of the synthetic
 
 ## Measurements
 
-PTSD PCL-5 score: 42 {score}; PHQ-9 total score: 11 {score}. All results are synthetic.
+PTSD PCL-5 score: 42; PHQ-9 total score: 11. All results are synthetic.
 
 BP 132/84 mmHg; pulse 78 bpm; respirations 16/min; temperature 36.8 °C; oxygen saturation 98% on room air; weight 74.8 kg; BMI 27.5 kg/m². All vital signs are synthetic.
 

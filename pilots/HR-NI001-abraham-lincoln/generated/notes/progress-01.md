@@ -11,17 +11,21 @@
 
 ## Subjective
 
-The patient participates in this fictional follow-up for primary care visit for low mood and sleep disturbance. **S**
+The patient participates in this fictional visit for primary care visit for low mood and sleep disturbance. **S**
 
 ## Objective
 
-Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]: 14 {score}. All results are synthetic.
+Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]: 14. All results are synthetic.
 
 BP 118/74 mmHg; pulse 74 bpm; respirations 14/min; temperature 36.7 °C; oxygen saturation 99% on room air; weight 82 kg; BMI 22 kg/m². All vital signs are synthetic.
 
 ## Assessment
 
 Active problems: Major depressive disorder, single episode, moderate; synthetic modern diagnosis linked to documented low mood and its retrospective interpretation. Strengths and supports remain part of the care plan. **S**
+
+## Medication changes
+
+- Started: Sertraline 50 mg oral tablet, one tablet by mouth daily **S**
 
 ## Plan
 

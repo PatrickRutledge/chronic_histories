@@ -18,7 +18,6 @@ Primary care visit for low mood and sleep disturbance. **S**
 ## Historical basis
 
 - Abraham Lincoln was born February 12, 1809, near what is now Hodgenville, Kentucky. **D**
-- Lincoln was mortally wounded at Ford’s Theatre on the night of April 14, 1865, and died at the Petersen House at 7:22 a.m. on April 15, 1865, aged 56. **D**
 - In 1859 Lincoln described himself as "six feet, four inches, nearly" in height. **D**
 - In his tenth year Lincoln was kicked by a horse and, in his own account, "apparently killed for a time." **D**
 - On January 23, 1841, Lincoln wrote to John T. Stuart, "I am now the most miserable man living." **D**
@@ -26,15 +25,16 @@ Primary care visit for low mood and sleep disturbance. **S**
 - Lincoln’s mother, Nancy Hanks Lincoln, died of milk sickness on October 5, 1818, when he was nine. **D**
 - Marfan syndrome, or another inherited marfanoid disorder such as multiple endocrine neoplasia type 2B, has been proposed retrospectively from Lincoln’s build; the diagnosis is disputed and has never been genetically confirmed. **R**
 - Lincoln’s older sister, Sarah Lincoln Grigsby, died on January 20, 1828, at age twenty-one, from complications during delivery that also took her infant’s life. **D**
-- Lincoln’s son Edward ("Eddie") died on February 1, 1850, after a long illness, at three years and ten months. **D**
-- Lincoln’s son William ("Willie") died in the White House on February 20, 1862, probably of typhoid fever, at age eleven. **D**
-- Lincoln’s November 1863 illness after the Gettysburg Address has been retrospectively interpreted as unmodified smallpox, more serious than his physicians reported publicly; the interpretation is disputed. **R**
+
+4 later historical claims are omitted because they describe events after the index age. See the teaching note.
 
 These claims are historical evidence, not findings from a real modern examination.
 
 ## History of present illness
 
-This fictional modern episode addresses Low mood, loss of interest, and poor sleep are affecting legal work and friendships. **S**
+This fictional modern episode addresses the presenting concern below. **S**
+
+- Low mood, loss of interest, and poor sleep are affecting legal work and friendships. **S**
 
 ## Strengths and supports
 
@@ -67,7 +67,7 @@ True biography with historical dates; these events are not part of the synthetic
 
 ## Measurements
 
-Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]: 14 {score}. All results are synthetic.
+Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]: 14. All results are synthetic.
 
 BP 118/74 mmHg; pulse 74 bpm; respirations 14/min; temperature 36.7 °C; oxygen saturation 99% on room air; weight 82 kg; BMI 22 kg/m². All vital signs are synthetic.
 

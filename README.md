@@ -37,7 +37,7 @@ The build stops at the first failure. It deletes earlier outputs before generati
 
 The generators write an HTML review page, a draft FHIR R4 collection bundle, a draft C-CDA R2.1 CCD, eight case-driven supporting notes, and a provenance CSV under the case's `generated/` directory. Supporting notes are rendered from the canonical case rather than embedded pilot prose.
 
-Records remain drafts until clinical and provenance review. See [docs/validation.md](docs/validation.md) for formal C-CDA R2.1 and US Core validation and for what a pass does and does not establish.
+A case is released only when its clinical, provenance, and safe-messaging reviews have passed; the build rejects an approved case that lacks any of them. See [docs/validation.md](docs/validation.md) for formal C-CDA R2.1 and US Core validation and for what a pass does and does not establish.
 
 ## License
 

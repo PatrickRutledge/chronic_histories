@@ -15,9 +15,9 @@
 
 ## Your goals
 
-- Reduce PCL-5 score from 42 to 27 or lower by the twelve-week review Target: 2026-09-30. Recorded outcome: PCL-5 score 24. **S**
-- Complete at least eight Cognitive Processing Therapy sessions by the twelve-week review Target: 2026-09-30. Recorded outcome: Nine sessions completed. **S**
-- Use the agreed sleep routine on at least five nights each week by the six-week review Target: 2026-08-11. Recorded outcome: Patient-reported use on five to six nights each week. **S**
+- Reduce PCL-5 score from 42 to 27 or lower by the twelve-week review. Target: 2026-09-30. Recorded outcome: PCL-5 score 24. **S**
+- Complete at least eight Cognitive Processing Therapy sessions by the twelve-week review. Target: 2026-09-30. Recorded outcome: Nine sessions completed. **S**
+- Use the agreed sleep routine on at least five nights each week by the six-week review. Target: 2026-08-11. Recorded outcome: Patient-reported use on five to six nights each week. **S**
 
 ## What we agreed to do
 

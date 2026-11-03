@@ -17,9 +17,9 @@
 
 ## Your goals
 
-- Reduce PHQ-9 score from 14 to below 5 by the twelve-week review Target: 1841-09-30. Recorded outcome: PHQ-9 score 4. **S**
-- Take sertraline as prescribed on at least six of seven days each week Target: 1841-09-30. Recorded outcome: Taken on most days; mild nausea resolved by week three. **S**
-- Resume at least two valued activities each week, such as court work and letters to friends Target: 1841-08-11. Recorded outcome: Resumed by the six-week visit. **S**
+- Reduce PHQ-9 score from 14 to below 5 by the twelve-week review. Target: 1841-09-30. Recorded outcome: PHQ-9 score 4. **S**
+- Take sertraline as prescribed on at least six of seven days each week. Target: 1841-09-30. Recorded outcome: Taken on most days; mild nausea resolved by week three. **S**
+- Resume at least two valued activities each week, such as court work and letters to friends. Target: 1841-08-11. Recorded outcome: Resumed by the six-week visit. **S**
 
 ## What we agreed to do
 

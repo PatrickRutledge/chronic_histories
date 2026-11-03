@@ -2,7 +2,7 @@
 
 > **SYNTHETIC RECORD, NOT A REAL MEDICAL RECORD**
 
-This datasheet follows the structure of Gebru et al., "Datasheets for Datasets" (2021). It describes release 0.1.0, a pilot release. Figures for the full roster describe the planned dataset, not records that exist yet.
+This datasheet follows the structure of Gebru et al., "Datasheets for Datasets" (2021). It describes release 0.2.0, the first approved release. Figures for the full roster describe the planned dataset, not records that exist yet.
 
 ## Motivation
 
@@ -16,7 +16,7 @@ This datasheet follows the structure of Gebru et al., "Datasheets for Datasets" 
 
 ## Composition
 
-**Instances.** One instance is one case: a historical figure plus one synthetic modern care episode of about three months. Release 0.1.0 contains three pilot cases, listed in [manifest.csv](../manifest.csv).
+**Instances.** One instance is one case: a historical figure plus one synthetic modern care episode of about three months. Release 0.2.0 contains three approved pilot cases, listed in [manifest.csv](../manifest.csv).
 
 | Case | Figure | Era | Synthetic episode |
 |---|---|---|---|
@@ -55,7 +55,7 @@ This datasheet follows the structure of Gebru et al., "Datasheets for Datasets" 
 
 **Historical content.** Facts were collected by hand from primary documents, U.S. National Park Service and other public-institution pages, and peer-reviewed literature, mostly abstracts. Each source is logged with its access date. The master roster's inherited clinical claims were treated as provisional leads, not as evidence.
 
-**Synthetic content.** Each case defines its modern episode by hand: diagnosis, instruments, medications, and plan, following named clinical practice guidelines. Generators then render the formats deterministically. No language model writes record content at build time. The case files, source dossiers, and code were drafted with an AI assistant (Claude) and are awaiting human clinical and provenance review.
+**Synthetic content.** Each case defines its modern episode by hand: diagnosis, instruments, medications, and plan, following named clinical practice guidelines. Generators then render the formats deterministically. No language model writes record content at build time. The case files, source dossiers, and code were drafted with an AI assistant (Claude) and then reviewed and approved by the project lead (see Clinical review below).
 
 **Dates.** Modern dates follow policy `HR-DATE-SHIFT-1` ([date-shifting.md](date-shifting.md)). The synthetic birth date keeps the true month and day, with the year chosen so the patient is the selected index age at a 2026 visit.
 
@@ -105,7 +105,7 @@ All three pilot cases are American men, and two are World War II veterans. The r
 
 **Modern-frame anachronism.** The synthetic episode uses modern codes, instruments, and drugs. When dates are shifted back to the true historical frame, the content becomes anachronistic, for example a PHQ-9 score in 1841.
 
-**Clinical review.** No clinician has reviewed the release 0.1.0 records yet. They are drafts. The review status of each case is in `manifest.csv`.
+**Review.** On November 2, 2026 the project lead recorded clinical approval, provenance accepted as sufficient, and safe messaging judged appropriate. Reviewer, date, and notes for each review are in each `case.json`, and the status is in `manifest.csv`. A case cannot be marked approved unless every review has passed.
 
 **Conformance.** Passing XSD, Schematron, and US Core validation shows structural conformance only. It does not show clinical accuracy or that every code is current. Codes that the terminology server could not verify are counted separately.
 

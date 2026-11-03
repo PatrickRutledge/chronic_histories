@@ -16,7 +16,6 @@ Primary care and integrated behavioral health intake. **S**
 ## Historical basis
 
 - Gregory Boyington was born December 4, 1912, in Coeur d’Alene, Idaho. **D**
-- Boyington died January 11, 1988, at age 75. **D**
 - Boyington commanded Marine Fighting Squadron 214 and received the Medal of Honor. **D**
 - Boyington was shot down January 3, 1944, and spent approximately 20 months as a Japanese prisoner of war. **D**
 - Marine Corps reporting describes Boyington as beaten, interrogated, and nearly starved during captivity. **D**
@@ -24,11 +23,15 @@ Primary care and integrated behavioral health intake. **S**
 - Post-traumatic stress disorder is a retrospective interpretation of Boyington’s combat and captivity history, not a documented lifetime diagnosis. **R**
 - The roster’s phrase ‘eventual sobriety’ overstates a recurrent course that included both sustained sober periods and relapse. **R**
 
+1 later historical claim is omitted because it describes events after the index age. See the teaching note.
+
 These claims are historical evidence, not findings from a real modern examination.
 
 ## History of present illness
 
-This fictional modern episode addresses Alcohol use and trauma symptoms impair sleep, relationships, and reliability. **S**
+This fictional modern episode addresses the presenting concern below. **S**
+
+- Alcohol use and trauma symptoms impair sleep, relationships, and reliability. **S**
 
 ## Strengths and supports
 
@@ -59,7 +62,7 @@ True biography with historical dates; these events are not part of the synthetic
 
 ## Measurements
 
-Total score [AUDIT-C]: 10 {score}; PTSD PCL-5 score [PCL-5]: 39 {score}; Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]: 9 {score}. All results are synthetic.
+Total score [AUDIT-C]: 10; PTSD PCL-5 score [PCL-5]: 39; Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]: 9. All results are synthetic.
 
 BP 134/86 mmHg; pulse 80 bpm; respirations 16/min; temperature 36.8 °C; oxygen saturation 98% on room air; weight 88.4 kg; BMI 27.9 kg/m². All vital signs are synthetic.
 

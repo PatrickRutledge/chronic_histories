@@ -16,7 +16,6 @@ Please evaluate the active concerns and advise on the guideline-linked intervent
 ## Pertinent history
 
 - Abraham Lincoln was born February 12, 1809, near what is now Hodgenville, Kentucky. **D**
-- Lincoln was mortally wounded at Ford’s Theatre on the night of April 14, 1865, and died at the Petersen House at 7:22 a.m. on April 15, 1865, aged 56. **D**
 - In 1859 Lincoln described himself as "six feet, four inches, nearly" in height. **D**
 - In his tenth year Lincoln was kicked by a horse and, in his own account, "apparently killed for a time." **D**
 - On January 23, 1841, Lincoln wrote to John T. Stuart, "I am now the most miserable man living." **D**
@@ -24,11 +23,10 @@ Please evaluate the active concerns and advise on the guideline-linked intervent
 - Lincoln’s mother, Nancy Hanks Lincoln, died of milk sickness on October 5, 1818, when he was nine. **D**
 - Marfan syndrome, or another inherited marfanoid disorder such as multiple endocrine neoplasia type 2B, has been proposed retrospectively from Lincoln’s build; the diagnosis is disputed and has never been genetically confirmed. **R**
 - Lincoln’s older sister, Sarah Lincoln Grigsby, died on January 20, 1828, at age twenty-one, from complications during delivery that also took her infant’s life. **D**
-- Lincoln’s son Edward ("Eddie") died on February 1, 1850, after a long illness, at three years and ten months. **D**
-- Lincoln’s son William ("Willie") died in the White House on February 20, 1862, probably of typhoid fever, at age eleven. **D**
-- Lincoln’s November 1863 illness after the Gettysburg Address has been retrospectively interpreted as unmodified smallpox, more serious than his physicians reported publicly; the interpretation is disputed. **R**
 
-Baseline: Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]: 14 {score}. All results are synthetic.
+4 later historical claims are omitted because they describe events after the index age. See the teaching note.
+
+Baseline: Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]: 14. All results are synthetic.
 
 ## Requested recommendations
 
@@ -36,4 +34,3 @@ Baseline: Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]: 14
 - Start sertraline 50 mg daily; review expected time to benefit, common adverse effects, and how to reach the clinic. Guideline: VA/DoD Clinical Practice Guideline for the Management of Major Depressive Disorder (2022) **S**
 - Repeat PHQ-9 at six and twelve weeks and adjust treatment if response is inadequate; plan continuation treatment after remission. Guideline: VA/DoD Clinical Practice Guideline for the Management of Major Depressive Disorder (2022) **S**
 - Create a collaborative safety plan with crisis resources, including the 988 Suicide & Crisis Lifeline. Guideline: VA/DoD Clinical Practice Guideline for Assessment and Management of Patients at Risk for Suicide (2024) **S**
-- Psychiatry consultation to confirm the diagnosis and advise on medication management. Guideline: VA/DoD Clinical Practice Guideline for the Management of Major Depressive Disorder (2022) **S**

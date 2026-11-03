@@ -27,7 +27,6 @@ This is fictional. Historical evidence and retrospective interpretation remain s
 - Start sertraline 50 mg daily; review expected time to benefit, common adverse effects, and how to reach the clinic. Guideline: VA/DoD Clinical Practice Guideline for the Management of Major Depressive Disorder (2022) **S**
 - Repeat PHQ-9 at six and twelve weeks and adjust treatment if response is inadequate; plan continuation treatment after remission. Guideline: VA/DoD Clinical Practice Guideline for the Management of Major Depressive Disorder (2022) **S**
 - Create a collaborative safety plan with crisis resources, including the 988 Suicide & Crisis Lifeline. Guideline: VA/DoD Clinical Practice Guideline for Assessment and Management of Patients at Risk for Suicide (2024) **S**
-- Psychiatry consultation to confirm the diagnosis and advise on medication management. Guideline: VA/DoD Clinical Practice Guideline for the Management of Major Depressive Disorder (2022) **S**
 
 ## Guideline basis
 

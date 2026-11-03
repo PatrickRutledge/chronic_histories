@@ -15,17 +15,31 @@ The patient participates in this fictional follow-up for three-month recovery ca
 
 ## Objective
 
-Total score [AUDIT-C]: 2 {score}; PTSD PCL-5 score [PCL-5]: 23 {score}; Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]: 3 {score}. All results are synthetic.
+Total score [AUDIT-C]: 2; PTSD PCL-5 score [PCL-5]: 23; Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]: 3. All results are synthetic.
 
 BP 126/80 mmHg; pulse 72 bpm; respirations 15/min; temperature 36.6 °C; oxygen saturation 99% on room air; weight 85.8 kg; BMI 27.1 kg/m². All vital signs are synthetic.
+
+## Change since baseline
+
+- Total score [AUDIT-C]: 10 at baseline, 2 at this visit **S**
+- PTSD PCL-5 score [PCL-5]: 10 at baseline, 23 at this visit **S**
+- Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]: 10 at baseline, 3 at this visit **S**
 
 ## Assessment
 
 Active problems: Alcohol use disorder, synthetic modern panel diagnosis; Post-traumatic stress disorder, synthetic diagnosis linked to retrospective interpretation. Strengths and supports remain part of the care plan. **S**
 
+## Medication changes
+
+- No medication changes. **S**
+
+## Goal progress
+
+- Reduce AUDIT-C score from 10 to 3 or lower by twelve weeks. Outcome by 2026-09-30: AUDIT-C score 2. **S**
+- Reduce PCL-5 score from 39 to 25 or lower by twelve weeks. Outcome by 2026-09-30: PCL-5 score 23. **S**
+- Attend at least eight integrated therapy or recovery-support sessions by twelve weeks. Outcome by 2026-09-30: Nine sessions completed. **S**
+
 ## Plan
 
-- Use shared decision-making to select integrated evidence-based treatment for alcohol use disorder and PTSD. Guideline: VA/DoD Clinical Practice Guideline for the Management of Substance Use Disorders (2021); VA/DoD Clinical Practice Guideline for Management of Posttraumatic Stress Disorder and Acute Stress Disorder (2023) **S**
-- Offer behavioral AUD treatment and discuss FDA-approved medication options; patient initially selects behavioral treatment. Guideline: VA/DoD Clinical Practice Guideline for the Management of Substance Use Disorders (2021); Recommend Evidence-Based Treatment: Know the Options (2026 accessed) **S**
-- Begin trauma-focused psychotherapy without requiring recovery to be perfect or linear. Guideline: VA/DoD Clinical Practice Guideline for Management of Posttraumatic Stress Disorder and Acute Stress Disorder (2023) **S**
-- Repeat AUDIT-C, PCL-5, and PHQ-9 at six and twelve weeks and maintain a collaborative relapse and safety plan. Guideline: VA/DoD Clinical Practice Guideline for the Management of Substance Use Disorders (2021); VA/DoD Clinical Practice Guideline for Management of Posttraumatic Stress Disorder and Acute Stress Disorder (2023) **S**
+- Continue the care plan agreed on 2026-06-30. The care-plan document lists every intervention. **S**
+- Scheduled episode complete. Continue routine follow-up and the safety plan. **S**

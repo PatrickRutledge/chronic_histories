@@ -125,6 +125,17 @@ foreach ($set in $case.clinical.vital_sign_sets) {
 }
 if ($case.clinical.safety_assessment.provenance.evidence_grade -ne 'S') { $errors.Add('Safety assessment must be synthetic') }
 
+# Release gate: an approved case needs every review passed, a named reviewer, and a date.
+if ($case.record_classification.public_release_status -eq 'approved') {
+    foreach ($review in $case.review.PSObject.Properties) {
+        if (@('passed', 'not_applicable') -notcontains $review.Value.status) { $errors.Add("Approved for release but $($review.Name) is $($review.Value.status)") }
+        elseif ($review.Value.status -eq 'passed' -and (-not $review.Value.reviewer -or -not $review.Value.reviewed_on)) { $errors.Add("$($review.Name) passed without a reviewer and date") }
+    }
+    foreach ($claim in $case.claims) {
+        if ($claim.release_status -ne 'approved') { $errors.Add("Approved for release but claim $($claim.claim_id) is $($claim.release_status)") }
+    }
+}
+
 $fhirCounts = @{}
 foreach ($entry in $fhir.entry) {
     $type = $entry.resource.resourceType

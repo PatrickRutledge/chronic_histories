@@ -18,7 +18,6 @@ Please evaluate the active concerns and advise on the guideline-linked intervent
 ## Pertinent history
 
 - Gregory Boyington was born December 4, 1912, in Coeur d’Alene, Idaho. **D**
-- Boyington died January 11, 1988, at age 75. **D**
 - Boyington commanded Marine Fighting Squadron 214 and received the Medal of Honor. **D**
 - Boyington was shot down January 3, 1944, and spent approximately 20 months as a Japanese prisoner of war. **D**
 - Marine Corps reporting describes Boyington as beaten, interrogated, and nearly starved during captivity. **D**
@@ -26,7 +25,9 @@ Please evaluate the active concerns and advise on the guideline-linked intervent
 - Post-traumatic stress disorder is a retrospective interpretation of Boyington’s combat and captivity history, not a documented lifetime diagnosis. **R**
 - The roster’s phrase ‘eventual sobriety’ overstates a recurrent course that included both sustained sober periods and relapse. **R**
 
-Baseline: Total score [AUDIT-C]: 10 {score}; PTSD PCL-5 score [PCL-5]: 39 {score}; Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]: 9 {score}. All results are synthetic.
+1 later historical claim is omitted because it describes events after the index age. See the teaching note.
+
+Baseline: Total score [AUDIT-C]: 10; PTSD PCL-5 score [PCL-5]: 39; Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]: 9. All results are synthetic.
 
 ## Requested recommendations
 

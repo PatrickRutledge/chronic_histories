@@ -195,14 +195,14 @@ Remaining:
 - Create the canonical case, sources, terminology, modern episode, care plan, and all generated outputs.
 - Run the complete validation suite.
 
-### 5. Conduct pilot review and revise templates
+### 5. Conduct pilot review and revise templates (complete)
 
-Template weaknesses already seen in all three pilots, to fix after clinician review:
+Reviews recorded November 2, 2026 by the project lead: clinical approved, provenance sufficient, safe messaging appropriate. All three pilots are `approved`. Template weaknesses fixed after review:
 
-- Progress notes repeat the full plan at every visit, so the twelve-week note still says "start" a medication. Notes need a per-visit plan and a medication-changes section.
-- The consultation note lists the consultation itself among its recommendations.
-- The H&P "Historical basis" lists every claim, including events after the index age.
-- The history of present illness capitalizes the concern mid-sentence, and scores print with their UCUM annotation, for example `14 {score}`.
+- Progress notes repeat the full plan at every visit, so the twelve-week note still says "start" a medication. Notes need a per-visit plan and a medication-changes section. Fixed: follow-up notes show change since baseline, medication changes, goal progress, and the next visit.
+- The consultation note lists the consultation itself among its recommendations. Fixed for the consultation and referral.
+- The H&P "Historical basis" lists every claim, including events after the index age. Fixed: later claims are omitted with a count; the teaching note keeps them all.
+- The history of present illness capitalizes the concern mid-sentence, and scores print with their UCUM annotation, for example `14 {score}`. Fixed.
 
 
 - Obtain clinical review of all three pilots.

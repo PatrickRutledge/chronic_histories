@@ -17,9 +17,9 @@
 
 ## Your goals
 
-- Reduce AUDIT-C score from 10 to 3 or lower by twelve weeks Target: 1957-09-30. Recorded outcome: AUDIT-C score 2. **S**
-- Reduce PCL-5 score from 39 to 25 or lower by twelve weeks Target: 1957-09-30. Recorded outcome: PCL-5 score 23. **S**
-- Attend at least eight integrated therapy or recovery-support sessions by twelve weeks Target: 1957-09-30. Recorded outcome: Nine sessions completed. **S**
+- Reduce AUDIT-C score from 10 to 3 or lower by twelve weeks. Target: 1957-09-30. Recorded outcome: AUDIT-C score 2. **S**
+- Reduce PCL-5 score from 39 to 25 or lower by twelve weeks. Target: 1957-09-30. Recorded outcome: PCL-5 score 23. **S**
+- Attend at least eight integrated therapy or recovery-support sessions by twelve weeks. Target: 1957-09-30. Recorded outcome: Nine sessions completed. **S**
 
 ## What we agreed to do
 

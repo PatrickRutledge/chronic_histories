@@ -13,17 +13,21 @@
 
 ## Subjective
 
-The patient participates in this fictional follow-up for primary care and integrated behavioral health intake. **S**
+The patient participates in this fictional visit for primary care and integrated behavioral health intake. **S**
 
 ## Objective
 
-Total score [AUDIT-C]: 10 {score}; PTSD PCL-5 score [PCL-5]: 39 {score}; Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]: 9 {score}. All results are synthetic.
+Total score [AUDIT-C]: 10; PTSD PCL-5 score [PCL-5]: 39; Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]: 9. All results are synthetic.
 
 BP 134/86 mmHg; pulse 80 bpm; respirations 16/min; temperature 36.8 °C; oxygen saturation 98% on room air; weight 88.4 kg; BMI 27.9 kg/m². All vital signs are synthetic.
 
 ## Assessment
 
 Active problems: Alcohol use disorder, synthetic modern panel diagnosis; Post-traumatic stress disorder, synthetic diagnosis linked to retrospective interpretation. Strengths and supports remain part of the care plan. **S**
+
+## Medication changes
+
+- No medication changes. **S**
 
 ## Plan
 

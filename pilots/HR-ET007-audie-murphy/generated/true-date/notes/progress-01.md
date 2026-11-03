@@ -13,17 +13,21 @@
 
 ## Subjective
 
-The patient participates in this fictional follow-up for primary care intake and behavioral health assessment. **S**
+The patient participates in this fictional visit for primary care intake and behavioral health assessment. **S**
 
 ## Objective
 
-PTSD PCL-5 score: 42 {score}; PHQ-9 total score: 11 {score}. All results are synthetic.
+PTSD PCL-5 score: 42; PHQ-9 total score: 11. All results are synthetic.
 
 BP 132/84 mmHg; pulse 78 bpm; respirations 16/min; temperature 36.8 °C; oxygen saturation 98% on room air; weight 74.8 kg; BMI 27.5 kg/m². All vital signs are synthetic.
 
 ## Assessment
 
 Active problems: Post-traumatic stress disorder, synthetic modern panel diagnosis based on documented symptoms and retrospective interpretation; Chronic insomnia. Strengths and supports remain part of the care plan. **S**
+
+## Medication changes
+
+- No medication changes. **S**
 
 ## Plan
 

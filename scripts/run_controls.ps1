@@ -89,6 +89,9 @@ try {
     $dir = New-ControlCase 'true-date' { param($c) Add-SocialText $c 'Next review 2026-12-01' }
     Assert-Control 'modern date the true-date variant cannot shift' (Invoke-Script $build @('-CaseDirectory', $dir)) 'Unrecognized date field'
 
+    $dir = New-ControlCase 'release-gate' { param($c) $c.record_classification.public_release_status = 'approved' }
+    Assert-Control 'approved without passed reviews' (Invoke-Script $build @('-CaseDirectory', $dir)) 'Approved for release but clinical_review'
+
     if ($Conformance) {
         $dir = New-ControlCase 'ccda' $null
         [void](Invoke-Script $build @('-CaseDirectory', $dir))
