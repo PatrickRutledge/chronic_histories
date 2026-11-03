@@ -44,7 +44,31 @@ export const resultChanges = (data, date) => {
   }).filter(Boolean);
 };
 
-// UCUM annotations such as {score} are for machines; print the bare value.
-export const withUnit = (observation) => /^\{.*\}$/.test(observation.unit ?? "") ? `${observation.value}` : `${observation.value} ${observation.unit}`;
+// Laboratory results carry a reference range and an interpretation flag (HL7 ObservationInterpretation).
+export const INTERPRETATIONS = { N: "Normal", H: "High", L: "Low", HH: "Critical high", LL: "Critical low", A: "Abnormal" };
+export const isLab = (observation) => observation.category === "laboratory";
+const bare = (value, unit) => /^\{.*\}$/.test(unit ?? "") ? `${value}` : `${value} ${unit}`;
+export const rangeText = (observation) => {
+  const range = observation.reference_range;
+  if (!range) return "";
+  if (range.text) return range.text;
+  if (range.low !== undefined && range.high !== undefined) return `${range.low}-${bare(range.high, observation.unit)}`;
+  return range.low !== undefined ? `>=${bare(range.low, observation.unit)}` : `<=${bare(range.high, observation.unit)}`;
+};
+// Interpretation implied by a numeric range, or null when the range has no bound on that side.
+export const expectedInterpretation = (observation) => {
+  const { low, high } = observation.reference_range ?? {};
+  if (low !== undefined && observation.value < low) return "L";
+  if (high !== undefined && observation.value > high) return "H";
+  return low === undefined && high === undefined ? null : "N";
+};
+
+// UCUM annotations such as {score} are for machines; print the bare value. Abnormal labs carry their flag.
+export const withUnit = (observation) => {
+  const text = bare(observation.value, observation.unit);
+  return isLab(observation) && observation.interpretation && observation.interpretation !== "N" ? `${text} (${INTERPRETATIONS[observation.interpretation].toLowerCase()})` : text;
+};
 export const sentence = (text) => /[.!?]$/.test(text) ? text : `${text}.`;
 export const midSentence = (text) => /^[A-Z][a-z]/.test(text) ? text[0].toLowerCase() + text.slice(1) : text;
+// Notes use the short clinical name when one is given (ALT rather than the full LOINC display).
+export const labelOf = (observation) => observation.label ?? observation.display;

@@ -95,6 +95,12 @@ try {
     $dir = New-ControlCase 'release-gate' { param($c) $c.record_classification.public_release_status = 'approved' }
     Assert-Control 'approved without passed reviews' (Invoke-Script $build @('-CaseDirectory', $dir)) 'Approved for release but clinical_review'
 
+    $dir = New-ControlCase 'lab-flag' { param($c) ($c.clinical.observations | Where-Object id -eq 'OBS-ALT-001').interpretation = 'N' }
+    Assert-Control 'lab flag disagrees with its reference range' (Invoke-Script $build @('-CaseDirectory', $dir)) 'Lab interpretation N disagrees'
+
+    $dir = New-ControlCase 'lab-no-range' { param($c) ($c.clinical.observations | Where-Object id -eq 'OBS-ALT-001').PSObject.Properties.Remove('reference_range') }
+    Assert-Control 'lab result without a reference range' (Invoke-Script $build @('-CaseDirectory', $dir)) 'schema validation'
+
     if ($Conformance) {
         $dir = New-ControlCase 'ccda' $null
         [void](Invoke-Script $build @('-CaseDirectory', $dir))

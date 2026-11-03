@@ -110,6 +110,18 @@ foreach ($observation in $case.clinical.observations) {
     if ($observation.provenance.evidence_grade -ne 'S') { $errors.Add("Non-synthetic generated observation: $($observation.id)") }
     if ($observation.coding[0].code -eq '101698-9' -and ($observation.value -lt 0 -or $observation.value -gt 80)) { $errors.Add("PCL-5 out of range: $($observation.id)") }
     if ($observation.coding[0].code -eq '44261-6' -and ($observation.value -lt 0 -or $observation.value -gt 27)) { $errors.Add("PHQ-9 out of range: $($observation.id)") }
+    if ($observation.category -eq 'laboratory') {
+        # The flag must agree with a numeric range; critical flags must point the same way.
+        $range = $observation.reference_range
+        $implied = $null
+        if ($null -ne $range.low -and $observation.value -lt $range.low) { $implied = 'L' }
+        elseif ($null -ne $range.high -and $observation.value -gt $range.high) { $implied = 'H' }
+        elseif ($null -ne $range.low -or $null -ne $range.high) { $implied = 'N' }
+        $flag = [string]$observation.interpretation
+        $direction = if ($flag -in @('HH', 'LL')) { $flag.Substring(0, 1) } else { $flag }
+        if ($implied -and $flag -ne 'A' -and $direction -ne $implied) { $errors.Add("Lab interpretation $flag disagrees with reference range for $($observation.id) (value $($observation.value), expected $implied)") }
+        if ($observation.coding[0].system -ne 'http://loinc.org') { $errors.Add("Lab result must be LOINC coded: $($observation.id)") }
+    }
 }
 foreach ($set in $case.clinical.vital_sign_sets) {
     $map = @{}; foreach ($measurement in $set.measurements) { $map[$measurement.code] = [double]$measurement.value }

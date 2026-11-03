@@ -1,7 +1,7 @@
 import fs from "node:fs/promises";
 import path from "node:path";
 import { NAMESPACE, ROUTES, TRUE_DATE_NOTICE, deterministicUuid, isTrueDateFrame, outputDirFor, parseClinician, splitName } from "./lib/common.mjs";
-import { isConsultStep } from "./lib/episode.mjs";
+import { INTERPRETATIONS, isConsultStep, isLab, rangeText, withUnit } from "./lib/episode.mjs";
 
 const inputPath = process.argv[2];
 if (!inputPath) {
@@ -64,7 +64,7 @@ const observationRows = data.clinical.observations.map(observation => `
     <td>${provenanceBadge(observation.provenance.evidence_grade)}</td>
     <td>${esc(observation.effective_date)}</td>
     <td>${esc(observation.display)}</td>
-    <td>${esc(observation.value)} ${esc(observation.unit)}</td>
+    <td>${esc(withUnit(observation))}${isLab(observation) ? `<div class="muted">Reference ${esc(rangeText(observation))}</div>` : ""}</td>
     <td>${observation.coding?.map(code => `${esc(code.system)} · ${esc(code.code)}`).join("<br>") ?? ""}</td>
   </tr>`).join("") || `<tr><td colspan="5" class="muted">No observations generated.</td></tr>`;
 
@@ -410,18 +410,31 @@ for (const encounter of data.clinical.encounters) {
 
 for (const observation of data.clinical.observations) {
   const observationId = slug(observation.id);
+  const lab = isLab(observation);
+  const ucum = (value) => ({ value, unit: observation.unit, system: "http://unitsofmeasure.org", code: observation.unit });
+  const range = observation.reference_range ?? {};
   fhirEntries.push({
     fullUrl: urn(observationId),
     resource: {
       resourceType: "Observation",
       id: observationId,
-      meta: { profile: [`${US_CORE}/us-core-observation-screening-assessment`], tag: [{ system: GRADE_SYSTEM, code: observation.provenance.evidence_grade }] },
+      meta: { profile: [`${US_CORE}/${lab ? "us-core-observation-lab" : "us-core-observation-screening-assessment"}`], tag: [{ system: GRADE_SYSTEM, code: observation.provenance.evidence_grade }] },
       status: observation.status,
-      category: [{ coding: [{ system: "http://terminology.hl7.org/CodeSystem/observation-category", code: "survey", display: "Survey" }] }],
+      category: [{ coding: [lab
+        ? { system: "http://terminology.hl7.org/CodeSystem/observation-category", code: "laboratory", display: "Laboratory" }
+        : { system: "http://terminology.hl7.org/CodeSystem/observation-category", code: "survey", display: "Survey" }] }],
       code: { coding: observation.coding.map(fhirCoding), text: observation.display },
       subject: { reference: patientFullUrl },
       effectiveDateTime: observation.effective_date,
-      valueQuantity: { value: observation.value, unit: observation.unit, system: "http://unitsofmeasure.org", code: observation.unit },
+      valueQuantity: ucum(observation.value),
+      ...(lab ? {
+        interpretation: [{ coding: [{ system: "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation", code: observation.interpretation, display: INTERPRETATIONS[observation.interpretation] }] }],
+        referenceRange: [{
+          ...(range.low !== undefined ? { low: ucum(range.low) } : {}),
+          ...(range.high !== undefined ? { high: ucum(range.high) } : {}),
+          text: rangeText(observation)
+        }]
+      } : {}),
       note: [{ text: `Synthetic teaching-case result. Evidence grade ${observation.provenance.evidence_grade}.` }]
     }
   });

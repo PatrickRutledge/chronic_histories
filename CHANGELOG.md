@@ -12,6 +12,7 @@ A case ID is never reused for a different person.
 
 ### Added
 
+- Laboratory results. An observation with `category: "laboratory"` carries a reference range, an interpretation flag (N, H, L, HH, LL, A), an optional panel, and an optional short `label` for note prose. FHIR emits US Core lab Observations with `referenceRange` and `interpretation`; C-CDA result observations carry `interpretationCode` and `referenceRange`, and results drawn together are grouped by panel. Validation fails a flag that disagrees with its range, and two new controls prove it. The test fixture exercises the path with a hepatic panel.
 - A made-up Social Security number for every patient (`synthetic_identity.ssn`), always in the never-issued 000 area. It appears as a patient identifier in every C-CDA document and in the FHIR Patient. The identifier scan still rejects any other SSN-shaped number, and a new control rejects a case SSN outside the 000 area.
 - C-CDA note documents for every case: History and Physical, a Progress Note per visit, Referral Note, and Consultation Note. The referral order is coded once and shared by the Referral Note, the Consultation Note's `inFulfillmentOf`, and a US Core `ServiceRequest`. Every document passes the CDA XSD and C-CDA R2.1 Schematron, and the local checks confirm each carries the case's patient name, birth date, and MRN.
 - `HR-ET008` Gregory Boyington: an explicit referral step (INT-005) to behavioral health for the trauma-focused psychotherapy already in his plan.

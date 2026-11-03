@@ -1,7 +1,7 @@
 import fs from "node:fs/promises";
 import path from "node:path";
 import { TRUE_DATE_NOTICE, frameLabel, isTrueDateFrame, outputDirFor } from "./lib/common.mjs";
-import { claimsAtIndex, goalProgress as goalStatus, isConsultStep, laterClaimsNote, medicationChanges as medChanges, midSentence, resultChanges as changesAt, sentence, withUnit } from "./lib/episode.mjs";
+import { claimsAtIndex, labelOf, goalProgress as goalStatus, isConsultStep, laterClaimsNote, medicationChanges as medChanges, midSentence, resultChanges as changesAt, sentence, withUnit } from "./lib/episode.mjs";
 
 const inputPath = process.argv[2];
 if (!inputPath) throw new Error("Usage: node scripts/generate_supporting_docs.mjs <case.json>");
@@ -17,9 +17,9 @@ const bullets = items => items.map(x => `- ${x.display} **${evidence(x)}**`).joi
 const header = (title, date, author = identity.synthetic_identity.fictional_primary_clinician) => `# ${title}\n\n> **${data.record_classification.banner}**\n\n- Patient: ${identity.display_name} (real historical name used in a fictional teaching record)\n- Synthetic MRN: ${identity.synthetic_identity.mrn}\n- Date: ${date}\n- Fictional facility: ${identity.synthetic_identity.fictional_facility}\n- Fictional author: ${author}\n- Calendar frame: ${frameLabel(data)}\n\n${isTrueDateFrame(data) ? `> ${TRUE_DATE_NOTICE}\n\n` : ""}`;
 const results = date => {
   const rows = clinical.observations.filter(x => x.effective_date === date);
-  return rows.length ? `${rows.map(x => `${x.display}: ${withUnit(x)}`).join("; ")}. All results are synthetic.` : "No condition-specific results recorded.";
+  return rows.length ? `${rows.map(x => `${labelOf(x)}: ${withUnit(x)}`).join("; ")}. All results are synthetic.` : "No condition-specific results recorded.";
 };
-const resultChanges = date => changesAt(data, date).map(({ baseline, current }) => `- ${current.display}: ${withUnit(baseline)} at baseline, ${withUnit(current)} at this visit **S**`).join("\n");
+const resultChanges = date => changesAt(data, date).map(({ baseline, current }) => `- ${labelOf(current)}: ${withUnit(baseline)} at baseline, ${withUnit(current)} at this visit **S**`).join("\n");
 const vitals = date => {
   const set = clinical.vital_sign_sets.find(x => x.date === date);
   if (!set) return "Vital signs not recorded.";

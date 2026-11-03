@@ -327,7 +327,7 @@
         "observations": {
           "type": "array",
           "items": {
-            "$ref": "#/$defs/clinicalElement"
+            "$ref": "#/$defs/observation"
           }
         },
         "procedures": {
@@ -1354,6 +1354,100 @@
             }
           ]
         }
+      }
+    },
+    "observation": {
+      "description": "A scored instrument (survey, the default) or a laboratory result. Laboratory results need a reference range and an interpretation flag; results drawn together share a panel.",
+      "allOf": [
+        {
+          "$ref": "#/$defs/clinicalElement"
+        }
+      ],
+      "required": [
+        "effective_date",
+        "value",
+        "unit",
+        "coding"
+      ],
+      "properties": {
+        "category": {
+          "enum": [
+            "survey",
+            "laboratory"
+          ]
+        },
+        "effective_date": {
+          "type": "string",
+          "format": "date"
+        },
+        "value": {
+          "type": "number"
+        },
+        "unit": {
+          "type": "string"
+        },
+        "reference_range": {
+          "type": "object",
+          "additionalProperties": false,
+          "minProperties": 1,
+          "properties": {
+            "low": {
+              "type": "number"
+            },
+            "high": {
+              "type": "number"
+            },
+            "text": {
+              "type": "string"
+            }
+          }
+        },
+        "interpretation": {
+          "enum": [
+            "N",
+            "H",
+            "L",
+            "HH",
+            "LL",
+            "A"
+          ]
+        },
+        "panel": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "code",
+            "display"
+          ],
+          "properties": {
+            "code": {
+              "type": "string"
+            },
+            "display": {
+              "type": "string"
+            }
+          }
+        },
+        "label": {
+          "type": "string",
+          "description": "Short clinical name used in note prose, such as ALT or HbA1c."
+        }
+      },
+      "if": {
+        "properties": {
+          "category": {
+            "const": "laboratory"
+          }
+        },
+        "required": [
+          "category"
+        ]
+      },
+      "then": {
+        "required": [
+          "reference_range",
+          "interpretation"
+        ]
       }
     }
   }

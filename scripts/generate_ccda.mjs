@@ -1,7 +1,7 @@
 import fs from "node:fs/promises";
 import path from "node:path";
 import { ADMINISTRATIVE_GENDER, FICTIONAL_FACILITY_CONTACT, ROUTES, TRUE_DATE_NOTICE, deterministicUuid, isTrueDateFrame, oidFor, outputDirFor, parseClinician, splitName } from "./lib/common.mjs";
-import { claimsAtIndex, goalProgress, isConsultStep, laterClaimsNote, medicationChanges, midSentence, resultChanges, sentence, withUnit } from "./lib/episode.mjs";
+import { INTERPRETATIONS, claimsAtIndex, goalProgress, isConsultStep, isLab, labelOf, laterClaimsNote, medicationChanges, midSentence, rangeText, resultChanges, sentence, withUnit } from "./lib/episode.mjs";
 
 const inputPath = process.argv[2];
 if (!inputPath) {
@@ -69,12 +69,15 @@ const problemEntries = data.clinical.problems.map((problem, index) => {
 }).join("");
 
 const resultNarrativeFor = (keep) => data.clinical.observations.map((observation, index) => keep(observation) ? `
-  <tr ID="result-${index + 1}"><td>${x(observation.effective_date)}</td><td>${x(observation.display)}</td><td>${x(observation.value)}</td><td>${x(observation.unit)}</td><td>S</td></tr>` : "").join("");
+  <tr ID="result-${index + 1}"><td>${x(observation.effective_date)}</td><td>${x(observation.display)}</td><td>${x(observation.value)}</td><td>${x(observation.unit)}</td><td>${x(isLab(observation) ? rangeText(observation) : "")}</td><td>${x(isLab(observation) ? INTERPRETATIONS[observation.interpretation] : "")}</td><td>S</td></tr>` : "").join("");
+// Survey scores trend in one organizer per instrument; labs group by panel and draw date.
+const organizerKey = (observation) => observation.panel ? `${observation.panel.code}|${observation.effective_date}` : observation.coding[0].code;
+const organizerCode = (observation) => observation.panel ?? observation.coding[0];
 const resultNarrative = resultNarrativeFor(() => true);
 
-const resultEntriesFor = (keep, idSuffix = "") => [...new Set(data.clinical.observations.filter(keep).map(observation => observation.coding[0].code))].map(code => {
-  const members = data.clinical.observations.filter(observation => keep(observation) && observation.coding[0].code === code);
-  const panel = members[0].coding[0];
+const resultEntriesFor = (keep, idSuffix = "") => [...new Set(data.clinical.observations.filter(keep).map(organizerKey))].map(code => {
+  const members = data.clinical.observations.filter(observation => keep(observation) && organizerKey(observation) === code);
+  const panel = organizerCode(members[0]);
   const dates = members.map(observation => compactDate(observation.effective_date)).sort();
   const components = members.map(observation => {
   const coding = observation.coding[0];
@@ -88,7 +91,14 @@ const resultEntriesFor = (keep, idSuffix = "") => [...new Set(data.clinical.obse
           <text><reference value="#result-${index + 1}"/></text>
           <statusCode code="completed"/>
           <effectiveTime value="${compactDate(observation.effective_date)}"/>
-          <value xsi:type="PQ" value="${x(observation.value)}" unit="${x(observation.unit)}"/>
+          <value xsi:type="PQ" value="${x(observation.value)}" unit="${x(observation.unit)}"/>${isLab(observation) ? `
+          <interpretationCode code="${x(observation.interpretation)}" codeSystem="2.16.840.1.113883.5.83" displayName="${x(INTERPRETATIONS[observation.interpretation])}"/>
+          <referenceRange>
+            <observationRange>
+              <text>${x(rangeText(observation))}</text>
+              <value xsi:type="IVL_PQ">${observation.reference_range?.low !== undefined ? `<low value="${x(observation.reference_range.low)}" unit="${x(observation.unit)}"/>` : ""}${observation.reference_range?.high !== undefined ? `<high value="${x(observation.reference_range.high)}" unit="${x(observation.unit)}"/>` : ""}</value>
+            </observationRange>
+          </referenceRange>` : ""}
         </observation>
       </component>`;
   }).join("");
@@ -427,7 +437,7 @@ ${custodianXml}
           <templateId root="2.16.840.1.113883.10.20.22.2.3.1" extension="2015-08-01"/>
           <code code="30954-2" codeSystem="2.16.840.1.113883.6.1" displayName="Relevant Diagnostic Tests and/or Laboratory Data"/>
           <title>Results</title>
-          <text><table><thead><tr><th>Date</th><th>Measure</th><th>Value</th><th>Unit</th><th>Provenance</th></tr></thead><tbody>${resultNarrative}</tbody></table></text>
+          <text><table><thead><tr><th>Date</th><th>Measure</th><th>Value</th><th>Unit</th><th>Reference range</th><th>Flag</th><th>Provenance</th></tr></thead><tbody>${resultNarrative}</tbody></table></text>
           ${resultEntries}
         </section>
       </component>
@@ -548,13 +558,13 @@ const objectiveSection = (visit) => {
   const observed = clinical.observations.filter(item => item.effective_date === visit.date);
   return plain({
     templateRoot: "2.16.840.1.113883.10.20.21.2.1", code: "61149-1", display: "Objective Narrative", title: "Objective",
-    text: `${p(observed.length ? `${observed.map(item => `${item.display}: ${withUnit(item)}`).join("; ")}.` : "No condition-specific results at this visit.")}${changes.length ? `<paragraph>Change since baseline:</paragraph>${list(changes.map(({ baseline, current }) => `${x(current.display)}: ${x(withUnit(baseline))} at baseline, ${x(withUnit(current))} at this visit [S]`))}` : ""}`,
+    text: `${p(observed.length ? `${observed.map(item => `${labelOf(item)}: ${withUnit(item)}`).join("; ")}.` : "No condition-specific results at this visit.")}${changes.length ? `<paragraph>Change since baseline:</paragraph>${list(changes.map(({ baseline, current }) => `${x(labelOf(current))}: ${x(withUnit(baseline))} at baseline, ${x(withUnit(current))} at this visit [S]`))}` : ""}`,
   });
 };
 const resultsSection = (date) => {
   const keep = (observation) => observation.effective_date === date;
   return clinical.observations.some(keep)
-    ? section({ templateRoot: "2.16.840.1.113883.10.20.22.2.3.1", extension: "2015-08-01", code: "30954-2", display: "Relevant Diagnostic Tests and/or Laboratory Data", title: "Results", text: table(["Date", "Measure", "Value", "Unit", "Provenance"], resultNarrativeFor(keep)), entries: resultEntriesFor(keep, `|${date}`) })
+    ? section({ templateRoot: "2.16.840.1.113883.10.20.22.2.3.1", extension: "2015-08-01", code: "30954-2", display: "Relevant Diagnostic Tests and/or Laboratory Data", title: "Results", text: table(["Date", "Measure", "Value", "Unit", "Reference range", "Flag", "Provenance"], resultNarrativeFor(keep)), entries: resultEntriesFor(keep, `|${date}`) })
     : emptySection({ templateRoot: "2.16.840.1.113883.10.20.22.2.3.1", extension: "2015-08-01", code: "30954-2", title: "Results", explanation: "No results recorded at this visit." });
 };
 const vitalsSection = (date) => {
