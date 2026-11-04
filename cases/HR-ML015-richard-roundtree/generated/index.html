@@ -1,0 +1,487 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Richard Roundtree — The Human Record</title>
+  <style>
+    :root { --navy:#17365d; --blue:#1f4e78; --pale:#eef5fa; --ink:#1f2933; --muted:#66788a; --amber:#fff2cc; --red:#f8d7da; --green:#d9ead3; }
+    * { box-sizing:border-box; }
+    body { margin:0; font:16px/1.5 Arial, sans-serif; color:var(--ink); background:#f6f8fa; }
+    header { background:var(--navy); color:white; padding:24px max(24px,calc((100vw - 1180px)/2)); }
+    header h1 { margin:4px 0; font-size:30px; }
+    .banner { background:#b42318; color:white; font-weight:700; text-align:center; padding:10px; letter-spacing:.03em; }
+    main { max-width:1180px; margin:24px auto 60px; padding:0 24px; }
+    section { background:white; border:1px solid #d9e1e8; border-radius:8px; margin:18px 0; padding:20px; }
+    h2 { color:var(--navy); margin:0 0 14px; font-size:22px; }
+    h3 { color:var(--blue); }
+    .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:12px; }
+    .card { background:var(--pale); border-left:4px solid var(--blue); padding:12px; }
+    .label { color:var(--muted); font-size:13px; text-transform:uppercase; letter-spacing:.04em; }
+    table { width:100%; border-collapse:collapse; }
+    th { background:var(--blue); color:white; text-align:left; }
+    th,td { padding:9px; border-bottom:1px solid #dfe6ec; vertical-align:top; }
+    .badge { display:inline-block; min-width:28px; text-align:center; font-weight:700; border-radius:12px; padding:2px 8px; }
+    .grade-D { background:var(--green); } .grade-R { background:var(--amber); } .grade-S { background:var(--red); }
+    .muted { color:var(--muted); font-size:14px; }
+    .relationship { color:var(--muted); font-size:12px; }
+    .downloads a { display:inline-block; margin:4px 8px 4px 0; padding:8px 12px; background:var(--blue); color:white; text-decoration:none; border-radius:5px; }
+    @media (max-width:700px) { table { display:block; overflow-x:auto; } }
+  </style>
+</head>
+<body>
+  <div class="banner">SYNTHETIC RECORD, NOT A REAL MEDICAL RECORD</div>
+  <header>
+    <div>The Human Record</div>
+    <h1>Richard Roundtree</h1>
+    <div>Case HR-ML015 · Modern EHR teaching episode · Draft for review</div>
+  </header>
+  <main>
+    <section>
+      <h2>Review summary</h2>
+      <div class="grid">
+        <div class="card"><div class="label">Historical dates</div>July 9, 1942 – October 24, 2023</div>
+        <div class="card"><div class="label">Synthetic DOB</div>1975-07-09</div>
+        <div class="card"><div class="label">Index visit</div>2026-09-29 at age 51</div>
+        <div class="card"><div class="label">Synthetic MRN</div>HR-ML015-SYN</div>
+      </div>
+      <p><strong>Teaching objective:</strong> Men get breast cancer. Evaluate a new breast lump in a man of 51 promptly, without accepting an earlier history of gynecomastia as an explanation: examination that tells a firm, eccentric cancer from soft, central gynecomastia, same-week diagnostic mammography and ultrasound of both breasts and both axillae, and core biopsy of the mass and any abnormal node; ER, PR, and HER2 status; germline genetic testing and counseling for every man with breast cancer; surgical planning with a breast surgical oncologist; lymphedema prevention; and preparation for chemotherapy followed by tamoxifen, the preferred endocrine therapy for men, on the ASCO male breast cancer guideline, the NCCN breast guideline, and the CMID breast cancer monograph. His own public account of embarrassment and of keeping his treatment secret frames the teaching on the stigma that delays men&#39;s care.</p>
+      <div class="downloads">
+        <a href="../case.json">Canonical JSON</a>
+        <a href="fhir-bundle.json">FHIR R4 draft</a>
+        <a href="ccda.html">C-CDA R2.1 summary</a> <a href="ccda.xml">(XML)</a> <a href="review.html">Review checklist</a>
+        <a href="../sources.md">Evidence dossier</a>
+      </div>
+    </section>
+    <section><h2>Historical timeline</h2><table><thead><tr><th>Date</th><th>Event</th><th>Claims</th></tr></thead><tbody>
+  <tr><td>July 9, 1942</td><td>Born in New Rochelle, New York.</td><td>CLM-0001</td></tr>
+  <tr><td>About 1955 (age 13)</td><td>Breast enlargement (gynecomastia) in adolescence, as he later described it.</td><td>CLM-0003</td></tr>
+  <tr><td>End of September 1993</td><td>Finds a lump under the left nipple; biopsy shows breast cancer.</td><td>CLM-0003, CLM-0004</td></tr>
+  <tr><td>October 1993</td><td>Mastectomy (single or double, accounts differ) with spread to the lymph nodes; then six months of chemotherapy.</td><td>CLM-0005, CLM-0006, CLM-0007</td></tr>
+  <tr><td>2000</td><td>Speaks publicly about his breast cancer for the first time.</td><td>CLM-0008</td></tr>
+  <tr><td>October 2019</td><td>Describes in a television interview his embarrassment at the diagnosis and the lasting numbness under his left arm.</td><td>CLM-0004, CLM-0009</td></tr>
+  <tr><td>October 24, 2023</td><td>Died at his home in Los Angeles, aged 81.</td><td>CLM-0010</td></tr></tbody></table></section>
+    <section><h2>Evidence claims</h2><p class="muted">D = documented, R = retrospective, S = synthetic.</p><table><thead><tr><th>Grade</th><th>Claim</th><th>Certainty</th><th>Sources</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>Richard Roundtree was born on July 9, 1942, in New Rochelle, New York.</strong></td>
+    <td>confirmed</td>
+    <td><a href="https://en.wikipedia.org/wiki/Richard_Roundtree" target="_blank" rel="noreferrer">Richard Roundtree</a> <span class="relationship">supports</span><br><a href="https://wjla.com/news/entertainment/richard-roundtree-shaft-action-hero-dies-at-81-private-detective-pancreatic-cancer-breast-cancer-blaxploitation-genre-hollywood-lifetime-achievement-award" target="_blank" rel="noreferrer">Landrum J Jr. Richard Roundtree, &#39;Shaft&#39; action hero, dies at 81 (Associated Press)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>Roundtree was an actor best known as the private detective John Shaft in films beginning in the early 1970s, and is described as the first Black action hero.</strong></td>
+    <td>confirmed</td>
+    <td><a href="https://wjla.com/news/entertainment/richard-roundtree-shaft-action-hero-dies-at-81-private-detective-pancreatic-cancer-breast-cancer-blaxploitation-genre-hollywood-lifetime-achievement-award" target="_blank" rel="noreferrer">Landrum J Jr. Richard Roundtree, &#39;Shaft&#39; action hero, dies at 81 (Associated Press)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>Roundtree told PEOPLE that at the end of September 1993, in the shower, he felt a lump under his left nipple, &#39;the size of a lima bean&#39;; he was not overly concerned at first, because at 13 he had had gynecomastia (breast enlargement), and he &#39;just chalked it up to that.&#39;</strong><div class="muted">His own public account; the attribution of a new lump to earlier gynecomastia is the delay the synthetic episode teaches against.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://malaysia.news.yahoo.com/richard-roundtree-spoke-breast-cancer-121929390.html" target="_blank" rel="noreferrer">Hannah J, Fisher C. How Richard Roundtree Spoke Up About His Breast Cancer Diagnosis Years Before Death (Exclusive). PEOPLE, republished by Yahoo News</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>In a 2019 television interview Roundtree said he found the lump in the shower while working in Costa Rica in 1993 and saw his doctor after returning to Los Angeles a week later; the doctor biopsied it and four or five days later told him he had breast cancer. Asked whether he had felt shame, he answered &#39;Embarrassment,&#39; and he said men &#39;are so cavalier about their health issues and want to sweep it under the rug.&#39;</strong><div class="muted">His own account of the stigma. It adds a location and a week&#39;s gap that the PEOPLE account does not give; the two are not in conflict on the diagnosis.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://extratv.com/2019/10/03/shaft-star-richard-roundtree-opens-up-about-his-battle-with-breast-cancer" target="_blank" rel="noreferrer">&#39;Shaft&#39; star Richard Roundtree opens up about his battle with breast cancer. Extra</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>Roundtree told PEOPLE that his physician called him four or five days after the visit to tell him in person; that a day or two later he was in the hospital for a modified radical mastectomy, which removed the complete breast from the sternum to the underarm, including the nipple and areola; and that the cancer had spread to the lymph nodes. The same article describes the operation as removing his left breast.</strong><div class="muted">His own account of a single-sided operation on the left. See CLM-0006 for the conflicting reports.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://malaysia.news.yahoo.com/richard-roundtree-spoke-breast-cancer-121929390.html" target="_blank" rel="noreferrer">Hannah J, Fisher C. How Richard Roundtree Spoke Up About His Breast Cancer Diagnosis Years Before Death (Exclusive). PEOPLE, republished by Yahoo News</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>Sources differ on the extent of the operation: his own account in PEOPLE describes a modified radical mastectomy of the left breast, while the Associated Press obituary and an encyclopedia article (citing a 2001 USA Today interview) say he underwent a double mastectomy.</strong><div class="muted">The conflict is recorded and not resolved. Neither account is preferred, and the synthetic record does not settle whether the right breast was removed.</div></td>
+    <td>disputed</td>
+    <td><a href="https://malaysia.news.yahoo.com/richard-roundtree-spoke-breast-cancer-121929390.html" target="_blank" rel="noreferrer">Hannah J, Fisher C. How Richard Roundtree Spoke Up About His Breast Cancer Diagnosis Years Before Death (Exclusive). PEOPLE, republished by Yahoo News</a> <span class="relationship">supports</span><br><a href="https://wjla.com/news/entertainment/richard-roundtree-shaft-action-hero-dies-at-81-private-detective-pancreatic-cancer-breast-cancer-blaxploitation-genre-hollywood-lifetime-achievement-award" target="_blank" rel="noreferrer">Landrum J Jr. Richard Roundtree, &#39;Shaft&#39; action hero, dies at 81 (Associated Press)</a> <span class="relationship">supports</span><br><a href="https://en.wikipedia.org/wiki/Richard_Roundtree" target="_blank" rel="noreferrer">Richard Roundtree</a> <span class="relationship">supports</span><br><a href="https://en.wikipedia.org/wiki/Richard_Roundtree#References" target="_blank" rel="noreferrer">Evans-Biermann R. Richard Roundtree &#39;Knows the Score&#39; on cancer. USA Today, September 18, 2001</a> <span class="relationship">context</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>Roundtree said that after the operation he had six months of chemotherapy, that he lost 18 pounds, and that &#39;the nausea is something you never, ever forget.&#39;</strong><div class="muted">Treatment he made public; the regimen was not made public.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://malaysia.news.yahoo.com/richard-roundtree-spoke-breast-cancer-121929390.html" target="_blank" rel="noreferrer">Hannah J, Fisher C. How Richard Roundtree Spoke Up About His Breast Cancer Diagnosis Years Before Death (Exclusive). PEOPLE, republished by Yahoo News</a> <span class="relationship">supports</span><br><a href="https://en.wikipedia.org/wiki/Richard_Roundtree" target="_blank" rel="noreferrer">Richard Roundtree</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>Roundtree said he kept his treatment secret for fear it would end his film career, keeping his undershirt on during the physical examinations required for each film; that &#39;nobody ever knew I was even in the hospital&#39;; that about six years after treatment, when he had been given the all-clear, he decided to speak up, telling PEOPLE in 2000; and that he was &#39;not embarrassed,&#39; urging men to speak about breast cancer.</strong><div class="muted">The secrecy and the later advocacy at the center of the teaching on stigma.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://malaysia.news.yahoo.com/richard-roundtree-spoke-breast-cancer-121929390.html" target="_blank" rel="noreferrer">Hannah J, Fisher C. How Richard Roundtree Spoke Up About His Breast Cancer Diagnosis Years Before Death (Exclusive). PEOPLE, republished by Yahoo News</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>In the 2019 interview he said that the left side of his chest had no feeling under the arm.</strong><div class="muted">A lasting effect he described publicly; numbness under the arm after axillary surgery is common.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://extratv.com/2019/10/03/shaft-star-richard-roundtree-opens-up-about-his-battle-with-breast-cancer" target="_blank" rel="noreferrer">&#39;Shaft&#39; star Richard Roundtree opens up about his battle with breast cancer. Extra</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>Roundtree died at his home in Los Angeles on October 24, 2023, aged 81; his longtime manager said he had been diagnosed with pancreatic cancer.</strong><div class="muted">History only. The pancreatic cancer is not part of the synthetic episode, and no link to the breast cancer is asserted.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://wjla.com/news/entertainment/richard-roundtree-shaft-action-hero-dies-at-81-private-detective-pancreatic-cancer-breast-cancer-blaxploitation-genre-hollywood-lifetime-achievement-award" target="_blank" rel="noreferrer">Landrum J Jr. Richard Roundtree, &#39;Shaft&#39; action hero, dies at 81 (Associated Press)</a> <span class="relationship">supports</span><br><a href="https://en.wikipedia.org/wiki/Richard_Roundtree" target="_blank" rel="noreferrer">Richard Roundtree</a> <span class="relationship">supports</span></td>
+  </tr></tbody></table></section>
+    <section><h2>Modern synthetic problem list</h2><table><thead><tr><th>Grade</th><th>Problem</th><th>Clinical status</th><th>Verification</th><th>Placement</th><th>Historical claims</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Invasive ductal carcinoma of the left male breast, central (retroareolar) portion: a 1.5 cm firm, painless lump eccentric to the left nipple at presentation, confirmed by core biopsy the next day; grade 3, ER positive, PR positive, HER2 negative; clinical stage IIA (cT1c cN1 M0), and pathologic stage IIA (pT1c pN1a) after mastectomy and axillary dissection; synthetic modern detail linked to his publicly disclosed breast cancer</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>both_with_link</td>
+    <td>CLM-0003, CLM-0005, CLM-0006</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Estrogen receptor-positive status of the breast cancer</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td>CLM-0003, CLM-0005</td>
+  </tr></tbody></table></section>
+    <section><h2>Synthetic outcome measures</h2><table><thead><tr><th>Grade</th><th>Date</th><th>Measure</th><th>Result</th><th>Coding</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-09-29</td>
+    <td>Patient Health Questionnaire 2 item (PHQ-2) total score [Reported]</td>
+    <td>1</td>
+    <td>http://loinc.org · 55758-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-10-05</td>
+    <td>Hemoglobin [Mass/volume] in Blood</td>
+    <td>14.8 g/dL<div class="muted">Reference 13.2-16.6 g/dL</div></td>
+    <td>http://loinc.org · 718-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-10-05</td>
+    <td>Leukocytes [#/volume] in Blood by Automated count</td>
+    <td>6.6 10*3/uL<div class="muted">Reference 4-11 10*3/uL</div></td>
+    <td>http://loinc.org · 6690-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-10-05</td>
+    <td>Neutrophils [#/volume] in Blood by Automated count</td>
+    <td>3.9 10*3/uL<div class="muted">Reference 1.5-7.7 10*3/uL</div></td>
+    <td>http://loinc.org · 751-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-10-05</td>
+    <td>Platelets [#/volume] in Blood by Automated count</td>
+    <td>246 10*3/uL<div class="muted">Reference 150-400 10*3/uL</div></td>
+    <td>http://loinc.org · 777-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-10-05</td>
+    <td>Sodium [Moles/volume] in Serum or Plasma</td>
+    <td>139 mmol/L<div class="muted">Reference 135-145 mmol/L</div></td>
+    <td>http://loinc.org · 2951-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-10-05</td>
+    <td>Potassium [Moles/volume] in Serum or Plasma</td>
+    <td>4.1 mmol/L<div class="muted">Reference 3.5-5.1 mmol/L</div></td>
+    <td>http://loinc.org · 2823-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-10-05</td>
+    <td>Creatinine [Mass/volume] in Serum or Plasma</td>
+    <td>1.02 mg/dL<div class="muted">Reference 0.74-1.35 mg/dL</div></td>
+    <td>http://loinc.org · 2160-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-10-05</td>
+    <td>Glomerular filtration rate [Volume Rate/Area] in Serum, Plasma or Blood by Creatinine-based formula (CKD-EPI 2021)/1.73 sq M</td>
+    <td>89 mL/min/1.73 m²<div class="muted">Reference &gt;=60 mL/min/1.73 m²</div></td>
+    <td>http://loinc.org · 98979-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-10-05</td>
+    <td>Glucose [Mass/volume] in Serum or Plasma</td>
+    <td>92 mg/dL<div class="muted">Reference 70-99 mg/dL</div></td>
+    <td>http://loinc.org · 2345-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-10-05</td>
+    <td>Calcium [Mass/volume] in Serum or Plasma</td>
+    <td>9.5 mg/dL<div class="muted">Reference 8.6-10.3 mg/dL</div></td>
+    <td>http://loinc.org · 17861-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-10-05</td>
+    <td>Alanine aminotransferase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>24 U/L<div class="muted">Reference 7-55 U/L</div></td>
+    <td>http://loinc.org · 1742-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-10-05</td>
+    <td>Aspartate aminotransferase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>22 U/L<div class="muted">Reference 8-48 U/L</div></td>
+    <td>http://loinc.org · 1920-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-10-05</td>
+    <td>Alkaline phosphatase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>71 U/L<div class="muted">Reference 40-129 U/L</div></td>
+    <td>http://loinc.org · 6768-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-10-05</td>
+    <td>Bilirubin.total [Mass/volume] in Serum or Plasma</td>
+    <td>0.7 mg/dL<div class="muted">Reference 0.1-1.2 mg/dL</div></td>
+    <td>http://loinc.org · 1975-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-10-05</td>
+    <td>Albumin [Mass/volume] in Serum or Plasma</td>
+    <td>4.4 g/dL<div class="muted">Reference 3.5-5 g/dL</div></td>
+    <td>http://loinc.org · 1751-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-10-05</td>
+    <td>Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]</td>
+    <td>5</td>
+    <td>http://loinc.org · 44261-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-10-20</td>
+    <td>Hemoglobin [Mass/volume] in Blood</td>
+    <td>13.9 g/dL<div class="muted">Reference 13.2-16.6 g/dL</div></td>
+    <td>http://loinc.org · 718-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-10-20</td>
+    <td>Leukocytes [#/volume] in Blood by Automated count</td>
+    <td>7 10*3/uL<div class="muted">Reference 4-11 10*3/uL</div></td>
+    <td>http://loinc.org · 6690-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-10-20</td>
+    <td>Neutrophils [#/volume] in Blood by Automated count</td>
+    <td>4.3 10*3/uL<div class="muted">Reference 1.5-7.7 10*3/uL</div></td>
+    <td>http://loinc.org · 751-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-10-20</td>
+    <td>Platelets [#/volume] in Blood by Automated count</td>
+    <td>281 10*3/uL<div class="muted">Reference 150-400 10*3/uL</div></td>
+    <td>http://loinc.org · 777-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-10-20</td>
+    <td>Creatinine [Mass/volume] in Serum or Plasma</td>
+    <td>0.98 mg/dL<div class="muted">Reference 0.74-1.35 mg/dL</div></td>
+    <td>http://loinc.org · 2160-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-10-20</td>
+    <td>Glomerular filtration rate [Volume Rate/Area] in Serum, Plasma or Blood by Creatinine-based formula (CKD-EPI 2021)/1.73 sq M</td>
+    <td>93 mL/min/1.73 m²<div class="muted">Reference &gt;=60 mL/min/1.73 m²</div></td>
+    <td>http://loinc.org · 98979-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-10-20</td>
+    <td>Alanine aminotransferase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>21 U/L<div class="muted">Reference 7-55 U/L</div></td>
+    <td>http://loinc.org · 1742-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-10-20</td>
+    <td>Bilirubin.total [Mass/volume] in Serum or Plasma</td>
+    <td>0.6 mg/dL<div class="muted">Reference 0.1-1.2 mg/dL</div></td>
+    <td>http://loinc.org · 1975-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-10-20</td>
+    <td>Albumin [Mass/volume] in Serum or Plasma</td>
+    <td>4.3 g/dL<div class="muted">Reference 3.5-5 g/dL</div></td>
+    <td>http://loinc.org · 1751-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-10-20</td>
+    <td>Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]</td>
+    <td>6</td>
+    <td>http://loinc.org · 44261-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-10-27</td>
+    <td>Patient Health Questionnaire 2 item (PHQ-2) total score [Reported]</td>
+    <td>1</td>
+    <td>http://loinc.org · 55758-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-10-27</td>
+    <td>Total score [AUDIT-C]</td>
+    <td>2</td>
+    <td>http://loinc.org · 75626-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-10-27</td>
+    <td>Cholesterol [Mass/volume] in Serum or Plasma</td>
+    <td>186 mg/dL<div class="muted">Reference &lt;=200 mg/dL</div></td>
+    <td>http://loinc.org · 2093-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-10-27</td>
+    <td>Cholesterol in HDL [Mass/volume] in Serum or Plasma</td>
+    <td>56 mg/dL<div class="muted">Reference &gt;=40 mg/dL</div></td>
+    <td>http://loinc.org · 2085-9</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-10-27</td>
+    <td>Cholesterol in LDL [Mass/volume] in Serum or Plasma by calculation</td>
+    <td>112 mg/dL<div class="muted">Reference &lt;=129 mg/dL</div></td>
+    <td>http://loinc.org · 13457-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-10-27</td>
+    <td>Triglyceride [Mass/volume] in Serum or Plasma</td>
+    <td>90 mg/dL<div class="muted">Reference &lt;=149 mg/dL</div></td>
+    <td>http://loinc.org · 2571-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-10-27</td>
+    <td>Hemoglobin A1c/Hemoglobin.total in Blood</td>
+    <td>5.3%<div class="muted">Reference &lt;=5.6%</div></td>
+    <td>http://loinc.org · 4548-4</td>
+  </tr></tbody></table></section>
+    <section><h2>Synthetic vital signs</h2><table><thead><tr><th>Date</th><th>Measure</th><th>Result</th><th>LOINC</th><th>Grade</th></tr></thead><tbody>
+  <tr><td>2026-09-29</td><td>Body height</td><td>188 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-09-29</td><td>Body weight</td><td>86 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-09-29</td><td>Body mass index (BMI) [Ratio]</td><td>24.3 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-09-29</td><td>Systolic blood pressure</td><td>128 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-09-29</td><td>Diastolic blood pressure</td><td>80 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-09-29</td><td>Heart rate</td><td>74 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-09-29</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-09-29</td><td>Body temperature</td><td>36.7 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-09-29</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>99 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-05</td><td>Body height</td><td>188 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-05</td><td>Body weight</td><td>85.6 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-05</td><td>Body mass index (BMI) [Ratio]</td><td>24.2 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-05</td><td>Systolic blood pressure</td><td>134 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-05</td><td>Diastolic blood pressure</td><td>82 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-05</td><td>Heart rate</td><td>82 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-05</td><td>Respiratory rate</td><td>16 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-05</td><td>Body temperature</td><td>36.8 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-05</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>99 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-20</td><td>Body height</td><td>188 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-20</td><td>Body weight</td><td>84.8 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-20</td><td>Body mass index (BMI) [Ratio]</td><td>24 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-20</td><td>Systolic blood pressure</td><td>126 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-20</td><td>Diastolic blood pressure</td><td>78 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-20</td><td>Heart rate</td><td>76 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-20</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-20</td><td>Body temperature</td><td>36.7 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-20</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>99 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-27</td><td>Body height</td><td>188 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-27</td><td>Body weight</td><td>85 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-27</td><td>Body mass index (BMI) [Ratio]</td><td>24 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-27</td><td>Systolic blood pressure</td><td>124 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-27</td><td>Diastolic blood pressure</td><td>78 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-27</td><td>Heart rate</td><td>72 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-27</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-27</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-27</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>99 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr></tbody></table></section>
+    <section><h2>Social, functional, and mental status</h2><h3>Social history</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Occupation: actor; works on film and television sets, where each production requires a physical examination; worried that a cancer diagnosis could cost him work</li><li><span class="badge grade-S" title="Synthetic">S</span> Never smoker; two or three drinks a week; works out and runs most days</li><li><span class="badge grade-S" title="Synthetic">S</span> Lives in his own home in Los Angeles; independent</li><li><span class="badge grade-S" title="Synthetic">S</span> Supports: close friends and family; wants the diagnosis kept private for now</li></ul><h3>Functional status</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Independent and fully active, working and training most days, at presentation</li><li><span class="badge grade-S" title="Synthetic">S</span> Full shoulder movement on both sides before surgery</li></ul><h3>Mental status</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Alert and composed; embarrassed to show his chest and surprised that a man can have breast cancer; asks plain questions</li><li><span class="badge grade-S" title="Synthetic">S</span> Worried after finding the lump; PHQ-2 negative at presentation</li></ul></section>
+    
+    <section><h2>Allergies and medications</h2><h3>Allergies</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> No known allergy</li></ul><h3>Medications</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Acetaminophen 500 mg oral tablet, two tablets by mouth every 6 hours as needed for pain after surgery, no more than 3 g a day</li></ul></section>
+    <section><h2>Procedures and immunizations</h2><h3>Procedures</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Diagnostic mammography of both breasts: 1.6 cm irregular, spiculated retroareolar mass eccentric to the left nipple (BI-RADS 5); right breast with no mass and no gynecomastia (BI-RADS 1)</li><li><span class="badge grade-S" title="Synthetic">S</span> Ultrasound of both breasts and both axillae: 1.5 cm irregular hypoechoic mass with angular margins next to the left nipple; one left axillary lymph node with a thickened cortex; right breast and right axilla normal</li><li><span class="badge grade-S" title="Synthetic">S</span> Ultrasound-guided core needle biopsy of the left breast mass and the left axillary node: invasive ductal carcinoma, grade 3; estrogen receptor 95 percent, progesterone receptor 85 percent, HER2 1+ (negative), Ki-67 30 percent; the node contains metastatic carcinoma</li><li><span class="badge grade-S" title="Synthetic">S</span> Mastectomy with level I and II axillary lymph node dissection for left breast cancer. Pathology of the left breast: invasive ductal carcinoma 1.6 cm, grade 3, margins clear, no lymphovascular invasion; 2 of 15 lymph nodes involved (largest 7 mm), no extranodal extension; pT1c pN1a, stage IIA</li><li><span class="badge grade-S" title="Synthetic">S</span> Transthoracic echocardiogram before anthracycline chemotherapy: left ventricular ejection fraction 62 percent; normal valves and wall motion</li><li><span class="badge grade-S" title="Synthetic">S</span> Advance care planning conversation, about 20 minutes</li></ul><h3>Immunizations</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> 2021-06-15: Tdap vaccine</li><li><span class="badge grade-S" title="Synthetic">S</span> 2026-10-27: Influenza vaccine, 2026-2027 season (inactivated)</li><li><span class="badge grade-S" title="Synthetic">S</span> 2026-10-27: COVID-19 mRNA vaccine, 2026-2027 formula</li><li><span class="badge grade-S" title="Synthetic">S</span> 2026-10-27: Pneumococcal conjugate vaccine PCV20</li></ul></section>
+    <section><h2>Past medical history</h2><p class="muted">True biography with historical dates; not part of the synthetic care timeline.</p><ul><li><span class="badge grade-D" title="Documented">D</span> About 1955 (age 13): Breast enlargement (gynecomastia) at 13, which he described as due to a hormonal imbalance and as common in boys; no treatment recorded <span class="muted">(CLM-0003)</span></li></ul><h3>Family history</h3><p class="muted">No family medical history is documented in the logged sources. Family history of real relatives is never synthesized.</p></section>
+    <section><h2>Care-plan goals</h2><table><thead><tr><th>Goal</th><th>Target date</th><th>Status</th><th>Outcome</th></tr></thead><tbody>
+  <tr><td>Tissue diagnosis within one week of presentation</td><td>2026-10-05</td><td>completed</td><td>Imaging and core biopsy the day after presentation; diagnosis explained on the sixth day</td></tr>
+  <tr><td>Curative surgery within two weeks of diagnosis, with lymphedema prevention taught</td><td>2026-10-20</td><td>completed</td><td>Mastectomy and axillary dissection two days after the diagnosis; clear margins; arm exercises and risk reduction taught</td></tr>
+  <tr><td>Complete germline genetic testing with counseling before chemotherapy starts</td><td>2026-10-27</td><td>active</td><td>Panel sent on the day of diagnosis; result not yet back at the end of the episode</td></tr>
+  <tr><td>Be ready to start adjuvant chemotherapy within six weeks of surgery: echocardiogram, hepatitis B screening, vaccines, and dental review done</td><td>2026-10-27</td><td>active</td><td>Echocardiogram normal; vaccines and hepatitis B screening at the preventive visit; dental review booked; first cycle scheduled</td></tr></tbody></table></section>
+    <section><h2>Interventions</h2><table><thead><tr><th>Intervention</th><th>Status</th><th>Guideline</th></tr></thead><tbody>
+  <tr><td>Urgent surgical oncology (breast) consultation for a biopsy-proven, node-positive breast cancer, to plan the operation and the axilla</td><td>completed</td><td>GL-ASCO-MBC-2020, GL-NCCN-BREAST-2025</td></tr>
+  <tr><td>Same-week diagnostic mammography and ultrasound of both breasts and both axillae, and ultrasound-guided core biopsy of the mass and the abnormal node with ER, PR, and HER2 testing</td><td>completed</td><td>GL-ASCO-MBC-2020, GL-NCCN-BREAST-2025</td></tr>
+  <tr><td>Genetic counseling and germline multigene panel testing (including BRCA2, BRCA1, PALB2, CHEK2, and ATM), as for every man with breast cancer, with a letter for relatives if a variant is found</td><td>completed</td><td>GL-ASCO-MBC-2020, GL-ASCO-SSO-GERM-2024</td></tr>
+  <tr><td>Mastectomy with axillary lymph node dissection, then shoulder exercises and lymphedema risk reduction with arm measurements at each visit</td><td>completed</td><td>GL-NCCN-BREAST-2025, GL-ACS-ASCO-SURV-2016</td></tr>
+  <tr><td>Adjuvant chemotherapy given by medical oncology (doxorubicin and cyclophosphamide every three weeks for four cycles, then weekly paclitaxel for twelve weeks, about six months), after a baseline echocardiogram, hepatitis B screening, vaccines, and a dental review; radiation oncology review of post-mastectomy radiation after chemotherapy</td><td>completed</td><td>GL-NCCN-BREAST-2025, GL-ASCO-CARDIO-2017, GL-ASCO-HBV-2020</td></tr>
+  <tr><td>Tamoxifen after chemotherapy for at least five years, the first-choice endocrine therapy for men, with venous thromboembolism, mood, hot flash, sexual side effect, and adherence checks at every visit</td><td>completed</td><td>GL-ASCO-MBC-2020, GL-CMID-2026</td></tr>
+  <tr><td>Distress screening at each visit, plain information that men get breast cancer, confidential handling of his diagnosis at work, and the offer of a peer-support group for men with breast cancer</td><td>completed</td><td>GL-ACS-ASCO-SURV-2016, GL-CMID-2026</td></tr></tbody></table></section>
+    <section><h2>Planned encounters</h2><ul>
+  <li><strong>2026-09-29</strong> — New painless lump under the left nipple in a man of 51 <span class="muted">(ENC-001)</span></li>
+  <li><strong>2026-10-05</strong> — Biopsy results: breast cancer; surgical oncology consultation; germline test and preparation for surgery <span class="muted">(ENC-002)</span></li>
+  <li><strong>2026-10-20</strong> — Review two weeks after mastectomy and axillary dissection: pathology, wound and arm care, and preparation for chemotherapy <span class="muted">(ENC-003)</span></li>
+  <li><strong>2026-10-27</strong> — Periodic adult preventive visit, timed before chemotherapy <span class="muted">(ENC-004)</span></li></ul></section>
+    <section><h2>Supporting documents</h2><ul><li><a href="notes/hp.md">History and physical</a></li><li><a href="notes/progress-01.md">Progress note 01</a></li><li><a href="notes/progress-02.md">Progress note 02 — Focused Visit (Intermediate follow-up)</a></li><li><a href="notes/progress-03.md">Progress note 03 — Focused Visit (Care-plan review)</a></li><li><a href="notes/progress-04.md">Progress note 04 — Preventive Visit</a></li><li><a href="notes/referral-01.md">Surgical Oncology (breast) referral</a></li><li><a href="notes/consult-01.md">Surgical Oncology (breast) consultation</a></li><li><a href="notes/careplan.md">Patient care plan</a></li><li><a href="notes/teaching-note.md">Teaching note</a></li><li><a href="provenance.csv">Provenance CSV</a></li></ul></section>
+    <section><h2>C-CDA note documents</h2><p class="muted">Each link opens a readable copy; the XML beside it is the exchange file.</p><ul><li><a href="ccda/hp-01.html">History and physical</a> <a href="ccda/hp-01.xml">(XML)</a></li><li><a href="ccda/progress-01.html">Progress note 01</a> <a href="ccda/progress-01.xml">(XML)</a></li><li><a href="ccda/progress-02.html">Progress note 02 — Focused Visit (Intermediate follow-up)</a> <a href="ccda/progress-02.xml">(XML)</a></li><li><a href="ccda/progress-03.html">Progress note 03 — Focused Visit (Care-plan review)</a> <a href="ccda/progress-03.xml">(XML)</a></li><li><a href="ccda/progress-04.html">Progress note 04 — Preventive Visit</a> <a href="ccda/progress-04.xml">(XML)</a></li><li><a href="ccda/referral-01.html">Surgical Oncology (breast) referral</a> <a href="ccda/referral-01.xml">(XML)</a></li><li><a href="ccda/consult-01.html">Surgical Oncology (breast) consultation</a> <a href="ccda/consult-01.xml">(XML)</a></li></ul></section>
+    <section><h2>Sources</h2><table><thead><tr><th>ID</th><th>Source</th><th>Publisher</th><th>Type</th></tr></thead><tbody>
+  <tr>
+    <td>SRC-0001</td>
+    <td><a href="https://malaysia.news.yahoo.com/richard-roundtree-spoke-breast-cancer-121929390.html" target="_blank" rel="noreferrer">Hannah J, Fisher C. How Richard Roundtree Spoke Up About His Breast Cancer Diagnosis Years Before Death (Exclusive). PEOPLE, republished by Yahoo News</a></td>
+    <td>PEOPLE (via Yahoo News)</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0002</td>
+    <td><a href="https://wjla.com/news/entertainment/richard-roundtree-shaft-action-hero-dies-at-81-private-detective-pancreatic-cancer-breast-cancer-blaxploitation-genre-hollywood-lifetime-achievement-award" target="_blank" rel="noreferrer">Landrum J Jr. Richard Roundtree, &#39;Shaft&#39; action hero, dies at 81 (Associated Press)</a></td>
+    <td>WJLA (Associated Press)</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0003</td>
+    <td><a href="https://extratv.com/2019/10/03/shaft-star-richard-roundtree-opens-up-about-his-battle-with-breast-cancer" target="_blank" rel="noreferrer">&#39;Shaft&#39; star Richard Roundtree opens up about his battle with breast cancer. Extra</a></td>
+    <td>Extra (Warner Bros.)</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0004</td>
+    <td><a href="https://en.wikipedia.org/wiki/Richard_Roundtree" target="_blank" rel="noreferrer">Richard Roundtree</a></td>
+    <td>Wikipedia</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0005</td>
+    <td><a href="https://en.wikipedia.org/wiki/Richard_Roundtree#References" target="_blank" rel="noreferrer">Evans-Biermann R. Richard Roundtree &#39;Knows the Score&#39; on cancer. USA Today, September 18, 2001</a></td>
+    <td>USA Today</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0006</td>
+    <td><a href="https://humanrecord.example.org/internal/HISTMED_Master_Roster_v3.xlsx" target="_blank" rel="noreferrer">HISTMED Master Roster v3</a></td>
+    <td>The Human Record project</td>
+    <td>other</td>
+  </tr></tbody></table></section>
+    <section><h2>Review status</h2><table><thead><tr><th>Review</th><th>Status</th><th>Notes</th></tr></thead><tbody>
+  <tr><td>schema validation</td><td>not_started</td><td>Run scripts/build.ps1 -Conformance.</td></tr>
+  <tr><td>clinical review</td><td>not_started</td><td>Awaiting clinician review; check the upfront surgery for cN1 disease, the chemotherapy choice, and the open question of post-mastectomy radiation.</td></tr>
+  <tr><td>provenance review</td><td>not_started</td><td>Recent-death rule: only what Roundtree said publicly (a 2000 PEOPLE interview as republished, a 2019 television interview) and the facts in his obituaries are used. The single versus double mastectomy conflict is recorded and not resolved. The physicians named in the PEOPLE article are not named in the record.</td></tr>
+  <tr><td>safe messaging review</td><td>not_started</td><td>Breast cancer in a man is described plainly; his embarrassment is recorded as his own public account and answered with information and support, never as a framing of the diagnosis; no behavioral-health diagnosis; the pancreatic cancer and death are recorded as history only.</td></tr></tbody></table></section>
+  </main>
+</body>
+</html>

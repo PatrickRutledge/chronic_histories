@@ -1,0 +1,475 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Edward W. Brooke — The Human Record</title>
+  <style>
+    :root { --navy:#17365d; --blue:#1f4e78; --pale:#eef5fa; --ink:#1f2933; --muted:#66788a; --amber:#fff2cc; --red:#f8d7da; --green:#d9ead3; }
+    * { box-sizing:border-box; }
+    body { margin:0; font:16px/1.5 Arial, sans-serif; color:var(--ink); background:#f6f8fa; }
+    header { background:var(--navy); color:white; padding:24px max(24px,calc((100vw - 1180px)/2)); }
+    header h1 { margin:4px 0; font-size:30px; }
+    .banner { background:#b42318; color:white; font-weight:700; text-align:center; padding:10px; letter-spacing:.03em; }
+    main { max-width:1180px; margin:24px auto 60px; padding:0 24px; }
+    section { background:white; border:1px solid #d9e1e8; border-radius:8px; margin:18px 0; padding:20px; }
+    h2 { color:var(--navy); margin:0 0 14px; font-size:22px; }
+    h3 { color:var(--blue); }
+    .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:12px; }
+    .card { background:var(--pale); border-left:4px solid var(--blue); padding:12px; }
+    .label { color:var(--muted); font-size:13px; text-transform:uppercase; letter-spacing:.04em; }
+    table { width:100%; border-collapse:collapse; }
+    th { background:var(--blue); color:white; text-align:left; }
+    th,td { padding:9px; border-bottom:1px solid #dfe6ec; vertical-align:top; }
+    .badge { display:inline-block; min-width:28px; text-align:center; font-weight:700; border-radius:12px; padding:2px 8px; }
+    .grade-D { background:var(--green); } .grade-R { background:var(--amber); } .grade-S { background:var(--red); }
+    .muted { color:var(--muted); font-size:14px; }
+    .relationship { color:var(--muted); font-size:12px; }
+    .downloads a { display:inline-block; margin:4px 8px 4px 0; padding:8px 12px; background:var(--blue); color:white; text-decoration:none; border-radius:5px; }
+    @media (max-width:700px) { table { display:block; overflow-x:auto; } }
+  </style>
+</head>
+<body>
+  <div class="banner">SYNTHETIC RECORD, NOT A REAL MEDICAL RECORD</div>
+  <header>
+    <div>The Human Record</div>
+    <h1>Edward W. Brooke</h1>
+    <div>Case HR-ML014 · Modern EHR teaching episode · Draft for review</div>
+  </header>
+  <main>
+    <section>
+      <h2>Review summary</h2>
+      <div class="grid">
+        <div class="card"><div class="label">Historical dates</div>October 26, 1919 – January 3, 2015</div>
+        <div class="card"><div class="label">Synthetic DOB</div>1942-10-26</div>
+        <div class="card"><div class="label">Index visit</div>2026-01-13 at age 83</div>
+        <div class="card"><div class="label">Synthetic MRN</div>HR-ML014-SYN</div>
+      </div>
+      <p><strong>Teaching objective:</strong> Men get breast cancer. Care for a man of 83 with node-positive, hormone receptor-positive breast cancer after bilateral mastectomy, on the ASCO male breast cancer guideline and the NCCN breast guideline: tamoxifen as the preferred adjuvant endocrine therapy for men (not an aromatase inhibitor alone), with venous thromboembolism, mood, hot flash, sexual side effect, and adherence checks at every visit; germline genetic testing and genetic counseling offered to every man with breast cancer, with information for relatives; bone health on hormone therapy at his age; and survivorship care with no routine imaging or tumor markers. His own public account, that he dismissed his symptoms and had never had his chest examined, frames the teaching on why men present late.</p>
+      <div class="downloads">
+        <a href="../case.json">Canonical JSON</a>
+        <a href="fhir-bundle.json">FHIR R4 draft</a>
+        <a href="ccda.html">C-CDA R2.1 summary</a> <a href="ccda.xml">(XML)</a> <a href="review.html">Review checklist</a>
+        <a href="../sources.md">Evidence dossier</a>
+      </div>
+    </section>
+    <section><h2>Historical timeline</h2><table><thead><tr><th>Date</th><th>Event</th><th>Claims</th></tr></thead><tbody>
+  <tr><td>October 26, 1919</td><td>Born in Washington, D.C.</td><td>CLM-0001</td></tr>
+  <tr><td>January 3, 1967</td><td>Sworn in as U.S. senator from Massachusetts, the first African American elected to the Senate by popular vote.</td><td>CLM-0002</td></tr>
+  <tr><td>September 2002</td><td>Discomfort in the right breast; mammogram, sonogram, and needle biopsy show breast cancer.</td><td>CLM-0003, CLM-0005</td></tr>
+  <tr><td>2002</td><td>Operation for breast cancer (reported as a double mastectomy) with removal of the right-sided lymph nodes.</td><td>CLM-0004, CLM-0005</td></tr>
+  <tr><td>June 2003</td><td>Begins speaking publicly about breast cancer in men.</td><td>CLM-0006</td></tr>
+  <tr><td>January 3, 2015</td><td>Died at his home in Coral Gables, Florida, aged 95.</td><td>CLM-0008</td></tr></tbody></table></section>
+    <section><h2>Evidence claims</h2><p class="muted">D = documented, R = retrospective, S = synthetic.</p><table><thead><tr><th>Grade</th><th>Claim</th><th>Certainty</th><th>Sources</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>Edward William Brooke III was born in Washington, D.C., on October 26, 1919.</strong></td>
+    <td>confirmed</td>
+    <td><a href="https://history.house.gov/People/Listing/B/BROOKE,-Edward-William,-III-(B000871)/" target="_blank" rel="noreferrer">BROOKE, Edward William, III. Biographical entry</a> <span class="relationship">supports</span><br><a href="https://transcripts.cnn.com/show/ltm/date/2003-06-11/segment/06" target="_blank" rel="noreferrer">Male Breast Cancer. American Morning, interview with former Senator Edward Brooke (transcript)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>Brooke was elected attorney general of Massachusetts in 1962 and re-elected in 1964, and in 1966 became the first African American elected to the U.S. Senate by popular vote; he served as a Republican senator from Massachusetts from January 3, 1967, to January 3, 1979.</strong></td>
+    <td>confirmed</td>
+    <td><a href="https://history.house.gov/People/Listing/B/BROOKE,-Edward-William,-III-(B000871)/" target="_blank" rel="noreferrer">BROOKE, Edward William, III. Biographical entry</a> <span class="relationship">supports</span><br><a href="https://www.govinfo.gov/link/crec/153/S/4225" target="_blank" rel="noreferrer">Congressional Record, Senate, March 29, 2007: Edward William Brooke III Congressional Gold Medal Act (S. 682)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>In a CNN interview aired on June 11, 2003, Brooke said that in September 2002 he felt discomfort in his right breast, which he dismissed as aging, possible muscle strain, or gas; that he then had a mammogram, a sonogram, and a needle biopsy, which found a malignant tumor; that his breasts had never before been examined by a doctor; and that he had not thought men got breast cancer.</strong><div class="muted">His own public account of the delay before seeking care, which the synthetic episode uses as a teaching point. No other detail of his diagnosis is used.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://transcripts.cnn.com/show/ltm/date/2003-06-11/segment/06" target="_blank" rel="noreferrer">Male Breast Cancer. American Morning, interview with former Senator Edward Brooke (transcript)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>In the same interview Brooke said he had to be operated on for breast cancer, that the cancer had spread to his lymph nodes, and that all of the lymph nodes on his right side were removed.</strong><div class="muted">Nodal involvement and an axillary dissection as he described them; the number of nodes was not made public.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://transcripts.cnn.com/show/ltm/date/2003-06-11/segment/06" target="_blank" rel="noreferrer">Male Breast Cancer. American Morning, interview with former Senator Edward Brooke (transcript)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>An Associated Press report of June 11, 2003, said that Brooke, 83, had been diagnosed with breast cancer in September, had a double mastectomy, and was free of the cancer, and that he was encouraging men to examine themselves and urging insurers to cover mammograms for men.</strong><div class="muted">The only fetched source that names the operation. The CNN interview does not contradict it.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.sunjournal.com/?p=648184" target="_blank" rel="noreferrer">Breast cancer checks urged (Associated Press)</a> <span class="relationship">supports</span><br><a href="https://en.wikipedia.org/wiki/Edward_Brooke" target="_blank" rel="noreferrer">Edward Brooke</a> <span class="relationship">supports</span><br><a href="https://www.nytimes.com/2003/06/10/us/surprise-role-for-ex-senator-male-breast-cancer-patient.html" target="_blank" rel="noreferrer">Clemetson L. Surprise Role for Ex-Senator: Male Breast Cancer Patient. The New York Times, June 10, 2003</a> <span class="relationship">context</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>Brooke said he kept the diagnosis private for several months and then, in June 2003, began speaking publicly about breast cancer in men, saying &#39;Men have breast tissue like women, and they can have breast cancer, and they do,&#39; and urging men &#39;not to be so macho about this whole thing&#39;; he called for national awareness, early detection, and insurance coverage of mammograms for men.</strong><div class="muted">The destigmatization message at the center of the record.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://transcripts.cnn.com/show/ltm/date/2003-06-11/segment/06" target="_blank" rel="noreferrer">Male Breast Cancer. American Morning, interview with former Senator Edward Brooke (transcript)</a> <span class="relationship">supports</span><br><a href="https://csmonitor.com/USA/Latest-News-Wires/2015/0104/Groundbreaking-Senator-Edward-W.-Brooke-dies" target="_blank" rel="noreferrer">Wingfield S, Pratt M. Groundbreaking Senator Edward W. Brooke dies (Associated Press)</a> <span class="relationship">supports</span><br><a href="https://history.house.gov/People/Listing/B/BROOKE,-Edward-William,-III-(B000871)/" target="_blank" rel="noreferrer">BROOKE, Edward William, III. Biographical entry</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>In the 2003 interview Brooke described himself as not a smoker or a drinker and said he exercised and ate fairly good food.</strong><div class="muted">His own public description, used for the social history.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://transcripts.cnn.com/show/ltm/date/2003-06-11/segment/06" target="_blank" rel="noreferrer">Male Breast Cancer. American Morning, interview with former Senator Edward Brooke (transcript)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>Brooke died at his home in Coral Gables, Florida, on January 3, 2015, aged 95; his former chief counsel said he died of natural causes.</strong><div class="muted">Recorded as a fact; no further detail of his last years is used.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://history.house.gov/People/Listing/B/BROOKE,-Edward-William,-III-(B000871)/" target="_blank" rel="noreferrer">BROOKE, Edward William, III. Biographical entry</a> <span class="relationship">supports</span><br><a href="https://csmonitor.com/USA/Latest-News-Wires/2015/0104/Groundbreaking-Senator-Edward-W.-Brooke-dies" target="_blank" rel="noreferrer">Wingfield S, Pratt M. Groundbreaking Senator Edward W. Brooke dies (Associated Press)</a> <span class="relationship">supports</span><br><a href="https://www.cbsnews.com/amp/news/edward-brooke-1st-black-man-elected-to-senate-dies-at-95" target="_blank" rel="noreferrer">Edward Brooke, 1st African-American elected to Senate, dies at 95</a> <span class="relationship">supports</span></td>
+  </tr></tbody></table></section>
+    <section><h2>Modern synthetic problem list</h2><table><thead><tr><th>Grade</th><th>Problem</th><th>Clinical status</th><th>Verification</th><th>Placement</th><th>Historical claims</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Invasive ductal carcinoma of the right male breast, central (retroareolar) portion, stage IIA (pT1c pN1a M0), grade 2, ER positive, PR positive, HER2 negative; treated by bilateral mastectomy and right axillary lymph node dissection; on adjuvant tamoxifen; synthetic modern detail linked to his publicly disclosed breast cancer</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>both_with_link</td>
+    <td>CLM-0003, CLM-0004, CLM-0005</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Estrogen receptor-positive status of the breast cancer</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td>CLM-0003, CLM-0004, CLM-0005</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Long-term use of tamoxifen, with safety monitoring (venous thromboembolism, mood, hot flashes, sexual side effects, adherence) and bone health review</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td>CLM-0003, CLM-0004, CLM-0005</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Absence of both breasts after bilateral mastectomy</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td>CLM-0005</td>
+  </tr></tbody></table></section>
+    <section><h2>Synthetic outcome measures</h2><table><thead><tr><th>Grade</th><th>Date</th><th>Measure</th><th>Result</th><th>Coding</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-01-13</td>
+    <td>Hemoglobin [Mass/volume] in Blood</td>
+    <td>13.8 g/dL<div class="muted">Reference 13.2-16.6 g/dL</div></td>
+    <td>http://loinc.org · 718-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-01-13</td>
+    <td>Leukocytes [#/volume] in Blood by Automated count</td>
+    <td>6.1 10*3/uL<div class="muted">Reference 4-11 10*3/uL</div></td>
+    <td>http://loinc.org · 6690-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-01-13</td>
+    <td>Platelets [#/volume] in Blood by Automated count</td>
+    <td>214 10*3/uL<div class="muted">Reference 150-400 10*3/uL</div></td>
+    <td>http://loinc.org · 777-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-01-13</td>
+    <td>Sodium [Moles/volume] in Serum or Plasma</td>
+    <td>140 mmol/L<div class="muted">Reference 135-145 mmol/L</div></td>
+    <td>http://loinc.org · 2951-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-01-13</td>
+    <td>Potassium [Moles/volume] in Serum or Plasma</td>
+    <td>4.3 mmol/L<div class="muted">Reference 3.5-5.1 mmol/L</div></td>
+    <td>http://loinc.org · 2823-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-01-13</td>
+    <td>Creatinine [Mass/volume] in Serum or Plasma</td>
+    <td>1.04 mg/dL<div class="muted">Reference 0.74-1.35 mg/dL</div></td>
+    <td>http://loinc.org · 2160-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-01-13</td>
+    <td>Glomerular filtration rate [Volume Rate/Area] in Serum, Plasma or Blood by Creatinine-based formula (CKD-EPI 2021)/1.73 sq M</td>
+    <td>71 mL/min/1.73 m²<div class="muted">Reference &gt;=60 mL/min/1.73 m²</div></td>
+    <td>http://loinc.org · 98979-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-01-13</td>
+    <td>Calcium [Mass/volume] in Serum or Plasma</td>
+    <td>9.3 mg/dL<div class="muted">Reference 8.6-10.3 mg/dL</div></td>
+    <td>http://loinc.org · 17861-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-01-13</td>
+    <td>Alanine aminotransferase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>19 U/L<div class="muted">Reference 7-55 U/L</div></td>
+    <td>http://loinc.org · 1742-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-01-13</td>
+    <td>Aspartate aminotransferase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>23 U/L<div class="muted">Reference 8-48 U/L</div></td>
+    <td>http://loinc.org · 1920-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-01-13</td>
+    <td>Alkaline phosphatase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>76 U/L<div class="muted">Reference 40-129 U/L</div></td>
+    <td>http://loinc.org · 6768-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-01-13</td>
+    <td>Bilirubin.total [Mass/volume] in Serum or Plasma</td>
+    <td>0.6 mg/dL<div class="muted">Reference 0.1-1.2 mg/dL</div></td>
+    <td>http://loinc.org · 1975-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-01-13</td>
+    <td>Albumin [Mass/volume] in Serum or Plasma</td>
+    <td>4 g/dL<div class="muted">Reference 3.5-5 g/dL</div></td>
+    <td>http://loinc.org · 1751-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-01-13</td>
+    <td>25-Hydroxyvitamin D3+25-Hydroxyvitamin D2 [Mass/volume] in Serum or Plasma</td>
+    <td>24 ng/mL (low)<div class="muted">Reference 30-100 ng/mL</div></td>
+    <td>http://loinc.org · 62292-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-01-13</td>
+    <td>Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]</td>
+    <td>3</td>
+    <td>http://loinc.org · 44261-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-02-10</td>
+    <td>DXA Femur [T-score] Bone density</td>
+    <td>-1.2 (low)<div class="muted">Reference -1.0 or higher is normal; -2.5 or lower is osteoporosis</div></td>
+    <td>http://loinc.org · 38263-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-02-10</td>
+    <td>DXA Lumbar spine [T-score] Bone density</td>
+    <td>-0.4<div class="muted">Reference -1.0 or higher is normal; -2.5 or lower is osteoporosis</div></td>
+    <td>http://loinc.org · 38267-1</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-02-10</td>
+    <td>Patient Health Questionnaire 2 item (PHQ-2) total score [Reported]</td>
+    <td>0</td>
+    <td>http://loinc.org · 55758-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-05-12</td>
+    <td>25-Hydroxyvitamin D3+25-Hydroxyvitamin D2 [Mass/volume] in Serum or Plasma</td>
+    <td>36 ng/mL<div class="muted">Reference 30-100 ng/mL</div></td>
+    <td>http://loinc.org · 62292-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-05-12</td>
+    <td>Patient Health Questionnaire 2 item (PHQ-2) total score [Reported]</td>
+    <td>1</td>
+    <td>http://loinc.org · 55758-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-08-11</td>
+    <td>Patient Health Questionnaire 2 item (PHQ-2) total score [Reported]</td>
+    <td>0</td>
+    <td>http://loinc.org · 55758-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-10-13</td>
+    <td>Patient Health Questionnaire 2 item (PHQ-2) total score [Reported]</td>
+    <td>0</td>
+    <td>http://loinc.org · 55758-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-10-13</td>
+    <td>Total score [Mini-Cog]</td>
+    <td>5</td>
+    <td>http://loinc.org · 72233-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-10-13</td>
+    <td>Total score [AUDIT-C]</td>
+    <td>0</td>
+    <td>http://loinc.org · 75626-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-10-13</td>
+    <td>Cholesterol [Mass/volume] in Serum or Plasma</td>
+    <td>176 mg/dL<div class="muted">Reference &lt;=200 mg/dL</div></td>
+    <td>http://loinc.org · 2093-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-10-13</td>
+    <td>Cholesterol in HDL [Mass/volume] in Serum or Plasma</td>
+    <td>54 mg/dL<div class="muted">Reference &gt;=40 mg/dL</div></td>
+    <td>http://loinc.org · 2085-9</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-10-13</td>
+    <td>Cholesterol in LDL [Mass/volume] in Serum or Plasma by calculation</td>
+    <td>104 mg/dL<div class="muted">Reference &lt;=129 mg/dL</div></td>
+    <td>http://loinc.org · 13457-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-10-13</td>
+    <td>Triglyceride [Mass/volume] in Serum or Plasma</td>
+    <td>92 mg/dL<div class="muted">Reference &lt;=149 mg/dL</div></td>
+    <td>http://loinc.org · 2571-8</td>
+  </tr></tbody></table></section>
+    <section><h2>Synthetic vital signs</h2><table><thead><tr><th>Date</th><th>Measure</th><th>Result</th><th>LOINC</th><th>Grade</th></tr></thead><tbody>
+  <tr><td>2026-01-13</td><td>Body height</td><td>183 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-01-13</td><td>Body weight</td><td>81.6 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-01-13</td><td>Body mass index (BMI) [Ratio]</td><td>24.4 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-01-13</td><td>Systolic blood pressure</td><td>134 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-01-13</td><td>Diastolic blood pressure</td><td>76 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-01-13</td><td>Heart rate</td><td>70 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-01-13</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-01-13</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-01-13</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>97 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-02-10</td><td>Body height</td><td>183 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-02-10</td><td>Body weight</td><td>81.8 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-02-10</td><td>Body mass index (BMI) [Ratio]</td><td>24.4 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-02-10</td><td>Systolic blood pressure</td><td>130 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-02-10</td><td>Diastolic blood pressure</td><td>74 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-02-10</td><td>Heart rate</td><td>68 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-02-10</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-02-10</td><td>Body temperature</td><td>36.7 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-02-10</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>98 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-05-12</td><td>Body height</td><td>183 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-05-12</td><td>Body weight</td><td>82.2 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-05-12</td><td>Body mass index (BMI) [Ratio]</td><td>24.5 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-05-12</td><td>Systolic blood pressure</td><td>128 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-05-12</td><td>Diastolic blood pressure</td><td>74 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-05-12</td><td>Heart rate</td><td>66 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-05-12</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-05-12</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-05-12</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>98 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-08-11</td><td>Body height</td><td>183 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-08-11</td><td>Body weight</td><td>82 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-08-11</td><td>Body mass index (BMI) [Ratio]</td><td>24.5 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-08-11</td><td>Systolic blood pressure</td><td>128 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-08-11</td><td>Diastolic blood pressure</td><td>72 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-08-11</td><td>Heart rate</td><td>68 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-08-11</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-08-11</td><td>Body temperature</td><td>36.7 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-08-11</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>98 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-13</td><td>Body height</td><td>183 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-13</td><td>Body weight</td><td>82.4 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-13</td><td>Body mass index (BMI) [Ratio]</td><td>24.6 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-13</td><td>Systolic blood pressure</td><td>130 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-13</td><td>Diastolic blood pressure</td><td>74 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-13</td><td>Heart rate</td><td>68 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-13</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-13</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-13</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>98 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr></tbody></table></section>
+    <section><h2>Social, functional, and mental status</h2><h3>Social history</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Occupation: retired from public office and law; writes, speaks, and serves on boards</li><li><span class="badge grade-S" title="Synthetic">S</span> Never smoker; does not drink alcohol; walks and exercises most days and eats a balanced diet</li><li><span class="badge grade-S" title="Synthetic">S</span> Lives in his own home with his spouse; independent; drives</li><li><span class="badge grade-S" title="Synthetic">S</span> Supports: family and a wide circle of friends and former colleagues</li></ul><h3>Functional status</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Independent in all activities and instrumental activities of daily living; full shoulder movement on both sides after surgery</li><li><span class="badge grade-S" title="Synthetic">S</span> Walks 30 to 40 minutes most days</li></ul><h3>Mental status</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Alert, articulate, and courteous; prefers to keep his diagnosis private for now and asks direct questions about his treatment</li><li><span class="badge grade-S" title="Synthetic">S</span> Mood good; PHQ-9 minimal at the first visit</li></ul></section>
+    
+    <section><h2>Allergies and medications</h2><h3>Allergies</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> No known allergy</li></ul><h3>Medications</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Tamoxifen 20 mg oral tablet, one tablet by mouth once daily (adjuvant endocrine therapy, planned for at least five years)</li><li><span class="badge grade-S" title="Synthetic">S</span> Cholecalciferol (vitamin D3) 1000 units oral tablet, one tablet by mouth once daily</li></ul></section>
+    <section><h2>Procedures and immunizations</h2><h3>Procedures</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Diagnostic mammography of both breasts: 1.9 cm irregular, spiculated retroareolar mass in the right breast (BI-RADS 5); left breast with no mass or gynecomastia (BI-RADS 1)</li><li><span class="badge grade-S" title="Synthetic">S</span> Ultrasound of both breasts and both axillae: 1.8 cm irregular hypoechoic retroareolar mass in the right breast; one right axillary lymph node with a thickened cortex; left breast and left axilla normal</li><li><span class="badge grade-S" title="Synthetic">S</span> Ultrasound-guided core needle biopsy of the right breast mass and the right axillary node: invasive ductal carcinoma, grade 2; estrogen receptor 95 percent, progesterone receptor 80 percent, HER2 1+ (negative), Ki-67 15 percent; the node contains metastatic carcinoma</li><li><span class="badge grade-S" title="Synthetic">S</span> Bilateral mastectomy, at another hospital. Pathology: right breast, invasive ductal carcinoma 1.8 cm, grade 2, margins clear, no lymphovascular invasion; left breast, benign breast tissue</li><li><span class="badge grade-S" title="Synthetic">S</span> Right axillary lymph node dissection, at the same operation: 1 of 14 lymph nodes with a 4 mm metastasis, no extranodal extension; pT1c pN1a, stage IIA</li><li><span class="badge grade-S" title="Synthetic">S</span> Advance care planning conversation, about 20 minutes</li></ul><h3>Immunizations</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> 2025-10-14: High-dose influenza vaccine, 2025-2026 season</li><li><span class="badge grade-S" title="Synthetic">S</span> 2018-04-10: Tdap vaccine</li><li><span class="badge grade-S" title="Synthetic">S</span> 2026-10-13: High-dose influenza vaccine, 2026-2027 season</li><li><span class="badge grade-S" title="Synthetic">S</span> 2026-10-13: Pneumococcal conjugate vaccine PCV20</li><li><span class="badge grade-S" title="Synthetic">S</span> 2026-10-13: Recombinant zoster vaccine, dose 1 of 2</li></ul></section>
+    <section><h2>Past medical history</h2><p class="muted">True biography with historical dates; not part of the synthetic care timeline.</p><ul><li><span class="badge grade-D" title="Documented">D</span> September 2002: Breast cancer of the right breast in a man, diagnosed after he noticed discomfort in the right breast; mammogram, sonogram, and needle biopsy; he had never had a chest examination by a doctor before <span class="muted">(CLM-0003)</span></li><li><span class="badge grade-D" title="Documented">D</span> 2002: Operation for breast cancer, reported as a double mastectomy, with removal of the lymph nodes on the right side, to which the cancer had spread <span class="muted">(CLM-0004, CLM-0005)</span></li></ul><h3>Family history</h3><p class="muted">No family medical history is documented in the logged sources. Family history of real relatives is never synthesized.</p></section>
+    <section><h2>Care-plan goals</h2><table><thead><tr><th>Goal</th><th>Target date</th><th>Status</th><th>Outcome</th></tr></thead><tbody>
+  <tr><td>Take tamoxifen every day with side effects managed, aiming to continue for at least five years</td><td>2026-08-11</td><td>completed</td><td>No missed doses by pill count over seven months; mild hot flashes and a mild fall in libido, both manageable; no clot symptoms</td></tr>
+  <tr><td>Complete germline genetic testing with counseling, and give him written information for his relatives</td><td>2026-05-12</td><td>completed</td><td>No pathogenic variant in a multigene panel; family letter given</td></tr>
+  <tr><td>Establish bone health on hormone therapy at his age: DXA, vitamin D of 30 ng/mL or more, and weight-bearing exercise</td><td>2026-05-12</td><td>completed</td><td>Femoral neck T-score -1.2; vitamin D 36 ng/mL after supplementation</td></tr>
+  <tr><td>Give a written survivorship care plan with the surveillance schedule</td><td>2026-08-11</td><td>completed</td><td>Survivorship care plan given at the survivorship visit</td></tr></tbody></table></section>
+    <section><h2>Interventions</h2><table><thead><tr><th>Intervention</th><th>Status</th><th>Guideline</th></tr></thead><tbody>
+  <tr><td>Medical oncology consultation to take over adjuvant endocrine therapy, confirm that no further adjuvant treatment is needed, and arrange germline genetic testing</td><td>completed</td><td>GL-ASCO-MBC-2020, GL-NCCN-BREAST-2025</td></tr>
+  <tr><td>Tamoxifen 20 mg daily for an initial five years, with venous thromboembolism symptoms, mood, hot flashes, sexual side effects, adherence, and interacting medicines reviewed at every visit</td><td>completed</td><td>GL-ASCO-MBC-2020, GL-CMID-2026</td></tr>
+  <tr><td>Genetic counseling and germline multigene panel testing (including BRCA2, BRCA1, PALB2, CHEK2, and ATM), with a letter for first-degree relatives explaining the result</td><td>completed</td><td>GL-ASCO-MBC-2020, GL-ASCO-SSO-GERM-2024</td></tr>
+  <tr><td>Bone health: DXA at baseline, vitamin D repletion, dietary calcium, and weight-bearing exercise; bone-modifying drugs only for osteoporosis, not to prevent recurrence</td><td>completed</td><td>GL-ASCO-MBC-2020, GL-ASCO-BONE-2019, GL-CMID-2026</td></tr>
+  <tr><td>Survivorship surveillance: cancer-related history and examination of both sides of the chest wall and both axillae every 3 to 6 months for 3 years, then every 6 to 12 months to 5 years, then yearly; no routine imaging, blood tests, or tumor markers without symptoms; lymphedema checks</td><td>completed</td><td>GL-CMID-2026, GL-ACS-ASCO-SURV-2016, GL-ASCO-MBC-2020</td></tr>
+  <tr><td>Distress screening at each visit, at least 150 minutes of activity a week, and a written survivorship care plan</td><td>completed</td><td>GL-ACS-ASCO-SURV-2016, GL-CMID-2026</td></tr></tbody></table></section>
+    <section><h2>Planned encounters</h2><ul>
+  <li><strong>2026-01-13</strong> — First visit to establish shared care for breast cancer on adjuvant tamoxifen, fourteen weeks after bilateral mastectomy and right axillary dissection <span class="muted">(ENC-001)</span></li>
+  <li><strong>2026-02-10</strong> — Four-week follow-up with medical oncology consultation: adjuvant plan, germline testing, tamoxifen safety, and bone density results <span class="muted">(ENC-002)</span></li>
+  <li><strong>2026-05-12</strong> — Three-month follow-up: germline result, tamoxifen side effects and adherence, vitamin D recheck <span class="muted">(ENC-003)</span></li>
+  <li><strong>2026-08-11</strong> — Survivorship visit: cancer-related history and examination, tamoxifen review, and written survivorship care plan <span class="muted">(ENC-004)</span></li>
+  <li><strong>2026-10-13</strong> — Subsequent annual wellness visit <span class="muted">(ENC-005)</span></li></ul></section>
+    <section><h2>Supporting documents</h2><ul><li><a href="notes/hp.md">History and physical</a></li><li><a href="notes/progress-01.md">Progress note 01</a></li><li><a href="notes/progress-02.md">Progress note 02 — Focused Visit (Follow-up)</a></li><li><a href="notes/progress-03.md">Progress note 03 — Focused Visit (Follow-up)</a></li><li><a href="notes/progress-04.md">Progress note 04 — Focused Visit (Care-plan review)</a></li><li><a href="notes/progress-05.md">Progress note 05 — Annual Wellness Visit, Subsequent</a></li><li><a href="notes/referral-01.md">Medical Oncology referral</a></li><li><a href="notes/consult-01.md">Medical Oncology consultation</a></li><li><a href="notes/careplan.md">Patient care plan</a></li><li><a href="notes/teaching-note.md">Teaching note</a></li><li><a href="provenance.csv">Provenance CSV</a></li></ul></section>
+    <section><h2>C-CDA note documents</h2><p class="muted">Each link opens a readable copy; the XML beside it is the exchange file.</p><ul><li><a href="ccda/hp-01.html">History and physical</a> <a href="ccda/hp-01.xml">(XML)</a></li><li><a href="ccda/progress-01.html">Progress note 01</a> <a href="ccda/progress-01.xml">(XML)</a></li><li><a href="ccda/progress-02.html">Progress note 02 — Focused Visit (Follow-up)</a> <a href="ccda/progress-02.xml">(XML)</a></li><li><a href="ccda/progress-03.html">Progress note 03 — Focused Visit (Follow-up)</a> <a href="ccda/progress-03.xml">(XML)</a></li><li><a href="ccda/progress-04.html">Progress note 04 — Focused Visit (Care-plan review)</a> <a href="ccda/progress-04.xml">(XML)</a></li><li><a href="ccda/progress-05.html">Progress note 05 — Annual Wellness Visit, Subsequent</a> <a href="ccda/progress-05.xml">(XML)</a></li><li><a href="ccda/referral-01.html">Medical Oncology referral</a> <a href="ccda/referral-01.xml">(XML)</a></li><li><a href="ccda/consult-01.html">Medical Oncology consultation</a> <a href="ccda/consult-01.xml">(XML)</a></li></ul></section>
+    <section><h2>Sources</h2><table><thead><tr><th>ID</th><th>Source</th><th>Publisher</th><th>Type</th></tr></thead><tbody>
+  <tr>
+    <td>SRC-0001</td>
+    <td><a href="https://history.house.gov/People/Listing/B/BROOKE,-Edward-William,-III-(B000871)/" target="_blank" rel="noreferrer">BROOKE, Edward William, III. Biographical entry</a></td>
+    <td>U.S. House of Representatives: History, Art &amp; Archives</td>
+    <td>government</td>
+  </tr>
+  <tr>
+    <td>SRC-0002</td>
+    <td><a href="https://transcripts.cnn.com/show/ltm/date/2003-06-11/segment/06" target="_blank" rel="noreferrer">Male Breast Cancer. American Morning, interview with former Senator Edward Brooke (transcript)</a></td>
+    <td>CNN</td>
+    <td>primary</td>
+  </tr>
+  <tr>
+    <td>SRC-0003</td>
+    <td><a href="https://www.govinfo.gov/link/crec/153/S/4225" target="_blank" rel="noreferrer">Congressional Record, Senate, March 29, 2007: Edward William Brooke III Congressional Gold Medal Act (S. 682)</a></td>
+    <td>U.S. Government Publishing Office (govinfo)</td>
+    <td>government</td>
+  </tr>
+  <tr>
+    <td>SRC-0004</td>
+    <td><a href="https://www.sunjournal.com/?p=648184" target="_blank" rel="noreferrer">Breast cancer checks urged (Associated Press)</a></td>
+    <td>Sun Journal (Lewiston, Maine)</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0005</td>
+    <td><a href="https://csmonitor.com/USA/Latest-News-Wires/2015/0104/Groundbreaking-Senator-Edward-W.-Brooke-dies" target="_blank" rel="noreferrer">Wingfield S, Pratt M. Groundbreaking Senator Edward W. Brooke dies (Associated Press)</a></td>
+    <td>The Christian Science Monitor</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0006</td>
+    <td><a href="https://en.wikipedia.org/wiki/Edward_Brooke" target="_blank" rel="noreferrer">Edward Brooke</a></td>
+    <td>Wikipedia</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0007</td>
+    <td><a href="https://www.nytimes.com/2003/06/10/us/surprise-role-for-ex-senator-male-breast-cancer-patient.html" target="_blank" rel="noreferrer">Clemetson L. Surprise Role for Ex-Senator: Male Breast Cancer Patient. The New York Times, June 10, 2003</a></td>
+    <td>The New York Times</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0008</td>
+    <td><a href="https://www.cbsnews.com/amp/news/edward-brooke-1st-black-man-elected-to-senate-dies-at-95" target="_blank" rel="noreferrer">Edward Brooke, 1st African-American elected to Senate, dies at 95</a></td>
+    <td>CBS News</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0009</td>
+    <td><a href="https://humanrecord.example.org/internal/HISTMED_Master_Roster_v3.xlsx" target="_blank" rel="noreferrer">HISTMED Master Roster v3</a></td>
+    <td>The Human Record project</td>
+    <td>other</td>
+  </tr></tbody></table></section>
+    <section><h2>Review status</h2><table><thead><tr><th>Review</th><th>Status</th><th>Notes</th></tr></thead><tbody>
+  <tr><td>schema validation</td><td>not_started</td><td>Run scripts/build.ps1 -Conformance.</td></tr>
+  <tr><td>clinical review</td><td>not_started</td><td>Awaiting clinician review; check the omission of chemotherapy and radiation at 83, the tamoxifen monitoring, and the bone-health plan.</td></tr>
+  <tr><td>provenance review</td><td>not_started</td><td>Recent-death rule: only what Brooke said publicly (a 2003 CNN interview and Associated Press reports) and basic biographical facts are used. No physician of his made a public statement that was found. Statements about his relatives in the news reports are not used.</td></tr>
+  <tr><td>safe messaging review</td><td>not_started</td><td>Breast cancer in a man is described plainly, without any framing of it as embarrassing; no behavioral-health diagnosis; death recorded without detail.</td></tr></tbody></table></section>
+  </main>
+</body>
+</html>

@@ -1,0 +1,673 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hubert H. Humphrey — The Human Record</title>
+  <style>
+    :root { --navy:#17365d; --blue:#1f4e78; --pale:#eef5fa; --ink:#1f2933; --muted:#66788a; --amber:#fff2cc; --red:#f8d7da; --green:#d9ead3; }
+    * { box-sizing:border-box; }
+    body { margin:0; font:16px/1.5 Arial, sans-serif; color:var(--ink); background:#f6f8fa; }
+    header { background:var(--navy); color:white; padding:24px max(24px,calc((100vw - 1180px)/2)); }
+    header h1 { margin:4px 0; font-size:30px; }
+    .banner { background:#b42318; color:white; font-weight:700; text-align:center; padding:10px; letter-spacing:.03em; }
+    main { max-width:1180px; margin:24px auto 60px; padding:0 24px; }
+    section { background:white; border:1px solid #d9e1e8; border-radius:8px; margin:18px 0; padding:20px; }
+    h2 { color:var(--navy); margin:0 0 14px; font-size:22px; }
+    h3 { color:var(--blue); }
+    .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:12px; }
+    .card { background:var(--pale); border-left:4px solid var(--blue); padding:12px; }
+    .label { color:var(--muted); font-size:13px; text-transform:uppercase; letter-spacing:.04em; }
+    table { width:100%; border-collapse:collapse; }
+    th { background:var(--blue); color:white; text-align:left; }
+    th,td { padding:9px; border-bottom:1px solid #dfe6ec; vertical-align:top; }
+    .badge { display:inline-block; min-width:28px; text-align:center; font-weight:700; border-radius:12px; padding:2px 8px; }
+    .grade-D { background:var(--green); } .grade-R { background:var(--amber); } .grade-S { background:var(--red); }
+    .muted { color:var(--muted); font-size:14px; }
+    .relationship { color:var(--muted); font-size:12px; }
+    .downloads a { display:inline-block; margin:4px 8px 4px 0; padding:8px 12px; background:var(--blue); color:white; text-decoration:none; border-radius:5px; }
+    @media (max-width:700px) { table { display:block; overflow-x:auto; } }
+  </style>
+</head>
+<body>
+  <div class="banner">SYNTHETIC RECORD, NOT A REAL MEDICAL RECORD</div>
+  <header>
+    <div>The Human Record</div>
+    <h1>Hubert H. Humphrey</h1>
+    <div>Case HR-ML022 · Modern EHR teaching episode · Draft for review</div>
+  </header>
+  <main>
+    <section>
+      <h2>Review summary</h2>
+      <div class="grid">
+        <div class="card"><div class="label">Historical dates</div>27 May 1911 – 13 January 1978</div>
+        <div class="card"><div class="label">Synthetic DOB</div>1960-05-27</div>
+        <div class="card"><div class="label">Index visit</div>2026-01-06 at age 65</div>
+        <div class="card"><div class="label">Synthetic MRN</div>HR-ML022-SYN</div>
+      </div>
+      <p><strong>Teaching objective:</strong> Primary care after radical cystoprostatectomy with an ileal conduit for urothelial bladder cancer, on the AUA/ASCO/SUO muscle-invasive bladder cancer guideline, the AUA/SUO non-muscle-invasive guideline, and the CMID urologic cancer monograph: how high-risk non-muscle-invasive disease that recurs after intravesical therapy and earlier pelvic radiation leads to early cystectomy, and how often the final pathology is upstaged; why pT2a N0 disease needs no adjuvant therapy; surveillance by cross-sectional imaging every 6 to 12 months and upper-tract and kidney function checks every 6 months; the metabolic effects of an ileal conduit (hyperchloremic acidosis, kidney function, vitamin B12); stoma and peristomal skin care; and the difference between expected bacteriuria in conduit urine and a true kidney infection, with a culture taken by catheter from the stoma. His documented history of bladder growths, intravesical thiotepa with X-ray therapy, and a radical cystectomy with a small-intestine conduit frames the episode.</p>
+      <div class="downloads">
+        <a href="../case.json">Canonical JSON</a>
+        <a href="fhir-bundle.json">FHIR R4 draft</a>
+        <a href="ccda.html">C-CDA R2.1 summary</a> <a href="ccda.xml">(XML)</a> <a href="review.html">Review checklist</a>
+        <a href="../sources.md">Evidence dossier</a>
+      </div>
+    </section>
+    <section><h2>Historical timeline</h2><table><thead><tr><th>Date</th><th>Event</th><th>Claims</th></tr></thead><tbody>
+  <tr><td>27 May 1911</td><td>Born in Wallace, South Dakota.</td><td>CLM-0001</td></tr>
+  <tr><td>1949</td><td>Begins service in the U.S. Senate.</td><td>CLM-0002</td></tr>
+  <tr><td>1967</td><td>Seeks medical advice for blood in the urine; not treated.</td><td>CLM-0003</td></tr>
+  <tr><td>1968</td><td>Several small benign bladder growths found and removed.</td><td>CLM-0003</td></tr>
+  <tr><td>1973</td><td>Possibly cancerous bladder tissue treated with thiotepa and five weeks of X-ray therapy.</td><td>CLM-0004</td></tr>
+  <tr><td>October 1976</td><td>Radical cystectomy with removal of the prostate and a small-intestine urinary conduit at Memorial Sloan-Kettering Cancer Center.</td><td>CLM-0005</td></tr>
+  <tr><td>January 5, 1977</td><td>Resumes his Senate duties.</td><td>CLM-0006</td></tr>
+  <tr><td>August 1977</td><td>Inoperable pelvic recurrence found at an operation for bowel obstruction.</td><td>CLM-0007</td></tr>
+  <tr><td>13 January 1978</td><td>Died in Waverly, Minnesota.</td><td>CLM-0008</td></tr></tbody></table></section>
+    <section><h2>Evidence claims</h2><p class="muted">D = documented, R = retrospective, S = synthetic.</p><table><thead><tr><th>Grade</th><th>Claim</th><th>Certainty</th><th>Sources</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>Hubert Horatio Humphrey Jr. was born on 27 May 1911 in Wallace, South Dakota.</strong></td>
+    <td>confirmed</td>
+    <td><a href="https://encyclopedia.com/humanities/encyclopedias-almanacs-transcripts-and-maps/humphrey-hubert-horatio-jr" target="_blank" rel="noreferrer">Humphrey, Hubert Horatio, Jr. Scribner Encyclopedia of American Lives, Thematic Series: The 1960s</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>Humphrey served in the U.S. Senate from Minnesota from 1949 to 1964, as vice president from 1965 to 1969, and again in the Senate from 1971 until his death.</strong></td>
+    <td>confirmed</td>
+    <td><a href="https://www.senate.gov/senators/FeaturedBios/Featured_Bio_HumphreyHubert.htm" target="_blank" rel="noreferrer">Hubert H. Humphrey: A Featured Biography</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>Humphrey sought medical advice in 1967 for blood in his urine; some doctors suspected bladder cancer, others disagreed, and he was not treated. In 1968 doctors found and removed several pinhead-size nonmalignant growths from his bladder. In 1994 researchers reported a p53 gene mutation in bladder cells from a 1967 urine sample of his.</strong><div class="muted">Hematuria with benign bladder growths years before the diagnosis of cancer; the 1994 report is a retrospective molecular study.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.deseret.com/1994/5/5/19107106/scientists-find-genetic-flaw-that-killed-hubert-humphrey/" target="_blank" rel="noreferrer">Scientists find genetic flaw that killed Hubert Humphrey (Associated Press)</a> <span class="relationship">supports</span><br><a href="https://time.com/archive/6879845/medicine-h-h-h-s-cystectomy/" target="_blank" rel="noreferrer">Medicine: H.H.H.&#39;s Cystectomy</a> <span class="relationship">supports</span><br><a href="https://pubmed.ncbi.nlm.nih.gov/7993407/" target="_blank" rel="noreferrer">Hruban RH, van der Riet P, Erozan YS, Sidransky D. Brief report: molecular biology and the early detection of carcinoma of the bladder: the case of Hubert H. Humphrey. N Engl J Med 1994;330(18):1276-8</a> <span class="relationship">context</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>In 1973 doctors found possibly cancerous tissue in his bladder and treated it with thiotepa and X-ray therapy, given five minutes a day for five weeks.</strong><div class="muted">Intravesical chemotherapy and pelvic radiation for suspected early bladder cancer.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://time.com/archive/6879845/medicine-h-h-h-s-cystectomy/" target="_blank" rel="noreferrer">Medicine: H.H.H.&#39;s Cystectomy</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>After three years free of cancer, an examination at the National Naval Medical Center in Bethesda for symptoms of a urinary tract infection found a low-grade malignancy, and in October 1976 a six-hour radical cystectomy at Memorial Sloan-Kettering Cancer Center removed his bladder, prostate, lymph nodes, the fatty tissue around the bladder, and part of the urethra; the ureters were joined to a conduit made from a segment of small intestine, brought out to an opening on the skin to the right of the navel and drained into a bag. The nodes were to be examined for spread, and an experimental two-drug chemotherapy might be offered.</strong><div class="muted">Radical cystoprostatectomy with an ileal conduit urinary diversion. The nodal result and any treatment after the operation were not reported in the fetched sources.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://time.com/archive/6879845/medicine-h-h-h-s-cystectomy/" target="_blank" rel="noreferrer">Medicine: H.H.H.&#39;s Cystectomy</a> <span class="relationship">supports</span><br><a href="https://time.com/archive/6849103/milestones-aug-29-1977/" target="_blank" rel="noreferrer">Milestones, Aug. 29, 1977</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>He resumed his Senate duties in January 1977, serving as deputy president pro tempore from January 5, 1977.</strong><div class="muted">Used only to place his return to full-time work.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://en.wikipedia.org/wiki/Hubert_Humphrey" target="_blank" rel="noreferrer">Hubert Humphrey</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>In August 1977 doctors found a malignant tumor on his pelvic bone during a four-hour operation in Minneapolis to relieve a bowel obstruction; the cancer was described as inoperable and terminal, and chemotherapy was planned. He returned to the Senate eleven weeks later, with further chemotherapy scheduled.</strong><div class="muted">Pelvic recurrence ten months after cystectomy. It falls after the synthetic episode and is used only as history.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://time.com/archive/6849103/milestones-aug-29-1977/" target="_blank" rel="noreferrer">Milestones, Aug. 29, 1977</a> <span class="relationship">supports</span><br><a href="https://time.com/archive/6881048/the-nation-the-indomitable-senator-returns/" target="_blank" rel="noreferrer">The Nation: The Indomitable Senator Returns</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>Humphrey died on 13 January 1978 in Waverly, Minnesota.</strong><div class="muted">Recorded as a fact; no detail of his last months is used.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://encyclopedia.com/humanities/encyclopedias-almanacs-transcripts-and-maps/humphrey-hubert-horatio-jr" target="_blank" rel="noreferrer">Humphrey, Hubert Horatio, Jr. Scribner Encyclopedia of American Lives, Thematic Series: The 1960s</a> <span class="relationship">supports</span><br><a href="https://www.senate.gov/senators/FeaturedBios/Featured_Bio_HumphreyHubert.htm" target="_blank" rel="noreferrer">Hubert H. Humphrey: A Featured Biography</a> <span class="relationship">supports</span></td>
+  </tr></tbody></table></section>
+    <section><h2>Modern synthetic problem list</h2><table><thead><tr><th>Grade</th><th>Problem</th><th>Clinical status</th><th>Verification</th><th>Placement</th><th>Historical claims</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Urothelial carcinoma of the bladder, multifocal, with carcinoma in situ, pT2a pN0 (0 of 18 nodes), margins negative, treated by radical cystoprostatectomy with an ileal conduit; no evidence of disease; under surveillance; synthetic modern detail linked to his documented bladder cancer</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>both_with_link</td>
+    <td>CLM-0003, CLM-0004, CLM-0005</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Ileal conduit urostomy, right lower abdomen</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td>CLM-0005</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Acquired absence of the bladder and part of the urethra after radical cystectomy</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td>CLM-0005</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Acquired absence of the prostate after cystoprostatectomy</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td>CLM-0005</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Personal history of pelvic radiation for bladder tumor, with earlier intravesical thiotepa</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td>CLM-0004</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Hyperchloremic metabolic acidosis from the ileal conduit, mild</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td>CLM-0003, CLM-0004, CLM-0005</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Acute right pyelonephritis with an ileal conduit (Escherichia coli), with mild acute kidney injury, treated with oral ciprofloxacin and resolved</td>
+    <td>resolved</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td></td>
+  </tr></tbody></table></section>
+    <section><h2>Synthetic outcome measures</h2><table><thead><tr><th>Grade</th><th>Date</th><th>Measure</th><th>Result</th><th>Coding</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-01-06</td>
+    <td>Sodium [Moles/volume] in Serum or Plasma</td>
+    <td>139 mmol/L<div class="muted">Reference 135-145 mmol/L</div></td>
+    <td>http://loinc.org · 2951-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-01-06</td>
+    <td>Potassium [Moles/volume] in Serum or Plasma</td>
+    <td>4.3 mmol/L<div class="muted">Reference 3.5-5.1 mmol/L</div></td>
+    <td>http://loinc.org · 2823-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-01-06</td>
+    <td>Chloride [Moles/volume] in Serum or Plasma</td>
+    <td>106 mmol/L<div class="muted">Reference 98-107 mmol/L</div></td>
+    <td>http://loinc.org · 2075-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-01-06</td>
+    <td>Carbon dioxide, total [Moles/volume] in Serum or Plasma</td>
+    <td>22 mmol/L<div class="muted">Reference 22-29 mmol/L</div></td>
+    <td>http://loinc.org · 2028-9</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-01-06</td>
+    <td>Urea nitrogen [Mass/volume] in Serum or Plasma</td>
+    <td>18 mg/dL<div class="muted">Reference 8-23 mg/dL</div></td>
+    <td>http://loinc.org · 3094-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-01-06</td>
+    <td>Creatinine [Mass/volume] in Serum or Plasma</td>
+    <td>1.12 mg/dL<div class="muted">Reference 0.74-1.35 mg/dL</div></td>
+    <td>http://loinc.org · 2160-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-01-06</td>
+    <td>Glomerular filtration rate [Volume Rate/Area] in Serum, Plasma or Blood by Creatinine-based formula (CKD-EPI 2021)/1.73 sq M</td>
+    <td>73 mL/min/1.73 m²<div class="muted">Reference &gt;=60 mL/min/1.73 m²</div></td>
+    <td>http://loinc.org · 98979-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-01-06</td>
+    <td>Calcium [Mass/volume] in Serum or Plasma</td>
+    <td>9.2 mg/dL<div class="muted">Reference 8.6-10.3 mg/dL</div></td>
+    <td>http://loinc.org · 17861-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-01-06</td>
+    <td>Albumin [Mass/volume] in Serum or Plasma</td>
+    <td>3.7 g/dL<div class="muted">Reference 3.5-5 g/dL</div></td>
+    <td>http://loinc.org · 1751-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-01-06</td>
+    <td>Alkaline phosphatase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>88 U/L<div class="muted">Reference 40-129 U/L</div></td>
+    <td>http://loinc.org · 6768-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-01-06</td>
+    <td>Alanine aminotransferase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>22 U/L<div class="muted">Reference 7-55 U/L</div></td>
+    <td>http://loinc.org · 1742-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-01-06</td>
+    <td>Hemoglobin [Mass/volume] in Blood</td>
+    <td>12.6 g/dL (low)<div class="muted">Reference 13.2-16.6 g/dL</div></td>
+    <td>http://loinc.org · 718-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-01-06</td>
+    <td>Leukocytes [#/volume] in Blood by Automated count</td>
+    <td>6.4 10*3/uL<div class="muted">Reference 4-11 10*3/uL</div></td>
+    <td>http://loinc.org · 6690-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-01-06</td>
+    <td>Platelets [#/volume] in Blood by Automated count</td>
+    <td>284 10*3/uL<div class="muted">Reference 150-400 10*3/uL</div></td>
+    <td>http://loinc.org · 777-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-01-06</td>
+    <td>Cobalamin (Vitamin B12) [Mass/volume] in Serum or Plasma</td>
+    <td>412 pg/mL<div class="muted">Reference 232-1245 pg/mL</div></td>
+    <td>http://loinc.org · 2132-9</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-01-06</td>
+    <td>Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]</td>
+    <td>3</td>
+    <td>http://loinc.org · 44261-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-02-03</td>
+    <td>Patient Health Questionnaire 2 item (PHQ-2) total score [Reported]</td>
+    <td>0</td>
+    <td>http://loinc.org · 55758-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-04-07</td>
+    <td>Sodium [Moles/volume] in Serum or Plasma</td>
+    <td>140 mmol/L<div class="muted">Reference 135-145 mmol/L</div></td>
+    <td>http://loinc.org · 2951-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-04-07</td>
+    <td>Potassium [Moles/volume] in Serum or Plasma</td>
+    <td>4.2 mmol/L<div class="muted">Reference 3.5-5.1 mmol/L</div></td>
+    <td>http://loinc.org · 2823-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-04-07</td>
+    <td>Chloride [Moles/volume] in Serum or Plasma</td>
+    <td>110 mmol/L (high)<div class="muted">Reference 98-107 mmol/L</div></td>
+    <td>http://loinc.org · 2075-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-04-07</td>
+    <td>Carbon dioxide, total [Moles/volume] in Serum or Plasma</td>
+    <td>20 mmol/L (low)<div class="muted">Reference 22-29 mmol/L</div></td>
+    <td>http://loinc.org · 2028-9</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-04-07</td>
+    <td>Urea nitrogen [Mass/volume] in Serum or Plasma</td>
+    <td>16 mg/dL<div class="muted">Reference 8-23 mg/dL</div></td>
+    <td>http://loinc.org · 3094-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-04-07</td>
+    <td>Creatinine [Mass/volume] in Serum or Plasma</td>
+    <td>1.15 mg/dL<div class="muted">Reference 0.74-1.35 mg/dL</div></td>
+    <td>http://loinc.org · 2160-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-04-07</td>
+    <td>Glomerular filtration rate [Volume Rate/Area] in Serum, Plasma or Blood by Creatinine-based formula (CKD-EPI 2021)/1.73 sq M</td>
+    <td>71 mL/min/1.73 m²<div class="muted">Reference &gt;=60 mL/min/1.73 m²</div></td>
+    <td>http://loinc.org · 98979-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-04-07</td>
+    <td>Hemoglobin [Mass/volume] in Blood</td>
+    <td>13.4 g/dL<div class="muted">Reference 13.2-16.6 g/dL</div></td>
+    <td>http://loinc.org · 718-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-04-07</td>
+    <td>Patient Health Questionnaire 2 item (PHQ-2) total score [Reported]</td>
+    <td>1</td>
+    <td>http://loinc.org · 55758-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-07-07</td>
+    <td>Sodium [Moles/volume] in Serum or Plasma</td>
+    <td>140 mmol/L<div class="muted">Reference 135-145 mmol/L</div></td>
+    <td>http://loinc.org · 2951-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-07-07</td>
+    <td>Potassium [Moles/volume] in Serum or Plasma</td>
+    <td>4.4 mmol/L<div class="muted">Reference 3.5-5.1 mmol/L</div></td>
+    <td>http://loinc.org · 2823-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-07-07</td>
+    <td>Chloride [Moles/volume] in Serum or Plasma</td>
+    <td>106 mmol/L<div class="muted">Reference 98-107 mmol/L</div></td>
+    <td>http://loinc.org · 2075-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-07-07</td>
+    <td>Carbon dioxide, total [Moles/volume] in Serum or Plasma</td>
+    <td>24 mmol/L<div class="muted">Reference 22-29 mmol/L</div></td>
+    <td>http://loinc.org · 2028-9</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-07-07</td>
+    <td>Urea nitrogen [Mass/volume] in Serum or Plasma</td>
+    <td>17 mg/dL<div class="muted">Reference 8-23 mg/dL</div></td>
+    <td>http://loinc.org · 3094-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-07-07</td>
+    <td>Creatinine [Mass/volume] in Serum or Plasma</td>
+    <td>1.1 mg/dL<div class="muted">Reference 0.74-1.35 mg/dL</div></td>
+    <td>http://loinc.org · 2160-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-07-07</td>
+    <td>Glomerular filtration rate [Volume Rate/Area] in Serum, Plasma or Blood by Creatinine-based formula (CKD-EPI 2021)/1.73 sq M</td>
+    <td>74 mL/min/1.73 m²<div class="muted">Reference &gt;=60 mL/min/1.73 m²</div></td>
+    <td>http://loinc.org · 98979-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-07-07</td>
+    <td>Patient Health Questionnaire 2 item (PHQ-2) total score [Reported]</td>
+    <td>0</td>
+    <td>http://loinc.org · 55758-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-17</td>
+    <td>Leukocytes [#/volume] in Blood by Automated count</td>
+    <td>12.6 10*3/uL (high)<div class="muted">Reference 4-11 10*3/uL</div></td>
+    <td>http://loinc.org · 6690-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-17</td>
+    <td>Sodium [Moles/volume] in Serum or Plasma</td>
+    <td>137 mmol/L<div class="muted">Reference 135-145 mmol/L</div></td>
+    <td>http://loinc.org · 2951-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-17</td>
+    <td>Potassium [Moles/volume] in Serum or Plasma</td>
+    <td>4.6 mmol/L<div class="muted">Reference 3.5-5.1 mmol/L</div></td>
+    <td>http://loinc.org · 2823-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-17</td>
+    <td>Chloride [Moles/volume] in Serum or Plasma</td>
+    <td>107 mmol/L<div class="muted">Reference 98-107 mmol/L</div></td>
+    <td>http://loinc.org · 2075-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-17</td>
+    <td>Carbon dioxide, total [Moles/volume] in Serum or Plasma</td>
+    <td>20 mmol/L (low)<div class="muted">Reference 22-29 mmol/L</div></td>
+    <td>http://loinc.org · 2028-9</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-17</td>
+    <td>Urea nitrogen [Mass/volume] in Serum or Plasma</td>
+    <td>26 mg/dL (high)<div class="muted">Reference 8-23 mg/dL</div></td>
+    <td>http://loinc.org · 3094-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-17</td>
+    <td>Creatinine [Mass/volume] in Serum or Plasma</td>
+    <td>1.41 mg/dL (high)<div class="muted">Reference 0.74-1.35 mg/dL</div></td>
+    <td>http://loinc.org · 2160-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-17</td>
+    <td>Glomerular filtration rate [Volume Rate/Area] in Serum, Plasma or Blood by Creatinine-based formula (CKD-EPI 2021)/1.73 sq M</td>
+    <td>55 mL/min/1.73 m² (low)<div class="muted">Reference &gt;=60 mL/min/1.73 m²</div></td>
+    <td>http://loinc.org · 98979-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-17</td>
+    <td>Leukocytes [#/area] in Urine sediment by Microscopy high power field</td>
+    <td>55 /[HPF] (high)<div class="muted">Reference &lt;=5 /[HPF]</div></td>
+    <td>http://loinc.org · 5821-4</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-17</td>
+    <td>Colony count [#/volume] in Urine</td>
+    <td>100000 {CFU}/mL (high)<div class="muted">Reference In a catheterized conduit specimen, 10,000 CFU/mL or more of one organism with symptoms supports infection</div></td>
+    <td>http://loinc.org · 19090-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-06-02</td>
+    <td>Patient Health Questionnaire 2 item (PHQ-2) total score [Reported]</td>
+    <td>0</td>
+    <td>http://loinc.org · 55758-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-06-02</td>
+    <td>Total score [Mini-Cog]</td>
+    <td>5</td>
+    <td>http://loinc.org · 72233-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-06-02</td>
+    <td>Total score [AUDIT-C]</td>
+    <td>2</td>
+    <td>http://loinc.org · 75626-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-06-02</td>
+    <td>Cholesterol [Mass/volume] in Serum or Plasma</td>
+    <td>196 mg/dL<div class="muted">Reference &lt;=200 mg/dL</div></td>
+    <td>http://loinc.org · 2093-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-06-02</td>
+    <td>Cholesterol in HDL [Mass/volume] in Serum or Plasma</td>
+    <td>46 mg/dL<div class="muted">Reference &gt;=40 mg/dL</div></td>
+    <td>http://loinc.org · 2085-9</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-06-02</td>
+    <td>Cholesterol in LDL [Mass/volume] in Serum or Plasma by calculation</td>
+    <td>124 mg/dL<div class="muted">Reference &lt;=129 mg/dL</div></td>
+    <td>http://loinc.org · 13457-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-06-02</td>
+    <td>Triglyceride [Mass/volume] in Serum or Plasma</td>
+    <td>130 mg/dL<div class="muted">Reference &lt;=149 mg/dL</div></td>
+    <td>http://loinc.org · 2571-8</td>
+  </tr></tbody></table></section>
+    <section><h2>Synthetic vital signs</h2><table><thead><tr><th>Date</th><th>Measure</th><th>Result</th><th>LOINC</th><th>Grade</th></tr></thead><tbody>
+  <tr><td>2026-01-06</td><td>Body height</td><td>180 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-01-06</td><td>Body weight</td><td>76.5 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-01-06</td><td>Body mass index (BMI) [Ratio]</td><td>23.6 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-01-06</td><td>Systolic blood pressure</td><td>126 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-01-06</td><td>Diastolic blood pressure</td><td>76 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-01-06</td><td>Heart rate</td><td>74 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-01-06</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-01-06</td><td>Body temperature</td><td>36.7 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-01-06</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>97 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-02-03</td><td>Body height</td><td>180 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-02-03</td><td>Body weight</td><td>77.2 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-02-03</td><td>Body mass index (BMI) [Ratio]</td><td>23.8 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-02-03</td><td>Systolic blood pressure</td><td>128 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-02-03</td><td>Diastolic blood pressure</td><td>78 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-02-03</td><td>Heart rate</td><td>72 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-02-03</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-02-03</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-02-03</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>97 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-07</td><td>Body height</td><td>180 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-07</td><td>Body weight</td><td>77.6 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-07</td><td>Body mass index (BMI) [Ratio]</td><td>24 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-07</td><td>Systolic blood pressure</td><td>126 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-07</td><td>Diastolic blood pressure</td><td>74 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-07</td><td>Heart rate</td><td>70 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-07</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-07</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-07</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>98 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-07-07</td><td>Body height</td><td>180 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-07-07</td><td>Body weight</td><td>78.8 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-07-07</td><td>Body mass index (BMI) [Ratio]</td><td>24.3 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-07-07</td><td>Systolic blood pressure</td><td>128 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-07-07</td><td>Diastolic blood pressure</td><td>76 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-07-07</td><td>Heart rate</td><td>70 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-07-07</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-07-07</td><td>Body temperature</td><td>36.7 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-07-07</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>97 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-17</td><td>Body height</td><td>180 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-17</td><td>Body weight</td><td>76.9 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-17</td><td>Body mass index (BMI) [Ratio]</td><td>23.7 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-17</td><td>Systolic blood pressure</td><td>118 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-17</td><td>Diastolic blood pressure</td><td>70 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-17</td><td>Heart rate</td><td>98 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-17</td><td>Respiratory rate</td><td>18 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-17</td><td>Body temperature</td><td>38.4 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-17</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>96 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-02</td><td>Body height</td><td>180 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-02</td><td>Body weight</td><td>78.4 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-02</td><td>Body mass index (BMI) [Ratio]</td><td>24.2 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-02</td><td>Systolic blood pressure</td><td>128 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-02</td><td>Diastolic blood pressure</td><td>76 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-02</td><td>Heart rate</td><td>70 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-02</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-02</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-02</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>97 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr></tbody></table></section>
+    <section><h2>Social, functional, and mental status</h2><h3>Social history</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Occupation: back at full-time work in a demanding public job with long days and frequent travel</li><li><span class="badge grade-S" title="Synthetic">S</span> Tobacco: no current use reported; past tobacco history is not recorded, because no reliable source was found</li><li><span class="badge grade-S" title="Synthetic">S</span> Lives with his spouse in his own home and an apartment near work; independent; drives</li><li><span class="badge grade-S" title="Synthetic">S</span> Supports: family, close friends, and a large circle of colleagues</li></ul><h3>Functional status</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Independent in all activities of daily living, including emptying and changing his urostomy appliance</li><li><span class="badge grade-S" title="Synthetic">S</span> Walks 20 minutes a day, building up after surgery</li></ul><h3>Mental status</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Alert, talkative, and optimistic; asks detailed questions about his results</li><li><span class="badge grade-S" title="Synthetic">S</span> Mood good; PHQ-9 minimal at the first visit</li></ul></section>
+    
+    <section><h2>Allergies and medications</h2><h3>Allergies</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> No known allergy</li></ul><h3>Medications</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Sodium bicarbonate 650 mg oral tablet, one tablet by mouth twice daily, for metabolic acidosis after an ileal conduit</li><li><span class="badge grade-S" title="Synthetic">S</span> Ciprofloxacin 500 mg oral tablet, one tablet by mouth twice daily for 7 days, for acute pyelonephritis</li></ul></section>
+    <section><h2>Procedures and immunizations</h2><h3>Procedures</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Cystoscopy and transurethral resection of bladder tumors, at the cancer center: recurrent multifocal papillary urothelial carcinoma, low grade, with high-grade carcinoma in situ in random biopsies; muscularis propria present and not invaded (cTa with CIS); small, poorly compliant bladder after earlier radiation</li><li><span class="badge grade-S" title="Synthetic">S</span> Staging CT of the chest, abdomen, and pelvis with CT urography: thickened bladder wall; no hydronephrosis, upper-tract filling defect, enlarged lymph nodes, or distant disease</li><li><span class="badge grade-S" title="Synthetic">S</span> Radical cystoprostatectomy with bilateral pelvic lymph node dissection, partial urethrectomy, and ileal conduit urinary diversion, stoma in the right lower abdomen, at the cancer center. Pathology: multifocal urothelial carcinoma, high grade, with carcinoma in situ, invading the inner half of the muscularis propria (pT2a); 0 of 18 lymph nodes (pN0); ureteric and urethral margins negative; prostate with benign hyperplasia and no urothelial involvement</li><li><span class="badge grade-S" title="Synthetic">S</span> Renal ultrasound at six months: no hydronephrosis on either side; normal kidney size and cortical thickness; conduit decompressed</li><li><span class="badge grade-S" title="Synthetic">S</span> Advance care planning conversation, about 20 minutes</li></ul><h3>Immunizations</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> 2025-11-18: High-dose influenza vaccine, this season</li><li><span class="badge grade-S" title="Synthetic">S</span> 2020-03-10: Tdap vaccine</li><li><span class="badge grade-S" title="Synthetic">S</span> 2026-06-02: Pneumococcal conjugate vaccine PCV20</li><li><span class="badge grade-S" title="Synthetic">S</span> 2026-06-02: Recombinant zoster vaccine, dose 1 of 2</li></ul></section>
+    <section><h2>Past medical history</h2><p class="muted">True biography with historical dates; not part of the synthetic care timeline.</p><ul><li><span class="badge grade-D" title="Documented">D</span> 1967: Blood in the urine; bladder cancer suspected by some physicians but not treated <span class="muted">(CLM-0003)</span></li><li><span class="badge grade-D" title="Documented">D</span> 1968: Several small benign bladder growths found and removed <span class="muted">(CLM-0003)</span></li><li><span class="badge grade-D" title="Documented">D</span> 1973: Possibly cancerous bladder tissue treated with thiotepa and X-ray therapy, five minutes a day for five weeks <span class="muted">(CLM-0004)</span></li><li><span class="badge grade-D" title="Documented">D</span> October 1976: Radical cystectomy with removal of the prostate, lymph nodes, and part of the urethra, and a urinary conduit made from small intestine, after a low-grade malignancy was found on examination for urinary infection symptoms <span class="muted">(CLM-0005)</span></li></ul><h3>Family history</h3><p class="muted">No family medical history is documented in the logged sources. Family history of real relatives is never synthesized.</p></section>
+    <section><h2>Care-plan goals</h2><table><thead><tr><th>Goal</th><th>Target date</th><th>Status</th><th>Outcome</th></tr></thead><tbody>
+  <tr><td>Leak-free urostomy appliance with healthy peristomal skin</td><td>2026-04-07</td><td>completed</td><td>Appliance refitted with a convex wafer at the consultation; no leaks in the two months after the refit and skin healed</td></tr>
+  <tr><td>Stable kidney function (creatinine within 0.3 mg/dL of the post-operative baseline) and bicarbonate 22 mmol/L or more</td><td>2026-07-07</td><td>completed</td><td>Creatinine 1.10 mg/dL; bicarbonate 24 mmol/L on sodium bicarbonate</td></tr>
+  <tr><td>Regain stamina after surgery: walk 30 minutes a day and regain weight</td><td>2026-04-07</td><td>completed</td><td>Walking 30 minutes most days; weight up 1.1 kg since the first visit</td></tr>
+  <tr><td>Written survivorship surveillance schedule in place, shared between urology and primary care</td><td>2026-07-07</td><td>completed</td><td>Schedule given; CT due at one year after surgery</td></tr></tbody></table></section>
+    <section><h2>Interventions</h2><table><thead><tr><th>Intervention</th><th>Status</th><th>Guideline</th></tr></thead><tbody>
+  <tr><td>Urology consultation to share survivorship surveillance after radical cystectomy, review the stoma, and set the metabolic monitoring plan</td><td>completed</td><td>GL-AUA-MIBC-2024, GL-NCCN-BLADDER-2026</td></tr>
+  <tr><td>Cancer surveillance after cystectomy for pT2a N0 disease: CT or MRI of the chest, abdomen, and pelvis every 6 to 12 months for 2 to 3 years, then yearly; no adjuvant therapy</td><td>completed</td><td>GL-AUA-MIBC-2024, GL-CMID-2026, GL-NCCN-BLADDER-2026</td></tr>
+  <tr><td>Kidney and metabolic monitoring after an ileal conduit: chemistry with creatinine, chloride, and bicarbonate every 3 to 6 months in the first year, then yearly; upper-tract imaging every 6 months to year 3; vitamin B12 yearly; alkali for bicarbonate below 22 mmol/L</td><td>completed</td><td>GL-AUA-MIBC-2024, GL-CMID-2026</td></tr>
+  <tr><td>Stoma care with the wound, ostomy, and continence nurse: appliance fitting, peristomal skin care, and parastomal hernia checks</td><td>completed</td><td>GL-AUA-MIBC-2024, GL-CMID-2026</td></tr>
+  <tr><td>Urine infection plan with a conduit: no routine urine cultures or treatment of bacteriuria without symptoms; for fever, flank pain, or rigors, a culture taken by catheter from the stoma and prompt treatment; about 2 liters of fluid a day</td><td>completed</td><td>GL-AUA-MIBC-2024, GL-IDSA-CUTI-2025</td></tr>
+  <tr><td>Distress screening at each visit, physical activity, and a written survivorship care plan</td><td>completed</td><td>GL-CMID-2026, GL-NCCN-BLADDER-2026</td></tr></tbody></table></section>
+    <section><h2>Planned encounters</h2><ul>
+  <li><strong>2026-01-06</strong> — First visit to establish shared care three months after radical cystoprostatectomy with an ileal conduit for bladder cancer <span class="muted">(ENC-001)</span></li>
+  <li><strong>2026-02-03</strong> — Four-week follow-up with urology consultation: surveillance plan, stoma and peristomal skin, and metabolic monitoring <span class="muted">(ENC-002)</span></li>
+  <li><strong>2026-03-17</strong> — Same-day sick visit for fever and right flank pain <span class="muted">(ENC-005, unscheduled)</span></li>
+  <li><strong>2026-04-07</strong> — Six-month post-cystectomy follow-up: kidney function, acid-base, upper-tract ultrasound, and review after a kidney infection <span class="muted">(ENC-003)</span></li>
+  <li><strong>2026-06-02</strong> — Subsequent annual wellness visit <span class="muted">(ENC-006)</span></li>
+  <li><strong>2026-07-07</strong> — Nine-month post-cystectomy follow-up: acid-base on bicarbonate, stoma review, and the surveillance schedule <span class="muted">(ENC-004)</span></li></ul></section>
+    <section><h2>Supporting documents</h2><ul><li><a href="notes/hp.md">History and physical</a></li><li><a href="notes/progress-01.md">Progress note 01</a></li><li><a href="notes/progress-02.md">Progress note 02 — Focused Visit (Follow-up)</a></li><li><a href="notes/progress-03.md">Progress note 03 — Sick Visit</a></li><li><a href="notes/progress-04.md">Progress note 04 — Focused Visit (Follow-up)</a></li><li><a href="notes/progress-05.md">Progress note 05 — Annual Wellness Visit, Subsequent</a></li><li><a href="notes/progress-06.md">Progress note 06 — Focused Visit (Care-plan review)</a></li><li><a href="notes/referral-01.md">Urology referral</a></li><li><a href="notes/consult-01.md">Urology consultation</a></li><li><a href="notes/careplan.md">Patient care plan</a></li><li><a href="notes/teaching-note.md">Teaching note</a></li><li><a href="provenance.csv">Provenance CSV</a></li></ul></section>
+    <section><h2>C-CDA note documents</h2><p class="muted">Each link opens a readable copy; the XML beside it is the exchange file.</p><ul><li><a href="ccda/hp-01.html">History and physical</a> <a href="ccda/hp-01.xml">(XML)</a></li><li><a href="ccda/progress-01.html">Progress note 01</a> <a href="ccda/progress-01.xml">(XML)</a></li><li><a href="ccda/progress-02.html">Progress note 02 — Focused Visit (Follow-up)</a> <a href="ccda/progress-02.xml">(XML)</a></li><li><a href="ccda/progress-03.html">Progress note 03 — Sick Visit</a> <a href="ccda/progress-03.xml">(XML)</a></li><li><a href="ccda/progress-04.html">Progress note 04 — Focused Visit (Follow-up)</a> <a href="ccda/progress-04.xml">(XML)</a></li><li><a href="ccda/progress-05.html">Progress note 05 — Annual Wellness Visit, Subsequent</a> <a href="ccda/progress-05.xml">(XML)</a></li><li><a href="ccda/progress-06.html">Progress note 06 — Focused Visit (Care-plan review)</a> <a href="ccda/progress-06.xml">(XML)</a></li><li><a href="ccda/referral-01.html">Urology referral</a> <a href="ccda/referral-01.xml">(XML)</a></li><li><a href="ccda/consult-01.html">Urology consultation</a> <a href="ccda/consult-01.xml">(XML)</a></li></ul></section>
+    <section><h2>Sources</h2><table><thead><tr><th>ID</th><th>Source</th><th>Publisher</th><th>Type</th></tr></thead><tbody>
+  <tr>
+    <td>SRC-0001</td>
+    <td><a href="https://time.com/archive/6879845/medicine-h-h-h-s-cystectomy/" target="_blank" rel="noreferrer">Medicine: H.H.H.&#39;s Cystectomy</a></td>
+    <td>TIME</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0002</td>
+    <td><a href="https://www.deseret.com/1994/5/5/19107106/scientists-find-genetic-flaw-that-killed-hubert-humphrey/" target="_blank" rel="noreferrer">Scientists find genetic flaw that killed Hubert Humphrey (Associated Press)</a></td>
+    <td>Deseret News</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0003</td>
+    <td><a href="https://pubmed.ncbi.nlm.nih.gov/7993407/" target="_blank" rel="noreferrer">Hruban RH, van der Riet P, Erozan YS, Sidransky D. Brief report: molecular biology and the early detection of carcinoma of the bladder: the case of Hubert H. Humphrey. N Engl J Med 1994;330(18):1276-8</a></td>
+    <td>New England Journal of Medicine (PubMed record)</td>
+    <td>scholarly</td>
+  </tr>
+  <tr>
+    <td>SRC-0004</td>
+    <td><a href="https://time.com/archive/6849103/milestones-aug-29-1977/" target="_blank" rel="noreferrer">Milestones, Aug. 29, 1977</a></td>
+    <td>TIME</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0005</td>
+    <td><a href="https://time.com/archive/6881048/the-nation-the-indomitable-senator-returns/" target="_blank" rel="noreferrer">The Nation: The Indomitable Senator Returns</a></td>
+    <td>TIME</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0006</td>
+    <td><a href="https://encyclopedia.com/humanities/encyclopedias-almanacs-transcripts-and-maps/humphrey-hubert-horatio-jr" target="_blank" rel="noreferrer">Humphrey, Hubert Horatio, Jr. Scribner Encyclopedia of American Lives, Thematic Series: The 1960s</a></td>
+    <td>Encyclopedia.com</td>
+    <td>biography</td>
+  </tr>
+  <tr>
+    <td>SRC-0007</td>
+    <td><a href="https://www.senate.gov/senators/FeaturedBios/Featured_Bio_HumphreyHubert.htm" target="_blank" rel="noreferrer">Hubert H. Humphrey: A Featured Biography</a></td>
+    <td>United States Senate</td>
+    <td>government</td>
+  </tr>
+  <tr>
+    <td>SRC-0008</td>
+    <td><a href="https://en.wikipedia.org/wiki/Hubert_Humphrey" target="_blank" rel="noreferrer">Hubert Humphrey</a></td>
+    <td>Wikipedia</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0009</td>
+    <td><a href="https://humanrecord.example.org/internal/HISTMED_Master_Roster_v3.xlsx" target="_blank" rel="noreferrer">HISTMED Master Roster v3</a></td>
+    <td>The Human Record project</td>
+    <td>other</td>
+  </tr></tbody></table></section>
+    <section><h2>Review status</h2><table><thead><tr><th>Review</th><th>Status</th><th>Notes</th></tr></thead><tbody>
+  <tr><td>schema validation</td><td>not_started</td><td>Run scripts/build.ps1 -Conformance.</td></tr>
+  <tr><td>clinical review</td><td>not_started</td><td>Awaiting clinician review; check the pathway from recurrent high-risk non-muscle-invasive disease after radiation to early cystectomy, the omission of adjuvant therapy for pT2a N0, the surveillance intervals, and the infection management with a conduit.</td></tr>
+  <tr><td>provenance review</td><td>not_started</td><td>Historical facts from TIME (1976 and 1977), an Associated Press report (1994), the Senate biography, and a reference encyclopedia. No statement or health fact is attributed to a relative or to a named physician. Tobacco history is not recorded because no reliable source was found.</td></tr>
+  <tr><td>safe messaging review</td><td>not_started</td><td>The record is clinical and contains no political content; the later recurrence and death are recorded as history without detail.</td></tr></tbody></table></section>
+  </main>
+</body>
+</html>

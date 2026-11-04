@@ -1,0 +1,679 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Yul Brynner — The Human Record</title>
+  <style>
+    :root { --navy:#17365d; --blue:#1f4e78; --pale:#eef5fa; --ink:#1f2933; --muted:#66788a; --amber:#fff2cc; --red:#f8d7da; --green:#d9ead3; }
+    * { box-sizing:border-box; }
+    body { margin:0; font:16px/1.5 Arial, sans-serif; color:var(--ink); background:#f6f8fa; }
+    header { background:var(--navy); color:white; padding:24px max(24px,calc((100vw - 1180px)/2)); }
+    header h1 { margin:4px 0; font-size:30px; }
+    .banner { background:#b42318; color:white; font-weight:700; text-align:center; padding:10px; letter-spacing:.03em; }
+    main { max-width:1180px; margin:24px auto 60px; padding:0 24px; }
+    section { background:white; border:1px solid #d9e1e8; border-radius:8px; margin:18px 0; padding:20px; }
+    h2 { color:var(--navy); margin:0 0 14px; font-size:22px; }
+    h3 { color:var(--blue); }
+    .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:12px; }
+    .card { background:var(--pale); border-left:4px solid var(--blue); padding:12px; }
+    .label { color:var(--muted); font-size:13px; text-transform:uppercase; letter-spacing:.04em; }
+    table { width:100%; border-collapse:collapse; }
+    th { background:var(--blue); color:white; text-align:left; }
+    th,td { padding:9px; border-bottom:1px solid #dfe6ec; vertical-align:top; }
+    .badge { display:inline-block; min-width:28px; text-align:center; font-weight:700; border-radius:12px; padding:2px 8px; }
+    .grade-D { background:var(--green); } .grade-R { background:var(--amber); } .grade-S { background:var(--red); }
+    .muted { color:var(--muted); font-size:14px; }
+    .relationship { color:var(--muted); font-size:12px; }
+    .downloads a { display:inline-block; margin:4px 8px 4px 0; padding:8px 12px; background:var(--blue); color:white; text-decoration:none; border-radius:5px; }
+    @media (max-width:700px) { table { display:block; overflow-x:auto; } }
+  </style>
+</head>
+<body>
+  <div class="banner">SYNTHETIC RECORD, NOT A REAL MEDICAL RECORD</div>
+  <header>
+    <div>The Human Record</div>
+    <h1>Yul Brynner</h1>
+    <div>Case HR-ML020 · Modern EHR teaching episode · Draft for review</div>
+  </header>
+  <main>
+    <section>
+      <h2>Review summary</h2>
+      <div class="grid">
+        <div class="card"><div class="label">Historical dates</div>July 11, 1920 – October 10, 1985</div>
+        <div class="card"><div class="label">Synthetic DOB</div>1963-07-11</div>
+        <div class="card"><div class="label">Index visit</div>2026-09-01 at age 63</div>
+        <div class="card"><div class="label">Synthetic MRN</div>HR-ML020-SYN</div>
+      </div>
+      <p><strong>Teaching objective:</strong> Work up hoarseness from left vocal fold paralysis in a 63-year-old former heavy smoker to a tissue diagnosis of advanced nonsquamous non-small cell lung cancer; stage it with PET-CT and brain MRI; obtain PD-L1 and comprehensive tissue and plasma biomarker testing before choosing first-line systemic therapy (pembrolizumab for PD-L1 70 percent with no actionable alteration); monitor for immune-related adverse events with TSH, free T4, liver tests, glucose, and cortisol as indicated, and evaluate a rash on treatment; start a bone-modifying agent safely; integrate palliative care early (ASCO 2017) with symptom and distress screening; record the tobacco history; begin advance care planning; and support his wish to keep performing, on the CMID lung cancer schedule and NCCN guidance.</p>
+      <div class="downloads">
+        <a href="../case.json">Canonical JSON</a>
+        <a href="fhir-bundle.json">FHIR R4 draft</a>
+        <a href="ccda.html">C-CDA R2.1 summary</a> <a href="ccda.xml">(XML)</a> <a href="review.html">Review checklist</a>
+        <a href="../sources.md">Evidence dossier</a>
+      </div>
+    </section>
+    <section><h2>Historical timeline</h2><table><thead><tr><th>Date</th><th>Event</th><th>Claims</th></tr></thead><tbody>
+  <tr><td>July 11, 1920</td><td>Born in Vladivostok, by the documented account; he later gave other birthplaces and years.</td><td>CLM-0001, CLM-0002</td></tr>
+  <tr><td>1951</td><td>First plays the King in The King and I on Broadway; Academy Award for the 1956 film.</td><td>CLM-0003</td></tr>
+  <tr><td>1971</td><td>Quits smoking after decades of heavy use.</td><td>CLM-0004</td></tr>
+  <tr><td>September 1983</td><td>Found to have lung cancer that cannot be removed surgically; treated that month and vows to resume touring.</td><td>CLM-0005</td></tr>
+  <tr><td>summer 1985</td><td>Last performance as the King in New York, about two years after the diagnosis.</td><td>CLM-0006, CLM-0007</td></tr>
+  <tr><td>October 10, 1985</td><td>Dies in New York at 65 of complications of cancer; an anti-smoking message he recorded is broadcast after his death.</td><td>CLM-0008, CLM-0009</td></tr></tbody></table></section>
+    <section><h2>Evidence claims</h2><p class="muted">D = documented, R = retrospective, S = synthetic.</p><table><thead><tr><th>Grade</th><th>Claim</th><th>Certainty</th><th>Sources</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>Yul Brynner was born Yuliy Borisovich Bryner on July 11, 1920, in Vladivostok, Russia.</strong><div class="muted">The documented date used for the synthetic date of birth; it agrees with his age of 65 at death in contemporary obituaries. He gave other accounts himself (see CLM-0002).</div></td>
+    <td>probable</td>
+    <td><a href="https://www.biography.com/actors/yul-brynner" target="_blank" rel="noreferrer">Yul Brynner</a> <span class="relationship">supports</span><br><a href="https://www.upi.com/Archives/1985/10/10/Yul-Brynner-exotic-actor/4761497764800/" target="_blank" rel="noreferrer">Yul Brynner, exotic actor (obituary)</a> <span class="relationship">supports</span><br><a href="https://time.com/archive/6705008/milestones-oct-21-1985-4/" target="_blank" rel="noreferrer">Milestones, Oct. 21, 1985</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>He gave varying accounts of his origins, saying at times that he was born on Sakhalin Island, with the year given as 1915 (UPI gives July 11, 1915; another reference gives July 12, 1915, under the name Taidje Kahn).</strong><div class="muted">The conflicting accounts are his own; they are recorded as rejected alternatives to the documented date.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.upi.com/Archives/1985/10/10/Yul-Brynner-exotic-actor/4761497764800/" target="_blank" rel="noreferrer">Yul Brynner, exotic actor (obituary)</a> <span class="relationship">supports</span><br><a href="https://www.upi.com/Archives/1985/10/10/Brynners-final-bow/6906497764800/" target="_blank" rel="noreferrer">Brynner&#39;s final bow</a> <span class="relationship">supports</span><br><a href="https://www.encyclopedia.com/movies/dictionaries-thesauruses-pictures-and-press-releases/brynner-yul" target="_blank" rel="noreferrer">Brynner, Yul</a> <span class="relationship">supports</span><br><a href="https://time.com/archive/6705008/milestones-oct-21-1985-4/" target="_blank" rel="noreferrer">Milestones, Oct. 21, 1985</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>He first played the King of Siam in The King and I on Broadway in 1951, won the Academy Award for best actor in the 1956 film, and played the role 4,625 times over 34 years.</strong><div class="muted">Used for the synthetic modern occupation (stage actor and singer on tour).</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.biography.com/actors/yul-brynner" target="_blank" rel="noreferrer">Yul Brynner</a> <span class="relationship">supports</span><br><a href="https://time.com/archive/6705008/milestones-oct-21-1985-4/" target="_blank" rel="noreferrer">Milestones, Oct. 21, 1985</a> <span class="relationship">supports</span><br><a href="https://www.upi.com/Archives/1985/10/10/Yul-Brynner-exotic-actor/4761497764800/" target="_blank" rel="noreferrer">Yul Brynner, exotic actor (obituary)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>He smoked heavily for decades: UPI reported that at one time he smoked five packs of cigarettes a day, and Cancer Today reports two to four packs a day from the age of 12 and that he quit in 1971.</strong><div class="muted">The amounts differ between sources; the quit year is from one source. Used for the former-smoker history; the pack-year estimate in the modern record is synthetic.</div></td>
+    <td>probable</td>
+    <td><a href="https://www.upi.com/Archives/1985/10/10/Brynners-final-bow/6906497764800/" target="_blank" rel="noreferrer">Brynner&#39;s final bow</a> <span class="relationship">supports</span><br><a href="https://www.upi.com/Archives/1986/02/19/Dont-smoke-whatever-you-do/5599509173200/" target="_blank" rel="noreferrer">&#39;Don&#39;t smoke, whatever you do&#39;</a> <span class="relationship">supports</span><br><a href="https://cancertodaymag.org/?p=547" target="_blank" rel="noreferrer">Rochman S. Yul Brynner (Cancer Today)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>In September 1983 he was found to have lung cancer; Cancer Today reports that he had found a lump on his vocal cords and that the tumor was too close to his heart for surgery, and UPI reports that he was treated for lung cancer that month and said he would beat the disease and resume touring.</strong><div class="muted">The diagnosis month and the inoperable tumor are consistent across sources; the voice complaint and the place of treatment are from single sources. Anchors the synthetic presentation with hoarseness and an unresectable left upper lobe cancer.</div></td>
+    <td>probable</td>
+    <td><a href="https://cancertodaymag.org/?p=547" target="_blank" rel="noreferrer">Rochman S. Yul Brynner (Cancer Today)</a> <span class="relationship">supports</span><br><a href="https://www.upi.com/Archives/1985/10/10/Yul-Brynner-exotic-actor/4761497764800/" target="_blank" rel="noreferrer">Yul Brynner, exotic actor (obituary)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>He returned to the stage and kept playing the King for about two more years; his last performance came in New York in the summer of 1985, less than four months before his death.</strong><div class="muted">UPI gives July 2 for the farewell performance; other accounts give June 30. The case uses summer 1985. Used for the goal of supporting him to keep working.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.upi.com/Archives/1985/10/10/Yul-Brynner-exotic-actor/4761497764800/" target="_blank" rel="noreferrer">Yul Brynner, exotic actor (obituary)</a> <span class="relationship">supports</span><br><a href="https://www.upi.com/Archives/1985/10/10/Brynners-final-bow/6906497764800/" target="_blank" rel="noreferrer">Brynner&#39;s final bow</a> <span class="relationship">supports</span><br><a href="https://time.com/archive/6705008/milestones-oct-21-1985-4/" target="_blank" rel="noreferrer">Milestones, Oct. 21, 1985</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>He said in an interview that he believed his cancer was directly caused by smoking, calling smoking &quot;suicide.&quot;</strong><div class="muted">His own public statement.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.upi.com/Archives/1985/10/10/Brynners-final-bow/6906497764800/" target="_blank" rel="noreferrer">Brynner&#39;s final bow</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>After his death the American Cancer Society released a 30-second television message taken from a January 1985 Good Morning America interview, in which he says: &quot;Now that I&#39;m gone, I tell you: Don&#39;t smoke, whatever you do. Just don&#39;t smoke.&quot;</strong><div class="muted">UPI reports that it first aired on ABC in February 1986, about four months after his death; Cancer Today says networks ran it within days of his death. The case records both and uses neither date in the episode.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.upi.com/Archives/1986/02/19/Dont-smoke-whatever-you-do/5599509173200/" target="_blank" rel="noreferrer">&#39;Don&#39;t smoke, whatever you do&#39;</a> <span class="relationship">supports</span><br><a href="https://cancertodaymag.org/?p=547" target="_blank" rel="noreferrer">Rochman S. Yul Brynner (Cancer Today)</a> <span class="relationship">supports</span><br><a href="https://www.encyclopedia.com/movies/dictionaries-thesauruses-pictures-and-press-releases/brynner-yul" target="_blank" rel="noreferrer">Brynner, Yul</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>He died on October 10, 1985, at 65, at New York Hospital-Cornell Medical Center, of complications of cancer.</strong><div class="muted">History only; after the true-frame episode.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.upi.com/Archives/1985/10/10/Yul-Brynner-exotic-actor/4761497764800/" target="_blank" rel="noreferrer">Yul Brynner, exotic actor (obituary)</a> <span class="relationship">supports</span><br><a href="https://www.biography.com/actors/yul-brynner" target="_blank" rel="noreferrer">Yul Brynner</a> <span class="relationship">supports</span><br><a href="https://time.com/archive/6705008/milestones-oct-21-1985-4/" target="_blank" rel="noreferrer">Milestones, Oct. 21, 1985</a> <span class="relationship">supports</span></td>
+  </tr></tbody></table></section>
+    <section><h2>Modern synthetic problem list</h2><table><thead><tr><th>Grade</th><th>Problem</th><th>Clinical status</th><th>Verification</th><th>Placement</th><th>Historical claims</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Adenocarcinoma of the left upper lobe of the lung, stage IVB (cT4 N2 M1c, AJCC 8th edition), unresectable: the primary invades the mediastinum at the aortopulmonary window; bone metastases; PD-L1 tumor proportion score 70 percent (22C3); ECOG performance status 1; comprehensive genomic profiling results in the notes</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>both_with_link</td>
+    <td>CLM-0005, CLM-0006</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Bone metastases at T10, the right ilium, and the left sixth rib on PET-CT, without pain, fracture, or cord compression</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td>CLM-0005, CLM-0006</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Left vocal fold paralysis with a breathy, weak voice, most likely from left recurrent laryngeal nerve involvement by disease in the aortopulmonary window</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>both_with_link</td>
+    <td>CLM-0005</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Left upper lobe mass invading the mediastinum, with enlarged mediastinal lymph nodes, on CT at presentation; suspicious for lung cancer pending tissue diagnosis</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td>CLM-0005, CLM-0006</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Former smoker: about 3 packs a day from age 12 until he quit 12 years ago, roughly 115 pack-years; no tobacco since</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>both_with_link</td>
+    <td>CLM-0004, CLM-0007</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Immune-related maculopapular rash from pembrolizumab, grade 1 (about 8 percent of body surface area, itchy, no blisters or mucosal involvement)</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td></td>
+  </tr></tbody></table></section>
+    <section><h2>Synthetic outcome measures</h2><table><thead><tr><th>Grade</th><th>Date</th><th>Measure</th><th>Result</th><th>Coding</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-09-01</td>
+    <td>Hemoglobin [Mass/volume] in Blood</td>
+    <td>13.8 g/dL<div class="muted">Reference 13.5-17.5 g/dL</div></td>
+    <td>http://loinc.org · 718-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-09-01</td>
+    <td>Leukocytes [#/volume] in Blood by Automated count</td>
+    <td>7.9 10*3/uL<div class="muted">Reference 4-11 10*3/uL</div></td>
+    <td>http://loinc.org · 6690-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-09-01</td>
+    <td>Platelets [#/volume] in Blood by Automated count</td>
+    <td>290 10*3/uL<div class="muted">Reference 150-400 10*3/uL</div></td>
+    <td>http://loinc.org · 777-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-09-01</td>
+    <td>Sodium [Moles/volume] in Serum or Plasma</td>
+    <td>138 mmol/L<div class="muted">Reference 135-145 mmol/L</div></td>
+    <td>http://loinc.org · 2951-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-09-01</td>
+    <td>Potassium [Moles/volume] in Serum or Plasma</td>
+    <td>4.3 mmol/L<div class="muted">Reference 3.5-5.1 mmol/L</div></td>
+    <td>http://loinc.org · 2823-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-09-01</td>
+    <td>Creatinine [Mass/volume] in Serum or Plasma</td>
+    <td>0.9 mg/dL<div class="muted">Reference 0.7-1.3 mg/dL</div></td>
+    <td>http://loinc.org · 2160-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-09-01</td>
+    <td>Glomerular filtration rate [Volume Rate/Area] in Serum, Plasma or Blood by Creatinine-based formula (CKD-EPI 2021)/1.73 sq M</td>
+    <td>92 mL/min/1.73 m²<div class="muted">Reference &gt;=60 mL/min/1.73 m²</div></td>
+    <td>http://loinc.org · 98979-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-09-01</td>
+    <td>Calcium [Mass/volume] in Serum or Plasma</td>
+    <td>9.6 mg/dL<div class="muted">Reference 8.6-10.3 mg/dL</div></td>
+    <td>http://loinc.org · 17861-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-09-01</td>
+    <td>Albumin [Mass/volume] in Serum or Plasma</td>
+    <td>4 g/dL<div class="muted">Reference 3.5-5 g/dL</div></td>
+    <td>http://loinc.org · 1751-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-09-01</td>
+    <td>Alanine aminotransferase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>24 U/L<div class="muted">Reference 7-55 U/L</div></td>
+    <td>http://loinc.org · 1742-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-09-01</td>
+    <td>Aspartate aminotransferase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>22 U/L<div class="muted">Reference 8-48 U/L</div></td>
+    <td>http://loinc.org · 1920-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-09-01</td>
+    <td>Alkaline phosphatase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>98 U/L<div class="muted">Reference 40-129 U/L</div></td>
+    <td>http://loinc.org · 6768-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-09-01</td>
+    <td>Bilirubin.total [Mass/volume] in Serum or Plasma</td>
+    <td>0.6 mg/dL<div class="muted">Reference 0.1-1.2 mg/dL</div></td>
+    <td>http://loinc.org · 1975-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-09-01</td>
+    <td>Glucose [Mass/volume] in Serum or Plasma</td>
+    <td>96 mg/dL<div class="muted">Reference 70-99 mg/dL</div></td>
+    <td>http://loinc.org · 2345-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-09-01</td>
+    <td>Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]</td>
+    <td>5</td>
+    <td>http://loinc.org · 44261-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-09-15</td>
+    <td>Total score [Edmonton Symptom Assessment System]</td>
+    <td>18</td>
+    <td>http://loinc.org · 112493-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-09-22</td>
+    <td>Thyrotropin [Units/volume] in Serum or Plasma</td>
+    <td>2.1 mIU/L<div class="muted">Reference 0.4-4 mIU/L</div></td>
+    <td>http://loinc.org · 3016-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-09-22</td>
+    <td>Thyroxine (T4) free [Mass/volume] in Serum or Plasma</td>
+    <td>1.2 ng/dL<div class="muted">Reference 0.8-1.8 ng/dL</div></td>
+    <td>http://loinc.org · 3024-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-09-22</td>
+    <td>Cortisol [Mass/volume] in Serum or Plasma</td>
+    <td>14.2 ug/dL<div class="muted">Reference Morning (8 a.m.) reference interval</div></td>
+    <td>http://loinc.org · 2143-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-09-22</td>
+    <td>Alanine aminotransferase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>26 U/L<div class="muted">Reference 7-55 U/L</div></td>
+    <td>http://loinc.org · 1742-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-09-22</td>
+    <td>Aspartate aminotransferase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>23 U/L<div class="muted">Reference 8-48 U/L</div></td>
+    <td>http://loinc.org · 1920-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-09-22</td>
+    <td>Alkaline phosphatase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>101 U/L<div class="muted">Reference 40-129 U/L</div></td>
+    <td>http://loinc.org · 6768-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-09-22</td>
+    <td>Bilirubin.total [Mass/volume] in Serum or Plasma</td>
+    <td>0.6 mg/dL<div class="muted">Reference 0.1-1.2 mg/dL</div></td>
+    <td>http://loinc.org · 1975-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-09-22</td>
+    <td>Creatinine [Mass/volume] in Serum or Plasma</td>
+    <td>0.9 mg/dL<div class="muted">Reference 0.7-1.3 mg/dL</div></td>
+    <td>http://loinc.org · 2160-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-09-22</td>
+    <td>Glomerular filtration rate [Volume Rate/Area] in Serum, Plasma or Blood by Creatinine-based formula (CKD-EPI 2021)/1.73 sq M</td>
+    <td>92 mL/min/1.73 m²<div class="muted">Reference &gt;=60 mL/min/1.73 m²</div></td>
+    <td>http://loinc.org · 98979-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-09-22</td>
+    <td>Glucose [Mass/volume] in Serum or Plasma</td>
+    <td>94 mg/dL<div class="muted">Reference 70-99 mg/dL</div></td>
+    <td>http://loinc.org · 2345-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-09-22</td>
+    <td>Calcium [Mass/volume] in Serum or Plasma</td>
+    <td>9.5 mg/dL<div class="muted">Reference 8.6-10.3 mg/dL</div></td>
+    <td>http://loinc.org · 17861-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-09-22</td>
+    <td>Hemoglobin [Mass/volume] in Blood</td>
+    <td>13.6 g/dL<div class="muted">Reference 13.5-17.5 g/dL</div></td>
+    <td>http://loinc.org · 718-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-09-22</td>
+    <td>Leukocytes [#/volume] in Blood by Automated count</td>
+    <td>7.6 10*3/uL<div class="muted">Reference 4-11 10*3/uL</div></td>
+    <td>http://loinc.org · 6690-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-09-22</td>
+    <td>Platelets [#/volume] in Blood by Automated count</td>
+    <td>284 10*3/uL<div class="muted">Reference 150-400 10*3/uL</div></td>
+    <td>http://loinc.org · 777-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-10-13</td>
+    <td>Thyrotropin [Units/volume] in Serum or Plasma</td>
+    <td>2.4 mIU/L<div class="muted">Reference 0.4-4 mIU/L</div></td>
+    <td>http://loinc.org · 3016-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-10-13</td>
+    <td>Thyroxine (T4) free [Mass/volume] in Serum or Plasma</td>
+    <td>1.1 ng/dL<div class="muted">Reference 0.8-1.8 ng/dL</div></td>
+    <td>http://loinc.org · 3024-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-10-13</td>
+    <td>Alanine aminotransferase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>30 U/L<div class="muted">Reference 7-55 U/L</div></td>
+    <td>http://loinc.org · 1742-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-10-13</td>
+    <td>Aspartate aminotransferase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>27 U/L<div class="muted">Reference 8-48 U/L</div></td>
+    <td>http://loinc.org · 1920-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-10-13</td>
+    <td>Bilirubin.total [Mass/volume] in Serum or Plasma</td>
+    <td>0.7 mg/dL<div class="muted">Reference 0.1-1.2 mg/dL</div></td>
+    <td>http://loinc.org · 1975-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-10-13</td>
+    <td>Creatinine [Mass/volume] in Serum or Plasma</td>
+    <td>0.9 mg/dL<div class="muted">Reference 0.7-1.3 mg/dL</div></td>
+    <td>http://loinc.org · 2160-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-10-13</td>
+    <td>Glomerular filtration rate [Volume Rate/Area] in Serum, Plasma or Blood by Creatinine-based formula (CKD-EPI 2021)/1.73 sq M</td>
+    <td>92 mL/min/1.73 m²<div class="muted">Reference &gt;=60 mL/min/1.73 m²</div></td>
+    <td>http://loinc.org · 98979-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-10-13</td>
+    <td>Glucose [Mass/volume] in Serum or Plasma</td>
+    <td>104 mg/dL (high)<div class="muted">Reference 70-99 mg/dL</div></td>
+    <td>http://loinc.org · 2345-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-10-13</td>
+    <td>Calcium [Mass/volume] in Serum or Plasma</td>
+    <td>9.4 mg/dL<div class="muted">Reference 8.6-10.3 mg/dL</div></td>
+    <td>http://loinc.org · 17861-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-10-13</td>
+    <td>Hemoglobin [Mass/volume] in Blood</td>
+    <td>13.5 g/dL<div class="muted">Reference 13.5-17.5 g/dL</div></td>
+    <td>http://loinc.org · 718-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-10-13</td>
+    <td>Leukocytes [#/volume] in Blood by Automated count</td>
+    <td>7.2 10*3/uL<div class="muted">Reference 4-11 10*3/uL</div></td>
+    <td>http://loinc.org · 6690-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-10-13</td>
+    <td>Platelets [#/volume] in Blood by Automated count</td>
+    <td>270 10*3/uL<div class="muted">Reference 150-400 10*3/uL</div></td>
+    <td>http://loinc.org · 777-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-10-13</td>
+    <td>Total score [Edmonton Symptom Assessment System]</td>
+    <td>12</td>
+    <td>http://loinc.org · 112493-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-10-13</td>
+    <td>Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]</td>
+    <td>4</td>
+    <td>http://loinc.org · 44261-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-10-20</td>
+    <td>Thyrotropin [Units/volume] in Serum or Plasma</td>
+    <td>2.6 mIU/L<div class="muted">Reference 0.4-4 mIU/L</div></td>
+    <td>http://loinc.org · 3016-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-10-20</td>
+    <td>Thyroxine (T4) free [Mass/volume] in Serum or Plasma</td>
+    <td>1.1 ng/dL<div class="muted">Reference 0.8-1.8 ng/dL</div></td>
+    <td>http://loinc.org · 3024-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-10-20</td>
+    <td>Alanine aminotransferase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>28 U/L<div class="muted">Reference 7-55 U/L</div></td>
+    <td>http://loinc.org · 1742-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-10-20</td>
+    <td>Aspartate aminotransferase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>25 U/L<div class="muted">Reference 8-48 U/L</div></td>
+    <td>http://loinc.org · 1920-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-10-20</td>
+    <td>Bilirubin.total [Mass/volume] in Serum or Plasma</td>
+    <td>0.6 mg/dL<div class="muted">Reference 0.1-1.2 mg/dL</div></td>
+    <td>http://loinc.org · 1975-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-10-20</td>
+    <td>Creatinine [Mass/volume] in Serum or Plasma</td>
+    <td>0.9 mg/dL<div class="muted">Reference 0.7-1.3 mg/dL</div></td>
+    <td>http://loinc.org · 2160-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-10-20</td>
+    <td>Eosinophils [#/volume] in Blood by Automated count</td>
+    <td>0.62 10*3/uL (high)<div class="muted">Reference 0-0.5 10*3/uL</div></td>
+    <td>http://loinc.org · 711-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-10-27</td>
+    <td>Patient Health Questionnaire 2 item (PHQ-2) total score [Reported]</td>
+    <td>1</td>
+    <td>http://loinc.org · 55758-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-10-27</td>
+    <td>Total score [AUDIT-C]</td>
+    <td>2</td>
+    <td>http://loinc.org · 75626-2</td>
+  </tr></tbody></table></section>
+    <section><h2>Synthetic vital signs</h2><table><thead><tr><th>Date</th><th>Measure</th><th>Result</th><th>LOINC</th><th>Grade</th></tr></thead><tbody>
+  <tr><td>2026-09-01</td><td>Body height</td><td>178 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-09-01</td><td>Body weight</td><td>72.4 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-09-01</td><td>Body mass index (BMI) [Ratio]</td><td>22.9 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-09-01</td><td>Systolic blood pressure</td><td>132 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-09-01</td><td>Diastolic blood pressure</td><td>80 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-09-01</td><td>Heart rate</td><td>82 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-09-01</td><td>Respiratory rate</td><td>16 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-09-01</td><td>Body temperature</td><td>36.8 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-09-01</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>96 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-09-15</td><td>Body height</td><td>178 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-09-15</td><td>Body weight</td><td>72 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-09-15</td><td>Body mass index (BMI) [Ratio]</td><td>22.7 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-09-15</td><td>Systolic blood pressure</td><td>128 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-09-15</td><td>Diastolic blood pressure</td><td>78 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-09-15</td><td>Heart rate</td><td>80 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-09-15</td><td>Respiratory rate</td><td>16 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-09-15</td><td>Body temperature</td><td>36.7 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-09-15</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>96 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-09-22</td><td>Body height</td><td>178 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-09-22</td><td>Body weight</td><td>71.8 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-09-22</td><td>Body mass index (BMI) [Ratio]</td><td>22.7 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-09-22</td><td>Systolic blood pressure</td><td>126 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-09-22</td><td>Diastolic blood pressure</td><td>78 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-09-22</td><td>Heart rate</td><td>78 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-09-22</td><td>Respiratory rate</td><td>16 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-09-22</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-09-22</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>96 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-13</td><td>Body height</td><td>178 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-13</td><td>Body weight</td><td>72.2 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-13</td><td>Body mass index (BMI) [Ratio]</td><td>22.8 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-13</td><td>Systolic blood pressure</td><td>124 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-13</td><td>Diastolic blood pressure</td><td>76 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-13</td><td>Heart rate</td><td>76 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-13</td><td>Respiratory rate</td><td>16 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-13</td><td>Body temperature</td><td>36.7 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-13</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>97 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-20</td><td>Body height</td><td>178 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-20</td><td>Body weight</td><td>72 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-20</td><td>Body mass index (BMI) [Ratio]</td><td>22.7 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-20</td><td>Systolic blood pressure</td><td>126 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-20</td><td>Diastolic blood pressure</td><td>78 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-20</td><td>Heart rate</td><td>78 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-20</td><td>Respiratory rate</td><td>16 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-20</td><td>Body temperature</td><td>36.7 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-20</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>97 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-27</td><td>Body height</td><td>178 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-27</td><td>Body weight</td><td>72.3 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-27</td><td>Body mass index (BMI) [Ratio]</td><td>22.8 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-27</td><td>Systolic blood pressure</td><td>124 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-27</td><td>Diastolic blood pressure</td><td>76 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-27</td><td>Heart rate</td><td>74 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-27</td><td>Respiratory rate</td><td>16 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-27</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-27</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>97 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr></tbody></table></section>
+    <section><h2>Social, functional, and mental status</h2><h3>Social history</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Former smoker: about 3 packs a day from age 12 until he quit 12 years ago (roughly 115 pack-years); no tobacco, vaping, or cannabis since; wants other smokers to hear his story</li><li><span class="badge grade-S" title="Synthetic">S</span> Alcohol: a glass of wine with dinner two or three nights a week (AUDIT-C 2); no other drug use</li><li><span class="badge grade-S" title="Synthetic">S</span> Stage actor and singer, leading a national touring production with eight performances a week; has paused the tour for the tests and wants to return as soon as he safely can</li><li><span class="badge grade-S" title="Synthetic">S</span> Married; lives in an apartment in New York and on the road during the tour; a company manager and a long-time dresser help with the travel schedule</li><li><span class="badge grade-S" title="Synthetic">S</span> No occupational asbestos, radon, or diesel exposure known; no family history of lung cancer known to him</li></ul><h3>Functional status</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> ECOG performance status 1: fully active offstage, but tires by the end of an evening and has stopped singing because of the weak voice; walks briskly without breathlessness on the level; climbs two flights with mild breathlessness</li></ul><h3>Mental status</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Alert, commanding, and precise; wants the facts plainly and in full</li><li><span class="badge grade-S" title="Synthetic">S</span> Worried but composed; PHQ-9 score 5 with item 9 scored 0; no thoughts of suicide or self-harm</li></ul></section>
+    
+    <section><h2>Allergies and medications</h2><h3>Allergies</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> No known allergy</li></ul><h3>Medications</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Pembrolizumab 200 mg intravenous infusion over 30 minutes every 3 weeks</li><li><span class="badge grade-S" title="Synthetic">S</span> Zoledronic acid 4 mg in 100 mL intravenous infusion over 15 minutes every 12 weeks, for bone metastases</li><li><span class="badge grade-S" title="Synthetic">S</span> Cholecalciferol (vitamin D3) 25 mcg (1000 units) oral tablet, one tablet daily, with calcium from food, while on zoledronic acid</li><li><span class="badge grade-S" title="Synthetic">S</span> Triamcinolone acetonide 0.1% cream, thin layer to the rash twice daily for two weeks (not on the face or skin folds)</li><li><span class="badge grade-S" title="Synthetic">S</span> Cetirizine 10 mg oral tablet, one tablet daily as needed for itching</li></ul></section>
+    <section><h2>Procedures and immunizations</h2><h3>Procedures</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Flexible laryngoscopy by the ENT surgeon: left vocal fold immobile in the paramedian position with incomplete glottic closure; no laryngeal mass or mucosal lesion</li><li><span class="badge grade-S" title="Synthetic">S</span> CT of the chest, abdomen, and pelvis with contrast: 5.2 cm left upper lobe mass invading the mediastinal fat of the aortopulmonary window and abutting the aortic arch and left pulmonary artery; enlarged aortopulmonary window (2.4 cm) and subcarinal (1.8 cm) lymph nodes; a small lytic lesion in the T10 vertebral body; no adrenal or liver lesion</li><li><span class="badge grade-S" title="Synthetic">S</span> FDG PET-CT: avid left upper lobe mass (SUVmax 14) with mediastinal invasion; avid aortopulmonary window and subcarinal nodes (N2); no contralateral or supraclavicular nodes; avid lytic lesions at T10, the right ilium, and the left sixth rib, without fracture (M1c)</li><li><span class="badge grade-S" title="Synthetic">S</span> MRI of the brain with contrast: no metastases</li><li><span class="badge grade-S" title="Synthetic">S</span> Endobronchial ultrasound-guided needle aspiration of subcarinal (station 7) and left lower paratracheal (4L) nodes: adenocarcinoma, TTF-1 and napsin A positive; PD-L1 (22C3) tumor proportion score 70 percent; tissue sent for comprehensive next-generation sequencing (reported 12 days later: KRAS G12V and TP53 mutations; no EGFR, ALK, ROS1, BRAF V600E, KRAS G12C, MET exon 14, RET, NTRK, HER2, or NRG1 alteration), with concordant plasma cell-free DNA testing</li><li><span class="badge grade-S" title="Synthetic">S</span> Outpatient palliative care visit: symptom assessment, coping, goals of care, and a plan for breathlessness and cough</li><li><span class="badge grade-S" title="Synthetic">S</span> Office injection medialization of the left vocal fold under laryngoscopic guidance by the ENT surgeon, to improve glottic closure and voice</li><li><span class="badge grade-S" title="Synthetic">S</span> Advance care planning conversation, about 30 minutes</li></ul><h3>Immunizations</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> 2025-10-21: Influenza vaccine, 2025-2026 season</li><li><span class="badge grade-S" title="Synthetic">S</span> 2020-03-17: Tdap vaccine</li><li><span class="badge grade-S" title="Synthetic">S</span> 2026-10-27: Influenza vaccine, 2026-2027 season</li><li><span class="badge grade-S" title="Synthetic">S</span> 2026-10-27: Pneumococcal conjugate vaccine PCV20, single dose</li><li><span class="badge grade-S" title="Synthetic">S</span> 2026-10-27: Recombinant zoster vaccine, dose 1 of 2</li></ul></section>
+    <section><h2>Past medical history</h2><p class="muted">True biography with historical dates; not part of the synthetic care timeline.</p><ul><li><span class="badge grade-D" title="Documented">D</span> 1971: Heavy cigarette smoking for decades, quit twelve years before the index visit <span class="muted">(CLM-0004)</span></li></ul><h3>Family history</h3><p class="muted">No family medical history is documented in the logged sources. Family history of real relatives is never synthesized.</p></section>
+    <section><h2>Care-plan goals</h2><table><thead><tr><th>Goal</th><th>Target date</th><th>Status</th><th>Outcome</th></tr></thead><tbody>
+  <tr><td>Tissue diagnosis, full staging, PD-L1, and comprehensive biomarker results before any systemic therapy, within three weeks of presentation</td><td>2026-09-22</td><td>completed</td><td>Diagnosis and stage by two weeks; PD-L1 at two weeks and tissue sequencing at three weeks; pembrolizumab started the day the sequencing was reviewed</td></tr>
+  <tr><td>First palliative care visit within eight weeks of diagnosis</td><td>2026-10-13</td><td>completed</td><td>Seen by the palliative care team two weeks after diagnosis</td></tr>
+  <tr><td>A voice strong enough for rehearsal by the second cycle</td><td>2026-10-13</td><td>completed</td><td>Louder, less breathy voice one week after injection medialization; light rehearsal resumed with voice therapy</td></tr>
+  <tr><td>No grade 2 or higher immune-related adverse event missed: laboratory panel before each infusion and symptom review at each visit</td><td>2026-10-13</td><td>completed</td><td>Panels normal before cycles 1 and 2; no symptoms of colitis, pneumonitis, hepatitis, or endocrine dysfunction</td></tr>
+  <tr><td>Zoledronic acid started only after a dental examination and normal calcium and kidney function</td><td>2026-10-13</td><td>completed</td><td>Dental examination three weeks earlier; calcium 9.4 and eGFR 92; first dose with cycle 2</td></tr></tbody></table></section>
+    <section><h2>Interventions</h2><table><thead><tr><th>Intervention</th><th>Status</th><th>Guideline</th></tr></thead><tbody>
+  <tr><td>Thoracic oncology consultation for the tissue diagnosis, stage, biomarker plan, first-line therapy, the place of radiation and a bone-modifying agent, and monitoring</td><td>completed</td><td>GL-CMID-2026, GL-NCCN-NSCLC-2026</td></tr>
+  <tr><td>Staging and tissue diagnosis: FDG PET-CT, brain MRI with contrast, and endobronchial ultrasound-guided needle aspiration of the highest-stage node, with enough tissue for PD-L1 and comprehensive next-generation sequencing, and plasma cell-free DNA testing in parallel</td><td>completed</td><td>GL-CMID-2026, GL-NCCN-NSCLC-2026</td></tr>
+  <tr><td>First-line systemic therapy chosen by biomarkers once sequencing excludes an actionable alteration: pembrolizumab 200 mg every 3 weeks for PD-L1 50 percent or more, with response CT every 6 to 12 weeks; switch to 400 mg every 6 weeks to fit the tour once stable</td><td>completed</td><td>GL-CMID-2026, GL-NCCN-NSCLC-2026</td></tr>
+  <tr><td>Immune-related adverse event monitoring: TSH and free T4, liver tests, creatinine, glucose, and blood count before each infusion; morning cortisol at baseline and for symptoms; written list of warning symptoms (diarrhea, cough or breathlessness, rash, yellowing, severe fatigue or headache) with a 24-hour oncology telephone line</td><td>completed</td><td>GL-ASCO-IRAE-2021, GL-CMID-2026</td></tr>
+  <tr><td>Early integrated palliative care alongside cancer treatment, starting within eight weeks of diagnosis, with symptom (ESAS) and distress screening at each visit and advance care planning</td><td>completed</td><td>GL-ASCO-PALL-2017, GL-NCCN-DISTRESS-2026, GL-CMID-2026</td></tr>
+  <tr><td>If bone metastases are confirmed: zoledronic acid 4 mg every 12 weeks after a dental examination, with calcium and vitamin D and calcium and creatinine checks before each dose; palliative radiation only if a lesion becomes painful or threatens fracture</td><td>completed</td><td>GL-CMID-2026, GL-NCCN-NSCLC-2026</td></tr>
+  <tr><td>Voice and work: injection medialization of the left vocal fold, voice therapy with a speech-language pathologist, infusions scheduled on his day off, and a graded return to rehearsal and performance as he chooses</td><td>completed</td><td>GL-CMID-2026, GL-NCCN-NSCLC-2026</td></tr>
+  <tr><td>Tobacco: confirm abstinence at each visit; no cessation treatment needed; record the smoking history for his care team</td><td>completed</td><td>GL-CMID-2026, GL-NCCN-NSCLC-2026</td></tr></tbody></table></section>
+    <section><h2>Planned encounters</h2><ul>
+  <li><strong>2026-09-01</strong> — New patient visit for six weeks of hoarseness, with a left upper lobe mass on same-day CT <span class="muted">(ENC-001)</span></li>
+  <li><strong>2026-09-15</strong> — Diagnosis and staging review with thoracic oncology consultation <span class="muted">(ENC-002)</span></li>
+  <li><strong>2026-09-22</strong> — Biomarker results and start of first-line pembrolizumab <span class="muted">(ENC-003)</span></li>
+  <li><strong>2026-10-13</strong> — Cycle 2 review: immune-related adverse event monitoring, symptoms, and return to work <span class="muted">(ENC-004)</span></li>
+  <li><strong>2026-10-20</strong> — Same-day sick visit for an itchy rash on pembrolizumab <span class="muted">(ENC-005, unscheduled)</span></li>
+  <li><strong>2026-10-27</strong> — Periodic adult preventive visit <span class="muted">(ENC-006)</span></li></ul></section>
+    <section><h2>Supporting documents</h2><ul><li><a href="notes/hp.md">History and physical</a></li><li><a href="notes/progress-01.md">Progress note 01</a></li><li><a href="notes/progress-02.md">Progress note 02 — Focused Visit (Follow-up)</a></li><li><a href="notes/progress-03.md">Progress note 03 — Focused Visit (Follow-up)</a></li><li><a href="notes/progress-04.md">Progress note 04 — Focused Visit (Care-plan review)</a></li><li><a href="notes/progress-05.md">Progress note 05 — Sick Visit</a></li><li><a href="notes/progress-06.md">Progress note 06 — Preventive Visit</a></li><li><a href="notes/referral-01.md">Thoracic Oncology referral</a></li><li><a href="notes/consult-01.md">Thoracic Oncology consultation</a></li><li><a href="notes/careplan.md">Patient care plan</a></li><li><a href="notes/teaching-note.md">Teaching note</a></li><li><a href="provenance.csv">Provenance CSV</a></li></ul></section>
+    <section><h2>C-CDA note documents</h2><p class="muted">Each link opens a readable copy; the XML beside it is the exchange file.</p><ul><li><a href="ccda/hp-01.html">History and physical</a> <a href="ccda/hp-01.xml">(XML)</a></li><li><a href="ccda/progress-01.html">Progress note 01</a> <a href="ccda/progress-01.xml">(XML)</a></li><li><a href="ccda/progress-02.html">Progress note 02 — Focused Visit (Follow-up)</a> <a href="ccda/progress-02.xml">(XML)</a></li><li><a href="ccda/progress-03.html">Progress note 03 — Focused Visit (Follow-up)</a> <a href="ccda/progress-03.xml">(XML)</a></li><li><a href="ccda/progress-04.html">Progress note 04 — Focused Visit (Care-plan review)</a> <a href="ccda/progress-04.xml">(XML)</a></li><li><a href="ccda/progress-05.html">Progress note 05 — Sick Visit</a> <a href="ccda/progress-05.xml">(XML)</a></li><li><a href="ccda/progress-06.html">Progress note 06 — Preventive Visit</a> <a href="ccda/progress-06.xml">(XML)</a></li><li><a href="ccda/referral-01.html">Thoracic Oncology referral</a> <a href="ccda/referral-01.xml">(XML)</a></li><li><a href="ccda/consult-01.html">Thoracic Oncology consultation</a> <a href="ccda/consult-01.xml">(XML)</a></li></ul></section>
+    <section><h2>Sources</h2><table><thead><tr><th>ID</th><th>Source</th><th>Publisher</th><th>Type</th></tr></thead><tbody>
+  <tr>
+    <td>SRC-0001</td>
+    <td><a href="https://www.upi.com/Archives/1985/10/10/Yul-Brynner-exotic-actor/4761497764800/" target="_blank" rel="noreferrer">Yul Brynner, exotic actor (obituary)</a></td>
+    <td>United Press International</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0002</td>
+    <td><a href="https://www.upi.com/Archives/1985/10/10/Brynners-final-bow/6906497764800/" target="_blank" rel="noreferrer">Brynner&#39;s final bow</a></td>
+    <td>United Press International</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0003</td>
+    <td><a href="https://www.upi.com/Archives/1986/02/19/Dont-smoke-whatever-you-do/5599509173200/" target="_blank" rel="noreferrer">&#39;Don&#39;t smoke, whatever you do&#39;</a></td>
+    <td>United Press International</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0004</td>
+    <td><a href="https://cancertodaymag.org/?p=547" target="_blank" rel="noreferrer">Rochman S. Yul Brynner (Cancer Today)</a></td>
+    <td>American Association for Cancer Research</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0005</td>
+    <td><a href="https://time.com/archive/6705008/milestones-oct-21-1985-4/" target="_blank" rel="noreferrer">Milestones, Oct. 21, 1985</a></td>
+    <td>TIME</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0006</td>
+    <td><a href="https://www.biography.com/actors/yul-brynner" target="_blank" rel="noreferrer">Yul Brynner</a></td>
+    <td>Biography.com (A&amp;E Television Networks)</td>
+    <td>biography</td>
+  </tr>
+  <tr>
+    <td>SRC-0007</td>
+    <td><a href="https://www.encyclopedia.com/movies/dictionaries-thesauruses-pictures-and-press-releases/brynner-yul" target="_blank" rel="noreferrer">Brynner, Yul</a></td>
+    <td>Encyclopedia.com (International Dictionary of Films and Filmmakers)</td>
+    <td>biography</td>
+  </tr>
+  <tr>
+    <td>SRC-0008</td>
+    <td><a href="https://humanrecord.example.org/internal/HISTMED_Master_Roster_v3.xlsx" target="_blank" rel="noreferrer">HISTMED Master Roster v3</a></td>
+    <td>The Human Record project</td>
+    <td>other</td>
+  </tr></tbody></table></section>
+    <section><h2>Review status</h2><table><thead><tr><th>Review</th><th>Status</th><th>Notes</th></tr></thead><tbody>
+  <tr><td>schema validation</td><td>not_started</td><td>Run scripts/build.ps1 -Conformance.</td></tr>
+  <tr><td>clinical review</td><td>not_started</td><td>Awaiting clinician review; check the stage, the biomarker sequence (therapy started only after tissue sequencing), the choice of pembrolizumab monotherapy, the immune-related adverse event monitoring, the rash evaluation at the sick visit, and the deviation recorded for the missed symptom screen at treatment start.</td></tr>
+  <tr><td>provenance review</td><td>not_started</td><td>The recent-death rule does not apply (died 1985). Historical claims come from UPI, TIME, Cancer Today (AACR), Biography.com, and Encyclopedia.com. Birth-date conflicts from his own accounts are recorded as rejected alternatives. No statement or health fact is attributed to his relatives or colleagues; the histology, stage, biomarkers, and treatment are synthetic.</td></tr>
+  <tr><td>safe messaging review</td><td>not_started</td><td>Tobacco claims are marked sensitive; his death is recorded without detail; the anti-smoking message is quoted as published.</td></tr></tbody></table></section>
+  </main>
+</body>
+</html>

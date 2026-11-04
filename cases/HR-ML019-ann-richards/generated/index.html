@@ -1,0 +1,528 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ann Richards — The Human Record</title>
+  <style>
+    :root { --navy:#17365d; --blue:#1f4e78; --pale:#eef5fa; --ink:#1f2933; --muted:#66788a; --amber:#fff2cc; --red:#f8d7da; --green:#d9ead3; }
+    * { box-sizing:border-box; }
+    body { margin:0; font:16px/1.5 Arial, sans-serif; color:var(--ink); background:#f6f8fa; }
+    header { background:var(--navy); color:white; padding:24px max(24px,calc((100vw - 1180px)/2)); }
+    header h1 { margin:4px 0; font-size:30px; }
+    .banner { background:#b42318; color:white; font-weight:700; text-align:center; padding:10px; letter-spacing:.03em; }
+    main { max-width:1180px; margin:24px auto 60px; padding:0 24px; }
+    section { background:white; border:1px solid #d9e1e8; border-radius:8px; margin:18px 0; padding:20px; }
+    h2 { color:var(--navy); margin:0 0 14px; font-size:22px; }
+    h3 { color:var(--blue); }
+    .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:12px; }
+    .card { background:var(--pale); border-left:4px solid var(--blue); padding:12px; }
+    .label { color:var(--muted); font-size:13px; text-transform:uppercase; letter-spacing:.04em; }
+    table { width:100%; border-collapse:collapse; }
+    th { background:var(--blue); color:white; text-align:left; }
+    th,td { padding:9px; border-bottom:1px solid #dfe6ec; vertical-align:top; }
+    .badge { display:inline-block; min-width:28px; text-align:center; font-weight:700; border-radius:12px; padding:2px 8px; }
+    .grade-D { background:var(--green); } .grade-R { background:var(--amber); } .grade-S { background:var(--red); }
+    .muted { color:var(--muted); font-size:14px; }
+    .relationship { color:var(--muted); font-size:12px; }
+    .downloads a { display:inline-block; margin:4px 8px 4px 0; padding:8px 12px; background:var(--blue); color:white; text-decoration:none; border-radius:5px; }
+    @media (max-width:700px) { table { display:block; overflow-x:auto; } }
+  </style>
+</head>
+<body>
+  <div class="banner">SYNTHETIC RECORD, NOT A REAL MEDICAL RECORD</div>
+  <header>
+    <div>The Human Record</div>
+    <h1>Ann Richards</h1>
+    <div>Case HR-ML019 · Modern EHR teaching episode · Draft for review</div>
+  </header>
+  <main>
+    <section>
+      <h2>Review summary</h2>
+      <div class="grid">
+        <div class="card"><div class="label">Historical dates</div>September 1, 1933 – September 13, 2006</div>
+        <div class="card"><div class="label">Synthetic DOB</div>1962-09-01</div>
+        <div class="card"><div class="label">Index visit</div>2026-02-10 at age 63</div>
+        <div class="card"><div class="label">Synthetic MRN</div>HR-ML019-SYN</div>
+      </div>
+      <p><strong>Teaching objective:</strong> Evaluate bone health in a 63-year-old postmenopausal woman after a fall with a hand fracture: read the DXA T-scores precisely (low bone mass, not osteoporosis by T-score), calculate FRAX with her risk factors, and base the treatment decision on the guideline thresholds; complete a secondary-causes work-up and correct vitamin D before an antiresorptive; choose therapy strictly by guideline and her risk; add calcium, vitamin D, weight-bearing and balance exercise, and falls prevention; set the DXA follow-up interval and the drug-holiday reassessment; and give recovery-oriented care for an alcohol use disorder in long remission, with a structured safety assessment, on the CMID osteoporosis schedule.</p>
+      <div class="downloads">
+        <a href="../case.json">Canonical JSON</a>
+        <a href="fhir-bundle.json">FHIR R4 draft</a>
+        <a href="ccda.html">C-CDA R2.1 summary</a> <a href="ccda.xml">(XML)</a> <a href="review.html">Review checklist</a>
+        <a href="../sources.md">Evidence dossier</a>
+      </div>
+    </section>
+    <section><h2>Historical timeline</h2><table><thead><tr><th>Date</th><th>Event</th><th>Claims</th></tr></thead><tbody>
+  <tr><td>September 1, 1933</td><td>Born Dorothy Ann Willis in Lakeview, near Waco, Texas.</td><td>CLM-0001</td></tr>
+  <tr><td>1980</td><td>Enters treatment for alcohol use and emerges sober.</td><td>CLM-0003</td></tr>
+  <tr><td>1982</td><td>Elected Texas state treasurer; keynote address at the 1988 Democratic National Convention; elected governor in 1990.</td><td>CLM-0002</td></tr>
+  <tr><td>1996 (1994 in one source)</td><td>Falls and breaks her hand; a bone density test shows osteopenia, described as early osteoporosis.</td><td>CLM-0005, CLM-0006, CLM-0007</td></tr>
+  <tr><td>2003</td><td>Publishes I&#39;m Not Slowing Down: Winning My Battle with Osteoporosis; reports that her bone density has stabilized.</td><td>CLM-0008, CLM-0009, CLM-0010</td></tr>
+  <tr><td>September 13, 2006</td><td>Dies at home in Austin, six months after esophageal cancer was found.</td><td>CLM-0011</td></tr></tbody></table></section>
+    <section><h2>Evidence claims</h2><p class="muted">D = documented, R = retrospective, S = synthetic.</p><table><thead><tr><th>Grade</th><th>Claim</th><th>Certainty</th><th>Sources</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>Ann Richards was born Dorothy Ann Willis on September 1, 1933, in Lakeview, near Waco, Texas.</strong></td>
+    <td>confirmed</td>
+    <td><a href="https://cemetery.texas.gov/locate-a-plot/plotholder/ann-willis-richards" target="_blank" rel="noreferrer">Ann Willis Richards (plot holder record)</a> <span class="relationship">supports</span><br><a href="https://www.ebsco.com/research-starters/biography/ann-richards/" target="_blank" rel="noreferrer">Ann Richards (Research Starters biography)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>She was elected Texas state treasurer in 1982, gave the keynote address at the 1988 Democratic National Convention, was elected governor of Texas in 1990, and served one term after losing her bid for re-election in 1994.</strong><div class="muted">Used for the synthetic modern occupation (public speaker and adviser).</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.tsl.texas.gov/governors/modern/richards-p01.html" target="_blank" rel="noreferrer">Ann W. Richards (governor&#39;s biography)</a> <span class="relationship">supports</span><br><a href="https://www.spokesman.com/stories/2006/sep/14/ann-richards-dies-at-73" target="_blank" rel="noreferrer">Ann Richards dies at 73 (Associated Press)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>She spoke openly about her past heavy drinking (&quot;I smoked like a chimney and drank like a fish&quot;), entered treatment, and emerged sober; one biography dates the treatment to 1980 and describes it as successful.</strong><div class="muted">Her own public account of alcohol use disorder and long recovery, and of past heavy smoking. Used for the synthetic problem of alcohol use disorder in sustained remission and for the former-smoker history; the quit date for tobacco is not documented.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.tsl.texas.gov/governors/modern/richards-p01.html" target="_blank" rel="noreferrer">Ann W. Richards (governor&#39;s biography)</a> <span class="relationship">supports</span><br><a href="https://www.ebsco.com/research-starters/biography/ann-richards/" target="_blank" rel="noreferrer">Ann Richards (Research Starters biography)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>She said publicly that her mother had osteoporosis, broke &quot;her arm, her hip,&quot; and developed a hump, and that osteoporosis was not the cause of her mother&#39;s death but led to it.</strong><div class="muted">Her own public account of her mother&#39;s illness. Used for the family history and the parental hip fracture entered in FRAX.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.cbsnews.com/news/ann-richards-osteoporosis-campaign/" target="_blank" rel="noreferrer">Ann Richards on osteoporosis (CBS News report)</a> <span class="relationship">supports</span><br><a href="https://www.cbsnews.com/news/ann-richards-latest-battle" target="_blank" rel="noreferrer">Morales T. Ann Richards&#39; Latest Battle</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>Because of her mother&#39;s fractures, she asked her doctor at an annual checkup to test her bone density.</strong><div class="muted">Her own public account.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.cbsnews.com/news/ann-richards-osteoporosis-campaign/" target="_blank" rel="noreferrer">Ann Richards on osteoporosis (CBS News report)</a> <span class="relationship">supports</span><br><a href="https://transcripts.cnn.com/show/lkl/date/2002-05-14/segment/00" target="_blank" rel="noreferrer">Larry King Live transcript, May 14, 2002</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>She had a bone density test after falling and breaking her hand. CBS News (2003) and a publisher&#39;s summary date this to 1996, and CBS says she fell twice and broke her hand and her ankle; a Publishers Weekly review dates the hand fracture to 1994.</strong><div class="muted">The hand fracture is consistent across sources; its year (1996 in two sources, 1994 in one) and the ankle fracture (one source) are not. The case uses a fall with a hand fracture the year before the index visit and records the ankle fracture as reported in one source.</div></td>
+    <td>probable</td>
+    <td><a href="https://www.cbsnews.com/news/ann-richards-latest-battle" target="_blank" rel="noreferrer">Morales T. Ann Richards&#39; Latest Battle</a> <span class="relationship">supports</span><br><a href="https://texascooking.com/books/osteoporosisannrichards.htm" target="_blank" rel="noreferrer">Winning My Battle with Osteoporosis (book description)</a> <span class="relationship">supports</span><br><a href="https://www.publishersweekly.com/9780525946915" target="_blank" rel="noreferrer">Review: I&#39;m Not Slowing Down: Winning My Battle with Osteoporosis</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>The bone density test showed osteopenia, which CBS News and the publisher&#39;s summary call an early stage of osteoporosis; in other interviews she said she had osteoporosis or early osteoporosis.</strong><div class="muted">The published label is low bone mass (osteopenia), described as early osteoporosis. No source gives her T-scores; the synthetic T-scores stay in the low bone mass range.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.cbsnews.com/news/ann-richards-latest-battle" target="_blank" rel="noreferrer">Morales T. Ann Richards&#39; Latest Battle</a> <span class="relationship">supports</span><br><a href="https://texascooking.com/books/osteoporosisannrichards.htm" target="_blank" rel="noreferrer">Winning My Battle with Osteoporosis (book description)</a> <span class="relationship">supports</span><br><a href="https://www.publishersweekly.com/9780525946915" target="_blank" rel="noreferrer">Review: I&#39;m Not Slowing Down: Winning My Battle with Osteoporosis</a> <span class="relationship">supports</span><br><a href="https://www.cbsnews.com/news/ann-richards-osteoporosis-campaign/" target="_blank" rel="noreferrer">Ann Richards on osteoporosis (CBS News report)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>CBS News reported in 2003 that she had shrunk three-quarters of an inch; in a 2002 television interview she said &quot;my neck bones were collapsing and I literally was shrinking.&quot;</strong><div class="muted">Lay description of height loss; no source reports a vertebral fracture. Used only for the measured height loss of about 2 cm in the synthetic examination.</div></td>
+    <td>probable</td>
+    <td><a href="https://www.cbsnews.com/news/ann-richards-latest-battle" target="_blank" rel="noreferrer">Morales T. Ann Richards&#39; Latest Battle</a> <span class="relationship">supports</span><br><a href="https://transcripts.cnn.com/show/lkl/date/2002-05-14/segment/00" target="_blank" rel="noreferrer">Larry King Live transcript, May 14, 2002</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>She took a prescription medicine, began weight-bearing exercise and weight training, and changed her diet; CBS News reported in 2003 that her bone density had stabilized, and that she was a spokesperson for the maker of the medicine she took.</strong><div class="muted">Her public account of treatment. The product is not named in this record, and the synthetic treatment is chosen by guideline and her synthetic data, not by her real treatment.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.cbsnews.com/news/ann-richards-latest-battle" target="_blank" rel="noreferrer">Morales T. Ann Richards&#39; Latest Battle</a> <span class="relationship">supports</span><br><a href="https://www.publishersweekly.com/9780525946915" target="_blank" rel="noreferrer">Review: I&#39;m Not Slowing Down: Winning My Battle with Osteoporosis</a> <span class="relationship">supports</span><br><a href="https://www.cbsnews.com/news/ann-richards-osteoporosis-campaign/" target="_blank" rel="noreferrer">Ann Richards on osteoporosis (CBS News report)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>In 2003 she published I&#39;m Not Slowing Down: Winning My Battle with Osteoporosis, written with Richard U. Levine, MD, to encourage women and men to ask their doctors for a bone density test.</strong></td>
+    <td>confirmed</td>
+    <td><a href="https://www.publishersweekly.com/9780525946915" target="_blank" rel="noreferrer">Review: I&#39;m Not Slowing Down: Winning My Battle with Osteoporosis</a> <span class="relationship">supports</span><br><a href="https://texascooking.com/books/osteoporosisannrichards.htm" target="_blank" rel="noreferrer">Winning My Battle with Osteoporosis (book description)</a> <span class="relationship">supports</span><br><a href="https://humanrecord.example.org/internal/HISTMED_Master_Roster_v3.xlsx" target="_blank" rel="noreferrer">HISTMED Master Roster v3</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>She was found to have esophageal cancer in March 2006, received chemotherapy, and died at her home in Austin on September 13, 2006, at 73.</strong><div class="muted">History only; after the true-frame episode and not used in it.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.spokesman.com/stories/2006/sep/14/ann-richards-dies-at-73" target="_blank" rel="noreferrer">Ann Richards dies at 73 (Associated Press)</a> <span class="relationship">supports</span><br><a href="https://cemetery.texas.gov/locate-a-plot/plotholder/ann-willis-richards" target="_blank" rel="noreferrer">Ann Willis Richards (plot holder record)</a> <span class="relationship">supports</span><br><a href="https://www.ebsco.com/research-starters/biography/ann-richards/" target="_blank" rel="noreferrer">Ann Richards (Research Starters biography)</a> <span class="relationship">supports</span></td>
+  </tr></tbody></table></section>
+    <section><h2>Modern synthetic problem list</h2><table><thead><tr><th>Grade</th><th>Problem</th><th>Clinical status</th><th>Verification</th><th>Placement</th><th>Historical claims</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Low bone mass (osteopenia) of the lumbar spine and hip on DXA, lowest T-score -2.3 at the lumbar spine (femoral neck -2.0, total hip -1.7), with a 10-year FRAX risk above the treatment thresholds (major osteoporotic fracture 22 percent, hip 3.6 percent); not osteoporosis by T-score, but meets the AACE 2020 clinical criteria for osteoporosis (low bone mass with a FRAX risk above threshold)</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>both_with_link</td>
+    <td>CLM-0005, CLM-0006, CLM-0007, CLM-0004</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Alcohol use disorder in sustained remission for more than fifteen years, since treatment; no alcohol since</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>both_with_link</td>
+    <td>CLM-0003</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>History of falls: a fall from standing height with a hand fracture last year (and, in one account, a second fall with an ankle fracture); no falls since</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>both_with_link</td>
+    <td>CLM-0006</td>
+  </tr></tbody></table></section>
+    <section><h2>Synthetic outcome measures</h2><table><thead><tr><th>Grade</th><th>Date</th><th>Measure</th><th>Result</th><th>Coding</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-02-10</td>
+    <td>DXA Lumbar spine [T-score] Bone density</td>
+    <td>-2.3 (low)<div class="muted">Reference -1.0 or higher is normal; between -1.0 and -2.5 is low bone mass (osteopenia); -2.5 or lower is osteoporosis</div></td>
+    <td>http://loinc.org · 38267-1</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-02-10</td>
+    <td>DXA Femur [T-score] Bone density</td>
+    <td>-2 (low)<div class="muted">Reference -1.0 or higher is normal; between -1.0 and -2.5 is low bone mass (osteopenia); -2.5 or lower is osteoporosis</div></td>
+    <td>http://loinc.org · 38263-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-02-10</td>
+    <td>DXA Hip [T-score] Bone density</td>
+    <td>-1.7 (low)<div class="muted">Reference -1.0 or higher is normal; between -1.0 and -2.5 is low bone mass (osteopenia); -2.5 or lower is osteoporosis</div></td>
+    <td>http://loinc.org · 38264-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-02-10</td>
+    <td>Major osteoporotic fracture 10-year probability [Likelihood] Fracture Risk Assessment</td>
+    <td>22%</td>
+    <td>http://loinc.org · 90265-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-02-10</td>
+    <td>Hip fracture 10-year probability [Likelihood] Fracture Risk Assessment</td>
+    <td>3.6%</td>
+    <td>http://loinc.org · 90266-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-02-10</td>
+    <td>Calcium [Mass/volume] in Serum or Plasma</td>
+    <td>9.4 mg/dL<div class="muted">Reference 8.6-10.3 mg/dL</div></td>
+    <td>http://loinc.org · 17861-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-02-10</td>
+    <td>Albumin [Mass/volume] in Serum or Plasma</td>
+    <td>4.2 g/dL<div class="muted">Reference 3.5-5 g/dL</div></td>
+    <td>http://loinc.org · 1751-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-02-10</td>
+    <td>Creatinine [Mass/volume] in Serum or Plasma</td>
+    <td>0.8 mg/dL<div class="muted">Reference 0.5-1 mg/dL</div></td>
+    <td>http://loinc.org · 2160-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-02-10</td>
+    <td>Glomerular filtration rate [Volume Rate/Area] in Serum, Plasma or Blood by Creatinine-based formula (CKD-EPI 2021)/1.73 sq M</td>
+    <td>81 mL/min/1.73 m²<div class="muted">Reference &gt;=60 mL/min/1.73 m²</div></td>
+    <td>http://loinc.org · 98979-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-02-10</td>
+    <td>Phosphate [Mass/volume] in Serum or Plasma</td>
+    <td>3.5 mg/dL<div class="muted">Reference 2.5-4.5 mg/dL</div></td>
+    <td>http://loinc.org · 2777-1</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-02-10</td>
+    <td>Magnesium [Mass/volume] in Serum or Plasma</td>
+    <td>2 mg/dL<div class="muted">Reference 1.7-2.4 mg/dL</div></td>
+    <td>http://loinc.org · 19123-9</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-02-10</td>
+    <td>Alkaline phosphatase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>84 U/L<div class="muted">Reference 40-120 U/L</div></td>
+    <td>http://loinc.org · 6768-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-02-10</td>
+    <td>Parathyrin.intact [Mass/volume] in Serum or Plasma</td>
+    <td>54 pg/mL<div class="muted">Reference 15-65 pg/mL</div></td>
+    <td>http://loinc.org · 2731-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-02-10</td>
+    <td>Thyrotropin [Units/volume] in Serum or Plasma</td>
+    <td>1.9 mIU/L<div class="muted">Reference 0.4-4 mIU/L</div></td>
+    <td>http://loinc.org · 3016-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-02-10</td>
+    <td>Hemoglobin [Mass/volume] in Blood</td>
+    <td>13.3 g/dL<div class="muted">Reference 12-15.5 g/dL</div></td>
+    <td>http://loinc.org · 718-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-02-10</td>
+    <td>Alanine aminotransferase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>21 U/L<div class="muted">Reference 7-35 U/L</div></td>
+    <td>http://loinc.org · 1742-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-02-10</td>
+    <td>25-Hydroxyvitamin D3+25-Hydroxyvitamin D2 [Mass/volume] in Serum or Plasma</td>
+    <td>24 ng/mL (low)<div class="muted">Reference Target 30 ng/mL or higher before and during osteoporosis treatment</div></td>
+    <td>http://loinc.org · 62292-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-02-10</td>
+    <td>Collagen crosslinked C-telopeptide [Mass/volume] in Serum or Plasma</td>
+    <td>560 pg/mL<div class="muted">Reference Postmenopausal reference interval 104 to 1008 pg/mL; a fall of more than about 30 percent on antiresorptive therapy indicates response</div></td>
+    <td>http://loinc.org · 41171-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-02-10</td>
+    <td>Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]</td>
+    <td>2</td>
+    <td>http://loinc.org · 44261-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-02-10</td>
+    <td>Total score [AUDIT-C]</td>
+    <td>0</td>
+    <td>http://loinc.org · 75626-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-05-12</td>
+    <td>25-Hydroxyvitamin D3+25-Hydroxyvitamin D2 [Mass/volume] in Serum or Plasma</td>
+    <td>38 ng/mL<div class="muted">Reference Target 30 ng/mL or higher before and during osteoporosis treatment</div></td>
+    <td>http://loinc.org · 62292-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-05-12</td>
+    <td>Calcium [Mass/volume] in Serum or Plasma</td>
+    <td>9.5 mg/dL<div class="muted">Reference 8.6-10.3 mg/dL</div></td>
+    <td>http://loinc.org · 17861-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-05-12</td>
+    <td>Creatinine [Mass/volume] in Serum or Plasma</td>
+    <td>0.8 mg/dL<div class="muted">Reference 0.5-1 mg/dL</div></td>
+    <td>http://loinc.org · 2160-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-05-12</td>
+    <td>Glomerular filtration rate [Volume Rate/Area] in Serum, Plasma or Blood by Creatinine-based formula (CKD-EPI 2021)/1.73 sq M</td>
+    <td>81 mL/min/1.73 m²<div class="muted">Reference &gt;=60 mL/min/1.73 m²</div></td>
+    <td>http://loinc.org · 98979-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-05-12</td>
+    <td>Calcium [Mass/time] in 24 hour Urine</td>
+    <td>172 mg/(24.h)<div class="muted">Reference 100-300 mg/(24.h)</div></td>
+    <td>http://loinc.org · 6874-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-08-11</td>
+    <td>Collagen crosslinked C-telopeptide [Mass/volume] in Serum or Plasma</td>
+    <td>190 pg/mL<div class="muted">Reference Postmenopausal reference interval 104 to 1008 pg/mL; a fall of more than about 30 percent on antiresorptive therapy indicates response</div></td>
+    <td>http://loinc.org · 41171-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-08-11</td>
+    <td>Calcium [Mass/volume] in Serum or Plasma</td>
+    <td>9.3 mg/dL<div class="muted">Reference 8.6-10.3 mg/dL</div></td>
+    <td>http://loinc.org · 17861-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-10-06</td>
+    <td>Cholesterol [Mass/volume] in Serum or Plasma</td>
+    <td>204 mg/dL (high)<div class="muted">Reference &lt;=199 mg/dL</div></td>
+    <td>http://loinc.org · 2093-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-10-06</td>
+    <td>Cholesterol in HDL [Mass/volume] in Serum or Plasma</td>
+    <td>62 mg/dL<div class="muted">Reference &gt;=50 mg/dL</div></td>
+    <td>http://loinc.org · 2085-9</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-10-06</td>
+    <td>Cholesterol in LDL [Mass/volume] in Serum or Plasma by calculation</td>
+    <td>118 mg/dL<div class="muted">Reference &lt;=129 mg/dL</div></td>
+    <td>http://loinc.org · 13457-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-10-06</td>
+    <td>Triglyceride [Mass/volume] in Serum or Plasma</td>
+    <td>120 mg/dL<div class="muted">Reference &lt;=149 mg/dL</div></td>
+    <td>http://loinc.org · 2571-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-10-06</td>
+    <td>Patient Health Questionnaire 2 item (PHQ-2) total score [Reported]</td>
+    <td>0</td>
+    <td>http://loinc.org · 55758-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-10-06</td>
+    <td>Total score [AUDIT-C]</td>
+    <td>0</td>
+    <td>http://loinc.org · 75626-2</td>
+  </tr></tbody></table></section>
+    <section><h2>Synthetic vital signs</h2><table><thead><tr><th>Date</th><th>Measure</th><th>Result</th><th>LOINC</th><th>Grade</th></tr></thead><tbody>
+  <tr><td>2026-02-10</td><td>Body height</td><td>164 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-02-10</td><td>Body weight</td><td>66 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-02-10</td><td>Body mass index (BMI) [Ratio]</td><td>24.5 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-02-10</td><td>Systolic blood pressure</td><td>124 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-02-10</td><td>Diastolic blood pressure</td><td>76 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-02-10</td><td>Heart rate</td><td>72 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-02-10</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-02-10</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-02-10</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>98 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-10</td><td>Body height</td><td>164 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-10</td><td>Body weight</td><td>66.2 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-10</td><td>Body mass index (BMI) [Ratio]</td><td>24.6 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-10</td><td>Systolic blood pressure</td><td>122 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-10</td><td>Diastolic blood pressure</td><td>74 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-10</td><td>Heart rate</td><td>70 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-10</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-10</td><td>Body temperature</td><td>36.7 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-10</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>98 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-05-12</td><td>Body height</td><td>164 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-05-12</td><td>Body weight</td><td>66.4 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-05-12</td><td>Body mass index (BMI) [Ratio]</td><td>24.7 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-05-12</td><td>Systolic blood pressure</td><td>120 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-05-12</td><td>Diastolic blood pressure</td><td>74 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-05-12</td><td>Heart rate</td><td>72 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-05-12</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-05-12</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-05-12</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>99 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-08-11</td><td>Body height</td><td>164 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-08-11</td><td>Body weight</td><td>66 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-08-11</td><td>Body mass index (BMI) [Ratio]</td><td>24.5 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-08-11</td><td>Systolic blood pressure</td><td>122 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-08-11</td><td>Diastolic blood pressure</td><td>76 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-08-11</td><td>Heart rate</td><td>68 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-08-11</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-08-11</td><td>Body temperature</td><td>36.7 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-08-11</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>98 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-06</td><td>Body height</td><td>164 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-06</td><td>Body weight</td><td>65.8 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-06</td><td>Body mass index (BMI) [Ratio]</td><td>24.5 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-06</td><td>Systolic blood pressure</td><td>122 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-06</td><td>Diastolic blood pressure</td><td>74 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-06</td><td>Heart rate</td><td>70 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-06</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-06</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-06</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>98 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr></tbody></table></section>
+    <section><h2>Social, functional, and mental status</h2><h3>Social history</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Alcohol use disorder in sustained remission: no alcohol for more than fifteen years since treatment; AUDIT-C 0</li><li><span class="badge grade-S" title="Synthetic">S</span> Former smoker by her own account; smoked heavily for many years and quit more than fifteen years ago (quit timing and amount are synthetic); no vaping</li><li><span class="badge grade-S" title="Synthetic">S</span> Former statewide officeholder, now a public speaker and policy adviser who travels most weeks; divorced; lives alone in her own two-story home; adult children live nearby</li><li><span class="badge grade-S" title="Synthetic">S</span> Exercise: walks about 30 minutes most days and began weight training at a gym after her fall; no balance training</li><li><span class="badge grade-S" title="Synthetic">S</span> Diet: about 800 mg of calcium a day from food (milk in coffee, cheese, yogurt a few times a week); two cups of coffee a day; no calcium or vitamin D supplements; uses sunscreen and works mostly indoors</li><li><span class="badge grade-S" title="Synthetic">S</span> Natural menopause in her early fifties; no hormone therapy; no glucocorticoid, anticonvulsant, aromatase inhibitor, or proton pump inhibitor use</li></ul><h3>Functional status</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Independent in all activities of daily living and instrumental activities. Timed Up and Go 11 seconds; tandem stance held 8 seconds (below 10); 30-second chair stand 11; fall with fracture in the past year and fear of another fall when traveling</li><li><span class="badge grade-S" title="Synthetic">S</span> Standing height 164.0 cm by stadiometer, about 2 cm below her recalled tallest height of 166 cm; no kyphosis; occiput touches the wall</li></ul><h3>Mental status</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Alert, quick-witted, and direct; asks pointed questions about her numbers</li><li><span class="badge grade-S" title="Synthetic">S</span> Mood good; PHQ-9 score 2 with item 9 scored 0; no thoughts of suicide or self-harm; no cravings</li></ul></section>
+    <section><h2>Structured safety assessment</h2><div class="grid"><div class="card"><div class="label">Current ideation</div>absent</div><div class="card"><div class="label">Intent</div>absent</div><div class="card"><div class="label">Plan</div>absent</div><div class="card"><div class="label">Disposition</div>Routine outpatient care. Crisis resources, including the 988 Suicide &amp; Crisis Lifeline, given in writing and saved in her phone; safety reviewed at each visit</div></div><p class="muted">This assessment is synthetic and does not convert historical behavior into a present-day fact.</p></section>
+    <section><h2>Allergies and medications</h2><h3>Allergies</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> No known allergy</li></ul><h3>Medications</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Cholecalciferol (vitamin D3) 50 mcg (2000 units) oral tablet, one tablet daily</li><li><span class="badge grade-S" title="Synthetic">S</span> Zoledronic acid 5 mg in 100 mL intravenous infusion over 30 minutes, once every 12 months</li><li><span class="badge grade-S" title="Synthetic">S</span> Acetaminophen 500 mg oral tablet, two tablets every 6 hours as needed for aches or fever for up to three days after the infusion (no more than 3 g a day)</li></ul></section>
+    <section><h2>Procedures and immunizations</h2><h3>Procedures</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Dual-energy X-ray absorptiometry of the lumbar spine and hip: L1-L4 T-score -2.3, femoral neck -2.0, total hip -1.7 (low bone mass)</li><li><span class="badge grade-S" title="Synthetic">S</span> Vertebral fracture assessment by lateral spine DXA, T4 to L4: no vertebral fracture; mild degenerative change</li><li><span class="badge grade-S" title="Synthetic">S</span> Supervised balance and strength exercise program with a physical therapist, 16 sessions over eight weeks, then a home program</li><li><span class="badge grade-S" title="Synthetic">S</span> Zoledronic acid 5 mg intravenous infusion over 30 minutes, first yearly dose, after a normal calcium, creatinine, and vitamin D check</li><li><span class="badge grade-S" title="Synthetic">S</span> Advance care planning conversation, about 20 minutes</li></ul><h3>Immunizations</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> 2025-10-14: Influenza vaccine, 2025-2026 season</li><li><span class="badge grade-S" title="Synthetic">S</span> 2023-05-16: Recombinant zoster vaccine, two-dose series completed</li><li><span class="badge grade-S" title="Synthetic">S</span> 2019-06-11: Tdap vaccine</li><li><span class="badge grade-S" title="Synthetic">S</span> 2026-10-06: Influenza vaccine, 2026-2027 season</li><li><span class="badge grade-S" title="Synthetic">S</span> 2026-10-06: Pneumococcal conjugate vaccine PCV20, single dose</li></ul></section>
+    <section><h2>Past medical history</h2><p class="muted">True biography with historical dates; not part of the synthetic care timeline.</p><ul><li><span class="badge grade-D" title="Documented">D</span> 1980: Heavy drinking, followed by treatment from which she emerged sober; no alcohol since <span class="muted">(CLM-0003)</span></li><li><span class="badge grade-D" title="Documented">D</span> 1996: Fall with a hand fracture (one account also describes a second fall with an ankle fracture); the year is 1996 in two sources and 1994 in one <span class="muted">(CLM-0006)</span></li><li><span class="badge grade-D" title="Documented">D</span> 1996: Bone density test after the fall, reported as osteopenia, an early stage of osteoporosis; no report or T-scores available <span class="muted">(CLM-0005, CLM-0007)</span></li></ul><h3>Family history</h3><ul><li><span class="badge grade-D" title="Documented">D</span> mother: Osteoporosis with fractures of the arm and hip and a curved upper back, by Richards&#39;s own public account; Richards said osteoporosis was not the cause of her mother&#39;s death but led to it</li></ul></section>
+    <section><h2>Care-plan goals</h2><table><thead><tr><th>Goal</th><th>Target date</th><th>Status</th><th>Outcome</th></tr></thead><tbody>
+  <tr><td>Total calcium intake of about 1200 mg a day, mostly from food, by the four-week visit</td><td>2026-03-10</td><td>completed</td><td>About 1200 mg a day from food by her own three-day food record</td></tr>
+  <tr><td>25-hydroxyvitamin D of 30 ng/mL or more before the first infusion</td><td>2026-05-12</td><td>completed</td><td>24 ng/mL at intake and 38 ng/mL at three months</td></tr>
+  <tr><td>First zoledronic acid dose by the three-month visit, with normal calcium and kidney function and a dental check done</td><td>2026-05-12</td><td>completed</td><td>Given at three months after normal calcium (9.5 mg/dL) and eGFR (81) and a routine dental examination</td></tr>
+  <tr><td>Complete the eight-week balance and strength program, with no falls through six months</td><td>2026-08-11</td><td>completed</td><td>16 of 16 sessions; Timed Up and Go 9 seconds and tandem stance 20 seconds at six months; no falls</td></tr>
+  <tr><td>Serum CTX at least 30 percent lower three months after the first dose</td><td>2026-08-11</td><td>completed</td><td>560 pg/mL at baseline and 190 pg/mL at three months after the dose (66 percent lower)</td></tr>
+  <tr><td>Sustained remission from alcohol use disorder throughout the episode</td><td>2026-08-11</td><td>completed</td><td>No alcohol reported at any visit; AUDIT-C 0 at intake</td></tr></tbody></table></section>
+    <section><h2>Interventions</h2><table><thead><tr><th>Intervention</th><th>Status</th><th>Guideline</th></tr></thead><tbody>
+  <tr><td>Endocrinology consultation to confirm the diagnostic category from the T-scores and FRAX, the risk category, the choice of drug, the secondary-causes work-up, and the plan for monitoring and treatment duration</td><td>completed</td><td>GL-CMID-2026, GL-BHOF-2022, GL-AACE-2020, GL-ENDO-2019</td></tr>
+  <tr><td>Drug treatment, because FRAX is above the treatment thresholds, with the agent confirmed at the endocrinology visit: zoledronic acid 5 mg intravenously once a year, given only after 25-hydroxyvitamin D is 30 ng/mL or more, calcium is normal, eGFR is above 35, and a routine dental examination is done; acetaminophen for the expected aches and fever after the first dose; reassess after three yearly doses for a drug holiday</td><td>completed</td><td>GL-CMID-2026, GL-BHOF-2022, GL-AACE-2020, GL-ENDO-2019, GL-ENDO-2020</td></tr>
+  <tr><td>Calcium about 1200 mg a day in total, from food first, and vitamin D3 2000 units a day to reach 30 ng/mL or more, then continue; caffeine kept to two cups of coffee a day; no tobacco or alcohol</td><td>completed</td><td>GL-CMID-2026, GL-BHOF-2022, GL-AACE-2020</td></tr>
+  <tr><td>Falls prevention by CDC STEADI: supervised balance and strength exercise with a physical therapist for eight weeks, then a home program three times a week; weight-bearing exercise most days; home safety review (stair rails, night lights, no loose rugs); low-heeled shoes when traveling; yearly vision check</td><td>completed</td><td>GL-CDC-STEADI, GL-USPSTF-FALLS-2024, GL-BHOF-2022</td></tr>
+  <tr><td>Monitoring on the CMID osteoporosis schedule: secondary-causes tests at baseline (calcium, albumin, phosphate, magnesium, alkaline phosphatase, creatinine and eGFR, PTH, 25-hydroxyvitamin D, TSH, blood count, and 24-hour urine calcium); calcium and creatinine before each infusion; fasting CTX at baseline and three to six months after starting; 25-hydroxyvitamin D after repletion and then yearly; height and fall-risk screen yearly; FRAX recalculated when risk factors change; DXA of the spine and hip two years after starting, on the same scanner</td><td>completed</td><td>GL-CMID-2026, GL-AACE-2020, GL-ENDO-2019, GL-USPSTF-OSTEO-2025</td></tr>
+  <tr><td>Recovery-oriented care for alcohol use disorder in sustained remission: ask about alcohol, cravings, and stress at each visit in a non-judgmental way, support the recovery practices she uses, avoid sedating medicines, and review safety with the 988 Suicide &amp; Crisis Lifeline at each visit</td><td>completed</td><td>GL-SUD-2021, GL-SUICIDE-2024, GL-CMID-2026</td></tr></tbody></table></section>
+    <section><h2>Planned encounters</h2><ul>
+  <li><strong>2026-02-10</strong> — New patient visit for bone health after a fall with a hand fracture <span class="muted">(ENC-001)</span></li>
+  <li><strong>2026-03-10</strong> — Four-week bone health review with endocrinology consultation <span class="muted">(ENC-002)</span></li>
+  <li><strong>2026-05-12</strong> — Three-month bone health review and first zoledronic acid infusion <span class="muted">(ENC-003)</span></li>
+  <li><strong>2026-08-11</strong> — Six-month bone health review, three months after the first infusion <span class="muted">(ENC-004)</span></li>
+  <li><strong>2026-10-06</strong> — Adult preventive visit <span class="muted">(ENC-005)</span></li></ul></section>
+    <section><h2>Supporting documents</h2><ul><li><a href="notes/hp.md">History and physical</a></li><li><a href="notes/progress-01.md">Progress note 01</a></li><li><a href="notes/progress-02.md">Progress note 02 — Focused Visit (Follow-up)</a></li><li><a href="notes/progress-03.md">Progress note 03 — Focused Visit (Follow-up)</a></li><li><a href="notes/progress-04.md">Progress note 04 — Focused Visit (Care-plan review)</a></li><li><a href="notes/progress-05.md">Progress note 05 — Preventive Visit</a></li><li><a href="notes/referral-01.md">Endocrinology referral</a></li><li><a href="notes/consult-01.md">Endocrinology consultation</a></li><li><a href="notes/careplan.md">Patient care plan</a></li><li><a href="notes/teaching-note.md">Teaching note</a></li><li><a href="provenance.csv">Provenance CSV</a></li></ul></section>
+    <section><h2>C-CDA note documents</h2><p class="muted">Each link opens a readable copy; the XML beside it is the exchange file.</p><ul><li><a href="ccda/hp-01.html">History and physical</a> <a href="ccda/hp-01.xml">(XML)</a></li><li><a href="ccda/progress-01.html">Progress note 01</a> <a href="ccda/progress-01.xml">(XML)</a></li><li><a href="ccda/progress-02.html">Progress note 02 — Focused Visit (Follow-up)</a> <a href="ccda/progress-02.xml">(XML)</a></li><li><a href="ccda/progress-03.html">Progress note 03 — Focused Visit (Follow-up)</a> <a href="ccda/progress-03.xml">(XML)</a></li><li><a href="ccda/progress-04.html">Progress note 04 — Focused Visit (Care-plan review)</a> <a href="ccda/progress-04.xml">(XML)</a></li><li><a href="ccda/progress-05.html">Progress note 05 — Preventive Visit</a> <a href="ccda/progress-05.xml">(XML)</a></li><li><a href="ccda/referral-01.html">Endocrinology referral</a> <a href="ccda/referral-01.xml">(XML)</a></li><li><a href="ccda/consult-01.html">Endocrinology consultation</a> <a href="ccda/consult-01.xml">(XML)</a></li></ul></section>
+    <section><h2>Sources</h2><table><thead><tr><th>ID</th><th>Source</th><th>Publisher</th><th>Type</th></tr></thead><tbody>
+  <tr>
+    <td>SRC-0001</td>
+    <td><a href="https://www.cbsnews.com/news/ann-richards-latest-battle" target="_blank" rel="noreferrer">Morales T. Ann Richards&#39; Latest Battle</a></td>
+    <td>CBS News</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0002</td>
+    <td><a href="https://www.cbsnews.com/news/ann-richards-osteoporosis-campaign/" target="_blank" rel="noreferrer">Ann Richards on osteoporosis (CBS News report)</a></td>
+    <td>CBS News</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0003</td>
+    <td><a href="https://transcripts.cnn.com/show/lkl/date/2002-05-14/segment/00" target="_blank" rel="noreferrer">Larry King Live transcript, May 14, 2002</a></td>
+    <td>CNN</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0004</td>
+    <td><a href="https://www.publishersweekly.com/9780525946915" target="_blank" rel="noreferrer">Review: I&#39;m Not Slowing Down: Winning My Battle with Osteoporosis</a></td>
+    <td>Publishers Weekly</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0005</td>
+    <td><a href="https://texascooking.com/books/osteoporosisannrichards.htm" target="_blank" rel="noreferrer">Winning My Battle with Osteoporosis (book description)</a></td>
+    <td>Texas Cooking</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0006</td>
+    <td><a href="https://www.tsl.texas.gov/governors/modern/richards-p01.html" target="_blank" rel="noreferrer">Ann W. Richards (governor&#39;s biography)</a></td>
+    <td>Texas State Library and Archives Commission</td>
+    <td>government</td>
+  </tr>
+  <tr>
+    <td>SRC-0007</td>
+    <td><a href="https://www.ebsco.com/research-starters/biography/ann-richards/" target="_blank" rel="noreferrer">Ann Richards (Research Starters biography)</a></td>
+    <td>EBSCO</td>
+    <td>biography</td>
+  </tr>
+  <tr>
+    <td>SRC-0008</td>
+    <td><a href="https://cemetery.texas.gov/locate-a-plot/plotholder/ann-willis-richards" target="_blank" rel="noreferrer">Ann Willis Richards (plot holder record)</a></td>
+    <td>Texas State Cemetery</td>
+    <td>government</td>
+  </tr>
+  <tr>
+    <td>SRC-0009</td>
+    <td><a href="https://www.spokesman.com/stories/2006/sep/14/ann-richards-dies-at-73" target="_blank" rel="noreferrer">Ann Richards dies at 73 (Associated Press)</a></td>
+    <td>The Spokesman-Review</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0010</td>
+    <td><a href="https://humanrecord.example.org/internal/HISTMED_Master_Roster_v3.xlsx" target="_blank" rel="noreferrer">HISTMED Master Roster v3</a></td>
+    <td>The Human Record project</td>
+    <td>other</td>
+  </tr></tbody></table></section>
+    <section><h2>Review status</h2><table><thead><tr><th>Review</th><th>Status</th><th>Notes</th></tr></thead><tbody>
+  <tr><td>schema validation</td><td>not_started</td><td>Run scripts/build.ps1 -Conformance.</td></tr>
+  <tr><td>clinical review</td><td>not_started</td><td>Awaiting clinician review; check the T-score and FRAX reading (low bone mass with FRAX above threshold, and entering the hand fracture as a previous fracture), the AACE risk category, the drug choice, and the deviation recorded for the late 24-hour urine calcium.</td></tr>
+  <tr><td>provenance review</td><td>not_started</td><td>Recent-death rule: only what Richards made public (her book, interviews, and press coverage) and basic biographical facts are used. Her real T-scores were not found and are not used; her real medicine is not named, and no promotional claim is repeated. The fracture year conflict (1996 or 1994) is recorded.</td></tr>
+  <tr><td>safe messaging review</td><td>not_started</td><td>Alcohol and tobacco claims are marked sensitive; recovery is described in person-first, non-stigmatizing language; the safety assessment records no current risk and gives the 988 Suicide &amp; Crisis Lifeline; her later cancer and death are recorded as history only, without detail.</td></tr></tbody></table></section>
+  </main>
+</body>
+</html>
