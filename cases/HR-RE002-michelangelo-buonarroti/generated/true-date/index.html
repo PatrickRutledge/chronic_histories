@@ -1,0 +1,696 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Michelangelo Buonarroti — The Human Record</title>
+  <style>
+    :root { --navy:#17365d; --blue:#1f4e78; --pale:#eef5fa; --ink:#1f2933; --muted:#66788a; --amber:#fff2cc; --red:#f8d7da; --green:#d9ead3; }
+    * { box-sizing:border-box; }
+    body { margin:0; font:16px/1.5 Arial, sans-serif; color:var(--ink); background:#f6f8fa; }
+    header { background:var(--navy); color:white; padding:24px max(24px,calc((100vw - 1180px)/2)); }
+    header h1 { margin:4px 0; font-size:30px; }
+    .banner { background:#b42318; color:white; font-weight:700; text-align:center; padding:10px; letter-spacing:.03em; }
+    main { max-width:1180px; margin:24px auto 60px; padding:0 24px; }
+    section { background:white; border:1px solid #d9e1e8; border-radius:8px; margin:18px 0; padding:20px; }
+    h2 { color:var(--navy); margin:0 0 14px; font-size:22px; }
+    h3 { color:var(--blue); }
+    .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:12px; }
+    .card { background:var(--pale); border-left:4px solid var(--blue); padding:12px; }
+    .label { color:var(--muted); font-size:13px; text-transform:uppercase; letter-spacing:.04em; }
+    table { width:100%; border-collapse:collapse; }
+    th { background:var(--blue); color:white; text-align:left; }
+    th,td { padding:9px; border-bottom:1px solid #dfe6ec; vertical-align:top; }
+    .badge { display:inline-block; min-width:28px; text-align:center; font-weight:700; border-radius:12px; padding:2px 8px; }
+    .grade-D { background:var(--green); } .grade-R { background:var(--amber); } .grade-S { background:var(--red); }
+    .muted { color:var(--muted); font-size:14px; }
+    .relationship { color:var(--muted); font-size:12px; }
+    .downloads a { display:inline-block; margin:4px 8px 4px 0; padding:8px 12px; background:var(--blue); color:white; text-decoration:none; border-radius:5px; }
+    @media (max-width:700px) { table { display:block; overflow-x:auto; } }
+  </style>
+</head>
+<body>
+  <div class="banner">SYNTHETIC RECORD, NOT A REAL MEDICAL RECORD</div>
+  <div class="banner">True-date frame: synthetic events are moved into the patient&#39;s historical lifetime. Codes, instruments, and treatments remain modern and are anachronistic.</div>
+  <header>
+    <div>The Human Record</div>
+    <h1>Michelangelo Buonarroti</h1>
+    <div>Case HR-RE002-TD · Modern EHR teaching episode · Draft for review</div>
+  </header>
+  <main>
+    <section>
+      <h2>Review summary</h2>
+      <div class="grid">
+        <div class="card"><div class="label">Historical dates</div>March 6, 1475 – February 18, 1564</div>
+        <div class="card"><div class="label">Synthetic DOB</div>1475-03-06</div>
+        <div class="card"><div class="label">Index visit</div>1560-03-16 at age 85</div>
+        <div class="card"><div class="label">Synthetic MRN</div>HR-RE002-SYN-TD</div>
+      </div>
+      <p><strong>Teaching objective:</strong> Manage hand osteoarthritis in an 85-year-old sculptor who still works with hammer and chisel, by the 1553 ACR/Arthritis Foundation guideline and the CMID osteoarthritis schedule: confirm the diagnosis clinically and exclude inflammatory, crystal, and iron-overload arthritis when the metacarpophalangeal joints are involved; put exercise, hand therapy, joint protection, and a thumb-base splint first; use topical rather than oral NSAIDs, stopping self-directed ibuprofen because of age, kidney function, and blood pressure; offer a thumb-base glucocorticoid injection; measure pain, function, and grip at each visit; keep him working; and keep well-controlled gout and a past stone history quiet while assessing falls.</p>
+      <div class="downloads">
+        <a href="../case.json">Canonical JSON</a>
+        <a href="fhir-bundle.json">FHIR R4 draft</a>
+        <a href="ccda.html">C-CDA R2.1 summary</a> <a href="ccda.xml">(XML)</a>
+        <a href="../sources.md">Evidence dossier</a>
+      </div>
+    </section>
+    <section><h2>Historical timeline</h2><table><thead><tr><th>Date</th><th>Event</th><th>Claims</th></tr></thead><tbody>
+  <tr><td>March 6, 1475 (March 6, 1474, Florentine style)</td><td>Born at Caprese.</td><td>CLM-0001</td></tr>
+  <tr><td>1533 or 1534</td><td>His father dies at about ninety.</td><td>CLM-0014</td></tr>
+  <tr><td>Summer 1544 to early 1546</td><td>Two acute illnesses, with recovery.</td><td>CLM-0015</td></tr>
+  <tr><td>About 1547 to 1553</td><td>Proposed onset of hand osteoarthritis, from portraits (retrospective).</td><td>CLM-0011</td></tr>
+  <tr><td>1548</td><td>Writes of difficulty from dysuria.</td><td>CLM-0004</td></tr>
+  <tr><td>March 15, 1549</td><td>Writes that his doctors think he has calculus; severe pain and sleeplessness.</td><td>CLM-0005</td></tr>
+  <tr><td>March 23, 1549</td><td>Passes fragments of the stone after drinking a mineral water.</td><td>CLM-0006</td></tr>
+  <tr><td>June 8, 1549 (editor&#39;s date)</td><td>Has drunk a stone-breaking spring water for two months and must change his way of life.</td><td>CLM-0008</td></tr>
+  <tr><td>June 16, 1557</td><td>Writes of the stone, side and back pain, and difficulty with stairs.</td><td>CLM-0009</td></tr>
+  <tr><td>June or July 1559</td><td>Writes that writing is very troublesome to his hand, eyes, and memory.</td><td>CLM-0010</td></tr>
+  <tr><td>February 14, 1564</td><td>Reported ill and restless, out in the rain, with uncertain speech.</td><td>CLM-0003</td></tr>
+  <tr><td>February 18, 1564</td><td>Dies in Rome, within a few weeks of his 89th birthday.</td><td>CLM-0002, CLM-0013</td></tr></tbody></table></section>
+    <section><h2>Evidence claims</h2><p class="muted">D = documented, R = retrospective, S = synthetic.</p><table><thead><tr><th>Grade</th><th>Claim</th><th>Certainty</th><th>Sources</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>Michelangelo was born at Caprese on March 6, 1475, by the modern reckoning; his father&#39;s notebook records the birth as March 6, 1474, in the Florentine style, on a Monday morning before daybreak.</strong></td>
+    <td>confirmed</td>
+    <td><a href="https://www.gutenberg.org/ebooks/11242" target="_blank" rel="noreferrer">Symonds JA. The Life of Michelangelo Buonarroti, based on studies in the archives of the Buonarroti family at Florence</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>He died in Rome a little before five o&#39;clock in the afternoon of February 18, 1564, within a few weeks of his 89th birthday, attended to the end by two physicians.</strong><div class="muted">The contemporary letters describe a short final illness; its cause cannot be determined.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.gutenberg.org/ebooks/11242" target="_blank" rel="noreferrer">Symonds JA. The Life of Michelangelo Buonarroti, based on studies in the archives of the Buonarroti family at Florence</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>A friend&#39;s letter of February 14, 1564, reported finding him out on foot in the rain, saying he was ill and could not find rest anywhere, with uncertain speech; he spent his last four days partly in an armchair and partly in bed.</strong><div class="muted">Symonds describes this as a kind of seizure; the nature of the illness is not determined.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.gutenberg.org/ebooks/11242" target="_blank" rel="noreferrer">Symonds JA. The Life of Michelangelo Buonarroti, based on studies in the archives of the Buonarroti family at Florence</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>In 1548 he wrote to his nephew that he had lately been in great difficulty from dysuria but was better.</strong></td>
+    <td>confirmed</td>
+    <td><a href="https://www.gutenberg.org/ebooks/11242" target="_blank" rel="noreferrer">Symonds JA. The Life of Michelangelo Buonarroti, based on studies in the archives of the Buonarroti family at Florence</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>In a letter to his nephew dated March 15, 1549, he wrote that he had been very ill with dysuria, groaning in pain night and day without sleep, that his doctors thought he was suffering from calculus, and that he had been advised to try the baths at Viterbo.</strong></td>
+    <td>confirmed</td>
+    <td><a href="https://archive.org/details/michelangeloreco1913mich" target="_blank" rel="noreferrer">Carden RW, translator and editor. Michelangelo: A Record of His Life as Told in His Own Letters and Papers. London: Constable; 1913</a> <span class="relationship">supports</span><br><a href="https://www.gutenberg.org/ebooks/11242" target="_blank" rel="noreferrer">Symonds JA. The Life of Michelangelo Buonarroti, based on studies in the archives of the Buonarroti family at Florence</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>On March 23, 1549, he wrote that after drinking a water sent to him he passed a large quantity of thick white matter with portions of the shell of the stone, and was much better.</strong></td>
+    <td>confirmed</td>
+    <td><a href="https://archive.org/details/michelangeloreco1913mich" target="_blank" rel="noreferrer">Carden RW, translator and editor. Michelangelo: A Record of His Life as Told in His Own Letters and Papers. London: Constable; 1913</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>On April 5, 1549, he wrote that it was now quite certain that he had urinary calculus, not very advanced, and that it was gradually diminishing with the water he was drinking.</strong></td>
+    <td>confirmed</td>
+    <td><a href="https://archive.org/details/michelangeloreco1913mich" target="_blank" rel="noreferrer">Carden RW, translator and editor. Michelangelo: A Record of His Life as Told in His Own Letters and Papers. London: Constable; 1913</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>In a letter the editor dates to June 8, 1549, he wrote that for about two months he had drunk, morning and evening, a water from a spring about forty miles from Rome that breaks up the stone, that it had broken his and let him pass water with tolerable ease, and that he would have to use nothing else for drinking or cooking and alter his mode of life.</strong></td>
+    <td>confirmed</td>
+    <td><a href="https://archive.org/details/michelangeloreco1913mich" target="_blank" rel="noreferrer">Carden RW, translator and editor. Michelangelo: A Record of His Life as Told in His Own Letters and Papers. London: Constable; 1913</a> <span class="relationship">supports</span><br><a href="https://www.gutenberg.org/ebooks/11242" target="_blank" rel="noreferrer">Symonds JA. The Life of Michelangelo Buonarroti, based on studies in the archives of the Buonarroti family at Florence</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>On June 16, 1557, he wrote to his nephew that he suffered from all the ailments of old age: the stone, so that he could not pass water, and pains in his side and back, so that he often could not go up or down stairs.</strong></td>
+    <td>confirmed</td>
+    <td><a href="https://archive.org/details/michelangeloreco1913mich" target="_blank" rel="noreferrer">Carden RW, translator and editor. Michelangelo: A Record of His Life as Told in His Own Letters and Papers. London: Constable; 1913</a> <span class="relationship">supports</span><br><a href="https://www.gutenberg.org/ebooks/11242" target="_blank" rel="noreferrer">Symonds JA. The Life of Michelangelo Buonarroti, based on studies in the archives of the Buonarroti family at Florence</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>A postscript to a letter of 1559 (dated June 15; the editor notes the nephew altered it to July 15) reads: writing is very troublesome to my hand, my eyes and my memory; such is the effect of age.</strong></td>
+    <td>confirmed</td>
+    <td><a href="https://archive.org/details/michelangeloreco1913mich" target="_blank" rel="noreferrer">Carden RW, translator and editor. Michelangelo: A Record of His Life as Told in His Own Letters and Papers. London: Constable; 1913</a> <span class="relationship">supports</span><br><a href="https://www.gutenberg.org/ebooks/11242" target="_blank" rel="noreferrer">Symonds JA. The Life of Michelangelo Buonarroti, based on studies in the archives of the Buonarroti family at Florence</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-R" title="Retrospective">R</span></td>
+    <td><strong>Lazzeri and colleagues (2016), studying portraits, proposed that degenerative, non-inflammatory osteoarthritis affected the base of his left thumb, the thumb&#39;s metacarpophalangeal and interphalangeal joints, and the index finger&#39;s metacarpophalangeal and proximal interphalangeal joints; earlier portraits show no deformity, and they place the onset around 1547 to 1553, with worsening in his last fifteen years.</strong><div class="muted">A retrospective diagnosis from paintings; no skeletal or radiographic evidence exists.</div></td>
+    <td>possible</td>
+    <td><a href="https://pubmed.ncbi.nlm.nih.gov/26837259/" target="_blank" rel="noreferrer">Lazzeri D, Castello MF, Matucci-Cerinic M, Lippi D, Weisz GM. Osteoarthritis in the hands of Michelangelo Buonarroti. J R Soc Med. 2016;109(5):180-183. doi:10.1177/0141076816630502</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-R" title="Retrospective">R</span></td>
+    <td><strong>The same authors report that letters to his nephew speak of gout, a period term for many arthritic conditions, and of a cruel pain in one foot; they judged gouty arthritis of the hands unlikely because the portraits show no inflammation or tophi.</strong><div class="muted">The gout is a retrospective reading of period language; the original letters about gout were not located in the edition consulted.</div></td>
+    <td>possible</td>
+    <td><a href="https://pubmed.ncbi.nlm.nih.gov/26837259/" target="_blank" rel="noreferrer">Lazzeri D, Castello MF, Matucci-Cerinic M, Lippi D, Weisz GM. Osteoarthritis in the hands of Michelangelo Buonarroti. J R Soc Med. 2016;109(5):180-183. doi:10.1177/0141076816630502</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>Lazzeri and colleagues report that he was seen hammering up to six days before his death, and suggest that his continued, intense work helped him keep the use of his hands.</strong><div class="muted">The suggestion about function is the authors&#39; interpretation.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://pubmed.ncbi.nlm.nih.gov/26837259/" target="_blank" rel="noreferrer">Lazzeri D, Castello MF, Matucci-Cerinic M, Lippi D, Weisz GM. Osteoarthritis in the hands of Michelangelo Buonarroti. J R Soc Med. 2016;109(5):180-183. doi:10.1177/0141076816630502</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>His father, Lodovico, was born on June 11, 1444, and died in 1533 or 1534; Michelangelo&#39;s poem on his death says he was ninety.</strong><div class="muted">The cause of death is not recorded in the source.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.gutenberg.org/ebooks/11242" target="_blank" rel="noreferrer">Symonds JA. The Life of Michelangelo Buonarroti, based on studies in the archives of the Buonarroti family at Florence</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>He had two acute illnesses, the first in the summer of 1544 and the second toward the close of 1545, when news reached Florence that he was dying; he recovered from both.</strong><div class="muted">The nature of the illnesses is not recorded in the cited source.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.gutenberg.org/ebooks/11242" target="_blank" rel="noreferrer">Symonds JA. The Life of Michelangelo Buonarroti, based on studies in the archives of the Buonarroti family at Florence</a> <span class="relationship">supports</span></td>
+  </tr></tbody></table></section>
+    <section><h2>Modern synthetic problem list</h2><table><thead><tr><th>Grade</th><th>Problem</th><th>Clinical status</th><th>Verification</th><th>Placement</th><th>Historical claims</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Primary osteoarthritis of the left hand, worst at the thumb base (first carpometacarpal joint, Eaton stage III), with thumb metacarpophalangeal and interphalangeal and index metacarpophalangeal and proximal interphalangeal involvement; non-erosive</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td>CLM-0011, CLM-0010</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Primary osteoarthritis of the right hand, mild, with Heberden nodes of the index and middle fingers</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Chronic gout without tophi, in remission on allopurinol with serum urate at target</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td>CLM-0012</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>History of urinary stones, passed spontaneously years ago; stone-free on fluids and allopurinol</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>both_with_link</td>
+    <td>CLM-0005, CLM-0006, CLM-0007, CLM-0008, CLM-0009</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Laceration of the left index finger from a slipped chisel, 2.5 cm, without tendon, nerve, or nail injury; repaired and healed</td>
+    <td>resolved</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td></td>
+  </tr></tbody></table></section>
+    <section><h2>Synthetic outcome measures</h2><table><thead><tr><th>Grade</th><th>Date</th><th>Measure</th><th>Result</th><th>Coding</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1560-03-16</td>
+    <td>Sodium [Moles/volume] in Serum or Plasma</td>
+    <td>138 mmol/L<div class="muted">Reference 135-145 mmol/L</div></td>
+    <td>http://loinc.org · 2951-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1560-03-16</td>
+    <td>Potassium [Moles/volume] in Serum or Plasma</td>
+    <td>4.9 mmol/L<div class="muted">Reference 3.5-5.1 mmol/L</div></td>
+    <td>http://loinc.org · 2823-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1560-03-16</td>
+    <td>Carbon dioxide, total [Moles/volume] in Serum or Plasma</td>
+    <td>24 mmol/L<div class="muted">Reference 22-29 mmol/L</div></td>
+    <td>http://loinc.org · 2028-9</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1560-03-16</td>
+    <td>Urea nitrogen [Mass/volume] in Serum or Plasma</td>
+    <td>26 mg/dL (high)<div class="muted">Reference 8-23 mg/dL</div></td>
+    <td>http://loinc.org · 3094-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1560-03-16</td>
+    <td>Creatinine [Mass/volume] in Serum or Plasma</td>
+    <td>1.21 mg/dL<div class="muted">Reference 0.74-1.35 mg/dL</div></td>
+    <td>http://loinc.org · 2160-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1560-03-16</td>
+    <td>Glomerular filtration rate [Volume Rate/Area] in Serum, Plasma or Blood by Creatinine-based formula (CKD-EPI 1555)/1.73 sq M</td>
+    <td>59 mL/min/1.73 m² (low)<div class="muted">Reference &gt;=60 mL/min/1.73 m²</div></td>
+    <td>http://loinc.org · 98979-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1560-03-16</td>
+    <td>Glucose [Mass/volume] in Serum or Plasma</td>
+    <td>92 mg/dL<div class="muted">Reference 70-99 mg/dL</div></td>
+    <td>http://loinc.org · 2345-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1560-03-16</td>
+    <td>Urate [Mass/volume] in Serum or Plasma</td>
+    <td>5.4 mg/dL<div class="muted">Reference 3.5-7.2 mg/dL</div></td>
+    <td>http://loinc.org · 3084-1</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1560-03-16</td>
+    <td>Hemoglobin [Mass/volume] in Blood</td>
+    <td>13.6 g/dL<div class="muted">Reference 13.2-16.6 g/dL</div></td>
+    <td>http://loinc.org · 718-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1560-03-16</td>
+    <td>Leukocytes [#/volume] in Blood by Automated count</td>
+    <td>6.2 10*3/uL<div class="muted">Reference 3.4-9.6 10*3/uL</div></td>
+    <td>http://loinc.org · 6690-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1560-03-16</td>
+    <td>Platelets [#/volume] in Blood by Automated count</td>
+    <td>224 10*3/uL<div class="muted">Reference 135-317 10*3/uL</div></td>
+    <td>http://loinc.org · 777-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1560-03-16</td>
+    <td>Alanine aminotransferase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>18 U/L<div class="muted">Reference 7-55 U/L</div></td>
+    <td>http://loinc.org · 1742-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1560-03-16</td>
+    <td>Calcium [Mass/volume] in Serum or Plasma</td>
+    <td>9.4 mg/dL<div class="muted">Reference 8.6-10.3 mg/dL</div></td>
+    <td>http://loinc.org · 17861-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1560-03-16</td>
+    <td>25-Hydroxyvitamin D3+25-Hydroxyvitamin D2 [Mass/volume] in Serum or Plasma</td>
+    <td>34 ng/mL<div class="muted">Reference 30-100 ng/mL</div></td>
+    <td>http://loinc.org · 62292-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1560-03-16</td>
+    <td>C reactive protein [Mass/volume] in Serum or Plasma</td>
+    <td>2.1 mg/L<div class="muted">Reference &lt;=5 mg/L</div></td>
+    <td>http://loinc.org · 1988-5</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1560-03-16</td>
+    <td>Erythrocyte [Sedimentation Rate] in Blood</td>
+    <td>18 mm/h<div class="muted">Reference &lt;=20 mm/h</div></td>
+    <td>http://loinc.org · 30341-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1560-03-16</td>
+    <td>Rheumatoid factor [Units/volume] in Serum or Plasma</td>
+    <td>8 [IU]/mL<div class="muted">Reference &lt;=14 [IU]/mL</div></td>
+    <td>http://loinc.org · 11572-5</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1560-03-16</td>
+    <td>Cyclic citrullinated peptide Ab [Units/volume] in Serum</td>
+    <td>3 U/mL<div class="muted">Reference &lt;=20 U/mL</div></td>
+    <td>http://loinc.org · 53027-9</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1560-03-16</td>
+    <td>Ferritin [Mass/volume] in Serum or Plasma</td>
+    <td>110 ng/mL<div class="muted">Reference 24-336 ng/mL</div></td>
+    <td>http://loinc.org · 2276-4</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1560-03-16</td>
+    <td>Iron saturation [Mass Fraction] in Serum or Plasma</td>
+    <td>28%<div class="muted">Reference 20-50%</div></td>
+    <td>http://loinc.org · 2502-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1560-03-16</td>
+    <td>Pain severity - 0-10 verbal numeric rating [Score] - Reported</td>
+    <td>7</td>
+    <td>http://loinc.org · 72514-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1560-03-16</td>
+    <td>PROMIS upper extremity version 2.0 T-score</td>
+    <td>33</td>
+    <td>http://loinc.org · 91612-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1560-03-16</td>
+    <td>Grip strength Hand - left Dynamometer</td>
+    <td>14 kg</td>
+    <td>http://loinc.org · 83173-5</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1560-03-16</td>
+    <td>Grip strength Hand - right Dynamometer</td>
+    <td>22 kg</td>
+    <td>http://loinc.org · 83174-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1560-04-13</td>
+    <td>Sodium [Moles/volume] in Serum or Plasma</td>
+    <td>139 mmol/L<div class="muted">Reference 135-145 mmol/L</div></td>
+    <td>http://loinc.org · 2951-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1560-04-13</td>
+    <td>Potassium [Moles/volume] in Serum or Plasma</td>
+    <td>4.5 mmol/L<div class="muted">Reference 3.5-5.1 mmol/L</div></td>
+    <td>http://loinc.org · 2823-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1560-04-13</td>
+    <td>Carbon dioxide, total [Moles/volume] in Serum or Plasma</td>
+    <td>25 mmol/L<div class="muted">Reference 22-29 mmol/L</div></td>
+    <td>http://loinc.org · 2028-9</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1560-04-13</td>
+    <td>Urea nitrogen [Mass/volume] in Serum or Plasma</td>
+    <td>20 mg/dL<div class="muted">Reference 8-23 mg/dL</div></td>
+    <td>http://loinc.org · 3094-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1560-04-13</td>
+    <td>Creatinine [Mass/volume] in Serum or Plasma</td>
+    <td>1.02 mg/dL<div class="muted">Reference 0.74-1.35 mg/dL</div></td>
+    <td>http://loinc.org · 2160-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1560-04-13</td>
+    <td>Glomerular filtration rate [Volume Rate/Area] in Serum, Plasma or Blood by Creatinine-based formula (CKD-EPI 1555)/1.73 sq M</td>
+    <td>72 mL/min/1.73 m²<div class="muted">Reference &gt;=60 mL/min/1.73 m²</div></td>
+    <td>http://loinc.org · 98979-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1560-04-13</td>
+    <td>Glucose [Mass/volume] in Serum or Plasma</td>
+    <td>90 mg/dL<div class="muted">Reference 70-99 mg/dL</div></td>
+    <td>http://loinc.org · 2345-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1560-04-13</td>
+    <td>Pain severity - 0-10 verbal numeric rating [Score] - Reported</td>
+    <td>5</td>
+    <td>http://loinc.org · 72514-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1560-04-13</td>
+    <td>PROMIS upper extremity version 2.0 T-score</td>
+    <td>37</td>
+    <td>http://loinc.org · 91612-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1560-04-13</td>
+    <td>Grip strength Hand - left Dynamometer</td>
+    <td>15 kg</td>
+    <td>http://loinc.org · 83173-5</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1560-04-13</td>
+    <td>Grip strength Hand - right Dynamometer</td>
+    <td>22 kg</td>
+    <td>http://loinc.org · 83174-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1560-07-13</td>
+    <td>Pain severity - 0-10 verbal numeric rating [Score] - Reported</td>
+    <td>3</td>
+    <td>http://loinc.org · 72514-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1560-07-13</td>
+    <td>PROMIS upper extremity version 2.0 T-score</td>
+    <td>42</td>
+    <td>http://loinc.org · 91612-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1560-07-13</td>
+    <td>Grip strength Hand - left Dynamometer</td>
+    <td>17 kg</td>
+    <td>http://loinc.org · 83173-5</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1560-07-13</td>
+    <td>Grip strength Hand - right Dynamometer</td>
+    <td>23 kg</td>
+    <td>http://loinc.org · 83174-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1560-10-19</td>
+    <td>Urate [Mass/volume] in Serum or Plasma</td>
+    <td>5.2 mg/dL<div class="muted">Reference 3.5-7.2 mg/dL</div></td>
+    <td>http://loinc.org · 3084-1</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1560-10-19</td>
+    <td>Sodium [Moles/volume] in Serum or Plasma</td>
+    <td>140 mmol/L<div class="muted">Reference 135-145 mmol/L</div></td>
+    <td>http://loinc.org · 2951-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1560-10-19</td>
+    <td>Potassium [Moles/volume] in Serum or Plasma</td>
+    <td>4.4 mmol/L<div class="muted">Reference 3.5-5.1 mmol/L</div></td>
+    <td>http://loinc.org · 2823-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1560-10-19</td>
+    <td>Carbon dioxide, total [Moles/volume] in Serum or Plasma</td>
+    <td>25 mmol/L<div class="muted">Reference 22-29 mmol/L</div></td>
+    <td>http://loinc.org · 2028-9</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1560-10-19</td>
+    <td>Urea nitrogen [Mass/volume] in Serum or Plasma</td>
+    <td>19 mg/dL<div class="muted">Reference 8-23 mg/dL</div></td>
+    <td>http://loinc.org · 3094-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1560-10-19</td>
+    <td>Creatinine [Mass/volume] in Serum or Plasma</td>
+    <td>1 mg/dL<div class="muted">Reference 0.74-1.35 mg/dL</div></td>
+    <td>http://loinc.org · 2160-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1560-10-19</td>
+    <td>Glomerular filtration rate [Volume Rate/Area] in Serum, Plasma or Blood by Creatinine-based formula (CKD-EPI 1555)/1.73 sq M</td>
+    <td>74 mL/min/1.73 m²<div class="muted">Reference &gt;=60 mL/min/1.73 m²</div></td>
+    <td>http://loinc.org · 98979-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1560-10-19</td>
+    <td>Glucose [Mass/volume] in Serum or Plasma</td>
+    <td>94 mg/dL<div class="muted">Reference 70-99 mg/dL</div></td>
+    <td>http://loinc.org · 2345-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1560-10-19</td>
+    <td>Alanine aminotransferase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>17 U/L<div class="muted">Reference 7-55 U/L</div></td>
+    <td>http://loinc.org · 1742-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1560-10-19</td>
+    <td>Pain severity - 0-10 verbal numeric rating [Score] - Reported</td>
+    <td>3</td>
+    <td>http://loinc.org · 72514-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1560-10-19</td>
+    <td>PROMIS upper extremity version 2.0 T-score</td>
+    <td>43</td>
+    <td>http://loinc.org · 91612-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1560-10-19</td>
+    <td>Grip strength Hand - left Dynamometer</td>
+    <td>18 kg</td>
+    <td>http://loinc.org · 83173-5</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1560-10-19</td>
+    <td>Grip strength Hand - right Dynamometer</td>
+    <td>23 kg</td>
+    <td>http://loinc.org · 83174-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1560-09-14</td>
+    <td>Patient Health Questionnaire 2 item (PHQ-2) total score [Reported]</td>
+    <td>0</td>
+    <td>http://loinc.org · 55758-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1560-09-14</td>
+    <td>Total score [Mini-Cog]</td>
+    <td>5</td>
+    <td>http://loinc.org · 72233-0</td>
+  </tr></tbody></table></section>
+    <section><h2>Synthetic vital signs</h2><table><thead><tr><th>Date</th><th>Measure</th><th>Result</th><th>LOINC</th><th>Grade</th></tr></thead><tbody>
+  <tr><td>1560-03-16</td><td>Body height</td><td>168 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1560-03-16</td><td>Body weight</td><td>62 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1560-03-16</td><td>Body mass index (BMI) [Ratio]</td><td>22 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1560-03-16</td><td>Systolic blood pressure</td><td>148 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1560-03-16</td><td>Diastolic blood pressure</td><td>82 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1560-03-16</td><td>Heart rate</td><td>72 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1560-03-16</td><td>Respiratory rate</td><td>16 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1560-03-16</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1560-03-16</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>97 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1560-04-13</td><td>Body height</td><td>168 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1560-04-13</td><td>Body weight</td><td>61.8 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1560-04-13</td><td>Body mass index (BMI) [Ratio]</td><td>21.9 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1560-04-13</td><td>Systolic blood pressure</td><td>134 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1560-04-13</td><td>Diastolic blood pressure</td><td>78 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1560-04-13</td><td>Heart rate</td><td>70 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1560-04-13</td><td>Respiratory rate</td><td>16 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1560-04-13</td><td>Body temperature</td><td>36.7 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1560-04-13</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>97 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1560-07-13</td><td>Body height</td><td>168 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1560-07-13</td><td>Body weight</td><td>61.4 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1560-07-13</td><td>Body mass index (BMI) [Ratio]</td><td>21.8 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1560-07-13</td><td>Systolic blood pressure</td><td>132 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1560-07-13</td><td>Diastolic blood pressure</td><td>76 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1560-07-13</td><td>Heart rate</td><td>68 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1560-07-13</td><td>Respiratory rate</td><td>16 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1560-07-13</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1560-07-13</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>97 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1560-10-19</td><td>Body height</td><td>168 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1560-10-19</td><td>Body weight</td><td>61.6 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1560-10-19</td><td>Body mass index (BMI) [Ratio]</td><td>21.8 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1560-10-19</td><td>Systolic blood pressure</td><td>130 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1560-10-19</td><td>Diastolic blood pressure</td><td>76 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1560-10-19</td><td>Heart rate</td><td>70 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1560-10-19</td><td>Respiratory rate</td><td>16 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1560-10-19</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1560-10-19</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>97 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1560-06-01</td><td>Body height</td><td>168 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1560-06-01</td><td>Body weight</td><td>61.6 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1560-06-01</td><td>Body mass index (BMI) [Ratio]</td><td>21.8 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1560-06-01</td><td>Systolic blood pressure</td><td>138 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1560-06-01</td><td>Diastolic blood pressure</td><td>78 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1560-06-01</td><td>Heart rate</td><td>80 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1560-06-01</td><td>Respiratory rate</td><td>16 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1560-06-01</td><td>Body temperature</td><td>36.7 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1560-06-01</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>97 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1560-09-14</td><td>Body height</td><td>168 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1560-09-14</td><td>Body weight</td><td>61.2 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1560-09-14</td><td>Body mass index (BMI) [Ratio]</td><td>21.7 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1560-09-14</td><td>Systolic blood pressure</td><td>128 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1560-09-14</td><td>Diastolic blood pressure</td><td>74 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1560-09-14</td><td>Heart rate</td><td>68 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1560-09-14</td><td>Respiratory rate</td><td>16 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1560-09-14</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1560-09-14</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>97 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr></tbody></table></section>
+    <section><h2>Social, functional, and mental status</h2><h3>Social history</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Occupation: sculptor, painter, and architect, still carving marble with hammer and chisel most mornings and drawing in the afternoons</li><li><span class="badge grade-S" title="Synthetic">S</span> Never smoker; a glass of wine with dinner some evenings; simple, plain meals; drinks about 2 L of water a day since his stone years ago</li><li><span class="badge grade-S" title="Synthetic">S</span> Active: walks to his studio and climbs scaffold ladders; rides out in the evenings when the weather is good</li><li><span class="badge grade-S" title="Synthetic">S</span> Lives alone in his own house; a long-time studio assistant and a housekeeper help most days</li><li><span class="badge grade-S" title="Synthetic">S</span> Supports: devoted studio assistants, a nephew he writes to often, and a circle of friends</li></ul><h3>Functional status</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> At intake, pinch and grip pain limit carving to about two hours, writing to short notes, and opening jars and buttoning</li><li><span class="badge grade-S" title="Synthetic">S</span> Independent in all activities of daily living; carving three to four hours most mornings with the splint and adapted tools by the seven-month review</li></ul><h3>Mental status</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Alert, intense, and exacting; impatient with anything that keeps him from work</li><li><span class="badge grade-S" title="Synthetic">S</span> Mood steady; cognition intact</li></ul></section>
+    
+    <section><h2>Allergies and medications</h2><h3>Allergies</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> No known allergy</li></ul><h3>Medications</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Ibuprofen 200 mg oral tablet (over the counter), two tablets by mouth three times daily</li><li><span class="badge grade-S" title="Synthetic">S</span> Allopurinol 100 mg oral tablet, two tablets (200 mg) by mouth daily</li><li><span class="badge grade-S" title="Synthetic">S</span> Diclofenac sodium 1% topical gel, 2 g to the painful hand joints four times daily, no more than 8 g a day to either hand</li><li><span class="badge grade-S" title="Synthetic">S</span> Acetaminophen 500 mg oral tablet, two tablets by mouth up to three times daily as needed for hand pain, no more than 3 g a day</li></ul></section>
+    <section><h2>Procedures and immunizations</h2><h3>Procedures</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Radiographs of both hands (posteroanterior, oblique, and lateral): left first carpometacarpal joint-space loss with osteophytes and subluxation (Eaton stage III); narrowing and osteophytes at the left thumb metacarpophalangeal and interphalangeal joints and the left index metacarpophalangeal and proximal interphalangeal joints; osteophytes at the right index and middle distal interphalangeal joints; no erosions, chondrocalcinosis, or hook-like osteophytes</li><li><span class="badge grade-S" title="Synthetic">S</span> Thumb-base splint fitted: prefabricated hand-based first carpometacarpal orthosis for the left thumb, for heavy work and at night</li><li><span class="badge grade-S" title="Synthetic">S</span> Injection of the left first carpometacarpal joint with triamcinolone acetonide 10 mg and 1% lidocaine under ultrasound guidance, by rheumatology</li><li><span class="badge grade-S" title="Synthetic">S</span> Occupational hand therapy: four sessions of joint-protection teaching, thumb-stabilizing and range-of-motion exercises, and tool adaptation for carving and drawing</li><li><span class="badge grade-S" title="Synthetic">S</span> Irrigation and simple repair of a 2.5 cm laceration of the dorsal left index finger over the proximal phalanx with four 5-0 nylon sutures under a digital block; extensor tendon intact on direct inspection</li></ul><h3>Immunizations</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> 1559-10-06: High-dose influenza vaccine, 1559-1560 season</li><li><span class="badge grade-S" title="Synthetic">S</span> 1556-10-17: Pneumococcal conjugate vaccine PCV20</li><li><span class="badge grade-S" title="Synthetic">S</span> 1555-05-10: Recombinant zoster vaccine, two-dose series completed</li><li><span class="badge grade-S" title="Synthetic">S</span> 1548-04-07: Tdap vaccine</li><li><span class="badge grade-S" title="Synthetic">S</span> 1558-10-14: Respiratory syncytial virus vaccine, single dose</li><li><span class="badge grade-S" title="Synthetic">S</span> 1560-06-01: Tdap vaccine for wound management, last dose more than 10 years ago</li><li><span class="badge grade-S" title="Synthetic">S</span> 1560-09-14: High-dose influenza vaccine, 1560-1561 season</li></ul></section>
+    <section><h2>Past medical history</h2><p class="muted">True biography with historical dates; not part of the synthetic care timeline.</p><ul><li><span class="badge grade-D" title="Documented">D</span> 1544 to 1546: Two acute illnesses, in the summer of 1544 and toward the close of 1545, with recovery; nature not recorded in the cited source <span class="muted">(CLM-0015)</span></li><li><span class="badge grade-R" title="Retrospective">R</span> From about 1547 to 1553: Hand deformities in his later portraits, proposed retrospectively to be osteoarthritis of the left thumb and index finger <span class="muted">(CLM-0011)</span></li><li><span class="badge grade-D" title="Documented">D</span> 1548: Dysuria <span class="muted">(CLM-0004)</span></li><li><span class="badge grade-D" title="Documented">D</span> March to June 1549: Urinary calculus with severe pain, treated with mineral water; passed fragments of the stone and improved; afterwards drank only spring water and changed his way of life <span class="muted">(CLM-0005, CLM-0006, CLM-0007, CLM-0008)</span></li><li><span class="badge grade-D" title="Documented">D</span> June 16, 1557: The stone, with difficulty passing water, and pains in the side and back that often kept him from stairs <span class="muted">(CLM-0009)</span></li><li><span class="badge grade-D" title="Documented">D</span> June or July 1559: Writing very troublesome to his hand, eyes, and memory <span class="muted">(CLM-0010)</span></li></ul><h3>Family history</h3><ul><li><span class="badge grade-D" title="Documented">D</span> father: Died in 1533 or 1534 at about ninety; cause not recorded in the cited source</li></ul></section>
+    <section><h2>Care-plan goals</h2><table><thead><tr><th>Goal</th><th>Target date</th><th>Status</th><th>Outcome</th></tr></thead><tbody>
+  <tr><td>Hand pain at or below 3 of 10 on most days by the seven-month review</td><td>1560-10-19</td><td>completed</td><td>Pain 3 of 10, down from 7</td></tr>
+  <tr><td>Carve for at least three hours a morning and write his own letters</td><td>1560-10-19</td><td>completed</td><td>Carving three to four hours most mornings; writes short letters with a thick-barrelled pen</td></tr>
+  <tr><td>No oral NSAID use and creatinine back to his baseline</td><td>1560-04-13</td><td>completed</td><td>Ibuprofen stopped; creatinine from 1.21 to 1.02 mg/dL</td></tr>
+  <tr><td>Serum urate below 6 mg/dL and no gout flare or stone</td><td>1560-10-19</td><td>completed</td><td>Urate 5.2 mg/dL; no flare or stone</td></tr>
+  <tr><td>No falls, with safe ladder and scaffold use</td><td>1560-10-19</td><td>active</td><td>No falls; he uses a platform ladder with a rail and does not climb alone</td></tr></tbody></table></section>
+    <section><h2>Interventions</h2><table><thead><tr><th>Intervention</th><th>Status</th><th>Guideline</th></tr></thead><tbody>
+  <tr><td>Hand exercise and joint protection: daily thumb-stabilizing and range-of-motion exercises, padded and thicker tool handles, a lighter mallet, and rest breaks during carving, taught in a course of occupational hand therapy</td><td>completed</td><td>GL-ACR-OA-2019, GL-CMID-2026</td></tr>
+  <tr><td>Hand-based thumb splint for the left first carpometacarpal joint during heavy work and at night</td><td>completed</td><td>GL-ACR-OA-2019, GL-CMID-2026</td></tr>
+  <tr><td>Stop over-the-counter ibuprofen; use topical diclofenac gel first and acetaminophen as needed up to 3 g a day; avoid regular oral NSAIDs at his age because of kidney, blood pressure, bleeding, and gout risks; recheck creatinine in four weeks</td><td>completed</td><td>GL-ACR-OA-2019, GL-CMID-2026, GL-AGS-BEERS-2023</td></tr>
+  <tr><td>Rheumatology consultation to confirm hand osteoarthritis, exclude inflammatory and crystal arthritis, and advise on a thumb-base glucocorticoid injection and further options</td><td>completed</td><td>GL-ACR-OA-2019, GL-CMID-2026</td></tr>
+  <tr><td>CMID osteoarthritis monitoring: pain rating, a validated function measure, grip strength, and joint examination at each visit; ALT when acetaminophen is used regularly; creatinine, blood count, and blood pressure if oral NSAIDs are ever used; no routine repeat radiographs; periodic mood and sleep screening</td><td>completed</td><td>GL-CMID-2026, GL-ACR-OA-2019</td></tr>
+  <tr><td>Continue allopurinol 200 mg daily with serum urate every six months at target; drink at least 2 L of water a day to prevent stones</td><td>completed</td><td>GL-ACR-GOUT-2020, GL-AUA-STONE</td></tr>
+  <tr><td>Falls prevention: platform ladder with a rail, never climbing alone, good studio lighting, and a yearly fall-risk check</td><td>completed</td><td>GL-CMID-2026</td></tr></tbody></table></section>
+    <section><h2>Planned encounters</h2><ul>
+  <li><strong>1560-03-16</strong> — Primary care visit for painful, stiff hands that make writing, drawing, and carving difficult <span class="muted">(ENC-001)</span></li>
+  <li><strong>1560-04-13</strong> — Four-week hand osteoarthritis review after stopping oral ibuprofen, with rheumatology consultation <span class="muted">(ENC-002)</span></li>
+  <li><strong>1560-06-01</strong> — Same-day sick visit for a chisel cut to the left index finger <span class="muted">(ENC-005, unscheduled)</span></li>
+  <li><strong>1560-07-13</strong> — Hand osteoarthritis review three months after a thumb-base injection <span class="muted">(ENC-003)</span></li>
+  <li><strong>1560-09-14</strong> — Subsequent annual wellness visit <span class="muted">(ENC-006)</span></li>
+  <li><strong>1560-10-19</strong> — Hand osteoarthritis and gout review at about seven months <span class="muted">(ENC-004)</span></li></ul></section>
+    <section><h2>Supporting documents</h2><ul><li><a href="notes/hp.md">History and physical</a></li><li><a href="notes/progress-01.md">Progress note 01</a></li><li><a href="notes/progress-02.md">Progress note 02 — Focused Visit (Follow-up)</a></li><li><a href="notes/progress-03.md">Progress note 03 — Sick Visit</a></li><li><a href="notes/progress-04.md">Progress note 04 — Focused Visit (Follow-up)</a></li><li><a href="notes/progress-05.md">Progress note 05 — Annual Wellness Visit, Subsequent</a></li><li><a href="notes/progress-06.md">Progress note 06 — Focused Visit (Care-plan review)</a></li><li><a href="notes/referral-01.md">Rheumatology referral</a></li><li><a href="notes/consult-01.md">Rheumatology consultation</a></li><li><a href="notes/careplan.md">Patient care plan</a></li><li><a href="notes/teaching-note.md">Teaching note</a></li><li><a href="provenance.csv">Provenance CSV</a></li></ul></section>
+    <section><h2>C-CDA note documents</h2><p class="muted">Each link opens a readable copy; the XML beside it is the exchange file.</p><ul><li><a href="ccda/hp-01.html">History and physical</a> <a href="ccda/hp-01.xml">(XML)</a></li><li><a href="ccda/progress-01.html">Progress note 01</a> <a href="ccda/progress-01.xml">(XML)</a></li><li><a href="ccda/progress-02.html">Progress note 02 — Focused Visit (Follow-up)</a> <a href="ccda/progress-02.xml">(XML)</a></li><li><a href="ccda/progress-03.html">Progress note 03 — Sick Visit</a> <a href="ccda/progress-03.xml">(XML)</a></li><li><a href="ccda/progress-04.html">Progress note 04 — Focused Visit (Follow-up)</a> <a href="ccda/progress-04.xml">(XML)</a></li><li><a href="ccda/progress-05.html">Progress note 05 — Annual Wellness Visit, Subsequent</a> <a href="ccda/progress-05.xml">(XML)</a></li><li><a href="ccda/progress-06.html">Progress note 06 — Focused Visit (Care-plan review)</a> <a href="ccda/progress-06.xml">(XML)</a></li><li><a href="ccda/referral-01.html">Rheumatology referral</a> <a href="ccda/referral-01.xml">(XML)</a></li><li><a href="ccda/consult-01.html">Rheumatology consultation</a> <a href="ccda/consult-01.xml">(XML)</a></li></ul></section>
+    <section><h2>Sources</h2><table><thead><tr><th>ID</th><th>Source</th><th>Publisher</th><th>Type</th></tr></thead><tbody>
+  <tr>
+    <td>SRC-0001</td>
+    <td><a href="https://www.gutenberg.org/ebooks/11242" target="_blank" rel="noreferrer">Symonds JA. The Life of Michelangelo Buonarroti, based on studies in the archives of the Buonarroti family at Florence</a></td>
+    <td>Project Gutenberg (eBook 11242)</td>
+    <td>biography</td>
+  </tr>
+  <tr>
+    <td>SRC-0002</td>
+    <td><a href="https://archive.org/details/michelangeloreco1913mich" target="_blank" rel="noreferrer">Carden RW, translator and editor. Michelangelo: A Record of His Life as Told in His Own Letters and Papers. London: Constable; 1913</a></td>
+    <td>Internet Archive (michelangeloreco1913mich)</td>
+    <td>primary</td>
+  </tr>
+  <tr>
+    <td>SRC-0003</td>
+    <td><a href="https://pubmed.ncbi.nlm.nih.gov/26837259/" target="_blank" rel="noreferrer">Lazzeri D, Castello MF, Matucci-Cerinic M, Lippi D, Weisz GM. Osteoarthritis in the hands of Michelangelo Buonarroti. J R Soc Med. 2016;109(5):180-183. doi:10.1177/0141076816630502</a></td>
+    <td>PubMed (PMID 26837259; PMC4872204)</td>
+    <td>scholarly</td>
+  </tr>
+  <tr>
+    <td>SRC-0004</td>
+    <td><a href="https://humanrecord.example.org/internal/HISTMED_Master_Roster_v3.xlsx" target="_blank" rel="noreferrer">HISTMED Master Roster v3</a></td>
+    <td>The Human Record project</td>
+    <td>other</td>
+  </tr></tbody></table></section>
+    <section><h2>Review status</h2><table><thead><tr><th>Review</th><th>Status</th><th>Notes</th></tr></thead><tbody>
+  <tr><td>schema validation</td><td>not_started</td><td>Run scripts/build.ps1 -Conformance.</td></tr>
+  <tr><td>clinical review</td><td>not_started</td><td>Awaiting clinician review; check the metacarpophalangeal work-up, the stop of oral ibuprofen at 85, the thumb-base injection, the PROMIS upper extremity measure used in place of AUSCAN, and the deviations recorded.</td></tr>
+  <tr><td>provenance review</td><td>not_started</td><td>Symonds&#39;s biography (Gutenberg), Carden&#39;s 1913 translation of his letters (Internet Archive), and the 2016 JRSM portrait study logged. The hand osteoarthritis and the gout are graded R, possible; the stone and the writing difficulty are D from his letters.</td></tr>
+  <tr><td>safe messaging review</td><td>not_started</td><td>No behavioral-health content; death recorded without graphic detail.</td></tr></tbody></table></section>
+  </main>
+</body>
+</html>

@@ -1,0 +1,522 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Clara Barton — The Human Record</title>
+  <style>
+    :root { --navy:#17365d; --blue:#1f4e78; --pale:#eef5fa; --ink:#1f2933; --muted:#66788a; --amber:#fff2cc; --red:#f8d7da; --green:#d9ead3; }
+    * { box-sizing:border-box; }
+    body { margin:0; font:16px/1.5 Arial, sans-serif; color:var(--ink); background:#f6f8fa; }
+    header { background:var(--navy); color:white; padding:24px max(24px,calc((100vw - 1180px)/2)); }
+    header h1 { margin:4px 0; font-size:30px; }
+    .banner { background:#b42318; color:white; font-weight:700; text-align:center; padding:10px; letter-spacing:.03em; }
+    main { max-width:1180px; margin:24px auto 60px; padding:0 24px; }
+    section { background:white; border:1px solid #d9e1e8; border-radius:8px; margin:18px 0; padding:20px; }
+    h2 { color:var(--navy); margin:0 0 14px; font-size:22px; }
+    h3 { color:var(--blue); }
+    .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:12px; }
+    .card { background:var(--pale); border-left:4px solid var(--blue); padding:12px; }
+    .label { color:var(--muted); font-size:13px; text-transform:uppercase; letter-spacing:.04em; }
+    table { width:100%; border-collapse:collapse; }
+    th { background:var(--blue); color:white; text-align:left; }
+    th,td { padding:9px; border-bottom:1px solid #dfe6ec; vertical-align:top; }
+    .badge { display:inline-block; min-width:28px; text-align:center; font-weight:700; border-radius:12px; padding:2px 8px; }
+    .grade-D { background:var(--green); } .grade-R { background:var(--amber); } .grade-S { background:var(--red); }
+    .muted { color:var(--muted); font-size:14px; }
+    .relationship { color:var(--muted); font-size:12px; }
+    .downloads a { display:inline-block; margin:4px 8px 4px 0; padding:8px 12px; background:var(--blue); color:white; text-decoration:none; border-radius:5px; }
+    @media (max-width:700px) { table { display:block; overflow-x:auto; } }
+  </style>
+</head>
+<body>
+  <div class="banner">SYNTHETIC RECORD, NOT A REAL MEDICAL RECORD</div>
+  <div class="banner">True-date frame: synthetic events are moved into the patient&#39;s historical lifetime. Codes, instruments, and treatments remain modern and are anachronistic.</div>
+  <header>
+    <div>The Human Record</div>
+    <h1>Clara Barton</h1>
+    <div>Case HR-NI024-TD · Modern EHR teaching episode · Draft for review</div>
+  </header>
+  <main>
+    <section>
+      <h2>Review summary</h2>
+      <div class="grid">
+        <div class="card"><div class="label">Historical dates</div>December 25, 1821 – April 12, 1912</div>
+        <div class="card"><div class="label">Synthetic DOB</div>1821-12-25</div>
+        <div class="card"><div class="label">Index visit</div>1874-01-20 at age 52</div>
+        <div class="card"><div class="label">Synthetic MRN</div>HR-NI024-SYN-TD</div>
+      </div>
+      <p><strong>Teaching objective:</strong> Treat a recurrent, moderately severe episode of major depressive disorder in a 52-year-old nurse and relief-agency leader after a prolonged wartime deployment, following the 1870 VA/DoD guideline and the CMID depression monograph: shared decision-making for combined psychotherapy and an SSRI, a two-week tolerability and safety check, PHQ-9 at least monthly to response and remission, dose titration for partial response, suicide-risk review with a safety plan and the 988 Lifeline at every visit, sleep, burnout, and a phased return to work, social support, and continuation treatment after remission, while explaining that prolonged rest is not a treatment for depression.</p>
+      <div class="downloads">
+        <a href="../case.json">Canonical JSON</a>
+        <a href="fhir-bundle.json">FHIR R4 draft</a>
+        <a href="ccda.html">C-CDA R2.1 summary</a> <a href="ccda.xml">(XML)</a>
+        <a href="../sources.md">Evidence dossier</a>
+      </div>
+    </section>
+    <section><h2>Historical timeline</h2><table><thead><tr><th>Date</th><th>Event</th><th>Claims</th></tr></thead><tbody>
+  <tr><td>December 25, 1821</td><td>Born in North Oxford, Massachusetts.</td><td>CLM-0001</td></tr>
+  <tr><td>Spring 1852</td><td>Brief period of depression recorded in her diary while teaching.</td><td>CLM-0002</td></tr>
+  <tr><td>September 1862</td><td>Tends the wounded at Antietam and is weakened afterward by typhoid fever.</td><td>CLM-0003, CLM-0004</td></tr>
+  <tr><td>March 1865</td><td>Opens the office that searches for missing soldiers, which runs to 1869.</td><td>CLM-0005</td></tr>
+  <tr><td>December 1868</td><td>Loses her voice during a lecture from fatigue and mental prostration.</td><td>CLM-0006</td></tr>
+  <tr><td>September 1869</td><td>Travels to Europe on medical advice to regain her health.</td><td>CLM-0007</td></tr>
+  <tr><td>1870 to 1871</td><td>Organizes civilian relief during the Franco-Prussian War.</td><td>CLM-0008</td></tr>
+  <tr><td>October 1872</td><td>Breaks down with a cough in England and is confined to bed for eight months.</td><td>CLM-0009</td></tr>
+  <tr><td>October 1873</td><td>Returns home and breaks down with prostration of the nervous system.</td><td>CLM-0010</td></tr>
+  <tr><td>1876</td><td>Moves to Dansville, New York, and gradually regains her strength.</td><td>CLM-0011</td></tr>
+  <tr><td>May 21, 1881</td><td>The American Association of the Red Cross is formed, with her as president.</td><td>CLM-0014</td></tr>
+  <tr><td>May 14, 1904</td><td>Resigns as president of the American National Red Cross.</td><td>CLM-0014</td></tr>
+  <tr><td>April 12, 1912</td><td>Dies at her Glen Echo home at 90.</td><td>CLM-0015</td></tr></tbody></table></section>
+    <section><h2>Evidence claims</h2><p class="muted">D = documented, R = retrospective, S = synthetic.</p><table><thead><tr><th>Grade</th><th>Claim</th><th>Certainty</th><th>Sources</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>Clarissa Harlowe Barton was born on December 25, 1821, in North Oxford, Massachusetts, the youngest of five children.</strong></td>
+    <td>confirmed</td>
+    <td><a href="https://www.nps.gov/clba/learn/kidsyouth/chron3.htm" target="_blank" rel="noreferrer">Clara Barton Chronology, 1821-1860, 1861-1869, and 1870-1912</a> <span class="relationship">supports</span><br><a href="https://www.gutenberg.org/ebooks/67505" target="_blank" rel="noreferrer">Barton WE. The Life of Clara Barton, Founder of the American Red Cross, Volume 1. Boston: Houghton Mifflin; 1922</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>Her diary records a brief period of depression in the spring of 1852, while she was teaching in New Jersey; her biographer judged that the mood did not last long.</strong><div class="muted">Her own diary entries, quoted by her biographer.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.gutenberg.org/ebooks/67505" target="_blank" rel="noreferrer">Barton WE. The Life of Clara Barton, Founder of the American Red Cross, Volume 1. Boston: Houghton Mifflin; 1922</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>From 1861 she supplied and tended wounded soldiers at battlefields and field hospitals through the Civil War; after working for several days following the Battle of Antietam in September 1862 she was weakened by typhoid fever.</strong></td>
+    <td>confirmed</td>
+    <td><a href="https://www.nps.gov/clba/learn/kidsyouth/chron3.htm" target="_blank" rel="noreferrer">Clara Barton Chronology, 1821-1860, 1861-1869, and 1870-1912</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>In her account of the eve of the Battle of Antietam she wrote that she was faint but could not eat, weary but could not sleep, and depressed but could not weep.</strong><div class="muted">Her own words, quoted by her biographer.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.gutenberg.org/ebooks/67505" target="_blank" rel="noreferrer">Barton WE. The Life of Clara Barton, Founder of the American Red Cross, Volume 1. Boston: Houghton Mifflin; 1922</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>From March 1865 to 1869 she ran an office that answered 63,182 letters and identified 22,000 missing soldiers.</strong></td>
+    <td>confirmed</td>
+    <td><a href="https://www.nps.gov/clba/learn/kidsyouth/chron3.htm" target="_blank" rel="noreferrer">Clara Barton Chronology, 1821-1860, 1861-1869, and 1870-1912</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>In December 1868 she lost her voice while giving a lecture, from fatigue and mental prostration; in her own later account, nervous prostration had declared itself and she lay helpless all winter in Washington.</strong><div class="muted">Nervous prostration is a nineteenth-century term, not a modern diagnosis.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.nps.gov/clba/learn/kidsyouth/chron3.htm" target="_blank" rel="noreferrer">Clara Barton Chronology, 1821-1860, 1861-1869, and 1870-1912</a> <span class="relationship">supports</span><br><a href="https://www.gutenberg.org/ebooks/67954" target="_blank" rel="noreferrer">Barton WE. The Life of Clara Barton, Founder of the American Red Cross, Volume 2. Boston: Houghton Mifflin; 1922</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>In September 1869, on her doctor&#39;s advice, she travelled to Europe to regain her health.</strong></td>
+    <td>confirmed</td>
+    <td><a href="https://www.nps.gov/clba/learn/kidsyouth/chron3.htm" target="_blank" rel="noreferrer">Clara Barton Chronology, 1821-1860, 1861-1869, and 1870-1912</a> <span class="relationship">supports</span><br><a href="https://www.gutenberg.org/ebooks/67954" target="_blank" rel="noreferrer">Barton WE. The Life of Clara Barton, Founder of the American Red Cross, Volume 2. Boston: Houghton Mifflin; 1922</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>During the Franco-Prussian War of 1870 and 1871 she organized civilian relief in Strasbourg, Paris, and other French cities.</strong></td>
+    <td>confirmed</td>
+    <td><a href="https://www.nps.gov/clba/learn/kidsyouth/chron3.htm" target="_blank" rel="noreferrer">Clara Barton Chronology, 1821-1860, 1861-1869, and 1870-1912</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>In 1872 and 1873 she suffered nervous exhaustion and temporarily lost her eyesight; in a letter she wrote that she broke down with a cough in England in October 1872 and was confined to bed for eight months.</strong></td>
+    <td>confirmed</td>
+    <td><a href="https://www.nps.gov/clba/learn/kidsyouth/chron3.htm" target="_blank" rel="noreferrer">Clara Barton Chronology, 1821-1860, 1861-1869, and 1870-1912</a> <span class="relationship">supports</span><br><a href="https://www.gutenberg.org/ebooks/67954" target="_blank" rel="noreferrer">Barton WE. The Life of Clara Barton, Founder of the American Red Cross, Volume 2. Boston: Houghton Mifflin; 1922</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>After her return in October 1873 she broke down again with what she called prostration of the nervous system, deepened by her only sister&#39;s death in May 1874; she wrote that for almost a year she averaged less than two hours of sleep a day and could not write her name for over four months.</strong><div class="muted">Her own account in letters quoted by her biographer.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.nps.gov/clba/learn/kidsyouth/chron3.htm" target="_blank" rel="noreferrer">Clara Barton Chronology, 1821-1860, 1861-1869, and 1870-1912</a> <span class="relationship">supports</span><br><a href="https://www.gutenberg.org/ebooks/67954" target="_blank" rel="noreferrer">Barton WE. The Life of Clara Barton, Founder of the American Red Cross, Volume 2. Boston: Houghton Mifflin; 1922</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>In 1876 she moved to Dansville, New York, first living at a sanitarium that she called the largest and most noted water and rest cure in the country and later in her own home; she regained her strength gradually over several years, with periods of depression and weakness.</strong><div class="muted">Historical treatment. Her recovery cannot be credited to the rest cure, and rest cures are not an effective treatment for depression.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.gutenberg.org/ebooks/67954" target="_blank" rel="noreferrer">Barton WE. The Life of Clara Barton, Founder of the American Red Cross, Volume 2. Boston: Houghton Mifflin; 1922</a> <span class="relationship">supports</span><br><a href="https://www.nps.gov/clba/learn/kidsyouth/chron3.htm" target="_blank" rel="noreferrer">Clara Barton Chronology, 1821-1860, 1861-1869, and 1870-1912</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-R" title="Retrospective">R</span></td>
+    <td><strong>A 1995 review by Spiegel describes her long-term nervous prostration and argues that the therapy she received changed her behavioral approach to illness and to life.</strong><div class="muted">A retrospective interpretation.</div></td>
+    <td>possible</td>
+    <td><a href="https://pubmed.ncbi.nlm.nih.gov/8568024/" target="_blank" rel="noreferrer">Spiegel AD. The role of gender, phrenology, discrimination and nervous prostration in Clara Barton&#39;s career. J Community Health. 1995;20(6):501-526. doi:10.1007/BF02277066</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-R" title="Retrospective">R</span></td>
+    <td><strong>Her biographer Elizabeth Brown Pryor, as quoted in a 2012 newspaper article, describes a long struggle with depression that was lifted by a need for her services.</strong><div class="muted">A retrospective interpretation of her diaries; no diagnosis was made in her lifetime.</div></td>
+    <td>possible</td>
+    <td><a href="https://www.bangordailynews.com/2012/04/07/living/clara-bartons-inner-war/" target="_blank" rel="noreferrer">Henneberger M. Clara Barton&#39;s inner war. Bangor Daily News, April 7, 2012</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>The American Association of the Red Cross was formed on May 21, 1881, with her as president; she resigned the presidency on May 14, 1904.</strong></td>
+    <td>confirmed</td>
+    <td><a href="https://www.nps.gov/clba/learn/kidsyouth/chron3.htm" target="_blank" rel="noreferrer">Clara Barton Chronology, 1821-1860, 1861-1869, and 1870-1912</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>She died at her home in Glen Echo, Maryland, on April 12, 1912, aged 90, during a second illness with double pneumonia; she had recovered from an earlier attack the winter before.</strong></td>
+    <td>confirmed</td>
+    <td><a href="https://www.nps.gov/clba/learn/kidsyouth/chron3.htm" target="_blank" rel="noreferrer">Clara Barton Chronology, 1821-1860, 1861-1869, and 1870-1912</a> <span class="relationship">supports</span><br><a href="https://www.gutenberg.org/ebooks/67954" target="_blank" rel="noreferrer">Barton WE. The Life of Clara Barton, Founder of the American Red Cross, Volume 2. Boston: Houghton Mifflin; 1922</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>Her mother died on July 18, 1851, and her father on March 21, 1862.</strong><div class="muted">Causes are not recorded in the cited source.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.nps.gov/clba/learn/kidsyouth/chron3.htm" target="_blank" rel="noreferrer">Clara Barton Chronology, 1821-1860, 1861-1869, and 1870-1912</a> <span class="relationship">supports</span></td>
+  </tr></tbody></table></section>
+    <section><h2>Modern synthetic problem list</h2><table><thead><tr><th>Grade</th><th>Problem</th><th>Clinical status</th><th>Verification</th><th>Placement</th><th>Historical claims</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Major depressive disorder, recurrent, moderate (moderately severe symptoms at intake), after a prolonged humanitarian deployment; synthetic modern diagnosis linked to her documented periods of depression and nervous prostration</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>both_with_link</td>
+    <td>CLM-0002, CLM-0006, CLM-0010, CLM-0013</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Occupational burnout after eighteen months leading field medical relief in a war zone</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>both_with_link</td>
+    <td>CLM-0008, CLM-0009</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Acute low back strain after lifting supply crates, without red flags or radicular signs; resolved</td>
+    <td>resolved</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td></td>
+  </tr></tbody></table></section>
+    <section><h2>Synthetic outcome measures</h2><table><thead><tr><th>Grade</th><th>Date</th><th>Measure</th><th>Result</th><th>Coding</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1874-01-20</td>
+    <td>Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]</td>
+    <td>18</td>
+    <td>http://loinc.org · 44261-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1874-01-20</td>
+    <td>Generalized anxiety disorder 7 item (GAD-7) total score [Reported.PHQ]</td>
+    <td>9</td>
+    <td>http://loinc.org · 70274-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1874-01-20</td>
+    <td>PC-PTSD-5 score [PC-PTSD-5]</td>
+    <td>2</td>
+    <td>http://loinc.org · 102017-1</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1874-01-20</td>
+    <td>Total score [AUDIT-C]</td>
+    <td>2</td>
+    <td>http://loinc.org · 75626-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1874-01-20</td>
+    <td>Sodium [Moles/volume] in Serum or Plasma</td>
+    <td>139 mmol/L<div class="muted">Reference 135-145 mmol/L</div></td>
+    <td>http://loinc.org · 2951-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1874-01-20</td>
+    <td>Potassium [Moles/volume] in Serum or Plasma</td>
+    <td>4.2 mmol/L<div class="muted">Reference 3.5-5.1 mmol/L</div></td>
+    <td>http://loinc.org · 2823-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1874-01-20</td>
+    <td>Carbon dioxide, total [Moles/volume] in Serum or Plasma</td>
+    <td>25 mmol/L<div class="muted">Reference 22-29 mmol/L</div></td>
+    <td>http://loinc.org · 2028-9</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1874-01-20</td>
+    <td>Urea nitrogen [Mass/volume] in Serum or Plasma</td>
+    <td>14 mg/dL<div class="muted">Reference 6-21 mg/dL</div></td>
+    <td>http://loinc.org · 3094-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1874-01-20</td>
+    <td>Creatinine [Mass/volume] in Serum or Plasma</td>
+    <td>0.78 mg/dL<div class="muted">Reference 0.59-1.04 mg/dL</div></td>
+    <td>http://loinc.org · 2160-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1874-01-20</td>
+    <td>Glomerular filtration rate [Volume Rate/Area] in Serum, Plasma or Blood by Creatinine-based formula (CKD-EPI 1869)/1.73 sq M</td>
+    <td>91 mL/min/1.73 m²<div class="muted">Reference &gt;=60 mL/min/1.73 m²</div></td>
+    <td>http://loinc.org · 98979-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1874-01-20</td>
+    <td>Glucose [Mass/volume] in Serum or Plasma</td>
+    <td>92 mg/dL<div class="muted">Reference 70-99 mg/dL</div></td>
+    <td>http://loinc.org · 2345-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1874-01-20</td>
+    <td>Hemoglobin [Mass/volume] in Blood</td>
+    <td>13.1 g/dL<div class="muted">Reference 12-15.5 g/dL</div></td>
+    <td>http://loinc.org · 718-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1874-01-20</td>
+    <td>Thyrotropin [Units/volume] in Serum or Plasma</td>
+    <td>1.8 mIU/L<div class="muted">Reference 0.4-4 mIU/L</div></td>
+    <td>http://loinc.org · 3016-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1874-01-20</td>
+    <td>Cobalamin (Vitamin B12) [Mass/volume] in Serum or Plasma</td>
+    <td>486 pg/mL<div class="muted">Reference 232-1245 pg/mL</div></td>
+    <td>http://loinc.org · 2132-9</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1874-02-03</td>
+    <td>Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]</td>
+    <td>16</td>
+    <td>http://loinc.org · 44261-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1874-03-03</td>
+    <td>Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]</td>
+    <td>12</td>
+    <td>http://loinc.org · 44261-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1874-04-14</td>
+    <td>Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]</td>
+    <td>7</td>
+    <td>http://loinc.org · 44261-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1874-04-14</td>
+    <td>Generalized anxiety disorder 7 item (GAD-7) total score [Reported.PHQ]</td>
+    <td>4</td>
+    <td>http://loinc.org · 70274-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1874-06-16</td>
+    <td>Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]</td>
+    <td>4</td>
+    <td>http://loinc.org · 44261-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1874-10-13</td>
+    <td>Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]</td>
+    <td>3</td>
+    <td>http://loinc.org · 44261-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1874-10-13</td>
+    <td>Generalized anxiety disorder 7 item (GAD-7) total score [Reported.PHQ]</td>
+    <td>2</td>
+    <td>http://loinc.org · 70274-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1874-10-13</td>
+    <td>Total score [AUDIT-C]</td>
+    <td>1</td>
+    <td>http://loinc.org · 75626-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1874-10-13</td>
+    <td>Cholesterol [Mass/volume] in Serum or Plasma</td>
+    <td>196 mg/dL<div class="muted">Reference &lt;=199 mg/dL</div></td>
+    <td>http://loinc.org · 2093-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1874-10-13</td>
+    <td>Cholesterol in HDL [Mass/volume] in Serum or Plasma</td>
+    <td>64 mg/dL<div class="muted">Reference &gt;=50 mg/dL</div></td>
+    <td>http://loinc.org · 2085-9</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1874-10-13</td>
+    <td>Cholesterol in LDL [Mass/volume] in Serum or Plasma by calculation</td>
+    <td>112 mg/dL<div class="muted">Reference &lt;=129 mg/dL</div></td>
+    <td>http://loinc.org · 13457-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1874-10-13</td>
+    <td>Triglyceride [Mass/volume] in Serum or Plasma</td>
+    <td>98 mg/dL<div class="muted">Reference &lt;=149 mg/dL</div></td>
+    <td>http://loinc.org · 2571-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1874-10-13</td>
+    <td>Hemoglobin A1c/Hemoglobin.total in Blood</td>
+    <td>5.4%<div class="muted">Reference &lt;=5.6%</div></td>
+    <td>http://loinc.org · 4548-4</td>
+  </tr></tbody></table></section>
+    <section><h2>Synthetic vital signs</h2><table><thead><tr><th>Date</th><th>Measure</th><th>Result</th><th>LOINC</th><th>Grade</th></tr></thead><tbody>
+  <tr><td>1874-01-20</td><td>Body height</td><td>152 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1874-01-20</td><td>Body weight</td><td>49.8 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1874-01-20</td><td>Body mass index (BMI) [Ratio]</td><td>21.6 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1874-01-20</td><td>Systolic blood pressure</td><td>118 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1874-01-20</td><td>Diastolic blood pressure</td><td>74 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1874-01-20</td><td>Heart rate</td><td>82 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1874-01-20</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1874-01-20</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1874-01-20</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>99 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1874-02-03</td><td>Body height</td><td>152 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1874-02-03</td><td>Body weight</td><td>49.6 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1874-02-03</td><td>Body mass index (BMI) [Ratio]</td><td>21.5 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1874-02-03</td><td>Systolic blood pressure</td><td>116 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1874-02-03</td><td>Diastolic blood pressure</td><td>72 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1874-02-03</td><td>Heart rate</td><td>78 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1874-02-03</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1874-02-03</td><td>Body temperature</td><td>36.5 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1874-02-03</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>99 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1874-03-03</td><td>Body height</td><td>152 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1874-03-03</td><td>Body weight</td><td>50.2 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1874-03-03</td><td>Body mass index (BMI) [Ratio]</td><td>21.7 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1874-03-03</td><td>Systolic blood pressure</td><td>120 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1874-03-03</td><td>Diastolic blood pressure</td><td>76 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1874-03-03</td><td>Heart rate</td><td>76 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1874-03-03</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1874-03-03</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1874-03-03</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>99 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1874-04-14</td><td>Body height</td><td>152 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1874-04-14</td><td>Body weight</td><td>50.9 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1874-04-14</td><td>Body mass index (BMI) [Ratio]</td><td>22 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1874-04-14</td><td>Systolic blood pressure</td><td>118 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1874-04-14</td><td>Diastolic blood pressure</td><td>74 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1874-04-14</td><td>Heart rate</td><td>72 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1874-04-14</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1874-04-14</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1874-04-14</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>99 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1874-06-16</td><td>Body height</td><td>152 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1874-06-16</td><td>Body weight</td><td>51.6 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1874-06-16</td><td>Body mass index (BMI) [Ratio]</td><td>22.3 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1874-06-16</td><td>Systolic blood pressure</td><td>120 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1874-06-16</td><td>Diastolic blood pressure</td><td>74 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1874-06-16</td><td>Heart rate</td><td>70 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1874-06-16</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1874-06-16</td><td>Body temperature</td><td>36.7 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1874-06-16</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>99 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1874-07-27</td><td>Body height</td><td>152 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1874-07-27</td><td>Body weight</td><td>51.8 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1874-07-27</td><td>Body mass index (BMI) [Ratio]</td><td>22.4 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1874-07-27</td><td>Systolic blood pressure</td><td>128 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1874-07-27</td><td>Diastolic blood pressure</td><td>80 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1874-07-27</td><td>Heart rate</td><td>84 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1874-07-27</td><td>Respiratory rate</td><td>16 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1874-07-27</td><td>Body temperature</td><td>36.7 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1874-07-27</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>99 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1874-10-13</td><td>Body height</td><td>152 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1874-10-13</td><td>Body weight</td><td>52 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1874-10-13</td><td>Body mass index (BMI) [Ratio]</td><td>22.5 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1874-10-13</td><td>Systolic blood pressure</td><td>118 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1874-10-13</td><td>Diastolic blood pressure</td><td>72 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1874-10-13</td><td>Heart rate</td><td>68 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1874-10-13</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1874-10-13</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1874-10-13</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>99 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr></tbody></table></section>
+    <section><h2>Social, functional, and mental status</h2><h3>Social history</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Occupation: registered nurse and founding director of a disaster and war relief agency; returned four months ago from eighteen months leading field hospitals and supply convoys in a war zone; previous long deployments in her forties</li><li><span class="badge grade-S" title="Synthetic">S</span> Never smoker; one or two glasses of wine a week; no other substance use</li><li><span class="badge grade-S" title="Synthetic">S</span> Lives alone in a small house near the agency&#39;s warehouse; never married; no children</li><li><span class="badge grade-S" title="Synthetic">S</span> Works 60 to 70 hours a week since her return, answering families&#39; letters and calls and raising funds; has taken no leave in two years</li><li><span class="badge grade-S" title="Synthetic">S</span> Supports: a few close friends from earlier relief work, colleagues at the agency, and a faith community; no firearms in the home</li></ul><h3>Functional status</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> At intake, still working but taking twice as long over letters and reports, eating little, and withdrawing from friends</li><li><span class="badge grade-S" title="Synthetic">S</span> Back at full duties on a 45-hour week by the five-month review, seeing friends weekly, and walking daily</li></ul><h3>Mental status</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Small, upright, neatly dressed; speech soft and slow; good eye contact; cooperative and precise</li><li><span class="badge grade-S" title="Synthetic">S</span> Mood &quot;worn out and no use to anyone&quot;; affect constricted and tearful at times; thought process linear; no suicidal ideation, intent, or plan; no psychotic features; insight and judgment good</li></ul></section>
+    <section><h2>Structured safety assessment</h2><div class="grid"><div class="card"><div class="label">Current ideation</div>absent</div><div class="card"><div class="label">Intent</div>absent</div><div class="card"><div class="label">Plan</div>absent</div><div class="card"><div class="label">Disposition</div>Outpatient care with a collaborative safety plan, the 988 Suicide &amp; Crisis Lifeline, safe storage of medicines, and a two-week follow-up</div></div><p class="muted">This assessment is synthetic and does not convert historical behavior into a present-day fact.</p></section>
+    <section><h2>Allergies and medications</h2><h3>Allergies</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> No known allergy</li></ul><h3>Medications</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Sertraline 50 mg oral tablet, one tablet by mouth each morning</li><li><span class="badge grade-S" title="Synthetic">S</span> Sertraline 100 mg oral tablet, one tablet by mouth each morning</li><li><span class="badge grade-S" title="Synthetic">S</span> Ibuprofen 400 mg oral tablet, one tablet by mouth up to three times a day with food for no more than 7 days</li></ul></section>
+    <section><h2>Procedures and immunizations</h2><h3>Procedures</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Advance care planning conversation, about 20 minutes</li></ul><h3>Immunizations</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> 1873-10-06: Influenza vaccine, 1873-1874 season</li><li><span class="badge grade-S" title="Synthetic">S</span> 1872-05-13: Tdap vaccine, before deployment</li><li><span class="badge grade-S" title="Synthetic">S</span> 1874-10-13: Influenza vaccine, 1874-1875 season</li><li><span class="badge grade-S" title="Synthetic">S</span> 1874-10-13: Pneumococcal conjugate vaccine PCV20</li><li><span class="badge grade-S" title="Synthetic">S</span> 1874-10-13: Recombinant zoster vaccine, dose 1 of 2</li></ul></section>
+    <section><h2>Past medical history</h2><p class="muted">True biography with historical dates; not part of the synthetic care timeline.</p><ul><li><span class="badge grade-D" title="Documented">D</span> Spring 1852: Brief period of depression recorded in her diary while teaching <span class="muted">(CLM-0002)</span></li><li><span class="badge grade-D" title="Documented">D</span> September 1862: Typhoid fever after several days tending the wounded at Antietam <span class="muted">(CLM-0003)</span></li><li><span class="badge grade-D" title="Documented">D</span> December 1868: Loss of voice during a lecture from fatigue and mental prostration, then helpless through the winter; went to Europe on medical advice the next autumn <span class="muted">(CLM-0006, CLM-0007)</span></li><li><span class="badge grade-D" title="Documented">D</span> 1872 to 1873: Nervous exhaustion with temporary loss of eyesight; confined to bed for eight months with a cough in England <span class="muted">(CLM-0009)</span></li><li><span class="badge grade-D" title="Documented">D</span> October 1873: Breakdown with prostration of the nervous system after returning home <span class="muted">(CLM-0010)</span></li></ul><h3>Family history</h3><ul><li><span class="badge grade-D" title="Documented">D</span> mother: Died in 1851; cause not recorded in the cited source</li><li><span class="badge grade-D" title="Documented">D</span> father: Died in 1862; cause not recorded in the cited source</li></ul></section>
+    <section><h2>Care-plan goals</h2><table><thead><tr><th>Goal</th><th>Target date</th><th>Status</th><th>Outcome</th></tr></thead><tbody>
+  <tr><td>Response (PHQ-9 down by at least 50 percent) by twelve weeks</td><td>1874-04-14</td><td>completed</td><td>PHQ-9 7 at twelve weeks, down 61 percent from 18</td></tr>
+  <tr><td>Remission (PHQ-9 below 5) and continuation treatment for at least twelve months after remission</td><td>1874-06-16</td><td>active</td><td>Remission reached at five months (PHQ-9 4); continuation treatment under way</td></tr>
+  <tr><td>Sleep at least six hours most nights</td><td>1874-04-14</td><td>completed</td><td>About six and a half hours most nights by twelve weeks</td></tr>
+  <tr><td>Phased return to work at no more than 45 hours a week, with no field deployment for at least six months</td><td>1874-06-16</td><td>completed</td><td>Full duties at 45 hours a week from April; no deployment</td></tr>
+  <tr><td>Time with friends or her faith community at least twice a week</td><td>1874-06-16</td><td>completed</td><td>Weekly dinner with friends and weekly services</td></tr></tbody></table></section>
+    <section><h2>Interventions</h2><table><thead><tr><th>Intervention</th><th>Status</th><th>Guideline</th></tr></thead><tbody>
+  <tr><td>Shared decision-making: combined psychotherapy and an antidepressant for a recurrent, moderately severe episode; she chose cognitive behavioral therapy and sertraline</td><td>completed</td><td>GL-MDD-2022, GL-CMID-2026</td></tr>
+  <tr><td>Start sertraline 50 mg each morning; check tolerability and safety at two weeks; increase to 100 mg if the PHQ-9 has fallen by less than 50 percent after four to six weeks</td><td>completed</td><td>GL-MDD-2022, GL-CMID-2026</td></tr>
+  <tr><td>Weekly cognitive behavioral therapy with the clinic psychologist, by video or in person, for about 16 sessions, including behavioral activation and insomnia components</td><td>completed</td><td>GL-MDD-2022, GL-CMID-2026</td></tr>
+  <tr><td>Collaborative safety plan with warning signs, coping steps, people to contact, the clinic number, and the 988 Suicide &amp; Crisis Lifeline; medicines stored safely and dispensed in 30-day supplies</td><td>completed</td><td>GL-SUICIDE-2024</td></tr>
+  <tr><td>Psychiatry consultation to confirm the diagnosis, exclude bipolar disorder and PTSD, and advise on treatment of a recurrent episode</td><td>completed</td><td>GL-MDD-2022, GL-CMID-2026</td></tr>
+  <tr><td>PHQ-9 at every visit and at least monthly until remission; suicide-risk review at every visit; continue sertraline for at least twelve months after remission because the episode is recurrent</td><td>completed</td><td>GL-MDD-2022, GL-CMID-2026, GL-SUICIDE-2024</td></tr>
+  <tr><td>Burnout and work: two weeks of medical leave, then a phased return with a 45-hour cap, no field deployment for at least six months, delegation of the families&#39; correspondence, and a peer support group for relief workers</td><td>completed</td><td>GL-MDD-2022, GL-CMID-2026</td></tr>
+  <tr><td>Sleep and activity: fixed wake time, no work after 8 pm, a daily 30-minute walk, regular meals, and limited alcohol; prolonged bed rest or withdrawal from activity is explained as unhelpful for depression</td><td>completed</td><td>GL-MDD-2022, GL-CMID-2026</td></tr>
+  <tr><td>Screen for bipolar disorder, PTSD, anxiety, and unhealthy alcohol use, and check thyroid, blood count, vitamin B12, and a metabolic panel for medical contributors to fatigue</td><td>completed</td><td>GL-MDD-2022, GL-CMID-2026, GL-USPSTF-DEP-2023</td></tr></tbody></table></section>
+    <section><h2>Planned encounters</h2><ul>
+  <li><strong>1874-01-20</strong> — Primary care visit for low mood, exhaustion, and poor sleep after returning from a long humanitarian deployment <span class="muted">(ENC-001)</span></li>
+  <li><strong>1874-02-03</strong> — Two-week sertraline tolerability and safety check, with psychiatry consultation <span class="muted">(ENC-002)</span></li>
+  <li><strong>1874-03-03</strong> — Six-week depression treatment review <span class="muted">(ENC-003)</span></li>
+  <li><strong>1874-04-14</strong> — Twelve-week depression treatment review <span class="muted">(ENC-004)</span></li>
+  <li><strong>1874-06-16</strong> — Five-month depression review in continuation treatment <span class="muted">(ENC-005)</span></li>
+  <li><strong>1874-07-27</strong> — Same-day sick visit for low back pain after lifting <span class="muted">(ENC-006, unscheduled)</span></li>
+  <li><strong>1874-10-13</strong> — Periodic adult preventive visit <span class="muted">(ENC-007)</span></li></ul></section>
+    <section><h2>Supporting documents</h2><ul><li><a href="notes/hp.md">History and physical</a></li><li><a href="notes/progress-01.md">Progress note 01</a></li><li><a href="notes/progress-02.md">Progress note 02 — Focused Visit (Follow-up)</a></li><li><a href="notes/progress-03.md">Progress note 03 — Focused Visit (Follow-up)</a></li><li><a href="notes/progress-04.md">Progress note 04 — Focused Visit (Follow-up)</a></li><li><a href="notes/progress-05.md">Progress note 05 — Focused Visit (Care-plan review)</a></li><li><a href="notes/progress-06.md">Progress note 06 — Sick Visit</a></li><li><a href="notes/progress-07.md">Progress note 07 — Preventive Visit</a></li><li><a href="notes/referral-01.md">Psychiatry referral</a></li><li><a href="notes/consult-01.md">Psychiatry consultation</a></li><li><a href="notes/careplan.md">Patient care plan</a></li><li><a href="notes/teaching-note.md">Teaching note</a></li><li><a href="provenance.csv">Provenance CSV</a></li></ul></section>
+    <section><h2>C-CDA note documents</h2><p class="muted">Each link opens a readable copy; the XML beside it is the exchange file.</p><ul><li><a href="ccda/hp-01.html">History and physical</a> <a href="ccda/hp-01.xml">(XML)</a></li><li><a href="ccda/progress-01.html">Progress note 01</a> <a href="ccda/progress-01.xml">(XML)</a></li><li><a href="ccda/progress-02.html">Progress note 02 — Focused Visit (Follow-up)</a> <a href="ccda/progress-02.xml">(XML)</a></li><li><a href="ccda/progress-03.html">Progress note 03 — Focused Visit (Follow-up)</a> <a href="ccda/progress-03.xml">(XML)</a></li><li><a href="ccda/progress-04.html">Progress note 04 — Focused Visit (Follow-up)</a> <a href="ccda/progress-04.xml">(XML)</a></li><li><a href="ccda/progress-05.html">Progress note 05 — Focused Visit (Care-plan review)</a> <a href="ccda/progress-05.xml">(XML)</a></li><li><a href="ccda/progress-06.html">Progress note 06 — Sick Visit</a> <a href="ccda/progress-06.xml">(XML)</a></li><li><a href="ccda/progress-07.html">Progress note 07 — Preventive Visit</a> <a href="ccda/progress-07.xml">(XML)</a></li><li><a href="ccda/referral-01.html">Psychiatry referral</a> <a href="ccda/referral-01.xml">(XML)</a></li><li><a href="ccda/consult-01.html">Psychiatry consultation</a> <a href="ccda/consult-01.xml">(XML)</a></li></ul></section>
+    <section><h2>Sources</h2><table><thead><tr><th>ID</th><th>Source</th><th>Publisher</th><th>Type</th></tr></thead><tbody>
+  <tr>
+    <td>SRC-0001</td>
+    <td><a href="https://www.nps.gov/clba/learn/kidsyouth/chron3.htm" target="_blank" rel="noreferrer">Clara Barton Chronology, 1821-1860, 1861-1869, and 1870-1912</a></td>
+    <td>National Park Service, Clara Barton National Historic Site</td>
+    <td>government</td>
+  </tr>
+  <tr>
+    <td>SRC-0002</td>
+    <td><a href="https://humanrecord.example.org/internal/HISTMED_Master_Roster_v3.xlsx" target="_blank" rel="noreferrer">HISTMED Master Roster v3</a></td>
+    <td>The Human Record project</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0003</td>
+    <td><a href="https://www.gutenberg.org/ebooks/67505" target="_blank" rel="noreferrer">Barton WE. The Life of Clara Barton, Founder of the American Red Cross, Volume 1. Boston: Houghton Mifflin; 1922</a></td>
+    <td>Project Gutenberg (eBook 67505)</td>
+    <td>biography</td>
+  </tr>
+  <tr>
+    <td>SRC-0004</td>
+    <td><a href="https://www.gutenberg.org/ebooks/67954" target="_blank" rel="noreferrer">Barton WE. The Life of Clara Barton, Founder of the American Red Cross, Volume 2. Boston: Houghton Mifflin; 1922</a></td>
+    <td>Project Gutenberg (eBook 67954)</td>
+    <td>biography</td>
+  </tr>
+  <tr>
+    <td>SRC-0005</td>
+    <td><a href="https://pubmed.ncbi.nlm.nih.gov/8568024/" target="_blank" rel="noreferrer">Spiegel AD. The role of gender, phrenology, discrimination and nervous prostration in Clara Barton&#39;s career. J Community Health. 1995;20(6):501-526. doi:10.1007/BF02277066</a></td>
+    <td>PubMed (PMID 8568024)</td>
+    <td>scholarly</td>
+  </tr>
+  <tr>
+    <td>SRC-0006</td>
+    <td><a href="https://www.bangordailynews.com/2012/04/07/living/clara-bartons-inner-war/" target="_blank" rel="noreferrer">Henneberger M. Clara Barton&#39;s inner war. Bangor Daily News, April 7, 2012</a></td>
+    <td>Bangor Daily News</td>
+    <td>other</td>
+  </tr></tbody></table></section>
+    <section><h2>Review status</h2><table><thead><tr><th>Review</th><th>Status</th><th>Notes</th></tr></thead><tbody>
+  <tr><td>schema validation</td><td>not_started</td><td>Run scripts/build.ps1 -Conformance.</td></tr>
+  <tr><td>clinical review</td><td>not_started</td><td>Awaiting clinician review; check combination treatment, sertraline titration, safety review at every visit, the burnout and return-to-work plan, and the recorded deviation.</td></tr>
+  <tr><td>provenance review</td><td>not_started</td><td>NPS chronology pages, the 1922 two-volume biography on Project Gutenberg, one PubMed abstract, and one newspaper article logged. Nervous prostration and diary depression are D; the depression interpretation is R. The Library of Congress pages could not be fetched (bot challenge).</td></tr>
+  <tr><td>safe messaging review</td><td>not_started</td><td>Safety assessment is synthetic with no current ideation; historical diary passages about wishing to die or suicide are not quoted or used; the rest cure is recorded as history, not as effective treatment.</td></tr></tbody></table></section>
+  </main>
+</body>
+</html>

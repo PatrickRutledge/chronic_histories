@@ -1,0 +1,543 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Fyodor Dostoevsky — The Human Record</title>
+  <style>
+    :root { --navy:#17365d; --blue:#1f4e78; --pale:#eef5fa; --ink:#1f2933; --muted:#66788a; --amber:#fff2cc; --red:#f8d7da; --green:#d9ead3; }
+    * { box-sizing:border-box; }
+    body { margin:0; font:16px/1.5 Arial, sans-serif; color:var(--ink); background:#f6f8fa; }
+    header { background:var(--navy); color:white; padding:24px max(24px,calc((100vw - 1180px)/2)); }
+    header h1 { margin:4px 0; font-size:30px; }
+    .banner { background:#b42318; color:white; font-weight:700; text-align:center; padding:10px; letter-spacing:.03em; }
+    main { max-width:1180px; margin:24px auto 60px; padding:0 24px; }
+    section { background:white; border:1px solid #d9e1e8; border-radius:8px; margin:18px 0; padding:20px; }
+    h2 { color:var(--navy); margin:0 0 14px; font-size:22px; }
+    h3 { color:var(--blue); }
+    .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:12px; }
+    .card { background:var(--pale); border-left:4px solid var(--blue); padding:12px; }
+    .label { color:var(--muted); font-size:13px; text-transform:uppercase; letter-spacing:.04em; }
+    table { width:100%; border-collapse:collapse; }
+    th { background:var(--blue); color:white; text-align:left; }
+    th,td { padding:9px; border-bottom:1px solid #dfe6ec; vertical-align:top; }
+    .badge { display:inline-block; min-width:28px; text-align:center; font-weight:700; border-radius:12px; padding:2px 8px; }
+    .grade-D { background:var(--green); } .grade-R { background:var(--amber); } .grade-S { background:var(--red); }
+    .muted { color:var(--muted); font-size:14px; }
+    .relationship { color:var(--muted); font-size:12px; }
+    .downloads a { display:inline-block; margin:4px 8px 4px 0; padding:8px 12px; background:var(--blue); color:white; text-decoration:none; border-radius:5px; }
+    @media (max-width:700px) { table { display:block; overflow-x:auto; } }
+  </style>
+</head>
+<body>
+  <div class="banner">SYNTHETIC RECORD, NOT A REAL MEDICAL RECORD</div>
+  <div class="banner">True-date frame: synthetic events are moved into the patient&#39;s historical lifetime. Codes, instruments, and treatments remain modern and are anachronistic.</div>
+  <header>
+    <div>The Human Record</div>
+    <h1>Fyodor Dostoevsky</h1>
+    <div>Case HR-NI018-TD · Modern EHR teaching episode · Draft for review</div>
+  </header>
+  <main>
+    <section>
+      <h2>Review summary</h2>
+      <div class="grid">
+        <div class="card"><div class="label">Historical dates</div>11 November 1821 – 9 February 1881</div>
+        <div class="card"><div class="label">Synthetic DOB</div>1821-11-11</div>
+        <div class="card"><div class="label">Index visit</div>1865-02-03 at age 43</div>
+        <div class="card"><div class="label">Synthetic MRN</div>HR-NI018-SYN-TD</div>
+      </div>
+      <p><strong>Teaching objective:</strong> Primary-care and neurology management of long-untreated epilepsy in a 43-year-old man (ILAE classification when the onset cannot be determined, routine and sleep-deprived EEG, epilepsy-protocol MRI, antiseizure medicine choice with slow lamotrigine titration and rash teaching, a seizure diary, trigger management, seizure safety and driving counseling, SUDEP discussion, bone health, and mood screening because depression is common in epilepsy) together with gambling-disorder care (a validated screen, cognitive behavioral therapy, self-exclusion, financial safeguards, peer support, and structured suicide-risk assessment with the 988 Suicide &amp; Crisis Lifeline), including an honest account of a breakthrough seizure and a gambling lapse, on the AAN/AES and ILAE guidance, the CMID depression monograph, and current gambling-disorder evidence.</p>
+      <div class="downloads">
+        <a href="../case.json">Canonical JSON</a>
+        <a href="fhir-bundle.json">FHIR R4 draft</a>
+        <a href="ccda.html">C-CDA R2.1 summary</a> <a href="ccda.xml">(XML)</a>
+        <a href="../sources.md">Evidence dossier</a>
+      </div>
+    </section>
+    <section><h2>Historical timeline</h2><table><thead><tr><th>Date</th><th>Event</th><th>Claims</th></tr></thead><tbody>
+  <tr><td>11 November 1821</td><td>Born in Moscow.</td><td>CLM-0001</td></tr>
+  <tr><td>1844</td><td>A generalized tonic-clonic seizure is documented in one account; the timing of onset is disputed.</td><td>CLM-0003</td></tr>
+  <tr><td>1849</td><td>Diagnosed with epilepsy shortly before he was taken to the prison at Omsk, by one account.</td><td>CLM-0003</td></tr>
+  <tr><td>1853</td><td>Debilitated by epilepsy, which worsened during his four years of forced labor.</td><td>CLM-0004</td></tr>
+  <tr><td>1863</td><td>Sought expert advice abroad from Romberg and Trousseau; began playing roulette on the same tour of Europe.</td><td>CLM-0002, CLM-0009</td></tr>
+  <tr><td>August 1865</td><td>Gambled away his travel funds at Wiesbaden and was stranded there for about two months.</td><td>CLM-0010</td></tr>
+  <tr><td>April 1871</td><td>Wrote that his gambling was over; never returned to the roulette table.</td><td>CLM-0012</td></tr>
+  <tr><td>9 February 1881</td><td>Died in St. Petersburg.</td><td>CLM-0001</td></tr></tbody></table></section>
+    <section><h2>Evidence claims</h2><p class="muted">D = documented, R = retrospective, S = synthetic.</p><table><thead><tr><th>Grade</th><th>Claim</th><th>Certainty</th><th>Sources</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>Fyodor Mikhailovich Dostoevsky was born in Moscow on 11 November 1821 and died in St. Petersburg on 9 February 1881.</strong><div class="muted">New Style (Gregorian) dates.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.wiesbaden.de/en/stadtlexikon/stadtlexikon-a-z/dostojewski-fjodor-michailowitsch" target="_blank" rel="noreferrer">Dostojewski, Fjodor Michailowitsch (Stadtlexikon Wiesbaden)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>Dostoevsky had epilepsy throughout his literary career; in 1863 he went abroad to seek expert advice from the neurologists Romberg and Trousseau.</strong><div class="muted">Anchor for the modern epilepsy problem.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://pubmed.ncbi.nlm.nih.gov/24290270/" target="_blank" rel="noreferrer">Epilepsy in Dostoevsky (Iniesta I. Prog Brain Res 2013;205:277-93)</a> <span class="relationship">supports</span><br><a href="https://www.pbs.org/newshour/health/for-dostoevsky-epilepsy-was-a-matter-of-both-life-and-literature" target="_blank" rel="noreferrer">For Dostoevsky, epilepsy was a matter of both life and literature</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-R" title="Retrospective">R</span></td>
+    <td><strong>Accounts of when his epilepsy began and was diagnosed differ. One account places seizures in his student years (1838 to 1843), a generalized tonic-clonic seizure in 1844, and a diagnosis of epilepsy in 1849, shortly before he was taken to the prison at Omsk; another says the first symptoms appeared in early adulthood and the diagnosis came about a decade later; a third calls the onset controversial.</strong><div class="muted">The timing of onset and diagnosis is unresolved; the record says only that seizures began in early adulthood.</div></td>
+    <td>disputed</td>
+    <td><a href="https://www.pbs.org/newshour/health/for-dostoevsky-epilepsy-was-a-matter-of-both-life-and-literature" target="_blank" rel="noreferrer">For Dostoevsky, epilepsy was a matter of both life and literature</a> <span class="relationship">supports</span><br><a href="https://pubmed.ncbi.nlm.nih.gov/24290270/" target="_blank" rel="noreferrer">Epilepsy in Dostoevsky (Iniesta I. Prog Brain Res 2013;205:277-93)</a> <span class="relationship">supports</span><br><a href="https://pubmed.ncbi.nlm.nih.gov/16194626/" target="_blank" rel="noreferrer">The idiosyncratic aspects of the epilepsy of Fyodor Dostoevsky (Hughes JR. Epilepsy Behav 2005;7:531-8)</a> <span class="relationship">context</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>He was sentenced to four years of forced labor at the Siberian prison in Omsk; his seizures worsened during his imprisonment, and by 1853 he was quite debilitated by epilepsy.</strong></td>
+    <td>confirmed</td>
+    <td><a href="https://www.pbs.org/newshour/health/for-dostoevsky-epilepsy-was-a-matter-of-both-life-and-literature" target="_blank" rel="noreferrer">For Dostoevsky, epilepsy was a matter of both life and literature</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>He described lack of sleep, alcohol, and overwork as triggers of his seizures, and he felt that the illness had damaged his memory.</strong><div class="muted">Supports the modern counseling about seizure triggers and the attention to memory after seizures.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.pbs.org/newshour/health/for-dostoevsky-epilepsy-was-a-matter-of-both-life-and-literature" target="_blank" rel="noreferrer">For Dostoevsky, epilepsy was a matter of both life and literature</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-R" title="Retrospective">R</span></td>
+    <td><strong>The type of his epilepsy is disputed: it has been interpreted as temporolimbic epilepsy, as an idiopathic generalized epilepsy with minor temporal involvement, as a cryptogenic focal epilepsy of frontomedial or temporal origin, and, for the ecstatic onset he described, as insular in origin.</strong><div class="muted">Retrospective interpretation; no seizure type or epilepsy syndrome is coded from it.</div></td>
+    <td>disputed</td>
+    <td><a href="https://pubmed.ncbi.nlm.nih.gov/21982255/" target="_blank" rel="noreferrer">Dostoevsky&#39;s epilepsy: a new approach to retrospective diagnosis (Rayport SM, Rayport M, Schell CA. Epilepsy Behav 2011;22:557-70)</a> <span class="relationship">supports</span><br><a href="https://pubmed.ncbi.nlm.nih.gov/16194626/" target="_blank" rel="noreferrer">The idiosyncratic aspects of the epilepsy of Fyodor Dostoevsky (Hughes JR. Epilepsy Behav 2005;7:531-8)</a> <span class="relationship">supports</span><br><a href="https://pubmed.ncbi.nlm.nih.gov/24290270/" target="_blank" rel="noreferrer">Epilepsy in Dostoevsky (Iniesta I. Prog Brain Res 2013;205:277-93)</a> <span class="relationship">supports</span><br><a href="https://pubmed.ncbi.nlm.nih.gov/24654447/" target="_blank" rel="noreferrer">Dostoyevsky&#39;s epilepsy in the light of recent neurobiological data (Tényi D, et al. Ideggyogy Sz 2014;67:52-5)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-R" title="Retrospective">R</span></td>
+    <td><strong>Whether the ecstatic experience he described before some seizures, and gave to characters in his fiction, was an epileptic aura is disputed.</strong><div class="muted">Not used in the modern seizure description.</div></td>
+    <td>disputed</td>
+    <td><a href="https://pubmed.ncbi.nlm.nih.gov/21982255/" target="_blank" rel="noreferrer">Dostoevsky&#39;s epilepsy: a new approach to retrospective diagnosis (Rayport SM, Rayport M, Schell CA. Epilepsy Behav 2011;22:557-70)</a> <span class="relationship">supports</span><br><a href="https://pubmed.ncbi.nlm.nih.gov/16194626/" target="_blank" rel="noreferrer">The idiosyncratic aspects of the epilepsy of Fyodor Dostoevsky (Hughes JR. Epilepsy Behav 2005;7:531-8)</a> <span class="relationship">disputes</span><br><a href="https://pubmed.ncbi.nlm.nih.gov/24654447/" target="_blank" rel="noreferrer">Dostoyevsky&#39;s epilepsy in the light of recent neurobiological data (Tényi D, et al. Ideggyogy Sz 2014;67:52-5)</a> <span class="relationship">context</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>He portrayed up to six characters with epilepsy in his fiction, from Murin in The Landlady (1847) to Smerdyakov in The Brothers Karamazov (1880).</strong></td>
+    <td>confirmed</td>
+    <td><a href="https://pubmed.ncbi.nlm.nih.gov/24290270/" target="_blank" rel="noreferrer">Epilepsy in Dostoevsky (Iniesta I. Prog Brain Res 2013;205:277-93)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>His passion for roulette began on a tour of Europe in 1863. He fell into a pattern of chasing his losses and often pawned belongings so that he could gamble further. He gambled at Wiesbaden, Baden-Baden, and Bad Homburg, and the compulsion caused repeated financial trouble for about ten years.</strong><div class="muted">Anchor for the modern gambling disorder.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://theconversation.com/how-dostoevsky-overcame-his-gambling-addiction-220655" target="_blank" rel="noreferrer">How Dostoevsky overcame his gambling addiction</a> <span class="relationship">supports</span><br><a href="https://www.wiesbaden.de/en/stadtlexikon/stadtlexikon-a-z/dostojewski-fjodor-michailowitsch" target="_blank" rel="noreferrer">Dostojewski, Fjodor Michailowitsch (Stadtlexikon Wiesbaden)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>In August 1865 he gambled away his travel funds at Wiesbaden and was stranded there for about two months, until he obtained money to leave.</strong><div class="muted">Falls in the true frame of this episode, after the index date; anchors the synthetic lapse at the eight-month visit.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.wiesbaden.de/en/stadtlexikon/stadtlexikon-a-z/dostojewski-fjodor-michailowitsch" target="_blank" rel="noreferrer">Dostojewski, Fjodor Michailowitsch (Stadtlexikon Wiesbaden)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>After returning to Russia he wrote the novella The Gambler, set in a fictional spa town called Roulettenburg, in 26 days.</strong></td>
+    <td>confirmed</td>
+    <td><a href="https://www.wiesbaden.de/en/stadtlexikon/stadtlexikon-a-z/dostojewski-fjodor-michailowitsch" target="_blank" rel="noreferrer">Dostojewski, Fjodor Michailowitsch (Stadtlexikon Wiesbaden)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>In a letter of April 1871 he wrote that he had rid himself of &quot;the abominable delusion that has tormented me for almost 10 years&quot; and that &quot;this was the very last time&quot;; he never returned to the roulette table.</strong><div class="muted">His own account of stopping; it falls after the episode&#39;s true frame.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://theconversation.com/how-dostoevsky-overcame-his-gambling-addiction-220655" target="_blank" rel="noreferrer">How Dostoevsky overcame his gambling addiction</a> <span class="relationship">supports</span><br><a href="https://www.wiesbaden.de/en/stadtlexikon/stadtlexikon-a-z/dostojewski-fjodor-michailowitsch" target="_blank" rel="noreferrer">Dostojewski, Fjodor Michailowitsch (Stadtlexikon Wiesbaden)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-R" title="Retrospective">R</span></td>
+    <td><strong>One retrospective review links his gambling to his epilepsy: the stress of gambling, together with sleep deprivation, is described as aggravating his seizures.</strong><div class="muted">Supports the modern counseling that sleep loss at the tables is a seizure trigger.</div></td>
+    <td>possible</td>
+    <td><a href="https://pubmed.ncbi.nlm.nih.gov/16194626/" target="_blank" rel="noreferrer">The idiosyncratic aspects of the epilepsy of Fyodor Dostoevsky (Hughes JR. Epilepsy Behav 2005;7:531-8)</a> <span class="relationship">supports</span></td>
+  </tr></tbody></table></section>
+    <section><h2>Modern synthetic problem list</h2><table><thead><tr><th>Grade</th><th>Problem</th><th>Clinical status</th><th>Verification</th><th>Placement</th><th>Historical claims</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Epilepsy of unknown type with recurrent generalized tonic-clonic seizures of unknown onset, untreated for many years; etiology unknown</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>both_with_link</td>
+    <td>CLM-0002, CLM-0003, CLM-0006</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Gambling disorder (roulette, in person and online), moderate, with debts</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>both_with_link</td>
+    <td>CLM-0009</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Acute viral gastroenteritis with vomiting and two missed lamotrigine doses, without dehydration needing intravenous fluids; resolved</td>
+    <td>resolved</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td></td>
+  </tr></tbody></table></section>
+    <section><h2>Synthetic outcome measures</h2><table><thead><tr><th>Grade</th><th>Date</th><th>Measure</th><th>Result</th><th>Coding</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1865-02-03</td>
+    <td>Hemoglobin [Mass/volume] in Blood</td>
+    <td>14.6 g/dL<div class="muted">Reference 13.2-16.6 g/dL</div></td>
+    <td>http://loinc.org · 718-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1865-02-03</td>
+    <td>Leukocytes [#/volume] in Blood by Automated count</td>
+    <td>6.8 10*3/uL<div class="muted">Reference 4-11 10*3/uL</div></td>
+    <td>http://loinc.org · 6690-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1865-02-03</td>
+    <td>Platelets [#/volume] in Blood by Automated count</td>
+    <td>248 10*3/uL<div class="muted">Reference 150-400 10*3/uL</div></td>
+    <td>http://loinc.org · 777-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1865-02-03</td>
+    <td>Sodium [Moles/volume] in Serum or Plasma</td>
+    <td>140 mmol/L<div class="muted">Reference 135-145 mmol/L</div></td>
+    <td>http://loinc.org · 2951-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1865-02-03</td>
+    <td>Potassium [Moles/volume] in Serum or Plasma</td>
+    <td>4.3 mmol/L<div class="muted">Reference 3.5-5.1 mmol/L</div></td>
+    <td>http://loinc.org · 2823-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1865-02-03</td>
+    <td>Creatinine [Mass/volume] in Serum or Plasma</td>
+    <td>0.96 mg/dL<div class="muted">Reference 0.74-1.35 mg/dL</div></td>
+    <td>http://loinc.org · 2160-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1865-02-03</td>
+    <td>Glomerular filtration rate [Volume Rate/Area] in Serum, Plasma or Blood by Creatinine-based formula (CKD-EPI 1860)/1.73 sq M</td>
+    <td>98 mL/min/1.73 m²<div class="muted">Reference &gt;=60 mL/min/1.73 m²</div></td>
+    <td>http://loinc.org · 98979-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1865-02-03</td>
+    <td>Glucose [Mass/volume] in Serum or Plasma</td>
+    <td>88 mg/dL<div class="muted">Reference 70-99 mg/dL</div></td>
+    <td>http://loinc.org · 2345-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1865-02-03</td>
+    <td>Calcium [Mass/volume] in Serum or Plasma</td>
+    <td>9.5 mg/dL<div class="muted">Reference 8.6-10.3 mg/dL</div></td>
+    <td>http://loinc.org · 17861-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1865-02-03</td>
+    <td>Alanine aminotransferase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>24 U/L<div class="muted">Reference 7-56 U/L</div></td>
+    <td>http://loinc.org · 1742-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1865-02-03</td>
+    <td>Aspartate aminotransferase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>22 U/L<div class="muted">Reference 10-40 U/L</div></td>
+    <td>http://loinc.org · 1920-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1865-02-03</td>
+    <td>25-Hydroxyvitamin D3+25-Hydroxyvitamin D2 [Mass/volume] in Serum or Plasma</td>
+    <td>32 ng/mL<div class="muted">Reference 30-100 ng/mL</div></td>
+    <td>http://loinc.org · 62292-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1865-02-03</td>
+    <td>Hemoglobin A1c/Hemoglobin.total in Blood</td>
+    <td>5.3%<div class="muted">Reference &lt;=5.6%</div></td>
+    <td>http://loinc.org · 4548-4</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1865-02-03</td>
+    <td>Cholesterol [Mass/volume] in Serum or Plasma</td>
+    <td>182 mg/dL<div class="muted">Reference &lt;=200 mg/dL</div></td>
+    <td>http://loinc.org · 2093-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1865-02-03</td>
+    <td>Cholesterol in HDL [Mass/volume] in Serum or Plasma</td>
+    <td>52 mg/dL<div class="muted">Reference &gt;=40 mg/dL</div></td>
+    <td>http://loinc.org · 2085-9</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1865-02-03</td>
+    <td>Cholesterol in LDL [Mass/volume] in Serum or Plasma by calculation</td>
+    <td>108 mg/dL<div class="muted">Reference &lt;=129 mg/dL</div></td>
+    <td>http://loinc.org · 13457-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1865-02-03</td>
+    <td>Triglyceride [Mass/volume] in Serum or Plasma</td>
+    <td>110 mg/dL<div class="muted">Reference &lt;=149 mg/dL</div></td>
+    <td>http://loinc.org · 2571-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1865-02-03</td>
+    <td>Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]</td>
+    <td>8</td>
+    <td>http://loinc.org · 44261-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1865-02-03</td>
+    <td>Generalized anxiety disorder 7 item (GAD-7) total score [Reported.PHQ]</td>
+    <td>7</td>
+    <td>http://loinc.org · 70274-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1865-02-03</td>
+    <td>Total score [AUDIT-C]</td>
+    <td>2</td>
+    <td>http://loinc.org · 75626-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1865-05-05</td>
+    <td>lamoTRIgine [Mass/volume] in Serum or Plasma</td>
+    <td>6.2 ug/mL<div class="muted">Reference 2.5-15 ug/mL</div></td>
+    <td>http://loinc.org · 6948-4</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1865-05-05</td>
+    <td>Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]</td>
+    <td>6</td>
+    <td>http://loinc.org · 44261-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1865-07-07</td>
+    <td>Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]</td>
+    <td>5</td>
+    <td>http://loinc.org · 44261-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1865-10-06</td>
+    <td>lamoTRIgine [Mass/volume] in Serum or Plasma</td>
+    <td>5.9 ug/mL<div class="muted">Reference 2.5-15 ug/mL</div></td>
+    <td>http://loinc.org · 6948-4</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1865-10-06</td>
+    <td>Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]</td>
+    <td>9</td>
+    <td>http://loinc.org · 44261-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1865-10-06</td>
+    <td>Generalized anxiety disorder 7 item (GAD-7) total score [Reported.PHQ]</td>
+    <td>8</td>
+    <td>http://loinc.org · 70274-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1865-06-09</td>
+    <td>Sodium [Moles/volume] in Serum or Plasma</td>
+    <td>137 mmol/L<div class="muted">Reference 135-145 mmol/L</div></td>
+    <td>http://loinc.org · 2951-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1865-06-09</td>
+    <td>Potassium [Moles/volume] in Serum or Plasma</td>
+    <td>3.6 mmol/L<div class="muted">Reference 3.5-5.1 mmol/L</div></td>
+    <td>http://loinc.org · 2823-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1865-06-09</td>
+    <td>Creatinine [Mass/volume] in Serum or Plasma</td>
+    <td>1.08 mg/dL<div class="muted">Reference 0.74-1.35 mg/dL</div></td>
+    <td>http://loinc.org · 2160-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1865-06-09</td>
+    <td>Glucose [Mass/volume] in Serum or Plasma</td>
+    <td>84 mg/dL<div class="muted">Reference 70-99 mg/dL</div></td>
+    <td>http://loinc.org · 2345-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1865-10-20</td>
+    <td>Patient Health Questionnaire 2 item (PHQ-2) total score [Reported]</td>
+    <td>1</td>
+    <td>http://loinc.org · 55758-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1865-10-20</td>
+    <td>Total score [AUDIT-C]</td>
+    <td>2</td>
+    <td>http://loinc.org · 75626-2</td>
+  </tr></tbody></table></section>
+    <section><h2>Synthetic vital signs</h2><table><thead><tr><th>Date</th><th>Measure</th><th>Result</th><th>LOINC</th><th>Grade</th></tr></thead><tbody>
+  <tr><td>1865-02-03</td><td>Body height</td><td>170 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1865-02-03</td><td>Body weight</td><td>68 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1865-02-03</td><td>Body mass index (BMI) [Ratio]</td><td>23.5 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1865-02-03</td><td>Systolic blood pressure</td><td>122 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1865-02-03</td><td>Diastolic blood pressure</td><td>78 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1865-02-03</td><td>Heart rate</td><td>74 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1865-02-03</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1865-02-03</td><td>Body temperature</td><td>36.7 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1865-02-03</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>98 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1865-03-03</td><td>Body height</td><td>170 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1865-03-03</td><td>Body weight</td><td>68.4 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1865-03-03</td><td>Body mass index (BMI) [Ratio]</td><td>23.7 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1865-03-03</td><td>Systolic blood pressure</td><td>120 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1865-03-03</td><td>Diastolic blood pressure</td><td>76 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1865-03-03</td><td>Heart rate</td><td>72 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1865-03-03</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1865-03-03</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1865-03-03</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>98 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1865-05-05</td><td>Body height</td><td>170 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1865-05-05</td><td>Body weight</td><td>68.8 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1865-05-05</td><td>Body mass index (BMI) [Ratio]</td><td>23.8 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1865-05-05</td><td>Systolic blood pressure</td><td>118 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1865-05-05</td><td>Diastolic blood pressure</td><td>76 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1865-05-05</td><td>Heart rate</td><td>70 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1865-05-05</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1865-05-05</td><td>Body temperature</td><td>36.7 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1865-05-05</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>99 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1865-07-07</td><td>Body height</td><td>170 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1865-07-07</td><td>Body weight</td><td>68.6 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1865-07-07</td><td>Body mass index (BMI) [Ratio]</td><td>23.7 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1865-07-07</td><td>Systolic blood pressure</td><td>120 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1865-07-07</td><td>Diastolic blood pressure</td><td>78 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1865-07-07</td><td>Heart rate</td><td>70 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1865-07-07</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1865-07-07</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1865-07-07</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>98 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1865-10-06</td><td>Body height</td><td>170 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1865-10-06</td><td>Body weight</td><td>68 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1865-10-06</td><td>Body mass index (BMI) [Ratio]</td><td>23.5 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1865-10-06</td><td>Systolic blood pressure</td><td>126 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1865-10-06</td><td>Diastolic blood pressure</td><td>80 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1865-10-06</td><td>Heart rate</td><td>78 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1865-10-06</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1865-10-06</td><td>Body temperature</td><td>36.7 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1865-10-06</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>98 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1865-06-09</td><td>Body height</td><td>170 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1865-06-09</td><td>Body weight</td><td>67.2 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1865-06-09</td><td>Body mass index (BMI) [Ratio]</td><td>23.3 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1865-06-09</td><td>Systolic blood pressure</td><td>112 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1865-06-09</td><td>Diastolic blood pressure</td><td>72 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1865-06-09</td><td>Heart rate</td><td>96 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1865-06-09</td><td>Respiratory rate</td><td>16 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1865-06-09</td><td>Body temperature</td><td>37.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1865-06-09</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>98 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1865-10-20</td><td>Body height</td><td>170 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1865-10-20</td><td>Body weight</td><td>68.2 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1865-10-20</td><td>Body mass index (BMI) [Ratio]</td><td>23.6 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1865-10-20</td><td>Systolic blood pressure</td><td>122 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1865-10-20</td><td>Diastolic blood pressure</td><td>78 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1865-10-20</td><td>Heart rate</td><td>72 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1865-10-20</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1865-10-20</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1865-10-20</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>98 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr></tbody></table></section>
+    <section><h2>Social, functional, and mental status</h2><h3>Social history</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Novelist and editor who writes to tight deadlines, often through the night; income irregular</li><li><span class="badge grade-S" title="Synthetic">S</span> Lives alone in an apartment; close friends nearby; no dependents</li><li><span class="badge grade-S" title="Synthetic">S</span> Gambling: roulette at casinos and on online sites, chasing losses; has pawned belongings and borrowed from friends; Problem Gambling Severity Index 16 for the past year</li><li><span class="badge grade-S" title="Synthetic">S</span> Alcohol: AUDIT-C 2; no tobacco or other drug use</li><li><span class="badge grade-S" title="Synthetic">S</span> Does not drive at present</li></ul><h3>Functional status</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Independent in all activities of daily living; after a seizure he is confused and exhausted for several hours and has trouble remembering for a day or two</li></ul><h3>Mental status</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Alert, articulate, and intense; thought process organized; insight into the harm from gambling; no psychosis</li><li><span class="badge grade-S" title="Synthetic">S</span> Mood worried; PHQ-9 8 and GAD-7 7; no thoughts of suicide or self-harm</li></ul></section>
+    <section><h2>Structured safety assessment</h2><div class="grid"><div class="card"><div class="label">Current ideation</div>absent</div><div class="card"><div class="label">Intent</div>absent</div><div class="card"><div class="label">Plan</div>absent</div><div class="card"><div class="label">Disposition</div>Routine outpatient care. Gambling disorder carries a raised suicide risk, especially after large losses, so safety is reviewed at every visit. He saved the 988 Suicide &amp; Crisis Lifeline and the National Problem Gambling Helpline in his phone and agreed to call either after a large loss or if hopeless thoughts appear. Antiseizure medicine is dispensed as a 30-day supply</div></div><p class="muted">This assessment is synthetic and does not convert historical behavior into a present-day fact.</p></section>
+    <section><h2>Allergies and medications</h2><h3>Allergies</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> No known allergy</li></ul><h3>Medications</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Lamotrigine 25 mg tablets, slow titration: 25 mg once daily for weeks 1 and 2, 50 mg once daily for weeks 3 and 4, 50 mg twice daily for week 5, and 75 mg twice daily for week 6</li><li><span class="badge grade-S" title="Synthetic">S</span> Lamotrigine 100 mg tablet, one tablet twice daily</li></ul></section>
+    <section><h2>Procedures and immunizations</h2><h3>Procedures</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Routine EEG with photic stimulation and hyperventilation: normal background, no epileptiform discharges</li><li><span class="badge grade-S" title="Synthetic">S</span> MRI of the brain, epilepsy protocol: normal, with no hippocampal sclerosis, cortical malformation, or other lesion</li><li><span class="badge grade-S" title="Synthetic">S</span> Sleep-deprived EEG: normal, with no epileptiform discharges in wakefulness or sleep</li><li><span class="badge grade-S" title="Synthetic">S</span> Advance care planning conversation, about 20 minutes</li></ul><h3>Immunizations</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> 1860-05-12: Tetanus, diphtheria, and pertussis (Tdap) booster</li><li><span class="badge grade-S" title="Synthetic">S</span> 1865-10-20: Influenza vaccine, 1865-1866 season</li><li><span class="badge grade-S" title="Synthetic">S</span> 1865-10-20: Hepatitis B vaccine (HepB-CpG), dose 1 of 2</li></ul></section>
+    <section><h2>Past medical history</h2><p class="muted">True biography with historical dates; not part of the synthetic care timeline.</p><ul><li><span class="badge grade-R" title="Retrospective">R</span> 1849: Epilepsy since early adulthood, with recurrent seizures; the timing of onset and diagnosis differs between accounts <span class="muted">(CLM-0003)</span></li><li><span class="badge grade-D" title="Documented">D</span> 1853: Seizures worsened during four years of forced labor in the prison at Omsk <span class="muted">(CLM-0004)</span></li><li><span class="badge grade-D" title="Documented">D</span> 1863: Sought expert advice on his epilepsy from neurologists abroad <span class="muted">(CLM-0002)</span></li><li><span class="badge grade-D" title="Documented">D</span> 1863: Compulsive roulette gambling with losses and pawned belongings, beginning on a tour of Europe <span class="muted">(CLM-0009)</span></li></ul><h3>Family history</h3><p class="muted">No family medical history is documented in the logged sources. Family history of real relatives is never synthesized.</p></section>
+    <section><h2>Care-plan goals</h2><table><thead><tr><th>Goal</th><th>Target date</th><th>Status</th><th>Outcome</th></tr></thead><tbody>
+  <tr><td>Reach the lamotrigine maintenance dose without rash by the two-month visit</td><td>1865-05-05</td><td>completed</td><td>Maintenance dose of 100 mg twice daily reached after six weeks; no rash</td></tr>
+  <tr><td>No seizures for six months after reaching the maintenance dose</td><td>1865-10-06</td><td>active</td><td>Not met: one generalized tonic-clonic seizure about five months after reaching the maintenance dose, after missed doses and a night without sleep; the six-month count restarts</td></tr>
+  <tr><td>Casino and online self-exclusion and a bank gambling block in place by the four-week visit</td><td>1865-03-03</td><td>completed</td><td>Self-exclusion from casinos in the state and from licensed online sites, and a gambling block on his bank cards, in place</td></tr>
+  <tr><td>No gambling through the eight-month visit</td><td>1865-10-06</td><td>active</td><td>Not met: no gambling for about seven months, then a lapse while traveling abroad, outside the reach of his self-exclusion; treatment intensified</td></tr>
+  <tr><td>Written seizure action plan, safety counseling, and a SUDEP discussion completed by the four-week visit</td><td>1865-03-03</td><td>completed</td><td>Plan written and shared with two friends; SUDEP discussed with the neurologist</td></tr></tbody></table></section>
+    <section><h2>Interventions</h2><table><thead><tr><th>Intervention</th><th>Status</th><th>Guideline</th></tr></thead><tbody>
+  <tr><td>Neurology consultation for seizure classification, EEG and MRI review, and the choice of antiseizure medicine</td><td>completed</td><td>GL-AAN-FIRSTSZ-2015, GL-ILAE-SZ-2017, GL-ILAE-EPI-2017</td></tr>
+  <tr><td>Antiseizure medicine: lamotrigine with slow titration, rash teaching, 30-day supplies, a pill organizer and phone alarms, a seizure diary, and levels only when they would change care</td><td>completed</td><td>GL-AAN-NEWASM-2018, GL-SANAD2-2021</td></tr>
+  <tr><td>Seizure safety at every visit: triggers (sleep loss, alcohol, overwork), showers rather than baths, no swimming or heights alone, no driving until seizure-free and cleared by his neurologist, a written seizure action plan for friends, and a SUDEP discussion</td><td>completed</td><td>GL-AAN-SUDEP-2017, GL-AAN-FIRSTSZ-2015</td></tr>
+  <tr><td>Gambling-disorder treatment: cognitive behavioral therapy with a gambling-disorder therapist, self-exclusion, a bank gambling block, Gamblers Anonymous, and free debt counseling</td><td>completed</td><td>GL-GAMB-COCHRANE-2012, GL-GAMB-NRDP-2019</td></tr>
+  <tr><td>Mood and safety: PHQ-9 at intake and every two to four months, GAD-7 at intake and with any change, and a suicide-risk review with the 988 Suicide &amp; Crisis Lifeline at every visit</td><td>completed</td><td>GL-CMID-2026, GL-ILAE-DEP-2022, GL-SUICIDE-2024</td></tr>
+  <tr><td>Bone health: baseline vitamin D; lamotrigine is not an enzyme inducer, so no DXA scan is needed unless an enzyme-inducing medicine is added</td><td>completed</td><td>GL-AAN-NEWASM-2018</td></tr></tbody></table></section>
+    <section><h2>Planned encounters</h2><ul>
+  <li><strong>1865-02-03</strong> — Establishing care after recurrent seizures: seizure history, baseline tests, EEG and MRI orders, seizure safety, and gambling-disorder assessment with a safety assessment <span class="muted">(ENC-001)</span></li>
+  <li><strong>1865-03-03</strong> — Four-week follow-up with neurology consultation; EEG and MRI reviewed and lamotrigine started <span class="muted">(ENC-002)</span></li>
+  <li><strong>1865-05-05</strong> — Two-month review: lamotrigine at maintenance dose, rash and mood check, and gambling treatment progress <span class="muted">(ENC-003)</span></li>
+  <li><strong>1865-06-09</strong> — Same-day sick visit for vomiting and diarrhea with missed lamotrigine doses <span class="muted">(ENC-006, unscheduled)</span></li>
+  <li><strong>1865-07-07</strong> — Four-month review of seizure control, mood, and gambling recovery <span class="muted">(ENC-004)</span></li>
+  <li><strong>1865-10-06</strong> — Eight-month review after a breakthrough seizure and a gambling lapse while traveling <span class="muted">(ENC-005)</span></li>
+  <li><strong>1865-10-20</strong> — Adult preventive visit <span class="muted">(ENC-007)</span></li></ul></section>
+    <section><h2>Supporting documents</h2><ul><li><a href="notes/hp.md">History and physical</a></li><li><a href="notes/progress-01.md">Progress note 01</a></li><li><a href="notes/progress-02.md">Progress note 02 — Focused Visit (Follow-up)</a></li><li><a href="notes/progress-03.md">Progress note 03 — Focused Visit (Follow-up)</a></li><li><a href="notes/progress-04.md">Progress note 04 — Sick Visit</a></li><li><a href="notes/progress-05.md">Progress note 05 — Focused Visit (Follow-up)</a></li><li><a href="notes/progress-06.md">Progress note 06 — Focused Visit (Care-plan review)</a></li><li><a href="notes/progress-07.md">Progress note 07 — Preventive Visit</a></li><li><a href="notes/referral-01.md">Neurology (epilepsy) referral</a></li><li><a href="notes/consult-01.md">Neurology (epilepsy) consultation</a></li><li><a href="notes/careplan.md">Patient care plan</a></li><li><a href="notes/teaching-note.md">Teaching note</a></li><li><a href="provenance.csv">Provenance CSV</a></li></ul></section>
+    <section><h2>C-CDA note documents</h2><p class="muted">Each link opens a readable copy; the XML beside it is the exchange file.</p><ul><li><a href="ccda/hp-01.html">History and physical</a> <a href="ccda/hp-01.xml">(XML)</a></li><li><a href="ccda/progress-01.html">Progress note 01</a> <a href="ccda/progress-01.xml">(XML)</a></li><li><a href="ccda/progress-02.html">Progress note 02 — Focused Visit (Follow-up)</a> <a href="ccda/progress-02.xml">(XML)</a></li><li><a href="ccda/progress-03.html">Progress note 03 — Focused Visit (Follow-up)</a> <a href="ccda/progress-03.xml">(XML)</a></li><li><a href="ccda/progress-04.html">Progress note 04 — Sick Visit</a> <a href="ccda/progress-04.xml">(XML)</a></li><li><a href="ccda/progress-05.html">Progress note 05 — Focused Visit (Follow-up)</a> <a href="ccda/progress-05.xml">(XML)</a></li><li><a href="ccda/progress-06.html">Progress note 06 — Focused Visit (Care-plan review)</a> <a href="ccda/progress-06.xml">(XML)</a></li><li><a href="ccda/progress-07.html">Progress note 07 — Preventive Visit</a> <a href="ccda/progress-07.xml">(XML)</a></li><li><a href="ccda/referral-01.html">Neurology (epilepsy) referral</a> <a href="ccda/referral-01.xml">(XML)</a></li><li><a href="ccda/consult-01.html">Neurology (epilepsy) consultation</a> <a href="ccda/consult-01.xml">(XML)</a></li></ul></section>
+    <section><h2>Sources</h2><table><thead><tr><th>ID</th><th>Source</th><th>Publisher</th><th>Type</th></tr></thead><tbody>
+  <tr>
+    <td>SRC-0001</td>
+    <td><a href="https://www.wiesbaden.de/en/stadtlexikon/stadtlexikon-a-z/dostojewski-fjodor-michailowitsch" target="_blank" rel="noreferrer">Dostojewski, Fjodor Michailowitsch (Stadtlexikon Wiesbaden)</a></td>
+    <td>City of Wiesbaden</td>
+    <td>government</td>
+  </tr>
+  <tr>
+    <td>SRC-0002</td>
+    <td><a href="https://theconversation.com/how-dostoevsky-overcame-his-gambling-addiction-220655" target="_blank" rel="noreferrer">How Dostoevsky overcame his gambling addiction</a></td>
+    <td>The Conversation</td>
+    <td>scholarly</td>
+  </tr>
+  <tr>
+    <td>SRC-0003</td>
+    <td><a href="https://pubmed.ncbi.nlm.nih.gov/24290270/" target="_blank" rel="noreferrer">Epilepsy in Dostoevsky (Iniesta I. Prog Brain Res 2013;205:277-93)</a></td>
+    <td>Elsevier (PubMed abstract)</td>
+    <td>scholarly</td>
+  </tr>
+  <tr>
+    <td>SRC-0004</td>
+    <td><a href="https://www.pbs.org/newshour/health/for-dostoevsky-epilepsy-was-a-matter-of-both-life-and-literature" target="_blank" rel="noreferrer">For Dostoevsky, epilepsy was a matter of both life and literature</a></td>
+    <td>PBS NewsHour</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0005</td>
+    <td><a href="https://pubmed.ncbi.nlm.nih.gov/16194626/" target="_blank" rel="noreferrer">The idiosyncratic aspects of the epilepsy of Fyodor Dostoevsky (Hughes JR. Epilepsy Behav 2005;7:531-8)</a></td>
+    <td>Elsevier (PubMed abstract)</td>
+    <td>scholarly</td>
+  </tr>
+  <tr>
+    <td>SRC-0006</td>
+    <td><a href="https://pubmed.ncbi.nlm.nih.gov/21982255/" target="_blank" rel="noreferrer">Dostoevsky&#39;s epilepsy: a new approach to retrospective diagnosis (Rayport SM, Rayport M, Schell CA. Epilepsy Behav 2011;22:557-70)</a></td>
+    <td>Elsevier (PubMed abstract)</td>
+    <td>scholarly</td>
+  </tr>
+  <tr>
+    <td>SRC-0007</td>
+    <td><a href="https://pubmed.ncbi.nlm.nih.gov/24654447/" target="_blank" rel="noreferrer">Dostoyevsky&#39;s epilepsy in the light of recent neurobiological data (Tényi D, et al. Ideggyogy Sz 2014;67:52-5)</a></td>
+    <td>Ideggyógyászati Szemle (PubMed abstract)</td>
+    <td>scholarly</td>
+  </tr>
+  <tr>
+    <td>SRC-0008</td>
+    <td><a href="https://humanrecord.example.org/internal/HISTMED_Master_Roster_v3.xlsx" target="_blank" rel="noreferrer">HISTMED Master Roster v3</a></td>
+    <td>The Human Record project</td>
+    <td>other</td>
+  </tr></tbody></table></section>
+    <section><h2>Review status</h2><table><thead><tr><th>Review</th><th>Status</th><th>Notes</th></tr></thead><tbody>
+  <tr><td>schema validation</td><td>not_started</td><td>Run scripts/build.ps1 -Conformance.</td></tr>
+  <tr><td>clinical review</td><td>not_started</td><td>Awaiting clinician review.</td></tr>
+  <tr><td>provenance review</td><td>not_started</td><td>Biographical facts from the Wiesbaden city lexicon, The Conversation, PBS NewsHour, and PubMed abstracts. The type of his epilepsy and the nature of the ecstatic aura are graded R and are not coded. No statement or health fact is attributed to his wife or any other real person; family history is left empty.</td></tr>
+  <tr><td>safe messaging review</td><td>not_started</td><td>Gambling claims are marked sensitive; the safety assessment records no current risk and gives the 988 Suicide &amp; Crisis Lifeline; safety is reviewed at every visit, including after the lapse.</td></tr></tbody></table></section>
+  </main>
+</body>
+</html>

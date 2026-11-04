@@ -1,0 +1,432 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Frederick Law Olmsted — The Human Record</title>
+  <style>
+    :root { --navy:#17365d; --blue:#1f4e78; --pale:#eef5fa; --ink:#1f2933; --muted:#66788a; --amber:#fff2cc; --red:#f8d7da; --green:#d9ead3; }
+    * { box-sizing:border-box; }
+    body { margin:0; font:16px/1.5 Arial, sans-serif; color:var(--ink); background:#f6f8fa; }
+    header { background:var(--navy); color:white; padding:24px max(24px,calc((100vw - 1180px)/2)); }
+    header h1 { margin:4px 0; font-size:30px; }
+    .banner { background:#b42318; color:white; font-weight:700; text-align:center; padding:10px; letter-spacing:.03em; }
+    main { max-width:1180px; margin:24px auto 60px; padding:0 24px; }
+    section { background:white; border:1px solid #d9e1e8; border-radius:8px; margin:18px 0; padding:20px; }
+    h2 { color:var(--navy); margin:0 0 14px; font-size:22px; }
+    h3 { color:var(--blue); }
+    .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:12px; }
+    .card { background:var(--pale); border-left:4px solid var(--blue); padding:12px; }
+    .label { color:var(--muted); font-size:13px; text-transform:uppercase; letter-spacing:.04em; }
+    table { width:100%; border-collapse:collapse; }
+    th { background:var(--blue); color:white; text-align:left; }
+    th,td { padding:9px; border-bottom:1px solid #dfe6ec; vertical-align:top; }
+    .badge { display:inline-block; min-width:28px; text-align:center; font-weight:700; border-radius:12px; padding:2px 8px; }
+    .grade-D { background:var(--green); } .grade-R { background:var(--amber); } .grade-S { background:var(--red); }
+    .muted { color:var(--muted); font-size:14px; }
+    .relationship { color:var(--muted); font-size:12px; }
+    .downloads a { display:inline-block; margin:4px 8px 4px 0; padding:8px 12px; background:var(--blue); color:white; text-decoration:none; border-radius:5px; }
+    @media (max-width:700px) { table { display:block; overflow-x:auto; } }
+  </style>
+</head>
+<body>
+  <div class="banner">SYNTHETIC RECORD, NOT A REAL MEDICAL RECORD</div>
+  <div class="banner">True-date frame: synthetic events are moved into the patient&#39;s historical lifetime. Codes, instruments, and treatments remain modern and are anachronistic.</div>
+  <header>
+    <div>The Human Record</div>
+    <h1>Frederick Law Olmsted</h1>
+    <div>Case HR-NI022-TD · Modern EHR teaching episode · Draft for review</div>
+  </header>
+  <main>
+    <section>
+      <h2>Review summary</h2>
+      <div class="grid">
+        <div class="card"><div class="label">Historical dates</div>April 26, 1822 – August 28, 1903</div>
+        <div class="card"><div class="label">Synthetic DOB</div>1822-04-26</div>
+        <div class="card"><div class="label">Index visit</div>1895-05-05 at age 73</div>
+        <div class="card"><div class="label">Synthetic MRN</div>HR-NI022-SYN-TD</div>
+      </div>
+      <p><strong>Teaching objective:</strong> Evaluation and first-year care of progressive dementia of undetermined type in a 73-year-old man: history from the patient and an informant, MoCA, function (ADL and IADL), staging, depression screen, reversible-cause tests (vitamin B12, folate, TSH, blood count, metabolic panel) with syphilis and HIV testing only where indicated, a one-time brain MRI, disclosure of the diagnosis, a cholinesterase inhibitor trial with heart rate and side-effect checks, safety (driving, firearms, wandering, finances, home), avoidance of anticholinergic drugs, caregiver support with the Zarit Burden Interview, and advance care planning while he can take part, on the CMID non-Alzheimer&#39;s dementia and Alzheimer&#39;s disease monographs with the AAN dementia and driving parameters and the Alzheimer&#39;s Association DETeCD-ADRD guideline. Any specific cause is treated as unknown, as it is in the historical record.</p>
+      <div class="downloads">
+        <a href="../case.json">Canonical JSON</a>
+        <a href="fhir-bundle.json">FHIR R4 draft</a>
+        <a href="ccda.html">C-CDA R2.1 summary</a> <a href="ccda.xml">(XML)</a>
+        <a href="../sources.md">Evidence dossier</a>
+      </div>
+    </section>
+    <section><h2>Historical timeline</h2><table><thead><tr><th>Date</th><th>Event</th><th>Claims</th></tr></thead><tbody>
+  <tr><td>April 26, 1822</td><td>Born in Hartford, Connecticut.</td><td>CLM-0001</td></tr>
+  <tr><td>1863</td><td>Resigned from the U.S. Sanitary Commission, exhausted and ill.</td><td>CLM-0009</td></tr>
+  <tr><td>1872</td><td>Chose the Belmont site for McLean Hospital.</td><td>CLM-0005</td></tr>
+  <tr><td>1895</td><td>Ceased active practice because of failing memory and vitality.</td><td>CLM-0003</td></tr>
+  <tr><td>1897</td><td>Spent a summer at a house on Deer Isle, Maine, laid out to stimulate his failing mental abilities.</td><td>CLM-0004</td></tr>
+  <tr><td>1898</td><td>Admitted to McLean Hospital, where he spent his last five years.</td><td>CLM-0005</td></tr>
+  <tr><td>August 28, 1903</td><td>Died in Belmont, Massachusetts, at 81.</td><td>CLM-0002</td></tr></tbody></table></section>
+    <section><h2>Evidence claims</h2><p class="muted">D = documented, R = retrospective, S = synthetic.</p><table><thead><tr><th>Grade</th><th>Claim</th><th>Certainty</th><th>Sources</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>Frederick Law Olmsted was born in Hartford, Connecticut, on April 26, 1822.</strong></td>
+    <td>confirmed</td>
+    <td><a href="https://en.wikipedia.org/wiki/Frederick_Law_Olmsted" target="_blank" rel="noreferrer">Frederick Law Olmsted</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>Olmsted died on August 28, 1903, in Belmont, Massachusetts, at 81.</strong><div class="muted">Record the death as a fact without detail.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://en.wikipedia.org/wiki/Frederick_Law_Olmsted" target="_blank" rel="noreferrer">Frederick Law Olmsted</a> <span class="relationship">supports</span><br><a href="https://www.nps.gov/places/felsted.htm" target="_blank" rel="noreferrer">Felsted</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>Olmsted ceased active practice in 1895, a victim of failing memory and vitality; later accounts say dementia, or senility, forced his retirement, and his sons took over the firm.</strong><div class="muted">The anchor for the synthetic mild dementia; the retirement fixes the index year.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://olmsted.org/the-olmsted-firm/" target="_blank" rel="noreferrer">The Olmsted Firm</a> <span class="relationship">supports</span><br><a href="https://www.harvardmagazine.com/2014/09/a-park-of-ones-own" target="_blank" rel="noreferrer">Where Frederick Law Olmsted lived his last good years</a> <span class="relationship">supports</span><br><a href="https://en.wikipedia.org/wiki/Frederick_Law_Olmsted" target="_blank" rel="noreferrer">Frederick Law Olmsted</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>His health continued to fail after he retired. A trip to England did not help, and he became depressed there; a summer house built on Deer Isle, Maine, in 1897 was laid out to stimulate his decreasing mental abilities, but after one summer there his health continued to deteriorate.</strong><div class="muted">Documents the progression after the episode; claim only.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.nps.gov/places/felsted.htm" target="_blank" rel="noreferrer">Felsted</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>Olmsted, who had chosen the Belmont site of McLean Hospital in 1872, was admitted there as a patient at the end of his life and spent his last five years there, until his death in 1903.</strong><div class="muted">Documents the later course, after the episode; claim only.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.nps.gov/places/mclean-asylum.htm" target="_blank" rel="noreferrer">McLean Asylum</a> <span class="relationship">supports</span><br><a href="https://www.harvardmagazine.com/2014/09/a-park-of-ones-own" target="_blank" rel="noreferrer">Where Frederick Law Olmsted lived his last good years</a> <span class="relationship">supports</span><br><a href="https://www.harvardmagazine.com/2007/07/frederick-law-olmsted-html" target="_blank" rel="noreferrer">Frederick Law Olmsted</a> <span class="relationship">supports</span><br><a href="https://en.wikipedia.org/wiki/Frederick_Law_Olmsted" target="_blank" rel="noreferrer">Frederick Law Olmsted</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>His McLean Hospital medical record is sealed, and the cause of his decline is not known.</strong><div class="muted">Why the record codes dementia of unspecified type.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.harvardmagazine.com/2007/07/frederick-law-olmsted-html" target="_blank" rel="noreferrer">Frederick Law Olmsted</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-R" title="Retrospective">R</span></td>
+    <td><strong>Any specific type of dementia (for example Alzheimer&#39;s disease or vascular dementia) is a retrospective interpretation; the cited sources say only failing memory, senility, and dementia.</strong><div class="muted">Not coded; the synthetic episode keeps the type undetermined.</div></td>
+    <td>possible</td>
+    <td><a href="https://olmsted.org/the-olmsted-firm/" target="_blank" rel="noreferrer">The Olmsted Firm</a> <span class="relationship">context</span><br><a href="https://www.harvardmagazine.com/2014/09/a-park-of-ones-own" target="_blank" rel="noreferrer">Where Frederick Law Olmsted lived his last good years</a> <span class="relationship">context</span><br><a href="https://www.harvardmagazine.com/2007/07/frederick-law-olmsted-html" target="_blank" rel="noreferrer">Frederick Law Olmsted</a> <span class="relationship">context</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-R" title="Retrospective">R</span></td>
+    <td><strong>A psychiatrist has argued retrospectively that losses in his childhood, beginning with his mother&#39;s death when he was a young child, left him with post-traumatic stress, and that his late illness made it worse.</strong><div class="muted">Retrospective psychiatric interpretation; not coded and not used in the episode.</div></td>
+    <td>possible</td>
+    <td><a href="https://www.harvardmagazine.com/2007/07/frederick-law-olmsted-html" target="_blank" rel="noreferrer">Frederick Law Olmsted</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>In 1863, exhausted and ill after overwork as head of the U.S. Sanitary Commission, Olmsted resigned.</strong><div class="muted">Past history only; the illness is not specified in the cited source.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://en.wikipedia.org/wiki/Frederick_Law_Olmsted" target="_blank" rel="noreferrer">Frederick Law Olmsted</a> <span class="relationship">supports</span></td>
+  </tr></tbody></table></section>
+    <section><h2>Modern synthetic problem list</h2><table><thead><tr><th>Grade</th><th>Problem</th><th>Clinical status</th><th>Verification</th><th>Placement</th><th>Historical claims</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Mild dementia (major neurocognitive disorder), progressive, amnestic-predominant with executive difficulty, type undetermined; CDR global 1</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td>CLM-0003, CLM-0006, CLM-0007</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Common cold, with two nights of increased confusion after an over-the-counter nighttime cold medicine containing diphenhydramine; resolved</td>
+    <td>resolved</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td></td>
+  </tr></tbody></table></section>
+    <section><h2>Synthetic outcome measures</h2><table><thead><tr><th>Grade</th><th>Date</th><th>Measure</th><th>Result</th><th>Coding</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1895-05-05</td>
+    <td>Hemoglobin [Mass/volume] in Blood</td>
+    <td>14.1 g/dL<div class="muted">Reference 13.2-16.6 g/dL</div></td>
+    <td>http://loinc.org · 718-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1895-05-05</td>
+    <td>Leukocytes [#/volume] in Blood by Automated count</td>
+    <td>6.2 10*3/uL<div class="muted">Reference 3.4-9.6 10*3/uL</div></td>
+    <td>http://loinc.org · 6690-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1895-05-05</td>
+    <td>Platelets [#/volume] in Blood by Automated count</td>
+    <td>238 10*3/uL<div class="muted">Reference 135-317 10*3/uL</div></td>
+    <td>http://loinc.org · 777-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1895-05-05</td>
+    <td>Sodium [Moles/volume] in Serum or Plasma</td>
+    <td>139 mmol/L<div class="muted">Reference 135-145 mmol/L</div></td>
+    <td>http://loinc.org · 2951-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1895-05-05</td>
+    <td>Potassium [Moles/volume] in Serum or Plasma</td>
+    <td>4.3 mmol/L<div class="muted">Reference 3.5-5.1 mmol/L</div></td>
+    <td>http://loinc.org · 2823-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1895-05-05</td>
+    <td>Creatinine [Mass/volume] in Serum or Plasma</td>
+    <td>1.02 mg/dL<div class="muted">Reference 0.74-1.35 mg/dL</div></td>
+    <td>http://loinc.org · 2160-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1895-05-05</td>
+    <td>Glomerular filtration rate [Volume Rate/Area] in Serum, Plasma or Blood by Creatinine-based formula (CKD-EPI 1890)/1.73 sq M</td>
+    <td>76 mL/min/1.73 m²<div class="muted">Reference &gt;=60 mL/min/1.73 m²</div></td>
+    <td>http://loinc.org · 98979-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1895-05-05</td>
+    <td>Glucose [Mass/volume] in Serum or Plasma</td>
+    <td>94 mg/dL<div class="muted">Reference 70-99 mg/dL</div></td>
+    <td>http://loinc.org · 2345-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1895-05-05</td>
+    <td>Calcium [Mass/volume] in Serum or Plasma</td>
+    <td>9.4 mg/dL<div class="muted">Reference 8.6-10.3 mg/dL</div></td>
+    <td>http://loinc.org · 17861-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1895-05-05</td>
+    <td>Albumin [Mass/volume] in Serum or Plasma</td>
+    <td>4.1 g/dL<div class="muted">Reference 3.5-5 g/dL</div></td>
+    <td>http://loinc.org · 1751-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1895-05-05</td>
+    <td>Alanine aminotransferase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>22 U/L<div class="muted">Reference 7-55 U/L</div></td>
+    <td>http://loinc.org · 1742-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1895-05-05</td>
+    <td>Cobalamin (Vitamin B12) [Mass/volume] in Serum or Plasma</td>
+    <td>410 pg/mL<div class="muted">Reference 232-1245 pg/mL</div></td>
+    <td>http://loinc.org · 2132-9</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1895-05-05</td>
+    <td>Folate [Mass/volume] in Serum or Plasma</td>
+    <td>12.4 ng/mL<div class="muted">Reference &gt;=5.9 ng/mL</div></td>
+    <td>http://loinc.org · 2284-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1895-05-05</td>
+    <td>Thyrotropin [Units/volume] in Serum or Plasma</td>
+    <td>1.9 mIU/L<div class="muted">Reference 0.45-4.5 mIU/L</div></td>
+    <td>http://loinc.org · 3016-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1895-05-05</td>
+    <td>Total score [MoCA]</td>
+    <td>19</td>
+    <td>http://loinc.org · 72172-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1895-05-05</td>
+    <td>Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]</td>
+    <td>6</td>
+    <td>http://loinc.org · 44261-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1895-10-27</td>
+    <td>Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]</td>
+    <td>4</td>
+    <td>http://loinc.org · 44261-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1895-09-15</td>
+    <td>Patient Health Questionnaire 2 item (PHQ-2) total score [Reported]</td>
+    <td>1</td>
+    <td>http://loinc.org · 55758-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1895-09-15</td>
+    <td>Total score [AUDIT-C]</td>
+    <td>0</td>
+    <td>http://loinc.org · 75626-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1895-09-15</td>
+    <td>Cholesterol [Mass/volume] in Serum or Plasma</td>
+    <td>196 mg/dL<div class="muted">Reference &lt;=200 mg/dL</div></td>
+    <td>http://loinc.org · 2093-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1895-09-15</td>
+    <td>Cholesterol in HDL [Mass/volume] in Serum or Plasma</td>
+    <td>54 mg/dL<div class="muted">Reference &gt;=40 mg/dL</div></td>
+    <td>http://loinc.org · 2085-9</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1895-09-15</td>
+    <td>Cholesterol in LDL [Mass/volume] in Serum or Plasma by calculation</td>
+    <td>118 mg/dL<div class="muted">Reference &lt;=129 mg/dL</div></td>
+    <td>http://loinc.org · 13457-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1895-09-15</td>
+    <td>Triglyceride [Mass/volume] in Serum or Plasma</td>
+    <td>120 mg/dL<div class="muted">Reference &lt;=149 mg/dL</div></td>
+    <td>http://loinc.org · 2571-8</td>
+  </tr></tbody></table></section>
+    <section><h2>Synthetic vital signs</h2><table><thead><tr><th>Date</th><th>Measure</th><th>Result</th><th>LOINC</th><th>Grade</th></tr></thead><tbody>
+  <tr><td>1895-05-05</td><td>Body height</td><td>175 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1895-05-05</td><td>Body weight</td><td>72 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1895-05-05</td><td>Body mass index (BMI) [Ratio]</td><td>23.5 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1895-05-05</td><td>Systolic blood pressure</td><td>134 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1895-05-05</td><td>Diastolic blood pressure</td><td>78 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1895-05-05</td><td>Heart rate</td><td>72 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1895-05-05</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1895-05-05</td><td>Body temperature</td><td>36.7 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1895-05-05</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>97 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1895-06-02</td><td>Body height</td><td>175 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1895-06-02</td><td>Body weight</td><td>71.8 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1895-06-02</td><td>Body mass index (BMI) [Ratio]</td><td>23.4 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1895-06-02</td><td>Systolic blood pressure</td><td>132 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1895-06-02</td><td>Diastolic blood pressure</td><td>76 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1895-06-02</td><td>Heart rate</td><td>70 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1895-06-02</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1895-06-02</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1895-06-02</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>97 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1895-08-04</td><td>Body height</td><td>175 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1895-08-04</td><td>Body weight</td><td>71.2 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1895-08-04</td><td>Body mass index (BMI) [Ratio]</td><td>23.2 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1895-08-04</td><td>Systolic blood pressure</td><td>128 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1895-08-04</td><td>Diastolic blood pressure</td><td>76 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1895-08-04</td><td>Heart rate</td><td>62 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1895-08-04</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1895-08-04</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1895-08-04</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>97 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1895-10-27</td><td>Body height</td><td>175 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1895-10-27</td><td>Body weight</td><td>71 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1895-10-27</td><td>Body mass index (BMI) [Ratio]</td><td>23.2 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1895-10-27</td><td>Systolic blood pressure</td><td>130 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1895-10-27</td><td>Diastolic blood pressure</td><td>76 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1895-10-27</td><td>Heart rate</td><td>60 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1895-10-27</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1895-10-27</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1895-10-27</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>97 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1895-07-14</td><td>Body height</td><td>175 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1895-07-14</td><td>Body weight</td><td>71.4 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1895-07-14</td><td>Body mass index (BMI) [Ratio]</td><td>23.3 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1895-07-14</td><td>Systolic blood pressure</td><td>130 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1895-07-14</td><td>Diastolic blood pressure</td><td>74 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1895-07-14</td><td>Heart rate</td><td>70 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1895-07-14</td><td>Respiratory rate</td><td>16 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1895-07-14</td><td>Body temperature</td><td>37.4 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1895-07-14</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>97 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1895-09-15</td><td>Body height</td><td>175 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1895-09-15</td><td>Body weight</td><td>71 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1895-09-15</td><td>Body mass index (BMI) [Ratio]</td><td>23.2 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1895-09-15</td><td>Systolic blood pressure</td><td>128 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1895-09-15</td><td>Diastolic blood pressure</td><td>74 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1895-09-15</td><td>Heart rate</td><td>60 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1895-09-15</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1895-09-15</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1895-09-15</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>97 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr></tbody></table></section>
+    <section><h2>Social, functional, and mental status</h2><h3>Social history</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Never used tobacco; one glass of wine with dinner a few nights a week, stopped at the first visit on advice; no other drug use</li><li><span class="badge grade-S" title="Synthetic">S</span> Landscape architect who stepped back from his practice this year because of his memory; lives at home with family, and a primary caregiver who is not named in this record accompanies him to visits</li><li><span class="badge grade-S" title="Synthetic">S</span> Walks in the garden and the neighborhood most days with company</li><li><span class="badge grade-S" title="Synthetic">S</span> Drove locally at the first visit; no firearms in the home</li><li><span class="badge grade-S" title="Synthetic">S</span> Supports: his primary caregiver, family at home, long-time colleagues who visit, and a lifelong love of gardens and walking</li></ul><h3>Functional status</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Katz ADL 6 of 6 (independent in bathing, dressing, toileting, transfers, continence, and feeding)</li><li><span class="badge grade-S" title="Synthetic">S</span> Lawton-Brody IADL 5 of 8: needs help with finances, medicines, and planning travel; still uses the telephone, shops with company, and helps with meals and laundry</li><li><span class="badge grade-S" title="Synthetic">S</span> Clinical Dementia Rating global 1 (mild); FAST stage 4</li><li><span class="badge grade-S" title="Synthetic">S</span> NPI-Q: mild irritability and mild apathy; no hallucinations, delusions, agitation, or night-time wandering</li><li><span class="badge grade-S" title="Synthetic">S</span> Timed Up and Go 11 seconds; no falls in the past year; normal gait</li></ul><h3>Mental status</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Alert, courteous, and articulate; repeats questions within the visit; MoCA 19 of 30, losing points on delayed recall (1 of 5), orientation to date, clock drawing, trail-making, and verbal fluency</li><li><span class="badge grade-S" title="Synthetic">S</span> Mood low at times over losing his work; PHQ-9 score 6; denies thoughts of death or self-harm; no psychosis</li></ul></section>
+    
+    <section><h2>Allergies and medications</h2><h3>Allergies</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> No known allergy</li></ul><h3>Medications</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Donepezil 5 mg oral tablet, one tablet by mouth each morning</li><li><span class="badge grade-S" title="Synthetic">S</span> Donepezil 10 mg oral tablet, one tablet by mouth each morning</li></ul></section>
+    <section><h2>Procedures and immunizations</h2><h3>Procedures</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> MRI of the brain without contrast: generalized cortical atrophy beyond that expected for age, with mild bilateral medial temporal atrophy (MTA score 2) and scattered small white-matter hyperintensities (Fazekas grade 1); no infarct, hemorrhage, mass, or hydrocephalus</li><li><span class="badge grade-S" title="Synthetic">S</span> Advance care planning conversation with the patient and his caregiver, about 30 minutes</li></ul><h3>Immunizations</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> 1894-10-21: High-dose influenza vaccine, 1894-1895 season</li><li><span class="badge grade-S" title="Synthetic">S</span> 1895-09-15: High-dose influenza vaccine, 1895-1896 season</li><li><span class="badge grade-S" title="Synthetic">S</span> 1895-09-15: Pneumococcal conjugate vaccine PCV20</li><li><span class="badge grade-S" title="Synthetic">S</span> 1895-09-15: Recombinant zoster vaccine, dose 1 of 2</li></ul></section>
+    <section><h2>Past medical history</h2><p class="muted">True biography with historical dates; not part of the synthetic care timeline.</p><ul><li><span class="badge grade-D" title="Documented">D</span> 1863: Exhaustion and illness from overwork while leading a national wartime relief commission, ending in his resignation in 1863; illness not specified in the cited source <span class="muted">(CLM-0009)</span></li></ul><h3>Family history</h3><p class="muted">No family medical history is documented in the logged sources. Family history of real relatives is never synthesized.</p></section>
+    <section><h2>Care-plan goals</h2><table><thead><tr><th>Goal</th><th>Target date</th><th>Status</th><th>Outcome</th></tr></thead><tbody>
+  <tr><td>Complete the reversible-cause tests and brain MRI and discuss the diagnosis with him and his caregiver by the four-week visit</td><td>1895-06-02</td><td>completed</td><td>Tests and MRI showed no reversible cause; diagnosis of mild dementia of undetermined type discussed with both</td></tr>
+  <tr><td>A safety plan in place by the three-month review: no driving, medicines supervised, finances overseen, and medical identification worn</td><td>1895-08-04</td><td>completed</td><td>Stopped driving after the consultation; caregiver gives medicines from a weekly organizer and oversees bill paying with his agreement; medical identification bracelet worn</td></tr>
+  <tr><td>Donepezil at 10 mg daily without side effects and with resting heart rate 55 or above by the six-month review</td><td>1895-10-27</td><td>completed</td><td>On 10 mg for three months; heart rate 60; no nausea, diarrhea, weight loss, or vivid dreams</td></tr>
+  <tr><td>Caregiver burden assessed and support in place by the six-month review</td><td>1895-10-27</td><td>completed</td><td>Zarit Burden Interview 24 at three months; caregiver education program completed and two days a week of adult day program begun</td></tr>
+  <tr><td>Name a health care agent and record his values and wishes while he can take full part, by the three-month review</td><td>1895-08-04</td><td>completed</td><td>Health care agent named and his wishes recorded at the three-month review</td></tr></tbody></table></section>
+    <section><h2>Interventions</h2><table><thead><tr><th>Intervention</th><th>Status</th><th>Guideline</th></tr></thead><tbody>
+  <tr><td>Reversible-cause tests (blood count, metabolic panel, vitamin B12, folate, TSH) and one non-contrast brain MRI; syphilis and HIV testing only with risk factors or atypical features</td><td>completed</td><td>GL-AAN-DEM-2001, GL-ALZ-PC-2025, GL-CMID-2026</td></tr>
+  <tr><td>Behavioral neurology consultation to confirm the diagnosis, consider the type and biomarker testing, and advise on treatment and driving</td><td>completed</td><td>GL-ALZ-SC-2025, GL-AAN-DEM-2001, GL-AAN-DRIVE-2010</td></tr>
+  <tr><td>Donepezil trial, 5 mg daily for four to eight weeks then 10 mg, with heart rate, fainting, gastrointestinal effects, weight, and sleep checked at each visit; avoid anticholinergic drugs, first-generation antihistamines, benzodiazepines, and sleeping pills (AGS Beers Criteria)</td><td>completed</td><td>GL-CMID-2026, GL-BEERS-2023</td></tr>
+  <tr><td>Safety: stop driving at CDR 1, keep the home free of firearms, medical identification for wandering, supervised medicines and finances, and home safety</td><td>completed</td><td>GL-AAN-DRIVE-2010, GL-CMID-2026</td></tr>
+  <tr><td>Caregiver support: Zarit Burden Interview at diagnosis and every six to twelve months, education, adult day program and respite, and Alzheimer&#39;s Association support services</td><td>completed</td><td>GL-CMID-2026, GL-ALZ-PC-2025</td></tr>
+  <tr><td>Monitor on the CMID dementia schedule: medication review and neuropsychiatric screen at every visit; MoCA, ADL and IADL, CDR or FAST stage, depression screen, fall risk, driving, and advance care planning yearly; repeat tests or imaging only with a sudden change</td><td>completed</td><td>GL-CMID-2026</td></tr>
+  <tr><td>Advance care planning while he can take part: name a health care agent and record his values and wishes</td><td>completed</td><td>GL-CMID-2026, GL-ALZ-PC-2025</td></tr></tbody></table></section>
+    <section><h2>Planned encounters</h2><ul>
+  <li><strong>1895-05-05</strong> — Cognitive evaluation for progressive memory loss: history from patient and caregiver, MoCA, function, mood, safety, and reversible-cause tests <span class="muted">(ENC-001)</span></li>
+  <li><strong>1895-06-02</strong> — Four-week follow-up: results and MRI review, diagnosis disclosure, and behavioral neurology consultation <span class="muted">(ENC-002)</span></li>
+  <li><strong>1895-07-14</strong> — Same-day sick visit for a head cold with night-time confusion <span class="muted">(ENC-005, unscheduled)</span></li>
+  <li><strong>1895-08-04</strong> — Three-month dementia review: donepezil, safety plan, caregiver burden, and advance care planning <span class="muted">(ENC-003)</span></li>
+  <li><strong>1895-09-15</strong> — Subsequent annual wellness visit <span class="muted">(ENC-006)</span></li>
+  <li><strong>1895-10-27</strong> — Six-month dementia review <span class="muted">(ENC-004)</span></li></ul></section>
+    <section><h2>Supporting documents</h2><ul><li><a href="notes/hp.md">History and physical</a></li><li><a href="notes/progress-01.md">Progress note 01</a></li><li><a href="notes/progress-02.md">Progress note 02 — Focused Visit (Follow-up)</a></li><li><a href="notes/progress-03.md">Progress note 03 — Sick Visit</a></li><li><a href="notes/progress-04.md">Progress note 04 — Focused Visit (Follow-up)</a></li><li><a href="notes/progress-05.md">Progress note 05 — Annual Wellness Visit, Subsequent</a></li><li><a href="notes/progress-06.md">Progress note 06 — Focused Visit (Care-plan review)</a></li><li><a href="notes/referral-01.md">Behavioral Neurology referral</a></li><li><a href="notes/consult-01.md">Behavioral Neurology consultation</a></li><li><a href="notes/careplan.md">Patient care plan</a></li><li><a href="notes/teaching-note.md">Teaching note</a></li><li><a href="provenance.csv">Provenance CSV</a></li></ul></section>
+    <section><h2>C-CDA note documents</h2><p class="muted">Each link opens a readable copy; the XML beside it is the exchange file.</p><ul><li><a href="ccda/hp-01.html">History and physical</a> <a href="ccda/hp-01.xml">(XML)</a></li><li><a href="ccda/progress-01.html">Progress note 01</a> <a href="ccda/progress-01.xml">(XML)</a></li><li><a href="ccda/progress-02.html">Progress note 02 — Focused Visit (Follow-up)</a> <a href="ccda/progress-02.xml">(XML)</a></li><li><a href="ccda/progress-03.html">Progress note 03 — Sick Visit</a> <a href="ccda/progress-03.xml">(XML)</a></li><li><a href="ccda/progress-04.html">Progress note 04 — Focused Visit (Follow-up)</a> <a href="ccda/progress-04.xml">(XML)</a></li><li><a href="ccda/progress-05.html">Progress note 05 — Annual Wellness Visit, Subsequent</a> <a href="ccda/progress-05.xml">(XML)</a></li><li><a href="ccda/progress-06.html">Progress note 06 — Focused Visit (Care-plan review)</a> <a href="ccda/progress-06.xml">(XML)</a></li><li><a href="ccda/referral-01.html">Behavioral Neurology referral</a> <a href="ccda/referral-01.xml">(XML)</a></li><li><a href="ccda/consult-01.html">Behavioral Neurology consultation</a> <a href="ccda/consult-01.xml">(XML)</a></li></ul></section>
+    <section><h2>Sources</h2><table><thead><tr><th>ID</th><th>Source</th><th>Publisher</th><th>Type</th></tr></thead><tbody>
+  <tr>
+    <td>SRC-0001</td>
+    <td><a href="https://en.wikipedia.org/wiki/Frederick_Law_Olmsted" target="_blank" rel="noreferrer">Frederick Law Olmsted</a></td>
+    <td>Wikipedia</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0002</td>
+    <td><a href="https://olmsted.org/the-olmsted-firm/" target="_blank" rel="noreferrer">The Olmsted Firm</a></td>
+    <td>Olmsted Network</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0003</td>
+    <td><a href="https://www.nps.gov/places/felsted.htm" target="_blank" rel="noreferrer">Felsted</a></td>
+    <td>National Park Service</td>
+    <td>government</td>
+  </tr>
+  <tr>
+    <td>SRC-0004</td>
+    <td><a href="https://www.nps.gov/places/mclean-asylum.htm" target="_blank" rel="noreferrer">McLean Asylum</a></td>
+    <td>National Park Service</td>
+    <td>government</td>
+  </tr>
+  <tr>
+    <td>SRC-0005</td>
+    <td><a href="https://www.harvardmagazine.com/2014/09/a-park-of-ones-own" target="_blank" rel="noreferrer">Where Frederick Law Olmsted lived his last good years</a></td>
+    <td>Harvard Magazine</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0006</td>
+    <td><a href="https://www.harvardmagazine.com/2007/07/frederick-law-olmsted-html" target="_blank" rel="noreferrer">Frederick Law Olmsted</a></td>
+    <td>Harvard Magazine</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0007</td>
+    <td><a href="https://humanrecord.example.org/internal/HISTMED_Master_Roster_v3.xlsx" target="_blank" rel="noreferrer">HISTMED Master Roster v3</a></td>
+    <td>The Human Record project</td>
+    <td>other</td>
+  </tr></tbody></table></section>
+    <section><h2>Review status</h2><table><thead><tr><th>Review</th><th>Status</th><th>Notes</th></tr></thead><tbody>
+  <tr><td>schema validation</td><td>not_started</td><td>Run scripts/build.ps1 -Conformance.</td></tr>
+  <tr><td>clinical review</td><td>not_started</td><td>Awaiting clinician review.</td></tr>
+  <tr><td>provenance review</td><td>not_started</td><td>The failing memory, retirement, and later institutional care are documented; the cause is unknown and any specific type is graded R. Caregivers are unnamed, and no statement or health fact is attributed to a real relative or business partner.</td></tr>
+  <tr><td>safe messaging review</td><td>not_started</td><td>Dementia described with dignity; PHQ-9 scores below 10 with no thoughts of self-harm, so no safety assessment is required; the documented depression abroad and the institutional care are claims only, marked sensitive.</td></tr></tbody></table></section>
+  </main>
+</body>
+</html>

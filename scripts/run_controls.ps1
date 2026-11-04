@@ -68,6 +68,11 @@ try {
     $dir = New-ControlCase 'leak' { param($c) Add-SocialText $c 'Seen with Audie Leon Murphy' }
     Assert-Control 'another case''s patient name' (Invoke-Script $build @('-CaseDirectory', $dir)) "contains 'Audie Leon Murphy' from case HR-ET007"
 
+    # The reverse: ordinary words that contain another case's alias ("Ike", "Cash", "Grant") must not trip the check.
+    $dir = New-ControlCase 'no-leak' { param($c) Add-SocialText $c 'Likely to hike, cash a check, or grant a favor' }
+    $run = Invoke-Script $build @('-CaseDirectory', $dir)
+    $results.Add([pscustomobject]@{ Control = 'ordinary words that contain an alias'; Result = $(if ($run.Exit -eq 0) { 'PASS' } else { 'FAIL' }); Detail = $(if ($run.Exit -eq 0) { 'not flagged' } else { 'flagged as leakage' }) })
+
     $dir = New-ControlCase 'ssn' { param($c) Add-SocialText $c 'Identifier 123-45-6789' }
     Assert-Control 'Social Security number' (Invoke-Script $build @('-CaseDirectory', $dir)) 'Possible Social Security number'
 

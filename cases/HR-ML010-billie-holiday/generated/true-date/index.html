@@ -1,0 +1,568 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Billie Holiday — The Human Record</title>
+  <style>
+    :root { --navy:#17365d; --blue:#1f4e78; --pale:#eef5fa; --ink:#1f2933; --muted:#66788a; --amber:#fff2cc; --red:#f8d7da; --green:#d9ead3; }
+    * { box-sizing:border-box; }
+    body { margin:0; font:16px/1.5 Arial, sans-serif; color:var(--ink); background:#f6f8fa; }
+    header { background:var(--navy); color:white; padding:24px max(24px,calc((100vw - 1180px)/2)); }
+    header h1 { margin:4px 0; font-size:30px; }
+    .banner { background:#b42318; color:white; font-weight:700; text-align:center; padding:10px; letter-spacing:.03em; }
+    main { max-width:1180px; margin:24px auto 60px; padding:0 24px; }
+    section { background:white; border:1px solid #d9e1e8; border-radius:8px; margin:18px 0; padding:20px; }
+    h2 { color:var(--navy); margin:0 0 14px; font-size:22px; }
+    h3 { color:var(--blue); }
+    .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:12px; }
+    .card { background:var(--pale); border-left:4px solid var(--blue); padding:12px; }
+    .label { color:var(--muted); font-size:13px; text-transform:uppercase; letter-spacing:.04em; }
+    table { width:100%; border-collapse:collapse; }
+    th { background:var(--blue); color:white; text-align:left; }
+    th,td { padding:9px; border-bottom:1px solid #dfe6ec; vertical-align:top; }
+    .badge { display:inline-block; min-width:28px; text-align:center; font-weight:700; border-radius:12px; padding:2px 8px; }
+    .grade-D { background:var(--green); } .grade-R { background:var(--amber); } .grade-S { background:var(--red); }
+    .muted { color:var(--muted); font-size:14px; }
+    .relationship { color:var(--muted); font-size:12px; }
+    .downloads a { display:inline-block; margin:4px 8px 4px 0; padding:8px 12px; background:var(--blue); color:white; text-decoration:none; border-radius:5px; }
+    @media (max-width:700px) { table { display:block; overflow-x:auto; } }
+  </style>
+</head>
+<body>
+  <div class="banner">SYNTHETIC RECORD, NOT A REAL MEDICAL RECORD</div>
+  <div class="banner">True-date frame: synthetic events are moved into the patient&#39;s historical lifetime. Codes, instruments, and treatments remain modern and are anachronistic.</div>
+  <header>
+    <div>The Human Record</div>
+    <h1>Billie Holiday</h1>
+    <div>Case HR-ML010-TD · Modern EHR teaching episode · Draft for review</div>
+  </header>
+  <main>
+    <section>
+      <h2>Review summary</h2>
+      <div class="grid">
+        <div class="card"><div class="label">Historical dates</div>April 7, 1915 – July 17, 1959</div>
+        <div class="card"><div class="label">Synthetic DOB</div>1915-04-07</div>
+        <div class="card"><div class="label">Index visit</div>1948-04-20 at age 33</div>
+        <div class="card"><div class="label">Synthetic MRN</div>HR-ML010-SYN-TD</div>
+      </div>
+      <p><strong>Teaching objective:</strong> Evidence-based, non-stigmatizing, trauma-informed primary care for a 33-year-old singer with a severe opioid use disorder and a moderate alcohol use disorder, five weeks after release from custody, when overdose risk is highest: starting buprenorphine in primary care, naloxone and overdose education, acamprosate for alcohol because naltrexone cannot be combined with buprenorphine, PEth to follow drinking, hepatitis, HIV, and liver screening with FIB-4 fibrosis staging, hepatitis A and B vaccination, depression screening with a structured safety assessment and the 988 Suicide &amp; Crisis Lifeline, and an integrated recovery plan that continues medication through a return to use rather than requiring linear recovery, on the ASAM, SAMHSA, VA/DoD, and AASLD guidance and the CMID depression monograph.</p>
+      <div class="downloads">
+        <a href="../case.json">Canonical JSON</a>
+        <a href="fhir-bundle.json">FHIR R4 draft</a>
+        <a href="ccda.html">C-CDA R2.1 summary</a> <a href="ccda.xml">(XML)</a>
+        <a href="../sources.md">Evidence dossier</a>
+      </div>
+    </section>
+    <section><h2>Historical timeline</h2><table><thead><tr><th>Date</th><th>Event</th><th>Claims</th></tr></thead><tbody>
+  <tr><td>April 7, 1915</td><td>Born Eleanora Fagan in Philadelphia; raised in Baltimore.</td><td>CLM-0001</td></tr>
+  <tr><td>about 1943</td><td>Began using heroin.</td><td>CLM-0003</td></tr>
+  <tr><td>October 1945</td><td>Her mother died; her drinking and drug use increased.</td><td>CLM-0002</td></tr>
+  <tr><td>May 16, 1947</td><td>Arrested for narcotics possession; sentenced to a year and a day.</td><td>CLM-0004</td></tr>
+  <tr><td>March 16, 1948</td><td>Released early from federal custody; lost her New York cabaret card.</td><td>CLM-0004, CLM-0006</td></tr>
+  <tr><td>1950</td><td>Drinking increased over the following seven years.</td><td>CLM-0010</td></tr>
+  <tr><td>1956</td><td>Lady Sings the Blues published.</td><td>CLM-0008</td></tr>
+  <tr><td>July 17, 1959</td><td>Died at Metropolitan Hospital in New York.</td><td>CLM-0009</td></tr></tbody></table></section>
+    <section><h2>Evidence claims</h2><p class="muted">D = documented, R = retrospective, S = synthetic.</p><table><thead><tr><th>Grade</th><th>Claim</th><th>Certainty</th><th>Sources</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>Billie Holiday was born Eleanora Fagan in Philadelphia on April 7, 1915, and was raised in Baltimore by her mother, Sarah Julia &quot;Sadie&quot; Fagan.</strong></td>
+    <td>confirmed</td>
+    <td><a href="https://www.biography.com/musicians/billie-holiday" target="_blank" rel="noreferrer">Billie Holiday</a> <span class="relationship">supports</span><br><a href="https://theclio.com/tour/714/4" target="_blank" rel="noreferrer">Billie Holiday Historical Marker</a> <span class="relationship">supports</span><br><a href="https://jazz.com/encyclopedia/holiday-billie" target="_blank" rel="noreferrer">Nicholson S. Holiday, Billie</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>Her mother died in October 1945; afterwards Holiday drank more heavily and her drug use increased as she grieved.</strong><div class="muted">The anchor for the synthetic alcohol use disorder. The cause of her mother&#39;s death is not given in the cited sources.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.biography.com/musicians/billie-holiday" target="_blank" rel="noreferrer">Billie Holiday</a> <span class="relationship">supports</span><br><a href="https://jazz.com/encyclopedia/holiday-billie" target="_blank" rel="noreferrer">Nicholson S. Holiday, Billie</a> <span class="relationship">supports</span><br><a href="https://www.pbs.org/wnet/americanmasters/billie-holiday-about-the-performer/68/" target="_blank" rel="noreferrer">Billie Holiday: About the Performer</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>Holiday began using heroin in the early 1940s, and her addiction became severe in the late 1940s; she was arrested repeatedly over her heroin use in that period.</strong><div class="muted">The anchor for the synthetic opioid use disorder. The arrests are recorded as part of her history, without judgment.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.pbs.org/wnet/americanmasters/billie-holiday-about-the-performer/68/" target="_blank" rel="noreferrer">Billie Holiday: About the Performer</a> <span class="relationship">supports</span><br><a href="https://www.biography.com/musicians/billie-holiday" target="_blank" rel="noreferrer">Billie Holiday</a> <span class="relationship">supports</span><br><a href="https://jazz.com/encyclopedia/holiday-billie" target="_blank" rel="noreferrer">Nicholson S. Holiday, Billie</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>In May 1947 Holiday was arrested for narcotics possession; she pleaded guilty, was sentenced to a year and a day, and was held at the federal facility for women at Alderson, West Virginia, until her early release on March 16, 1948.</strong><div class="muted">Release after a long period of enforced abstinence carries a high risk of overdose; the modern episode begins five weeks after her release. One source names the place as &quot;Alderston, Virginia,&quot; an evident error.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://theclio.com/tour/714/4" target="_blank" rel="noreferrer">Billie Holiday Historical Marker</a> <span class="relationship">supports</span><br><a href="https://jazz.com/encyclopedia/holiday-billie" target="_blank" rel="noreferrer">Nicholson S. Holiday, Billie</a> <span class="relationship">supports</span><br><a href="https://www.biography.com/musicians/billie-holiday" target="_blank" rel="noreferrer">Billie Holiday</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>Holiday sought treatment for her addiction, at one point checking herself into an institution in the hope of breaking her habit.</strong><div class="muted">Supports her own wish to recover, which the episode builds on. The source gives no date.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.pbs.org/wnet/americanmasters/billie-holiday-about-the-performer/68/" target="_blank" rel="noreferrer">Billie Holiday: About the Performer</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>Her conviction cost her the New York City cabaret card she needed to perform in clubs that served alcohol.</strong><div class="muted">A loss of income and work tied to the conviction; part of her social history.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://theclio.com/tour/714/4" target="_blank" rel="noreferrer">Billie Holiday Historical Marker</a> <span class="relationship">supports</span><br><a href="https://jazz.com/encyclopedia/holiday-billie" target="_blank" rel="noreferrer">Nicholson S. Holiday, Billie</a> <span class="relationship">supports</span><br><a href="https://www.pbs.org/wnet/americanmasters/billie-holiday-about-the-performer/68/" target="_blank" rel="noreferrer">Billie Holiday: About the Performer</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-R" title="Retrospective">R</span></td>
+    <td><strong>The Federal Bureau of Narcotics pursued Holiday for years, and later writers have described that pursuit as driven by racism and linked it to her performance of &quot;Strange Fruit,&quot; a song against lynching.</strong><div class="muted">Retrospective interpretation by later writers; recorded to support trauma-informed care, and not used to state any person&#39;s motives as fact.</div></td>
+    <td>probable</td>
+    <td><a href="https://www.biography.com/musicians/billie-holiday-narcotics-us-government" target="_blank" rel="noreferrer">Chang R. Billie Holiday and the U.S. government&#39;s war on narcotics</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>Her autobiography, Lady Sings the Blues, written in collaboration with William Dufty, was published in 1956.</strong><div class="muted">After the index date; not quoted in the record.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.biography.com/musicians/billie-holiday" target="_blank" rel="noreferrer">Billie Holiday</a> <span class="relationship">supports</span><br><a href="https://jazz.com/encyclopedia/holiday-billie" target="_blank" rel="noreferrer">Nicholson S. Holiday, Billie</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>In 1959 Holiday was admitted to Metropolitan Hospital in New York with liver and heart problems and was diagnosed with cirrhosis. While she was in the hospital she was arrested for narcotics possession and kept under police guard. She died there on July 17, 1959, aged 44; the cause of death is given as cirrhosis of the liver with pulmonary edema, or pulmonary edema and heart failure.</strong><div class="muted">After the episode, recorded as a fact without detail. The episode records no liver diagnosis. One source dates her death to July 15, 1959.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://theclio.com/tour/714/4" target="_blank" rel="noreferrer">Billie Holiday Historical Marker</a> <span class="relationship">supports</span><br><a href="https://www.theglobeandmail.com/multimedia/lady-day-departs-into-that-good-night/article19633469" target="_blank" rel="noreferrer">Adams J. Lady Day departs into that good night</a> <span class="relationship">supports</span><br><a href="https://www.biography.com/musicians/billie-holiday" target="_blank" rel="noreferrer">Billie Holiday</a> <span class="relationship">supports</span><br><a href="https://www.pbs.org/wnet/americanmasters/billie-holiday-about-the-performer/68/" target="_blank" rel="noreferrer">Billie Holiday: About the Performer</a> <span class="relationship">supports</span><br><a href="https://jazz.com/encyclopedia/holiday-billie" target="_blank" rel="noreferrer">Nicholson S. Holiday, Billie</a> <span class="relationship">disputes</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>After 1950 she slipped deeper into alcohol use over the following seven years.</strong><div class="muted">After the index date; supports the decision to treat her alcohol use from the start of the episode.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.pbs.org/wnet/americanmasters/billie-holiday-about-the-performer/68/" target="_blank" rel="noreferrer">Billie Holiday: About the Performer</a> <span class="relationship">supports</span></td>
+  </tr></tbody></table></section>
+    <section><h2>Modern synthetic problem list</h2><table><thead><tr><th>Grade</th><th>Problem</th><th>Clinical status</th><th>Verification</th><th>Placement</th><th>Historical claims</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Opioid use disorder (heroin), severe; in early remission in a controlled environment at intake, five weeks after release from custody; on buprenorphine; synthetic modern episode linked to her documented heroin use</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>both_with_link</td>
+    <td>CLM-0003, CLM-0004, CLM-0005</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Alcohol use disorder, moderate; synthetic modern episode linked to her documented heavier drinking after her mother&#39;s death</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>both_with_link</td>
+    <td>CLM-0002</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Acute periapical abscess of the lower right first molar with localized swelling, treated with an antibiotic and dental drainage; resolved</td>
+    <td>resolved</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td></td>
+  </tr></tbody></table></section>
+    <section><h2>Synthetic outcome measures</h2><table><thead><tr><th>Grade</th><th>Date</th><th>Measure</th><th>Result</th><th>Coding</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1948-04-20</td>
+    <td>Hemoglobin [Mass/volume] in Blood</td>
+    <td>12.4 g/dL<div class="muted">Reference 11.6-15 g/dL</div></td>
+    <td>http://loinc.org · 718-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1948-04-20</td>
+    <td>MCV [Entitic mean volume] in Red Blood Cells by Automated count</td>
+    <td>101 fL (high)<div class="muted">Reference 80-100 fL</div></td>
+    <td>http://loinc.org · 787-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1948-04-20</td>
+    <td>Platelets [#/volume] in Blood by Automated count</td>
+    <td>236 10*3/uL<div class="muted">Reference 150-400 10*3/uL</div></td>
+    <td>http://loinc.org · 777-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1948-04-20</td>
+    <td>Sodium [Moles/volume] in Serum or Plasma</td>
+    <td>138 mmol/L<div class="muted">Reference 135-145 mmol/L</div></td>
+    <td>http://loinc.org · 2951-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1948-04-20</td>
+    <td>Potassium [Moles/volume] in Serum or Plasma</td>
+    <td>4 mmol/L<div class="muted">Reference 3.5-5.1 mmol/L</div></td>
+    <td>http://loinc.org · 2823-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1948-04-20</td>
+    <td>Creatinine [Mass/volume] in Serum or Plasma</td>
+    <td>0.72 mg/dL<div class="muted">Reference 0.59-1.04 mg/dL</div></td>
+    <td>http://loinc.org · 2160-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1948-04-20</td>
+    <td>Glomerular filtration rate [Volume Rate/Area] in Serum, Plasma or Blood by Creatinine-based formula (CKD-EPI 1943)/1.73 sq M</td>
+    <td>113 mL/min/1.73 m²<div class="muted">Reference &gt;=60 mL/min/1.73 m²</div></td>
+    <td>http://loinc.org · 98979-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1948-04-20</td>
+    <td>Glucose [Mass/volume] in Serum or Plasma</td>
+    <td>88 mg/dL<div class="muted">Reference 70-99 mg/dL</div></td>
+    <td>http://loinc.org · 2345-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1948-04-20</td>
+    <td>Aspartate aminotransferase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>52 U/L (high)<div class="muted">Reference 10-40 U/L</div></td>
+    <td>http://loinc.org · 1920-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1948-04-20</td>
+    <td>Alanine aminotransferase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>38 U/L<div class="muted">Reference 7-56 U/L</div></td>
+    <td>http://loinc.org · 1742-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1948-04-20</td>
+    <td>Gamma glutamyl transferase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>84 U/L (high)<div class="muted">Reference 5-40 U/L</div></td>
+    <td>http://loinc.org · 2324-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1948-04-20</td>
+    <td>Albumin [Mass/volume] in Serum or Plasma</td>
+    <td>4 g/dL<div class="muted">Reference 3.5-5 g/dL</div></td>
+    <td>http://loinc.org · 1751-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1948-04-20</td>
+    <td>Bilirubin.total [Mass/volume] in Serum or Plasma</td>
+    <td>0.7 mg/dL<div class="muted">Reference 0.1-1.2 mg/dL</div></td>
+    <td>http://loinc.org · 1975-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1948-04-20</td>
+    <td>Hepatitis C virus Ab Signal/Cutoff in Serum or Plasma by Immunoassay</td>
+    <td>0.09<div class="muted">Reference Below 1.00 is nonreactive</div></td>
+    <td>http://loinc.org · 48159-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1948-04-20</td>
+    <td>Hepatitis B virus surface Ab [Units/volume] in Serum</td>
+    <td>3 m[IU]/mL (low)<div class="muted">Reference &gt;=10 m[IU]/mL</div></td>
+    <td>http://loinc.org · 16935-9</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1948-04-20</td>
+    <td>Phosphatidylethanol [Mass/volume] in Blood</td>
+    <td>312 ng/mL (high)<div class="muted">Reference Below 20 ng/mL: abstinence or light drinking; 20 to 199: significant drinking; 200 or more: heavy drinking</div></td>
+    <td>http://loinc.org · 74661-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1948-04-20</td>
+    <td>Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]</td>
+    <td>9</td>
+    <td>http://loinc.org · 44261-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1948-04-20</td>
+    <td>Total score [AUDIT-C]</td>
+    <td>8</td>
+    <td>http://loinc.org · 75626-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1948-04-20</td>
+    <td>Total score [DAST-10]</td>
+    <td>7</td>
+    <td>http://loinc.org · 82667-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1948-05-26</td>
+    <td>Aspartate aminotransferase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>38 U/L<div class="muted">Reference 10-40 U/L</div></td>
+    <td>http://loinc.org · 1920-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1948-05-26</td>
+    <td>Alanine aminotransferase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>30 U/L<div class="muted">Reference 7-56 U/L</div></td>
+    <td>http://loinc.org · 1742-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1948-05-26</td>
+    <td>Gamma glutamyl transferase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>52 U/L (high)<div class="muted">Reference 5-40 U/L</div></td>
+    <td>http://loinc.org · 2324-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1948-05-26</td>
+    <td>Phosphatidylethanol [Mass/volume] in Blood</td>
+    <td>96 ng/mL (high)<div class="muted">Reference Below 20 ng/mL: abstinence or light drinking; 20 to 199: significant drinking; 200 or more: heavy drinking</div></td>
+    <td>http://loinc.org · 74661-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1948-05-26</td>
+    <td>Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]</td>
+    <td>7</td>
+    <td>http://loinc.org · 44261-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1948-07-20</td>
+    <td>Aspartate aminotransferase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>44 U/L (high)<div class="muted">Reference 10-40 U/L</div></td>
+    <td>http://loinc.org · 1920-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1948-07-20</td>
+    <td>Alanine aminotransferase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>33 U/L<div class="muted">Reference 7-56 U/L</div></td>
+    <td>http://loinc.org · 1742-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1948-07-20</td>
+    <td>Gamma glutamyl transferase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>61 U/L (high)<div class="muted">Reference 5-40 U/L</div></td>
+    <td>http://loinc.org · 2324-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1948-07-20</td>
+    <td>Phosphatidylethanol [Mass/volume] in Blood</td>
+    <td>164 ng/mL (high)<div class="muted">Reference Below 20 ng/mL: abstinence or light drinking; 20 to 199: significant drinking; 200 or more: heavy drinking</div></td>
+    <td>http://loinc.org · 74661-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1948-07-20</td>
+    <td>Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]</td>
+    <td>11</td>
+    <td>http://loinc.org · 44261-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1948-08-31</td>
+    <td>Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]</td>
+    <td>6</td>
+    <td>http://loinc.org · 44261-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1948-08-31</td>
+    <td>Total score [AUDIT-C]</td>
+    <td>3</td>
+    <td>http://loinc.org · 75626-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1948-10-19</td>
+    <td>Hemoglobin [Mass/volume] in Blood</td>
+    <td>12.9 g/dL<div class="muted">Reference 11.6-15 g/dL</div></td>
+    <td>http://loinc.org · 718-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1948-10-19</td>
+    <td>MCV [Entitic mean volume] in Red Blood Cells by Automated count</td>
+    <td>95 fL<div class="muted">Reference 80-100 fL</div></td>
+    <td>http://loinc.org · 787-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1948-10-19</td>
+    <td>Platelets [#/volume] in Blood by Automated count</td>
+    <td>248 10*3/uL<div class="muted">Reference 150-400 10*3/uL</div></td>
+    <td>http://loinc.org · 777-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1948-10-19</td>
+    <td>Aspartate aminotransferase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>30 U/L<div class="muted">Reference 10-40 U/L</div></td>
+    <td>http://loinc.org · 1920-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1948-10-19</td>
+    <td>Alanine aminotransferase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>26 U/L<div class="muted">Reference 7-56 U/L</div></td>
+    <td>http://loinc.org · 1742-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1948-10-19</td>
+    <td>Gamma glutamyl transferase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>34 U/L<div class="muted">Reference 5-40 U/L</div></td>
+    <td>http://loinc.org · 2324-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1948-10-19</td>
+    <td>Phosphatidylethanol [Mass/volume] in Blood</td>
+    <td>22 ng/mL (high)<div class="muted">Reference Below 20 ng/mL: abstinence or light drinking; 20 to 199: significant drinking; 200 or more: heavy drinking</div></td>
+    <td>http://loinc.org · 74661-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1948-10-19</td>
+    <td>Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]</td>
+    <td>4</td>
+    <td>http://loinc.org · 44261-6</td>
+  </tr></tbody></table></section>
+    <section><h2>Synthetic vital signs</h2><table><thead><tr><th>Date</th><th>Measure</th><th>Result</th><th>LOINC</th><th>Grade</th></tr></thead><tbody>
+  <tr><td>1948-04-20</td><td>Body height</td><td>165 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1948-04-20</td><td>Body weight</td><td>68 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1948-04-20</td><td>Body mass index (BMI) [Ratio]</td><td>25 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1948-04-20</td><td>Systolic blood pressure</td><td>126 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1948-04-20</td><td>Diastolic blood pressure</td><td>80 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1948-04-20</td><td>Heart rate</td><td>84 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1948-04-20</td><td>Respiratory rate</td><td>16 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1948-04-20</td><td>Body temperature</td><td>36.8 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1948-04-20</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>98 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1948-04-27</td><td>Body height</td><td>165 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1948-04-27</td><td>Body weight</td><td>68.2 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1948-04-27</td><td>Body mass index (BMI) [Ratio]</td><td>25.1 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1948-04-27</td><td>Systolic blood pressure</td><td>122 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1948-04-27</td><td>Diastolic blood pressure</td><td>78 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1948-04-27</td><td>Heart rate</td><td>78 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1948-04-27</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1948-04-27</td><td>Body temperature</td><td>36.7 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1948-04-27</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>98 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1948-05-26</td><td>Body height</td><td>165 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1948-05-26</td><td>Body weight</td><td>68.6 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1948-05-26</td><td>Body mass index (BMI) [Ratio]</td><td>25.2 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1948-05-26</td><td>Systolic blood pressure</td><td>118 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1948-05-26</td><td>Diastolic blood pressure</td><td>76 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1948-05-26</td><td>Heart rate</td><td>74 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1948-05-26</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1948-05-26</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1948-05-26</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>99 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1948-07-20</td><td>Body height</td><td>165 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1948-07-20</td><td>Body weight</td><td>67.4 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1948-07-20</td><td>Body mass index (BMI) [Ratio]</td><td>24.8 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1948-07-20</td><td>Systolic blood pressure</td><td>128 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1948-07-20</td><td>Diastolic blood pressure</td><td>82 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1948-07-20</td><td>Heart rate</td><td>86 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1948-07-20</td><td>Respiratory rate</td><td>16 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1948-07-20</td><td>Body temperature</td><td>36.8 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1948-07-20</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>98 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1948-10-19</td><td>Body height</td><td>165 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1948-10-19</td><td>Body weight</td><td>69 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1948-10-19</td><td>Body mass index (BMI) [Ratio]</td><td>25.3 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1948-10-19</td><td>Systolic blood pressure</td><td>116 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1948-10-19</td><td>Diastolic blood pressure</td><td>74 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1948-10-19</td><td>Heart rate</td><td>72 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1948-10-19</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1948-10-19</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1948-10-19</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>99 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1948-08-31</td><td>Body height</td><td>165 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1948-08-31</td><td>Body weight</td><td>68.8 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1948-08-31</td><td>Body mass index (BMI) [Ratio]</td><td>25.3 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1948-08-31</td><td>Systolic blood pressure</td><td>118 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1948-08-31</td><td>Diastolic blood pressure</td><td>76 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1948-08-31</td><td>Heart rate</td><td>74 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1948-08-31</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1948-08-31</td><td>Body temperature</td><td>36.7 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1948-08-31</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>99 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1948-09-21</td><td>Body height</td><td>165 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1948-09-21</td><td>Body weight</td><td>68.4 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1948-09-21</td><td>Body mass index (BMI) [Ratio]</td><td>25.1 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1948-09-21</td><td>Systolic blood pressure</td><td>130 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1948-09-21</td><td>Diastolic blood pressure</td><td>82 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1948-09-21</td><td>Heart rate</td><td>92 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1948-09-21</td><td>Respiratory rate</td><td>16 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1948-09-21</td><td>Body temperature</td><td>37.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1948-09-21</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>99 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr></tbody></table></section>
+    <section><h2>Social, functional, and mental status</h2><h3>Social history</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Professional singer; returned to concert work and touring after her release; can no longer work in clubs in her home city because of a licensing rule tied to her conviction</li><li><span class="badge grade-S" title="Synthetic">S</span> Returned home five weeks ago after about ten months in federal custody on a narcotics possession charge; no medication for opioid use disorder was offered there, and she has used no opioids since release</li><li><span class="badge grade-S" title="Synthetic">S</span> Alcohol: four or five drinks on most performance nights since release (AUDIT-C 8); drinks to calm her nerves before and after shows</li><li><span class="badge grade-S" title="Synthetic">S</span> Tobacco: about five cigarettes a day; not ready to stop now and knows help is available</li><li><span class="badge grade-S" title="Synthetic">S</span> Supports: musicians she has worked with for years, a close friend who has agreed to carry naloxone, and a peer recovery coach; her music is her strongest source of purpose</li><li><span class="badge grade-S" title="Synthetic">S</span> Has repeatedly been singled out by law enforcement and feels watched; wary of clinics and of anything written about her. Confidentiality under the federal substance use disorder privacy rule explained, and she decides what is shared</li></ul><h3>Functional status</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Independent in all activities; performing several nights a week; sleep broken since release</li></ul><h3>Mental status</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Alert, guarded at first and then candid; speech normal; no signs of intoxication or withdrawal</li><li><span class="badge grade-S" title="Synthetic">S</span> Mood low and tired, with grief for her mother that still returns; PHQ-9 score 9 with item 9 scored 0; no thoughts of suicide or self-harm</li></ul></section>
+    <section><h2>Structured safety assessment</h2><div class="grid"><div class="card"><div class="label">Current ideation</div>absent</div><div class="card"><div class="label">Intent</div>absent</div><div class="card"><div class="label">Plan</div>absent</div><div class="card"><div class="label">Disposition</div>Outpatient care. Overdose risk is high in the weeks after release because tolerance has fallen: naloxone for her and her friend, never using alone, testing any drug supply with fentanyl test strips, and buprenorphine started today. The 988 Suicide &amp; Crisis Lifeline was given and saved in her phone, and a written safety plan was made with her. Safety reviewed at every visit</div></div><p class="muted">This assessment is synthetic and does not convert historical behavior into a present-day fact.</p></section>
+    <section><h2>Allergies and medications</h2><h3>Allergies</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> No known allergy</li></ul><h3>Medications</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Buprenorphine 8 mg and naloxone 2 mg sublingual film: half a film (4 mg) on day 1, then one film (8 mg) under the tongue daily</li><li><span class="badge grade-S" title="Synthetic">S</span> Buprenorphine 8 mg and naloxone 2 mg sublingual film, two films (16 mg) under the tongue once daily</li><li><span class="badge grade-S" title="Synthetic">S</span> Naloxone 4 mg nasal spray, one spray in one nostril for a suspected opioid overdose; may repeat every 2 to 3 minutes in alternating nostrils; call 911</li><li><span class="badge grade-S" title="Synthetic">S</span> Acamprosate 333 mg delayed-release oral tablet, two tablets (666 mg) by mouth three times daily</li><li><span class="badge grade-S" title="Synthetic">S</span> Thiamine 100 mg oral tablet, one tablet by mouth daily</li><li><span class="badge grade-S" title="Synthetic">S</span> Amoxicillin 500 mg oral capsule, one capsule by mouth three times daily for seven days</li><li><span class="badge grade-S" title="Synthetic">S</span> Ibuprofen 400 mg oral tablet, one tablet by mouth every 6 to 8 hours with food as needed for tooth pain, for up to five days</li><li><span class="badge grade-S" title="Synthetic">S</span> Acetaminophen 500 mg oral tablet, two tablets by mouth every 8 hours as needed for tooth pain, no more than 3,000 mg a day, for up to five days</li></ul></section>
+    <section><h2>Procedures and immunizations</h2><h3>Procedures</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Advance care planning conversation, about 16 minutes</li></ul><h3>Immunizations</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> 1948-04-20: Tdap vaccine</li><li><span class="badge grade-S" title="Synthetic">S</span> 1948-04-20: Hepatitis B vaccine (HepB-CpG), dose 1 of 2</li><li><span class="badge grade-S" title="Synthetic">S</span> 1948-04-20: Hepatitis A vaccine, adult, dose 1 of 2</li><li><span class="badge grade-S" title="Synthetic">S</span> 1948-04-20: Pneumococcal conjugate vaccine PCV20</li><li><span class="badge grade-S" title="Synthetic">S</span> 1948-05-26: Hepatitis B vaccine (HepB-CpG), dose 2 of 2</li><li><span class="badge grade-S" title="Synthetic">S</span> 1948-10-19: Hepatitis A vaccine, adult, dose 2 of 2</li><li><span class="badge grade-S" title="Synthetic">S</span> 1948-10-19: Influenza vaccine, 1948-1949 season</li></ul></section>
+    <section><h2>Past medical history</h2><p class="muted">True biography with historical dates; not part of the synthetic care timeline.</p><ul><li><span class="badge grade-D" title="Documented">D</span> about 1943: Heroin use from the early 1940s, becoming a severe addiction in the late 1940s; sought treatment for it at least once <span class="muted">(CLM-0003, CLM-0005)</span></li><li><span class="badge grade-D" title="Documented">D</span> October 1945: Heavier drinking and increased drug use after her mother&#39;s death <span class="muted">(CLM-0002)</span></li><li><span class="badge grade-D" title="Documented">D</span> March 16, 1948: Federal custody after a narcotics possession conviction, about ten months with enforced abstinence; released early <span class="muted">(CLM-0004)</span></li></ul><h3>Family history</h3><ul><li><span class="badge grade-D" title="Documented">D</span> mother: Died in 1945; cause not recorded in the cited source</li></ul></section>
+    <section><h2>Care-plan goals</h2><table><thead><tr><th>Goal</th><th>Target date</th><th>Status</th><th>Outcome</th></tr></thead><tbody>
+  <tr><td>Stay on buprenorphine without interruption through six months, including through any return to use</td><td>1948-10-19</td><td>completed</td><td>Taking buprenorphine 16 mg daily at six months; a three-day gap during a tour was followed by a brief return to use and an immediate restart, with no overdose</td></tr>
+  <tr><td>Naloxone at home and in her bag, and a friend trained to use it, by the one-week visit</td><td>1948-04-27</td><td>completed</td><td>Two naloxone two-packs dispensed; her friend trained</td></tr>
+  <tr><td>Reduce drinking to PEth below 20 ng/mL, or to the level she chooses, by six months</td><td>1948-10-19</td><td>completed</td><td>PEth 22 ng/mL from 312; occasional light drinking, which she chose</td></tr>
+  <tr><td>Hepatitis A and B vaccine series completed by six months</td><td>1948-10-19</td><td>completed</td><td>Hepatitis B doses at intake and five weeks; hepatitis A doses at intake and six months</td></tr>
+  <tr><td>PHQ-9 score below 5 by six months</td><td>1948-10-19</td><td>completed</td><td>PHQ-9 4</td></tr></tbody></table></section>
+    <section><h2>Interventions</h2><table><thead><tr><th>Intervention</th><th>Status</th><th>Guideline</th></tr></thead><tbody>
+  <tr><td>Buprenorphine with naloxone started in primary care at a low first dose, then 16 mg daily, continued through any return to use; naloxone, overdose education, never using alone, and fentanyl test strips</td><td>completed</td><td>GL-ASAM-OUD-2020, GL-SAMHSA-MOUD, GL-SUD-2021</td></tr>
+  <tr><td>Addiction medicine consultation to confirm the medication plan, choose a medicine for alcohol use disorder that can be used with buprenorphine, and set the monitoring plan</td><td>completed</td><td>GL-ASAM-OUD-2020, GL-SUD-2021</td></tr>
+  <tr><td>Alcohol care: acamprosate, thiamine, brief counseling and goals she chooses, and PEth at each check to follow drinking without relying on memory</td><td>completed</td><td>GL-SUD-2021, GL-SAMHSA-MOUD</td></tr>
+  <tr><td>Liver and infection screening: liver tests and FIB-4 at intake and six months, hepatitis C antibody, hepatitis B triple panel, and HIV test, with hepatitis A and B vaccines for a person who is not immune</td><td>completed</td><td>GL-AASLD-ALD-2019, GL-AASLD-NIT-2025, GL-CDC-HBV-2023, GL-USPSTF-HCV-2020, GL-USPSTF-HIV-2019</td></tr>
+  <tr><td>Depression screening with the PHQ-9 at each recovery visit, a structured safety assessment with a written safety plan and the 988 Suicide &amp; Crisis Lifeline, and safety review at every visit</td><td>completed</td><td>GL-CMID-2026, GL-USPSTF-DEP-2023, GL-SUICIDE-2024</td></tr>
+  <tr><td>Integrated, trauma-informed recovery plan: weekly counseling, a peer recovery coach, confidentiality she controls, and a written plan for touring, without requiring recovery to be perfect or linear</td><td>completed</td><td>GL-SUD-2021, GL-SAMHSA-MOUD</td></tr></tbody></table></section>
+    <section><h2>Planned encounters</h2><ul>
+  <li><strong>1948-04-20</strong> — Establishing primary care five weeks after release from custody: medication for opioid use disorder, overdose prevention, alcohol care, liver and infection screening, and depression and safety screening <span class="muted">(ENC-001)</span></li>
+  <li><strong>1948-04-27</strong> — One-week buprenorphine check and addiction medicine consultation <span class="muted">(ENC-002)</span></li>
+  <li><strong>1948-05-26</strong> — Five-week recovery review and second hepatitis B vaccine <span class="muted">(ENC-003)</span></li>
+  <li><strong>1948-07-20</strong> — Three-month review after a return to opioid use: adjusting the recovery plan <span class="muted">(ENC-004)</span></li>
+  <li><strong>1948-08-31</strong> — Periodic adult preventive visit <span class="muted">(ENC-006)</span></li>
+  <li><strong>1948-09-21</strong> — Same-day sick visit for a dental abscess <span class="muted">(ENC-007, unscheduled)</span></li>
+  <li><strong>1948-10-19</strong> — Six-month recovery, alcohol, liver, and mood review <span class="muted">(ENC-005)</span></li></ul></section>
+    <section><h2>Supporting documents</h2><ul><li><a href="notes/hp.md">History and physical</a></li><li><a href="notes/progress-01.md">Progress note 01</a></li><li><a href="notes/progress-02.md">Progress note 02 — Focused Visit (Follow-up)</a></li><li><a href="notes/progress-03.md">Progress note 03 — Focused Visit (Follow-up)</a></li><li><a href="notes/progress-04.md">Progress note 04 — Focused Visit (Follow-up)</a></li><li><a href="notes/progress-05.md">Progress note 05 — Preventive Visit</a></li><li><a href="notes/progress-06.md">Progress note 06 — Sick Visit</a></li><li><a href="notes/progress-07.md">Progress note 07 — Focused Visit (Care-plan review)</a></li><li><a href="notes/referral-01.md">Addiction Medicine referral</a></li><li><a href="notes/consult-01.md">Addiction Medicine consultation</a></li><li><a href="notes/careplan.md">Patient care plan</a></li><li><a href="notes/teaching-note.md">Teaching note</a></li><li><a href="provenance.csv">Provenance CSV</a></li></ul></section>
+    <section><h2>C-CDA note documents</h2><p class="muted">Each link opens a readable copy; the XML beside it is the exchange file.</p><ul><li><a href="ccda/hp-01.html">History and physical</a> <a href="ccda/hp-01.xml">(XML)</a></li><li><a href="ccda/progress-01.html">Progress note 01</a> <a href="ccda/progress-01.xml">(XML)</a></li><li><a href="ccda/progress-02.html">Progress note 02 — Focused Visit (Follow-up)</a> <a href="ccda/progress-02.xml">(XML)</a></li><li><a href="ccda/progress-03.html">Progress note 03 — Focused Visit (Follow-up)</a> <a href="ccda/progress-03.xml">(XML)</a></li><li><a href="ccda/progress-04.html">Progress note 04 — Focused Visit (Follow-up)</a> <a href="ccda/progress-04.xml">(XML)</a></li><li><a href="ccda/progress-05.html">Progress note 05 — Preventive Visit</a> <a href="ccda/progress-05.xml">(XML)</a></li><li><a href="ccda/progress-06.html">Progress note 06 — Sick Visit</a> <a href="ccda/progress-06.xml">(XML)</a></li><li><a href="ccda/progress-07.html">Progress note 07 — Focused Visit (Care-plan review)</a> <a href="ccda/progress-07.xml">(XML)</a></li><li><a href="ccda/referral-01.html">Addiction Medicine referral</a> <a href="ccda/referral-01.xml">(XML)</a></li><li><a href="ccda/consult-01.html">Addiction Medicine consultation</a> <a href="ccda/consult-01.xml">(XML)</a></li></ul></section>
+    <section><h2>Sources</h2><table><thead><tr><th>ID</th><th>Source</th><th>Publisher</th><th>Type</th></tr></thead><tbody>
+  <tr>
+    <td>SRC-0001</td>
+    <td><a href="https://www.pbs.org/wnet/americanmasters/billie-holiday-about-the-performer/68/" target="_blank" rel="noreferrer">Billie Holiday: About the Performer</a></td>
+    <td>PBS American Masters (WNET)</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0002</td>
+    <td><a href="https://www.biography.com/musicians/billie-holiday" target="_blank" rel="noreferrer">Billie Holiday</a></td>
+    <td>Biography.com (A&amp;E Television Networks)</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0003</td>
+    <td><a href="https://theclio.com/tour/714/4" target="_blank" rel="noreferrer">Billie Holiday Historical Marker</a></td>
+    <td>Clio (African American History of Philadelphia Heritage Trail, Saint Vincent College)</td>
+    <td>scholarly</td>
+  </tr>
+  <tr>
+    <td>SRC-0004</td>
+    <td><a href="https://jazz.com/encyclopedia/holiday-billie" target="_blank" rel="noreferrer">Nicholson S. Holiday, Billie</a></td>
+    <td>Jazz.com encyclopedia</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0005</td>
+    <td><a href="https://www.biography.com/musicians/billie-holiday-narcotics-us-government" target="_blank" rel="noreferrer">Chang R. Billie Holiday and the U.S. government&#39;s war on narcotics</a></td>
+    <td>Biography.com (A&amp;E Television Networks)</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0006</td>
+    <td><a href="https://www.theglobeandmail.com/multimedia/lady-day-departs-into-that-good-night/article19633469" target="_blank" rel="noreferrer">Adams J. Lady Day departs into that good night</a></td>
+    <td>The Globe and Mail</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0007</td>
+    <td><a href="https://humanrecord.example.org/internal/HISTMED_Master_Roster_v3.xlsx" target="_blank" rel="noreferrer">HISTMED Master Roster v3</a></td>
+    <td>The Human Record project</td>
+    <td>other</td>
+  </tr></tbody></table></section>
+    <section><h2>Review status</h2><table><thead><tr><th>Review</th><th>Status</th><th>Notes</th></tr></thead><tbody>
+  <tr><td>schema validation</td><td>not_started</td><td>Run scripts/build.ps1 -Conformance.</td></tr>
+  <tr><td>clinical review</td><td>not_started</td><td>Awaiting clinician review; check the low first buprenorphine dose after enforced abstinence, acamprosate rather than naltrexone, and the FIB-4 interpretation.</td></tr>
+  <tr><td>provenance review</td><td>not_started</td><td>PBS American Masters, Biography.com, Clio (Saint Vincent College), the Jazz.com encyclopedia, and The Globe and Mail logged. The account of racially motivated targeting is graded R. Her autobiography was not fetched and is not quoted.</td></tr>
+  <tr><td>safe messaging review</td><td>not_started</td><td>Substance-use claims are marked sensitive; person-first language throughout; arrests and custody recorded without judgment and never as her fault; the return to use is managed without blame or discharge; the safety assessment gives the 988 Suicide &amp; Crisis Lifeline; death recorded without detail.</td></tr></tbody></table></section>
+  </main>
+</body>
+</html>
