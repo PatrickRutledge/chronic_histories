@@ -1,0 +1,744 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Zelda Fitzgerald — The Human Record</title>
+  <style>
+    :root { --navy:#17365d; --blue:#1f4e78; --pale:#eef5fa; --ink:#1f2933; --muted:#66788a; --amber:#fff2cc; --red:#f8d7da; --green:#d9ead3; }
+    * { box-sizing:border-box; }
+    body { margin:0; font:16px/1.5 Arial, sans-serif; color:var(--ink); background:#f6f8fa; }
+    header { background:var(--navy); color:white; padding:24px max(24px,calc((100vw - 1180px)/2)); }
+    header h1 { margin:4px 0; font-size:30px; }
+    .banner { background:#b42318; color:white; font-weight:700; text-align:center; padding:10px; letter-spacing:.03em; }
+    main { max-width:1180px; margin:24px auto 60px; padding:0 24px; }
+    section { background:white; border:1px solid #d9e1e8; border-radius:8px; margin:18px 0; padding:20px; }
+    h2 { color:var(--navy); margin:0 0 14px; font-size:22px; }
+    h3 { color:var(--blue); }
+    .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:12px; }
+    .card { background:var(--pale); border-left:4px solid var(--blue); padding:12px; }
+    .label { color:var(--muted); font-size:13px; text-transform:uppercase; letter-spacing:.04em; }
+    table { width:100%; border-collapse:collapse; }
+    th { background:var(--blue); color:white; text-align:left; }
+    th,td { padding:9px; border-bottom:1px solid #dfe6ec; vertical-align:top; }
+    .badge { display:inline-block; min-width:28px; text-align:center; font-weight:700; border-radius:12px; padding:2px 8px; }
+    .grade-D { background:var(--green); } .grade-R { background:var(--amber); } .grade-S { background:var(--red); }
+    .muted { color:var(--muted); font-size:14px; }
+    .relationship { color:var(--muted); font-size:12px; }
+    .downloads a { display:inline-block; margin:4px 8px 4px 0; padding:8px 12px; background:var(--blue); color:white; text-decoration:none; border-radius:5px; }
+    @media (max-width:700px) { table { display:block; overflow-x:auto; } }
+  </style>
+</head>
+<body>
+  <div class="banner">SYNTHETIC RECORD, NOT A REAL MEDICAL RECORD</div>
+  <div class="banner">True-date frame: synthetic events are moved into the patient&#39;s historical lifetime. Codes, instruments, and treatments remain modern and are anachronistic.</div>
+  <header>
+    <div>The Human Record</div>
+    <h1>Zelda Fitzgerald</h1>
+    <div>Case HR-ET004-TD · Modern EHR teaching episode · Draft for review</div>
+  </header>
+  <main>
+    <section>
+      <h2>Review summary</h2>
+      <div class="grid">
+        <div class="card"><div class="label">Historical dates</div>July 24, 1900 – March 10, 1948</div>
+        <div class="card"><div class="label">Synthetic DOB</div>1900-07-24</div>
+        <div class="card"><div class="label">Index visit</div>1930-05-11 at age 29</div>
+        <div class="card"><div class="label">Synthetic MRN</div>HR-ET004-SYN-TD</div>
+      </div>
+      <p><strong>Teaching objective:</strong> Dignified, recovery-oriented primary care for a 29-year-old dancer and writer twelve days after a first psychiatric admission for psychosis with marked manic and depressive symptoms: holding the diagnosis provisional (bipolar I disorder with psychotic features, schizoaffective disorder, or schizophreniform disorder or schizophrenia) and showing how the course settles it; lithium with level, kidney, thyroid and calcium monitoring and sick-day rules learned from a lithium level above range during gastroenteritis; antipsychotic metabolic and prolactin monitoring, with a switch from risperidone to aripiprazole when raised prolactin and amenorrhea persisted; reproductive health on teratogenic medicines (valproate avoided, contraception and folic acid); an eating and exercise screen for a dancer with low weight and missed periods; coordinated specialty care; and a structured safety assessment with lethal-means counseling and the 988 Suicide &amp; Crisis Lifeline reviewed at every visit, on the CANMAT and ISBD bipolar guidelines, the APA 1924 schizophrenia guideline, and the CMID depression and bipolar monograph.</p>
+      <div class="downloads">
+        <a href="../case.json">Canonical JSON</a>
+        <a href="fhir-bundle.json">FHIR R4 draft</a>
+        <a href="ccda.html">C-CDA R2.1 summary</a> <a href="ccda.xml">(XML)</a>
+        <a href="../sources.md">Evidence dossier</a>
+      </div>
+    </section>
+    <section><h2>Historical timeline</h2><table><thead><tr><th>Date</th><th>Event</th><th>Claims</th></tr></thead><tbody>
+  <tr><td>July 24, 1900</td><td>Born in Montgomery, Alabama.</td><td>CLM-0001</td></tr>
+  <tr><td>April 3, 1920</td><td>Married in New York.</td><td>CLM-0002</td></tr>
+  <tr><td>about 1927</td><td>Began ballet training with Lubov Egorova, almost eight hours a day.</td><td>CLM-0003</td></tr>
+  <tr><td>1930</td><td>First breakdown; hospitalized for nervous exhaustion.</td><td>CLM-0004</td></tr>
+  <tr><td>June 1930</td><td>Admitted to Les Rives de Prangins, Nyon; treated for schizophrenia until September 1931.</td><td>CLM-0005</td></tr>
+  <tr><td>February 1932</td><td>Entered the Phipps Clinic, Johns Hopkins.</td><td>CLM-0006</td></tr>
+  <tr><td>May 1934</td><td>Returned to Sheppard Pratt from Craig House.</td><td>CLM-0007</td></tr>
+  <tr><td>April 1936</td><td>Moved to Highland Hospital, Asheville.</td><td>CLM-0008</td></tr>
+  <tr><td>March 10, 1948</td><td>Died in a fire at Highland Hospital.</td><td>CLM-0010</td></tr></tbody></table></section>
+    <section><h2>Evidence claims</h2><p class="muted">D = documented, R = retrospective, S = synthetic.</p><table><thead><tr><th>Grade</th><th>Claim</th><th>Certainty</th><th>Sources</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>Zelda Sayre was born on July 24, 1900, in Montgomery, Alabama, the youngest child of Alabama Supreme Court Justice Anthony Dickson Sayre and Minnie Buckner Machen Sayre; as a girl she starred in ballet recitals.</strong></td>
+    <td>confirmed</td>
+    <td><a href="https://encyclopediaofalabama.org/article/zelda-sayre-fitzgerald/" target="_blank" rel="noreferrer">Curnutt K. Zelda Sayre Fitzgerald</a> <span class="relationship">supports</span><br><a href="https://humanrecord.example.org/internal/HISTMED_Master_Roster_v3.xlsx" target="_blank" rel="noreferrer">HISTMED Master Roster v3</a> <span class="relationship">context</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>In July 1918 she met F. Scott Fitzgerald; they married in New York on April 3, 1920, and their only child, Frances &quot;Scottie&quot; Fitzgerald, was born in 1921.</strong><div class="muted">Family history as context only; the modern episode gives no role to her husband or daughter.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://encyclopediaofalabama.org/article/zelda-sayre-fitzgerald/" target="_blank" rel="noreferrer">Curnutt K. Zelda Sayre Fitzgerald</a> <span class="relationship">supports</span><br><a href="https://www.ncpedia.org/death-zelda-fitzgerald" target="_blank" rel="noreferrer">McKown HW Jr. The Death of Zelda Fitzgerald</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>In the late 1920s she returned to dance. She began ballet lessons at 27 with Lubov Egorova, hoping to dance with the Ballets Russes, and took classes every morning and afternoon, practising for almost eight hours a day.</strong><div class="muted">The anchor for the modern dance training, the eating and exercise screen, and the amenorrhea.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://australianballet.com.au/blog/save-me-a-dance" target="_blank" rel="noreferrer">Save me a dance</a> <span class="relationship">supports</span><br><a href="https://encyclopediaofalabama.org/article/zelda-sayre-fitzgerald/" target="_blank" rel="noreferrer">Curnutt K. Zelda Sayre Fitzgerald</a> <span class="relationship">supports</span><br><a href="https://collection.ashevilleart.org/artist-maker/info/349" target="_blank" rel="noreferrer">Zelda Sayre Fitzgerald (artist biography)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>In 1930 the stress of her frustrated attempts to become a professional ballerina led to the first of many breakdowns. On a trip to Europe that year she was hospitalized for nervous exhaustion.</strong><div class="muted">The anchor for the synthetic first episode of psychosis and its index age.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://encyclopediaofalabama.org/article/zelda-sayre-fitzgerald/" target="_blank" rel="noreferrer">Curnutt K. Zelda Sayre Fitzgerald</a> <span class="relationship">supports</span><br><a href="https://collection.ashevilleart.org/artist-maker/info/349" target="_blank" rel="noreferrer">Zelda Sayre Fitzgerald (artist biography)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>From June 1930 to September 1931 she lived at the Les Rives de Prangins clinic in Nyon, Switzerland, where she was treated for schizophrenia; her main physician was Dr. Oscar Forel. She was diagnosed as schizophrenic in 1930 and gave up ballet.</strong><div class="muted">After the index date; recorded as history.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://encyclopediaofalabama.org/article/zelda-sayre-fitzgerald/" target="_blank" rel="noreferrer">Curnutt K. Zelda Sayre Fitzgerald</a> <span class="relationship">supports</span><br><a href="https://collection.ashevilleart.org/artist-maker/info/349" target="_blank" rel="noreferrer">Zelda Sayre Fitzgerald (artist biography)</a> <span class="relationship">supports</span><br><a href="https://australianballet.com.au/blog/save-me-a-dance" target="_blank" rel="noreferrer">Save me a dance</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>In February 1932 she entered the Phipps Clinic of Johns Hopkins University, where she completed her only novel, Save Me the Waltz.</strong><div class="muted">After the index date; her writing in hospital is recorded as a strength.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://encyclopediaofalabama.org/article/zelda-sayre-fitzgerald/" target="_blank" rel="noreferrer">Curnutt K. Zelda Sayre Fitzgerald</a> <span class="relationship">supports</span><br><a href="https://australianballet.com.au/blog/save-me-a-dance" target="_blank" rel="noreferrer">Save me a dance</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>By 1934 she was spending her weekdays in the Sheppard and Enoch Pratt Hospital in Towson, Maryland. After a brief period of wellness her illness worsened; she was moved to Craig House in New York and returned to Sheppard Pratt in May 1934.</strong><div class="muted">After the index date; recorded as history.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://explore.baltimoreheritage.org/items/show/176" target="_blank" rel="noreferrer">Dennies N. F. Scott Fitzgerald at 1307 Park Avenue</a> <span class="relationship">supports</span><br><a href="https://collection.ashevilleart.org/artist-maker/info/349" target="_blank" rel="noreferrer">Zelda Sayre Fitzgerald (artist biography)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>In April 1936 she moved to Highland Hospital in Asheville, North Carolina, where she lived until 1940; afterwards she returned there at times when depression became debilitating, and her stays were intermittent until her death.</strong><div class="muted">After the index date; recorded as history.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://explore.baltimoreheritage.org/items/show/176" target="_blank" rel="noreferrer">Dennies N. F. Scott Fitzgerald at 1307 Park Avenue</a> <span class="relationship">supports</span><br><a href="https://encyclopediaofalabama.org/article/zelda-sayre-fitzgerald/" target="_blank" rel="noreferrer">Curnutt K. Zelda Sayre Fitzgerald</a> <span class="relationship">supports</span><br><a href="https://exhibits.mclibrary.duke.edu/highland-hospital/galleries/timeline" target="_blank" rel="noreferrer">Highland Hospital: timeline</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>She wrote and painted throughout her life; a 1934 exhibition in New York showed her paintings and drawings.</strong><div class="muted">Her creative work is recorded as a strength.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://encyclopediaofalabama.org/article/zelda-sayre-fitzgerald/" target="_blank" rel="noreferrer">Curnutt K. Zelda Sayre Fitzgerald</a> <span class="relationship">supports</span><br><a href="https://collection.ashevilleart.org/artist-maker/info/349" target="_blank" rel="noreferrer">Zelda Sayre Fitzgerald (artist biography)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>Late on the night of March 10, 1948, a fire that started in a kitchen of the main building of Highland Hospital spread through the building; nine patients died, among them Zelda Fitzgerald.</strong><div class="muted">History only, recorded without detail. One source dates the fire to the night of March 10 to 11.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.ncpedia.org/death-zelda-fitzgerald" target="_blank" rel="noreferrer">McKown HW Jr. The Death of Zelda Fitzgerald</a> <span class="relationship">supports</span><br><a href="https://encyclopediaofalabama.org/article/zelda-sayre-fitzgerald/" target="_blank" rel="noreferrer">Curnutt K. Zelda Sayre Fitzgerald</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-R" title="Retrospective">R</span></td>
+    <td><strong>Although she was treated for schizophrenia, mental-health experts later contested both the diagnosis and the treatment prescribed by her main physician.</strong><div class="muted">Retrospective; the reason the modern diagnosis begins as provisional.</div></td>
+    <td>disputed</td>
+    <td><a href="https://encyclopediaofalabama.org/article/zelda-sayre-fitzgerald/" target="_blank" rel="noreferrer">Curnutt K. Zelda Sayre Fitzgerald</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-R" title="Retrospective">R</span></td>
+    <td><strong>A psychiatrist writing to the Princeton Alumni Weekly argued that her history of remissions and exacerbations makes schizophrenia highly unlikely and bipolar illness more likely.</strong><div class="muted">Retrospective opinion in a reader&#39;s letter; puts bipolar I disorder first in the modern differential.</div></td>
+    <td>possible</td>
+    <td><a href="https://paw.princeton.edu/inbox/fitzgerald-museum" target="_blank" rel="noreferrer">Conroy RC. Zelda (letter)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-R" title="Retrospective">R</span></td>
+    <td><strong>The psychiatrist Mary Seeman, drawing on biographies, describes her illness as showing specific precipitants, discontinuities in its course, pronounced mood swings, preserved intellect and agency, and flare-ups associated with immune and hormonal changes, as an example of how psychosis can present in women.</strong><div class="muted">Retrospective interpretation; supports attention to mood, hormonal change and course in the modern episode.</div></td>
+    <td>possible</td>
+    <td><a href="https://pubmed.ncbi.nlm.nih.gov/26392268/" target="_blank" rel="noreferrer">Seeman MV. Gendering psychosis: the illness of Zelda Fitzgerald. Med Humanit. 2016;42(1):65-69 (PMID 26392268)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-R" title="Retrospective">R</span></td>
+    <td><strong>Her ballet training has been described as an obsession bordering on mania. The project roster reads it as an exercise compulsion with an eating disorder, an interpretation that no fetched clinical source makes.</strong><div class="muted">Retrospective; the reason the modern episode screens for disordered eating and compulsive exercise without assuming either.</div></td>
+    <td>possible</td>
+    <td><a href="https://australianballet.com.au/blog/save-me-a-dance" target="_blank" rel="noreferrer">Save me a dance</a> <span class="relationship">supports</span><br><a href="https://humanrecord.example.org/internal/HISTMED_Master_Roster_v3.xlsx" target="_blank" rel="noreferrer">HISTMED Master Roster v3</a> <span class="relationship">context</span></td>
+  </tr></tbody></table></section>
+    <section><h2>Modern synthetic problem list</h2><table><thead><tr><th>Grade</th><th>Problem</th><th>Clinical status</th><th>Verification</th><th>Placement</th><th>Historical claims</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>First episode of psychosis with marked mood symptoms: about three weeks of little sleep, rapid speech, racing thoughts, grandiose plans and very long training days, then a voice commenting on her dancing and a belief that she was being watched and tested; tearful low mood since discharge. Diagnosis provisional; differential: bipolar I disorder with psychotic features, schizoaffective disorder (bipolar type), and schizophreniform disorder or schizophrenia, depending on whether the psychosis ever occurred apart from the mood symptoms. Synthetic modern episode linked to her documented first hospitalization</td>
+    <td>resolved</td>
+    <td>provisional</td>
+    <td>both_with_link</td>
+    <td>CLM-0004, CLM-0011, CLM-0012, CLM-0013</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Bipolar I disorder, most recent episode manic with psychotic features, in full remission: the working diagnosis at three months, when her history, her journal, and her roommate&#39;s account (given with her consent) showed that the voice and the belief she was watched began only after weeks of manic symptoms and ended with them, with no psychosis since. Remains provisional: it would be revised to schizoaffective disorder if psychosis ever lasted two weeks or more without a mood episode. Synthetic modern episode linked to the documented breakdown and its retrospective interpretations</td>
+    <td>active</td>
+    <td>provisional</td>
+    <td>both_with_link</td>
+    <td>CLM-0004, CLM-0011, CLM-0012, CLM-0013</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Secondary amenorrhea: no periods for about four months before admission, during very heavy dance training at a low weight (BMI 18.7), with prolactin raised on risperidone; pregnancy test negative</td>
+    <td>resolved</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td>CLM-0003, CLM-0014</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Acute viral gastroenteritis (vomiting and watery diarrhea for two days, roommate with the same illness), with mild dehydration; resolved</td>
+    <td>resolved</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Lithium level above the therapeutic range (1.4 mmol/L) during dehydration, with nausea and a worse fine tremor, without confusion or unsteadiness; lithium held and restarted; resolved</td>
+    <td>resolved</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td></td>
+  </tr></tbody></table></section>
+    <section><h2>Synthetic outcome measures</h2><table><thead><tr><th>Grade</th><th>Date</th><th>Measure</th><th>Result</th><th>Coding</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1930-05-11</td>
+    <td>Leukocytes [#/volume] in Blood by Automated count</td>
+    <td>6.1 10*3/uL<div class="muted">Reference 4-11 10*3/uL</div></td>
+    <td>http://loinc.org · 6690-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1930-05-11</td>
+    <td>Hemoglobin [Mass/volume] in Blood</td>
+    <td>12.6 g/dL<div class="muted">Reference 11.6-15 g/dL</div></td>
+    <td>http://loinc.org · 718-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1930-05-11</td>
+    <td>Platelets [#/volume] in Blood by Automated count</td>
+    <td>248 10*3/uL<div class="muted">Reference 150-400 10*3/uL</div></td>
+    <td>http://loinc.org · 777-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1930-05-11</td>
+    <td>Sodium [Moles/volume] in Serum or Plasma</td>
+    <td>139 mmol/L<div class="muted">Reference 135-145 mmol/L</div></td>
+    <td>http://loinc.org · 2951-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1930-05-11</td>
+    <td>Potassium [Moles/volume] in Serum or Plasma</td>
+    <td>4 mmol/L<div class="muted">Reference 3.5-5.1 mmol/L</div></td>
+    <td>http://loinc.org · 2823-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1930-05-11</td>
+    <td>Creatinine [Mass/volume] in Serum or Plasma</td>
+    <td>0.72 mg/dL<div class="muted">Reference 0.59-1.04 mg/dL</div></td>
+    <td>http://loinc.org · 2160-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1930-05-11</td>
+    <td>Glomerular filtration rate [Volume Rate/Area] in Serum, Plasma or Blood by Creatinine-based formula (CKD-EPI 1925)/1.73 sq M</td>
+    <td>116 mL/min/1.73 m²<div class="muted">Reference &gt;=60 mL/min/1.73 m²</div></td>
+    <td>http://loinc.org · 98979-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1930-05-11</td>
+    <td>Glucose [Mass/volume] in Serum or Plasma</td>
+    <td>84 mg/dL<div class="muted">Reference 70-99 mg/dL</div></td>
+    <td>http://loinc.org · 2345-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1930-05-11</td>
+    <td>Calcium [Mass/volume] in Serum or Plasma</td>
+    <td>9.4 mg/dL<div class="muted">Reference 8.6-10.2 mg/dL</div></td>
+    <td>http://loinc.org · 17861-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1930-05-11</td>
+    <td>Thyrotropin [Units/volume] in Serum or Plasma</td>
+    <td>2.1 mIU/L<div class="muted">Reference 0.45-4.5 mIU/L</div></td>
+    <td>http://loinc.org · 3016-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1930-05-11</td>
+    <td>Prolactin [Mass/volume] in Serum or Plasma</td>
+    <td>62 ng/mL (high)<div class="muted">Reference 4.8-23.3 ng/mL</div></td>
+    <td>http://loinc.org · 2842-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1930-05-11</td>
+    <td>Hemoglobin A1c/Hemoglobin.total in Blood</td>
+    <td>5%<div class="muted">Reference Below 5.7% is normal; 5.7 to 6.4% prediabetes</div></td>
+    <td>http://loinc.org · 4548-4</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1930-05-11</td>
+    <td>Cholesterol [Mass/volume] in Serum or Plasma</td>
+    <td>168 mg/dL<div class="muted">Reference &lt;=199 mg/dL</div></td>
+    <td>http://loinc.org · 2093-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1930-05-11</td>
+    <td>Cholesterol in LDL [Mass/volume] in Serum or Plasma by calculation</td>
+    <td>90 mg/dL<div class="muted">Reference &lt;=129 mg/dL</div></td>
+    <td>http://loinc.org · 13457-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1930-05-11</td>
+    <td>Cholesterol in HDL [Mass/volume] in Serum or Plasma</td>
+    <td>64 mg/dL<div class="muted">Reference &gt;=50 mg/dL</div></td>
+    <td>http://loinc.org · 2085-9</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1930-05-11</td>
+    <td>Triglyceride [Mass/volume] in Serum or Plasma</td>
+    <td>70 mg/dL<div class="muted">Reference &lt;=149 mg/dL</div></td>
+    <td>http://loinc.org · 2571-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1930-05-11</td>
+    <td>Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]</td>
+    <td>11</td>
+    <td>http://loinc.org · 44261-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1930-05-11</td>
+    <td>Total score [AUDIT-C]</td>
+    <td>2</td>
+    <td>http://loinc.org · 75626-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1930-05-18</td>
+    <td>Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]</td>
+    <td>9</td>
+    <td>http://loinc.org · 44261-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1930-06-01</td>
+    <td>Sodium [Moles/volume] in Serum or Plasma</td>
+    <td>134 mmol/L (low)<div class="muted">Reference 135-145 mmol/L</div></td>
+    <td>http://loinc.org · 2951-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1930-06-01</td>
+    <td>Potassium [Moles/volume] in Serum or Plasma</td>
+    <td>3.4 mmol/L (low)<div class="muted">Reference 3.5-5.1 mmol/L</div></td>
+    <td>http://loinc.org · 2823-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1930-06-01</td>
+    <td>Creatinine [Mass/volume] in Serum or Plasma</td>
+    <td>1.08 mg/dL (high)<div class="muted">Reference 0.59-1.04 mg/dL</div></td>
+    <td>http://loinc.org · 2160-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1930-06-01</td>
+    <td>Glomerular filtration rate [Volume Rate/Area] in Serum, Plasma or Blood by Creatinine-based formula (CKD-EPI 1925)/1.73 sq M</td>
+    <td>71 mL/min/1.73 m²<div class="muted">Reference &gt;=60 mL/min/1.73 m²</div></td>
+    <td>http://loinc.org · 98979-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1930-06-01</td>
+    <td>Glucose [Mass/volume] in Serum or Plasma</td>
+    <td>80 mg/dL<div class="muted">Reference 70-99 mg/dL</div></td>
+    <td>http://loinc.org · 2345-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1930-06-01</td>
+    <td>Lithium [Moles/volume] in Serum or Plasma</td>
+    <td>1.4 mmol/L (high)<div class="muted">Reference Maintenance target 0.6 to 0.8 mmol/L; above 1.2 mmol/L is above the therapeutic range</div></td>
+    <td>http://loinc.org · 14334-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1930-06-08</td>
+    <td>Sodium [Moles/volume] in Serum or Plasma</td>
+    <td>139 mmol/L<div class="muted">Reference 135-145 mmol/L</div></td>
+    <td>http://loinc.org · 2951-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1930-06-08</td>
+    <td>Potassium [Moles/volume] in Serum or Plasma</td>
+    <td>4.1 mmol/L<div class="muted">Reference 3.5-5.1 mmol/L</div></td>
+    <td>http://loinc.org · 2823-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1930-06-08</td>
+    <td>Creatinine [Mass/volume] in Serum or Plasma</td>
+    <td>0.78 mg/dL<div class="muted">Reference 0.59-1.04 mg/dL</div></td>
+    <td>http://loinc.org · 2160-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1930-06-08</td>
+    <td>Glomerular filtration rate [Volume Rate/Area] in Serum, Plasma or Blood by Creatinine-based formula (CKD-EPI 1925)/1.73 sq M</td>
+    <td>105 mL/min/1.73 m²<div class="muted">Reference &gt;=60 mL/min/1.73 m²</div></td>
+    <td>http://loinc.org · 98979-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1930-06-08</td>
+    <td>Lithium [Moles/volume] in Serum or Plasma</td>
+    <td>0.8 mmol/L<div class="muted">Reference Maintenance target 0.6 to 0.8 mmol/L; above 1.2 mmol/L is above the therapeutic range</div></td>
+    <td>http://loinc.org · 14334-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1930-06-08</td>
+    <td>Prolactin [Mass/volume] in Serum or Plasma</td>
+    <td>66 ng/mL (high)<div class="muted">Reference 4.8-23.3 ng/mL</div></td>
+    <td>http://loinc.org · 2842-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1930-06-08</td>
+    <td>Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]</td>
+    <td>7</td>
+    <td>http://loinc.org · 44261-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1930-08-10</td>
+    <td>Sodium [Moles/volume] in Serum or Plasma</td>
+    <td>140 mmol/L<div class="muted">Reference 135-145 mmol/L</div></td>
+    <td>http://loinc.org · 2951-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1930-08-10</td>
+    <td>Potassium [Moles/volume] in Serum or Plasma</td>
+    <td>4.2 mmol/L<div class="muted">Reference 3.5-5.1 mmol/L</div></td>
+    <td>http://loinc.org · 2823-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1930-08-10</td>
+    <td>Creatinine [Mass/volume] in Serum or Plasma</td>
+    <td>0.8 mg/dL<div class="muted">Reference 0.59-1.04 mg/dL</div></td>
+    <td>http://loinc.org · 2160-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1930-08-10</td>
+    <td>Glomerular filtration rate [Volume Rate/Area] in Serum, Plasma or Blood by Creatinine-based formula (CKD-EPI 1925)/1.73 sq M</td>
+    <td>102 mL/min/1.73 m²<div class="muted">Reference &gt;=60 mL/min/1.73 m²</div></td>
+    <td>http://loinc.org · 98979-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1930-08-10</td>
+    <td>Lithium [Moles/volume] in Serum or Plasma</td>
+    <td>0.74 mmol/L<div class="muted">Reference Maintenance target 0.6 to 0.8 mmol/L; above 1.2 mmol/L is above the therapeutic range</div></td>
+    <td>http://loinc.org · 14334-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1930-08-10</td>
+    <td>Thyrotropin [Units/volume] in Serum or Plasma</td>
+    <td>2.9 mIU/L<div class="muted">Reference 0.45-4.5 mIU/L</div></td>
+    <td>http://loinc.org · 3016-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1930-08-10</td>
+    <td>Calcium [Mass/volume] in Serum or Plasma</td>
+    <td>9.6 mg/dL<div class="muted">Reference 8.6-10.2 mg/dL</div></td>
+    <td>http://loinc.org · 17861-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1930-08-10</td>
+    <td>Prolactin [Mass/volume] in Serum or Plasma</td>
+    <td>14 ng/mL<div class="muted">Reference 4.8-23.3 ng/mL</div></td>
+    <td>http://loinc.org · 2842-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1930-08-10</td>
+    <td>Fasting glucose [Mass/volume] in Serum or Plasma</td>
+    <td>86 mg/dL<div class="muted">Reference 70-99 mg/dL</div></td>
+    <td>http://loinc.org · 1558-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1930-08-10</td>
+    <td>Hemoglobin A1c/Hemoglobin.total in Blood</td>
+    <td>5.1%<div class="muted">Reference Below 5.7% is normal; 5.7 to 6.4% prediabetes</div></td>
+    <td>http://loinc.org · 4548-4</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1930-08-10</td>
+    <td>Cholesterol [Mass/volume] in Serum or Plasma</td>
+    <td>174 mg/dL<div class="muted">Reference &lt;=199 mg/dL</div></td>
+    <td>http://loinc.org · 2093-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1930-08-10</td>
+    <td>Cholesterol in LDL [Mass/volume] in Serum or Plasma by calculation</td>
+    <td>94 mg/dL<div class="muted">Reference &lt;=129 mg/dL</div></td>
+    <td>http://loinc.org · 13457-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1930-08-10</td>
+    <td>Cholesterol in HDL [Mass/volume] in Serum or Plasma</td>
+    <td>62 mg/dL<div class="muted">Reference &gt;=50 mg/dL</div></td>
+    <td>http://loinc.org · 2085-9</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1930-08-10</td>
+    <td>Triglyceride [Mass/volume] in Serum or Plasma</td>
+    <td>82 mg/dL<div class="muted">Reference &lt;=149 mg/dL</div></td>
+    <td>http://loinc.org · 2571-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1930-08-10</td>
+    <td>Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]</td>
+    <td>4</td>
+    <td>http://loinc.org · 44261-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1930-10-26</td>
+    <td>Sodium [Moles/volume] in Serum or Plasma</td>
+    <td>139 mmol/L<div class="muted">Reference 135-145 mmol/L</div></td>
+    <td>http://loinc.org · 2951-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1930-10-26</td>
+    <td>Potassium [Moles/volume] in Serum or Plasma</td>
+    <td>4 mmol/L<div class="muted">Reference 3.5-5.1 mmol/L</div></td>
+    <td>http://loinc.org · 2823-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1930-10-26</td>
+    <td>Creatinine [Mass/volume] in Serum or Plasma</td>
+    <td>0.79 mg/dL<div class="muted">Reference 0.59-1.04 mg/dL</div></td>
+    <td>http://loinc.org · 2160-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1930-10-26</td>
+    <td>Glomerular filtration rate [Volume Rate/Area] in Serum, Plasma or Blood by Creatinine-based formula (CKD-EPI 1925)/1.73 sq M</td>
+    <td>103 mL/min/1.73 m²<div class="muted">Reference &gt;=60 mL/min/1.73 m²</div></td>
+    <td>http://loinc.org · 98979-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1930-10-26</td>
+    <td>Lithium [Moles/volume] in Serum or Plasma</td>
+    <td>0.72 mmol/L<div class="muted">Reference Maintenance target 0.6 to 0.8 mmol/L; above 1.2 mmol/L is above the therapeutic range</div></td>
+    <td>http://loinc.org · 14334-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1930-10-26</td>
+    <td>Thyrotropin [Units/volume] in Serum or Plasma</td>
+    <td>3.1 mIU/L<div class="muted">Reference 0.45-4.5 mIU/L</div></td>
+    <td>http://loinc.org · 3016-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1930-10-26</td>
+    <td>Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]</td>
+    <td>3</td>
+    <td>http://loinc.org · 44261-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1930-09-14</td>
+    <td>Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]</td>
+    <td>3</td>
+    <td>http://loinc.org · 44261-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1930-09-14</td>
+    <td>Total score [AUDIT-C]</td>
+    <td>1</td>
+    <td>http://loinc.org · 75626-2</td>
+  </tr></tbody></table></section>
+    <section><h2>Synthetic vital signs</h2><table><thead><tr><th>Date</th><th>Measure</th><th>Result</th><th>LOINC</th><th>Grade</th></tr></thead><tbody>
+  <tr><td>1930-05-11</td><td>Body height</td><td>165 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1930-05-11</td><td>Body weight</td><td>50.8 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1930-05-11</td><td>Body mass index (BMI) [Ratio]</td><td>18.7 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1930-05-11</td><td>Systolic blood pressure</td><td>108 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1930-05-11</td><td>Diastolic blood pressure</td><td>68 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1930-05-11</td><td>Heart rate</td><td>78 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1930-05-11</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1930-05-11</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1930-05-11</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>99 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1930-05-18</td><td>Body height</td><td>165 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1930-05-18</td><td>Body weight</td><td>51 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1930-05-18</td><td>Body mass index (BMI) [Ratio]</td><td>18.7 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1930-05-18</td><td>Systolic blood pressure</td><td>106 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1930-05-18</td><td>Diastolic blood pressure</td><td>66 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1930-05-18</td><td>Heart rate</td><td>76 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1930-05-18</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1930-05-18</td><td>Body temperature</td><td>36.5 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1930-05-18</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>99 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1930-06-08</td><td>Body height</td><td>165 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1930-06-08</td><td>Body weight</td><td>50.2 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1930-06-08</td><td>Body mass index (BMI) [Ratio]</td><td>18.4 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1930-06-08</td><td>Systolic blood pressure</td><td>104 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1930-06-08</td><td>Diastolic blood pressure</td><td>66 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1930-06-08</td><td>Heart rate</td><td>74 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1930-06-08</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1930-06-08</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1930-06-08</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>99 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1930-08-10</td><td>Body height</td><td>165 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1930-08-10</td><td>Body weight</td><td>51.6 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1930-08-10</td><td>Body mass index (BMI) [Ratio]</td><td>19 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1930-08-10</td><td>Systolic blood pressure</td><td>108 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1930-08-10</td><td>Diastolic blood pressure</td><td>68 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1930-08-10</td><td>Heart rate</td><td>70 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1930-08-10</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1930-08-10</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1930-08-10</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>99 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1930-10-26</td><td>Body height</td><td>165 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1930-10-26</td><td>Body weight</td><td>52.4 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1930-10-26</td><td>Body mass index (BMI) [Ratio]</td><td>19.2 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1930-10-26</td><td>Systolic blood pressure</td><td>110 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1930-10-26</td><td>Diastolic blood pressure</td><td>70 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1930-10-26</td><td>Heart rate</td><td>68 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1930-10-26</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1930-10-26</td><td>Body temperature</td><td>36.5 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1930-10-26</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>99 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1930-06-01</td><td>Body height</td><td>165 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1930-06-01</td><td>Body weight</td><td>49.6 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1930-06-01</td><td>Body mass index (BMI) [Ratio]</td><td>18.2 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1930-06-01</td><td>Systolic blood pressure</td><td>102 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1930-06-01</td><td>Diastolic blood pressure</td><td>64 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1930-06-01</td><td>Heart rate</td><td>104 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1930-06-01</td><td>Respiratory rate</td><td>16 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1930-06-01</td><td>Body temperature</td><td>37.7 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1930-06-01</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>99 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1930-09-14</td><td>Body height</td><td>165 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1930-09-14</td><td>Body weight</td><td>51.9 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1930-09-14</td><td>Body mass index (BMI) [Ratio]</td><td>19.1 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1930-09-14</td><td>Systolic blood pressure</td><td>108 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1930-09-14</td><td>Diastolic blood pressure</td><td>68 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1930-09-14</td><td>Heart rate</td><td>68 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1930-09-14</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1930-09-14</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1930-09-14</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>99 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr></tbody></table></section>
+    <section><h2>Social, functional, and mental status</h2><h3>Social history</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Dancer and writer; for two years trained in ballet six to eight hours a day, hoping to join a professional company; also writes short stories and paints. On leave from classes since the admission</li><li><span class="badge grade-S" title="Synthetic">S</span> Lives in an apartment with a close friend from her dance class; not in a relationship now</li><li><span class="badge grade-S" title="Synthetic">S</span> Alcohol: two or three drinks at weekends (AUDIT-C 2); no cannabis or other drugs; urine drug test negative on admission</li><li><span class="badge grade-S" title="Synthetic">S</span> Tobacco: does not smoke</li><li><span class="badge grade-S" title="Synthetic">S</span> Eating and exercise: three small meals a day and deliberate small portions to stay light for dancing; SCOFF 1 of 5 (worries about her shape); no bingeing, vomiting, laxatives or diet pills. Before the admission she trained six to eight hours a day and felt anxious and guilty on rest days</li><li><span class="badge grade-S" title="Synthetic">S</span> Sexual and reproductive health: not planning a pregnancy now and may want children one day; uses condoms when she has a partner</li><li><span class="badge grade-S" title="Synthetic">S</span> Supports: her friend and roommate, her dance class, and the coordinated specialty care team; writing and painting are her strongest sources of purpose. She decides who is told about her health</li></ul><h3>Functional status</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Independent in all activities; writing a little each day; not dancing since discharge; tires easily</li></ul><h3>Mental status</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Alert and oriented; speech normal in rate, without pressure; thought process organized; no hallucinations since the end of the admission; she no longer believes she was being watched and tested, and recalls those beliefs with embarrassment; insight good</li><li><span class="badge grade-S" title="Synthetic">S</span> Mood low and tearful, tired and ashamed after the manic phase; PHQ-9 score 11 with item 9 scored 0; no thoughts of suicide or self-harm, now or during the admission</li></ul></section>
+    <section><h2>Structured safety assessment</h2><div class="grid"><div class="card"><div class="label">Current ideation</div>absent</div><div class="card"><div class="label">Intent</div>absent</div><div class="card"><div class="label">Plan</div>absent</div><div class="card"><div class="label">Disposition</div>Outpatient care with close follow-up. She has no thoughts of suicide or self-harm now and had none during the admission. Her risk is higher in the months after a first episode, and especially in a depressive phase after mania, so a written safety plan was made with her, with her own early warning signs (sleeping less, training for hours, racing thoughts, or feeling hopeless) and what to do about each. Lethal-means counseling: she has no firearm and no access to one; any medicine that is dangerous in overdose will be dispensed in small amounts while her mood is low. The 988 Suicide &amp; Crisis Lifeline was given and saved in her phone, with the clinic number. Safety reviewed at every visit</div></div><p class="muted">This assessment is synthetic and does not convert historical behavior into a present-day fact.</p></section>
+    <section><h2>Allergies and medications</h2><h3>Allergies</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> No known allergy</li></ul><h3>Medications</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Risperidone 2 mg oral tablet, one tablet by mouth at bedtime (started in hospital)</li><li><span class="badge grade-S" title="Synthetic">S</span> Lithium carbonate 300 mg oral capsule, one capsule by mouth twice daily</li><li><span class="badge grade-S" title="Synthetic">S</span> Risperidone 1 mg oral tablet, one tablet by mouth at bedtime for one week, then stop</li><li><span class="badge grade-S" title="Synthetic">S</span> Aripiprazole 10 mg oral tablet, one tablet by mouth once daily</li><li><span class="badge grade-S" title="Synthetic">S</span> Folic acid 0.4 mg oral tablet, one tablet by mouth daily</li></ul></section>
+    <section><h2>Procedures and immunizations</h2><h3>Procedures</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Insertion of a levonorgestrel intrauterine system after a negative pregnancy test</li><li><span class="badge grade-S" title="Synthetic">S</span> Advance care planning conversation with a psychiatric advance directive, about 18 minutes</li></ul><h3>Immunizations</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> 1930-09-14: Influenza vaccine, 1930-1931 season</li></ul></section>
+    <section><h2>Past medical history</h2><p class="muted">True biography with historical dates; not part of the synthetic care timeline.</p><ul><li><span class="badge grade-D" title="Documented">D</span> about 1927: Intensive ballet training from her late twenties, morning and afternoon, almost eight hours a day <span class="muted">(CLM-0003)</span></li><li><span class="badge grade-D" title="Documented">D</span> 1930: First breakdown, with hospitalization for nervous exhaustion on a trip to Europe <span class="muted">(CLM-0004)</span></li></ul><h3>Family history</h3><p class="muted">No family medical history is documented in the logged sources. Family history of real relatives is never synthesized.</p></section>
+    <section><h2>Care-plan goals</h2><table><thead><tr><th>Goal</th><th>Target date</th><th>Status</th><th>Outcome</th></tr></thead><tbody>
+  <tr><td>No manic, depressive or psychotic episode and no readmission through six months</td><td>1930-10-26</td><td>completed</td><td>No episode and no admission; lithium and aripiprazole continued</td></tr>
+  <tr><td>Lithium trough level 0.6 to 0.8 mmol/L with normal kidney and thyroid tests at six months</td><td>1930-10-26</td><td>completed</td><td>Lithium 0.72 mmol/L; creatinine 0.79 mg/dL; TSH 3.1 mIU/L</td></tr>
+  <tr><td>Periods return and prolactin is normal by three months</td><td>1930-08-10</td><td>completed</td><td>Periods returned five weeks after the switch to aripiprazole; prolactin 14 ng/mL</td></tr>
+  <tr><td>BMI at least 19, with food matched to her training, by six months</td><td>1930-10-26</td><td>completed</td><td>BMI 19.2 at 52.4 kg, dancing about four hours a day</td></tr>
+  <tr><td>PHQ-9 score below 5 by six months</td><td>1930-10-26</td><td>completed</td><td>PHQ-9 3</td></tr></tbody></table></section>
+    <section><h2>Interventions</h2><table><thead><tr><th>Intervention</th><th>Status</th><th>Guideline</th></tr></thead><tbody>
+  <tr><td>Continue the antipsychotic started in hospital, with monitoring to the APA and ADA/APA standard: weight at every visit, blood pressure, fasting glucose or A1c and lipids at baseline, 12 weeks and yearly, prolactin because her periods have stopped, side-effect checks, and the AIMS at baseline and every six months</td><td>completed</td><td>GL-APA-SCZ-2020, GL-ADA-APA-2004, GL-CMID-2026</td></tr>
+  <tr><td>Psychiatry consultation with the first-episode psychosis coordinated specialty care team on the provisional diagnosis and how to settle it, a mood stabilizer to prevent another episode, and the antipsychotic choice given her raised prolactin and missed periods</td><td>completed</td><td>GL-CANMAT-BD-2018, GL-APA-SCZ-2020, GL-NIMH-CSC</td></tr>
+  <tr><td>Reproductive health on psychiatric medicines: a pregnancy test before any new medicine, valproate avoided because of its risks in pregnancy, counseling on the risks of any mood stabilizer in pregnancy, contraception that suits her, folic acid, and planning with psychiatry before any pregnancy</td><td>completed</td><td>GL-CANMAT-BD-2018, GL-CDC-SPR-2024</td></tr>
+  <tr><td>Eating and exercise: the SCOFF screen, menstrual and energy review at each visit, a sports dietitian, and a graded return to dance with food matched to the training load; training hours watched as an early warning sign</td><td>completed</td><td>GL-APA-SCZ-2020, GL-CANMAT-BD-2018</td></tr>
+  <tr><td>Coordinated specialty care: a care coordinator, individual therapy with psychoeducation about mood and psychosis, education for the people she chooses, support to return to dance and writing, and a peer specialist</td><td>completed</td><td>GL-NIMH-CSC, GL-APA-SCZ-2020</td></tr>
+  <tr><td>Sleep and early warning signs: regular sleep and wake times, no all-night writing or training, and a plan to call the team after two short nights or if training hours climb</td><td>completed</td><td>GL-CANMAT-BD-2018</td></tr>
+  <tr><td>Lithium carbonate 300 mg twice daily after a negative pregnancy test, with 12-hour trough levels 5 to 7 days after starting and after any change, then every 3 to 6 months (target 0.6 to 0.8 mmol/L); creatinine and eGFR every 2 to 3 months for 6 months, then every 6 to 12; TSH once or twice in the first 6 months, then every 6 to 12; calcium yearly; and sick-day rules: hold it during vomiting, diarrhea or dehydration, and avoid anti-inflammatory painkillers</td><td>completed</td><td>GL-CANMAT-BD-2018, GL-CANMAT-BD-2023, GL-CMID-2026</td></tr>
+  <tr><td>Switch from risperidone to aripiprazole: aripiprazole 10 mg daily with risperidone 1 mg for one week, then risperidone stopped; prolactin and periods checked at three months</td><td>completed</td><td>GL-APA-SCZ-2020, GL-CANMAT-BD-2018</td></tr>
+  <tr><td>Structured safety assessment, a written safety plan with early warning signs, lethal-means counseling, the 988 Suicide &amp; Crisis Lifeline, the PHQ-9 at each visit, and safety review at every visit</td><td>completed</td><td>GL-SUICIDE-2024, GL-CMID-2026, GL-USPSTF-DEP-2023</td></tr>
+  <tr><td>Lithium sick-day plan, written down and shared with her roommate with her consent: stop lithium during vomiting, diarrhea, fever with poor drinking, or heavy sweating without fluids, and call the clinic; restart when eating and drinking normally; no anti-inflammatory painkillers; and go to the emergency department for confusion, unsteadiness, slurred speech, or a coarse tremor</td><td>completed</td><td>GL-CANMAT-BD-2018, GL-CMID-2026</td></tr></tbody></table></section>
+    <section><h2>Planned encounters</h2><ul>
+  <li><strong>1930-05-11</strong> — Establishing primary care twelve days after discharge from a first psychiatric admission: provisional diagnosis and differential, antipsychotic monitoring baseline, missed periods, eating and exercise, and safety planning <span class="muted">(ENC-001)</span></li>
+  <li><strong>1930-05-18</strong> — One-week review and psychiatry consultation with the coordinated specialty care team <span class="muted">(ENC-002)</span></li>
+  <li><strong>1930-06-01</strong> — Same-day sick visit for gastroenteritis on lithium <span class="muted">(ENC-006, unscheduled)</span></li>
+  <li><strong>1930-06-08</strong> — Lithium level after the sick visit, prolactin, and the antipsychotic plan <span class="muted">(ENC-003)</span></li>
+  <li><strong>1930-08-10</strong> — Three-month review: lithium, thyroid, kidney and metabolic checks, and the diagnosis reviewed <span class="muted">(ENC-004)</span></li>
+  <li><strong>1930-09-14</strong> — Periodic adult preventive visit with contraception <span class="muted">(ENC-007)</span></li>
+  <li><strong>1930-10-26</strong> — Six-month review: maintenance treatment, lithium monitoring, and movement check <span class="muted">(ENC-005)</span></li></ul></section>
+    <section><h2>Supporting documents</h2><ul><li><a href="notes/hp.md">History and physical</a></li><li><a href="notes/progress-01.md">Progress note 01</a></li><li><a href="notes/progress-02.md">Progress note 02 — Focused Visit (Follow-up)</a></li><li><a href="notes/progress-03.md">Progress note 03 — Sick Visit</a></li><li><a href="notes/progress-04.md">Progress note 04 — Focused Visit (Follow-up)</a></li><li><a href="notes/progress-05.md">Progress note 05 — Focused Visit (Follow-up)</a></li><li><a href="notes/progress-06.md">Progress note 06 — Preventive Visit</a></li><li><a href="notes/progress-07.md">Progress note 07 — Focused Visit (Care-plan review)</a></li><li><a href="notes/referral-01.md">Psychiatry referral</a></li><li><a href="notes/consult-01.md">Psychiatry consultation</a></li><li><a href="notes/careplan.md">Patient care plan</a></li><li><a href="notes/teaching-note.md">Teaching note</a></li><li><a href="provenance.csv">Provenance CSV</a></li></ul></section>
+    <section><h2>C-CDA note documents</h2><p class="muted">Each link opens a readable copy; the XML beside it is the exchange file.</p><ul><li><a href="ccda/hp-01.html">History and physical</a> <a href="ccda/hp-01.xml">(XML)</a></li><li><a href="ccda/progress-01.html">Progress note 01</a> <a href="ccda/progress-01.xml">(XML)</a></li><li><a href="ccda/progress-02.html">Progress note 02 — Focused Visit (Follow-up)</a> <a href="ccda/progress-02.xml">(XML)</a></li><li><a href="ccda/progress-03.html">Progress note 03 — Sick Visit</a> <a href="ccda/progress-03.xml">(XML)</a></li><li><a href="ccda/progress-04.html">Progress note 04 — Focused Visit (Follow-up)</a> <a href="ccda/progress-04.xml">(XML)</a></li><li><a href="ccda/progress-05.html">Progress note 05 — Focused Visit (Follow-up)</a> <a href="ccda/progress-05.xml">(XML)</a></li><li><a href="ccda/progress-06.html">Progress note 06 — Preventive Visit</a> <a href="ccda/progress-06.xml">(XML)</a></li><li><a href="ccda/progress-07.html">Progress note 07 — Focused Visit (Care-plan review)</a> <a href="ccda/progress-07.xml">(XML)</a></li><li><a href="ccda/referral-01.html">Psychiatry referral</a> <a href="ccda/referral-01.xml">(XML)</a></li><li><a href="ccda/consult-01.html">Psychiatry consultation</a> <a href="ccda/consult-01.xml">(XML)</a></li></ul></section>
+    <section><h2>Sources</h2><table><thead><tr><th>ID</th><th>Source</th><th>Publisher</th><th>Type</th></tr></thead><tbody>
+  <tr>
+    <td>SRC-0001</td>
+    <td><a href="https://encyclopediaofalabama.org/article/zelda-sayre-fitzgerald/" target="_blank" rel="noreferrer">Curnutt K. Zelda Sayre Fitzgerald</a></td>
+    <td>Encyclopedia of Alabama (Alabama Humanities Alliance; Troy University Montgomery)</td>
+    <td>biography</td>
+  </tr>
+  <tr>
+    <td>SRC-0002</td>
+    <td><a href="https://www.ncpedia.org/death-zelda-fitzgerald" target="_blank" rel="noreferrer">McKown HW Jr. The Death of Zelda Fitzgerald</a></td>
+    <td>NCpedia (State Library of North Carolina), This Month in North Carolina History</td>
+    <td>biography</td>
+  </tr>
+  <tr>
+    <td>SRC-0003</td>
+    <td><a href="https://collection.ashevilleart.org/artist-maker/info/349" target="_blank" rel="noreferrer">Zelda Sayre Fitzgerald (artist biography)</a></td>
+    <td>Asheville Art Museum</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0004</td>
+    <td><a href="https://explore.baltimoreheritage.org/items/show/176" target="_blank" rel="noreferrer">Dennies N. F. Scott Fitzgerald at 1307 Park Avenue</a></td>
+    <td>Explore Baltimore Heritage</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0005</td>
+    <td><a href="https://exhibits.mclibrary.duke.edu/highland-hospital/galleries/timeline" target="_blank" rel="noreferrer">Highland Hospital: timeline</a></td>
+    <td>Duke University Medical Center Library and Archives</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0006</td>
+    <td><a href="https://pubmed.ncbi.nlm.nih.gov/26392268/" target="_blank" rel="noreferrer">Seeman MV. Gendering psychosis: the illness of Zelda Fitzgerald. Med Humanit. 2016;42(1):65-69 (PMID 26392268)</a></td>
+    <td>Medical Humanities (BMJ)</td>
+    <td>scholarly</td>
+  </tr>
+  <tr>
+    <td>SRC-0007</td>
+    <td><a href="https://paw.princeton.edu/inbox/fitzgerald-museum" target="_blank" rel="noreferrer">Conroy RC. Zelda (letter)</a></td>
+    <td>Princeton Alumni Weekly, Inbox</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0008</td>
+    <td><a href="https://australianballet.com.au/blog/save-me-a-dance" target="_blank" rel="noreferrer">Save me a dance</a></td>
+    <td>The Australian Ballet (blog)</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0009</td>
+    <td><a href="https://humanrecord.example.org/internal/HISTMED_Master_Roster_v3.xlsx" target="_blank" rel="noreferrer">HISTMED Master Roster v3</a></td>
+    <td>The Human Record project</td>
+    <td>other</td>
+  </tr></tbody></table></section>
+    <section><h2>Review status</h2><table><thead><tr><th>Review</th><th>Status</th><th>Notes</th></tr></thead><tbody>
+  <tr><td>schema validation</td><td>not_started</td><td>Run scripts/build.ps1 -Conformance.</td></tr>
+  <tr><td>clinical review</td><td>not_started</td><td>Awaiting clinician review; check the provisional coding and its revision to bipolar I disorder at three months, the lithium dosing and the outpatient management of a level of 1.4 mmol/L with dehydration, the risperidone-to-aripiprazole switch for raised prolactin, and the reproductive health counseling.</td></tr>
+  <tr><td>provenance review</td><td>not_started</td><td>Encyclopedia of Alabama, NCpedia, the Asheville Art Museum, Explore Baltimore Heritage, the Duke Medical Center archives, Seeman 2016 (abstract), a Princeton Alumni Weekly letter, and the Australian Ballet logged. Retrospective diagnoses are graded R with their certainty; the roster&#39;s eating-disorder reading is recorded as unsupported by a clinical source.</td></tr>
+  <tr><td>safe messaging review</td><td>not_started</td><td>Mental-health, eating and exercise claims are marked sensitive; the long hospitalizations are recorded factually; her death in a hospital fire is recorded as history without detail; the safety assessment records no ideation, gives lethal-means counseling and the 988 Suicide &amp; Crisis Lifeline, and safety is reviewed at every visit.</td></tr></tbody></table></section>
+  </main>
+</body>
+</html>

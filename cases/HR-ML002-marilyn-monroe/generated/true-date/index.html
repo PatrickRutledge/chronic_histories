@@ -1,0 +1,430 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Marilyn Monroe — The Human Record</title>
+  <style>
+    :root { --navy:#17365d; --blue:#1f4e78; --pale:#eef5fa; --ink:#1f2933; --muted:#66788a; --amber:#fff2cc; --red:#f8d7da; --green:#d9ead3; }
+    * { box-sizing:border-box; }
+    body { margin:0; font:16px/1.5 Arial, sans-serif; color:var(--ink); background:#f6f8fa; }
+    header { background:var(--navy); color:white; padding:24px max(24px,calc((100vw - 1180px)/2)); }
+    header h1 { margin:4px 0; font-size:30px; }
+    .banner { background:#b42318; color:white; font-weight:700; text-align:center; padding:10px; letter-spacing:.03em; }
+    main { max-width:1180px; margin:24px auto 60px; padding:0 24px; }
+    section { background:white; border:1px solid #d9e1e8; border-radius:8px; margin:18px 0; padding:20px; }
+    h2 { color:var(--navy); margin:0 0 14px; font-size:22px; }
+    h3 { color:var(--blue); }
+    .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:12px; }
+    .card { background:var(--pale); border-left:4px solid var(--blue); padding:12px; }
+    .label { color:var(--muted); font-size:13px; text-transform:uppercase; letter-spacing:.04em; }
+    table { width:100%; border-collapse:collapse; }
+    th { background:var(--blue); color:white; text-align:left; }
+    th,td { padding:9px; border-bottom:1px solid #dfe6ec; vertical-align:top; }
+    .badge { display:inline-block; min-width:28px; text-align:center; font-weight:700; border-radius:12px; padding:2px 8px; }
+    .grade-D { background:var(--green); } .grade-R { background:var(--amber); } .grade-S { background:var(--red); }
+    .muted { color:var(--muted); font-size:14px; }
+    .relationship { color:var(--muted); font-size:12px; }
+    .downloads a { display:inline-block; margin:4px 8px 4px 0; padding:8px 12px; background:var(--blue); color:white; text-decoration:none; border-radius:5px; }
+    @media (max-width:700px) { table { display:block; overflow-x:auto; } }
+  </style>
+</head>
+<body>
+  <div class="banner">SYNTHETIC RECORD, NOT A REAL MEDICAL RECORD</div>
+  <div class="banner">True-date frame: synthetic events are moved into the patient&#39;s historical lifetime. Codes, instruments, and treatments remain modern and are anachronistic.</div>
+  <header>
+    <div>The Human Record</div>
+    <h1>Marilyn Monroe</h1>
+    <div>Case HR-ML002-TD · Modern EHR teaching episode · Draft for review</div>
+  </header>
+  <main>
+    <section>
+      <h2>Review summary</h2>
+      <div class="grid">
+        <div class="card"><div class="label">Historical dates</div>June 1, 1926 – August 5, 1962</div>
+        <div class="card"><div class="label">Synthetic DOB</div>1926-06-01</div>
+        <div class="card"><div class="label">Index visit</div>1956-06-15 at age 30</div>
+        <div class="card"><div class="label">Synthetic MRN</div>HR-ML002-SYN-TD</div>
+      </div>
+      <p><strong>Teaching objective:</strong> Primary care for a 30-year-old actor with severe painful periods and pelvic pain: a careful history and pelvic examination, suspected endometriosis treated first with an anti-inflammatory and continuous hormonal suppression, diagnosis by transvaginal ultrasound without surgery as the ESHRE 1952 guideline allows, a gynecology consultation on when surgery helps and why repeated ovarian surgery should be avoided, fertility counseling with an ovarian reserve test for a woman who wants children, pelvic floor physical therapy for persistent pain with intercourse, a pain plan that avoids opioid and sedative accumulation, and depression and anxiety care with a structured safety assessment, on the ACOG endometriosis and chronic pelvic pain bulletins, the ESHRE 1952 guideline, the CDC opioid guideline, and the CMID depression monograph.</p>
+      <div class="downloads">
+        <a href="../case.json">Canonical JSON</a>
+        <a href="fhir-bundle.json">FHIR R4 draft</a>
+        <a href="ccda.html">C-CDA R2.1 summary</a> <a href="ccda.xml">(XML)</a>
+        <a href="../sources.md">Evidence dossier</a>
+      </div>
+    </section>
+    <section><h2>Historical timeline</h2><table><thead><tr><th>Date</th><th>Event</th><th>Claims</th></tr></thead><tbody>
+  <tr><td>June 1, 1926</td><td>Born Norma Jeane Mortenson in Los Angeles.</td><td>CLM-0001</td></tr>
+  <tr><td>1946</td><td>Signed with Twentieth Century-Fox as Marilyn Monroe.</td><td>CLM-0002</td></tr>
+  <tr><td>June 29, 1956</td><td>Married Arthur Miller.</td><td>CLM-0006</td></tr>
+  <tr><td>August 1957</td><td>Ectopic pregnancy.</td><td>CLM-0006</td></tr>
+  <tr><td>February 1961</td><td>Brief admission to the Payne Whitney Clinic, New York.</td><td>CLM-0007</td></tr>
+  <tr><td>August 5, 1962</td><td>Died at her Los Angeles home, at 36.</td><td>CLM-0010</td></tr></tbody></table></section>
+    <section><h2>Evidence claims</h2><p class="muted">D = documented, R = retrospective, S = synthetic.</p><table><thead><tr><th>Grade</th><th>Claim</th><th>Certainty</th><th>Sources</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>She was born Norma Jeane Mortenson on June 1, 1926, at Los Angeles General Hospital. Her father&#39;s identity is unconfirmed; her mother was often confined to asylums, and she spent her childhood in orphanages and foster homes.</strong></td>
+    <td>confirmed</td>
+    <td><a href="https://www.pbs.org/wnet/americanmasters/marilyn-monroe-career-timeline/62/" target="_blank" rel="noreferrer">Marilyn Monroe&#39;s life and career timeline</a> <span class="relationship">supports</span><br><a href="https://www.smithsonianmag.com/smart-news/marilyn-monroe-collections-assembled-for-her-100th-birthday-cut-through-hollywood-glamour-to-reveal-the-stars-human-side-180988726/" target="_blank" rel="noreferrer">Marilyn Monroe collections assembled for her 100th birthday cut through Hollywood glamour to reveal the star&#39;s human side</a> <span class="relationship">supports</span><br><a href="https://www.biography.com/actors/marilyn-monroe" target="_blank" rel="noreferrer">Marilyn Monroe: biography</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>She worked as a photographic model, signed with Twentieth Century-Fox in 1946 under the name Marilyn Monroe, starred in films of the 1950s including Gentlemen Prefer Blondes and The Seven Year Itch, and studied at the Actors Studio in the mid-1950s.</strong><div class="muted">Her work as an actor anchors the modern social history.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.pbs.org/wnet/americanmasters/marilyn-monroe-career-timeline/62/" target="_blank" rel="noreferrer">Marilyn Monroe&#39;s life and career timeline</a> <span class="relationship">supports</span><br><a href="https://www.smithsonianmag.com/smart-news/marilyn-monroe-collections-assembled-for-her-100th-birthday-cut-through-hollywood-glamour-to-reveal-the-stars-human-side-180988726/" target="_blank" rel="noreferrer">Marilyn Monroe collections assembled for her 100th birthday cut through Hollywood glamour to reveal the star&#39;s human side</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>Her mother, Gladys, was diagnosed with paranoid schizophrenia and was institutionalized, for the first time at the state hospital in Norwalk.</strong><div class="muted">Family history only; the modern episode gives her mother no role.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.biography.com/actors/a73640747/marilyn-monroe-mothers-illness" target="_blank" rel="noreferrer">Ott T. How Marilyn Monroe&#39;s childhood was disrupted by her mother&#39;s paranoid schizophrenia</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>She is described as one of the most famous people with endometriosis. Her biographer Anthony Summers wrote that the condition was so severe that it destroyed her marriages, her wish for children, her career and ultimately her life; a review of endometriosis for clinicians quotes this account, and museum and medical-history writers list endometriosis among her health problems.</strong><div class="muted">The anchor for the modern episode. The diagnosis rests on biographical accounts, which a medical review and other writers repeat; no medical record was fetched.</div></td>
+    <td>probable</td>
+    <td><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC2700667/" target="_blank" rel="noreferrer">Fraser IS. Recognising, understanding and managing endometriosis. J Hum Reprod Sci. 2008;1(2):56-64 (PMID 19562047)</a> <span class="relationship">supports</span><br><a href="https://www.pbs.org/newshour/health/marilyn-monroe-and-the-prescription-drugs-that-killed-her" target="_blank" rel="noreferrer">Markel H. Marilyn Monroe and the prescription drugs that killed her</a> <span class="relationship">supports</span><br><a href="https://www.smithsonianmag.com/smart-news/marilyn-monroe-collections-assembled-for-her-100th-birthday-cut-through-hollywood-glamour-to-reveal-the-stars-human-side-180988726/" target="_blank" rel="noreferrer">Marilyn Monroe collections assembled for her 100th birthday cut through Hollywood glamour to reveal the star&#39;s human side</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-R" title="Retrospective">R</span></td>
+    <td><strong>The same biographical account holds that, in the days before effective conservative surgery or medical therapy, her endometriosis led to progressively increasing use of strong analgesics, tranquilizers and hypnotics, and to drug dependency.</strong><div class="muted">A biographer&#39;s causal reading, quoted in a medical review. It is the reason the modern pain plan avoids opioid and sedative accumulation.</div></td>
+    <td>probable</td>
+    <td><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC2700667/" target="_blank" rel="noreferrer">Fraser IS. Recognising, understanding and managing endometriosis. J Hum Reprod Sci. 2008;1(2):56-64 (PMID 19562047)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>She married the playwright Arthur Miller on June 29, 1956. She had a miscarriage in September 1956, lost an ectopic pregnancy in August 1957, and in all is reported to have had two miscarriages and an ectopic pregnancy.</strong><div class="muted">After the index date; recorded as history only. The modern episode gives no role to any real partner.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.biography.com/actors/marilyn-monroe-arthur-miller-relationship" target="_blank" rel="noreferrer">Kettler S. Marilyn Monroe and Arthur Miller had an instant connection, but quickly grew apart once married</a> <span class="relationship">supports</span><br><a href="https://www.biography.com/actors/marilyn-monroe" target="_blank" rel="noreferrer">Marilyn Monroe: biography</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>In February 1961, after telling a doctor that she had considered suicide, she was admitted to the Payne Whitney Clinic in New York; her stay was brief.</strong><div class="muted">After the index date; recorded as history only, without detail.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.biography.com/actors/a73640747/marilyn-monroe-mothers-illness" target="_blank" rel="noreferrer">Ott T. How Marilyn Monroe&#39;s childhood was disrupted by her mother&#39;s paranoid schizophrenia</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-R" title="Retrospective">R</span></td>
+    <td><strong>The physician and historian Howard Markel writes that she had several mental health problems, including substance abuse, depression and, most likely, bipolar disorder, as well as endometriosis and gall bladder disease.</strong><div class="muted">A retrospective reading; the reason the modern episode screens for depression, anxiety and bipolar symptoms. No psychiatric diagnosis is carried over.</div></td>
+    <td>possible</td>
+    <td><a href="https://www.pbs.org/newshour/health/marilyn-monroe-and-the-prescription-drugs-that-killed-her" target="_blank" rel="noreferrer">Markel H. Marilyn Monroe and the prescription drugs that killed her</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>Most of the drugs she misused had been prescribed to her by physicians; they included the barbiturate Nembutal and chloral hydrate.</strong><div class="muted">History only; the reason the modern pain and sleep plan avoids sedatives.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.pbs.org/newshour/health/marilyn-monroe-and-the-prescription-drugs-that-killed-her" target="_blank" rel="noreferrer">Markel H. Marilyn Monroe and the prescription drugs that killed her</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>She died at her Los Angeles home in August 1962, at 36. The cause of death was officially ruled a drug overdose.</strong><div class="muted">History only, stated without detail.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.biography.com/actors/marilyn-monroe" target="_blank" rel="noreferrer">Marilyn Monroe: biography</a> <span class="relationship">supports</span><br><a href="https://www.pbs.org/newshour/health/marilyn-monroe-and-the-prescription-drugs-that-killed-her" target="_blank" rel="noreferrer">Markel H. Marilyn Monroe and the prescription drugs that killed her</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-R" title="Retrospective">R</span></td>
+    <td><strong>A retrospective psychological autopsy based on biographies, films and her writings proposes autism spectrum traits progressing to borderline personality disorder and bipolar disorder; the roster lists borderline personality disorder and depression.</strong><div class="muted">A retrospective, speculative reading; not coded and not carried into the modern episode.</div></td>
+    <td>possible</td>
+    <td><a href="https://pubmed.ncbi.nlm.nih.gov/38344461/" target="_blank" rel="noreferrer">Dell&#39;Osso L, et al. The illness trajectory in Marilyn Monroe&#39;s psychological autopsy. Clin Neuropsychiatry. 2023;20(6):505-510 (PMID 38344461)</a> <span class="relationship">supports</span><br><a href="https://humanrecord.example.org/internal/HISTMED_Master_Roster_v3.xlsx" target="_blank" rel="noreferrer">HISTMED Master Roster v3</a> <span class="relationship">context</span></td>
+  </tr></tbody></table></section>
+    <section><h2>Modern synthetic problem list</h2><table><thead><tr><th>Grade</th><th>Problem</th><th>Clinical status</th><th>Verification</th><th>Placement</th><th>Historical claims</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Severe painful periods since her teens, worse over the past three years, with pelvic pain between periods, deep pain with intercourse, and painful bowel movements during periods; she misses work for two or three days each cycle. Tender, slightly fixed retroverted uterus with tenderness and fullness in the left adnexa and along the left uterosacral ligament. Suspected endometriosis; transvaginal ultrasound and gynecology consultation booked</td>
+    <td>resolved</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td>CLM-0004, CLM-0005</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Endometriosis: a 3.4 cm left ovarian endometrioma on transvaginal ultrasound, with a tender, thickened left uterosacral ligament and no deep nodule of the bowel or bladder seen; diagnosed from imaging and examination without surgery, as the ESHRE guideline allows. Synthetic modern episode linked to her documented endometriosis</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td>CLM-0004, CLM-0005</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Major depressive disorder, single episode, moderate: about two months of low mood, poor sleep on painful nights, low energy, guilt about missed work, and poor concentration (PHQ-9 12, item 9 scored 0; GAD-7 8); Mood Disorder Questionnaire negative; no thoughts of suicide or self-harm</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td>CLM-0008</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Acute uncomplicated cystitis: one day of burning, frequency and urgency with suprapubic discomfort, without fever, flank pain or blood in the urine; urine dipstick positive for leukocyte esterase and nitrite; culture grew Escherichia coli sensitive to nitrofurantoin; resolved</td>
+    <td>resolved</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Pelvic floor muscle dysfunction with myofascial pain: deep pain with intercourse that persisted after three months of hormonal suppression, with tender, tight levator ani muscles that reproduce the pain on examination</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td>CLM-0004</td>
+  </tr></tbody></table></section>
+    <section><h2>Synthetic outcome measures</h2><table><thead><tr><th>Grade</th><th>Date</th><th>Measure</th><th>Result</th><th>Coding</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1956-06-15</td>
+    <td>Leukocytes [#/volume] in Blood by Automated count</td>
+    <td>6.4 10*3/uL<div class="muted">Reference 4-11 10*3/uL</div></td>
+    <td>http://loinc.org · 6690-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1956-06-15</td>
+    <td>Hemoglobin [Mass/volume] in Blood</td>
+    <td>12.2 g/dL<div class="muted">Reference 11.6-15 g/dL</div></td>
+    <td>http://loinc.org · 718-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1956-06-15</td>
+    <td>Platelets [#/volume] in Blood by Automated count</td>
+    <td>262 10*3/uL<div class="muted">Reference 150-400 10*3/uL</div></td>
+    <td>http://loinc.org · 777-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1956-06-15</td>
+    <td>Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]</td>
+    <td>12</td>
+    <td>http://loinc.org · 44261-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1956-06-15</td>
+    <td>Generalized anxiety disorder 7 item (GAD-7) total score [Reported.PHQ]</td>
+    <td>8</td>
+    <td>http://loinc.org · 70274-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1956-06-15</td>
+    <td>Pain severity - 0-10 verbal numeric rating [Score] - Reported</td>
+    <td>8</td>
+    <td>http://loinc.org · 72514-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1956-06-24</td>
+    <td>Mullerian inhibiting substance [Mass/volume] in Serum or Plasma</td>
+    <td>2.6 ng/mL<div class="muted">Reference Typical range at ages 30 to 34; a low value suggests a smaller ovarian reserve but does not predict natural fertility</div></td>
+    <td>http://loinc.org · 38476-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1956-09-14</td>
+    <td>Hemoglobin [Mass/volume] in Blood</td>
+    <td>12.8 g/dL<div class="muted">Reference 11.6-15 g/dL</div></td>
+    <td>http://loinc.org · 718-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1956-09-14</td>
+    <td>Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]</td>
+    <td>6</td>
+    <td>http://loinc.org · 44261-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1956-09-14</td>
+    <td>Generalized anxiety disorder 7 item (GAD-7) total score [Reported.PHQ]</td>
+    <td>5</td>
+    <td>http://loinc.org · 70274-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1956-09-14</td>
+    <td>Pain severity - 0-10 verbal numeric rating [Score] - Reported</td>
+    <td>4</td>
+    <td>http://loinc.org · 72514-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1956-10-26</td>
+    <td>Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]</td>
+    <td>4</td>
+    <td>http://loinc.org · 44261-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1956-10-26</td>
+    <td>Generalized anxiety disorder 7 item (GAD-7) total score [Reported.PHQ]</td>
+    <td>3</td>
+    <td>http://loinc.org · 70274-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1956-10-26</td>
+    <td>Pain severity - 0-10 verbal numeric rating [Score] - Reported</td>
+    <td>2</td>
+    <td>http://loinc.org · 72514-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1956-08-17</td>
+    <td>Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]</td>
+    <td>8</td>
+    <td>http://loinc.org · 44261-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1956-08-17</td>
+    <td>Total score [AUDIT-C]</td>
+    <td>2</td>
+    <td>http://loinc.org · 75626-2</td>
+  </tr></tbody></table></section>
+    <section><h2>Synthetic vital signs</h2><table><thead><tr><th>Date</th><th>Measure</th><th>Result</th><th>LOINC</th><th>Grade</th></tr></thead><tbody>
+  <tr><td>1956-06-15</td><td>Body height</td><td>166 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1956-06-15</td><td>Body weight</td><td>56 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1956-06-15</td><td>Body mass index (BMI) [Ratio]</td><td>20.3 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1956-06-15</td><td>Systolic blood pressure</td><td>112 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1956-06-15</td><td>Diastolic blood pressure</td><td>70 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1956-06-15</td><td>Heart rate</td><td>76 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1956-06-15</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1956-06-15</td><td>Body temperature</td><td>36.7 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1956-06-15</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>99 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1956-06-24</td><td>Body height</td><td>166 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1956-06-24</td><td>Body weight</td><td>56.2 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1956-06-24</td><td>Body mass index (BMI) [Ratio]</td><td>20.4 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1956-06-24</td><td>Systolic blood pressure</td><td>110 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1956-06-24</td><td>Diastolic blood pressure</td><td>70 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1956-06-24</td><td>Heart rate</td><td>74 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1956-06-24</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1956-06-24</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1956-06-24</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>99 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1956-09-14</td><td>Body height</td><td>166 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1956-09-14</td><td>Body weight</td><td>56.8 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1956-09-14</td><td>Body mass index (BMI) [Ratio]</td><td>20.6 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1956-09-14</td><td>Systolic blood pressure</td><td>114 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1956-09-14</td><td>Diastolic blood pressure</td><td>72 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1956-09-14</td><td>Heart rate</td><td>72 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1956-09-14</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1956-09-14</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1956-09-14</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>99 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1956-10-26</td><td>Body height</td><td>166 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1956-10-26</td><td>Body weight</td><td>56.6 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1956-10-26</td><td>Body mass index (BMI) [Ratio]</td><td>20.5 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1956-10-26</td><td>Systolic blood pressure</td><td>112 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1956-10-26</td><td>Diastolic blood pressure</td><td>70 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1956-10-26</td><td>Heart rate</td><td>70 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1956-10-26</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1956-10-26</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1956-10-26</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>99 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1956-07-20</td><td>Body height</td><td>166 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1956-07-20</td><td>Body weight</td><td>56.4 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1956-07-20</td><td>Body mass index (BMI) [Ratio]</td><td>20.5 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1956-07-20</td><td>Systolic blood pressure</td><td>114 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1956-07-20</td><td>Diastolic blood pressure</td><td>72 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1956-07-20</td><td>Heart rate</td><td>82 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1956-07-20</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1956-07-20</td><td>Body temperature</td><td>36.9 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1956-07-20</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>99 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1956-08-17</td><td>Body height</td><td>166 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1956-08-17</td><td>Body weight</td><td>56.6 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1956-08-17</td><td>Body mass index (BMI) [Ratio]</td><td>20.5 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1956-08-17</td><td>Systolic blood pressure</td><td>110 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1956-08-17</td><td>Diastolic blood pressure</td><td>70 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1956-08-17</td><td>Heart rate</td><td>72 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1956-08-17</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1956-08-17</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1956-08-17</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>99 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr></tbody></table></section>
+    <section><h2>Social, functional, and mental status</h2><h3>Social history</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Film actor; long and irregular shooting days; studies acting between films. Has missed two or three working days each cycle for the past year because of pain and worries that this is costing her work</li><li><span class="badge grade-S" title="Synthetic">S</span> In a committed relationship; plans to marry this summer. Wants children, but not for at least a year</li><li><span class="badge grade-S" title="Synthetic">S</span> Alcohol: one or two glasses of wine at weekends, never more than three at a time; no cannabis or other drugs</li><li><span class="badge grade-S" title="Synthetic">S</span> Tobacco: does not smoke</li><li><span class="badge grade-S" title="Synthetic">S</span> Pain medicines and sleep aids: ibuprofen 200 mg, two or three tablets at a time, during periods without enough relief; an urgent care clinic gave her six hydrocodone and acetaminophen tablets two months ago, all used; takes over-the-counter diphenhydramine on bad pain nights to sleep. The state prescription monitoring program shows that single opioid prescription and no sedative prescriptions</li><li><span class="badge grade-S" title="Synthetic">S</span> Sexual and reproductive health: one male partner; no previous pregnancies; condoms until now</li><li><span class="badge grade-S" title="Synthetic">S</span> Supports: her partner, a close friend from acting class, and her drama coach; reading and acting class steady her. She decides who is told about her health</li></ul><h3>Functional status</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Independent; in bed for one or two days each period; walks most days when she is not in pain</li></ul><h3>Mental status</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Alert, warm and cooperative; speech normal; thought process organized; no psychotic features; no history of manic or hypomanic episodes</li><li><span class="badge grade-S" title="Synthetic">S</span> Mood low, worse in the days around her period; tearful when describing missed work; PHQ-9 score 12 with item 9 scored 0; GAD-7 8; no thoughts of suicide or self-harm, now or in the past</li></ul></section>
+    <section><h2>Structured safety assessment</h2><div class="grid"><div class="card"><div class="label">Current ideation</div>absent</div><div class="card"><div class="label">Intent</div>absent</div><div class="card"><div class="label">Plan</div>absent</div><div class="card"><div class="label">Disposition</div>Outpatient care. She has no thoughts of suicide or self-harm now and has never had them. Because pain, poor sleep and a moderate depressive episode raise risk, a brief written safety plan was made with her, with warning signs (feeling hopeless, not sleeping for nights at a time, wanting to use medicines to blot out the day) and what to do about each. Lethal-means counseling: no firearm at home; leftover medicines are to be returned to a pharmacy take-back site, and no opioid, benzodiazepine or sleep medicine will be prescribed. The 988 Suicide &amp; Crisis Lifeline was given and saved in her phone, with the clinic number. Safety reviewed at every visit</div></div><p class="muted">This assessment is synthetic and does not convert historical behavior into a present-day fact.</p></section>
+    <section><h2>Allergies and medications</h2><h3>Allergies</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> No known allergy</li></ul><h3>Medications</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Naproxen 500 mg oral tablet, one tablet by mouth twice daily with food, from two days before an expected bleed until the third day, and for pain flares; no more than 10 days a month</li><li><span class="badge grade-S" title="Synthetic">S</span> Ethinyl estradiol 0.02 mg and norethindrone acetate 1 mg oral tablet, one tablet by mouth daily, taken continuously without a pill-free week</li><li><span class="badge grade-S" title="Synthetic">S</span> Nitrofurantoin (monohydrate and macrocrystals) 100 mg oral capsule, one capsule by mouth twice daily with food for 5 days</li><li><span class="badge grade-S" title="Synthetic">S</span> Folic acid 0.4 mg oral tablet, one tablet by mouth daily</li></ul></section>
+    <section><h2>Procedures and immunizations</h2><h3>Procedures</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Advance care planning conversation, about 16 minutes</li></ul><h3>Immunizations</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> 1956-09-14: Influenza vaccine, 1956-1957 season</li></ul></section>
+    <section><h2>Past medical history</h2><p class="muted">True biography with historical dates; not part of the synthetic care timeline.</p><ul></ul><h3>Family history</h3><ul><li><span class="badge grade-D" title="Documented">D</span> mother: Diagnosed with paranoid schizophrenia and institutionalized</li></ul></section>
+    <section><h2>Care-plan goals</h2><table><thead><tr><th>Goal</th><th>Target date</th><th>Status</th><th>Outcome</th></tr></thead><tbody>
+  <tr><td>Worst pelvic pain 3 of 10 or less, and no missed working days for pain, by four months</td><td>1956-10-26</td><td>completed</td><td>Worst pain 2 of 10; no missed working days for two months</td></tr>
+  <tr><td>No opioid, benzodiazepine or sleep-medicine prescription, and naproxen on 10 days a month or fewer</td><td>1956-10-26</td><td>completed</td><td>None prescribed; naproxen on two or three days a month; diphenhydramine stopped</td></tr>
+  <tr><td>PHQ-9 score below 5 by four months</td><td>1956-10-26</td><td>completed</td><td>PHQ-9 4</td></tr>
+  <tr><td>A written plan for when and how to try for a pregnancy, made with her before the four-month visit</td><td>1956-10-26</td><td>completed</td><td>Plan made: stop the pill when ready to try, after a preconception visit; reproductive endocrinology referral if not pregnant within six months</td></tr></tbody></table></section>
+    <section><h2>Interventions</h2><table><thead><tr><th>Intervention</th><th>Status</th><th>Guideline</th></tr></thead><tbody>
+  <tr><td>First-line treatment for suspected endometriosis without waiting for a diagnosis: naproxen with food for pain days, and a combined estrogen and progestin pill taken continuously to stop the periods, after a negative pregnancy test and a check for reasons to avoid estrogen (migraine with aura, smoking over 35, clotting history, high blood pressure)</td><td>completed</td><td>GL-ACOG-ENDO-2010, GL-ESHRE-ENDO-2022, GL-CDC-MEC-2024</td></tr>
+  <tr><td>Gynecology consultation for suspected endometriosis: diagnosis, the role and timing of surgery, and fertility counseling for a woman who wants children</td><td>completed</td><td>GL-ESHRE-ENDO-2022, GL-ACOG-ENDO-2010</td></tr>
+  <tr><td>Transvaginal ultrasound by an experienced sonographer, looking for endometriomas and deep nodules; CA-125 not used to diagnose endometriosis; gonorrhea and chlamydia tests and a urinalysis to exclude other causes</td><td>completed</td><td>GL-ESHRE-ENDO-2022, GL-ACOG-CPP-2020</td></tr>
+  <tr><td>A pain plan that avoids opioid and sedative accumulation: no opioid, benzodiazepine or sleep-medicine prescription, the prescription monitoring program checked, diphenhydramine stopped, leftover medicines returned, heat and regular walking, and cognitive behavioral therapy for insomnia</td><td>completed</td><td>GL-CDC-OPIOID-2022, GL-ACOG-CPP-2020</td></tr>
+  <tr><td>Depression care: cognitive behavioral therapy with the clinic&#39;s behavioral health clinician, the PHQ-9 and GAD-7 at each visit, an antidepressant to be discussed if the PHQ-9 has not fallen by half at eight to twelve weeks, a structured safety assessment and plan, the 988 Suicide &amp; Crisis Lifeline, and safety review at every visit</td><td>completed</td><td>GL-CMID-2026, GL-USPSTF-DEP-2023, GL-SUICIDE-2024</td></tr>
+  <tr><td>Fertility counseling: endometriosis can lower fertility, but most women with it conceive; an anti-Mullerian hormone test before any ovarian surgery; hormonal treatment does not improve fertility and is stopped when she wants to conceive; a preconception visit with folic acid; and care from reproductive endocrinology if she is not pregnant after six months of trying</td><td>completed</td><td>GL-ESHRE-ENDO-2022, GL-ACOG-ENDO-2010</td></tr>
+  <tr><td>Surgery held in reserve: laparoscopic excision, including removal of the endometrioma, only if the pain does not respond to medical treatment, the cyst grows, or imaging is atypical, with counseling that ovarian surgery lowers the ovarian reserve and that repeated operations should be avoided; repeat transvaginal ultrasound at about four months</td><td>completed</td><td>GL-ESHRE-ENDO-2022, GL-ACOG-ENDO-2010</td></tr>
+  <tr><td>Pelvic floor physical therapy for persistent deep pain with intercourse and pelvic floor muscle tenderness: down-training, manual therapy, and a home program, weekly for six to eight weeks</td><td>completed</td><td>GL-ACOG-CPP-2020</td></tr></tbody></table></section>
+    <section><h2>Planned encounters</h2><ul>
+  <li><strong>1956-06-15</strong> — New patient with severe painful periods and pelvic pain: history and pelvic examination, suspected endometriosis, first-line hormonal and anti-inflammatory treatment, a pain plan without opioids or sedatives, and a depression and anxiety screen <span class="muted">(ENC-001)</span></li>
+  <li><strong>1956-06-24</strong> — Transvaginal ultrasound result and gynecology consultation: diagnosis, surgery, and fertility counseling <span class="muted">(ENC-002)</span></li>
+  <li><strong>1956-07-20</strong> — Same-day sick visit for burning on urination <span class="muted">(ENC-005, unscheduled)</span></li>
+  <li><strong>1956-08-17</strong> — Periodic adult preventive visit with pregnancy planning <span class="muted">(ENC-006)</span></li>
+  <li><strong>1956-09-14</strong> — Three-month review on continuous hormonal treatment: pain, bleeding, mood, and pain with intercourse <span class="muted">(ENC-003)</span></li>
+  <li><strong>1956-10-26</strong> — Four-month review: pelvic floor physical therapy, follow-up ultrasound, mood, and pregnancy plans <span class="muted">(ENC-004)</span></li></ul></section>
+    <section><h2>Supporting documents</h2><ul><li><a href="notes/hp.md">History and physical</a></li><li><a href="notes/progress-01.md">Progress note 01</a></li><li><a href="notes/progress-02.md">Progress note 02 — Focused Visit (Follow-up)</a></li><li><a href="notes/progress-03.md">Progress note 03 — Sick Visit</a></li><li><a href="notes/progress-04.md">Progress note 04 — Preventive Visit</a></li><li><a href="notes/progress-05.md">Progress note 05 — Focused Visit (Follow-up)</a></li><li><a href="notes/progress-06.md">Progress note 06 — Focused Visit (Care-plan review)</a></li><li><a href="notes/referral-01.md">Obstetrics and Gynecology referral</a></li><li><a href="notes/consult-01.md">Obstetrics and Gynecology consultation</a></li><li><a href="notes/careplan.md">Patient care plan</a></li><li><a href="notes/teaching-note.md">Teaching note</a></li><li><a href="provenance.csv">Provenance CSV</a></li></ul></section>
+    <section><h2>C-CDA note documents</h2><p class="muted">Each link opens a readable copy; the XML beside it is the exchange file.</p><ul><li><a href="ccda/hp-01.html">History and physical</a> <a href="ccda/hp-01.xml">(XML)</a></li><li><a href="ccda/progress-01.html">Progress note 01</a> <a href="ccda/progress-01.xml">(XML)</a></li><li><a href="ccda/progress-02.html">Progress note 02 — Focused Visit (Follow-up)</a> <a href="ccda/progress-02.xml">(XML)</a></li><li><a href="ccda/progress-03.html">Progress note 03 — Sick Visit</a> <a href="ccda/progress-03.xml">(XML)</a></li><li><a href="ccda/progress-04.html">Progress note 04 — Preventive Visit</a> <a href="ccda/progress-04.xml">(XML)</a></li><li><a href="ccda/progress-05.html">Progress note 05 — Focused Visit (Follow-up)</a> <a href="ccda/progress-05.xml">(XML)</a></li><li><a href="ccda/progress-06.html">Progress note 06 — Focused Visit (Care-plan review)</a> <a href="ccda/progress-06.xml">(XML)</a></li><li><a href="ccda/referral-01.html">Obstetrics and Gynecology referral</a> <a href="ccda/referral-01.xml">(XML)</a></li><li><a href="ccda/consult-01.html">Obstetrics and Gynecology consultation</a> <a href="ccda/consult-01.xml">(XML)</a></li></ul></section>
+    <section><h2>Sources</h2><table><thead><tr><th>ID</th><th>Source</th><th>Publisher</th><th>Type</th></tr></thead><tbody>
+  <tr>
+    <td>SRC-0001</td>
+    <td><a href="https://www.pbs.org/wnet/americanmasters/marilyn-monroe-career-timeline/62/" target="_blank" rel="noreferrer">Marilyn Monroe&#39;s life and career timeline</a></td>
+    <td>PBS, American Masters (WNET)</td>
+    <td>biography</td>
+  </tr>
+  <tr>
+    <td>SRC-0002</td>
+    <td><a href="https://www.pbs.org/newshour/health/marilyn-monroe-and-the-prescription-drugs-that-killed-her" target="_blank" rel="noreferrer">Markel H. Marilyn Monroe and the prescription drugs that killed her</a></td>
+    <td>PBS NewsHour</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0003</td>
+    <td><a href="https://www.smithsonianmag.com/smart-news/marilyn-monroe-collections-assembled-for-her-100th-birthday-cut-through-hollywood-glamour-to-reveal-the-stars-human-side-180988726/" target="_blank" rel="noreferrer">Marilyn Monroe collections assembled for her 100th birthday cut through Hollywood glamour to reveal the star&#39;s human side</a></td>
+    <td>Smithsonian Magazine</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0004</td>
+    <td><a href="https://www.biography.com/actors/marilyn-monroe" target="_blank" rel="noreferrer">Marilyn Monroe: biography</a></td>
+    <td>Biography.com</td>
+    <td>biography</td>
+  </tr>
+  <tr>
+    <td>SRC-0005</td>
+    <td><a href="https://www.biography.com/actors/a73640747/marilyn-monroe-mothers-illness" target="_blank" rel="noreferrer">Ott T. How Marilyn Monroe&#39;s childhood was disrupted by her mother&#39;s paranoid schizophrenia</a></td>
+    <td>Biography.com</td>
+    <td>biography</td>
+  </tr>
+  <tr>
+    <td>SRC-0006</td>
+    <td><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC2700667/" target="_blank" rel="noreferrer">Fraser IS. Recognising, understanding and managing endometriosis. J Hum Reprod Sci. 2008;1(2):56-64 (PMID 19562047)</a></td>
+    <td>Journal of Human Reproductive Sciences</td>
+    <td>scholarly</td>
+  </tr>
+  <tr>
+    <td>SRC-0007</td>
+    <td><a href="https://www.biography.com/actors/marilyn-monroe-arthur-miller-relationship" target="_blank" rel="noreferrer">Kettler S. Marilyn Monroe and Arthur Miller had an instant connection, but quickly grew apart once married</a></td>
+    <td>Biography.com</td>
+    <td>biography</td>
+  </tr>
+  <tr>
+    <td>SRC-0008</td>
+    <td><a href="https://pubmed.ncbi.nlm.nih.gov/38344461/" target="_blank" rel="noreferrer">Dell&#39;Osso L, et al. The illness trajectory in Marilyn Monroe&#39;s psychological autopsy. Clin Neuropsychiatry. 2023;20(6):505-510 (PMID 38344461)</a></td>
+    <td>Clinical Neuropsychiatry</td>
+    <td>scholarly</td>
+  </tr>
+  <tr>
+    <td>SRC-0009</td>
+    <td><a href="https://humanrecord.example.org/internal/HISTMED_Master_Roster_v3.xlsx" target="_blank" rel="noreferrer">HISTMED Master Roster v3</a></td>
+    <td>The Human Record project</td>
+    <td>other</td>
+  </tr></tbody></table></section>
+    <section><h2>Review status</h2><table><thead><tr><th>Review</th><th>Status</th><th>Notes</th></tr></thead><tbody>
+  <tr><td>schema validation</td><td>not_started</td><td>Run scripts/build.ps1 -Conformance.</td></tr>
+  <tr><td>clinical review</td><td>not_started</td><td>Awaiting clinician review; check the empiric continuous combined pill before diagnosis, the ultrasound diagnosis of a left endometrioma without surgery, expectant management of a 3.4 cm endometrioma in a woman who wants children, the anti-Mullerian hormone counseling, pelvic floor physical therapy, and the pain plan without opioids or sedatives.</td></tr>
+  <tr><td>provenance review</td><td>not_started</td><td>PBS American Masters, PBS NewsHour (Markel 2016), Smithsonian Magazine, Biography.com (three articles), Fraser 2008 (open access, quoting Summers 1985), and Dell&#39;Osso 2023 (abstract) logged. Endometriosis is D with certainty probable because it rests on biographical accounts; claims about repeated gynecologic surgery and a contract clause about menstruation could not be verified in a reliable source and were left out.</td></tr>
+  <tr><td>safe messaging review</td><td>not_started</td><td>Mental-health, reproductive and medication claims are marked sensitive and kept short; her 1961 admission and her death are recorded as history only, without detail or speculation; the safety assessment records no ideation, gives lethal-means counseling and the 988 Suicide &amp; Crisis Lifeline, and safety is reviewed at every visit.</td></tr></tbody></table></section>
+  </main>
+</body>
+</html>

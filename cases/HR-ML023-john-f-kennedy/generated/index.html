@@ -1,0 +1,792 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>John F. Kennedy — The Human Record</title>
+  <style>
+    :root { --navy:#17365d; --blue:#1f4e78; --pale:#eef5fa; --ink:#1f2933; --muted:#66788a; --amber:#fff2cc; --red:#f8d7da; --green:#d9ead3; }
+    * { box-sizing:border-box; }
+    body { margin:0; font:16px/1.5 Arial, sans-serif; color:var(--ink); background:#f6f8fa; }
+    header { background:var(--navy); color:white; padding:24px max(24px,calc((100vw - 1180px)/2)); }
+    header h1 { margin:4px 0; font-size:30px; }
+    .banner { background:#b42318; color:white; font-weight:700; text-align:center; padding:10px; letter-spacing:.03em; }
+    main { max-width:1180px; margin:24px auto 60px; padding:0 24px; }
+    section { background:white; border:1px solid #d9e1e8; border-radius:8px; margin:18px 0; padding:20px; }
+    h2 { color:var(--navy); margin:0 0 14px; font-size:22px; }
+    h3 { color:var(--blue); }
+    .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:12px; }
+    .card { background:var(--pale); border-left:4px solid var(--blue); padding:12px; }
+    .label { color:var(--muted); font-size:13px; text-transform:uppercase; letter-spacing:.04em; }
+    table { width:100%; border-collapse:collapse; }
+    th { background:var(--blue); color:white; text-align:left; }
+    th,td { padding:9px; border-bottom:1px solid #dfe6ec; vertical-align:top; }
+    .badge { display:inline-block; min-width:28px; text-align:center; font-weight:700; border-radius:12px; padding:2px 8px; }
+    .grade-D { background:var(--green); } .grade-R { background:var(--amber); } .grade-S { background:var(--red); }
+    .muted { color:var(--muted); font-size:14px; }
+    .relationship { color:var(--muted); font-size:12px; }
+    .downloads a { display:inline-block; margin:4px 8px 4px 0; padding:8px 12px; background:var(--blue); color:white; text-decoration:none; border-radius:5px; }
+    @media (max-width:700px) { table { display:block; overflow-x:auto; } }
+  </style>
+</head>
+<body>
+  <div class="banner">SYNTHETIC RECORD, NOT A REAL MEDICAL RECORD</div>
+  <header>
+    <div>The Human Record</div>
+    <h1>John F. Kennedy</h1>
+    <div>Case HR-ML023 · Modern EHR teaching episode · Draft for review</div>
+  </header>
+  <main>
+    <section>
+      <h2>Review summary</h2>
+      <div class="grid">
+        <div class="card"><div class="label">Historical dates</div>May 29, 1917 – November 22, 1963</div>
+        <div class="card"><div class="label">Synthetic DOB</div>1995-05-29</div>
+        <div class="card"><div class="label">Index visit</div>2026-01-12 at age 30</div>
+        <div class="card"><div class="label">Synthetic MRN</div>HR-ML023-SYN</div>
+      </div>
+      <p><strong>Teaching objective:</strong> Primary care for a 30-year-old legislator three months after primary adrenal insufficiency was diagnosed during an adrenal crisis abroad, on the Endocrine Society 2016 guideline: confirming the cause with 21-hydroxylase antibodies without stopping treatment, bringing hydrocortisone from a discharge dose down to 15 to 25 mg a day in divided doses and adjusting fludrocortisone by blood pressure lying and standing, sodium, potassium and renin, written sick-day (stress-dose) rules taught and then used in an intercurrent febrile illness, an emergency injection kit and medical ID, screening for associated autoimmune disease (thyroid, vitamin B12, celiac disease, diabetes) with a raised TSH confirmed before treatment and levothyroxine started only once glucocorticoid replacement is secure (CMID hypothyroidism monograph), bone health after earlier corticosteroid exposure, and exercise-based care of chronic low back pain after disc surgery on the ACP guideline, with his privacy about the diagnosis respected.</p>
+      <div class="downloads">
+        <a href="../case.json">Canonical JSON</a>
+        <a href="fhir-bundle.json">FHIR R4 draft</a>
+        <a href="ccda.html">C-CDA R2.1 summary</a> <a href="ccda.xml">(XML)</a> <a href="review.html">Review checklist</a>
+        <a href="../sources.md">Evidence dossier</a>
+      </div>
+    </section>
+    <section><h2>Historical timeline</h2><table><thead><tr><th>Date</th><th>Event</th><th>Claims</th></tr></thead><tbody>
+  <tr><td>May 29, 1917</td><td>Born in Brookline, Massachusetts.</td><td>CLM-0001</td></tr>
+  <tr><td>1920</td><td>Scarlet fever, a month in the hospital.</td><td>CLM-0002</td></tr>
+  <tr><td>1934</td><td>Colitis diagnosed at the Mayo Clinic.</td><td>CLM-0003</td></tr>
+  <tr><td>1937</td><td>Steroid treatment for colitis, perhaps from as early as this year, during his college years.</td><td>CLM-0004, CLM-0005</td></tr>
+  <tr><td>August 1943</td><td>PT-109 sunk; his back worsened.</td><td>CLM-0007</td></tr>
+  <tr><td>June 1944</td><td>First back operation, at New England Baptist Hospital.</td><td>CLM-0009</td></tr>
+  <tr><td>1946</td><td>Elected to the U.S. House of Representatives.</td><td>CLM-0010</td></tr>
+  <tr><td>1947</td><td>Collapsed in England; Addison&#39;s disease diagnosed; last rites on the voyage home; DOCA pellets in Boston.</td><td>CLM-0011, CLM-0012, CLM-0013</td></tr>
+  <tr><td>1950</td><td>Oral cortisone added.</td><td>CLM-0014</td></tr>
+  <tr><td>October 1954</td><td>Spinal fusion, with severe infection.</td><td>CLM-0015, CLM-0024</td></tr>
+  <tr><td>1955</td><td>Hypothyroidism diagnosed; procaine injections for his back began.</td><td>CLM-0016, CLM-0017, CLM-0022, CLM-0025</td></tr>
+  <tr><td>1960</td><td>Campaign statement denying Addison&#39;s disease.</td><td>CLM-0018</td></tr>
+  <tr><td>1961</td><td>Presidency: daily medicines; exercise program from late in the year.</td><td>CLM-0019, CLM-0020</td></tr>
+  <tr><td>November 22, 1963</td><td>Assassinated in Dallas.</td><td>CLM-0021</td></tr></tbody></table></section>
+    <section><h2>Evidence claims</h2><p class="muted">D = documented, R = retrospective, S = synthetic.</p><table><thead><tr><th>Grade</th><th>Claim</th><th>Certainty</th><th>Sources</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>John F. Kennedy was born on May 29, 1917, in Brookline, Massachusetts.</strong></td>
+    <td>confirmed</td>
+    <td><a href="https://millercenter.org/president/kennedy" target="_blank" rel="noreferrer">John F. Kennedy (key facts)</a> <span class="relationship">supports</span><br><a href="https://humanrecord.example.org/internal/HISTMED_Master_Roster_v3.xlsx" target="_blank" rel="noreferrer">HISTMED Master Roster v3</a> <span class="relationship">context</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>A few months before his third birthday he had a serious case of scarlet fever and spent a month in the hospital; through childhood and adolescence he had nausea, joint pain, headaches and diarrhea and was hospitalized several times.</strong><div class="muted">Background only; not used as a modern diagnosis.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.history.com/articles/the-health-problems-jfk-hid-from-the-public" target="_blank" rel="noreferrer">Kiger PJ. The Health Problems JFK Hid From the Public</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>By 1934 he was sent to the Mayo Clinic, where his bowel illness was diagnosed as colitis.</strong><div class="muted">Background for the bowel symptoms and the steroid treatment that followed.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.pbs.org/newshour/show/president-kennedys-health-secrets" target="_blank" rel="noreferrer">President Kennedy&#39;s Health Secrets (interview with Dr. Jeffrey Kelman)</a> <span class="relationship">supports</span><br><a href="https://www.history.com/articles/the-health-problems-jfk-hid-from-the-public" target="_blank" rel="noreferrer">Kiger PJ. The Health Problems JFK Hid From the Public</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>During his college years at Harvard his abdominal pain, weight loss and weakness continued despite a bland diet and strong medicines, including steroids placed under the skin to dissolve.</strong><div class="muted">Anchors the modern history of corticosteroid exposure in his teens and twenties, one reason for the bone density scan.</div></td>
+    <td>probable</td>
+    <td><a href="https://www.wtkr.com/2017/11/22/jfks-assassination-aided-by-his-bad-back-records-show" target="_blank" rel="noreferrer">JFK&#39;s assassination aided by his bad back, records show (CNN Wire, reporting Pait and Dowdy)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-R" title="Retrospective">R</span></td>
+    <td><strong>The historian Robert Dallek, who examined his medical records at the Kennedy Library, believed that many of his difficulties could be traced to corticosteroids taken perhaps as early as 1937 to relieve his colitis, noting that heavy long-term use can promote osteoporosis.</strong><div class="muted">Retrospective interpretation; supports the modern bone health plan without diagnosing a bone disease.</div></td>
+    <td>possible</td>
+    <td><a href="https://content.time.com/time/subscriber/article/0,33009,1003773-1,00.html" target="_blank" rel="noreferrer">Lacayo R. How Sick Was J.F.K.?</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>His chronic back pain began at Harvard, after he was tackled from the side in a football game, possibly damaging a spinal disc; he began wearing a corset brace to stabilize his spine.</strong><div class="muted">Anchors the modern chronic low back pain and the brace.</div></td>
+    <td>probable</td>
+    <td><a href="https://www.wtkr.com/2017/11/22/jfks-assassination-aided-by-his-bad-back-records-show" target="_blank" rel="noreferrer">JFK&#39;s assassination aided by his bad back, records show (CNN Wire, reporting Pait and Dowdy)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>His back and intestinal problems caused him to fail Army and Navy physical examinations, but he was admitted to the Navy in October 1941. In August 1943 the patrol torpedo boat he commanded, PT-109, was struck by a Japanese destroyer; he led the survivors to safety, and his back worsened as a result.</strong><div class="muted">Anchors the worsening of the back pain.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.history.com/articles/10-things-you-may-not-know-about-john-f-kennedy" target="_blank" rel="noreferrer">Klein C. 10 Things You May Not Know About John F. Kennedy</a> <span class="relationship">supports</span><br><a href="https://www.history.com/articles/the-health-problems-jfk-hid-from-the-public" target="_blank" rel="noreferrer">Kiger PJ. The Health Problems JFK Hid From the Public</a> <span class="relationship">supports</span><br><a href="https://millercenter.org/president/kennedy/life-before-the-presidency" target="_blank" rel="noreferrer">Selverstone MJ. John F. Kennedy: Life Before the Presidency</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>He came home from the war in the Pacific thin and sallow from malaria.</strong><div class="muted">Past history; the malaria was later given as the public explanation for the 1947 illness.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://millercenter.org/president/kennedy/life-before-the-presidency" target="_blank" rel="noreferrer">Selverstone MJ. John F. Kennedy: Life Before the Presidency</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>Against the advice of his doctors at the Mayo Clinic, he had spinal surgery in June 1944 at New England Baptist Hospital; about six weeks later the pain returned.</strong><div class="muted">Anchors the modern history of persistent low back pain after lumbar disc surgery.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.wtkr.com/2017/11/22/jfks-assassination-aided-by-his-bad-back-records-show" target="_blank" rel="noreferrer">JFK&#39;s assassination aided by his bad back, records show (CNN Wire, reporting Pait and Dowdy)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>In 1946, at 29, he was elected to the U.S. House of Representatives from a Boston district. During the campaign his back was so bad that he wore a brace and used daily hot baths and massage.</strong><div class="muted">Anchors the modern work history and the brace.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://millercenter.org/president/kennedy/life-before-the-presidency" target="_blank" rel="noreferrer">Selverstone MJ. John F. Kennedy: Life Before the Presidency</a> <span class="relationship">supports</span><br><a href="https://www.history.com/articles/the-health-problems-jfk-hid-from-the-public" target="_blank" rel="noreferrer">Kiger PJ. The Health Problems JFK Hid From the Public</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>In 1947, at 30, while a congressman, he collapsed on a visit to England; a doctor there diagnosed Addison&#39;s disease and told one of his friends that he might not live a year.</strong><div class="muted">The anchor for the synthetic modern diagnosis of primary adrenal insufficiency during a crisis abroad.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.history.com/articles/the-health-problems-jfk-hid-from-the-public" target="_blank" rel="noreferrer">Kiger PJ. The Health Problems JFK Hid From the Public</a> <span class="relationship">supports</span><br><a href="https://www.healio.com/news/rheumatology/20190715/all-the-presidents-secrets-john-f-kennedy-and-addisons-disease" target="_blank" rel="noreferrer">Volansky R. All the President&#39;s Secrets: John F. Kennedy and Addison&#39;s Disease</a> <span class="relationship">supports</span><br><a href="https://content.time.com/time/subscriber/article/0,33009,1003773-1,00.html" target="_blank" rel="noreferrer">Lacayo R. How Sick Was J.F.K.?</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>Returning to America aboard the Queen Mary, he was so ill that a priest was called to give him the last rites.</strong><div class="muted">Shows how serious the first crisis was; the modern episode records a crisis treated in hospital.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.history.com/articles/10-things-you-may-not-know-about-john-f-kennedy" target="_blank" rel="noreferrer">Klein C. 10 Things You May Not Know About John F. Kennedy</a> <span class="relationship">supports</span><br><a href="https://www.wtkr.com/2017/11/22/jfks-assassination-aided-by-his-bad-back-records-show" target="_blank" rel="noreferrer">JFK&#39;s assassination aided by his bad back, records show (CNN Wire, reporting Pait and Dowdy)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>He passed off the illness as a recurrence of his wartime malaria. In Boston an endocrinologist began treating him for Addison&#39;s disease with pellets of a synthetic adrenal hormone, desoxycorticosterone acetate (DOCA), implanted under his skin.</strong><div class="muted">Anchors the modern start of replacement treatment soon after the diagnosis and his wish to decide who knows.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.history.com/articles/the-health-problems-jfk-hid-from-the-public" target="_blank" rel="noreferrer">Kiger PJ. The Health Problems JFK Hid From the Public</a> <span class="relationship">supports</span><br><a href="https://www.healio.com/news/rheumatology/20190715/all-the-presidents-secrets-john-f-kennedy-and-addisons-disease" target="_blank" rel="noreferrer">Volansky R. All the President&#39;s Secrets: John F. Kennedy and Addison&#39;s Disease</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>By 1950, when cortisone was available by mouth, he also took 25 mg of cortisone each day.</strong><div class="muted">After the index date; recorded as history.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.history.com/articles/the-health-problems-jfk-hid-from-the-public" target="_blank" rel="noreferrer">Kiger PJ. The Health Problems JFK Hid From the Public</a> <span class="relationship">supports</span><br><a href="https://www.healio.com/news/rheumatology/20190715/all-the-presidents-secrets-john-f-kennedy-and-addisons-disease" target="_blank" rel="noreferrer">Volansky R. All the President&#39;s Secrets: John F. Kennedy and Addison&#39;s Disease</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>In October 1954 he had a spinal fusion with a metal plate; he developed a urinary tract infection and became so ill that a priest was called to give him the last rites, and he later developed a staphylococcal wound infection. In February 1955 the plate was removed.</strong><div class="muted">After the index date; recorded as history.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.wtkr.com/2017/11/22/jfks-assassination-aided-by-his-bad-back-records-show" target="_blank" rel="noreferrer">JFK&#39;s assassination aided by his bad back, records show (CNN Wire, reporting Pait and Dowdy)</a> <span class="relationship">supports</span><br><a href="https://content.time.com/time/subscriber/article/0,33009,1003773-1,00.html" target="_blank" rel="noreferrer">Lacayo R. How Sick Was J.F.K.?</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>He was diagnosed with hypothyroidism during a hospital stay in New York in 1955, and he is reported to have taken liothyronine throughout his presidency.</strong><div class="muted">After the index date. Why the modern record screens for autoimmune thyroid disease and finds it.</div></td>
+    <td>probable</td>
+    <td><a href="https://www.healio.com/news/rheumatology/20190715/all-the-presidents-secrets-john-f-kennedy-and-addisons-disease" target="_blank" rel="noreferrer">Volansky R. All the President&#39;s Secrets: John F. Kennedy and Addison&#39;s Disease</a> <span class="relationship">supports</span><br><a href="https://www2.ljworld.com/news/2009/sep/02/doctor-jfk-had-autoimmune-disease/" target="_blank" rel="noreferrer">Doctor: JFK had autoimmune disease (Associated Press)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>Dr. Janet Travell, who first saw him in May 1955 and later became his White House physician, treated his back with injections of procaine into the muscles; Pait and Dowdy write that he received hundreds, if not thousands, of injections over about four years, which with muscle strengthening and the corset brought marked improvement.</strong><div class="muted">After the index date; recorded as history. Medicines are recorded only as the sources state them.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.wtkr.com/2017/11/22/jfks-assassination-aided-by-his-bad-back-records-show" target="_blank" rel="noreferrer">JFK&#39;s assassination aided by his bad back, records show (CNN Wire, reporting Pait and Dowdy)</a> <span class="relationship">supports</span><br><a href="https://www.history.com/articles/the-health-problems-jfk-hid-from-the-public" target="_blank" rel="noreferrer">Kiger PJ. The Health Problems JFK Hid From the Public</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>Through his years in Congress and the Senate he denied rumors that he had Addison&#39;s disease. During the 1960 campaign his campaign issued a statement that denied he had Addison&#39;s disease, describing it as a tuberculous destruction of the adrenal gland, and called his health excellent; in 1960 he acknowledged an adrenal deficiency.</strong><div class="muted">After the index date; recorded as history. The modern episode respects his choice about who is told.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://content.time.com/time/subscriber/article/0,33009,1003773-1,00.html" target="_blank" rel="noreferrer">Lacayo R. How Sick Was J.F.K.?</a> <span class="relationship">supports</span><br><a href="https://www.history.com/articles/the-health-problems-jfk-hid-from-the-public" target="_blank" rel="noreferrer">Kiger PJ. The Health Problems JFK Hid From the Public</a> <span class="relationship">supports</span><br><a href="https://www.healio.com/news/rheumatology/20190715/all-the-presidents-secrets-john-f-kennedy-and-addisons-disease" target="_blank" rel="noreferrer">Volansky R. All the President&#39;s Secrets: John F. Kennedy and Addison&#39;s Disease</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>Dallek reported that during his presidency he took many medicines each day: steroids for his Addison&#39;s disease, painkillers for his back, antispasmodics for his colitis, antibiotics for urinary tract infections, and antihistamines for allergies.</strong><div class="muted">After the index date; recorded as history, in Dallek&#39;s words as Time quotes them. No other drug is named in this record.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://content.time.com/time/subscriber/article/0,33009,1003773-1,00.html" target="_blank" rel="noreferrer">Lacayo R. How Sick Was J.F.K.?</a> <span class="relationship">supports</span><br><a href="https://www.history.com/articles/the-health-problems-jfk-hid-from-the-public" target="_blank" rel="noreferrer">Kiger PJ. The Health Problems JFK Hid From the Public</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>From late 1961 Dr. Hans Kraus put him on a program of exercise, swimming, massage and heat and tried to wean him off the back brace, with marked improvement; in August 1963 he strained his back and wore the brace again.</strong><div class="muted">After the index date; recorded as history. The modern back pain plan follows current guidance, not his treatment.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.wtkr.com/2017/11/22/jfks-assassination-aided-by-his-bad-back-records-show" target="_blank" rel="noreferrer">JFK&#39;s assassination aided by his bad back, records show (CNN Wire, reporting Pait and Dowdy)</a> <span class="relationship">supports</span><br><a href="https://www.history.com/articles/the-health-problems-jfk-hid-from-the-public" target="_blank" rel="noreferrer">Kiger PJ. The Health Problems JFK Hid From the Public</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>He was assassinated in Dallas on November 22, 1963.</strong><div class="muted">History only; not used in the modern episode.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://millercenter.org/president/kennedy/death-of-the-president" target="_blank" rel="noreferrer">John F. Kennedy: Death of the President</a> <span class="relationship">supports</span><br><a href="https://millercenter.org/president/kennedy" target="_blank" rel="noreferrer">John F. Kennedy (key facts)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-R" title="Retrospective">R</span></td>
+    <td><strong>Reviewing his medical records in 2009, Lee Mandel concluded that his Addison&#39;s disease and his hypothyroidism were most likely parts of a single autoimmune disorder, autoimmune polyglandular syndrome type 2.</strong><div class="muted">Retrospective interpretation, linked to his later hypothyroidism; the modern episode screens for associated autoimmune disease because the guideline advises it for anyone with this diagnosis.</div></td>
+    <td>probable</td>
+    <td><a href="https://pubmed.ncbi.nlm.nih.gov/19721023/" target="_blank" rel="noreferrer">Mandel LR. Endocrine and autoimmune aspects of the health history of John F. Kennedy. Ann Intern Med. 2009;151(5):350-354 (PMID 19721023)</a> <span class="relationship">supports</span><br><a href="https://www2.ljworld.com/news/2009/sep/02/doctor-jfk-had-autoimmune-disease/" target="_blank" rel="noreferrer">Doctor: JFK had autoimmune disease (Associated Press)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-R" title="Retrospective">R</span></td>
+    <td><strong>Macchia and colleagues proposed that his bowel symptoms from adolescence fit well with coeliac disease.</strong><div class="muted">Retrospective and unproven; one reason the modern episode includes celiac serology, which is negative.</div></td>
+    <td>possible</td>
+    <td><a href="https://pubmed.ncbi.nlm.nih.gov/32341184/" target="_blank" rel="noreferrer">Macchia D, Lippi D, Bianucci R, Donell S. President John F Kennedy&#39;s medical history: coeliac disease and autoimmune polyglandular syndrome type 2. Postgrad Med J. 2020;96(1139):543-549 (PMID 32341184)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-R" title="Retrospective">R</span></td>
+    <td><strong>Retrospective reviews of his back disagree. The physician who reviewed the records with Dallek said he had compression fractures in his low back and osteoporosis; Pait and Dowdy, reviewing his X-rays, found no sign of underlying bone disease or of a steroid-related fracture and judged that his four back operations (a discectomy, a fusion with instrumentation, and two smaller operations) failed to relieve his pain.</strong><div class="muted">Retrospective and disputed; the modern bone density scan is within the expected range, and no bone disease is diagnosed.</div></td>
+    <td>disputed</td>
+    <td><a href="https://www.pbs.org/newshour/show/president-kennedys-health-secrets" target="_blank" rel="noreferrer">President Kennedy&#39;s Health Secrets (interview with Dr. Jeffrey Kelman)</a> <span class="relationship">supports</span><br><a href="https://pubmed.ncbi.nlm.nih.gov/28693374/" target="_blank" rel="noreferrer">Pait TG, Dowdy JT. John F. Kennedy&#39;s back: chronic pain, failed surgeries, and the story of its effects on his life and death. J Neurosurg Spine. 2017;27(3):247-255 (PMID 28693374)</a> <span class="relationship">supports</span><br><a href="https://www.wtkr.com/2017/11/22/jfks-assassination-aided-by-his-bad-back-records-show" target="_blank" rel="noreferrer">JFK&#39;s assassination aided by his bad back, records show (CNN Wire, reporting Pait and Dowdy)</a> <span class="relationship">disputes</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-R" title="Retrospective">R</span></td>
+    <td><strong>Pinals and Hassett argued in 2013 that, because operations on the presumed structural cause brought little relief and a conservative program with trigger point injections and exercise helped modestly, his pain is better understood through current pain research than as a purely structural problem.</strong><div class="muted">Retrospective interpretation; consistent with the modern exercise-based back pain plan.</div></td>
+    <td>possible</td>
+    <td><a href="https://pubmed.ncbi.nlm.nih.gov/23900054/" target="_blank" rel="noreferrer">Pinals RS, Hassett AL. Reconceptualizing John F. Kennedy&#39;s chronic low back pain. Reg Anesth Pain Med. 2013;38(5):442-446 (PMID 23900054)</a> <span class="relationship">supports</span></td>
+  </tr></tbody></table></section>
+    <section><h2>Modern synthetic problem list</h2><table><thead><tr><th>Grade</th><th>Problem</th><th>Clinical status</th><th>Verification</th><th>Placement</th><th>Historical claims</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Primary adrenal insufficiency (Addison&#39;s disease), diagnosed about three months ago during an adrenal crisis while traveling abroad, on hydrocortisone and fludrocortisone; synthetic modern episode linked to his documented 1947 diagnosis</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>both_with_link</td>
+    <td>CLM-0011, CLM-0012, CLM-0013</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Chronic low back pain persisting after lumbar disc surgery; began after a football injury in college and worsened during wartime naval service; uses a corset brace; synthetic modern episode linked to his documented back history</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>both_with_link</td>
+    <td>CLM-0006, CLM-0007, CLM-0009, CLM-0010</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Raised TSH with positive thyroid peroxidase antibodies and normal free T4 on screening for associated autoimmune disease; to be repeated before any treatment</td>
+    <td>resolved</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Autoimmune (Hashimoto&#39;s) hypothyroidism, part of an autoimmune polyglandular syndrome with the adrenal insufficiency; started on levothyroxine</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>both_with_link</td>
+    <td>CLM-0016, CLM-0022</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Influenza A with fever, managed at home with oseltamivir and doubled hydrocortisone under the sick-day rules; resolved</td>
+    <td>resolved</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td></td>
+  </tr></tbody></table></section>
+    <section><h2>Synthetic outcome measures</h2><table><thead><tr><th>Grade</th><th>Date</th><th>Measure</th><th>Result</th><th>Coding</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-01-12</td>
+    <td>Hemoglobin [Mass/volume] in Blood</td>
+    <td>13.6 g/dL<div class="muted">Reference 13.2-16.6 g/dL</div></td>
+    <td>http://loinc.org · 718-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-01-12</td>
+    <td>Sodium [Moles/volume] in Serum or Plasma</td>
+    <td>134 mmol/L (low)<div class="muted">Reference 135-145 mmol/L</div></td>
+    <td>http://loinc.org · 2951-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-01-12</td>
+    <td>Potassium [Moles/volume] in Serum or Plasma</td>
+    <td>5.2 mmol/L (high)<div class="muted">Reference 3.5-5.1 mmol/L</div></td>
+    <td>http://loinc.org · 2823-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-01-12</td>
+    <td>Creatinine [Mass/volume] in Serum or Plasma</td>
+    <td>0.96 mg/dL<div class="muted">Reference 0.74-1.35 mg/dL</div></td>
+    <td>http://loinc.org · 2160-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-01-12</td>
+    <td>Glomerular filtration rate [Volume Rate/Area] in Serum, Plasma or Blood by Creatinine-based formula (CKD-EPI 2021)/1.73 sq M</td>
+    <td>109 mL/min/1.73 m²<div class="muted">Reference &gt;=60 mL/min/1.73 m²</div></td>
+    <td>http://loinc.org · 98979-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-01-12</td>
+    <td>Fasting glucose [Mass/volume] in Serum or Plasma</td>
+    <td>84 mg/dL<div class="muted">Reference 70-99 mg/dL</div></td>
+    <td>http://loinc.org · 1558-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-01-12</td>
+    <td>Renin [Enzymatic activity/volume] in Plasma</td>
+    <td>9.6 ng/mL/h (high)<div class="muted">Reference Upright, mid-morning: 0.6 to 4.3 ng/mL/h</div></td>
+    <td>http://loinc.org · 2915-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-01-12</td>
+    <td>21-Hydroxylase Ab [Units/volume] in Serum</td>
+    <td>18 U/mL (high)<div class="muted">Reference Below 1 U/mL: negative</div></td>
+    <td>http://loinc.org · 17781-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-01-12</td>
+    <td>Thyrotropin [Units/volume] in Serum or Plasma</td>
+    <td>7.4 mIU/L (high)<div class="muted">Reference 0.45-4.5 mIU/L</div></td>
+    <td>http://loinc.org · 3016-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-01-12</td>
+    <td>Thyroxine (T4) free [Mass/volume] in Serum or Plasma</td>
+    <td>1 ng/dL<div class="muted">Reference 0.8-1.8 ng/dL</div></td>
+    <td>http://loinc.org · 3024-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-01-12</td>
+    <td>Thyroperoxidase Ab [Units/volume] in Serum or Plasma</td>
+    <td>286 [IU]/mL (high)<div class="muted">Reference &lt;=34 [IU]/mL</div></td>
+    <td>http://loinc.org · 8099-4</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-01-12</td>
+    <td>Cobalamin (Vitamin B12) [Mass/volume] in Serum or Plasma</td>
+    <td>455 pg/mL<div class="muted">Reference 232-1245 pg/mL</div></td>
+    <td>http://loinc.org · 2132-9</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-01-12</td>
+    <td>Hemoglobin A1c/Hemoglobin.total in Blood</td>
+    <td>5.1%<div class="muted">Reference Below 5.7% is normal; 5.7 to 6.4% prediabetes</div></td>
+    <td>http://loinc.org · 4548-4</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-01-12</td>
+    <td>Tissue transglutaminase IgA Ab [Units/volume] in Serum</td>
+    <td>1.1 U/mL<div class="muted">Reference Below 4 U/mL: negative</div></td>
+    <td>http://loinc.org · 31017-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-01-12</td>
+    <td>IgA [Mass/volume] in Serum or Plasma</td>
+    <td>214 mg/dL<div class="muted">Reference 70-400 mg/dL</div></td>
+    <td>http://loinc.org · 2458-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-01-12</td>
+    <td>25-Hydroxyvitamin D3+25-Hydroxyvitamin D2 [Mass/volume] in Serum or Plasma</td>
+    <td>31 ng/mL<div class="muted">Reference 30-100 ng/mL</div></td>
+    <td>http://loinc.org · 62292-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-01-12</td>
+    <td>Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]</td>
+    <td>4</td>
+    <td>http://loinc.org · 44261-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-01-12</td>
+    <td>Oswestry disability index score ODI</td>
+    <td>32</td>
+    <td>http://loinc.org · 97909-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-01-26</td>
+    <td>DXA Lumbar spine [Z-score] Bone density</td>
+    <td>-1.3<div class="muted">Reference Above -2.0 is within the expected range for age</div></td>
+    <td>http://loinc.org · 85394-5</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-01-26</td>
+    <td>DXA Femur [Z-score] Bone density</td>
+    <td>-0.6<div class="muted">Reference Above -2.0 is within the expected range for age</div></td>
+    <td>http://loinc.org · 80934-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-09</td>
+    <td>Sodium [Moles/volume] in Serum or Plasma</td>
+    <td>139 mmol/L<div class="muted">Reference 135-145 mmol/L</div></td>
+    <td>http://loinc.org · 2951-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-09</td>
+    <td>Potassium [Moles/volume] in Serum or Plasma</td>
+    <td>4.4 mmol/L<div class="muted">Reference 3.5-5.1 mmol/L</div></td>
+    <td>http://loinc.org · 2823-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-09</td>
+    <td>Creatinine [Mass/volume] in Serum or Plasma</td>
+    <td>0.94 mg/dL<div class="muted">Reference 0.74-1.35 mg/dL</div></td>
+    <td>http://loinc.org · 2160-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-09</td>
+    <td>Glomerular filtration rate [Volume Rate/Area] in Serum, Plasma or Blood by Creatinine-based formula (CKD-EPI 2021)/1.73 sq M</td>
+    <td>112 mL/min/1.73 m²<div class="muted">Reference &gt;=60 mL/min/1.73 m²</div></td>
+    <td>http://loinc.org · 98979-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-09</td>
+    <td>Renin [Enzymatic activity/volume] in Plasma</td>
+    <td>2.6 ng/mL/h<div class="muted">Reference Upright, mid-morning: 0.6 to 4.3 ng/mL/h</div></td>
+    <td>http://loinc.org · 2915-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-09</td>
+    <td>Thyrotropin [Units/volume] in Serum or Plasma</td>
+    <td>9.2 mIU/L (high)<div class="muted">Reference 0.45-4.5 mIU/L</div></td>
+    <td>http://loinc.org · 3016-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-09</td>
+    <td>Thyroxine (T4) free [Mass/volume] in Serum or Plasma</td>
+    <td>0.8 ng/dL<div class="muted">Reference 0.8-1.8 ng/dL</div></td>
+    <td>http://loinc.org · 3024-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-09</td>
+    <td>Oswestry disability index score ODI</td>
+    <td>26</td>
+    <td>http://loinc.org · 97909-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-04-20</td>
+    <td>Sodium [Moles/volume] in Serum or Plasma</td>
+    <td>140 mmol/L<div class="muted">Reference 135-145 mmol/L</div></td>
+    <td>http://loinc.org · 2951-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-04-20</td>
+    <td>Potassium [Moles/volume] in Serum or Plasma</td>
+    <td>4.2 mmol/L<div class="muted">Reference 3.5-5.1 mmol/L</div></td>
+    <td>http://loinc.org · 2823-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-04-20</td>
+    <td>Thyrotropin [Units/volume] in Serum or Plasma</td>
+    <td>3.1 mIU/L<div class="muted">Reference 0.45-4.5 mIU/L</div></td>
+    <td>http://loinc.org · 3016-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-04-20</td>
+    <td>Thyroxine (T4) free [Mass/volume] in Serum or Plasma</td>
+    <td>1.2 ng/dL<div class="muted">Reference 0.8-1.8 ng/dL</div></td>
+    <td>http://loinc.org · 3024-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-04-20</td>
+    <td>Oswestry disability index score ODI</td>
+    <td>18</td>
+    <td>http://loinc.org · 97909-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-10-19</td>
+    <td>Sodium [Moles/volume] in Serum or Plasma</td>
+    <td>139 mmol/L<div class="muted">Reference 135-145 mmol/L</div></td>
+    <td>http://loinc.org · 2951-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-10-19</td>
+    <td>Potassium [Moles/volume] in Serum or Plasma</td>
+    <td>4.3 mmol/L<div class="muted">Reference 3.5-5.1 mmol/L</div></td>
+    <td>http://loinc.org · 2823-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-10-19</td>
+    <td>Creatinine [Mass/volume] in Serum or Plasma</td>
+    <td>0.95 mg/dL<div class="muted">Reference 0.74-1.35 mg/dL</div></td>
+    <td>http://loinc.org · 2160-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-10-19</td>
+    <td>Glomerular filtration rate [Volume Rate/Area] in Serum, Plasma or Blood by Creatinine-based formula (CKD-EPI 2021)/1.73 sq M</td>
+    <td>110 mL/min/1.73 m²<div class="muted">Reference &gt;=60 mL/min/1.73 m²</div></td>
+    <td>http://loinc.org · 98979-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-10-19</td>
+    <td>Renin [Enzymatic activity/volume] in Plasma</td>
+    <td>2.2 ng/mL/h<div class="muted">Reference Upright, mid-morning: 0.6 to 4.3 ng/mL/h</div></td>
+    <td>http://loinc.org · 2915-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-10-19</td>
+    <td>Thyrotropin [Units/volume] in Serum or Plasma</td>
+    <td>2 mIU/L<div class="muted">Reference 0.45-4.5 mIU/L</div></td>
+    <td>http://loinc.org · 3016-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-10-19</td>
+    <td>Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]</td>
+    <td>2</td>
+    <td>http://loinc.org · 44261-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-10-19</td>
+    <td>Oswestry disability index score ODI</td>
+    <td>14</td>
+    <td>http://loinc.org · 97909-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-02-16</td>
+    <td>Sodium [Moles/volume] in Serum or Plasma</td>
+    <td>135 mmol/L<div class="muted">Reference 135-145 mmol/L</div></td>
+    <td>http://loinc.org · 2951-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-02-16</td>
+    <td>Potassium [Moles/volume] in Serum or Plasma</td>
+    <td>4.6 mmol/L<div class="muted">Reference 3.5-5.1 mmol/L</div></td>
+    <td>http://loinc.org · 2823-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-02-16</td>
+    <td>Creatinine [Mass/volume] in Serum or Plasma</td>
+    <td>1.02 mg/dL<div class="muted">Reference 0.74-1.35 mg/dL</div></td>
+    <td>http://loinc.org · 2160-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-02-16</td>
+    <td>Glomerular filtration rate [Volume Rate/Area] in Serum, Plasma or Blood by Creatinine-based formula (CKD-EPI 2021)/1.73 sq M</td>
+    <td>101 mL/min/1.73 m²<div class="muted">Reference &gt;=60 mL/min/1.73 m²</div></td>
+    <td>http://loinc.org · 98979-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-02-16</td>
+    <td>Glucose [Mass/volume] in Serum or Plasma</td>
+    <td>96 mg/dL<div class="muted">Reference 70-139 mg/dL</div></td>
+    <td>http://loinc.org · 2345-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-08-17</td>
+    <td>Patient Health Questionnaire 2 item (PHQ-2) total score [Reported]</td>
+    <td>0</td>
+    <td>http://loinc.org · 55758-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-08-17</td>
+    <td>Total score [AUDIT-C]</td>
+    <td>2</td>
+    <td>http://loinc.org · 75626-2</td>
+  </tr></tbody></table></section>
+    <section><h2>Synthetic vital signs</h2><table><thead><tr><th>Date</th><th>Measure</th><th>Result</th><th>LOINC</th><th>Grade</th></tr></thead><tbody>
+  <tr><td>2026-01-12</td><td>Body height</td><td>183 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-01-12</td><td>Body weight</td><td>66 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-01-12</td><td>Body mass index (BMI) [Ratio]</td><td>19.7 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-01-12</td><td>Systolic blood pressure</td><td>104 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-01-12</td><td>Diastolic blood pressure</td><td>66 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-01-12</td><td>Heart rate</td><td>88 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-01-12</td><td>Respiratory rate</td><td>16 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-01-12</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-01-12</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>98 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-01-26</td><td>Body height</td><td>183 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-01-26</td><td>Body weight</td><td>66.8 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-01-26</td><td>Body mass index (BMI) [Ratio]</td><td>19.9 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-01-26</td><td>Systolic blood pressure</td><td>108 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-01-26</td><td>Diastolic blood pressure</td><td>68 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-01-26</td><td>Heart rate</td><td>84 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-01-26</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-01-26</td><td>Body temperature</td><td>36.7 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-01-26</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>98 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-09</td><td>Body height</td><td>183 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-09</td><td>Body weight</td><td>69 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-09</td><td>Body mass index (BMI) [Ratio]</td><td>20.6 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-09</td><td>Systolic blood pressure</td><td>118 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-09</td><td>Diastolic blood pressure</td><td>74 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-09</td><td>Heart rate</td><td>76 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-09</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-09</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-09</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>99 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-20</td><td>Body height</td><td>183 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-20</td><td>Body weight</td><td>70.6 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-20</td><td>Body mass index (BMI) [Ratio]</td><td>21.1 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-20</td><td>Systolic blood pressure</td><td>120 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-20</td><td>Diastolic blood pressure</td><td>76 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-20</td><td>Heart rate</td><td>72 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-20</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-20</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-20</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>99 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-19</td><td>Body height</td><td>183 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-19</td><td>Body weight</td><td>72 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-19</td><td>Body mass index (BMI) [Ratio]</td><td>21.5 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-19</td><td>Systolic blood pressure</td><td>118 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-19</td><td>Diastolic blood pressure</td><td>74 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-19</td><td>Heart rate</td><td>70 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-19</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-19</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-19</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>99 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-02-16</td><td>Body height</td><td>183 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-02-16</td><td>Body weight</td><td>66.4 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-02-16</td><td>Body mass index (BMI) [Ratio]</td><td>19.8 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-02-16</td><td>Systolic blood pressure</td><td>112 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-02-16</td><td>Diastolic blood pressure</td><td>70 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-02-16</td><td>Heart rate</td><td>96 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-02-16</td><td>Respiratory rate</td><td>18 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-02-16</td><td>Body temperature</td><td>38.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-02-16</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>97 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-08-17</td><td>Body height</td><td>183 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-08-17</td><td>Body weight</td><td>71.4 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-08-17</td><td>Body mass index (BMI) [Ratio]</td><td>21.3 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-08-17</td><td>Systolic blood pressure</td><td>118 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-08-17</td><td>Diastolic blood pressure</td><td>76 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-08-17</td><td>Heart rate</td><td>70 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-08-17</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-08-17</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-08-17</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>99 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr></tbody></table></section>
+    <section><h2>Social, functional, and mental status</h2><h3>Social history</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> First-term member of the U.S. House of Representatives; travels each week between Washington and his district in Boston; long days with speeches and meetings, often with irregular meals</li><li><span class="badge grade-S" title="Synthetic">S</span> Single; lives in a rented house in Washington with a household staff member who helps with errands</li><li><span class="badge grade-S" title="Synthetic">S</span> Tobacco: none. Alcohol: one or two drinks at social events, not every week. No drug use</li><li><span class="badge grade-S" title="Synthetic">S</span> Activity: swims when he can, which eases his back; walks little because of the pain</li><li><span class="badge grade-S" title="Synthetic">S</span> Supports: close friends he trusts, colleagues who cover for him on bad days, and work he finds meaningful; swimming eases his back</li><li><span class="badge grade-S" title="Synthetic">S</span> He wants to decide himself who is told about his diagnosis; his office staff know only that he has a chronic condition that needs daily tablets</li></ul><h3>Functional status</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Independent in all activities; tires by late afternoon; needs help with socks and shoes on bad back days; climbs stairs slowly</li></ul><h3>Mental status</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Alert, oriented and good-humored; describes his mood as tired but well; no low mood or loss of interest; PHQ-9 score 4, mainly tiredness</li></ul></section>
+    
+    <section><h2>Allergies and medications</h2><h3>Allergies</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> No known allergy</li></ul><h3>Medications</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Hydrocortisone 10 mg oral tablet, two tablets (20 mg) on waking and one tablet (10 mg) at 2 pm, 30 mg a day (started in hospital)</li><li><span class="badge grade-S" title="Synthetic">S</span> Fludrocortisone 0.1 mg oral tablet, half a tablet (0.05 mg) by mouth once daily (started in hospital)</li><li><span class="badge grade-S" title="Synthetic">S</span> Hydrocortisone 10 mg oral tablet, one tablet by mouth on waking</li><li><span class="badge grade-S" title="Synthetic">S</span> Hydrocortisone 5 mg oral tablet, one tablet by mouth at noon and one at 4 pm</li><li><span class="badge grade-S" title="Synthetic">S</span> Fludrocortisone 0.1 mg oral tablet, one tablet by mouth once daily</li><li><span class="badge grade-S" title="Synthetic">S</span> Hydrocortisone 100 mg injection kit (with diluent), 100 mg into the thigh muscle once for vomiting, collapse or signs of adrenal crisis, then call 911</li><li><span class="badge grade-S" title="Synthetic">S</span> Acetaminophen 500 mg oral tablet, two tablets by mouth up to three times a day as needed for back pain</li><li><span class="badge grade-S" title="Synthetic">S</span> Oseltamivir 75 mg oral capsule, one capsule by mouth twice daily for five days</li><li><span class="badge grade-S" title="Synthetic">S</span> Levothyroxine 50 mcg oral tablet, one tablet by mouth each morning on an empty stomach</li></ul></section>
+    <section><h2>Procedures and immunizations</h2><h3>Procedures</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Dual-energy X-ray absorptiometry (DXA) of the lumbar spine and hip</li><li><span class="badge grade-S" title="Synthetic">S</span> Advance care planning conversation, about 20 minutes</li></ul><h3>Immunizations</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> 2026-01-12: Influenza vaccine, inactivated, this season</li><li><span class="badge grade-S" title="Synthetic">S</span> 2026-08-17: Tetanus, diphtheria, and acellular pertussis vaccine (Tdap)</li><li><span class="badge grade-S" title="Synthetic">S</span> 2026-08-17: Hepatitis B vaccine (HepB-CpG), dose 1 of 2</li><li><span class="badge grade-S" title="Synthetic">S</span> 2026-10-19: Hepatitis B vaccine (HepB-CpG), dose 2 of 2</li><li><span class="badge grade-S" title="Synthetic">S</span> 2026-10-19: Influenza vaccine, inactivated, this season</li></ul></section>
+    <section><h2>Past medical history</h2><p class="muted">True biography with historical dates; not part of the synthetic care timeline.</p><ul><li><span class="badge grade-D" title="Documented">D</span> 1920: Scarlet fever in early childhood, with a month in the hospital <span class="muted">(CLM-0002)</span></li><li><span class="badge grade-D" title="Documented">D</span> 1934: Colitis diagnosed at the Mayo Clinic, with bowel symptoms and weight loss in his teens <span class="muted">(CLM-0003)</span></li><li><span class="badge grade-D" title="Documented">D</span> 1937: Steroid treatment for colitis during his college years, including steroids placed under the skin <span class="muted">(CLM-0004)</span></li><li><span class="badge grade-D" title="Documented">D</span> 1937: Back injury in a college football game, with back pain since and a corset brace <span class="muted">(CLM-0006)</span></li><li><span class="badge grade-D" title="Documented">D</span> August 1943: Back worsened during wartime naval service, when the boat he commanded was sunk; malaria in the Pacific <span class="muted">(CLM-0007, CLM-0008)</span></li><li><span class="badge grade-D" title="Documented">D</span> June 1944: Lumbar spine operation at New England Baptist Hospital; pain returned about six weeks later <span class="muted">(CLM-0009)</span></li><li><span class="badge grade-D" title="Documented">D</span> 1947: Collapse in England with a diagnosis of Addison&#39;s disease; so ill on the voyage home that he received the last rites; treated in Boston with desoxycorticosterone pellets <span class="muted">(CLM-0011, CLM-0012, CLM-0013)</span></li></ul><h3>Family history</h3><p class="muted">No family medical history is documented in the logged sources. Family history of real relatives is never synthesized.</p></section>
+    <section><h2>Care-plan goals</h2><table><thead><tr><th>Goal</th><th>Target date</th><th>Status</th><th>Outcome</th></tr></thead><tbody>
+  <tr><td>No adrenal crisis and no emergency admission through nine months</td><td>2026-10-19</td><td>completed</td><td>No crisis or admission; one febrile illness managed at home with stress dosing</td></tr>
+  <tr><td>Hydrocortisone at the lowest dose that keeps him well, within 15 to 25 mg a day, with his weight back toward his usual 72 kg and no signs of over-replacement</td><td>2026-10-19</td><td>completed</td><td>Hydrocortisone 20 mg a day in three doses; weight 72.0 kg from 66.0; no signs of excess</td></tr>
+  <tr><td>Sodium and potassium normal, renin in the upper normal range, and no postural drop in blood pressure by the six-week review</td><td>2026-03-09</td><td>completed</td><td>Sodium 139, potassium 4.4 mmol/L; renin 2.6 ng/mL/h; no postural drop</td></tr>
+  <tr><td>He can state the sick-day rules and give the emergency injection by the two-week visit</td><td>2026-01-26</td><td>completed</td><td>Stated the rules and gave a practice injection on a trainer</td></tr>
+  <tr><td>Oswestry Disability Index below 20% by three months, with the brace used only for long travel</td><td>2026-04-20</td><td>completed</td><td>Oswestry 18% at three months; brace used only on long journeys</td></tr></tbody></table></section>
+    <section><h2>Interventions</h2><table><thead><tr><th>Intervention</th><th>Status</th><th>Guideline</th></tr></thead><tbody>
+  <tr><td>Glucocorticoid and mineralocorticoid replacement adjusted by clinical assessment at every visit (weight, blood pressure lying and standing, energy, salt craving, and signs of over- or under-replacement), with sodium, potassium and plasma renin to guide fludrocortisone; doses set with endocrinology</td><td>completed</td><td>GL-ES-PAI-2016</td></tr>
+  <tr><td>Endocrinology consultation to confirm the cause, set the replacement doses, review the thyroid results and bone health, and plan stress dosing and follow-up</td><td>completed</td><td>GL-ES-PAI-2016</td></tr>
+  <tr><td>Written sick-day rules (double the hydrocortisone for fever above 38 °C, triple it above 39 °C, and inject and seek emergency care if vomiting or unable to take tablets), an emergency hydrocortisone injection kit with training, a steroid emergency card and a medical ID, reviewed at every visit</td><td>completed</td><td>GL-ES-PAI-2016</td></tr>
+  <tr><td>Screening for associated autoimmune disease: 21-hydroxylase antibodies for the cause, TSH, free T4 and thyroid peroxidase antibodies, vitamin B12, A1c and celiac serology with total IgA at intake; TSH at least yearly afterwards, and the others yearly or with symptoms</td><td>completed</td><td>GL-ES-PAI-2016, GL-CMID-2026, GL-ACG-CD-2023</td></tr>
+  <tr><td>Chronic low back pain: physical therapy with core strengthening, swimming, heat, and gradual weaning from the brace except on long journeys; acetaminophen as needed; no opioids; Oswestry Disability Index at each review; imaging only for red flags</td><td>completed</td><td>GL-ACP-LBP-2017</td></tr>
+  <tr><td>Bone health: a bone density scan because of corticosteroid exposure in his teens and twenties, calcium and vitamin D from diet, weight-bearing exercise, and avoiding glucocorticoid over-replacement</td><td>completed</td><td>GL-ACR-GIOP-2022, GL-ES-OPM-2012, GL-ES-PAI-2016</td></tr>
+  <tr><td>Influenza: oseltamivir for five days, hydrocortisone doubled under the sick-day rules until a day without fever and then back to the usual dose, fluids with salt, and the emergency injection with a 911 call if he vomits or cannot take tablets</td><td>completed</td><td>GL-ES-PAI-2016, GL-CDC-FLU-AV</td></tr>
+  <tr><td>Autoimmune hypothyroidism: levothyroxine 50 mcg daily, started only after glucocorticoid replacement was secure; TSH 6 weeks after starting, again at 6 months, then yearly; target TSH 0.4 to 4.0 mIU/L</td><td>completed</td><td>GL-CMID-2026, GL-ATA-HYPO-2014, GL-ES-PAI-2016</td></tr></tbody></table></section>
+    <section><h2>Planned encounters</h2><ul>
+  <li><strong>2026-01-12</strong> — Establishing primary care about three months after primary adrenal insufficiency was diagnosed during an adrenal crisis abroad: replacement doses, electrolytes and renin, cause, autoimmune screening, sick-day rules and emergency kit, and chronic low back pain <span class="muted">(ENC-001)</span></li>
+  <li><strong>2026-01-26</strong> — Two-week review and endocrinology consultation, with a bone density scan <span class="muted">(ENC-002)</span></li>
+  <li><strong>2026-02-16</strong> — Same-day sick visit for influenza with stress dosing of hydrocortisone <span class="muted">(ENC-006, unscheduled)</span></li>
+  <li><strong>2026-03-09</strong> — Six-week review after the dose changes: electrolytes, renin, repeat thyroid tests, and back pain <span class="muted">(ENC-003)</span></li>
+  <li><strong>2026-04-20</strong> — Six-week review after starting levothyroxine <span class="muted">(ENC-004)</span></li>
+  <li><strong>2026-08-17</strong> — Periodic adult preventive visit <span class="muted">(ENC-007)</span></li>
+  <li><strong>2026-10-19</strong> — Nine-month review: replacement, thyroid, autoimmune screening, bone health, and back pain <span class="muted">(ENC-005)</span></li></ul></section>
+    <section><h2>Supporting documents</h2><ul><li><a href="notes/hp.md">History and physical</a></li><li><a href="notes/progress-01.md">Progress note 01</a></li><li><a href="notes/progress-02.md">Progress note 02 — Focused Visit (Follow-up)</a></li><li><a href="notes/progress-03.md">Progress note 03 — Sick Visit</a></li><li><a href="notes/progress-04.md">Progress note 04 — Focused Visit (Follow-up)</a></li><li><a href="notes/progress-05.md">Progress note 05 — Focused Visit (Follow-up)</a></li><li><a href="notes/progress-06.md">Progress note 06 — Preventive Visit</a></li><li><a href="notes/progress-07.md">Progress note 07 — Focused Visit (Care-plan review)</a></li><li><a href="notes/referral-01.md">Endocrinology referral</a></li><li><a href="notes/consult-01.md">Endocrinology consultation</a></li><li><a href="notes/careplan.md">Patient care plan</a></li><li><a href="notes/teaching-note.md">Teaching note</a></li><li><a href="provenance.csv">Provenance CSV</a></li></ul></section>
+    <section><h2>C-CDA note documents</h2><p class="muted">Each link opens a readable copy; the XML beside it is the exchange file.</p><ul><li><a href="ccda/hp-01.html">History and physical</a> <a href="ccda/hp-01.xml">(XML)</a></li><li><a href="ccda/progress-01.html">Progress note 01</a> <a href="ccda/progress-01.xml">(XML)</a></li><li><a href="ccda/progress-02.html">Progress note 02 — Focused Visit (Follow-up)</a> <a href="ccda/progress-02.xml">(XML)</a></li><li><a href="ccda/progress-03.html">Progress note 03 — Sick Visit</a> <a href="ccda/progress-03.xml">(XML)</a></li><li><a href="ccda/progress-04.html">Progress note 04 — Focused Visit (Follow-up)</a> <a href="ccda/progress-04.xml">(XML)</a></li><li><a href="ccda/progress-05.html">Progress note 05 — Focused Visit (Follow-up)</a> <a href="ccda/progress-05.xml">(XML)</a></li><li><a href="ccda/progress-06.html">Progress note 06 — Preventive Visit</a> <a href="ccda/progress-06.xml">(XML)</a></li><li><a href="ccda/progress-07.html">Progress note 07 — Focused Visit (Care-plan review)</a> <a href="ccda/progress-07.xml">(XML)</a></li><li><a href="ccda/referral-01.html">Endocrinology referral</a> <a href="ccda/referral-01.xml">(XML)</a></li><li><a href="ccda/consult-01.html">Endocrinology consultation</a> <a href="ccda/consult-01.xml">(XML)</a></li></ul></section>
+    <section><h2>Sources</h2><table><thead><tr><th>ID</th><th>Source</th><th>Publisher</th><th>Type</th></tr></thead><tbody>
+  <tr>
+    <td>SRC-0001</td>
+    <td><a href="https://millercenter.org/president/kennedy" target="_blank" rel="noreferrer">John F. Kennedy (key facts)</a></td>
+    <td>Miller Center, University of Virginia</td>
+    <td>biography</td>
+  </tr>
+  <tr>
+    <td>SRC-0002</td>
+    <td><a href="https://millercenter.org/president/kennedy/life-before-the-presidency" target="_blank" rel="noreferrer">Selverstone MJ. John F. Kennedy: Life Before the Presidency</a></td>
+    <td>Miller Center, University of Virginia</td>
+    <td>biography</td>
+  </tr>
+  <tr>
+    <td>SRC-0003</td>
+    <td><a href="https://millercenter.org/president/kennedy/death-of-the-president" target="_blank" rel="noreferrer">John F. Kennedy: Death of the President</a></td>
+    <td>Miller Center, University of Virginia</td>
+    <td>biography</td>
+  </tr>
+  <tr>
+    <td>SRC-0004</td>
+    <td><a href="https://www.history.com/articles/the-health-problems-jfk-hid-from-the-public" target="_blank" rel="noreferrer">Kiger PJ. The Health Problems JFK Hid From the Public</a></td>
+    <td>History.com (A&amp;E Television Networks)</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0005</td>
+    <td><a href="https://www.history.com/articles/10-things-you-may-not-know-about-john-f-kennedy" target="_blank" rel="noreferrer">Klein C. 10 Things You May Not Know About John F. Kennedy</a></td>
+    <td>History.com (A&amp;E Television Networks)</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0006</td>
+    <td><a href="https://content.time.com/time/subscriber/article/0,33009,1003773-1,00.html" target="_blank" rel="noreferrer">Lacayo R. How Sick Was J.F.K.?</a></td>
+    <td>Time</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0007</td>
+    <td><a href="https://www.pbs.org/newshour/show/president-kennedys-health-secrets" target="_blank" rel="noreferrer">President Kennedy&#39;s Health Secrets (interview with Dr. Jeffrey Kelman)</a></td>
+    <td>PBS NewsHour</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0008</td>
+    <td><a href="https://www.wtkr.com/2017/11/22/jfks-assassination-aided-by-his-bad-back-records-show" target="_blank" rel="noreferrer">JFK&#39;s assassination aided by his bad back, records show (CNN Wire, reporting Pait and Dowdy)</a></td>
+    <td>CNN Wire, republished by WTKR</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0009</td>
+    <td><a href="https://www.healio.com/news/rheumatology/20190715/all-the-presidents-secrets-john-f-kennedy-and-addisons-disease" target="_blank" rel="noreferrer">Volansky R. All the President&#39;s Secrets: John F. Kennedy and Addison&#39;s Disease</a></td>
+    <td>Healio Rheumatology</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0010</td>
+    <td><a href="https://pubmed.ncbi.nlm.nih.gov/19721023/" target="_blank" rel="noreferrer">Mandel LR. Endocrine and autoimmune aspects of the health history of John F. Kennedy. Ann Intern Med. 2009;151(5):350-354 (PMID 19721023)</a></td>
+    <td>Annals of Internal Medicine</td>
+    <td>scholarly</td>
+  </tr>
+  <tr>
+    <td>SRC-0011</td>
+    <td><a href="https://www2.ljworld.com/news/2009/sep/02/doctor-jfk-had-autoimmune-disease/" target="_blank" rel="noreferrer">Doctor: JFK had autoimmune disease (Associated Press)</a></td>
+    <td>Lawrence Journal-World</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0012</td>
+    <td><a href="https://pubmed.ncbi.nlm.nih.gov/28693374/" target="_blank" rel="noreferrer">Pait TG, Dowdy JT. John F. Kennedy&#39;s back: chronic pain, failed surgeries, and the story of its effects on his life and death. J Neurosurg Spine. 2017;27(3):247-255 (PMID 28693374)</a></td>
+    <td>Journal of Neurosurgery: Spine</td>
+    <td>scholarly</td>
+  </tr>
+  <tr>
+    <td>SRC-0013</td>
+    <td><a href="https://pubmed.ncbi.nlm.nih.gov/23900054/" target="_blank" rel="noreferrer">Pinals RS, Hassett AL. Reconceptualizing John F. Kennedy&#39;s chronic low back pain. Reg Anesth Pain Med. 2013;38(5):442-446 (PMID 23900054)</a></td>
+    <td>Regional Anesthesia and Pain Medicine</td>
+    <td>scholarly</td>
+  </tr>
+  <tr>
+    <td>SRC-0014</td>
+    <td><a href="https://pubmed.ncbi.nlm.nih.gov/32341184/" target="_blank" rel="noreferrer">Macchia D, Lippi D, Bianucci R, Donell S. President John F Kennedy&#39;s medical history: coeliac disease and autoimmune polyglandular syndrome type 2. Postgrad Med J. 2020;96(1139):543-549 (PMID 32341184)</a></td>
+    <td>Postgraduate Medical Journal</td>
+    <td>scholarly</td>
+  </tr>
+  <tr>
+    <td>SRC-0015</td>
+    <td><a href="https://humanrecord.example.org/internal/HISTMED_Master_Roster_v3.xlsx" target="_blank" rel="noreferrer">HISTMED Master Roster v3</a></td>
+    <td>The Human Record project</td>
+    <td>other</td>
+  </tr></tbody></table></section>
+    <section><h2>Review status</h2><table><thead><tr><th>Review</th><th>Status</th><th>Notes</th></tr></thead><tbody>
+  <tr><td>schema validation</td><td>not_started</td><td>Run scripts/build.ps1 -Conformance.</td></tr>
+  <tr><td>clinical review</td><td>not_started</td><td>Awaiting clinician review; check the hydrocortisone and fludrocortisone doses and their adjustment, the sick-day rules, levothyroxine started only after glucocorticoid replacement was secure, the DXA indication at 30, and the back pain plan.</td></tr>
+  <tr><td>provenance review</td><td>not_started</td><td>Miller Center pages, two History.com articles, Time, PBS NewsHour, CNN Wire, Healio, the Associated Press, and four PubMed abstracts logged. The Atlantic article and the JFK Library pages could not be fetched (access blocked) and are not cited directly; Dallek&#39;s findings are cited as Time, History.com and CNN report them.</td></tr>
+  <tr><td>safe messaging review</td><td>not_started</td><td>Claims about medicines he received (procaine injections and the medicines Dallek lists) and the retrospective autoimmune interpretations are marked sensitive. No drug beyond those named in the sources is mentioned. His death is recorded as history in one sentence.</td></tr></tbody></table></section>
+  </main>
+</body>
+</html>

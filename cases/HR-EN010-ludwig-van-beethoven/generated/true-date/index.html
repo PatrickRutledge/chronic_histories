@@ -1,0 +1,687 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ludwig van Beethoven — The Human Record</title>
+  <style>
+    :root { --navy:#17365d; --blue:#1f4e78; --pale:#eef5fa; --ink:#1f2933; --muted:#66788a; --amber:#fff2cc; --red:#f8d7da; --green:#d9ead3; }
+    * { box-sizing:border-box; }
+    body { margin:0; font:16px/1.5 Arial, sans-serif; color:var(--ink); background:#f6f8fa; }
+    header { background:var(--navy); color:white; padding:24px max(24px,calc((100vw - 1180px)/2)); }
+    header h1 { margin:4px 0; font-size:30px; }
+    .banner { background:#b42318; color:white; font-weight:700; text-align:center; padding:10px; letter-spacing:.03em; }
+    main { max-width:1180px; margin:24px auto 60px; padding:0 24px; }
+    section { background:white; border:1px solid #d9e1e8; border-radius:8px; margin:18px 0; padding:20px; }
+    h2 { color:var(--navy); margin:0 0 14px; font-size:22px; }
+    h3 { color:var(--blue); }
+    .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:12px; }
+    .card { background:var(--pale); border-left:4px solid var(--blue); padding:12px; }
+    .label { color:var(--muted); font-size:13px; text-transform:uppercase; letter-spacing:.04em; }
+    table { width:100%; border-collapse:collapse; }
+    th { background:var(--blue); color:white; text-align:left; }
+    th,td { padding:9px; border-bottom:1px solid #dfe6ec; vertical-align:top; }
+    .badge { display:inline-block; min-width:28px; text-align:center; font-weight:700; border-radius:12px; padding:2px 8px; }
+    .grade-D { background:var(--green); } .grade-R { background:var(--amber); } .grade-S { background:var(--red); }
+    .muted { color:var(--muted); font-size:14px; }
+    .relationship { color:var(--muted); font-size:12px; }
+    .downloads a { display:inline-block; margin:4px 8px 4px 0; padding:8px 12px; background:var(--blue); color:white; text-decoration:none; border-radius:5px; }
+    @media (max-width:700px) { table { display:block; overflow-x:auto; } }
+  </style>
+</head>
+<body>
+  <div class="banner">SYNTHETIC RECORD, NOT A REAL MEDICAL RECORD</div>
+  <div class="banner">True-date frame: synthetic events are moved into the patient&#39;s historical lifetime. Codes, instruments, and treatments remain modern and are anachronistic.</div>
+  <header>
+    <div>The Human Record</div>
+    <h1>Ludwig van Beethoven</h1>
+    <div>Case HR-EN010-TD · Modern EHR teaching episode · Draft for review</div>
+  </header>
+  <main>
+    <section>
+      <h2>Review summary</h2>
+      <div class="grid">
+        <div class="card"><div class="label">Historical dates</div>December 1770 (baptized December 17, 1770; day of birth not recorded) – March 26, 1827</div>
+        <div class="card"><div class="label">Synthetic DOB</div>1770-12-16</div>
+        <div class="card"><div class="label">Index visit</div>1801-04-13 at age 30</div>
+        <div class="card"><div class="label">Synthetic MRN</div>HR-EN010-SYN-TD</div>
+      </div>
+      <p><strong>Teaching objective:</strong> Primary care for a 30-year-old professional musician with progressive, asymmetric bilateral sensorineural hearing loss and persistent bothersome tinnitus: a targeted history and examination with tuning forks, a comprehensive audiologic evaluation with word recognition, a search for treatable causes and an MRI for the asymmetry, hearing aids and assistive listening fitted for a musician, sound therapy and cognitive behavioral therapy for tinnitus rather than medication, hearing protection, communication access and workplace accommodation, telling cerumen impaction apart from sudden sensorineural loss, and screening for the depression and isolation that hearing loss can bring, with a structured safety assessment and the 988 Suicide &amp; Crisis Lifeline. Deafness is presented as a change in how he communicates and works, not only as a loss, with Deaf community resources offered on his terms. Built on the AAO-HNS tinnitus, age-related hearing loss, sudden hearing loss, and cerumen guidelines and the CMID depression monograph.</p>
+      <div class="downloads">
+        <a href="../case.json">Canonical JSON</a>
+        <a href="fhir-bundle.json">FHIR R4 draft</a>
+        <a href="ccda.html">C-CDA R2.1 summary</a> <a href="ccda.xml">(XML)</a>
+        <a href="../sources.md">Evidence dossier</a>
+      </div>
+    </section>
+    <section><h2>Historical timeline</h2><table><thead><tr><th>Date</th><th>Event</th><th>Claims</th></tr></thead><tbody>
+  <tr><td>December 17, 1770</td><td>Baptized at St. Remigius in Bonn; born in December 1770, day not recorded.</td><td>CLM-0001</td></tr>
+  <tr><td>1789</td><td>His father retired because of alcoholism.</td><td>CLM-0003</td></tr>
+  <tr><td>November 1792</td><td>Moved to Vienna.</td><td>CLM-0002</td></tr>
+  <tr><td>about 1798</td><td>Hearing began to weaken, first in the left ear, with ringing in the ears.</td><td>CLM-0004, CLM-0006</td></tr>
+  <tr><td>June 29, 1801</td><td>Letter to Wegeler describing three years of failing hearing and constant tinnitus.</td><td>CLM-0004, CLM-0005</td></tr>
+  <tr><td>November 16, 1801</td><td>Second letter to Wegeler: the disease began in the left ear; mixing in society again.</td><td>CLM-0006</td></tr>
+  <tr><td>October 6, 1802</td><td>Wrote the Heiligenstadt Testament to his brothers.</td><td>CLM-0007</td></tr>
+  <tr><td>about 1812</td><td>Ear trumpets made for him by Maelzel.</td><td>CLM-0008</td></tr>
+  <tr><td>1814</td><td>Withdrew from public performance as a pianist.</td><td>CLM-0009</td></tr>
+  <tr><td>about 1818</td><td>Began communicating mainly through conversation books.</td><td>CLM-0008</td></tr>
+  <tr><td>May 7, 1824</td><td>First performance of the Ninth Symphony; he could not hear the applause.</td><td>CLM-0010</td></tr>
+  <tr><td>March 26, 1827</td><td>Died in Vienna.</td><td>CLM-0011</td></tr></tbody></table></section>
+    <section><h2>Evidence claims</h2><p class="muted">D = documented, R = retrospective, S = synthetic.</p><table><thead><tr><th>Grade</th><th>Claim</th><th>Certainty</th><th>Sources</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>Ludwig van Beethoven was born in December 1770 in the house at Bonngasse in Bonn. Only his baptism is recorded: he is entered in the register of the parish church of St. Remigius as the first of two children baptized on December 17, 1770. The day of his birth is not recorded; the Beethoven-Haus gives it as probably the 16th or 17th.</strong><div class="muted">The synthetic date of birth uses December 16, the day before the baptism, as a placeholder; it is not a claim about the day he was born.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://internet.beethoven.de/biography/picturebiography.html" target="_blank" rel="noreferrer">Beethoven: a picture biography</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>In November 1792 Beethoven left Bonn for Vienna to study with Haydn; he intended to stay a year and lived there for over 33 years.</strong></td>
+    <td>confirmed</td>
+    <td><a href="https://internet.beethoven.de/biography/picturebiography.html" target="_blank" rel="noreferrer">Beethoven: a picture biography</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>His father&#39;s acute alcoholism forced him to retire in 1789.</strong><div class="muted">Family history of an alcohol problem, recorded without detail.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://internet.beethoven.de/biography/picturebiography.html" target="_blank" rel="noreferrer">Beethoven: a picture biography</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>In a letter to his friend the physician Franz Gerhard Wegeler dated June 29, 1801, Beethoven wrote that his hearing had become weaker and weaker for the last three years; that a stomach complaint was said to be its cause; that Johann Peter Frank had treated him with tonics and his hearing with oil of almonds, and a tepid Danube bath had helped his general health but not his hearing; that his ears were &quot;ringing and singing night and day&quot;; that for two years he had shunned all society because he could not say to people &quot;I am deaf&quot;; that in the theater he had to lean close to the orchestra to understand the actors and could not hear the high notes of instruments or singers at a distance; that he heard the sounds but not the words of people speaking softly, yet could not bear shouting; and he asked Wegeler to tell no one.</strong><div class="muted">The anchor for the synthetic episode: progressive hearing loss with high-frequency loss, poor speech understanding, constant tinnitus, intolerance of loud sound, and social withdrawal. His own words are quoted from an English translation of the letter.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.gutenberg.org/ebooks/39093" target="_blank" rel="noreferrer">Schindler A. The Life of Beethoven, including his correspondence. Edited by Ignace Moscheles. Project Gutenberg eBook 39093</a> <span class="relationship">supports</span><br><a href="https://www.beethoven.de/en/work/view/6017517575208960" target="_blank" rel="noreferrer">Three Sonatas for Piano and Violin, op. 30 (work page)</a> <span class="relationship">supports</span><br><a href="https://www.beethoven.de/en/g/mit-beethovens-ohr-gehoert" target="_blank" rel="noreferrer">Mit Beethovens Ohr gehört (Heard with Beethoven&#39;s ear)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>In the same letter he wrote, &quot;I have often cursed my existence; Plutarch has won me back to resignation,&quot; and that he would defy his fate if he could.</strong><div class="muted">Supports screening for depression and isolation in the modern episode; it is not used to state a diagnosis.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.gutenberg.org/ebooks/39093" target="_blank" rel="noreferrer">Schindler A. The Life of Beethoven, including his correspondence. Edited by Ignace Moscheles. Project Gutenberg eBook 39093</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>In a second letter to Wegeler, dated November 16, 1801, he wrote that the ringing in his ears was somewhat less, &quot;especially in my left ear, in which the disease began,&quot; but that his hearing was no better; that his physician, Dr. Vering, had applied blistering bark to both his arms; and that he had begun to mix in society again after two deserted and miserable years.</strong><div class="muted">Documents that the loss began in the left ear, the basis for the synthetic asymmetry. Dated after the true-frame index date; used for the onset only.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.gutenberg.org/ebooks/39093" target="_blank" rel="noreferrer">Schindler A. The Life of Beethoven, including his correspondence. Edited by Ignace Moscheles. Project Gutenberg eBook 39093</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>At Heiligenstadt on October 6, 1802, with an addition dated October 10, he wrote the document known as the Heiligenstadt Testament to his brothers Carl and Johann. In it he wrote that he had been afflicted for six years, that he had been compelled early to isolate himself, that others beside him heard a distant flute or a shepherd singing when he heard nothing, that &quot;but little more and I would have put an end to my life,&quot; and that &quot;only art it was that withheld me&quot;; he asked that after his death his physician describe his illness.</strong><div class="muted">Written after the episode, at 31. Recorded with care: it is the reason the modern episode screens for depression and assesses safety, and the modern record makes no claim about his real state of mind.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://nac-cna.ca/en/stories/story/beethovens-complete-heiligenstadt-testament" target="_blank" rel="noreferrer">Beethoven&#39;s complete Heiligenstadt Testament</a> <span class="relationship">supports</span><br><a href="https://www.beethoven.de/en/g/mit-beethovens-ohr-gehoert" target="_blank" rel="noreferrer">Mit Beethovens Ohr gehört (Heard with Beethoven&#39;s ear)</a> <span class="relationship">supports</span><br><a href="https://www.beethoven.de/en/work/view/6017517575208960" target="_blank" rel="noreferrer">Three Sonatas for Piano and Violin, op. 30 (work page)</a> <span class="relationship">supports</span><br><a href="https://internet.beethoven.de/biography/picturebiography.html" target="_blank" rel="noreferrer">Beethoven: a picture biography</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>Johann Nepomuk Maelzel made ear trumpets for him from about 1812, and from about 1818 he communicated mainly through conversation books in which others wrote; 138 of the books survive in the Berlin State Library.</strong><div class="muted">After the episode; shows the assistive listening and written communication he relied on.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.beethoven.de/en/g/mit-beethovens-ohr-gehoert" target="_blank" rel="noreferrer">Mit Beethovens Ohr gehört (Heard with Beethoven&#39;s ear)</a> <span class="relationship">supports</span><br><a href="https://internet.beethoven.de/biography/picturebiography.html" target="_blank" rel="noreferrer">Beethoven: a picture biography</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>He withdrew from public performance as a pianist in 1814; by about 1814 or 1815 he was as good as deaf in his right ear, and from about 1817 he could no longer hear music. He kept composing.</strong><div class="muted">After the episode.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.beethoven.de/en/g/mit-beethovens-ohr-gehoert" target="_blank" rel="noreferrer">Mit Beethovens Ohr gehört (Heard with Beethoven&#39;s ear)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>At the first performance of his Ninth Symphony on May 7, 1824, he could not hear the applause and had to be turned around to see it.</strong><div class="muted">After the episode.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.beethoven.de/en/g/mit-beethovens-ohr-gehoert" target="_blank" rel="noreferrer">Mit Beethovens Ohr gehört (Heard with Beethoven&#39;s ear)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>Beethoven died in Vienna on the afternoon of March 26, 1827, aged 56; some 20,000 people gathered for his funeral.</strong><div class="muted">The cited Beethoven-Haus page dates the death through the caption of his deathbed drawing and does not give a cause of death.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://internet.beethoven.de/biography/picturebiography.html" target="_blank" rel="noreferrer">Beethoven: a picture biography</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-R" title="Retrospective">R</span></td>
+    <td><strong>Cochlear otosclerosis has been the cause most often proposed by otologists, with Paget disease of bone among the alternatives; a later review notes that the middle ears examined at his autopsy showed no otosclerotic foci.</strong><div class="muted">Retrospective interpretation; not used as a modern diagnosis.</div></td>
+    <td>possible</td>
+    <td><a href="https://pubmed.ncbi.nlm.nih.gov/2240185/" target="_blank" rel="noreferrer">Shearer PD. The deafness of Beethoven: an audiologic and medical overview. Am J Otol 1990;11(5):370-4. PMID 2240185</a> <span class="relationship">supports</span><br><a href="https://pubmed.ncbi.nlm.nih.gov/23686526/" target="_blank" rel="noreferrer">Stevens MH, Jacobsen T, Crofts AK. Lead and the deafness of Ludwig van Beethoven. Laryngoscope 2013;123(11):2854-8. PMID 23686526</a> <span class="relationship">disputes</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-R" title="Retrospective">R</span></td>
+    <td><strong>Some authors attribute his hearing loss and abdominal complaints to chronic lead poisoning, citing high lead levels in hair and bone, and in 2024 high lead levels were reported in two authenticated locks of his hair; others favor other causes, and the question is not settled.</strong><div class="muted">Retrospective interpretation; the modern episode does not test for lead because he reports no exposure, and the theory is not turned into a diagnosis.</div></td>
+    <td>disputed</td>
+    <td><a href="https://pubmed.ncbi.nlm.nih.gov/23686526/" target="_blank" rel="noreferrer">Stevens MH, Jacobsen T, Crofts AK. Lead and the deafness of Ludwig van Beethoven. Laryngoscope 2013;123(11):2854-8. PMID 23686526</a> <span class="relationship">supports</span><br><a href="https://pubmed.ncbi.nlm.nih.gov/31904878/" target="_blank" rel="noreferrer">Brotto D, Fellin R, Sorrentino F, et al. A modern case sheds light on a classical enigma: Beethoven&#39;s deafness. Laryngoscope 2021;131(1):179-185. PMID 31904878</a> <span class="relationship">supports</span><br><a href="https://pubmed.ncbi.nlm.nih.gov/38709835/" target="_blank" rel="noreferrer">Rifai N, Meredith W, Brown K, Erdahl SA, Jannetto PJ. High lead levels in 2 independent and authenticated locks of Beethoven&#39;s hair. Clin Chem 2024;70(6):878-879. PMID 38709835</a> <span class="relationship">supports</span><br><a href="https://www.beethoven.de/en/g/mit-beethovens-ohr-gehoert" target="_blank" rel="noreferrer">Mit Beethovens Ohr gehört (Heard with Beethoven&#39;s ear)</a> <span class="relationship">context</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-R" title="Retrospective">R</span></td>
+    <td><strong>A 2023 genome study of authenticated locks of his hair found no genetic explanation for his hearing loss or gastrointestinal problems, but found a genetic predisposition to liver disease and evidence of hepatitis B infection in at least the months before his death; with his alcohol consumption, the authors offered these as plausible explanations for the severe liver disease that culminated in his death.</strong><div class="muted">Retrospective interpretation from ancient DNA. The modern episode screens for hepatitis B as recommended for all adults and finds no infection; no liver diagnosis is made.</div></td>
+    <td>probable</td>
+    <td><a href="https://pubmed.ncbi.nlm.nih.gov/36958333/" target="_blank" rel="noreferrer">Begg TJA, Schmidt A, Kocher A, et al. Genomic analyses of hair from Ludwig van Beethoven. Curr Biol 2023;33(8):1431-1447.e22. PMID 36958333</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-R" title="Retrospective">R</span></td>
+    <td><strong>His alcohol consumption is described by modern authors as broadly accepted, and his physicians are said to have thought he was dependent on alcohol.</strong><div class="muted">Retrospective interpretation; the modern episode records only synthetic drinking below the risk threshold and codes no alcohol diagnosis.</div></td>
+    <td>possible</td>
+    <td><a href="https://pubmed.ncbi.nlm.nih.gov/36958333/" target="_blank" rel="noreferrer">Begg TJA, Schmidt A, Kocher A, et al. Genomic analyses of hair from Ludwig van Beethoven. Curr Biol 2023;33(8):1431-1447.e22. PMID 36958333</a> <span class="relationship">supports</span><br><a href="https://pubmed.ncbi.nlm.nih.gov/23686526/" target="_blank" rel="noreferrer">Stevens MH, Jacobsen T, Crofts AK. Lead and the deafness of Ludwig van Beethoven. Laryngoscope 2013;123(11):2854-8. PMID 23686526</a> <span class="relationship">supports</span></td>
+  </tr></tbody></table></section>
+    <section><h2>Modern synthetic problem list</h2><table><thead><tr><th>Grade</th><th>Problem</th><th>Clinical status</th><th>Verification</th><th>Placement</th><th>Historical claims</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Progressive hearing loss in both ears over about three years, worse on the left, with poor understanding of soft speech; type and cause not yet established at intake; audiology and otolaryngology evaluation requested</td>
+    <td>resolved</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td>CLM-0004, CLM-0006</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Persistent, bothersome tinnitus in both ears for about three years, constant ringing and buzzing day and night, with intolerance of loud sound; synthetic modern episode linked to his documented tinnitus</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>both_with_link</td>
+    <td>CLM-0004, CLM-0006</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Adjustment disorder with depressed mood in response to progressive hearing loss, with withdrawal from social gatherings; synthetic modern episode linked to his documented despair and isolation</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>both_with_link</td>
+    <td>CLM-0004, CLM-0005</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Bilateral sensorineural hearing loss, asymmetric (left worse than right), sloping from normal or mild in the low frequencies to moderately severe in the high frequencies; no air-bone gap; synthetic modern episode linked to his documented progressive deafness, whose cause remains unknown</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>both_with_link</td>
+    <td>CLM-0004, CLM-0006</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Impacted cerumen, left ear, in a hearing aid user, causing a sudden muffling of hearing on that side; removed by irrigation with hearing restored; resolved</td>
+    <td>resolved</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td></td>
+  </tr></tbody></table></section>
+    <section><h2>Synthetic outcome measures</h2><table><thead><tr><th>Grade</th><th>Date</th><th>Measure</th><th>Result</th><th>Coding</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1801-04-13</td>
+    <td>Hemoglobin [Mass/volume] in Blood</td>
+    <td>15.1 g/dL<div class="muted">Reference 13.2-17.1 g/dL</div></td>
+    <td>http://loinc.org · 718-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1801-04-13</td>
+    <td>Thyrotropin [Units/volume] in Serum or Plasma</td>
+    <td>1.8 mIU/L<div class="muted">Reference 0.45-4.5 mIU/L</div></td>
+    <td>http://loinc.org · 3016-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1801-04-13</td>
+    <td>Hemoglobin A1c/Hemoglobin.total in Blood</td>
+    <td>5.2%<div class="muted">Reference &lt;=5.6%</div></td>
+    <td>http://loinc.org · 4548-4</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1801-04-13</td>
+    <td>Treponema pallidum Ab [Units/volume] in Serum or Plasma by Immunoassay</td>
+    <td>0.12<div class="muted">Reference Below 0.90 is nonreactive</div></td>
+    <td>http://loinc.org · 63464-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1801-04-13</td>
+    <td>Hepatitis C virus Ab Signal/Cutoff in Serum or Plasma by Immunoassay</td>
+    <td>0.08<div class="muted">Reference Below 1.00 is nonreactive</div></td>
+    <td>http://loinc.org · 48159-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1801-04-13</td>
+    <td>Hepatitis B virus surface Ab [Units/volume] in Serum</td>
+    <td>64 m[IU]/mL<div class="muted">Reference 10 mIU/mL or more indicates immunity</div></td>
+    <td>http://loinc.org · 16935-9</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1801-04-13</td>
+    <td>Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]</td>
+    <td>12</td>
+    <td>http://loinc.org · 44261-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1801-04-13</td>
+    <td>Generalized anxiety disorder 7 item (GAD-7) total score [Reported.PHQ]</td>
+    <td>8</td>
+    <td>http://loinc.org · 70274-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1801-04-13</td>
+    <td>Total score [AUDIT-C]</td>
+    <td>3</td>
+    <td>http://loinc.org · 75626-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1801-04-27</td>
+    <td>Hearing threshold Ear - right --250 Hz</td>
+    <td>15 dB<div class="muted">Reference 25 dB HL or better is normal hearing</div></td>
+    <td>http://loinc.org · 91374-9</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1801-04-27</td>
+    <td>Hearing threshold Ear - left --250 Hz</td>
+    <td>20 dB<div class="muted">Reference 25 dB HL or better is normal hearing</div></td>
+    <td>http://loinc.org · 91375-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1801-04-27</td>
+    <td>Hearing threshold Ear - right --500 Hz</td>
+    <td>20 dB<div class="muted">Reference 25 dB HL or better is normal hearing</div></td>
+    <td>http://loinc.org · 89025-1</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1801-04-27</td>
+    <td>Hearing threshold Ear - left --500 Hz</td>
+    <td>30 dB (high)<div class="muted">Reference 25 dB HL or better is normal hearing</div></td>
+    <td>http://loinc.org · 89024-4</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1801-04-27</td>
+    <td>Hearing threshold Ear - right --1000 Hz</td>
+    <td>25 dB<div class="muted">Reference 25 dB HL or better is normal hearing</div></td>
+    <td>http://loinc.org · 89017-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1801-04-27</td>
+    <td>Hearing threshold Ear - left --1000 Hz</td>
+    <td>40 dB (high)<div class="muted">Reference 25 dB HL or better is normal hearing</div></td>
+    <td>http://loinc.org · 89016-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1801-04-27</td>
+    <td>Hearing threshold Ear - right --1775 Hz</td>
+    <td>40 dB (high)<div class="muted">Reference 25 dB HL or better is normal hearing</div></td>
+    <td>http://loinc.org · 89019-4</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1801-04-27</td>
+    <td>Hearing threshold Ear - left --1775 Hz</td>
+    <td>55 dB (high)<div class="muted">Reference 25 dB HL or better is normal hearing</div></td>
+    <td>http://loinc.org · 89018-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1801-04-27</td>
+    <td>Hearing threshold Ear - right --3000 Hz</td>
+    <td>50 dB (high)<div class="muted">Reference 25 dB HL or better is normal hearing</div></td>
+    <td>http://loinc.org · 89021-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1801-04-27</td>
+    <td>Hearing threshold Ear - left --3000 Hz</td>
+    <td>65 dB (high)<div class="muted">Reference 25 dB HL or better is normal hearing</div></td>
+    <td>http://loinc.org · 89020-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1801-04-27</td>
+    <td>Hearing threshold Ear - right --4000 Hz</td>
+    <td>55 dB (high)<div class="muted">Reference 25 dB HL or better is normal hearing</div></td>
+    <td>http://loinc.org · 89023-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1801-04-27</td>
+    <td>Hearing threshold Ear - left --4000 Hz</td>
+    <td>70 dB (high)<div class="muted">Reference 25 dB HL or better is normal hearing</div></td>
+    <td>http://loinc.org · 89022-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1801-04-27</td>
+    <td>Hearing threshold Ear - right --8000 Hz</td>
+    <td>60 dB (high)<div class="muted">Reference 25 dB HL or better is normal hearing</div></td>
+    <td>http://loinc.org · 89029-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1801-04-27</td>
+    <td>Hearing threshold Ear - left --8000 Hz</td>
+    <td>75 dB (high)<div class="muted">Reference 25 dB HL or better is normal hearing</div></td>
+    <td>http://loinc.org · 89028-5</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1801-10-19</td>
+    <td>Hearing threshold Ear - right --250 Hz</td>
+    <td>15 dB<div class="muted">Reference 25 dB HL or better is normal hearing</div></td>
+    <td>http://loinc.org · 91374-9</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1801-10-19</td>
+    <td>Hearing threshold Ear - left --250 Hz</td>
+    <td>20 dB<div class="muted">Reference 25 dB HL or better is normal hearing</div></td>
+    <td>http://loinc.org · 91375-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1801-10-19</td>
+    <td>Hearing threshold Ear - right --500 Hz</td>
+    <td>20 dB<div class="muted">Reference 25 dB HL or better is normal hearing</div></td>
+    <td>http://loinc.org · 89025-1</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1801-10-19</td>
+    <td>Hearing threshold Ear - left --500 Hz</td>
+    <td>30 dB (high)<div class="muted">Reference 25 dB HL or better is normal hearing</div></td>
+    <td>http://loinc.org · 89024-4</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1801-10-19</td>
+    <td>Hearing threshold Ear - right --1000 Hz</td>
+    <td>25 dB<div class="muted">Reference 25 dB HL or better is normal hearing</div></td>
+    <td>http://loinc.org · 89017-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1801-10-19</td>
+    <td>Hearing threshold Ear - left --1000 Hz</td>
+    <td>40 dB (high)<div class="muted">Reference 25 dB HL or better is normal hearing</div></td>
+    <td>http://loinc.org · 89016-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1801-10-19</td>
+    <td>Hearing threshold Ear - right --1775 Hz</td>
+    <td>40 dB (high)<div class="muted">Reference 25 dB HL or better is normal hearing</div></td>
+    <td>http://loinc.org · 89019-4</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1801-10-19</td>
+    <td>Hearing threshold Ear - left --1775 Hz</td>
+    <td>55 dB (high)<div class="muted">Reference 25 dB HL or better is normal hearing</div></td>
+    <td>http://loinc.org · 89018-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1801-10-19</td>
+    <td>Hearing threshold Ear - right --3000 Hz</td>
+    <td>50 dB (high)<div class="muted">Reference 25 dB HL or better is normal hearing</div></td>
+    <td>http://loinc.org · 89021-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1801-10-19</td>
+    <td>Hearing threshold Ear - left --3000 Hz</td>
+    <td>65 dB (high)<div class="muted">Reference 25 dB HL or better is normal hearing</div></td>
+    <td>http://loinc.org · 89020-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1801-10-19</td>
+    <td>Hearing threshold Ear - right --4000 Hz</td>
+    <td>55 dB (high)<div class="muted">Reference 25 dB HL or better is normal hearing</div></td>
+    <td>http://loinc.org · 89023-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1801-10-19</td>
+    <td>Hearing threshold Ear - left --4000 Hz</td>
+    <td>75 dB (high)<div class="muted">Reference 25 dB HL or better is normal hearing</div></td>
+    <td>http://loinc.org · 89022-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1801-10-19</td>
+    <td>Hearing threshold Ear - right --8000 Hz</td>
+    <td>60 dB (high)<div class="muted">Reference 25 dB HL or better is normal hearing</div></td>
+    <td>http://loinc.org · 89029-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1801-10-19</td>
+    <td>Hearing threshold Ear - left --8000 Hz</td>
+    <td>80 dB (high)<div class="muted">Reference 25 dB HL or better is normal hearing</div></td>
+    <td>http://loinc.org · 89028-5</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1801-04-27</td>
+    <td>Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]</td>
+    <td>11</td>
+    <td>http://loinc.org · 44261-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1801-05-18</td>
+    <td>Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]</td>
+    <td>9</td>
+    <td>http://loinc.org · 44261-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1801-07-13</td>
+    <td>Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]</td>
+    <td>6</td>
+    <td>http://loinc.org · 44261-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1801-07-13</td>
+    <td>Generalized anxiety disorder 7 item (GAD-7) total score [Reported.PHQ]</td>
+    <td>5</td>
+    <td>http://loinc.org · 70274-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1801-10-19</td>
+    <td>Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]</td>
+    <td>4</td>
+    <td>http://loinc.org · 44261-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1801-10-19</td>
+    <td>Generalized anxiety disorder 7 item (GAD-7) total score [Reported.PHQ]</td>
+    <td>4</td>
+    <td>http://loinc.org · 70274-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1801-08-24</td>
+    <td>Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]</td>
+    <td>5</td>
+    <td>http://loinc.org · 44261-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1801-04-27</td>
+    <td>Total score [MDQ]</td>
+    <td>2</td>
+    <td>http://loinc.org · 84773-1</td>
+  </tr></tbody></table></section>
+    <section><h2>Synthetic vital signs</h2><table><thead><tr><th>Date</th><th>Measure</th><th>Result</th><th>LOINC</th><th>Grade</th></tr></thead><tbody>
+  <tr><td>1801-04-13</td><td>Body height</td><td>165 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1801-04-13</td><td>Body weight</td><td>68 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1801-04-13</td><td>Body mass index (BMI) [Ratio]</td><td>25 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1801-04-13</td><td>Systolic blood pressure</td><td>128 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1801-04-13</td><td>Diastolic blood pressure</td><td>82 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1801-04-13</td><td>Heart rate</td><td>78 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1801-04-13</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1801-04-13</td><td>Body temperature</td><td>36.7 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1801-04-13</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>98 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1801-04-27</td><td>Body height</td><td>165 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1801-04-27</td><td>Body weight</td><td>67.8 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1801-04-27</td><td>Body mass index (BMI) [Ratio]</td><td>24.9 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1801-04-27</td><td>Systolic blood pressure</td><td>124 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1801-04-27</td><td>Diastolic blood pressure</td><td>80 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1801-04-27</td><td>Heart rate</td><td>74 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1801-04-27</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1801-04-27</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1801-04-27</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>98 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1801-05-18</td><td>Body height</td><td>165 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1801-05-18</td><td>Body weight</td><td>68.2 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1801-05-18</td><td>Body mass index (BMI) [Ratio]</td><td>25.1 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1801-05-18</td><td>Systolic blood pressure</td><td>122 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1801-05-18</td><td>Diastolic blood pressure</td><td>78 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1801-05-18</td><td>Heart rate</td><td>72 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1801-05-18</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1801-05-18</td><td>Body temperature</td><td>36.7 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1801-05-18</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>99 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1801-07-13</td><td>Body height</td><td>165 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1801-07-13</td><td>Body weight</td><td>68.6 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1801-07-13</td><td>Body mass index (BMI) [Ratio]</td><td>25.2 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1801-07-13</td><td>Systolic blood pressure</td><td>120 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1801-07-13</td><td>Diastolic blood pressure</td><td>78 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1801-07-13</td><td>Heart rate</td><td>70 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1801-07-13</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1801-07-13</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1801-07-13</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>99 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1801-10-19</td><td>Body height</td><td>165 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1801-10-19</td><td>Body weight</td><td>68.8 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1801-10-19</td><td>Body mass index (BMI) [Ratio]</td><td>25.3 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1801-10-19</td><td>Systolic blood pressure</td><td>118 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1801-10-19</td><td>Diastolic blood pressure</td><td>76 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1801-10-19</td><td>Heart rate</td><td>68 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1801-10-19</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1801-10-19</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1801-10-19</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>99 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1801-08-24</td><td>Body height</td><td>165 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1801-08-24</td><td>Body weight</td><td>68.6 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1801-08-24</td><td>Body mass index (BMI) [Ratio]</td><td>25.2 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1801-08-24</td><td>Systolic blood pressure</td><td>118 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1801-08-24</td><td>Diastolic blood pressure</td><td>76 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1801-08-24</td><td>Heart rate</td><td>68 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1801-08-24</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1801-08-24</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1801-08-24</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>99 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1801-09-21</td><td>Body height</td><td>165 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1801-09-21</td><td>Body weight</td><td>68.8 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1801-09-21</td><td>Body mass index (BMI) [Ratio]</td><td>25.3 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1801-09-21</td><td>Systolic blood pressure</td><td>122 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1801-09-21</td><td>Diastolic blood pressure</td><td>78 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1801-09-21</td><td>Heart rate</td><td>74 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1801-09-21</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1801-09-21</td><td>Body temperature</td><td>36.7 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1801-09-21</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>99 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr></tbody></table></section>
+    <section><h2>Social, functional, and mental status</h2><h3>Social history</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Professional pianist and composer; performs, teaches, and lives on commissions and a patron&#39;s yearly stipend; moved to this city from his home town about nine years ago</li><li><span class="badge grade-S" title="Synthetic">S</span> Lives alone; has avoided parties and gatherings for about two years because he cannot follow conversation and does not want people to know he cannot hear</li><li><span class="badge grade-S" title="Synthetic">S</span> Communication: German is his first language and he speaks fluent English; understands best face to face, one person at a time, in good light, and wants important details written down</li><li><span class="badge grade-S" title="Synthetic">S</span> Alcohol: wine with dinner three or four evenings a week, two glasses at most (AUDIT-C 3); no tobacco or other drugs</li><li><span class="badge grade-S" title="Synthetic">S</span> Noise exposure: hours of daily practice and rehearsal with orchestras; no hearing protection; no firearms or industrial noise; no known lead exposure at work or at home</li><li><span class="badge grade-S" title="Synthetic">S</span> Wants his hearing loss kept private from employers and colleagues for now</li></ul><h3>Functional status</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Independent in all activities; composing every day; cannot follow group conversation or soft speech; sits close to the stage to follow theater; has stopped going to social gatherings</li></ul><h3>Mental status</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Alert, intense, and articulate; leans in and watches faces to follow speech; irritable when asked to repeat himself</li><li><span class="badge grade-S" title="Synthetic">S</span> Mood low and frustrated, with fear for his career; PHQ-9 score 12 with item 9 scored 0; no thoughts of suicide or self-harm</li></ul></section>
+    <section><h2>Structured safety assessment</h2><div class="grid"><div class="card"><div class="label">Current ideation</div>absent</div><div class="card"><div class="label">Intent</div>absent</div><div class="card"><div class="label">Plan</div>absent</div><div class="card"><div class="label">Disposition</div>Outpatient care. No current thoughts of suicide or self-harm; no firearms at home. Isolation and fear for his career are risk factors, so safety will be reviewed at every visit. A written safety plan was made with him and the 988 Suicide &amp; Crisis Lifeline was given, including its text and chat options, which he can use without hearing a voice on the phone</div></div><p class="muted">This assessment is synthetic and does not convert historical behavior into a present-day fact.</p></section>
+    <section><h2>Allergies and medications</h2><h3>Allergies</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> No known allergy</li></ul><h3>Medications</h3><p class="muted">No current medications.</p></section>
+    <section><h2>Procedures and immunizations</h2><h3>Procedures</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Pure-tone audiometry, air and bone conduction</li><li><span class="badge grade-S" title="Synthetic">S</span> Speech audiometry with speech reception thresholds and word recognition</li><li><span class="badge grade-S" title="Synthetic">S</span> Tympanometry and acoustic reflex testing</li><li><span class="badge grade-S" title="Synthetic">S</span> MRI of the internal auditory canals with gadolinium contrast</li><li><span class="badge grade-S" title="Synthetic">S</span> Bilateral hearing aid fitting with real-ear verification</li><li><span class="badge grade-S" title="Synthetic">S</span> Pure-tone audiometry, air and bone conduction, repeat at six months</li><li><span class="badge grade-S" title="Synthetic">S</span> Speech audiometry with word recognition, repeat at six months</li><li><span class="badge grade-S" title="Synthetic">S</span> Advance care planning conversation, about 17 minutes</li><li><span class="badge grade-S" title="Synthetic">S</span> Irrigation of the left ear canal to remove impacted cerumen</li></ul><h3>Immunizations</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> 1801-08-24: Tdap vaccine</li><li><span class="badge grade-S" title="Synthetic">S</span> 1801-10-19: Influenza vaccine, 1801-1802 season</li></ul></section>
+    <section><h2>Past medical history</h2><p class="muted">True biography with historical dates; not part of the synthetic care timeline.</p><ul><li><span class="badge grade-D" title="Documented">D</span> about 1798: Hearing gradually weaker since about 1798, beginning in the left ear, with constant ringing and buzzing in both ears; high notes and soft speech hard to hear, and loud sounds unbearable <span class="muted">(CLM-0004, CLM-0006)</span></li><li><span class="badge grade-D" title="Documented">D</span> until autumn 1800: Long-standing stomach complaint, which one physician held to be the cause of the hearing loss; treated with tonics, oil of almonds in the ears, and tepid baths, without benefit to his hearing <span class="muted">(CLM-0004)</span></li></ul><h3>Family history</h3><ul><li><span class="badge grade-D" title="Documented">D</span> father: Alcoholism that forced him to retire from his work in 1789</li></ul></section>
+    <section><h2>Care-plan goals</h2><table><thead><tr><th>Goal</th><th>Target date</th><th>Status</th><th>Outcome</th></tr></thead><tbody>
+  <tr><td>Bilateral hearing aids fitted, verified, and worn at least eight hours a day by three months</td><td>1801-07-13</td><td>completed</td><td>Fitted at five weeks with real-ear verification; data logging showed about eleven hours a day at three months</td></tr>
+  <tr><td>Tinnitus no longer the main barrier to work and sleep, with the Tinnitus Handicap Inventory at least 20 points lower by six months</td><td>1801-10-19</td><td>completed</td><td>Tinnitus Handicap Inventory 28, from 58; sleeping through most nights</td></tr>
+  <tr><td>PHQ-9 below 5 by six months</td><td>1801-10-19</td><td>completed</td><td>PHQ-9 4</td></tr>
+  <tr><td>Communication access he chooses in place for rehearsals, teaching, and meetings by three months</td><td>1801-07-13</td><td>completed</td><td>Remote microphone for teaching and rehearsals, live speech-to-text on his phone, and written agendas; he chose to tell his closest colleagues</td></tr>
+  <tr><td>Hearing protection for loud rehearsals by five weeks</td><td>1801-05-18</td><td>completed</td><td>Custom musicians&#39; earplugs with flat attenuation fitted with the hearing aids</td></tr></tbody></table></section>
+    <section><h2>Interventions</h2><table><thead><tr><th>Intervention</th><th>Status</th><th>Guideline</th></tr></thead><tbody>
+  <tr><td>Otolaryngology consultation with a same-day comprehensive audiologic evaluation: pure-tone air and bone conduction, speech audiometry with word recognition, tympanometry, and acoustic reflexes</td><td>completed</td><td>GL-AAO-TIN-2014, GL-AAO-ARHL-2024</td></tr>
+  <tr><td>Tests for treatable causes at intake: blood count, thyroid function, HbA1c, and treponemal antibody; no head imaging for the tinnitus alone</td><td>completed</td><td>GL-AAO-TIN-2014, GL-AAO-SSNHL-2019</td></tr>
+  <tr><td>MRI of the internal auditory canals with gadolinium to exclude a retrocochlear cause of the asymmetric loss</td><td>completed</td><td>GL-AAO-SSNHL-2019, GL-AAO-TIN-2014</td></tr>
+  <tr><td>Bilateral prescription hearing aids with real-ear verification, a music program, a tinnitus sound generator, and a remote microphone, with audiology follow-up after fitting</td><td>completed</td><td>GL-AAO-ARHL-2024, GL-AAO-TIN-2014, GL-NIDCD-HA</td></tr>
+  <tr><td>Tinnitus education, sound enrichment at night, and cognitive behavioral therapy with a psychologist for tinnitus distress and adjustment; no medication or supplements for tinnitus</td><td>completed</td><td>GL-AAO-TIN-2014, GL-CMID-2026</td></tr>
+  <tr><td>Depression monitoring with the PHQ-9 at each visit, a structured safety assessment with a written safety plan and the 988 Suicide &amp; Crisis Lifeline (text and chat), and safety review at every visit</td><td>completed</td><td>GL-CMID-2026, GL-USPSTF-DEP-2023, GL-SUICIDE-2024</td></tr>
+  <tr><td>Communication access on his terms: his communication preferences on the chart, written summaries, captioning and speech-to-text, workplace accommodation when he chooses to ask, hearing loss peer support, and an introduction to the Deaf community and American Sign Language if he wishes</td><td>completed</td><td>GL-ADA-COMM, GL-NAD-HC</td></tr>
+  <tr><td>Hearing protection: custom musicians&#39; earplugs for loud rehearsals and limits on unprotected loud sound</td><td>completed</td><td>GL-NIDCD-NIHL, GL-AAO-TIN-2014</td></tr>
+  <tr><td>Repeat audiogram at six months and with any change; same-week assessment for any sudden drop in hearing</td><td>completed</td><td>GL-AAO-SSNHL-2019, GL-AAO-ARHL-2024</td></tr></tbody></table></section>
+    <section><h2>Planned encounters</h2><ul>
+  <li><strong>1801-04-13</strong> — New patient visit for progressive hearing loss and constant tinnitus: hearing and depression screening, treatable-cause tests, and a request for otolaryngology consultation <span class="muted">(ENC-001)</span></li>
+  <li><strong>1801-04-27</strong> — Two-week follow-up and otolaryngology consultation with same-day audiologic evaluation <span class="muted">(ENC-002)</span></li>
+  <li><strong>1801-05-18</strong> — Five-week review: MRI result, hearing aid fitting, and mood <span class="muted">(ENC-003)</span></li>
+  <li><strong>1801-07-13</strong> — Three-month review: hearing aid use, tinnitus, communication access at work, and mood <span class="muted">(ENC-004)</span></li>
+  <li><strong>1801-08-24</strong> — Periodic adult preventive visit <span class="muted">(ENC-006)</span></li>
+  <li><strong>1801-09-21</strong> — Same-day sick visit for a blocked left ear <span class="muted">(ENC-007, unscheduled)</span></li>
+  <li><strong>1801-10-19</strong> — Six-month review with repeat audiogram <span class="muted">(ENC-005)</span></li></ul></section>
+    <section><h2>Supporting documents</h2><ul><li><a href="notes/hp.md">History and physical</a></li><li><a href="notes/progress-01.md">Progress note 01</a></li><li><a href="notes/progress-02.md">Progress note 02 — Focused Visit (Follow-up)</a></li><li><a href="notes/progress-03.md">Progress note 03 — Focused Visit (Follow-up)</a></li><li><a href="notes/progress-04.md">Progress note 04 — Focused Visit (Follow-up)</a></li><li><a href="notes/progress-05.md">Progress note 05 — Preventive Visit</a></li><li><a href="notes/progress-06.md">Progress note 06 — Sick Visit</a></li><li><a href="notes/progress-07.md">Progress note 07 — Focused Visit (Care-plan review)</a></li><li><a href="notes/referral-01.md">Otolaryngology referral</a></li><li><a href="notes/consult-01.md">Otolaryngology consultation</a></li><li><a href="notes/careplan.md">Patient care plan</a></li><li><a href="notes/teaching-note.md">Teaching note</a></li><li><a href="provenance.csv">Provenance CSV</a></li></ul></section>
+    <section><h2>C-CDA note documents</h2><p class="muted">Each link opens a readable copy; the XML beside it is the exchange file.</p><ul><li><a href="ccda/hp-01.html">History and physical</a> <a href="ccda/hp-01.xml">(XML)</a></li><li><a href="ccda/progress-01.html">Progress note 01</a> <a href="ccda/progress-01.xml">(XML)</a></li><li><a href="ccda/progress-02.html">Progress note 02 — Focused Visit (Follow-up)</a> <a href="ccda/progress-02.xml">(XML)</a></li><li><a href="ccda/progress-03.html">Progress note 03 — Focused Visit (Follow-up)</a> <a href="ccda/progress-03.xml">(XML)</a></li><li><a href="ccda/progress-04.html">Progress note 04 — Focused Visit (Follow-up)</a> <a href="ccda/progress-04.xml">(XML)</a></li><li><a href="ccda/progress-05.html">Progress note 05 — Preventive Visit</a> <a href="ccda/progress-05.xml">(XML)</a></li><li><a href="ccda/progress-06.html">Progress note 06 — Sick Visit</a> <a href="ccda/progress-06.xml">(XML)</a></li><li><a href="ccda/progress-07.html">Progress note 07 — Focused Visit (Care-plan review)</a> <a href="ccda/progress-07.xml">(XML)</a></li><li><a href="ccda/referral-01.html">Otolaryngology referral</a> <a href="ccda/referral-01.xml">(XML)</a></li><li><a href="ccda/consult-01.html">Otolaryngology consultation</a> <a href="ccda/consult-01.xml">(XML)</a></li></ul></section>
+    <section><h2>Sources</h2><table><thead><tr><th>ID</th><th>Source</th><th>Publisher</th><th>Type</th></tr></thead><tbody>
+  <tr>
+    <td>SRC-0001</td>
+    <td><a href="https://internet.beethoven.de/biography/picturebiography.html" target="_blank" rel="noreferrer">Beethoven: a picture biography</a></td>
+    <td>Beethoven-Haus Bonn</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0002</td>
+    <td><a href="https://www.gutenberg.org/ebooks/39093" target="_blank" rel="noreferrer">Schindler A. The Life of Beethoven, including his correspondence. Edited by Ignace Moscheles. Project Gutenberg eBook 39093</a></td>
+    <td>Project Gutenberg</td>
+    <td>primary</td>
+  </tr>
+  <tr>
+    <td>SRC-0003</td>
+    <td><a href="https://www.beethoven.de/en/work/view/6017517575208960" target="_blank" rel="noreferrer">Three Sonatas for Piano and Violin, op. 30 (work page)</a></td>
+    <td>Beethoven-Haus Bonn</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0004</td>
+    <td><a href="https://www.beethoven.de/en/g/mit-beethovens-ohr-gehoert" target="_blank" rel="noreferrer">Mit Beethovens Ohr gehört (Heard with Beethoven&#39;s ear)</a></td>
+    <td>Beethoven-Haus Bonn</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0005</td>
+    <td><a href="https://nac-cna.ca/en/stories/story/beethovens-complete-heiligenstadt-testament" target="_blank" rel="noreferrer">Beethoven&#39;s complete Heiligenstadt Testament</a></td>
+    <td>National Arts Centre, Canada</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0006</td>
+    <td><a href="https://pubmed.ncbi.nlm.nih.gov/36958333/" target="_blank" rel="noreferrer">Begg TJA, Schmidt A, Kocher A, et al. Genomic analyses of hair from Ludwig van Beethoven. Curr Biol 2023;33(8):1431-1447.e22. PMID 36958333</a></td>
+    <td>Current Biology (Cell Press)</td>
+    <td>scholarly</td>
+  </tr>
+  <tr>
+    <td>SRC-0007</td>
+    <td><a href="https://pubmed.ncbi.nlm.nih.gov/2240185/" target="_blank" rel="noreferrer">Shearer PD. The deafness of Beethoven: an audiologic and medical overview. Am J Otol 1990;11(5):370-4. PMID 2240185</a></td>
+    <td>American Journal of Otology</td>
+    <td>scholarly</td>
+  </tr>
+  <tr>
+    <td>SRC-0008</td>
+    <td><a href="https://pubmed.ncbi.nlm.nih.gov/23686526/" target="_blank" rel="noreferrer">Stevens MH, Jacobsen T, Crofts AK. Lead and the deafness of Ludwig van Beethoven. Laryngoscope 2013;123(11):2854-8. PMID 23686526</a></td>
+    <td>The Laryngoscope</td>
+    <td>scholarly</td>
+  </tr>
+  <tr>
+    <td>SRC-0009</td>
+    <td><a href="https://pubmed.ncbi.nlm.nih.gov/31904878/" target="_blank" rel="noreferrer">Brotto D, Fellin R, Sorrentino F, et al. A modern case sheds light on a classical enigma: Beethoven&#39;s deafness. Laryngoscope 2021;131(1):179-185. PMID 31904878</a></td>
+    <td>The Laryngoscope</td>
+    <td>scholarly</td>
+  </tr>
+  <tr>
+    <td>SRC-0010</td>
+    <td><a href="https://pubmed.ncbi.nlm.nih.gov/38709835/" target="_blank" rel="noreferrer">Rifai N, Meredith W, Brown K, Erdahl SA, Jannetto PJ. High lead levels in 2 independent and authenticated locks of Beethoven&#39;s hair. Clin Chem 2024;70(6):878-879. PMID 38709835</a></td>
+    <td>Clinical Chemistry</td>
+    <td>scholarly</td>
+  </tr>
+  <tr>
+    <td>SRC-0011</td>
+    <td><a href="https://humanrecord.example.org/internal/HISTMED_Master_Roster_v3.xlsx" target="_blank" rel="noreferrer">HISTMED Master Roster v3</a></td>
+    <td>The Human Record project</td>
+    <td>other</td>
+  </tr></tbody></table></section>
+    <section><h2>Review status</h2><table><thead><tr><th>Review</th><th>Status</th><th>Notes</th></tr></thead><tbody>
+  <tr><td>schema validation</td><td>not_started</td><td>Run scripts/build.ps1 -Conformance.</td></tr>
+  <tr><td>clinical review</td><td>not_started</td><td>Awaiting clinician review; check the asymmetry criterion used for the MRI, the hearing aid plan for a professional musician, CBT rather than medication for tinnitus, and the cerumen sick visit as a contrast with sudden sensorineural loss.</td></tr>
+  <tr><td>provenance review</td><td>not_started</td><td>Beethoven-Haus Bonn pages, the 1841 English translation of the Wegeler letters (Project Gutenberg), a published translation of the Heiligenstadt Testament, and PubMed abstracts logged. Causes of the deafness, the hepatitis B and liver findings, and his drinking are graded R.</td></tr>
+  <tr><td>safe messaging review</td><td>not_started</td><td>The Testament&#39;s words about ending his life are quoted from the source and marked sensitive; the modern safety assessment records no current suicidal ideation and gives the 988 Suicide &amp; Crisis Lifeline with text and chat; deafness is described as a change in communication, with Deaf community resources offered, not imposed.</td></tr></tbody></table></section>
+  </main>
+</body>
+</html>

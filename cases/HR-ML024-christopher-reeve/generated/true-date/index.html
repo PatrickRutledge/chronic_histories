@@ -1,0 +1,621 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Christopher Reeve — The Human Record</title>
+  <style>
+    :root { --navy:#17365d; --blue:#1f4e78; --pale:#eef5fa; --ink:#1f2933; --muted:#66788a; --amber:#fff2cc; --red:#f8d7da; --green:#d9ead3; }
+    * { box-sizing:border-box; }
+    body { margin:0; font:16px/1.5 Arial, sans-serif; color:var(--ink); background:#f6f8fa; }
+    header { background:var(--navy); color:white; padding:24px max(24px,calc((100vw - 1180px)/2)); }
+    header h1 { margin:4px 0; font-size:30px; }
+    .banner { background:#b42318; color:white; font-weight:700; text-align:center; padding:10px; letter-spacing:.03em; }
+    main { max-width:1180px; margin:24px auto 60px; padding:0 24px; }
+    section { background:white; border:1px solid #d9e1e8; border-radius:8px; margin:18px 0; padding:20px; }
+    h2 { color:var(--navy); margin:0 0 14px; font-size:22px; }
+    h3 { color:var(--blue); }
+    .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:12px; }
+    .card { background:var(--pale); border-left:4px solid var(--blue); padding:12px; }
+    .label { color:var(--muted); font-size:13px; text-transform:uppercase; letter-spacing:.04em; }
+    table { width:100%; border-collapse:collapse; }
+    th { background:var(--blue); color:white; text-align:left; }
+    th,td { padding:9px; border-bottom:1px solid #dfe6ec; vertical-align:top; }
+    .badge { display:inline-block; min-width:28px; text-align:center; font-weight:700; border-radius:12px; padding:2px 8px; }
+    .grade-D { background:var(--green); } .grade-R { background:var(--amber); } .grade-S { background:var(--red); }
+    .muted { color:var(--muted); font-size:14px; }
+    .relationship { color:var(--muted); font-size:12px; }
+    .downloads a { display:inline-block; margin:4px 8px 4px 0; padding:8px 12px; background:var(--blue); color:white; text-decoration:none; border-radius:5px; }
+    @media (max-width:700px) { table { display:block; overflow-x:auto; } }
+  </style>
+</head>
+<body>
+  <div class="banner">SYNTHETIC RECORD, NOT A REAL MEDICAL RECORD</div>
+  <div class="banner">True-date frame: synthetic events are moved into the patient&#39;s historical lifetime. Codes, instruments, and treatments remain modern and are anachronistic.</div>
+  <header>
+    <div>The Human Record</div>
+    <h1>Christopher Reeve</h1>
+    <div>Case HR-ML024-TD · Modern EHR teaching episode · Draft for review</div>
+  </header>
+  <main>
+    <section>
+      <h2>Review summary</h2>
+      <div class="grid">
+        <div class="card"><div class="label">Historical dates</div>September 25, 1952 – October 10, 2004</div>
+        <div class="card"><div class="label">Synthetic DOB</div>1952-09-25</div>
+        <div class="card"><div class="label">Index visit</div>2003-04-13 at age 50</div>
+        <div class="card"><div class="label">Synthetic MRN</div>HR-ML024-SYN-TD</div>
+      </div>
+      <p><strong>Teaching objective:</strong> Primary care, coordinated with spinal cord injury medicine, for a 50-year-old director and advocate living with chronic incomplete C2 tetraplegia, ventilator use through a tracheostomy and a newly implanted diaphragm pacing system, on the Paralyzed Veterans of America Consortium for Spinal Cord Medicine guidelines: recognizing autonomic dysreflexia and keeping a written plan with him and his nurses, pressure injury prevention with daily skin checks and the Braden scale, neurogenic bladder care with kidney surveillance by cystatin C and ultrasound, a daily bowel program, respiratory care with secretion clearance and a pacer conditioning schedule, vaccinations, venous thromboembolism awareness, bone health with DXA and vitamin D, spasticity and pain, cardiometabolic risk, mood screening, care team and equipment needs including power and ventilator backup, and advance care planning, with disability presented as part of a full working life.</p>
+      <div class="downloads">
+        <a href="../case.json">Canonical JSON</a>
+        <a href="fhir-bundle.json">FHIR R4 draft</a>
+        <a href="ccda.html">C-CDA R2.1 summary</a> <a href="ccda.xml">(XML)</a>
+        <a href="../sources.md">Evidence dossier</a>
+      </div>
+    </section>
+    <section><h2>Historical timeline</h2><table><thead><tr><th>Date</th><th>Event</th><th>Claims</th></tr></thead><tbody>
+  <tr><td>September 25, 1952</td><td>Born in New York City.</td><td>CLM-0001</td></tr>
+  <tr><td>1978</td><td>Superman released.</td><td>CLM-0002</td></tr>
+  <tr><td>May 27, 1995</td><td>Riding fall in Culpeper, Virginia: fractures of the first and second cervical vertebrae with spinal cord injury; unable to breathe on his own.</td><td>CLM-0003</td></tr>
+  <tr><td>1997</td><td>Directed In the Gloaming; advocacy for disability and spinal cord research.</td><td>CLM-0004, CLM-0005</td></tr>
+  <tr><td>1999</td><td>Activity-based recovery program began.</td><td>CLM-0007</td></tr>
+  <tr><td>September 2002</td><td>Physicians&#39; report of late recovery to ASIA grade C; Nothing Is Impossible published.</td><td>CLM-0006, CLM-0007, CLM-0008</td></tr>
+  <tr><td>2003</td><td>Diaphragm pacing system implanted in Cleveland.</td><td>CLM-0009</td></tr>
+  <tr><td>October 10, 2004</td><td>Died at 52.</td><td>CLM-0010</td></tr></tbody></table></section>
+    <section><h2>Evidence claims</h2><p class="muted">D = documented, R = retrospective, S = synthetic.</p><table><thead><tr><th>Grade</th><th>Claim</th><th>Certainty</th><th>Sources</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>Christopher Reeve was born on September 25, 1952, in New York City.</strong></td>
+    <td>confirmed</td>
+    <td><a href="https://www.recordcourier.com/news/2004/oct/09/superman-christopher-reeve-52-dies/" target="_blank" rel="noreferrer">&#39;Superman&#39; Christopher Reeve, 52, dies (Associated Press, with the Los Angeles Times)</a> <span class="relationship">supports</span><br><a href="https://humanrecord.example.org/internal/HISTMED_Master_Roster_v3.xlsx" target="_blank" rel="noreferrer">HISTMED Master Roster v3</a> <span class="relationship">context</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>He was an actor who became a household name in the title role of the 1978 film Superman.</strong></td>
+    <td>confirmed</td>
+    <td><a href="https://www.recordcourier.com/news/2004/oct/09/superman-christopher-reeve-52-dies/" target="_blank" rel="noreferrer">&#39;Superman&#39; Christopher Reeve, 52, dies (Associated Press, with the Los Angeles Times)</a> <span class="relationship">supports</span><br><a href="https://www.aljazeera.com/news/2004/10/11/superman-christopher-reeve-dies" target="_blank" rel="noreferrer">Superman Christopher Reeve dies (news agencies)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>On a Saturday at the end of May 1995, at 42, he was thrown headfirst when his horse stopped abruptly at the third obstacle of a cross-country event at an equestrian competition in Culpeper, Virginia. He was wearing a helmet. He broke his first and second cervical vertebrae, injured his spinal cord, and could not breathe on his own, as the University of Virginia neurosurgeon treating him reported.</strong><div class="muted">The anchor for the synthetic modern record of chronic C2 tetraplegia with ventilator dependence.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://archive.seattletimes.com/archive/19950601/2124094/christopher-reeves-injury-very-very-bad-doctors-say" target="_blank" rel="noreferrer">Reed D. Christopher Reeve&#39;s Injury &#39;Very, Very Bad,&#39; Doctors Say (Associated Press)</a> <span class="relationship">supports</span><br><a href="https://www.recordcourier.com/news/2004/oct/09/superman-christopher-reeve-52-dies/" target="_blank" rel="noreferrer">&#39;Superman&#39; Christopher Reeve, 52, dies (Associated Press, with the Los Angeles Times)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>After months of therapy he was able to breathe for short periods without a respirator. He became an advocate for people with disabilities and for spinal cord research, lobbied Congress for better insurance protection against catastrophic injury, and directed the film In the Gloaming in 1997.</strong><div class="muted">Anchors his work as a director and advocate in the modern social history.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.recordcourier.com/news/2004/oct/09/superman-christopher-reeve-52-dies/" target="_blank" rel="noreferrer">&#39;Superman&#39; Christopher Reeve, 52, dies (Associated Press, with the Los Angeles Times)</a> <span class="relationship">supports</span><br><a href="https://www.aljazeera.com/news/2004/10/11/superman-christopher-reeve-dies" target="_blank" rel="noreferrer">Superman Christopher Reeve dies (news agencies)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>The Christopher Reeve Paralysis Foundation, built on his advocacy and fundraising, became a leading source of money for spinal cord research, and he helped establish the Reeve-Irvine research center at the University of California, Irvine.</strong><div class="muted">Context for his advocacy; the modern episode names no foundation staff.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.recordcourier.com/news/2004/oct/09/superman-christopher-reeve-52-dies/" target="_blank" rel="noreferrer">&#39;Superman&#39; Christopher Reeve, 52, dies (Associated Press, with the Los Angeles Times)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>He wrote about his life after the injury in an autobiography, Still Me, and in Nothing Is Impossible: Reflections on a New Life (Random House, 2002), which described his activity-based therapy and his return to work.</strong><div class="muted">His own published accounts; the record uses only what reviewers of the books and the news reports summarize.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.bookreporter.com/reviews/nothing-is-impossible-reflections-on-a-new-life" target="_blank" rel="noreferrer">Edmonds C. Review of Nothing Is Impossible: Reflections on a New Life</a> <span class="relationship">supports</span><br><a href="https://philstar.com/lifestyle/sunday-life/2002/12/29/189656/after-superman" target="_blank" rel="noreferrer">Ricardo AL. After Superman (review of Nothing Is Impossible)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>His physicians at Washington University reported his case in 2002: his injury was classified as C-2, ASIA grade A, with no substantial recovery in the first five years. An activity-based recovery program begun in 1999 was followed over three years by improvement to ASIA grade C, with motor scores rising from 0 to 20 of 100, sensory scores from 5-7 to 58-77 of 112, and voluntary control of some muscles including the right half of the diaphragm. Reversal of osteoporosis, more muscle mass and less spasticity were associated with the recovery, medical complications fell, and infections and antibiotic use fell by more than 90 percent.</strong><div class="muted">His physicians&#39; published account, with his public participation. Anchors the modern problem of incomplete C2 tetraplegia (ASIA C), the activity-based therapy, and the bone health plan.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://pubmed.ncbi.nlm.nih.gov/12296690/" target="_blank" rel="noreferrer">McDonald JW, Becker D, Sadowsky CL, Jane JA Sr, Conturo TE, Schultz LM. Late recovery following spinal cord injury. Case report and review of the literature. J Neurosurg. 2002;97(2 Suppl):252-265 (PMID 12296690)</a> <span class="relationship">supports</span><br><a href="https://www.deseret.com/2002/9/13/19677084/reeve-s-progress-is-unprecedented" target="_blank" rel="noreferrer">Reeve&#39;s progress is &#39;unprecedented&#39; (Associated Press)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>In September 2002 the Associated Press reported that the first sign of change had been a movement of his left index finger almost two years earlier. He still used a wheelchair and a ventilator all but one hour a day and needed around-the-clock nursing care. He could feel about two-thirds of normal touch, which let him know when to shift his weight, so that he could sit in his wheelchair up to 16 hours a day without getting pressure sores. His program included electrically stimulated cycling for an hour three times a week and weekly pool therapy. Before it, his muscles had withered, his bones had thinned, and he had had repeated infections and life-threatening complications.</strong><div class="muted">Anchors the modern pressure injury prevention, nursing care, exercise program and bone health plan.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.deseret.com/2002/9/13/19677084/reeve-s-progress-is-unprecedented" target="_blank" rel="noreferrer">Reeve&#39;s progress is &#39;unprecedented&#39; (Associated Press)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>In early 2003 surgeons at University Hospitals of Cleveland led by Dr. Raymond Onders implanted a diaphragm pacing system through small abdominal incisions. His phrenic nerves had not been injured. After eight years on a respirator, breathing through a tracheostomy, he could breathe for more than two hours without the respirator, and his doctors hoped the stimulation would let him wean further.</strong><div class="muted">The anchor for the synthetic modern episode, which begins some weeks after the implant, with a conditioning program to lengthen time on the pacer.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.hospimedica.com/surgical-techniques/articles/86020000/procedure-allows-paralyzed-actor-to-breathe-without-respirator.html" target="_blank" rel="noreferrer">Procedure Allows Paralyzed Actor to Breathe Without Respirator</a> <span class="relationship">supports</span><br><a href="https://www.medicalnewstoday.com/releases/272396.php" target="_blank" rel="noreferrer">New Study Shows Diaphragm Pacing Successful in Weaning Spinal Cord-Injured Patients From Ventilators</a> <span class="relationship">supports</span><br><a href="https://www.cnn.com/TRANSCRIPTS/0303/13/lt.07.html" target="_blank" rel="noreferrer">CNN Live Today: Reeve&#39;s Surgery (transcript)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>On October 9, 2004, he went into cardiac arrest at his home in New York and fell into a coma; he died on October 10, 2004, at 52. His publicist said he had been treated for a pressure wound, a common complication of paralysis, which had become severely infected and led to a serious systemic infection.</strong><div class="muted">History only, after the modern episode; not used in it. The modern record keeps pressure injury prevention central for anyone with this injury.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.recordcourier.com/news/2004/oct/09/superman-christopher-reeve-52-dies/" target="_blank" rel="noreferrer">&#39;Superman&#39; Christopher Reeve, 52, dies (Associated Press, with the Los Angeles Times)</a> <span class="relationship">supports</span><br><a href="https://www.aljazeera.com/news/2004/10/11/superman-christopher-reeve-dies" target="_blank" rel="noreferrer">Superman Christopher Reeve dies (news agencies)</a> <span class="relationship">supports</span></td>
+  </tr></tbody></table></section>
+    <section><h2>Modern synthetic problem list</h2><table><thead><tr><th>Grade</th><th>Problem</th><th>Clinical status</th><th>Verification</th><th>Placement</th><th>Historical claims</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Chronic incomplete C2 tetraplegia (ASIA grade C) from a traumatic spinal cord injury in a riding fall eight years ago, with partial late recovery of sensation and movement; uses a power wheelchair and has 24-hour nursing support; at risk of autonomic dysreflexia; synthetic modern episode linked to his documented injury and his physicians&#39; published report</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>both_with_link</td>
+    <td>CLM-0003, CLM-0007</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Chronic ventilatory failure from the high cervical injury: dependent on a ventilator through a tracheostomy, with a diaphragm pacing system implanted some weeks ago and a conditioning program to lengthen time on the pacer; synthetic modern episode linked to his documented ventilator use and pacing</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>both_with_link</td>
+    <td>CLM-0003, CLM-0009</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Neurogenic bladder after spinal cord injury, managed with an indwelling catheter</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Neurogenic bowel after spinal cord injury, managed with a daily morning bowel program</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td></td>
+  </tr></tbody></table></section>
+    <section><h2>Synthetic outcome measures</h2><table><thead><tr><th>Grade</th><th>Date</th><th>Measure</th><th>Result</th><th>Coding</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2003-04-13</td>
+    <td>Leukocytes [#/volume] in Blood by Automated count</td>
+    <td>7.2 10*3/uL<div class="muted">Reference 4-11 10*3/uL</div></td>
+    <td>http://loinc.org · 6690-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2003-04-13</td>
+    <td>Hemoglobin [Mass/volume] in Blood</td>
+    <td>13.1 g/dL (low)<div class="muted">Reference 13.2-16.6 g/dL</div></td>
+    <td>http://loinc.org · 718-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2003-04-13</td>
+    <td>Sodium [Moles/volume] in Serum or Plasma</td>
+    <td>138 mmol/L<div class="muted">Reference 135-145 mmol/L</div></td>
+    <td>http://loinc.org · 2951-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2003-04-13</td>
+    <td>Potassium [Moles/volume] in Serum or Plasma</td>
+    <td>4.2 mmol/L<div class="muted">Reference 3.5-5.1 mmol/L</div></td>
+    <td>http://loinc.org · 2823-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2003-04-13</td>
+    <td>Creatinine [Mass/volume] in Serum or Plasma</td>
+    <td>0.48 mg/dL (low)<div class="muted">Reference 0.74-1.35 mg/dL</div></td>
+    <td>http://loinc.org · 2160-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2003-04-13</td>
+    <td>Cystatin C [Mass/volume] in Serum or Plasma</td>
+    <td>0.92 mg/L<div class="muted">Reference 0.53-0.95 mg/L</div></td>
+    <td>http://loinc.org · 33863-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2003-04-13</td>
+    <td>Glomerular filtration rate [Volume Rate/Area] in Serum, Plasma or Blood by Cystatin C-based formula/1.73 sq M</td>
+    <td>90 mL/min/1.73 m²<div class="muted">Reference &gt;=60 mL/min/1.73 m²</div></td>
+    <td>http://loinc.org · 50210-4</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2003-04-13</td>
+    <td>Albumin [Mass/volume] in Serum or Plasma</td>
+    <td>3.8 g/dL<div class="muted">Reference 3.5-5.2 g/dL</div></td>
+    <td>http://loinc.org · 1751-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2003-04-13</td>
+    <td>Calcium [Mass/volume] in Serum or Plasma</td>
+    <td>9 mg/dL<div class="muted">Reference 8.6-10.3 mg/dL</div></td>
+    <td>http://loinc.org · 17861-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2003-04-13</td>
+    <td>25-Hydroxyvitamin D3+25-Hydroxyvitamin D2 [Mass/volume] in Serum or Plasma</td>
+    <td>22 ng/mL (low)<div class="muted">Reference 30-100 ng/mL</div></td>
+    <td>http://loinc.org · 62292-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2003-04-13</td>
+    <td>Parathyrin.intact [Mass/volume] in Serum or Plasma</td>
+    <td>52 pg/mL<div class="muted">Reference 15-65 pg/mL</div></td>
+    <td>http://loinc.org · 2731-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2003-04-13</td>
+    <td>Hemoglobin A1c/Hemoglobin.total in Blood</td>
+    <td>5.5%<div class="muted">Reference Below 5.7% is normal; 5.7 to 6.4% prediabetes</div></td>
+    <td>http://loinc.org · 4548-4</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2003-04-13</td>
+    <td>Cholesterol [Mass/volume] in Serum or Plasma</td>
+    <td>172 mg/dL<div class="muted">Reference &lt;=199 mg/dL</div></td>
+    <td>http://loinc.org · 2093-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2003-04-13</td>
+    <td>Cholesterol in LDL [Mass/volume] in Serum or Plasma by calculation</td>
+    <td>104 mg/dL<div class="muted">Reference &lt;=129 mg/dL</div></td>
+    <td>http://loinc.org · 13457-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2003-04-13</td>
+    <td>Cholesterol in HDL [Mass/volume] in Serum or Plasma</td>
+    <td>34 mg/dL (low)<div class="muted">Reference &gt;=40 mg/dL</div></td>
+    <td>http://loinc.org · 2085-9</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2003-04-13</td>
+    <td>Triglyceride [Mass/volume] in Serum or Plasma</td>
+    <td>170 mg/dL (high)<div class="muted">Reference &lt;=149 mg/dL</div></td>
+    <td>http://loinc.org · 2571-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2003-04-13</td>
+    <td>Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]</td>
+    <td>3</td>
+    <td>http://loinc.org · 44261-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2003-04-13</td>
+    <td>Braden scale total score</td>
+    <td>11</td>
+    <td>http://loinc.org · 38227-5</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2003-04-13</td>
+    <td>Pain severity - 0-10 verbal numeric rating [Score] - Reported</td>
+    <td>3</td>
+    <td>http://loinc.org · 72514-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2003-04-27</td>
+    <td>DXA Femur [T-score] Bone density</td>
+    <td>-1.6 (low)<div class="muted">Reference -1.0 or higher is normal; -2.5 or lower is osteoporosis</div></td>
+    <td>http://loinc.org · 38263-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2003-04-27</td>
+    <td>Braden scale total score</td>
+    <td>11</td>
+    <td>http://loinc.org · 38227-5</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2003-06-22</td>
+    <td>25-Hydroxyvitamin D3+25-Hydroxyvitamin D2 [Mass/volume] in Serum or Plasma</td>
+    <td>34 ng/mL<div class="muted">Reference 30-100 ng/mL</div></td>
+    <td>http://loinc.org · 62292-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2003-06-22</td>
+    <td>Braden scale total score</td>
+    <td>11</td>
+    <td>http://loinc.org · 38227-5</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2003-06-22</td>
+    <td>Pain severity - 0-10 verbal numeric rating [Score] - Reported</td>
+    <td>2</td>
+    <td>http://loinc.org · 72514-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2003-08-24</td>
+    <td>Sodium [Moles/volume] in Serum or Plasma</td>
+    <td>139 mmol/L<div class="muted">Reference 135-145 mmol/L</div></td>
+    <td>http://loinc.org · 2951-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2003-08-24</td>
+    <td>Potassium [Moles/volume] in Serum or Plasma</td>
+    <td>4.3 mmol/L<div class="muted">Reference 3.5-5.1 mmol/L</div></td>
+    <td>http://loinc.org · 2823-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2003-08-24</td>
+    <td>Creatinine [Mass/volume] in Serum or Plasma</td>
+    <td>0.5 mg/dL (low)<div class="muted">Reference 0.74-1.35 mg/dL</div></td>
+    <td>http://loinc.org · 2160-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2003-08-24</td>
+    <td>Cystatin C [Mass/volume] in Serum or Plasma</td>
+    <td>0.9 mg/L<div class="muted">Reference 0.53-0.95 mg/L</div></td>
+    <td>http://loinc.org · 33863-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2003-08-24</td>
+    <td>Glomerular filtration rate [Volume Rate/Area] in Serum, Plasma or Blood by Cystatin C-based formula/1.73 sq M</td>
+    <td>93 mL/min/1.73 m²<div class="muted">Reference &gt;=60 mL/min/1.73 m²</div></td>
+    <td>http://loinc.org · 50210-4</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2003-08-24</td>
+    <td>Braden scale total score</td>
+    <td>12</td>
+    <td>http://loinc.org · 38227-5</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2003-08-24</td>
+    <td>Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]</td>
+    <td>2</td>
+    <td>http://loinc.org · 44261-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2003-10-26</td>
+    <td>Leukocytes [#/volume] in Blood by Automated count</td>
+    <td>6.8 10*3/uL<div class="muted">Reference 4-11 10*3/uL</div></td>
+    <td>http://loinc.org · 6690-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2003-10-26</td>
+    <td>Hemoglobin [Mass/volume] in Blood</td>
+    <td>13.4 g/dL<div class="muted">Reference 13.2-16.6 g/dL</div></td>
+    <td>http://loinc.org · 718-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2003-10-26</td>
+    <td>Sodium [Moles/volume] in Serum or Plasma</td>
+    <td>138 mmol/L<div class="muted">Reference 135-145 mmol/L</div></td>
+    <td>http://loinc.org · 2951-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2003-10-26</td>
+    <td>Potassium [Moles/volume] in Serum or Plasma</td>
+    <td>4.1 mmol/L<div class="muted">Reference 3.5-5.1 mmol/L</div></td>
+    <td>http://loinc.org · 2823-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2003-10-26</td>
+    <td>Creatinine [Mass/volume] in Serum or Plasma</td>
+    <td>0.49 mg/dL (low)<div class="muted">Reference 0.74-1.35 mg/dL</div></td>
+    <td>http://loinc.org · 2160-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2003-10-26</td>
+    <td>Cystatin C [Mass/volume] in Serum or Plasma</td>
+    <td>0.91 mg/L<div class="muted">Reference 0.53-0.95 mg/L</div></td>
+    <td>http://loinc.org · 33863-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2003-10-26</td>
+    <td>Glomerular filtration rate [Volume Rate/Area] in Serum, Plasma or Blood by Cystatin C-based formula/1.73 sq M</td>
+    <td>92 mL/min/1.73 m²<div class="muted">Reference &gt;=60 mL/min/1.73 m²</div></td>
+    <td>http://loinc.org · 50210-4</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2003-10-26</td>
+    <td>Albumin [Mass/volume] in Serum or Plasma</td>
+    <td>4 g/dL<div class="muted">Reference 3.5-5.2 g/dL</div></td>
+    <td>http://loinc.org · 1751-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2003-10-26</td>
+    <td>Braden scale total score</td>
+    <td>12</td>
+    <td>http://loinc.org · 38227-5</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2003-10-26</td>
+    <td>Pain severity - 0-10 verbal numeric rating [Score] - Reported</td>
+    <td>2</td>
+    <td>http://loinc.org · 72514-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2003-10-26</td>
+    <td>Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]</td>
+    <td>2</td>
+    <td>http://loinc.org · 44261-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2003-09-14</td>
+    <td>Patient Health Questionnaire 2 item (PHQ-2) total score [Reported]</td>
+    <td>0</td>
+    <td>http://loinc.org · 55758-7</td>
+  </tr></tbody></table></section>
+    <section><h2>Synthetic vital signs</h2><table><thead><tr><th>Date</th><th>Measure</th><th>Result</th><th>LOINC</th><th>Grade</th></tr></thead><tbody>
+  <tr><td>2003-04-13</td><td>Body height</td><td>193 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2003-04-13</td><td>Body weight</td><td>82 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2003-04-13</td><td>Body mass index (BMI) [Ratio]</td><td>22 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2003-04-13</td><td>Systolic blood pressure</td><td>104 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2003-04-13</td><td>Diastolic blood pressure</td><td>64 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2003-04-13</td><td>Heart rate</td><td>62 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2003-04-13</td><td>Respiratory rate</td><td>12 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2003-04-13</td><td>Body temperature</td><td>36.3 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2003-04-13</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>97 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2003-04-27</td><td>Body height</td><td>193 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2003-04-27</td><td>Body weight</td><td>82.2 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2003-04-27</td><td>Body mass index (BMI) [Ratio]</td><td>22.1 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2003-04-27</td><td>Systolic blood pressure</td><td>102 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2003-04-27</td><td>Diastolic blood pressure</td><td>62 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2003-04-27</td><td>Heart rate</td><td>60 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2003-04-27</td><td>Respiratory rate</td><td>12 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2003-04-27</td><td>Body temperature</td><td>36.4 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2003-04-27</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>97 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2003-06-22</td><td>Body height</td><td>193 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2003-06-22</td><td>Body weight</td><td>82.6 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2003-06-22</td><td>Body mass index (BMI) [Ratio]</td><td>22.2 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2003-06-22</td><td>Systolic blood pressure</td><td>106 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2003-06-22</td><td>Diastolic blood pressure</td><td>64 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2003-06-22</td><td>Heart rate</td><td>64 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2003-06-22</td><td>Respiratory rate</td><td>12 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2003-06-22</td><td>Body temperature</td><td>36.5 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2003-06-22</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>98 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2003-08-24</td><td>Body height</td><td>193 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2003-08-24</td><td>Body weight</td><td>82.8 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2003-08-24</td><td>Body mass index (BMI) [Ratio]</td><td>22.2 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2003-08-24</td><td>Systolic blood pressure</td><td>104 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2003-08-24</td><td>Diastolic blood pressure</td><td>66 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2003-08-24</td><td>Heart rate</td><td>62 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2003-08-24</td><td>Respiratory rate</td><td>12 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2003-08-24</td><td>Body temperature</td><td>36.4 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2003-08-24</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>97 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2003-10-26</td><td>Body height</td><td>193 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2003-10-26</td><td>Body weight</td><td>83 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2003-10-26</td><td>Body mass index (BMI) [Ratio]</td><td>22.3 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2003-10-26</td><td>Systolic blood pressure</td><td>104 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2003-10-26</td><td>Diastolic blood pressure</td><td>64 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2003-10-26</td><td>Heart rate</td><td>60 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2003-10-26</td><td>Respiratory rate</td><td>12 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2003-10-26</td><td>Body temperature</td><td>36.3 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2003-10-26</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>98 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2003-09-14</td><td>Body height</td><td>193 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2003-09-14</td><td>Body weight</td><td>82.9 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2003-09-14</td><td>Body mass index (BMI) [Ratio]</td><td>22.3 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2003-09-14</td><td>Systolic blood pressure</td><td>102 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2003-09-14</td><td>Diastolic blood pressure</td><td>62 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2003-09-14</td><td>Heart rate</td><td>62 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2003-09-14</td><td>Respiratory rate</td><td>12 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2003-09-14</td><td>Body temperature</td><td>36.4 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2003-09-14</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>97 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr></tbody></table></section>
+    <section><h2>Social, functional, and mental status</h2><h3>Social history</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Works as a film director, author and advocate for spinal cord research and people with disabilities; travels to speak with his nursing team</li><li><span class="badge grade-S" title="Synthetic">S</span> Lives at home with his family; around-the-clock care from a team of nurses and aides, who do his skin checks, bladder and bowel care, suctioning and transfers; he directs his own care</li><li><span class="badge grade-S" title="Synthetic">S</span> Exercise: electrically stimulated cycling three times a week and pool therapy weekly, continued from his recovery program</li><li><span class="badge grade-S" title="Synthetic">S</span> Tobacco, alcohol and drugs: none recorded</li><li><span class="badge grade-S" title="Synthetic">S</span> Supports: his family, his nursing team, colleagues in his advocacy work, and a strong sense of purpose in his work and research goals</li></ul><h3>Functional status</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Drives a power wheelchair with tilt-in-space himself; needs full assistance for transfers, bathing, dressing, bladder and bowel care; sits up for most of the day; speaks with the tracheostomy cuff deflated; some voluntary finger and wrist movement and sensation over much of his body</li></ul><h3>Mental status</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Alert, articulate and engaged; mood good; future-oriented and focused on his work and his recovery goals; PHQ-9 score 3</li></ul></section>
+    
+    <section><h2>Allergies and medications</h2><h3>Allergies</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> No known allergy</li></ul><h3>Medications</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Sennosides 8.6 mg oral tablet, two tablets at bedtime</li><li><span class="badge grade-S" title="Synthetic">S</span> Nitroglycerin 2% ointment, one inch to the skin of the chest only if systolic blood pressure stays at 150 mmHg or higher after the first steps of the autonomic dysreflexia plan; wipe off when pressure falls</li><li><span class="badge grade-S" title="Synthetic">S</span> Acetaminophen 500 mg oral tablet, two tablets up to three times a day as needed for neck and shoulder aching</li><li><span class="badge grade-S" title="Synthetic">S</span> Cholecalciferol (vitamin D3) 1977 units (50 mcg) oral capsule, one capsule daily</li></ul></section>
+    <section><h2>Procedures and immunizations</h2><h3>Procedures</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Dual-energy X-ray absorptiometry (DXA) of the hip, with distal femur and proximal tibia views</li><li><span class="badge grade-S" title="Synthetic">S</span> Ultrasound of both kidneys and the bladder</li><li><span class="badge grade-S" title="Synthetic">S</span> Advance care planning conversation, about 30 minutes</li></ul><h3>Immunizations</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> 2003-09-14: Pneumococcal conjugate vaccine PCV20</li><li><span class="badge grade-S" title="Synthetic">S</span> 2003-09-14: Recombinant zoster vaccine, dose 1 of 2</li><li><span class="badge grade-S" title="Synthetic">S</span> 2003-09-14: Respiratory syncytial virus vaccine (RSVPreF3, adjuvanted)</li><li><span class="badge grade-S" title="Synthetic">S</span> 2003-09-14: Tetanus, diphtheria, and acellular pertussis vaccine (Tdap)</li><li><span class="badge grade-S" title="Synthetic">S</span> 2003-10-26: Influenza vaccine, inactivated, this season</li><li><span class="badge grade-S" title="Synthetic">S</span> 2003-10-26: COVID-19 vaccine, mRNA, this season</li><li><span class="badge grade-S" title="Synthetic">S</span> 2003-10-26: Hepatitis B vaccine (HepB-CpG), dose 1 of 2</li></ul></section>
+    <section><h2>Past medical history</h2><p class="muted">True biography with historical dates; not part of the synthetic care timeline.</p><ul><li><span class="badge grade-D" title="Documented">D</span> May 27, 1995: Fractures of the first and second cervical vertebrae with spinal cord injury in a riding fall; unable to breathe on his own afterwards <span class="muted">(CLM-0003)</span></li><li><span class="badge grade-D" title="Documented">D</span> 1999: Activity-based recovery program (electrically stimulated cycling and pool therapy) begun about five years after the injury; by his physicians&#39; report, improvement from ASIA grade A to C, reversal of osteoporosis, less spasticity, and far fewer infections <span class="muted">(CLM-0007, CLM-0008)</span></li><li><span class="badge grade-D" title="Documented">D</span> 2003: Diaphragm pacing system implanted laparoscopically in Cleveland; able to breathe more than two hours off the ventilator afterwards <span class="muted">(CLM-0009)</span></li></ul><h3>Family history</h3><p class="muted">No family medical history is documented in the logged sources. Family history of real relatives is never synthesized.</p></section>
+    <section><h2>Care-plan goals</h2><table><thead><tr><th>Goal</th><th>Target date</th><th>Status</th><th>Outcome</th></tr></thead><tbody>
+  <tr><td>Lengthen time on the diaphragm pacer to at least three hours twice a day by six months, with stable oxygen saturation</td><td>2003-10-26</td><td>completed</td><td>Pacer three hours twice a day; saturation 97 to 98% on the pacer</td></tr>
+  <tr><td>No pressure injury: skin intact at every check through six months</td><td>2003-10-26</td><td>completed</td><td>Skin intact at every visit; Braden 11 to 12</td></tr>
+  <tr><td>Written autonomic dysreflexia plan held by him and every nurse, with all nurses trained, by the two-week visit</td><td>2003-04-27</td><td>completed</td><td>Plan and wallet card in place; all regular nurses trained</td></tr>
+  <tr><td>25-hydroxyvitamin D at least 30 ng/mL within three months</td><td>2003-06-22</td><td>completed</td><td>34 ng/mL at ten weeks</td></tr>
+  <tr><td>No unplanned hospital admission through six months</td><td>2003-10-26</td><td>completed</td><td>No admission</td></tr></tbody></table></section>
+    <section><h2>Interventions</h2><table><thead><tr><th>Intervention</th><th>Status</th><th>Guideline</th></tr></thead><tbody>
+  <tr><td>Autonomic dysreflexia: a written plan and wallet card (sit him up, loosen clothing, check the catheter and bladder, then the bowel and skin; check blood pressure every 2 to 5 minutes; nitroglycerin ointment only if systolic pressure stays at 150 mmHg or higher), his baseline blood pressure recorded, and training for every nurse</td><td>completed</td><td>GL-CSCM-AD-2021</td></tr>
+  <tr><td>Physical medicine and rehabilitation (spinal cord injury medicine) consultation to review the pacer conditioning plan, the autonomic dysreflexia plan, bladder and bowel management, bone health, spasticity and pain, and seating and equipment</td><td>completed</td><td>GL-CSCM-RESP-2005, GL-CSCM-AD-2021</td></tr>
+  <tr><td>Pressure injury prevention: skin checks morning and night by his nurses, tilt-in-space pressure relief every 30 minutes in the chair, turning every 2 hours in bed on a pressure-redistributing mattress, cushion and seating review, nutrition, and the Braden scale at each visit</td><td>completed</td><td>GL-CSCM-PU-2014</td></tr>
+  <tr><td>Neurogenic bladder: catheter care with monthly changes and closed drainage, no treatment of bacteria in the urine without symptoms, kidney function by cystatin C, and kidney and bladder ultrasound yearly</td><td>completed</td><td>GL-CSCM-BLADDER-2006, GL-AUA-NLUTD-2021</td></tr>
+  <tr><td>Neurogenic bowel: a daily morning program with a suppository and digital stimulation, senna at night, fiber and fluids, reviewed at each visit</td><td>completed</td><td>GL-CSCM-BOWEL-2021</td></tr>
+  <tr><td>Respiratory care: tracheostomy care, suctioning, daily mechanical insufflation-exsufflation for secretion clearance, a pacer conditioning schedule with oxygen saturation checks, a backup ventilator, a spare tracheostomy tube, a generator and battery plan for power cuts, and registration with the power company and emergency services</td><td>completed</td><td>GL-CSCM-RESP-2005</td></tr>
+  <tr><td>Bone health and cardiometabolic risk: calcium, 25-hydroxyvitamin D and PTH, DXA of the hip and knee regions, continued electrically stimulated cycling, careful transfers; lipids, A1c and blood pressure yearly</td><td>completed</td><td>GL-CSCM-BONE-2022, GL-CSCM-CMR-2018, GL-CMID-2026</td></tr>
+  <tr><td>Mood, pain, spasticity and venous thromboembolism: PHQ-9 at intake and twice a year, pain score at reviews, stretching and range of motion for spasticity, and checking for leg swelling, with urgent assessment for a new swollen leg</td><td>completed</td><td>GL-CSCM-MH-2021, GL-CSCM-VTE-2016, GL-CSCM-PAIN</td></tr>
+  <tr><td>On the consultant&#39;s advice: vitamin D3 1977 units daily with a recheck in about eight weeks, seating pressure mapping with a cushion review, a weekly step-up of pacer time as tolerated, and a repeat DXA in two years</td><td>completed</td><td>GL-CSCM-BONE-2022, GL-CSCM-PU-2014, GL-CSCM-RESP-2005, GL-CMID-2026</td></tr></tbody></table></section>
+    <section><h2>Planned encounters</h2><ul>
+  <li><strong>2003-04-13</strong> — Establishing primary care for chronic C2 tetraplegia on a ventilator, some weeks after a diaphragm pacing system was implanted: autonomic dysreflexia plan, skin, bladder, bowel, respiratory care, bone and cardiometabolic health, mood, and care team needs <span class="muted">(ENC-001)</span></li>
+  <li><strong>2003-04-27</strong> — Two-week review and physical medicine and rehabilitation (spinal cord injury medicine) consultation, with a bone density scan and kidney and bladder ultrasound <span class="muted">(ENC-002)</span></li>
+  <li><strong>2003-06-22</strong> — Ten-week review: pacer conditioning, skin, vitamin D, and seating <span class="muted">(ENC-003)</span></li>
+  <li><strong>2003-08-24</strong> — Four-month review: kidney function, skin, mood, and equipment <span class="muted">(ENC-004)</span></li>
+  <li><strong>2003-09-14</strong> — Periodic adult preventive visit <span class="muted">(ENC-006)</span></li>
+  <li><strong>2003-10-26</strong> — Six-month review: respiratory care, skin, bladder and kidney surveillance, vaccines, and plans for the winter <span class="muted">(ENC-005)</span></li></ul></section>
+    <section><h2>Supporting documents</h2><ul><li><a href="notes/hp.md">History and physical</a></li><li><a href="notes/progress-01.md">Progress note 01</a></li><li><a href="notes/progress-02.md">Progress note 02 — Focused Visit (Follow-up)</a></li><li><a href="notes/progress-03.md">Progress note 03 — Focused Visit (Follow-up)</a></li><li><a href="notes/progress-04.md">Progress note 04 — Focused Visit (Follow-up)</a></li><li><a href="notes/progress-05.md">Progress note 05 — Preventive Visit</a></li><li><a href="notes/progress-06.md">Progress note 06 — Focused Visit (Care-plan review)</a></li><li><a href="notes/referral-01.md">Physical Medicine and Rehabilitation referral</a></li><li><a href="notes/consult-01.md">Physical Medicine and Rehabilitation consultation</a></li><li><a href="notes/careplan.md">Patient care plan</a></li><li><a href="notes/teaching-note.md">Teaching note</a></li><li><a href="provenance.csv">Provenance CSV</a></li></ul></section>
+    <section><h2>C-CDA note documents</h2><p class="muted">Each link opens a readable copy; the XML beside it is the exchange file.</p><ul><li><a href="ccda/hp-01.html">History and physical</a> <a href="ccda/hp-01.xml">(XML)</a></li><li><a href="ccda/progress-01.html">Progress note 01</a> <a href="ccda/progress-01.xml">(XML)</a></li><li><a href="ccda/progress-02.html">Progress note 02 — Focused Visit (Follow-up)</a> <a href="ccda/progress-02.xml">(XML)</a></li><li><a href="ccda/progress-03.html">Progress note 03 — Focused Visit (Follow-up)</a> <a href="ccda/progress-03.xml">(XML)</a></li><li><a href="ccda/progress-04.html">Progress note 04 — Focused Visit (Follow-up)</a> <a href="ccda/progress-04.xml">(XML)</a></li><li><a href="ccda/progress-05.html">Progress note 05 — Preventive Visit</a> <a href="ccda/progress-05.xml">(XML)</a></li><li><a href="ccda/progress-06.html">Progress note 06 — Focused Visit (Care-plan review)</a> <a href="ccda/progress-06.xml">(XML)</a></li><li><a href="ccda/referral-01.html">Physical Medicine and Rehabilitation referral</a> <a href="ccda/referral-01.xml">(XML)</a></li><li><a href="ccda/consult-01.html">Physical Medicine and Rehabilitation consultation</a> <a href="ccda/consult-01.xml">(XML)</a></li></ul></section>
+    <section><h2>Sources</h2><table><thead><tr><th>ID</th><th>Source</th><th>Publisher</th><th>Type</th></tr></thead><tbody>
+  <tr>
+    <td>SRC-0001</td>
+    <td><a href="https://www.recordcourier.com/news/2004/oct/09/superman-christopher-reeve-52-dies/" target="_blank" rel="noreferrer">&#39;Superman&#39; Christopher Reeve, 52, dies (Associated Press, with the Los Angeles Times)</a></td>
+    <td>The Record-Courier</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0002</td>
+    <td><a href="https://www.aljazeera.com/news/2004/10/11/superman-christopher-reeve-dies" target="_blank" rel="noreferrer">Superman Christopher Reeve dies (news agencies)</a></td>
+    <td>Al Jazeera</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0003</td>
+    <td><a href="https://archive.seattletimes.com/archive/19950601/2124094/christopher-reeves-injury-very-very-bad-doctors-say" target="_blank" rel="noreferrer">Reed D. Christopher Reeve&#39;s Injury &#39;Very, Very Bad,&#39; Doctors Say (Associated Press)</a></td>
+    <td>The Seattle Times</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0004</td>
+    <td><a href="https://pubmed.ncbi.nlm.nih.gov/12296690/" target="_blank" rel="noreferrer">McDonald JW, Becker D, Sadowsky CL, Jane JA Sr, Conturo TE, Schultz LM. Late recovery following spinal cord injury. Case report and review of the literature. J Neurosurg. 2002;97(2 Suppl):252-265 (PMID 12296690)</a></td>
+    <td>Journal of Neurosurgery: Spine</td>
+    <td>scholarly</td>
+  </tr>
+  <tr>
+    <td>SRC-0005</td>
+    <td><a href="https://www.deseret.com/2002/9/13/19677084/reeve-s-progress-is-unprecedented" target="_blank" rel="noreferrer">Reeve&#39;s progress is &#39;unprecedented&#39; (Associated Press)</a></td>
+    <td>Deseret News</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0006</td>
+    <td><a href="https://www.bookreporter.com/reviews/nothing-is-impossible-reflections-on-a-new-life" target="_blank" rel="noreferrer">Edmonds C. Review of Nothing Is Impossible: Reflections on a New Life</a></td>
+    <td>Bookreporter</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0007</td>
+    <td><a href="https://philstar.com/lifestyle/sunday-life/2002/12/29/189656/after-superman" target="_blank" rel="noreferrer">Ricardo AL. After Superman (review of Nothing Is Impossible)</a></td>
+    <td>The Philippine Star</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0008</td>
+    <td><a href="https://www.hospimedica.com/surgical-techniques/articles/86020000/procedure-allows-paralyzed-actor-to-breathe-without-respirator.html" target="_blank" rel="noreferrer">Procedure Allows Paralyzed Actor to Breathe Without Respirator</a></td>
+    <td>HospiMedica International</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0009</td>
+    <td><a href="https://www.medicalnewstoday.com/releases/272396.php" target="_blank" rel="noreferrer">New Study Shows Diaphragm Pacing Successful in Weaning Spinal Cord-Injured Patients From Ventilators</a></td>
+    <td>Medical News Today (University Hospitals Case Medical Center release)</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0010</td>
+    <td><a href="https://www.cnn.com/TRANSCRIPTS/0303/13/lt.07.html" target="_blank" rel="noreferrer">CNN Live Today: Reeve&#39;s Surgery (transcript)</a></td>
+    <td>CNN</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0011</td>
+    <td><a href="https://humanrecord.example.org/internal/HISTMED_Master_Roster_v3.xlsx" target="_blank" rel="noreferrer">HISTMED Master Roster v3</a></td>
+    <td>The Human Record project</td>
+    <td>other</td>
+  </tr></tbody></table></section>
+    <section><h2>Review status</h2><table><thead><tr><th>Review</th><th>Status</th><th>Notes</th></tr></thead><tbody>
+  <tr><td>schema validation</td><td>not_started</td><td>Run scripts/build.ps1 -Conformance.</td></tr>
+  <tr><td>clinical review</td><td>not_started</td><td>Awaiting clinician review; check the autonomic dysreflexia plan and nitroglycerin threshold, the pacer conditioning schedule, cystatin C for kidney function, the bladder and bowel programs, the DXA regions and vitamin D dosing, and the vaccine choices at 50.</td></tr>
+  <tr><td>provenance review</td><td>not_started</td><td>Recent-death rule: only what he and his physicians made public, through Associated Press, CNN, HospiMedica and hospital reports, his physicians&#39; 2002 case report (PubMed abstract), and reviews of his books. The foundation&#39;s own pages could not be fetched and are not cited.</td></tr>
+  <tr><td>safe messaging review</td><td>not_started</td><td>No mental health or substance claims are made; mood screening is synthetic and negative. His death is recorded in one claim as history. Disability is described without pity language.</td></tr></tbody></table></section>
+  </main>
+</body>
+</html>

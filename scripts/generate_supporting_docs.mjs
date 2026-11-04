@@ -24,7 +24,7 @@ const vitals = date => {
   const set = clinical.vital_sign_sets.find(x => x.date === date);
   if (!set) return "Vital signs not recorded.";
   const m = new Map(set.measurements.map(x => [x.code, x.value]));
-  return `BP ${m.get("8480-6")}/${m.get("8462-4")} mmHg; pulse ${m.get("8867-4")} bpm; respirations ${m.get("9279-1")}/min; temperature ${m.get("8310-5")} °C; oxygen saturation ${m.get("59408-5")}% on room air; weight ${m.get("29463-7")} kg; BMI ${m.get("39156-5")} kg/m². All vital signs are synthetic.`;
+  return `BP ${m.get("8480-6")}/${m.get("8462-4")} mmHg; pulse ${m.get("8867-4")} bpm; respirations ${m.get("9279-1")}/min; temperature ${m.get("8310-5")} °C; oxygen saturation ${m.get("59408-5")}% ${set.oxygen_context ?? "on room air"}; weight ${m.get("29463-7")} kg; BMI ${m.get("39156-5")} kg/m². All vital signs are synthetic.`;
 };
 const atIndex = claimsAtIndex(data);
 const claims = atIndex.included.map(x => `- ${x.statement} **${x.evidence_grade}**`).join("\n");

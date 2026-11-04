@@ -1,0 +1,591 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Charles Darwin — The Human Record</title>
+  <style>
+    :root { --navy:#17365d; --blue:#1f4e78; --pale:#eef5fa; --ink:#1f2933; --muted:#66788a; --amber:#fff2cc; --red:#f8d7da; --green:#d9ead3; }
+    * { box-sizing:border-box; }
+    body { margin:0; font:16px/1.5 Arial, sans-serif; color:var(--ink); background:#f6f8fa; }
+    header { background:var(--navy); color:white; padding:24px max(24px,calc((100vw - 1180px)/2)); }
+    header h1 { margin:4px 0; font-size:30px; }
+    .banner { background:#b42318; color:white; font-weight:700; text-align:center; padding:10px; letter-spacing:.03em; }
+    main { max-width:1180px; margin:24px auto 60px; padding:0 24px; }
+    section { background:white; border:1px solid #d9e1e8; border-radius:8px; margin:18px 0; padding:20px; }
+    h2 { color:var(--navy); margin:0 0 14px; font-size:22px; }
+    h3 { color:var(--blue); }
+    .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:12px; }
+    .card { background:var(--pale); border-left:4px solid var(--blue); padding:12px; }
+    .label { color:var(--muted); font-size:13px; text-transform:uppercase; letter-spacing:.04em; }
+    table { width:100%; border-collapse:collapse; }
+    th { background:var(--blue); color:white; text-align:left; }
+    th,td { padding:9px; border-bottom:1px solid #dfe6ec; vertical-align:top; }
+    .badge { display:inline-block; min-width:28px; text-align:center; font-weight:700; border-radius:12px; padding:2px 8px; }
+    .grade-D { background:var(--green); } .grade-R { background:var(--amber); } .grade-S { background:var(--red); }
+    .muted { color:var(--muted); font-size:14px; }
+    .relationship { color:var(--muted); font-size:12px; }
+    .downloads a { display:inline-block; margin:4px 8px 4px 0; padding:8px 12px; background:var(--blue); color:white; text-decoration:none; border-radius:5px; }
+    @media (max-width:700px) { table { display:block; overflow-x:auto; } }
+  </style>
+</head>
+<body>
+  <div class="banner">SYNTHETIC RECORD, NOT A REAL MEDICAL RECORD</div>
+  <header>
+    <div>The Human Record</div>
+    <h1>Charles Darwin</h1>
+    <div>Case HR-NI003 · Modern EHR teaching episode · Draft for review</div>
+  </header>
+  <main>
+    <section>
+      <h2>Review summary</h2>
+      <div class="grid">
+        <div class="card"><div class="label">Historical dates</div>February 12, 1809 – April 19, 1882</div>
+        <div class="card"><div class="label">Synthetic DOB</div>1986-02-12</div>
+        <div class="card"><div class="label">Index visit</div>2026-03-03 at age 40</div>
+        <div class="card"><div class="label">Synthetic MRN</div>HR-NI003-SYN</div>
+      </div>
+      <p><strong>Teaching objective:</strong> Evaluation and first six months of care of recurrent stereotyped vomiting episodes in a 40-year-old man: a symptom diary, the Rome IV criteria for cyclic vomiting syndrome and its red flags, a cannabis and substance history (to exclude cannabinoid hyperemesis syndrome), a work-up between episodes to exclude other causes (blood count, metabolic and liver panels, lipase, urinalysis, TSH, morning cortisol, celiac serology, CT enterography, and upper endoscopy), a baseline ECG, and anxiety and mood screens (GAD-7, PHQ-9). Management follows the 2019 ANMS and Cyclic Vomiting Syndrome Association guideline: amitriptyline prophylaxis titrated to about 1 mg/kg with ECG checks of the QTc, an abortive plan of nasal sumatriptan and ondansetron at the prodrome, an individualized emergency department protocol, trigger management, and relaxation training. The diagnosis stays provisional because it is clinical, and none of the historical theories of his illness is treated as confirmed.</p>
+      <div class="downloads">
+        <a href="../case.json">Canonical JSON</a>
+        <a href="fhir-bundle.json">FHIR R4 draft</a>
+        <a href="ccda.html">C-CDA R2.1 summary</a> <a href="ccda.xml">(XML)</a> <a href="review.html">Review checklist</a>
+        <a href="../sources.md">Evidence dossier</a>
+      </div>
+    </section>
+    <section><h2>Historical timeline</h2><table><thead><tr><th>Date</th><th>Event</th><th>Claims</th></tr></thead><tbody>
+  <tr><td>February 12, 1809</td><td>Born in Shrewsbury, Shropshire.</td><td>CLM-0001</td></tr>
+  <tr><td>December 1831</td><td>Palpitations and pain about the heart at Plymouth before the Beagle sailed.</td><td>CLM-0003</td></tr>
+  <tr><td>September 1837</td><td>Palpitations; rest in the country on his doctors&#39; advice.</td><td>CLM-0004</td></tr>
+  <tr><td>June 1840</td><td>First mention of periodical vomiting in a letter.</td><td>CLM-0005</td></tr>
+  <tr><td>February 1849</td><td>Incessant vomiting described in a letter, after a winter of weekly vomiting.</td><td>CLM-0006</td></tr>
+  <tr><td>March 10, 1849</td><td>Began about three months of the water cure at Great Malvern (other accounts give March 12).</td><td>CLM-0007</td></tr>
+  <tr><td>July 1, 1849</td><td>Began his health diary, kept until January 1855.</td><td>CLM-0008</td></tr>
+  <tr><td>April 1861</td><td>A short talk at the Linnean Society brought on 24 hours of vomiting.</td><td>CLM-0010</td></tr>
+  <tr><td>April 19, 1882</td><td>Died in Downe, Kent, aged 73, after anginal attacks and heart failure in his last years.</td><td>CLM-0002, CLM-0011</td></tr></tbody></table></section>
+    <section><h2>Evidence claims</h2><p class="muted">D = documented, R = retrospective, S = synthetic.</p><table><thead><tr><th>Grade</th><th>Claim</th><th>Certainty</th><th>Sources</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>Charles Darwin was born on February 12, 1809, in Shrewsbury, Shropshire, England.</strong></td>
+    <td>confirmed</td>
+    <td><a href="https://en.wikipedia.org/wiki/Charles_Darwin" target="_blank" rel="noreferrer">Charles Darwin</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>Darwin died on April 19, 1882, in Downe, Kent, aged 73.</strong><div class="muted">Record the death as a fact without detail.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://en.wikipedia.org/wiki/Charles_Darwin" target="_blank" rel="noreferrer">Charles Darwin</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>While waiting at Plymouth to sail on the Beagle in late 1831, Darwin was troubled with palpitations and pain about the heart, and consulted no doctor for fear of being judged unfit for the voyage.</strong><div class="muted">Past history only; the earliest recorded palpitations.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.pbs.org/wgbh/evolution/darwin/diary/1831.html" target="_blank" rel="noreferrer">Darwin&#39;s Diary: 1831</a> <span class="relationship">supports</span><br><a href="https://en.wikipedia.org/wiki/Health_of_Charles_Darwin" target="_blank" rel="noreferrer">Health of Charles Darwin</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>In September 1837 he had palpitations and, on his doctors&#39; advice, went to the country to recover.</strong><div class="muted">Past history only.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://en.wikipedia.org/wiki/Health_of_Charles_Darwin" target="_blank" rel="noreferrer">Health of Charles Darwin</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>Darwin first mentioned periodical vomiting in a letter to W. D. Fox in June 1840.</strong><div class="muted">Past history; the documented start of the episodic vomiting.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.darwinproject.ac.uk/people/about-darwin/darwins-health" target="_blank" rel="noreferrer">Darwin&#39;s health</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>In February 1849 he described incessant vomiting to Richard Owen, and in March 1849 he wrote that he had been bad all winter, with dreadful vomiting every week, that his hands trembled, and that his head was often swimming.</strong><div class="muted">The anchor for the synthetic presenting episodes at the index visit.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.darwinproject.ac.uk/people/about-darwin/darwins-health" target="_blank" rel="noreferrer">Darwin&#39;s health</a> <span class="relationship">supports</span><br><a href="https://www.darwinproject.ac.uk/letter/DCP-LETT-1236.xml" target="_blank" rel="noreferrer">Letter from C. R. Darwin to J. D. Hooker, 28 March 1849 (DCP-LETT-1236)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>In March 1849 Darwin took his family to Dr. James Manby Gully&#39;s water-cure establishment at Great Malvern for about three months; the treatment included heating by spirit lamp, cold towel rubs, cold foot-baths, a wet compress on the stomach, simple food, and short walks.</strong><div class="muted">Fixes the index age near the start of the water cure; the treatment itself is not modeled.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.darwinproject.ac.uk/people/about-darwin/darwins-health" target="_blank" rel="noreferrer">Darwin&#39;s health</a> <span class="relationship">supports</span><br><a href="https://www.darwinproject.ac.uk/letter/DCP-LETT-1236.xml" target="_blank" rel="noreferrer">Letter from C. R. Darwin to J. D. Hooker, 28 March 1849 (DCP-LETT-1236)</a> <span class="relationship">supports</span><br><a href="https://en.wikipedia.org/wiki/Health_of_Charles_Darwin" target="_blank" rel="noreferrer">Health of Charles Darwin</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>Darwin kept a health diary from July 1, 1849, to January 16, 1855, which records near-daily flatulence and notes the acidity of his vomit.</strong><div class="muted">Documents the interepisode symptoms; claim only, after the index date.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.darwinproject.ac.uk/people/about-darwin/darwins-health" target="_blank" rel="noreferrer">Darwin&#39;s health</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>Over his adult life he had gastrointestinal distress, including vomiting, retching, and bowel irregularity, with headaches, fatigue, trembling, faintness, dizziness, and skin problems including eczema.</strong><div class="muted">The documented symptom complex the episode draws on.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.darwinproject.ac.uk/people/about-darwin/darwins-health" target="_blank" rel="noreferrer">Darwin&#39;s health</a> <span class="relationship">supports</span><br><a href="https://en.wikipedia.org/wiki/Health_of_Charles_Darwin" target="_blank" rel="noreferrer">Health of Charles Darwin</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>In April 1861 he wrote that a short talk at the Linnean Society brought on 24 hours of vomiting.</strong><div class="muted">Documents social stress as a trigger; claim only, after the index date.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.darwinproject.ac.uk/people/about-darwin/darwins-health" target="_blank" rel="noreferrer">Darwin&#39;s health</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>A British Medical Journal note on his medical history, published after his death, said that in his last years the heart and great vessels were degenerating, anginal attacks became more frequent, signs of heart failure appeared, and he died in one of these attacks.</strong><div class="muted">Documents the final illness; claim only, after the episode.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://darwin-online.org.uk/converted/Ancillary/1882_MedicalHistoryDarwin_A2946.html" target="_blank" rel="noreferrer">[Medical history of] The late Charles Darwin. British Medical Journal, 29 April 1882, p. 628</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-R" title="Retrospective">R</span></td>
+    <td><strong>Cyclic vomiting syndrome, perhaps from a mitochondrial DNA disorder, has been proposed as the cause of his illness.</strong><div class="muted">Retrospective interpretation. The synthetic episode&#39;s provisional modern diagnosis does not confirm it.</div></td>
+    <td>possible</td>
+    <td><a href="https://en.wikipedia.org/wiki/Health_of_Charles_Darwin" target="_blank" rel="noreferrer">Health of Charles Darwin</a> <span class="relationship">supports</span><br><a href="https://pubmed.ncbi.nlm.nih.gov/20008377/" target="_blank" rel="noreferrer">Hayman JA. Darwin&#39;s illness revisited. BMJ 2009;339:b4968</a> <span class="relationship">context</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-R" title="Retrospective">R</span></td>
+    <td><strong>Chagas disease, contracted during the Beagle voyage, has been proposed as the cause of his illness.</strong><div class="muted">Retrospective interpretation; not tested or coded in the episode.</div></td>
+    <td>disputed</td>
+    <td><a href="https://pubmed.ncbi.nlm.nih.gov/13791916/" target="_blank" rel="noreferrer">Adler S. Darwin&#39;s illness. Nature 1959;184:1102-4</a> <span class="relationship">supports</span><br><a href="https://www.darwinproject.ac.uk/people/about-darwin/darwins-health" target="_blank" rel="noreferrer">Darwin&#39;s health</a> <span class="relationship">supports</span><br><a href="https://en.wikipedia.org/wiki/Health_of_Charles_Darwin" target="_blank" rel="noreferrer">Health of Charles Darwin</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-R" title="Retrospective">R</span></td>
+    <td><strong>Systemic lactose intolerance has been proposed as the cause of his illness.</strong><div class="muted">Retrospective interpretation; not tested or coded in the episode.</div></td>
+    <td>disputed</td>
+    <td><a href="https://pubmed.ncbi.nlm.nih.gov/15811889/" target="_blank" rel="noreferrer">Campbell AK, Matthews SB. Darwin&#39;s illness revealed. Postgrad Med J 2005;81:248-51</a> <span class="relationship">supports</span><br><a href="https://en.wikipedia.org/wiki/Health_of_Charles_Darwin" target="_blank" rel="noreferrer">Health of Charles Darwin</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-R" title="Retrospective">R</span></td>
+    <td><strong>Panic disorder with agoraphobia has been proposed as the explanation of his illness and secluded life.</strong><div class="muted">Retrospective psychiatric interpretation; not coded. The episode screens for anxiety without diagnosing an anxiety disorder.</div></td>
+    <td>possible</td>
+    <td><a href="https://pubmed.ncbi.nlm.nih.gov/8990339/" target="_blank" rel="noreferrer">Barloon TJ, Noyes R Jr. Charles Darwin and panic disorder. JAMA 1997;277:138-41</a> <span class="relationship">supports</span><br><a href="https://en.wikipedia.org/wiki/Health_of_Charles_Darwin" target="_blank" rel="noreferrer">Health of Charles Darwin</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-R" title="Retrospective">R</span></td>
+    <td><strong>Other proposed explanations include hyperventilation, neurasthenia, hypoglycemia, other allergies, Crohn&#39;s disease, Helicobacter pylori infection, systemic lupus, Meniere&#39;s disease, and psychological or psychosomatic causes.</strong><div class="muted">Retrospective interpretations; none is used in the episode.</div></td>
+    <td>disputed</td>
+    <td><a href="https://www.darwinproject.ac.uk/people/about-darwin/darwins-health" target="_blank" rel="noreferrer">Darwin&#39;s health</a> <span class="relationship">supports</span><br><a href="https://en.wikipedia.org/wiki/Health_of_Charles_Darwin" target="_blank" rel="noreferrer">Health of Charles Darwin</a> <span class="relationship">supports</span></td>
+  </tr></tbody></table></section>
+    <section><h2>Modern synthetic problem list</h2><table><thead><tr><th>Grade</th><th>Problem</th><th>Clinical status</th><th>Verification</th><th>Placement</th><th>Historical claims</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Cyclic vomiting syndrome, moderate to severe, meeting Rome IV criteria after a normal work-up; provisional clinical diagnosis</td>
+    <td>active</td>
+    <td>provisional</td>
+    <td>active</td>
+    <td>CLM-0006, CLM-0009, CLM-0012</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Recurrent episodes of nausea and vomiting over more than a year, with prodromal trembling, palpitations, and dizziness, and flatulence and fatigue between episodes; cause under evaluation</td>
+    <td>resolved</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td>CLM-0006, CLM-0009</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Common cold, without a vomiting episode; resolved</td>
+    <td>resolved</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td></td>
+  </tr></tbody></table></section>
+    <section><h2>Synthetic outcome measures</h2><table><thead><tr><th>Grade</th><th>Date</th><th>Measure</th><th>Result</th><th>Coding</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-03</td>
+    <td>Hemoglobin [Mass/volume] in Blood</td>
+    <td>14.6 g/dL<div class="muted">Reference 13.2-16.6 g/dL</div></td>
+    <td>http://loinc.org · 718-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-03</td>
+    <td>Leukocytes [#/volume] in Blood by Automated count</td>
+    <td>6.4 10*3/uL<div class="muted">Reference 3.4-9.6 10*3/uL</div></td>
+    <td>http://loinc.org · 6690-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-03</td>
+    <td>Platelets [#/volume] in Blood by Automated count</td>
+    <td>251 10*3/uL<div class="muted">Reference 135-317 10*3/uL</div></td>
+    <td>http://loinc.org · 777-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-03</td>
+    <td>Sodium [Moles/volume] in Serum or Plasma</td>
+    <td>140 mmol/L<div class="muted">Reference 135-145 mmol/L</div></td>
+    <td>http://loinc.org · 2951-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-03</td>
+    <td>Potassium [Moles/volume] in Serum or Plasma</td>
+    <td>4.1 mmol/L<div class="muted">Reference 3.5-5.1 mmol/L</div></td>
+    <td>http://loinc.org · 2823-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-03</td>
+    <td>Chloride [Moles/volume] in Serum or Plasma</td>
+    <td>103 mmol/L<div class="muted">Reference 98-107 mmol/L</div></td>
+    <td>http://loinc.org · 2075-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-03</td>
+    <td>Carbon dioxide, total [Moles/volume] in Serum or Plasma</td>
+    <td>25 mmol/L<div class="muted">Reference 22-29 mmol/L</div></td>
+    <td>http://loinc.org · 2028-9</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-03</td>
+    <td>Creatinine [Mass/volume] in Serum or Plasma</td>
+    <td>0.94 mg/dL<div class="muted">Reference 0.74-1.35 mg/dL</div></td>
+    <td>http://loinc.org · 2160-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-03</td>
+    <td>Glomerular filtration rate [Volume Rate/Area] in Serum, Plasma or Blood by Creatinine-based formula (CKD-EPI 2021)/1.73 sq M</td>
+    <td>104 mL/min/1.73 m²<div class="muted">Reference &gt;=60 mL/min/1.73 m²</div></td>
+    <td>http://loinc.org · 98979-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-03</td>
+    <td>Glucose [Mass/volume] in Serum or Plasma</td>
+    <td>88 mg/dL<div class="muted">Reference 70-99 mg/dL</div></td>
+    <td>http://loinc.org · 2345-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-03</td>
+    <td>Calcium [Mass/volume] in Serum or Plasma</td>
+    <td>9.5 mg/dL<div class="muted">Reference 8.6-10.3 mg/dL</div></td>
+    <td>http://loinc.org · 17861-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-03</td>
+    <td>Albumin [Mass/volume] in Serum or Plasma</td>
+    <td>4.4 g/dL<div class="muted">Reference 3.5-5 g/dL</div></td>
+    <td>http://loinc.org · 1751-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-03</td>
+    <td>Alanine aminotransferase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>21 U/L<div class="muted">Reference 7-55 U/L</div></td>
+    <td>http://loinc.org · 1742-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-03</td>
+    <td>Aspartate aminotransferase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>19 U/L<div class="muted">Reference 8-48 U/L</div></td>
+    <td>http://loinc.org · 1920-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-03</td>
+    <td>Alkaline phosphatase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>68 U/L<div class="muted">Reference 40-129 U/L</div></td>
+    <td>http://loinc.org · 6768-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-03</td>
+    <td>Bilirubin.total [Mass/volume] in Serum or Plasma</td>
+    <td>0.7 mg/dL<div class="muted">Reference 0.1-1.2 mg/dL</div></td>
+    <td>http://loinc.org · 1975-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-03</td>
+    <td>Lipase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>32 U/L<div class="muted">Reference 13-60 U/L</div></td>
+    <td>http://loinc.org · 3040-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-03</td>
+    <td>Thyrotropin [Units/volume] in Serum or Plasma</td>
+    <td>1.6 mIU/L<div class="muted">Reference 0.45-4.5 mIU/L</div></td>
+    <td>http://loinc.org · 3016-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-03</td>
+    <td>Cortisol [Mass/volume] in Serum or Plasma</td>
+    <td>14.2 ug/dL<div class="muted">Reference 6.2-19.4 ug/dL</div></td>
+    <td>http://loinc.org · 2143-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-03</td>
+    <td>Tissue transglutaminase IgA Ab [Units/volume] in Serum</td>
+    <td>1.2 U/mL<div class="muted">Reference &lt;=3.9 U/mL</div></td>
+    <td>http://loinc.org · 31017-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-03</td>
+    <td>IgA [Mass/volume] in Serum or Plasma</td>
+    <td>210 mg/dL<div class="muted">Reference 70-400 mg/dL</div></td>
+    <td>http://loinc.org · 2458-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-03</td>
+    <td>Q-T interval corrected</td>
+    <td>412 ms<div class="muted">Reference &lt;=450 ms</div></td>
+    <td>http://loinc.org · 8636-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-06-09</td>
+    <td>Q-T interval corrected</td>
+    <td>436 ms<div class="muted">Reference &lt;=450 ms</div></td>
+    <td>http://loinc.org · 8636-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-03</td>
+    <td>Generalized anxiety disorder 7 item (GAD-7) total score [Reported.PHQ]</td>
+    <td>8</td>
+    <td>http://loinc.org · 70274-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-03</td>
+    <td>Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]</td>
+    <td>6</td>
+    <td>http://loinc.org · 44261-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-06-09</td>
+    <td>Generalized anxiety disorder 7 item (GAD-7) total score [Reported.PHQ]</td>
+    <td>6</td>
+    <td>http://loinc.org · 70274-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-06-09</td>
+    <td>Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]</td>
+    <td>4</td>
+    <td>http://loinc.org · 44261-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-09-08</td>
+    <td>Generalized anxiety disorder 7 item (GAD-7) total score [Reported.PHQ]</td>
+    <td>5</td>
+    <td>http://loinc.org · 70274-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-09-08</td>
+    <td>Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]</td>
+    <td>3</td>
+    <td>http://loinc.org · 44261-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-07-21</td>
+    <td>Patient Health Questionnaire 2 item (PHQ-2) total score [Reported]</td>
+    <td>0</td>
+    <td>http://loinc.org · 55758-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-07-21</td>
+    <td>Total score [AUDIT-C]</td>
+    <td>2</td>
+    <td>http://loinc.org · 75626-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-07-21</td>
+    <td>Cholesterol [Mass/volume] in Serum or Plasma</td>
+    <td>178 mg/dL<div class="muted">Reference &lt;=200 mg/dL</div></td>
+    <td>http://loinc.org · 2093-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-07-21</td>
+    <td>Cholesterol in HDL [Mass/volume] in Serum or Plasma</td>
+    <td>58 mg/dL<div class="muted">Reference &gt;=40 mg/dL</div></td>
+    <td>http://loinc.org · 2085-9</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-07-21</td>
+    <td>Cholesterol in LDL [Mass/volume] in Serum or Plasma by calculation</td>
+    <td>102 mg/dL<div class="muted">Reference &lt;=129 mg/dL</div></td>
+    <td>http://loinc.org · 13457-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-07-21</td>
+    <td>Triglyceride [Mass/volume] in Serum or Plasma</td>
+    <td>90 mg/dL<div class="muted">Reference &lt;=149 mg/dL</div></td>
+    <td>http://loinc.org · 2571-8</td>
+  </tr></tbody></table></section>
+    <section><h2>Synthetic vital signs</h2><table><thead><tr><th>Date</th><th>Measure</th><th>Result</th><th>LOINC</th><th>Grade</th></tr></thead><tbody>
+  <tr><td>2026-03-03</td><td>Body height</td><td>183 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-03</td><td>Body weight</td><td>71.6 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-03</td><td>Body mass index (BMI) [Ratio]</td><td>21.4 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-03</td><td>Systolic blood pressure</td><td>118 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-03</td><td>Diastolic blood pressure</td><td>74 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-03</td><td>Heart rate</td><td>78 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-03</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-03</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-03</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>99 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-14</td><td>Body height</td><td>183 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-14</td><td>Body weight</td><td>71.4 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-14</td><td>Body mass index (BMI) [Ratio]</td><td>21.3 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-14</td><td>Systolic blood pressure</td><td>116 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-14</td><td>Diastolic blood pressure</td><td>72 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-14</td><td>Heart rate</td><td>76 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-14</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-14</td><td>Body temperature</td><td>36.7 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-14</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>99 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-09</td><td>Body height</td><td>183 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-09</td><td>Body weight</td><td>72.4 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-09</td><td>Body mass index (BMI) [Ratio]</td><td>21.6 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-09</td><td>Systolic blood pressure</td><td>118 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-09</td><td>Diastolic blood pressure</td><td>74 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-09</td><td>Heart rate</td><td>72 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-09</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-09</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-09</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>99 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-09-08</td><td>Body height</td><td>183 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-09-08</td><td>Body weight</td><td>72.9 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-09-08</td><td>Body mass index (BMI) [Ratio]</td><td>21.8 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-09-08</td><td>Systolic blood pressure</td><td>116 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-09-08</td><td>Diastolic blood pressure</td><td>72 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-09-08</td><td>Heart rate</td><td>70 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-09-08</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-09-08</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-09-08</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>99 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-05-19</td><td>Body height</td><td>183 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-05-19</td><td>Body weight</td><td>72.1 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-05-19</td><td>Body mass index (BMI) [Ratio]</td><td>21.5 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-05-19</td><td>Systolic blood pressure</td><td>118 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-05-19</td><td>Diastolic blood pressure</td><td>72 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-05-19</td><td>Heart rate</td><td>84 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-05-19</td><td>Respiratory rate</td><td>16 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-05-19</td><td>Body temperature</td><td>37.8 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-05-19</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>98 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-07-21</td><td>Body height</td><td>183 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-07-21</td><td>Body weight</td><td>72.6 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-07-21</td><td>Body mass index (BMI) [Ratio]</td><td>21.7 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-07-21</td><td>Systolic blood pressure</td><td>116 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-07-21</td><td>Diastolic blood pressure</td><td>72 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-07-21</td><td>Heart rate</td><td>70 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-07-21</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-07-21</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-07-21</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>99 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr></tbody></table></section>
+    <section><h2>Social, functional, and mental status</h2><h3>Social history</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Has never used cannabis in any form, including edibles, oils, and vaping, and uses no other recreational drugs; asked directly at the first visit</li><li><span class="badge grade-S" title="Synthetic">S</span> Does not smoke or vape; drinks one or two glasses of wine a week, none during episodes</li><li><span class="badge grade-S" title="Synthetic">S</span> Naturalist and writer who works from home; married, with young children; the household is not named in this record</li><li><span class="badge grade-S" title="Synthetic">S</span> Walks most days on a regular route near home; episodes stop all work for a day or two</li><li><span class="badge grade-S" title="Synthetic">S</span> Episodes cluster around social gatherings, speaking to groups, overnight travel, short sleep, and long gaps without food; lying still in a quiet dark room eases them; no habit of long hot baths or showers during episodes</li><li><span class="badge grade-S" title="Synthetic">S</span> Supports: a settled household, absorbing scientific work, daily walks, and a habit of keeping careful notes that suits a symptom diary</li></ul><h3>Functional status</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Episodes stop all work for one to two days, every one to three weeks; between them he works most mornings but tires by afternoon</li></ul><h3>Mental status</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Alert, courteous, and precise; keeps careful notes of his symptoms; anxious when describing episodes in company; GAD-7 8 and PHQ-9 6, with no thoughts of death or self-harm</li></ul></section>
+    
+    <section><h2>Allergies and medications</h2><h3>Allergies</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> No known allergy</li></ul><h3>Medications</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Amitriptyline 25 mg oral tablet, one tablet at bedtime</li><li><span class="badge grade-S" title="Synthetic">S</span> Amitriptyline 50 mg oral tablet, one tablet at bedtime</li><li><span class="badge grade-S" title="Synthetic">S</span> Amitriptyline 75 mg oral tablet, one tablet at bedtime</li><li><span class="badge grade-S" title="Synthetic">S</span> Sumatriptan 20 mg nasal spray, one spray at the first sign of an episode</li><li><span class="badge grade-S" title="Synthetic">S</span> Ondansetron 8 mg orally disintegrating tablet at the first sign of an episode</li></ul></section>
+    <section><h2>Procedures and immunizations</h2><h3>Procedures</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> CT enterography (CT of the small bowel with oral and intravenous contrast): normal small and large bowel, no obstruction, malrotation, stricture, or wall thickening; normal liver, gallbladder, pancreas, and kidneys</li><li><span class="badge grade-S" title="Synthetic">S</span> Upper endoscopy (esophagogastroduodenoscopy) with duodenal biopsies: normal esophagus, stomach, and duodenum; no ulcer, obstruction, or retained food; duodenal biopsies normal</li></ul><h3>Immunizations</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> 2025-10-14: Influenza vaccine, 2025-2026 season</li><li><span class="badge grade-S" title="Synthetic">S</span> 2019-06-11: Tetanus, diphtheria, and acellular pertussis (Tdap) booster</li><li><span class="badge grade-S" title="Synthetic">S</span> 2026-07-21: Hepatitis B vaccine (adjuvanted, two-dose series), dose 1</li></ul></section>
+    <section><h2>Past medical history</h2><p class="muted">True biography with historical dates; not part of the synthetic care timeline.</p><ul><li><span class="badge grade-D" title="Documented">D</span> December 1831: Palpitations and pain about the heart while waiting to sail on the Beagle; no doctor consulted <span class="muted">(CLM-0003)</span></li><li><span class="badge grade-D" title="Documented">D</span> September 1837: Palpitations, treated with rest in the country on his doctors&#39; advice <span class="muted">(CLM-0004)</span></li><li><span class="badge grade-D" title="Documented">D</span> June 1840: Periodical vomiting, first mentioned in a letter; cause not recorded in the cited source <span class="muted">(CLM-0005)</span></li><li><span class="badge grade-D" title="Documented">D</span> February 1849: A winter of dreadful vomiting every week, with trembling hands and a swimming head, and incessant vomiting described in a letter; cause not recorded in the cited source <span class="muted">(CLM-0006)</span></li></ul><h3>Family history</h3><p class="muted">No family medical history is documented in the logged sources. Family history of real relatives is never synthesized.</p></section>
+    <section><h2>Care-plan goals</h2><table><thead><tr><th>Goal</th><th>Target date</th><th>Status</th><th>Outcome</th></tr></thead><tbody>
+  <tr><td>Complete the work-up between episodes (blood and urine tests, ECG, CT enterography, and upper endoscopy) before the six-week visit</td><td>2026-04-14</td><td>completed</td><td>All tests normal; Rome IV criteria met; provisional diagnosis of cyclic vomiting syndrome at the consultation</td></tr>
+  <tr><td>At least half as many episodes after three months at the target dose of prophylaxis</td><td>2026-09-08</td><td>completed</td><td>About two episodes a month before treatment; one brief episode, aborted at the prodrome, in the three months before the six-month review</td></tr>
+  <tr><td>Carry the abortive medicines and the emergency department letter, and use them at the prodrome</td><td>2026-06-09</td><td>completed</td><td>The one episode since starting treatment was treated at the prodrome and settled in about ten hours without an emergency visit; letter carried</td></tr>
+  <tr><td>QTc below 450 ms at the target amitriptyline dose</td><td>2026-06-09</td><td>completed</td><td>QTc 436 ms on 75 mg</td></tr>
+  <tr><td>Practice relaxation breathing most days and lower the GAD-7 score by the six-month review</td><td>2026-09-08</td><td>completed</td><td>Daily breathing practice; GAD-7 from 8 to 5</td></tr></tbody></table></section>
+    <section><h2>Interventions</h2><table><thead><tr><th>Intervention</th><th>Status</th><th>Guideline</th></tr></thead><tbody>
+  <tr><td>Work-up between episodes: blood count, metabolic and liver panels, lipase, urinalysis, TSH, morning cortisol, celiac serology, a baseline ECG, CT enterography, and upper endoscopy</td><td>completed</td><td>GL-ANMS-CVS-2019</td></tr>
+  <tr><td>Gastroenterology consultation to confirm the diagnosis and advise on prophylaxis, abortive treatment, and an emergency plan</td><td>completed</td><td>GL-ANMS-CVS-2019</td></tr>
+  <tr><td>Symptom diary: date, prodrome, length and severity of each episode, triggers, medicines taken, and emergency visits</td><td>completed</td><td>GL-ANMS-CVS-2019</td></tr>
+  <tr><td>Amitriptyline prophylaxis at bedtime: 25 mg, raised by 25 mg every two weeks to 75 mg (about 1 mg/kg), with an ECG at baseline, at about 50 mg, and at the target dose; judge the response after three months at target and continue for at least a year if it helps</td><td>completed</td><td>GL-ANMS-CVS-2019</td></tr>
+  <tr><td>Abortive plan at the first sign of the prodrome: sumatriptan 20 mg nasal spray with ondansetron 8 mg dissolving tablet, a dark quiet room, and small sips of fluid; an individualized emergency department letter for episodes that do not settle</td><td>completed</td><td>GL-ANMS-CVS-2019</td></tr>
+  <tr><td>Trigger management: regular meals and sleep, planning around travel and social events, early treatment of infections, and continued avoidance of cannabis</td><td>completed</td><td>GL-ANMS-CVS-2019</td></tr>
+  <tr><td>Anxiety and mood: GAD-7 and PHQ-9 at the first visit and every three months; relaxation breathing, with cognitive behavioral therapy offered if symptoms persist</td><td>completed</td><td>GL-ANMS-CVS-2019, GL-USPSTF-ANX-2023</td></tr></tbody></table></section>
+    <section><h2>Planned encounters</h2><ul>
+  <li><strong>2026-03-03</strong> — Evaluation of recurrent vomiting episodes: history, symptom diary, Rome IV criteria, red flags, cannabis and substance history, anxiety and mood screens, laboratory tests, ECG, and orders for small-bowel imaging and upper endoscopy <span class="muted">(ENC-001)</span></li>
+  <li><strong>2026-04-14</strong> — Six-week follow-up: results, gastroenterology consultation, provisional diagnosis, prophylaxis, and abortive plan <span class="muted">(ENC-002)</span></li>
+  <li><strong>2026-05-19</strong> — Same-day sick visit for a head cold <span class="muted">(ENC-005, unscheduled)</span></li>
+  <li><strong>2026-06-09</strong> — Three-month review: amitriptyline at target dose, ECG, episode diary, and anxiety screen <span class="muted">(ENC-003)</span></li>
+  <li><strong>2026-07-21</strong> — Preventive health visit <span class="muted">(ENC-006)</span></li>
+  <li><strong>2026-09-08</strong> — Six-month review of response to prophylaxis <span class="muted">(ENC-004)</span></li></ul></section>
+    <section><h2>Supporting documents</h2><ul><li><a href="notes/hp.md">History and physical</a></li><li><a href="notes/progress-01.md">Progress note 01</a></li><li><a href="notes/progress-02.md">Progress note 02 — Focused Visit (Follow-up)</a></li><li><a href="notes/progress-03.md">Progress note 03 — Sick Visit</a></li><li><a href="notes/progress-04.md">Progress note 04 — Focused Visit (Follow-up)</a></li><li><a href="notes/progress-05.md">Progress note 05 — Preventive Visit</a></li><li><a href="notes/progress-06.md">Progress note 06 — Focused Visit (Care-plan review)</a></li><li><a href="notes/referral-01.md">Gastroenterology referral</a></li><li><a href="notes/consult-01.md">Gastroenterology consultation</a></li><li><a href="notes/careplan.md">Patient care plan</a></li><li><a href="notes/teaching-note.md">Teaching note</a></li><li><a href="provenance.csv">Provenance CSV</a></li></ul></section>
+    <section><h2>C-CDA note documents</h2><p class="muted">Each link opens a readable copy; the XML beside it is the exchange file.</p><ul><li><a href="ccda/hp-01.html">History and physical</a> <a href="ccda/hp-01.xml">(XML)</a></li><li><a href="ccda/progress-01.html">Progress note 01</a> <a href="ccda/progress-01.xml">(XML)</a></li><li><a href="ccda/progress-02.html">Progress note 02 — Focused Visit (Follow-up)</a> <a href="ccda/progress-02.xml">(XML)</a></li><li><a href="ccda/progress-03.html">Progress note 03 — Sick Visit</a> <a href="ccda/progress-03.xml">(XML)</a></li><li><a href="ccda/progress-04.html">Progress note 04 — Focused Visit (Follow-up)</a> <a href="ccda/progress-04.xml">(XML)</a></li><li><a href="ccda/progress-05.html">Progress note 05 — Preventive Visit</a> <a href="ccda/progress-05.xml">(XML)</a></li><li><a href="ccda/progress-06.html">Progress note 06 — Focused Visit (Care-plan review)</a> <a href="ccda/progress-06.xml">(XML)</a></li><li><a href="ccda/referral-01.html">Gastroenterology referral</a> <a href="ccda/referral-01.xml">(XML)</a></li><li><a href="ccda/consult-01.html">Gastroenterology consultation</a> <a href="ccda/consult-01.xml">(XML)</a></li></ul></section>
+    <section><h2>Sources</h2><table><thead><tr><th>ID</th><th>Source</th><th>Publisher</th><th>Type</th></tr></thead><tbody>
+  <tr>
+    <td>SRC-0001</td>
+    <td><a href="https://en.wikipedia.org/wiki/Charles_Darwin" target="_blank" rel="noreferrer">Charles Darwin</a></td>
+    <td>Wikipedia</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0002</td>
+    <td><a href="https://www.darwinproject.ac.uk/people/about-darwin/darwins-health" target="_blank" rel="noreferrer">Darwin&#39;s health</a></td>
+    <td>Darwin Correspondence Project, Cambridge University Library</td>
+    <td>scholarly</td>
+  </tr>
+  <tr>
+    <td>SRC-0003</td>
+    <td><a href="https://www.darwinproject.ac.uk/letter/DCP-LETT-1236.xml" target="_blank" rel="noreferrer">Letter from C. R. Darwin to J. D. Hooker, 28 March 1849 (DCP-LETT-1236)</a></td>
+    <td>Darwin Correspondence Project, Cambridge University Library</td>
+    <td>primary</td>
+  </tr>
+  <tr>
+    <td>SRC-0004</td>
+    <td><a href="https://en.wikipedia.org/wiki/Health_of_Charles_Darwin" target="_blank" rel="noreferrer">Health of Charles Darwin</a></td>
+    <td>Wikipedia</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0005</td>
+    <td><a href="https://www.pbs.org/wgbh/evolution/darwin/diary/1831.html" target="_blank" rel="noreferrer">Darwin&#39;s Diary: 1831</a></td>
+    <td>PBS, Evolution</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0006</td>
+    <td><a href="https://darwin-online.org.uk/converted/Ancillary/1882_MedicalHistoryDarwin_A2946.html" target="_blank" rel="noreferrer">[Medical history of] The late Charles Darwin. British Medical Journal, 29 April 1882, p. 628</a></td>
+    <td>The Complete Work of Charles Darwin Online</td>
+    <td>primary</td>
+  </tr>
+  <tr>
+    <td>SRC-0007</td>
+    <td><a href="https://pubmed.ncbi.nlm.nih.gov/20008377/" target="_blank" rel="noreferrer">Hayman JA. Darwin&#39;s illness revisited. BMJ 2009;339:b4968</a></td>
+    <td>PubMed</td>
+    <td>scholarly</td>
+  </tr>
+  <tr>
+    <td>SRC-0008</td>
+    <td><a href="https://pubmed.ncbi.nlm.nih.gov/13791916/" target="_blank" rel="noreferrer">Adler S. Darwin&#39;s illness. Nature 1959;184:1102-4</a></td>
+    <td>PubMed</td>
+    <td>scholarly</td>
+  </tr>
+  <tr>
+    <td>SRC-0009</td>
+    <td><a href="https://pubmed.ncbi.nlm.nih.gov/15811889/" target="_blank" rel="noreferrer">Campbell AK, Matthews SB. Darwin&#39;s illness revealed. Postgrad Med J 2005;81:248-51</a></td>
+    <td>PubMed</td>
+    <td>scholarly</td>
+  </tr>
+  <tr>
+    <td>SRC-0010</td>
+    <td><a href="https://pubmed.ncbi.nlm.nih.gov/8990339/" target="_blank" rel="noreferrer">Barloon TJ, Noyes R Jr. Charles Darwin and panic disorder. JAMA 1997;277:138-41</a></td>
+    <td>PubMed</td>
+    <td>scholarly</td>
+  </tr>
+  <tr>
+    <td>SRC-0011</td>
+    <td><a href="https://humanrecord.example.org/internal/HISTMED_Master_Roster_v3.xlsx" target="_blank" rel="noreferrer">HISTMED Master Roster v3</a></td>
+    <td>The Human Record project</td>
+    <td>other</td>
+  </tr></tbody></table></section>
+    <section><h2>Review status</h2><table><thead><tr><th>Review</th><th>Status</th><th>Notes</th></tr></thead><tbody>
+  <tr><td>schema validation</td><td>not_started</td><td>Run scripts/build.ps1 -Conformance.</td></tr>
+  <tr><td>clinical review</td><td>not_started</td><td>Awaiting clinician review.</td></tr>
+  <tr><td>provenance review</td><td>not_started</td><td>The episodic vomiting, palpitations, trembling, flatulence, water cure, and health diary are documented; every proposed cause is graded R and none is coded. No statement or health fact is attributed to a real relative or physician in the modern episode.</td></tr>
+  <tr><td>safe messaging review</td><td>not_started</td><td>GAD-7 and PHQ-9 scores stay below 10, with item 9 scored 0 on a tricyclic, and no behavioral-health diagnosis is coded, so no safety assessment is required; the panic disorder and psychosomatic theories are claims only, marked sensitive.</td></tr></tbody></table></section>
+  </main>
+</body>
+</html>

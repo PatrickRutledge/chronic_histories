@@ -1,0 +1,551 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Albert Einstein — The Human Record</title>
+  <style>
+    :root { --navy:#17365d; --blue:#1f4e78; --pale:#eef5fa; --ink:#1f2933; --muted:#66788a; --amber:#fff2cc; --red:#f8d7da; --green:#d9ead3; }
+    * { box-sizing:border-box; }
+    body { margin:0; font:16px/1.5 Arial, sans-serif; color:var(--ink); background:#f6f8fa; }
+    header { background:var(--navy); color:white; padding:24px max(24px,calc((100vw - 1180px)/2)); }
+    header h1 { margin:4px 0; font-size:30px; }
+    .banner { background:#b42318; color:white; font-weight:700; text-align:center; padding:10px; letter-spacing:.03em; }
+    main { max-width:1180px; margin:24px auto 60px; padding:0 24px; }
+    section { background:white; border:1px solid #d9e1e8; border-radius:8px; margin:18px 0; padding:20px; }
+    h2 { color:var(--navy); margin:0 0 14px; font-size:22px; }
+    h3 { color:var(--blue); }
+    .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:12px; }
+    .card { background:var(--pale); border-left:4px solid var(--blue); padding:12px; }
+    .label { color:var(--muted); font-size:13px; text-transform:uppercase; letter-spacing:.04em; }
+    table { width:100%; border-collapse:collapse; }
+    th { background:var(--blue); color:white; text-align:left; }
+    th,td { padding:9px; border-bottom:1px solid #dfe6ec; vertical-align:top; }
+    .badge { display:inline-block; min-width:28px; text-align:center; font-weight:700; border-radius:12px; padding:2px 8px; }
+    .grade-D { background:var(--green); } .grade-R { background:var(--amber); } .grade-S { background:var(--red); }
+    .muted { color:var(--muted); font-size:14px; }
+    .relationship { color:var(--muted); font-size:12px; }
+    .downloads a { display:inline-block; margin:4px 8px 4px 0; padding:8px 12px; background:var(--blue); color:white; text-decoration:none; border-radius:5px; }
+    @media (max-width:700px) { table { display:block; overflow-x:auto; } }
+  </style>
+</head>
+<body>
+  <div class="banner">SYNTHETIC RECORD, NOT A REAL MEDICAL RECORD</div>
+  <header>
+    <div>The Human Record</div>
+    <h1>Albert Einstein</h1>
+    <div>Case HR-ET012 · Modern EHR teaching episode · Draft for review</div>
+  </header>
+  <main>
+    <section>
+      <h2>Review summary</h2>
+      <div class="grid">
+        <div class="card"><div class="label">Historical dates</div>March 14, 1879 – April 18, 1955</div>
+        <div class="card"><div class="label">Synthetic DOB</div>1956-03-14</div>
+        <div class="card"><div class="label">Index visit</div>2026-03-24 at age 70</div>
+        <div class="card"><div class="label">Synthetic MRN</div>HR-ET012-SYN</div>
+      </div>
+      <p><strong>Teaching objective:</strong> First six months of care of a 70-year-old man with an infrarenal abdominal aortic aneurysm below the repair threshold, known since an exploratory laparotomy at which it was wrapped rather than repaired: baseline duplex ultrasound and CT angiography, surveillance every six months at 5.0 to 5.4 cm, blood pressure below 130/80, a high-intensity statin, low-dose aspirin for aortic atheroma, smoking cessation with nicotine replacement, avoidance of fluoroquinolones, education about symptoms that need emergency care, and a documented shared decision with vascular surgery about elective repair thresholds (5.5 cm in men, rapid growth, or symptoms) and endovascular versus open repair, following the Society for Vascular Surgery 2018 and ACC/AHA 2022 guidelines with the CMID hypertension and hyperlipidemia monographs. His preferences are recorded as synthetic shared decision-making; the decision he made at the end of his life is history only.</p>
+      <div class="downloads">
+        <a href="../case.json">Canonical JSON</a>
+        <a href="fhir-bundle.json">FHIR R4 draft</a>
+        <a href="ccda.html">C-CDA R2.1 summary</a> <a href="ccda.xml">(XML)</a> <a href="review.html">Review checklist</a>
+        <a href="../sources.md">Evidence dossier</a>
+      </div>
+    </section>
+    <section><h2>Historical timeline</h2><table><thead><tr><th>Date</th><th>Event</th><th>Claims</th></tr></thead><tbody>
+  <tr><td>March 14, 1879</td><td>Born in Ulm.</td><td>CLM-0001</td></tr>
+  <tr><td>1933</td><td>Joined the Institute for Advanced Study in Princeton.</td><td>CLM-0003</td></tr>
+  <tr><td>1948</td><td>Intermittent severe abdominal pain, worse toward the end of the year.</td><td>CLM-0004</td></tr>
+  <tr><td>December 31, 1948</td><td>Exploratory laparotomy found an abdominal aortic aneurysm, which was wrapped in cellophane; discharged about three weeks later.</td><td>CLM-0005, CLM-0006</td></tr>
+  <tr><td>1953</td><td>Gave a well-worn pipe to a friend; by then he had restricted his smoking on doctors&#39; orders.</td><td>CLM-0009</td></tr>
+  <tr><td>April 1955</td><td>The aneurysm ruptured; he declined an operation.</td><td>CLM-0007, CLM-0010</td></tr>
+  <tr><td>April 18, 1955</td><td>Died at Princeton Hospital, aged 76.</td><td>CLM-0002</td></tr></tbody></table></section>
+    <section><h2>Evidence claims</h2><p class="muted">D = documented, R = retrospective, S = synthetic.</p><table><thead><tr><th>Grade</th><th>Claim</th><th>Certainty</th><th>Sources</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>Albert Einstein was born on March 14, 1879, in Ulm, in the Kingdom of Wurttemberg, German Empire.</strong></td>
+    <td>confirmed</td>
+    <td><a href="https://en.wikipedia.org/wiki/Albert_Einstein" target="_blank" rel="noreferrer">Albert Einstein</a> <span class="relationship">supports</span><br><a href="https://www.anmm.org.mx/GMM/2011/n1/75_GMM_Vol_147_-_1_2011.pdf" target="_blank" rel="noreferrer">Cervantes Castro J. Albert Einstein y su aneurisma de la aorta. Gaceta Medica de Mexico 2011;147:74-6</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>Einstein died on April 18, 1955, at Princeton Hospital in Princeton, New Jersey, aged 76.</strong><div class="muted">Record the death as a fact without detail.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://en.wikipedia.org/wiki/Albert_Einstein" target="_blank" rel="noreferrer">Albert Einstein</a> <span class="relationship">supports</span><br><a href="https://www.anmm.org.mx/GMM/2011/n1/75_GMM_Vol_147_-_1_2011.pdf" target="_blank" rel="noreferrer">Cervantes Castro J. Albert Einstein y su aneurisma de la aorta. Gaceta Medica de Mexico 2011;147:74-6</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>He worked at the Institute for Advanced Study in Princeton from 1933 until his death and became a United States citizen in 1940.</strong><div class="muted">Social context for the modern frame.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://en.wikipedia.org/wiki/Albert_Einstein" target="_blank" rel="noreferrer">Albert Einstein</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>At about 69 he began to have intermittent episodes of severe abdominal pain, at times bad enough to make him vomit, which grew worse toward the end of 1948.</strong><div class="muted">Past history before the operation.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.anmm.org.mx/GMM/2011/n1/75_GMM_Vol_147_-_1_2011.pdf" target="_blank" rel="noreferrer">Cervantes Castro J. Albert Einstein y su aneurisma de la aorta. Gaceta Medica de Mexico 2011;147:74-6</a> <span class="relationship">supports</span><br><a href="https://columbiasurgery.org/news/2015/08/27/history-medicine-ingenious-surgery-saved-world-s-smartest-man" target="_blank" rel="noreferrer">History of Medicine: The Ingenious Surgery that Saved the World&#39;s Smartest Man</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>On December 31, 1948, at the Jewish Hospital of Brooklyn, the surgeon Rudolph Nissen performed an exploratory laparotomy and found an abdominal aortic aneurysm described as the size of a grapefruit; because it could not be removed with the surgery of the time, he wrapped its front in cellophane to provoke scarring that might prevent growth and rupture.</strong><div class="muted">The anchor for the modern aneurysm; the operation is past history, and the documented size is not used in the synthetic episode.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.anmm.org.mx/GMM/2011/n1/75_GMM_Vol_147_-_1_2011.pdf" target="_blank" rel="noreferrer">Cervantes Castro J. Albert Einstein y su aneurisma de la aorta. Gaceta Medica de Mexico 2011;147:74-6</a> <span class="relationship">supports</span><br><a href="https://columbiasurgery.org/news/2015/08/27/history-medicine-ingenious-surgery-saved-world-s-smartest-man" target="_blank" rel="noreferrer">History of Medicine: The Ingenious Surgery that Saved the World&#39;s Smartest Man</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>He recovered slowly and left the hospital about three weeks after the operation.</strong><div class="muted">Past history.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.anmm.org.mx/GMM/2011/n1/75_GMM_Vol_147_-_1_2011.pdf" target="_blank" rel="noreferrer">Cervantes Castro J. Albert Einstein y su aneurisma de la aorta. Gaceta Medica de Mexico 2011;147:74-6</a> <span class="relationship">supports</span><br><a href="https://columbiasurgery.org/news/2015/08/27/history-medicine-ingenious-surgery-saved-world-s-smartest-man" target="_blank" rel="noreferrer">History of Medicine: The Ingenious Surgery that Saved the World&#39;s Smartest Man</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>In April 1955 the abdominal pain returned, more severe; the aneurysm had enlarged and ruptured. A surgeon advised an urgent operation, but Einstein, admitted to Princeton Hospital, declined it, saying in substance that he had lived long and did not wish to prolong his life artificially. An autopsy confirmed a ruptured abdominal aortic aneurysm.</strong><div class="muted">History only; the modern episode records synthetic preferences and does not stage this.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.anmm.org.mx/GMM/2011/n1/75_GMM_Vol_147_-_1_2011.pdf" target="_blank" rel="noreferrer">Cervantes Castro J. Albert Einstein y su aneurisma de la aorta. Gaceta Medica de Mexico 2011;147:74-6</a> <span class="relationship">supports</span><br><a href="https://columbiasurgery.org/news/2015/08/27/history-medicine-ingenious-surgery-saved-world-s-smartest-man" target="_blank" rel="noreferrer">History of Medicine: The Ingenious Surgery that Saved the World&#39;s Smartest Man</a> <span class="relationship">supports</span><br><a href="https://pubmed.ncbi.nlm.nih.gov/2183375/" target="_blank" rel="noreferrer">Cohen JR, Graver LM. The ruptured abdominal aortic aneurysm of Albert Einstein. Surg Gynecol Obstet 1990;170:455-8</a> <span class="relationship">context</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>Einstein was a long-time pipe smoker; a pipe was characteristic of his appearance, and an account of his aneurysm says he had smoked constantly since adolescence.</strong><div class="muted">The anchor for the synthetic nicotine dependence and the cessation plan.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.si.edu/object/einsteins-brier-pipe:nmah_334905" target="_blank" rel="noreferrer">Einstein&#39;s Brier Pipe (object 1996.0006.01)</a> <span class="relationship">supports</span><br><a href="https://www.anmm.org.mx/GMM/2011/n1/75_GMM_Vol_147_-_1_2011.pdf" target="_blank" rel="noreferrer">Cervantes Castro J. Albert Einstein y su aneurisma de la aorta. Gaceta Medica de Mexico 2011;147:74-6</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>In his later years he restricted his smoking on doctors&#39; orders but kept holding a pipe; in 1953 he gave a pipe worn through at the bit to a friend.</strong><div class="muted">Claim only, after the index date; the modern habit of holding an empty pipe after quitting is synthetic.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.si.edu/object/einsteins-brier-pipe:nmah_334905" target="_blank" rel="noreferrer">Einstein&#39;s Brier Pipe (object 1996.0006.01)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>The picture of a ruptured abdominal aortic aneurysm mimicking acute cholecystitis has been called the Einstein sign, after his final illness.</strong><div class="muted">Teaching context for the emergency symptom plan; claim only.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://pubmed.ncbi.nlm.nih.gov/6371539/" target="_blank" rel="noreferrer">Chandler JJ. The Einstein sign: the clinical picture of acute cholecystitis caused by ruptured abdominal aortic aneurysm. N Engl J Med 1984;310:1538</a> <span class="relationship">supports</span><br><a href="https://www.anmm.org.mx/GMM/2011/n1/75_GMM_Vol_147_-_1_2011.pdf" target="_blank" rel="noreferrer">Cervantes Castro J. Albert Einstein y su aneurisma de la aorta. Gaceta Medica de Mexico 2011;147:74-6</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-R" title="Retrospective">R</span></td>
+    <td><strong>Retrospective writers have suggested that he had features of the autism spectrum.</strong><div class="muted">Retrospective interpretation; not a modern diagnosis and not used in the episode.</div></td>
+    <td>disputed</td>
+    <td><a href="https://pubmed.ncbi.nlm.nih.gov/11261475/" target="_blank" rel="noreferrer">Fitzgerald M. Einstein: brain and behavior. J Autism Dev Disord 2000;30:620-1</a> <span class="relationship">supports</span><br><a href="https://pubmed.ncbi.nlm.nih.gov/19251376/" target="_blank" rel="noreferrer">Yuan TF. Einstein&#39;s brain: gliogenesis in autism? Med Hypotheses 2009;72:753</a> <span class="relationship">supports</span></td>
+  </tr></tbody></table></section>
+    <section><h2>Modern synthetic problem list</h2><table><thead><tr><th>Grade</th><th>Problem</th><th>Clinical status</th><th>Verification</th><th>Placement</th><th>Historical claims</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Infrarenal abdominal aortic aneurysm, 5.0 cm by duplex ultrasound, found and wrapped at a prior exploratory laparotomy; under surveillance below the repair threshold</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td>CLM-0005</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Essential hypertension</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Nicotine dependence, pipe tobacco</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td>CLM-0008</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Atherosclerosis of the abdominal aorta, with calcified atheroma on CT angiography</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td>CLM-0005</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Acute low back strain after lifting, with aneurysm symptoms excluded; resolved</td>
+    <td>resolved</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td></td>
+  </tr></tbody></table></section>
+    <section><h2>Synthetic outcome measures</h2><table><thead><tr><th>Grade</th><th>Date</th><th>Measure</th><th>Result</th><th>Coding</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-24</td>
+    <td>Aorta Diameter by US</td>
+    <td>5 cm (high)<div class="muted">Reference &lt;=3 cm</div></td>
+    <td>http://loinc.org · 18010-9</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-24</td>
+    <td>Hemoglobin [Mass/volume] in Blood</td>
+    <td>14.2 g/dL<div class="muted">Reference 13.2-16.6 g/dL</div></td>
+    <td>http://loinc.org · 718-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-24</td>
+    <td>Leukocytes [#/volume] in Blood by Automated count</td>
+    <td>7.4 10*3/uL<div class="muted">Reference 3.4-9.6 10*3/uL</div></td>
+    <td>http://loinc.org · 6690-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-24</td>
+    <td>Platelets [#/volume] in Blood by Automated count</td>
+    <td>232 10*3/uL<div class="muted">Reference 135-317 10*3/uL</div></td>
+    <td>http://loinc.org · 777-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-24</td>
+    <td>Sodium [Moles/volume] in Serum or Plasma</td>
+    <td>140 mmol/L<div class="muted">Reference 135-145 mmol/L</div></td>
+    <td>http://loinc.org · 2951-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-24</td>
+    <td>Potassium [Moles/volume] in Serum or Plasma</td>
+    <td>4.3 mmol/L<div class="muted">Reference 3.5-5.1 mmol/L</div></td>
+    <td>http://loinc.org · 2823-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-24</td>
+    <td>Creatinine [Mass/volume] in Serum or Plasma</td>
+    <td>1.02 mg/dL<div class="muted">Reference 0.74-1.35 mg/dL</div></td>
+    <td>http://loinc.org · 2160-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-24</td>
+    <td>Glomerular filtration rate [Volume Rate/Area] in Serum, Plasma or Blood by Creatinine-based formula (CKD-EPI 2021)/1.73 sq M</td>
+    <td>77 mL/min/1.73 m²<div class="muted">Reference &gt;=60 mL/min/1.73 m²</div></td>
+    <td>http://loinc.org · 98979-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-24</td>
+    <td>Glucose [Mass/volume] in Serum or Plasma</td>
+    <td>98 mg/dL<div class="muted">Reference 70-99 mg/dL</div></td>
+    <td>http://loinc.org · 2345-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-24</td>
+    <td>Calcium [Mass/volume] in Serum or Plasma</td>
+    <td>9.4 mg/dL<div class="muted">Reference 8.6-10.3 mg/dL</div></td>
+    <td>http://loinc.org · 17861-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-24</td>
+    <td>Cholesterol [Mass/volume] in Serum or Plasma</td>
+    <td>216 mg/dL (high)<div class="muted">Reference &lt;=200 mg/dL</div></td>
+    <td>http://loinc.org · 2093-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-24</td>
+    <td>Cholesterol in HDL [Mass/volume] in Serum or Plasma</td>
+    <td>44 mg/dL<div class="muted">Reference &gt;=40 mg/dL</div></td>
+    <td>http://loinc.org · 2085-9</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-24</td>
+    <td>Cholesterol in LDL [Mass/volume] in Serum or Plasma by calculation</td>
+    <td>142 mg/dL (high)<div class="muted">Reference &lt;=129 mg/dL</div></td>
+    <td>http://loinc.org · 13457-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-24</td>
+    <td>Triglyceride [Mass/volume] in Serum or Plasma</td>
+    <td>148 mg/dL<div class="muted">Reference &lt;=149 mg/dL</div></td>
+    <td>http://loinc.org · 2571-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-24</td>
+    <td>Hemoglobin A1c/Hemoglobin.total in Blood</td>
+    <td>5.6%<div class="muted">Reference &lt;=5.6%</div></td>
+    <td>http://loinc.org · 4548-4</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-24</td>
+    <td>Albumin/Creatinine [Mass Ratio] in Urine</td>
+    <td>14 mg/g{creat}<div class="muted">Reference &lt;=30 mg/g{creat}</div></td>
+    <td>http://loinc.org · 9318-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-24</td>
+    <td>Alanine aminotransferase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>24 U/L<div class="muted">Reference 7-55 U/L</div></td>
+    <td>http://loinc.org · 1742-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-04-21</td>
+    <td>Sodium [Moles/volume] in Serum or Plasma</td>
+    <td>139 mmol/L<div class="muted">Reference 135-145 mmol/L</div></td>
+    <td>http://loinc.org · 2951-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-04-21</td>
+    <td>Potassium [Moles/volume] in Serum or Plasma</td>
+    <td>4.6 mmol/L<div class="muted">Reference 3.5-5.1 mmol/L</div></td>
+    <td>http://loinc.org · 2823-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-04-21</td>
+    <td>Creatinine [Mass/volume] in Serum or Plasma</td>
+    <td>1.08 mg/dL<div class="muted">Reference 0.74-1.35 mg/dL</div></td>
+    <td>http://loinc.org · 2160-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-04-21</td>
+    <td>Glomerular filtration rate [Volume Rate/Area] in Serum, Plasma or Blood by Creatinine-based formula (CKD-EPI 2021)/1.73 sq M</td>
+    <td>72 mL/min/1.73 m²<div class="muted">Reference &gt;=60 mL/min/1.73 m²</div></td>
+    <td>http://loinc.org · 98979-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-07-14</td>
+    <td>Sodium [Moles/volume] in Serum or Plasma</td>
+    <td>139 mmol/L<div class="muted">Reference 135-145 mmol/L</div></td>
+    <td>http://loinc.org · 2951-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-07-14</td>
+    <td>Potassium [Moles/volume] in Serum or Plasma</td>
+    <td>4.7 mmol/L<div class="muted">Reference 3.5-5.1 mmol/L</div></td>
+    <td>http://loinc.org · 2823-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-07-14</td>
+    <td>Creatinine [Mass/volume] in Serum or Plasma</td>
+    <td>1.1 mg/dL<div class="muted">Reference 0.74-1.35 mg/dL</div></td>
+    <td>http://loinc.org · 2160-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-07-14</td>
+    <td>Glomerular filtration rate [Volume Rate/Area] in Serum, Plasma or Blood by Creatinine-based formula (CKD-EPI 2021)/1.73 sq M</td>
+    <td>70 mL/min/1.73 m²<div class="muted">Reference &gt;=60 mL/min/1.73 m²</div></td>
+    <td>http://loinc.org · 98979-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-07-14</td>
+    <td>Cholesterol [Mass/volume] in Serum or Plasma</td>
+    <td>132 mg/dL<div class="muted">Reference &lt;=200 mg/dL</div></td>
+    <td>http://loinc.org · 2093-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-07-14</td>
+    <td>Cholesterol in HDL [Mass/volume] in Serum or Plasma</td>
+    <td>46 mg/dL<div class="muted">Reference &gt;=40 mg/dL</div></td>
+    <td>http://loinc.org · 2085-9</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-07-14</td>
+    <td>Cholesterol in LDL [Mass/volume] in Serum or Plasma by calculation</td>
+    <td>62 mg/dL<div class="muted">Reference &lt;=129 mg/dL</div></td>
+    <td>http://loinc.org · 13457-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-07-14</td>
+    <td>Triglyceride [Mass/volume] in Serum or Plasma</td>
+    <td>120 mg/dL<div class="muted">Reference &lt;=149 mg/dL</div></td>
+    <td>http://loinc.org · 2571-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-09-22</td>
+    <td>Aorta Diameter by US</td>
+    <td>5.1 cm (high)<div class="muted">Reference &lt;=3 cm</div></td>
+    <td>http://loinc.org · 18010-9</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-06-02</td>
+    <td>Aorta Diameter by US</td>
+    <td>5 cm (high)<div class="muted">Reference &lt;=3 cm</div></td>
+    <td>http://loinc.org · 18010-9</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-08-25</td>
+    <td>Patient Health Questionnaire 2 item (PHQ-2) total score [Reported]</td>
+    <td>0</td>
+    <td>http://loinc.org · 55758-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-08-25</td>
+    <td>Total score [AUDIT-C]</td>
+    <td>1</td>
+    <td>http://loinc.org · 75626-2</td>
+  </tr></tbody></table></section>
+    <section><h2>Synthetic vital signs</h2><table><thead><tr><th>Date</th><th>Measure</th><th>Result</th><th>LOINC</th><th>Grade</th></tr></thead><tbody>
+  <tr><td>2026-03-24</td><td>Body height</td><td>172 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-24</td><td>Body weight</td><td>79 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-24</td><td>Body mass index (BMI) [Ratio]</td><td>26.7 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-24</td><td>Systolic blood pressure</td><td>146 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-24</td><td>Diastolic blood pressure</td><td>86 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-24</td><td>Heart rate</td><td>72 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-24</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-24</td><td>Body temperature</td><td>36.7 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-24</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>96 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-21</td><td>Body height</td><td>172 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-21</td><td>Body weight</td><td>78.6 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-21</td><td>Body mass index (BMI) [Ratio]</td><td>26.6 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-21</td><td>Systolic blood pressure</td><td>136 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-21</td><td>Diastolic blood pressure</td><td>82 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-21</td><td>Heart rate</td><td>70 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-21</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-21</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-21</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>97 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-07-14</td><td>Body height</td><td>172 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-07-14</td><td>Body weight</td><td>79.4 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-07-14</td><td>Body mass index (BMI) [Ratio]</td><td>26.8 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-07-14</td><td>Systolic blood pressure</td><td>126 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-07-14</td><td>Diastolic blood pressure</td><td>76 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-07-14</td><td>Heart rate</td><td>68 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-07-14</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-07-14</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-07-14</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>97 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-09-22</td><td>Body height</td><td>172 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-09-22</td><td>Body weight</td><td>79.8 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-09-22</td><td>Body mass index (BMI) [Ratio]</td><td>27 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-09-22</td><td>Systolic blood pressure</td><td>124 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-09-22</td><td>Diastolic blood pressure</td><td>76 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-09-22</td><td>Heart rate</td><td>66 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-09-22</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-09-22</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-09-22</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>97 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-02</td><td>Body height</td><td>172 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-02</td><td>Body weight</td><td>79.2 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-02</td><td>Body mass index (BMI) [Ratio]</td><td>26.8 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-02</td><td>Systolic blood pressure</td><td>138 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-02</td><td>Diastolic blood pressure</td><td>82 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-02</td><td>Heart rate</td><td>76 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-02</td><td>Respiratory rate</td><td>16 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-02</td><td>Body temperature</td><td>36.7 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-02</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>97 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-08-25</td><td>Body height</td><td>172 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-08-25</td><td>Body weight</td><td>79.6 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-08-25</td><td>Body mass index (BMI) [Ratio]</td><td>26.9 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-08-25</td><td>Systolic blood pressure</td><td>124 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-08-25</td><td>Diastolic blood pressure</td><td>74 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-08-25</td><td>Heart rate</td><td>66 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-08-25</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-08-25</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-08-25</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>97 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr></tbody></table></section>
+    <section><h2>Social, functional, and mental status</h2><h3>Social history</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Smokes a pipe daily, about five or six bowls, since his youth, and inhales some of the smoke; no cigarettes or cigars; ready to quit at the first visit</li><li><span class="badge grade-S" title="Synthetic">S</span> A glass of wine on occasion; no other drug use</li><li><span class="badge grade-S" title="Synthetic">S</span> Theoretical physicist at a research institute who still works most days; lives at home; the household is not named in this record</li><li><span class="badge grade-S" title="Synthetic">S</span> Walks to and from his office most days, about 30 minutes each way</li><li><span class="badge grade-S" title="Synthetic">S</span> Supports: a settled household, close colleagues, daily walks, and absorbing work</li></ul><h3>Functional status</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Independent in all activities of daily living and instrumental activities; no falls</li></ul><h3>Mental status</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Alert, curious, and direct; asks for exact figures and the evidence behind them; mood good</li></ul></section>
+    
+    <section><h2>Allergies and medications</h2><h3>Allergies</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> No known allergy</li></ul><h3>Medications</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Amlodipine 5 mg oral tablet, one tablet daily</li><li><span class="badge grade-S" title="Synthetic">S</span> Losartan 50 mg oral tablet, one tablet daily</li><li><span class="badge grade-S" title="Synthetic">S</span> Losartan 100 mg oral tablet, one tablet daily</li><li><span class="badge grade-S" title="Synthetic">S</span> Atorvastatin 40 mg oral tablet, one tablet daily</li><li><span class="badge grade-S" title="Synthetic">S</span> Aspirin 81 mg delayed-release oral tablet, one tablet daily</li><li><span class="badge grade-S" title="Synthetic">S</span> Nicotine 14 mg/24 hour transdermal patch, one patch daily</li><li><span class="badge grade-S" title="Synthetic">S</span> Nicotine 7 mg/24 hour transdermal patch, one patch daily</li><li><span class="badge grade-S" title="Synthetic">S</span> Nicotine 2 mg lozenge as needed for cravings</li></ul></section>
+    <section><h2>Procedures and immunizations</h2><h3>Procedures</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> CT angiography of the abdominal aorta and iliac arteries: fusiform infrarenal aneurysm, maximum outer-wall diameter 5.2 cm, beginning 2.0 cm below the lowest renal artery and ending above the bifurcation; neck 2.2 cm wide with 30-degree angulation; moderate mural thrombus; calcified atheroma of the aorta and both common iliac arteries, which measure 1.3 cm; soft-tissue thickening along the front of the aneurysm consistent with the prior wrapping; no periaortic fluid; suprarenal aorta 2.4 cm</li><li><span class="badge grade-S" title="Synthetic">S</span> Smoking cessation counseling (5 A&#39;s), about 15 minutes, with a quit date and nicotine replacement</li></ul><h3>Immunizations</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> 2025-10-07: High-dose influenza vaccine, 2025-2026 season</li><li><span class="badge grade-S" title="Synthetic">S</span> 2026-08-25: Pneumococcal conjugate vaccine PCV20</li><li><span class="badge grade-S" title="Synthetic">S</span> 2026-08-25: Recombinant zoster vaccine, dose 1 of 2</li></ul></section>
+    <section><h2>Past medical history</h2><p class="muted">True biography with historical dates; not part of the synthetic care timeline.</p><ul><li><span class="badge grade-D" title="Documented">D</span> 1948: Intermittent severe abdominal pain, at times with vomiting, worse toward the end of the year <span class="muted">(CLM-0004)</span></li><li><span class="badge grade-D" title="Documented">D</span> December 31, 1948: Exploratory laparotomy: a large abdominal aortic aneurysm was found; it could not be removed, and its front was wrapped in cellophane to provoke scarring; discharged about three weeks later <span class="muted">(CLM-0005, CLM-0006)</span></li></ul><h3>Family history</h3><p class="muted">No family medical history is documented in the logged sources. Family history of real relatives is never synthesized.</p></section>
+    <section><h2>Care-plan goals</h2><table><thead><tr><th>Goal</th><th>Target date</th><th>Status</th><th>Outcome</th></tr></thead><tbody>
+  <tr><td>Baseline CT angiography and a vascular surgery consultation, with a documented shared decision about repair thresholds, by the four-week visit</td><td>2026-04-21</td><td>completed</td><td>CT angiography two weeks after the first visit; consultation and shared decision at the four-week visit</td></tr>
+  <tr><td>Blood pressure below 130/80 at the clinic and at home by the three-month visit</td><td>2026-07-14</td><td>completed</td><td>126/76 mmHg in the clinic; home average 124/74 on amlodipine 5 mg and losartan 100 mg</td></tr>
+  <tr><td>LDL cholesterol at least 50 percent lower and below 70 mg/dL by the three-month visit</td><td>2026-07-14</td><td>completed</td><td>LDL 62 mg/dL on atorvastatin 40 mg, down 56 percent from 142</td></tr>
+  <tr><td>Tobacco-free by the three-month visit and still at six months</td><td>2026-09-22</td><td>completed</td><td>No tobacco since the quit date a week after the first visit; nicotine replacement finished at six months</td></tr>
+  <tr><td>Repeat duplex ultrasound at six months and set the next interval by diameter</td><td>2026-09-22</td><td>completed</td><td>5.1 cm, 0.1 cm more than at baseline; next scan in six months</td></tr></tbody></table></section>
+    <section><h2>Interventions</h2><table><thead><tr><th>Intervention</th><th>Status</th><th>Guideline</th></tr></thead><tbody>
+  <tr><td>Aneurysm imaging: duplex ultrasound today and CT angiography within two weeks for baseline anatomy; then duplex ultrasound every six months while the diameter is 5.0 to 5.4 cm, with CT if ultrasound views are poor</td><td>completed</td><td>GL-SVS-AAA-2018, GL-ACCAHA-AORTA-2022</td></tr>
+  <tr><td>Vascular surgery consultation for a shared decision about surveillance, repair thresholds, and the choice between endovascular and open repair</td><td>completed</td><td>GL-SVS-AAA-2018, GL-ACCAHA-AORTA-2022</td></tr>
+  <tr><td>Blood pressure below 130/80: add losartan 50 mg to amlodipine, home blood pressure readings twice daily for a week before each visit, and a metabolic panel two to four weeks after each change, then every six months</td><td>completed</td><td>GL-ACCAHA-AORTA-2022, GL-CMID-2026</td></tr>
+  <tr><td>Atorvastatin 40 mg each evening, with a baseline ALT and a lipid panel four to twelve weeks after starting, then yearly</td><td>completed</td><td>GL-ACCAHA-AORTA-2022, GL-SVS-AAA-2018, GL-CMID-2026</td></tr>
+  <tr><td>Tobacco cessation: the 5 A&#39;s at every visit, a quit date within a week, a 14 mg nicotine patch with 2 mg lozenges for cravings, stepping down over the following months, and the state quitline</td><td>completed</td><td>GL-ACCAHA-AORTA-2022, GL-SVS-AAA-2018, GL-USPSTF-TOB-2021</td></tr>
+  <tr><td>Emergency plan: sudden severe abdominal, back, flank, or groin pain, fainting, or a tender pulsating lump means calling emergency services at once; carry an aneurysm wallet card; avoid fluoroquinolone antibiotics unless there is no alternative</td><td>completed</td><td>GL-SVS-AAA-2018, GL-ACCAHA-AORTA-2022</td></tr>
+  <tr><td>Low-dose aspirin 81 mg daily for atheroma of the aorta, unless bleeding risk outweighs benefit</td><td>completed</td><td>GL-ACCAHA-AORTA-2022</td></tr>
+  <tr><td>Shared decision on elective repair: repair advised at 5.5 cm by a consistent measurement, growth of 0.5 cm or more in six months, or symptoms from the aneurysm; endovascular repair favored on this anatomy and after a prior laparotomy with wrapping; his preferences reviewed at each scan</td><td>completed</td><td>GL-SVS-AAA-2018, GL-ACCAHA-AORTA-2022</td></tr>
+  <tr><td>Monitor on the CMID hypertension and hyperlipidemia schedules: blood pressure and weight at every visit; metabolic panel every six months on losartan; lipids, HbA1c, and urine albumin-to-creatinine ratio yearly; baseline ECG; eye examination yearly; ankle-brachial index every two to three years</td><td>completed</td><td>GL-CMID-2026</td></tr></tbody></table></section>
+    <section><h2>Planned encounters</h2><ul>
+  <li><strong>2026-03-24</strong> — Establishing care for a known abdominal aortic aneurysm: duplex ultrasound, blood pressure, lipids, smoking, and emergency symptoms <span class="muted">(ENC-001)</span></li>
+  <li><strong>2026-04-21</strong> — Four-week follow-up: CT angiography results, vascular surgery consultation, and a shared decision about repair thresholds <span class="muted">(ENC-002)</span></li>
+  <li><strong>2026-06-02</strong> — Same-day sick visit for low back pain after lifting <span class="muted">(ENC-005, unscheduled)</span></li>
+  <li><strong>2026-07-14</strong> — Three-month review: blood pressure, lipids on a statin, and smoking cessation <span class="muted">(ENC-003)</span></li>
+  <li><strong>2026-08-25</strong> — Subsequent annual wellness visit <span class="muted">(ENC-006)</span></li>
+  <li><strong>2026-09-22</strong> — Six-month aneurysm surveillance with duplex ultrasound <span class="muted">(ENC-004)</span></li></ul></section>
+    <section><h2>Supporting documents</h2><ul><li><a href="notes/hp.md">History and physical</a></li><li><a href="notes/progress-01.md">Progress note 01</a></li><li><a href="notes/progress-02.md">Progress note 02 — Focused Visit (Follow-up)</a></li><li><a href="notes/progress-03.md">Progress note 03 — Sick Visit</a></li><li><a href="notes/progress-04.md">Progress note 04 — Focused Visit (Follow-up)</a></li><li><a href="notes/progress-05.md">Progress note 05 — Annual Wellness Visit, Subsequent</a></li><li><a href="notes/progress-06.md">Progress note 06 — Focused Visit (Care-plan review)</a></li><li><a href="notes/referral-01.md">Vascular Surgery referral</a></li><li><a href="notes/consult-01.md">Vascular Surgery consultation</a></li><li><a href="notes/careplan.md">Patient care plan</a></li><li><a href="notes/teaching-note.md">Teaching note</a></li><li><a href="provenance.csv">Provenance CSV</a></li></ul></section>
+    <section><h2>C-CDA note documents</h2><p class="muted">Each link opens a readable copy; the XML beside it is the exchange file.</p><ul><li><a href="ccda/hp-01.html">History and physical</a> <a href="ccda/hp-01.xml">(XML)</a></li><li><a href="ccda/progress-01.html">Progress note 01</a> <a href="ccda/progress-01.xml">(XML)</a></li><li><a href="ccda/progress-02.html">Progress note 02 — Focused Visit (Follow-up)</a> <a href="ccda/progress-02.xml">(XML)</a></li><li><a href="ccda/progress-03.html">Progress note 03 — Sick Visit</a> <a href="ccda/progress-03.xml">(XML)</a></li><li><a href="ccda/progress-04.html">Progress note 04 — Focused Visit (Follow-up)</a> <a href="ccda/progress-04.xml">(XML)</a></li><li><a href="ccda/progress-05.html">Progress note 05 — Annual Wellness Visit, Subsequent</a> <a href="ccda/progress-05.xml">(XML)</a></li><li><a href="ccda/progress-06.html">Progress note 06 — Focused Visit (Care-plan review)</a> <a href="ccda/progress-06.xml">(XML)</a></li><li><a href="ccda/referral-01.html">Vascular Surgery referral</a> <a href="ccda/referral-01.xml">(XML)</a></li><li><a href="ccda/consult-01.html">Vascular Surgery consultation</a> <a href="ccda/consult-01.xml">(XML)</a></li></ul></section>
+    <section><h2>Sources</h2><table><thead><tr><th>ID</th><th>Source</th><th>Publisher</th><th>Type</th></tr></thead><tbody>
+  <tr>
+    <td>SRC-0001</td>
+    <td><a href="https://en.wikipedia.org/wiki/Albert_Einstein" target="_blank" rel="noreferrer">Albert Einstein</a></td>
+    <td>Wikipedia</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0002</td>
+    <td><a href="https://www.anmm.org.mx/GMM/2011/n1/75_GMM_Vol_147_-_1_2011.pdf" target="_blank" rel="noreferrer">Cervantes Castro J. Albert Einstein y su aneurisma de la aorta. Gaceta Medica de Mexico 2011;147:74-6</a></td>
+    <td>Academia Nacional de Medicina de Mexico</td>
+    <td>scholarly</td>
+  </tr>
+  <tr>
+    <td>SRC-0003</td>
+    <td><a href="https://columbiasurgery.org/news/2015/08/27/history-medicine-ingenious-surgery-saved-world-s-smartest-man" target="_blank" rel="noreferrer">History of Medicine: The Ingenious Surgery that Saved the World&#39;s Smartest Man</a></td>
+    <td>Columbia University Department of Surgery</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0004</td>
+    <td><a href="https://www.si.edu/object/einsteins-brier-pipe:nmah_334905" target="_blank" rel="noreferrer">Einstein&#39;s Brier Pipe (object 1996.0006.01)</a></td>
+    <td>Smithsonian Institution, National Museum of American History</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0005</td>
+    <td><a href="https://pubmed.ncbi.nlm.nih.gov/2183375/" target="_blank" rel="noreferrer">Cohen JR, Graver LM. The ruptured abdominal aortic aneurysm of Albert Einstein. Surg Gynecol Obstet 1990;170:455-8</a></td>
+    <td>PubMed</td>
+    <td>scholarly</td>
+  </tr>
+  <tr>
+    <td>SRC-0006</td>
+    <td><a href="https://pubmed.ncbi.nlm.nih.gov/6371539/" target="_blank" rel="noreferrer">Chandler JJ. The Einstein sign: the clinical picture of acute cholecystitis caused by ruptured abdominal aortic aneurysm. N Engl J Med 1984;310:1538</a></td>
+    <td>PubMed</td>
+    <td>scholarly</td>
+  </tr>
+  <tr>
+    <td>SRC-0007</td>
+    <td><a href="https://pubmed.ncbi.nlm.nih.gov/11261475/" target="_blank" rel="noreferrer">Fitzgerald M. Einstein: brain and behavior. J Autism Dev Disord 2000;30:620-1</a></td>
+    <td>PubMed</td>
+    <td>scholarly</td>
+  </tr>
+  <tr>
+    <td>SRC-0008</td>
+    <td><a href="https://pubmed.ncbi.nlm.nih.gov/19251376/" target="_blank" rel="noreferrer">Yuan TF. Einstein&#39;s brain: gliogenesis in autism? Med Hypotheses 2009;72:753</a></td>
+    <td>PubMed</td>
+    <td>scholarly</td>
+  </tr>
+  <tr>
+    <td>SRC-0009</td>
+    <td><a href="https://humanrecord.example.org/internal/HISTMED_Master_Roster_v3.xlsx" target="_blank" rel="noreferrer">HISTMED Master Roster v3</a></td>
+    <td>The Human Record project</td>
+    <td>other</td>
+  </tr></tbody></table></section>
+    <section><h2>Review status</h2><table><thead><tr><th>Review</th><th>Status</th><th>Notes</th></tr></thead><tbody>
+  <tr><td>schema validation</td><td>not_started</td><td>Run scripts/build.ps1 -Conformance.</td></tr>
+  <tr><td>clinical review</td><td>not_started</td><td>Awaiting clinician review.</td></tr>
+  <tr><td>provenance review</td><td>not_started</td><td>The 1948 operation, the cellophane wrapping, his pipe smoking, the rupture, and his refusal of surgery are documented; the autism suggestion is graded R and is not a modern diagnosis. The modern episode records synthetic preferences and does not stage his death. No statement or health fact is attributed to a real relative, friend, or surgeon in the modern episode.</td></tr>
+  <tr><td>safe messaging review</td><td>not_started</td><td>Nicotine dependence (F17) does not require a safety assessment; the PHQ-2 is negative. Claims about smoking and the autism suggestion are marked sensitive.</td></tr></tbody></table></section>
+  </main>
+</body>
+</html>
