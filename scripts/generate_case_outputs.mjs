@@ -1,6 +1,6 @@
 import fs from "node:fs/promises";
 import path from "node:path";
-import { NAMESPACE, ROUTES, TRUE_DATE_NOTICE, deterministicUuid, isTrueDateFrame, outputDirFor, parseClinician, splitName } from "./lib/common.mjs";
+import { NAMESPACE, ROUTES, TRUE_DATE_NOTICE, deterministicUuid, isTrueDateFrame, outputDirFor, parseClinician, patientName, splitName } from "./lib/common.mjs";
 import { reviewPage } from "./lib/review_page.mjs";
 import { INTERPRETATIONS, documentationOf, isConsultStep, isLab, isUnscheduled, rangeText, visitLabels, withUnit } from "./lib/episode.mjs";
 
@@ -201,7 +201,7 @@ const urn = (localId) => `urn:uuid:${deterministicUuid(`${data.case_id}|fhir|${l
 // FHIR Coding allows only its own elements; validation metadata stays in the canonical case.
 // The version is dropped too: terminology servers cannot check a code pinned to a release they lack.
 const fhirCoding = ({ system, code, display }) => ({ system, code, display });
-const humanName = splitName(data.identity.display_name);
+const humanName = patientName(data.identity);
 const clinician = parseClinician(data.identity.synthetic_identity.fictional_primary_clinician);
 const practitionerFullUrl = urn("primary-clinician");
 const tagged = (profile, item) => ({ ...(profile ? { profile: [`${US_CORE}/${profile}`] } : {}), tag: [{ system: GRADE_SYSTEM, code: item.provenance.evidence_grade }] });

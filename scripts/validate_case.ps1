@@ -114,6 +114,18 @@ foreach ($problem in $case.clinical.problems | Where-Object { $_.PSObject.Proper
     $start = if ($problem.recorded_date) { $problem.recorded_date } else { $case.synthetic_episode.index_date }
     if ($problem.abatement_date -le $start) { $errors.Add("$($problem.id): abatement_date must come after the problem was recorded") }
 }
+# Every id in the clinical record and care plan is unique: FHIR fullUrls and C-CDA entry ids derive from them.
+$seenIds = @{}
+function Get-NestedIds($node) {
+    if ($node -is [System.Collections.IEnumerable] -and $node -isnot [string]) { foreach ($item in $node) { Get-NestedIds $item } }
+    elseif ($node -is [pscustomobject]) {
+        if ($node.PSObject.Properties['id'] -and $node.id -is [string]) { $node.id }
+        foreach ($property in $node.PSObject.Properties) { Get-NestedIds $property.Value }
+    }
+}
+foreach ($id in @(Get-NestedIds $case.clinical) + @(Get-NestedIds $case.care_plan)) {
+    if ($seenIds.ContainsKey($id)) { if ($seenIds[$id] -eq 1) { $errors.Add("Duplicate id $id in the clinical record or care plan") }; $seenIds[$id]++ } else { $seenIds[$id] = 1 }
+}
 
 # The true-date distribution shifts the episode by whole years, so the synthetic birthday must keep the true month and day.
 $trueBirth = $case.identity.historical_dates.birth.preferred
@@ -278,12 +290,16 @@ foreach ($check in $ccdaChecks) {
 $pmhRows = $ccda.SelectNodes("//cda:section[cda:code[@code='11348-0']]//cda:tbody/cda:tr", $ns).Count
 if ($pmhRows -ne @($case.clinical.past_medical_history).Count) { $errors.Add('C-CDA past medical history rows differ from canonical history') }
 
-# The patient's name must survive intact in both exchange formats.
+# The patient's name must survive intact in both exchange formats: as given and family names from
+# name_parts when present, otherwise as display_name split at the last space.
+$nameParts = if ($case.identity.PSObject.Properties['name_parts']) { $case.identity.name_parts } else { $null }
+$expectedName = if (-not $nameParts) { $case.identity.display_name } elseif ($nameParts.PSObject.Properties['family_first'] -and $nameParts.family_first) { (@($nameParts.family) + @($nameParts.given)) -join ' ' } else { (@($nameParts.given) + $nameParts.family) -join ' ' }
+$expectedFhirName = if ($nameParts) { (@($nameParts.given) + $nameParts.family) -join ' ' } else { $case.identity.display_name }
 $cdaName = $ccda.SelectSingleNode('//cda:recordTarget/cda:patientRole/cda:patient/cda:name', $ns)
-$cdaFull = ((@($cdaName.SelectNodes('cda:given', $ns) | ForEach-Object InnerText) + $cdaName.SelectSingleNode('cda:family', $ns).InnerText) -join ' ')
-if ($cdaFull -ne $case.identity.display_name) { $errors.Add("C-CDA patient name '$cdaFull' differs from '$($case.identity.display_name)'") }
+$cdaFull = (@($cdaName.SelectNodes('cda:given|cda:family', $ns) | ForEach-Object InnerText) -join ' ')
+if ($cdaFull -ne $expectedName) { $errors.Add("C-CDA patient name '$cdaFull' differs from '$expectedName'") }
 $fhirName = ($fhir.entry | Where-Object { $_.resource.resourceType -eq 'Patient' }).resource.name[0]
-if (((@($fhirName.given) + $fhirName.family) -join ' ') -ne $case.identity.display_name) { $errors.Add('FHIR patient name differs from canonical display name') }
+if (((@($fhirName.given) + $fhirName.family) -join ' ') -ne $expectedFhirName -or $fhirName.text -ne $case.identity.display_name) { $errors.Add('FHIR patient name differs from canonical display name') }
 
 # Every C-CDA note document identifies the same patient: name, birth date, and MRN. A receiving
 # system matches documents to a patient on these fields.
@@ -295,8 +311,8 @@ foreach ($noteFile in $noteDocuments) {
     [xml]$note = Get-Content -Raw -LiteralPath $noteFile.FullName
     $role = $note.SelectSingleNode('/cda:ClinicalDocument/cda:recordTarget/cda:patientRole', $ns)
     $noteName = $role.SelectSingleNode('cda:patient/cda:name', $ns)
-    $noteFull = ((@($noteName.SelectNodes('cda:given', $ns) | ForEach-Object InnerText) + $noteName.SelectSingleNode('cda:family', $ns).InnerText) -join ' ')
-    if ($noteFull -ne $case.identity.display_name) { $errors.Add("$($noteFile.Name): patient name '$noteFull' differs from '$($case.identity.display_name)'") }
+    $noteFull = (@($noteName.SelectNodes('cda:given|cda:family', $ns) | ForEach-Object InnerText) -join ' ')
+    if ($noteFull -ne $expectedName) { $errors.Add("$($noteFile.Name): patient name '$noteFull' differs from '$expectedName'") }
     if ($role.SelectSingleNode('cda:patient/cda:birthTime', $ns).value -ne $expectedBirth) { $errors.Add("$($noteFile.Name): birth date differs from the case") }
     if ($role.SelectSingleNode('cda:id', $ns).extension -ne $case.identity.synthetic_identity.mrn) { $errors.Add("$($noteFile.Name): MRN differs from the case") }
     if ($role.SelectSingleNode("cda:id[@root='2.16.840.1.113883.4.1']", $ns).extension -ne $case.identity.synthetic_identity.ssn) { $errors.Add("$($noteFile.Name): SSN differs from the case") }

@@ -23,6 +23,9 @@ export const splitName = (displayName) => {
   return { family: parts.at(-1), given: parts.slice(0, -1) };
 };
 
+// The patient's coded name: explicit name_parts when display_name does not split at the last space.
+export const patientName = (identity) => identity.name_parts ?? splitName(identity.display_name);
+
 export const parseClinician = (value) => {
   const [name, ...credentials] = value.split(",").map(part => part.trim());
   return { ...splitName(name), suffix: credentials.join(", ") };

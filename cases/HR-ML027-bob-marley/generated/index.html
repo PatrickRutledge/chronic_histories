@@ -1,0 +1,373 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bob Marley — The Human Record</title>
+  <style>
+    :root { --navy:#17365d; --blue:#1f4e78; --pale:#eef5fa; --ink:#1f2933; --muted:#66788a; --amber:#fff2cc; --red:#f8d7da; --green:#d9ead3; }
+    * { box-sizing:border-box; }
+    body { margin:0; font:16px/1.5 Arial, sans-serif; color:var(--ink); background:#f6f8fa; }
+    header { background:var(--navy); color:white; padding:24px max(24px,calc((100vw - 1180px)/2)); }
+    header h1 { margin:4px 0; font-size:30px; }
+    .banner { background:#b42318; color:white; font-weight:700; text-align:center; padding:10px; letter-spacing:.03em; }
+    main { max-width:1180px; margin:24px auto 60px; padding:0 24px; }
+    section { background:white; border:1px solid #d9e1e8; border-radius:8px; margin:18px 0; padding:20px; }
+    h2 { color:var(--navy); margin:0 0 14px; font-size:22px; }
+    h3 { color:var(--blue); }
+    .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:12px; }
+    .card { background:var(--pale); border-left:4px solid var(--blue); padding:12px; }
+    .label { color:var(--muted); font-size:13px; text-transform:uppercase; letter-spacing:.04em; }
+    table { width:100%; border-collapse:collapse; }
+    th { background:var(--blue); color:white; text-align:left; }
+    th,td { padding:9px; border-bottom:1px solid #dfe6ec; vertical-align:top; }
+    .badge { display:inline-block; min-width:28px; text-align:center; font-weight:700; border-radius:12px; padding:2px 8px; }
+    .grade-D { background:var(--green); } .grade-R { background:var(--amber); } .grade-S { background:var(--red); }
+    .muted { color:var(--muted); font-size:14px; }
+    .relationship { color:var(--muted); font-size:12px; }
+    .downloads a { display:inline-block; margin:4px 8px 4px 0; padding:8px 12px; background:var(--blue); color:white; text-decoration:none; border-radius:5px; }
+    @media (max-width:700px) { table { display:block; overflow-x:auto; } }
+  </style>
+</head>
+<body>
+  <div class="banner">SYNTHETIC RECORD, NOT A REAL MEDICAL RECORD</div>
+  <header>
+    <div>The Human Record</div>
+    <h1>Bob Marley</h1>
+    <div>Case HR-ML027 · Modern EHR teaching episode · Draft for review</div>
+  </header>
+  <main>
+    <section>
+      <h2>Review summary</h2>
+      <div class="grid">
+        <div class="card"><div class="label">Historical dates</div>February 6, 1945 – May 11, 1981</div>
+        <div class="card"><div class="label">Synthetic DOB</div>1994-02-06</div>
+        <div class="card"><div class="label">Index visit</div>2026-06-08 at age 32</div>
+        <div class="card"><div class="label">Synthetic MRN</div>HR-ML027-SYN</div>
+      </div>
+      <p><strong>Teaching objective:</strong> Diagnose acral melanoma promptly in a 32-year-old Black man whose dark toenail band was first put down to a football injury: recognize the warning signs of nail melanoma (a band wider than 3 mm, irregular in color and spacing, that does not grow out, with pigment on the nail fold), use dermoscopy, and obtain a full-thickness nail matrix biopsy within the week; stage by AJCC 8th edition and offer sentinel lymph node biopsy for a T1b melanoma; plan surgery with a surgical oncologist through a documented shared decision that sets out amputation and digit-sparing excision of the whole nail unit, chooses digit-sparing surgery where it is oncologically appropriate, and respects his values and his faith; decide on adjuvant therapy by stage; set up surveillance; and teach skin self-examination of the palms, soles, between the toes and all the nails, the sites people with darker skin most need to check, on the NCCN cutaneous melanoma guideline, the AAD primary melanoma guideline, and the ASCO-SSO sentinel node guideline.</p>
+      <div class="downloads">
+        <a href="../case.json">Canonical JSON</a>
+        <a href="fhir-bundle.json">FHIR R4 draft</a>
+        <a href="ccda.html">C-CDA R2.1 summary</a> <a href="ccda.xml">(XML)</a> <a href="review.html">Review checklist</a>
+        <a href="../sources.md">Evidence dossier</a>
+      </div>
+    </section>
+    <section><h2>Historical timeline</h2><table><thead><tr><th>Date</th><th>Event</th><th>Claims</th></tr></thead><tbody>
+  <tr><td>February 6, 1945</td><td>Born at Nine Mile, Saint Ann Parish, Jamaica.</td><td>CLM-0001</td></tr>
+  <tr><td>Late 1960s</td><td>Converts to Rastafari; his music career is under way.</td><td>CLM-0002, CLM-0003</td></tr>
+  <tr><td>1977</td><td>Notices a pigmented lesion under the right great toenail, thought to be a football injury; sees two physicians.</td><td>CLM-0004, CLM-0008</td></tr>
+  <tr><td>July 1977</td><td>Biopsy shows acral lentiginous melanoma; declines amputation; nail bed excision with a skin graft.</td><td>CLM-0005, CLM-0006, CLM-0007</td></tr>
+  <tr><td>September 1980</td><td>Collapses while jogging in New York; the melanoma has spread to the brain, lungs and liver; last concert two days later.</td><td>CLM-0009</td></tr>
+  <tr><td>Late 1980 to 1981</td><td>Radiation therapy in New York, then treatment at a clinic in Bavaria.</td><td>CLM-0010</td></tr>
+  <tr><td>May 11, 1981</td><td>Dies in Miami at 36, after a flight home is diverted.</td><td>CLM-0011</td></tr>
+  <tr><td>Later decades</td><td>Remembered as the public face of acral melanoma in people with skin of color.</td><td>CLM-0012</td></tr></tbody></table></section>
+    <section><h2>Evidence claims</h2><p class="muted">D = documented, R = retrospective, S = synthetic.</p><table><thead><tr><th>Grade</th><th>Claim</th><th>Certainty</th><th>Sources</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>Robert Nesta Marley was born on February 6, 1945, at Nine Mile in Saint Ann Parish, Jamaica, the son of a Jamaican mother and a white English father.</strong></td>
+    <td>confirmed</td>
+    <td><a href="https://www.skincancer.org/blog/bob-marley-should-not-have-died-from-melanoma/" target="_blank" rel="noreferrer">Bob Marley Should Not Have Died from Melanoma</a> <span class="relationship">supports</span><br><a href="https://en.wikipedia.org/wiki/Bob_Marley" target="_blank" rel="noreferrer">Bob Marley</a> <span class="relationship">supports</span><br><a href="https://hekint.org/2024/04/18/dying-young-bob-marley-1945-1981/" target="_blank" rel="noreferrer">Fischer H. Dying young: Bob Marley (1945-1981). Hektoen International</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>He was a Jamaican singer, songwriter and musician, considered one of the pioneers of reggae, who toured the world with his band, the Wailers.</strong><div class="muted">His work as a performing musician anchors the modern social history.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://pubmed.ncbi.nlm.nih.gov/36509509/" target="_blank" rel="noreferrer">Kyriakou G, et al. Don&#39;t worry about a thing ... every little thing gonna be all right (except for acral lentiginous melanoma). Clin Dermatol. 2022;40(5):613-616 (PMID 36509509)</a> <span class="relationship">supports</span><br><a href="https://hekint.org/2024/04/18/dying-young-bob-marley-1945-1981/" target="_blank" rel="noreferrer">Fischer H. Dying young: Bob Marley (1945-1981). Hektoen International</a> <span class="relationship">supports</span><br><a href="https://www.biography.com/musicians/a46803099/how-did-bob-marley-die" target="_blank" rel="noreferrer">Piccotti T. How Did Bob Marley Die? What to Know About the Singer&#39;s Cancer Diagnosis and Death</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>He was raised a Roman Catholic and converted to Rastafari in the late 1960s; he became known as a Rastafarian icon who infused his music with spirituality.</strong><div class="muted">His faith is part of who he is; the modern episode records it as he would describe it and asks how it bears on his decisions.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://hekint.org/2024/04/18/dying-young-bob-marley-1945-1981/" target="_blank" rel="noreferrer">Fischer H. Dying young: Bob Marley (1945-1981). Hektoen International</a> <span class="relationship">supports</span><br><a href="https://en.wikipedia.org/wiki/Bob_Marley" target="_blank" rel="noreferrer">Bob Marley</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>In 1977 he noticed a pigmented lesion on the nail bed of his right great toe and thought it was the result of a football injury. The first physician he saw thought that a reasonable explanation; because the lesion was growing, he saw a second physician, who performed a biopsy.</strong><div class="muted">The anchor for the presenting problem: a pigmented nail lesion put down to trauma. A bruise under the nail grows out with the nail; a band that persists or widens needs a biopsy.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://hekint.org/2024/04/18/dying-young-bob-marley-1945-1981/" target="_blank" rel="noreferrer">Fischer H. Dying young: Bob Marley (1945-1981). Hektoen International</a> <span class="relationship">supports</span><br><a href="https://www.skincancer.org/blog/bob-marley-should-not-have-died-from-melanoma/" target="_blank" rel="noreferrer">Bob Marley Should Not Have Died from Melanoma</a> <span class="relationship">supports</span><br><a href="https://news.cuanschutz.edu/cancer-center/rare-melanoma-that-killed-bob-marley" target="_blank" rel="noreferrer">Glasgow G. What Is the Rare Melanoma That Killed Bob Marley?</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>In July 1977 he was diagnosed with acral lentiginous melanoma of the right great toe, presenting as a pigmented lesion under the nail.</strong><div class="muted">The documented disease to which the synthetic diagnosis is linked. Its thickness and stage were not made public.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://pubmed.ncbi.nlm.nih.gov/36509509/" target="_blank" rel="noreferrer">Kyriakou G, et al. Don&#39;t worry about a thing ... every little thing gonna be all right (except for acral lentiginous melanoma). Clin Dermatol. 2022;40(5):613-616 (PMID 36509509)</a> <span class="relationship">supports</span><br><a href="https://www.biography.com/musicians/a46803099/how-did-bob-marley-die" target="_blank" rel="noreferrer">Piccotti T. How Did Bob Marley Die? What to Know About the Singer&#39;s Cancer Diagnosis and Death</a> <span class="relationship">supports</span><br><a href="https://hekint.org/2024/04/18/dying-young-bob-marley-1945-1981/" target="_blank" rel="noreferrer">Fischer H. Dying young: Bob Marley (1945-1981). Hektoen International</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>His doctors advised amputation of the toe, which he declined. Instead the nail and nail bed and the cancerous tissue were removed, and the area was covered with skin from his thigh.</strong><div class="muted">The documented choice of a less extensive operation. Whether amputation would have cured him cannot be known.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.biography.com/musicians/a46803099/how-did-bob-marley-die" target="_blank" rel="noreferrer">Piccotti T. How Did Bob Marley Die? What to Know About the Singer&#39;s Cancer Diagnosis and Death</a> <span class="relationship">supports</span><br><a href="https://www.skincancer.org/blog/bob-marley-should-not-have-died-from-melanoma/" target="_blank" rel="noreferrer">Bob Marley Should Not Have Died from Melanoma</a> <span class="relationship">supports</span><br><a href="https://pubmed.ncbi.nlm.nih.gov/36509509/" target="_blank" rel="noreferrer">Kyriakou G, et al. Don&#39;t worry about a thing ... every little thing gonna be all right (except for acral lentiginous melanoma). Clin Dermatol. 2022;40(5):613-616 (PMID 36509509)</a> <span class="relationship">supports</span><br><a href="https://en.wikipedia.org/wiki/Bob_Marley" target="_blank" rel="noreferrer">Bob Marley</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>The sources give his reasons for declining amputation in different words: one reports that he said it would be against his Rastafari faith, another that his Rastafarian beliefs prohibited it, and an encyclopedia article that he cited religious beliefs and that amputation would have hindered his performing career.</strong><div class="muted">His reasons are recorded only as these sources give them. The record makes no general statement about what the Rastafari faith permits, and it does not treat his faith as the cause of his death.</div></td>
+    <td>probable</td>
+    <td><a href="https://hekint.org/2024/04/18/dying-young-bob-marley-1945-1981/" target="_blank" rel="noreferrer">Fischer H. Dying young: Bob Marley (1945-1981). Hektoen International</a> <span class="relationship">supports</span><br><a href="https://www.biography.com/musicians/a46803099/how-did-bob-marley-die" target="_blank" rel="noreferrer">Piccotti T. How Did Bob Marley Die? What to Know About the Singer&#39;s Cancer Diagnosis and Death</a> <span class="relationship">supports</span><br><a href="https://en.wikipedia.org/wiki/Bob_Marley" target="_blank" rel="noreferrer">Bob Marley</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-R" title="Retrospective">R</span></td>
+    <td><strong>Whether the football injury caused the lesion is disputed: an encyclopedia article states that the lesion was not caused by the injury but was a sign of a cancer already present, and clinicians note that many people with acral melanoma recall an injury to the site, while the role of trauma is not established.</strong><div class="muted">A retrospective reading. The modern episode treats the injury as the reason the lesion was first dismissed, not as its cause.</div></td>
+    <td>disputed</td>
+    <td><a href="https://en.wikipedia.org/wiki/Bob_Marley" target="_blank" rel="noreferrer">Bob Marley</a> <span class="relationship">supports</span><br><a href="https://www.biography.com/musicians/a46803099/how-did-bob-marley-die" target="_blank" rel="noreferrer">Piccotti T. How Did Bob Marley Die? What to Know About the Singer&#39;s Cancer Diagnosis and Death</a> <span class="relationship">supports</span><br><a href="https://news.cuanschutz.edu/cancer-center/rare-melanoma-that-killed-bob-marley" target="_blank" rel="noreferrer">Glasgow G. What Is the Rare Melanoma That Killed Bob Marley?</a> <span class="relationship">context</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>He continued to tour. In September 1980 he collapsed while jogging in Central Park, New York, and was found to have cancer that had spread to his brain, lungs and liver; his last concert was in Pittsburgh two days later.</strong><div class="muted">History only.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.biography.com/musicians/a46803099/how-did-bob-marley-die" target="_blank" rel="noreferrer">Piccotti T. How Did Bob Marley Die? What to Know About the Singer&#39;s Cancer Diagnosis and Death</a> <span class="relationship">supports</span><br><a href="https://en.wikipedia.org/wiki/Bob_Marley" target="_blank" rel="noreferrer">Bob Marley</a> <span class="relationship">supports</span><br><a href="https://hekint.org/2024/04/18/dying-young-bob-marley-1945-1981/" target="_blank" rel="noreferrer">Fischer H. Dying young: Bob Marley (1945-1981). Hektoen International</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>He was treated at cancer centers including Memorial Sloan Kettering Cancer Center, where he received radiation therapy, and then at the clinic of Josef Issels in Bavaria, Germany.</strong><div class="muted">History only.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.biography.com/musicians/a46803099/how-did-bob-marley-die" target="_blank" rel="noreferrer">Piccotti T. How Did Bob Marley Die? What to Know About the Singer&#39;s Cancer Diagnosis and Death</a> <span class="relationship">supports</span><br><a href="https://hekint.org/2024/04/18/dying-young-bob-marley-1945-1981/" target="_blank" rel="noreferrer">Fischer H. Dying young: Bob Marley (1945-1981). Hektoen International</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>On a flight home to Jamaica his condition worsened, the flight was diverted to Miami, and he died at Cedars of Lebanon Hospital in Miami on May 11, 1981, at 36.</strong><div class="muted">History only, stated without detail.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.biography.com/musicians/a46803099/how-did-bob-marley-die" target="_blank" rel="noreferrer">Piccotti T. How Did Bob Marley Die? What to Know About the Singer&#39;s Cancer Diagnosis and Death</a> <span class="relationship">supports</span><br><a href="https://hekint.org/2024/04/18/dying-young-bob-marley-1945-1981/" target="_blank" rel="noreferrer">Fischer H. Dying young: Bob Marley (1945-1981). Hektoen International</a> <span class="relationship">supports</span><br><a href="https://pubmed.ncbi.nlm.nih.gov/36509509/" target="_blank" rel="noreferrer">Kyriakou G, et al. Don&#39;t worry about a thing ... every little thing gonna be all right (except for acral lentiginous melanoma). Clin Dermatol. 2022;40(5):613-616 (PMID 36509509)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>He has long served as the posthumous public face of skin cancer in people with skin of color; acral lentiginous melanoma is the most common melanoma in people of color, and awareness campaigns in his memory urge everyone to check their palms, soles, and nails.</strong><div class="muted">His legacy in awareness, which the modern self-examination teaching reflects.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://pubmed.ncbi.nlm.nih.gov/36509509/" target="_blank" rel="noreferrer">Kyriakou G, et al. Don&#39;t worry about a thing ... every little thing gonna be all right (except for acral lentiginous melanoma). Clin Dermatol. 2022;40(5):613-616 (PMID 36509509)</a> <span class="relationship">supports</span><br><a href="https://www.skincancer.org/blog/bob-marley-should-not-have-died-from-melanoma/" target="_blank" rel="noreferrer">Bob Marley Should Not Have Died from Melanoma</a> <span class="relationship">supports</span></td>
+  </tr></tbody></table></section>
+    <section><h2>Modern synthetic problem list</h2><table><thead><tr><th>Grade</th><th>Problem</th><th>Clinical status</th><th>Verification</th><th>Placement</th><th>Historical claims</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>A brown-black band in the right great toenail, about 5 mm wide (about a third of the nail), with irregular dark lines, first noticed about two months ago after a knock at football and not growing out with the nail; the pigment extends onto the skin of the proximal nail fold (Hutchinson sign). Suspected subungual melanoma; dermoscopy and a full-thickness nail matrix biopsy booked this week</td>
+    <td>resolved</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td>CLM-0004</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Acral lentiginous melanoma of the nail unit (subungual) of the right great toe, on full-thickness nail matrix biopsy: Breslow thickness 0.8 mm, not ulcerated, mitotic rate 1 per mm2, no lymphovascular or perineural invasion; clinical stage IB (cT1b N0 M0); synthetic modern detail linked to his documented acral lentiginous melanoma</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>both_with_link</td>
+    <td>CLM-0005, CLM-0006</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Lateral sprain of the right ankle (anterior talofibular ligament) from an inversion injury at football; Ottawa ankle rules negative, so no X-ray; resolved</td>
+    <td>resolved</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td></td>
+  </tr></tbody></table></section>
+    <section><h2>Synthetic outcome measures</h2><table><thead><tr><th>Grade</th><th>Date</th><th>Measure</th><th>Result</th><th>Coding</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-06-08</td>
+    <td>Patient Health Questionnaire 2 item (PHQ-2) total score [Reported]</td>
+    <td>0</td>
+    <td>http://loinc.org · 55758-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-06-08</td>
+    <td>Pain severity - 0-10 verbal numeric rating [Score] - Reported</td>
+    <td>1</td>
+    <td>http://loinc.org · 72514-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-06-17</td>
+    <td>Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]</td>
+    <td>4</td>
+    <td>http://loinc.org · 44261-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-06-17</td>
+    <td>Generalized anxiety disorder 7 item (GAD-7) total score [Reported.PHQ]</td>
+    <td>6</td>
+    <td>http://loinc.org · 70274-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-07-15</td>
+    <td>Pain severity - 0-10 verbal numeric rating [Score] - Reported</td>
+    <td>2</td>
+    <td>http://loinc.org · 72514-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-07-15</td>
+    <td>Patient Health Questionnaire 2 item (PHQ-2) total score [Reported]</td>
+    <td>0</td>
+    <td>http://loinc.org · 55758-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-10-19</td>
+    <td>Pain severity - 0-10 verbal numeric rating [Score] - Reported</td>
+    <td>0</td>
+    <td>http://loinc.org · 72514-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-10-19</td>
+    <td>Patient Health Questionnaire 2 item (PHQ-2) total score [Reported]</td>
+    <td>0</td>
+    <td>http://loinc.org · 55758-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-08-24</td>
+    <td>Pain severity - 0-10 verbal numeric rating [Score] - Reported</td>
+    <td>5</td>
+    <td>http://loinc.org · 72514-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-09-21</td>
+    <td>Patient Health Questionnaire 2 item (PHQ-2) total score [Reported]</td>
+    <td>0</td>
+    <td>http://loinc.org · 55758-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-09-21</td>
+    <td>Total score [AUDIT-C]</td>
+    <td>1</td>
+    <td>http://loinc.org · 75626-2</td>
+  </tr></tbody></table></section>
+    <section><h2>Synthetic vital signs</h2><table><thead><tr><th>Date</th><th>Measure</th><th>Result</th><th>LOINC</th><th>Grade</th></tr></thead><tbody>
+  <tr><td>2026-06-08</td><td>Body height</td><td>170 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-08</td><td>Body weight</td><td>66 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-08</td><td>Body mass index (BMI) [Ratio]</td><td>22.8 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-08</td><td>Systolic blood pressure</td><td>118 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-08</td><td>Diastolic blood pressure</td><td>72 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-08</td><td>Heart rate</td><td>64 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-08</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-08</td><td>Body temperature</td><td>36.7 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-08</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>99 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-17</td><td>Body height</td><td>170 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-17</td><td>Body weight</td><td>66.2 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-17</td><td>Body mass index (BMI) [Ratio]</td><td>22.9 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-17</td><td>Systolic blood pressure</td><td>124 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-17</td><td>Diastolic blood pressure</td><td>78 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-17</td><td>Heart rate</td><td>70 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-17</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-17</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-17</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>99 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-07-15</td><td>Body height</td><td>170 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-07-15</td><td>Body weight</td><td>65.4 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-07-15</td><td>Body mass index (BMI) [Ratio]</td><td>22.6 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-07-15</td><td>Systolic blood pressure</td><td>116 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-07-15</td><td>Diastolic blood pressure</td><td>72 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-07-15</td><td>Heart rate</td><td>66 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-07-15</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-07-15</td><td>Body temperature</td><td>36.7 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-07-15</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>99 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-19</td><td>Body height</td><td>170 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-19</td><td>Body weight</td><td>66.4 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-19</td><td>Body mass index (BMI) [Ratio]</td><td>23 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-19</td><td>Systolic blood pressure</td><td>118 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-19</td><td>Diastolic blood pressure</td><td>74 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-19</td><td>Heart rate</td><td>60 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-19</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-19</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-19</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>99 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-08-24</td><td>Body height</td><td>170 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-08-24</td><td>Body weight</td><td>66 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-08-24</td><td>Body mass index (BMI) [Ratio]</td><td>22.8 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-08-24</td><td>Systolic blood pressure</td><td>126 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-08-24</td><td>Diastolic blood pressure</td><td>76 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-08-24</td><td>Heart rate</td><td>72 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-08-24</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-08-24</td><td>Body temperature</td><td>36.7 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-08-24</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>99 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-09-21</td><td>Body height</td><td>170 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-09-21</td><td>Body weight</td><td>66.2 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-09-21</td><td>Body mass index (BMI) [Ratio]</td><td>22.9 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-09-21</td><td>Systolic blood pressure</td><td>120 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-09-21</td><td>Diastolic blood pressure</td><td>74 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-09-21</td><td>Heart rate</td><td>60 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-09-21</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-09-21</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-09-21</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>99 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr></tbody></table></section>
+    <section><h2>Social, functional, and mental status</h2><h3>Social history</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Singer, songwriter and guitarist; tours with his band for months at a time; performing and moving on stage are central to his work</li><li><span class="badge grade-S" title="Synthetic">S</span> Plays football several times a week and runs most mornings</li><li><span class="badge grade-S" title="Synthetic">S</span> Faith: Rastafari, central to how he lives and makes decisions; he asks that his clinicians understand what matters to him before he decides on any treatment</li><li><span class="badge grade-S" title="Synthetic">S</span> Does not smoke tobacco; drinks alcohol rarely</li><li><span class="badge grade-S" title="Synthetic">S</span> Born in Jamaica; lives with his family; supports are his family, his bandmates and his faith community. He decides who is told about his health</li><li><span class="badge grade-S" title="Synthetic">S</span> Skin: Fitzpatrick type VI. Acral melanoma is not caused by sun exposure and is the most common type of melanoma in people with darker skin</li></ul><h3>Functional status</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Independent and very active; running, football and performing without limitation</li></ul><h3>Mental status</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Calm, thoughtful and courteous; asks careful questions and wants plain answers</li><li><span class="badge grade-S" title="Synthetic">S</span> Concerned but not distressed; PHQ-2 negative</li></ul></section>
+    
+    <section><h2>Allergies and medications</h2><h3>Allergies</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> No known allergy</li></ul><h3>Medications</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Acetaminophen 500 mg oral tablet, two tablets by mouth every 6 hours as needed for pain after surgery, no more than 3 g a day</li><li><span class="badge grade-S" title="Synthetic">S</span> Ibuprofen 400 mg oral tablet, one tablet by mouth three times daily with food for up to 5 days</li></ul></section>
+    <section><h2>Procedures and immunizations</h2><h3>Procedures</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Dermoscopy of the right great toenail by the clinic&#39;s dermatologist: a brown-black background band about 5 mm wide with longitudinal lines irregular in color, thickness and spacing, and pigment on the proximal nail fold and hyponychium (micro-Hutchinson sign); suspicious for melanoma</li><li><span class="badge grade-S" title="Synthetic">S</span> Full-thickness excisional biopsy of the nail matrix at the origin of the band, after reflecting the proximal nail fold, under a digital block: acral lentiginous melanoma, Breslow thickness 0.8 mm, not ulcerated, mitotic rate 1 per mm2, no lymphovascular or perineural invasion, melanoma in situ extending to the lateral edges of the specimen</li><li><span class="badge grade-S" title="Synthetic">S</span> Advance care planning conversation, about 16 minutes</li><li><span class="badge grade-S" title="Synthetic">S</span> Preoperative lymphoscintigraphy with SPECT/CT after injection around the right great toe: drainage to two right superficial inguinal sentinel nodes; no popliteal drainage</li><li><span class="badge grade-S" title="Synthetic">S</span> Digit-sparing en bloc excision of the whole nail unit of the right great toe (nail plate, matrix, bed, hyponychium and nail folds) down to the bone, including the periosteum of the distal phalanx, with 5 to 10 mm margins. Pathology: residual melanoma in situ over 3 mm at the biopsy site and no residual invasive melanoma; all margins clear, the closest 6 mm</li><li><span class="badge grade-S" title="Synthetic">S</span> Full-thickness skin graft from the inner right upper arm to the defect on the right great toe, with a tie-over dressing</li><li><span class="badge grade-S" title="Synthetic">S</span> Right inguinal sentinel lymph node biopsy: two sentinel nodes removed, both negative for melanoma on serial sections and immunohistochemistry (SOX10 and Melan-A). Final stage pT1b pN0(sn) M0, AJCC 8th edition pathologic stage IA</li></ul><h3>Immunizations</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> 2020-03-02: Tdap vaccine</li><li><span class="badge grade-S" title="Synthetic">S</span> 2026-09-21: Influenza vaccine, this season (inactivated)</li><li><span class="badge grade-S" title="Synthetic">S</span> 2026-09-21: COVID-19 mRNA vaccine, this season&#39;s formula</li><li><span class="badge grade-S" title="Synthetic">S</span> 2026-09-21: Hepatitis B vaccine (HepB-CpG), dose 1 of 2</li><li><span class="badge grade-S" title="Synthetic">S</span> 2026-10-19: Hepatitis B vaccine (HepB-CpG), dose 2 of 2</li></ul></section>
+    <section><h2>Past medical history</h2><p class="muted">True biography with historical dates; not part of the synthetic care timeline.</p><ul></ul><h3>Family history</h3><p class="muted">No family medical history is documented in the logged sources. Family history of real relatives is never synthesized.</p></section>
+    <section><h2>Care-plan goals</h2><table><thead><tr><th>Goal</th><th>Target date</th><th>Status</th><th>Outcome</th></tr></thead><tbody>
+  <tr><td>Tissue diagnosis within two weeks of presentation</td><td>2026-06-17</td><td>completed</td><td>Dermoscopy and nail matrix biopsy two days after presentation; diagnosis explained on the ninth day</td></tr>
+  <tr><td>Definitive surgery with clear margins and lymph node staging within four weeks of diagnosis, by the approach he chose</td><td>2026-07-15</td><td>completed</td><td>Digit-sparing excision of the nail unit with clear margins and a negative sentinel node two weeks after diagnosis</td></tr>
+  <tr><td>Walk, run, and play football normally within four months of surgery</td><td>2026-10-19</td><td>completed</td><td>Running and playing football again; an ankle sprain at football healed in four weeks</td></tr>
+  <tr><td>Monthly skin and nail self-examination, including the palms, soles, between the toes and all nails</td><td>2026-10-19</td><td>completed</td><td>Taught after surgery; he has done it each month and keeps photographs of the graft</td></tr></tbody></table></section>
+    <section><h2>Interventions</h2><table><thead><tr><th>Intervention</th><th>Status</th><th>Guideline</th></tr></thead><tbody>
+  <tr><td>Surgical oncology consultation for a suspected subungual melanoma, to plan staging and definitive surgery once the biopsy result is back</td><td>completed</td><td>GL-NCCN-MEL-2026, GL-AAD-MEL-2019</td></tr>
+  <tr><td>Dermoscopy of the nail and a full-thickness biopsy of the nail matrix at the origin of the band by the clinic&#39;s dermatologist within the week, with a full skin and nail examination including the palms and soles</td><td>completed</td><td>GL-AAD-MEL-2019, GL-NCCN-MEL-2026</td></tr>
+  <tr><td>Staging by the AJCC 8th edition: examination of the lymph node basins, no routine imaging or blood tests for clinical stage I disease, and sentinel lymph node biopsy of the right groin discussed and offered for a T1b melanoma</td><td>completed</td><td>GL-AJCC-MEL-2017, GL-ASCO-SSO-SLNB-2018, GL-NCCN-MEL-2026</td></tr>
+  <tr><td>A shared decision on definitive surgery: amputation of the toe at the interphalangeal joint, or digit-sparing en bloc excision of the whole nail unit down to the bone with a 5 to 10 mm margin and a full-thickness skin graft, an accepted option for a thin melanoma of the nail unit; he chose the digit-sparing excision, with amputation as the agreed next step if the margins were involved or the melanoma proved thicker</td><td>completed</td><td>GL-NCCN-MEL-2026, GL-AAD-MEL-2019, GL-NAIL-WLE-2025</td></tr>
+  <tr><td>No adjuvant systemic therapy for pathologic stage IA melanoma; surveillance with a history and examination of the skin, nails, graft and lymph nodes every 6 to 12 months for 5 years and then yearly, a yearly full skin examination by dermatology, and no routine imaging or blood tests</td><td>completed</td><td>GL-NCCN-MEL-2026, GL-AAD-MEL-2019</td></tr>
+  <tr><td>Skin self-examination every month, with a mirror and in good light: the palms, the soles, between the toes and all the fingernails and toenails, the sites people with darker skin most need to check, as well as the graft and both groins; photographs of the graft; report any new dark band, spot, lump or sore that does not heal</td><td>completed</td><td>GL-AAD-MEL-2019, GL-NCCN-MEL-2026</td></tr>
+  <tr><td>Graft and wound care, a stiff-soled protective shoe, and a graded return to running and football once the graft has healed</td><td>completed</td><td>GL-NAIL-WLE-2025</td></tr></tbody></table></section>
+    <section><h2>Planned encounters</h2><ul>
+  <li><strong>2026-06-08</strong> — A dark band in the right great toenail, first put down to a football knock, that has not grown out: examination and a same-week nail biopsy <span class="muted">(ENC-001)</span></li>
+  <li><strong>2026-06-17</strong> — Biopsy result: acral melanoma of the toe; surgical oncology consultation, staging, and a shared decision about surgery <span class="muted">(ENC-002)</span></li>
+  <li><strong>2026-07-15</strong> — Review two weeks after digit-sparing excision and sentinel node biopsy: final pathology and stage, graft care, and the surveillance plan <span class="muted">(ENC-003)</span></li>
+  <li><strong>2026-08-24</strong> — Same-day sick visit for a twisted ankle at football <span class="muted">(ENC-005, unscheduled)</span></li>
+  <li><strong>2026-09-21</strong> — Periodic adult preventive visit <span class="muted">(ENC-006)</span></li>
+  <li><strong>2026-10-19</strong> — Three-month melanoma review: graft, nodes, full skin and nail examination, and self-examination <span class="muted">(ENC-004)</span></li></ul></section>
+    <section><h2>Supporting documents</h2><ul><li><a href="notes/hp.md">History and physical</a></li><li><a href="notes/progress-01.md">Progress note 01</a></li><li><a href="notes/progress-02.md">Progress note 02 — Focused Visit (Follow-up)</a></li><li><a href="notes/progress-03.md">Progress note 03 — Focused Visit (Follow-up)</a></li><li><a href="notes/progress-04.md">Progress note 04 — Sick Visit</a></li><li><a href="notes/progress-05.md">Progress note 05 — Preventive Visit</a></li><li><a href="notes/progress-06.md">Progress note 06 — Focused Visit (Care-plan review)</a></li><li><a href="notes/referral-01.md">Surgical Oncology referral</a></li><li><a href="notes/consult-01.md">Surgical Oncology consultation</a></li><li><a href="notes/careplan.md">Patient care plan</a></li><li><a href="notes/teaching-note.md">Teaching note</a></li><li><a href="provenance.csv">Provenance CSV</a></li></ul></section>
+    <section><h2>C-CDA note documents</h2><p class="muted">Each link opens a readable copy; the XML beside it is the exchange file.</p><ul><li><a href="ccda/hp-01.html">History and physical</a> <a href="ccda/hp-01.xml">(XML)</a></li><li><a href="ccda/progress-01.html">Progress note 01</a> <a href="ccda/progress-01.xml">(XML)</a></li><li><a href="ccda/progress-02.html">Progress note 02 — Focused Visit (Follow-up)</a> <a href="ccda/progress-02.xml">(XML)</a></li><li><a href="ccda/progress-03.html">Progress note 03 — Focused Visit (Follow-up)</a> <a href="ccda/progress-03.xml">(XML)</a></li><li><a href="ccda/progress-04.html">Progress note 04 — Sick Visit</a> <a href="ccda/progress-04.xml">(XML)</a></li><li><a href="ccda/progress-05.html">Progress note 05 — Preventive Visit</a> <a href="ccda/progress-05.xml">(XML)</a></li><li><a href="ccda/progress-06.html">Progress note 06 — Focused Visit (Care-plan review)</a> <a href="ccda/progress-06.xml">(XML)</a></li><li><a href="ccda/referral-01.html">Surgical Oncology referral</a> <a href="ccda/referral-01.xml">(XML)</a></li><li><a href="ccda/consult-01.html">Surgical Oncology consultation</a> <a href="ccda/consult-01.xml">(XML)</a></li></ul></section>
+    <section><h2>Sources</h2><table><thead><tr><th>ID</th><th>Source</th><th>Publisher</th><th>Type</th></tr></thead><tbody>
+  <tr>
+    <td>SRC-0001</td>
+    <td><a href="https://hekint.org/2024/04/18/dying-young-bob-marley-1945-1981/" target="_blank" rel="noreferrer">Fischer H. Dying young: Bob Marley (1945-1981). Hektoen International</a></td>
+    <td>Hektoen International (Hektoen Institute of Medicine)</td>
+    <td>scholarly</td>
+  </tr>
+  <tr>
+    <td>SRC-0002</td>
+    <td><a href="https://pubmed.ncbi.nlm.nih.gov/36509509/" target="_blank" rel="noreferrer">Kyriakou G, et al. Don&#39;t worry about a thing ... every little thing gonna be all right (except for acral lentiginous melanoma). Clin Dermatol. 2022;40(5):613-616 (PMID 36509509)</a></td>
+    <td>Clinics in Dermatology</td>
+    <td>scholarly</td>
+  </tr>
+  <tr>
+    <td>SRC-0003</td>
+    <td><a href="https://www.biography.com/musicians/a46803099/how-did-bob-marley-die" target="_blank" rel="noreferrer">Piccotti T. How Did Bob Marley Die? What to Know About the Singer&#39;s Cancer Diagnosis and Death</a></td>
+    <td>Biography.com</td>
+    <td>biography</td>
+  </tr>
+  <tr>
+    <td>SRC-0004</td>
+    <td><a href="https://www.skincancer.org/blog/bob-marley-should-not-have-died-from-melanoma/" target="_blank" rel="noreferrer">Bob Marley Should Not Have Died from Melanoma</a></td>
+    <td>The Skin Cancer Foundation</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0005</td>
+    <td><a href="https://en.wikipedia.org/wiki/Bob_Marley" target="_blank" rel="noreferrer">Bob Marley</a></td>
+    <td>Wikipedia</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0006</td>
+    <td><a href="https://news.cuanschutz.edu/cancer-center/rare-melanoma-that-killed-bob-marley" target="_blank" rel="noreferrer">Glasgow G. What Is the Rare Melanoma That Killed Bob Marley?</a></td>
+    <td>University of Colorado Cancer Center</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0007</td>
+    <td><a href="https://humanrecord.example.org/internal/HISTMED_Master_Roster_v3.xlsx" target="_blank" rel="noreferrer">HISTMED Master Roster v3</a></td>
+    <td>The Human Record project</td>
+    <td>other</td>
+  </tr></tbody></table></section>
+    <section><h2>Review status</h2><table><thead><tr><th>Review</th><th>Status</th><th>Notes</th></tr></thead><tbody>
+  <tr><td>schema validation</td><td>not_started</td><td>Run scripts/build.ps1 -Conformance.</td></tr>
+  <tr><td>clinical review</td><td>not_started</td><td>Awaiting clinician review; check the nail biopsy technique, T1b staging with an offered sentinel node biopsy, digit-sparing excision of the nail unit for a 0.8 mm melanoma, and stage IA surveillance without adjuvant therapy.</td></tr>
+  <tr><td>provenance review</td><td>not_started</td><td>Hektoen International, Clinics in Dermatology (abstract), Biography.com, the Skin Cancer Foundation, the University of Colorado Cancer Center, and Wikipedia logged. His reasons for declining amputation are recorded only in the words of the sources, which differ in emphasis; low-quality sites giving other reasons were not used.</td></tr>
+  <tr><td>safe messaging review</td><td>not_started</td><td>His Rastafari faith is recorded as he and reliable sources describe it and never as the cause of his death; no cannabis use is recorded and no substance-use disorder is coded; his death is recorded as history only.</td></tr></tbody></table></section>
+  </main>
+</body>
+</html>

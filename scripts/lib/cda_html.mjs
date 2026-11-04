@@ -17,11 +17,11 @@ const narrativeToHtml = (narrative) => narrative
   .replace(/<linkHtml href="([^"]*)"[^>]*>/g, '<a href="$1">').replace(/<\/linkHtml>/g, "</a>")
   .replace(/\sID="/g, ' id="').replace(/\sstyleCode="[^"]*"/g, "");
 
+// Name parts display in document order (a family-name-first name lists <family> first).
 const nameOf = (block) => {
-  const given = [...block.matchAll(/<given>([^<]*)<\/given>/g)].map(m => m[1]).join(" ");
-  const family = first(block, /<family>([^<]*)<\/family>/);
+  const parts = [...block.matchAll(/<(given|family)>([^<]*)<\/(?:given|family)>/g)].map(m => m[2]).filter(Boolean).join(" ");
   const suffix = first(block, /<suffix>([^<]*)<\/suffix>/);
-  return [given, family].filter(Boolean).join(" ") + (suffix ? `, ${suffix}` : "");
+  return parts + (suffix ? `, ${suffix}` : "");
 };
 
 export function cdaToHtml(xml) {

@@ -1,7 +1,7 @@
 import fs from "node:fs/promises";
 import path from "node:path";
 import { cdaToHtml } from "./lib/cda_html.mjs";
-import { ADMINISTRATIVE_GENDER, FICTIONAL_FACILITY_CONTACT, ROUTES, TRUE_DATE_NOTICE, deterministicUuid, isTrueDateFrame, oidFor, outputDirFor, parseClinician, splitName } from "./lib/common.mjs";
+import { ADMINISTRATIVE_GENDER, FICTIONAL_FACILITY_CONTACT, ROUTES, TRUE_DATE_NOTICE, deterministicUuid, isTrueDateFrame, oidFor, outputDirFor, parseClinician, patientName, splitName } from "./lib/common.mjs";
 import { INTERPRETATIONS, MONITORING_DOMAINS, PREVENTION_STATUS, isChronicCare, guidelinesFor, activeProblemsAt, interventionsAt, problemStatusAt, documentationOf, immunizationsOn, nextScheduledVisit, visitLabels, problemsAt, claimsAtIndex, goalProgress, isConsultStep, isLab, labelOf, laterClaimsNote, medicationChanges, midSentence, rangeText, resultChanges, sentence, withUnit } from "./lib/episode.mjs";
 
 const inputPath = process.argv[2];
@@ -28,7 +28,11 @@ const facility = data.identity.synthetic_identity.fictional_facility;
 const clinician = parseClinician(data.identity.synthetic_identity.fictional_primary_clinician);
 const authorUuid = deterministicUuid(`${facility}|${data.identity.synthetic_identity.fictional_primary_clinician}|synthetic`);
 const custodianUuid = deterministicUuid(`${facility}|synthetic`);
-const { family, given } = splitName(data.identity.display_name);
+const { family, given, family_first: familyFirst } = patientName(data.identity);
+// In a CDA name the parts display in document order, so a family-name-first name lists <family> first.
+const patientNameXml = familyFirst
+  ? `<family>${x(family)}</family>${given.map(part => `<given>${x(part)}</given>`).join("")}`
+  : `${given.map(part => `<given>${x(part)}</given>`).join("")}<family>${x(family)}</family>`;
 const gender = ADMINISTRATIVE_GENDER[data.identity.sex];
 const genderCode = gender
   ? `<administrativeGenderCode code="${gender.code}" codeSystem="2.16.840.1.113883.5.1" displayName="${gender.display}"/>`
@@ -371,7 +375,7 @@ const recordTarget = `  <recordTarget>
       <addr nullFlavor="UNK"/>
       <telecom nullFlavor="UNK"/>
       <patient>
-        <name use="L">${given.map(part => `<given>${x(part)}</given>`).join("")}<family>${x(family)}</family></name>
+        <name use="L">${patientNameXml}</name>
         ${genderCode}
         <birthTime value="${compactDate(data.identity.synthetic_identity.date_of_birth)}"/>
         <raceCode nullFlavor="ASKU"/>

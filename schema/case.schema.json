@@ -82,6 +82,33 @@
           },
           "uniqueItems": true
         },
+        "name_parts": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "given",
+            "family"
+          ],
+          "description": "Given and family names for C-CDA and FHIR when splitting display_name at the last space would be wrong, for example family-name-first names (Sun Yat-sen) or titles (Diana, Princess of Wales). Omit for ordinary names.",
+          "properties": {
+            "given": {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "family": {
+              "type": "string",
+              "minLength": 1
+            },
+            "family_first": {
+              "type": "boolean",
+              "description": "True when the family name is written first (Sun Yat-sen). The C-CDA name lists <family> before <given>."
+            }
+          }
+        },
         "sex": {
           "enum": [
             "female",

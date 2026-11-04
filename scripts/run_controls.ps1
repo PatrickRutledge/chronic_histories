@@ -127,6 +127,9 @@ try {
     $dir = New-ControlCase 'plan-step-off-visit' { param($c) $c.care_plan.interventions[0] | Add-Member -NotePropertyName recorded_date -NotePropertyValue '2026-10-02' -Force }
     Assert-Control 'care-plan step dated off a visit' (Invoke-Script $build @('-CaseDirectory', $dir)) 'is not a visit date'
 
+    $dir = New-ControlCase 'duplicate-id' { param($c) $c.clinical.observations[1].id = $c.clinical.observations[0].id }
+    Assert-Control 'two results sharing one id' (Invoke-Script $build @('-CaseDirectory', $dir)) 'Duplicate id'
+
     # A step decided at a later visit must be left out of the intake H&P and kept in the patient care plan.
     $dir = New-ControlCase 'plan-step-later' { param($c) $c.care_plan.interventions[2] | Add-Member -NotePropertyName recorded_date -NotePropertyValue ($c.clinical.encounters | Where-Object id -eq 'ENC-002').date -Force }
     $run = Invoke-Script $build @('-CaseDirectory', $dir)

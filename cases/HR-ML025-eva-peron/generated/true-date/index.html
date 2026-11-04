@@ -1,0 +1,596 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Eva Perón — The Human Record</title>
+  <style>
+    :root { --navy:#17365d; --blue:#1f4e78; --pale:#eef5fa; --ink:#1f2933; --muted:#66788a; --amber:#fff2cc; --red:#f8d7da; --green:#d9ead3; }
+    * { box-sizing:border-box; }
+    body { margin:0; font:16px/1.5 Arial, sans-serif; color:var(--ink); background:#f6f8fa; }
+    header { background:var(--navy); color:white; padding:24px max(24px,calc((100vw - 1180px)/2)); }
+    header h1 { margin:4px 0; font-size:30px; }
+    .banner { background:#b42318; color:white; font-weight:700; text-align:center; padding:10px; letter-spacing:.03em; }
+    main { max-width:1180px; margin:24px auto 60px; padding:0 24px; }
+    section { background:white; border:1px solid #d9e1e8; border-radius:8px; margin:18px 0; padding:20px; }
+    h2 { color:var(--navy); margin:0 0 14px; font-size:22px; }
+    h3 { color:var(--blue); }
+    .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:12px; }
+    .card { background:var(--pale); border-left:4px solid var(--blue); padding:12px; }
+    .label { color:var(--muted); font-size:13px; text-transform:uppercase; letter-spacing:.04em; }
+    table { width:100%; border-collapse:collapse; }
+    th { background:var(--blue); color:white; text-align:left; }
+    th,td { padding:9px; border-bottom:1px solid #dfe6ec; vertical-align:top; }
+    .badge { display:inline-block; min-width:28px; text-align:center; font-weight:700; border-radius:12px; padding:2px 8px; }
+    .grade-D { background:var(--green); } .grade-R { background:var(--amber); } .grade-S { background:var(--red); }
+    .muted { color:var(--muted); font-size:14px; }
+    .relationship { color:var(--muted); font-size:12px; }
+    .downloads a { display:inline-block; margin:4px 8px 4px 0; padding:8px 12px; background:var(--blue); color:white; text-decoration:none; border-radius:5px; }
+    @media (max-width:700px) { table { display:block; overflow-x:auto; } }
+  </style>
+</head>
+<body>
+  <div class="banner">SYNTHETIC RECORD, NOT A REAL MEDICAL RECORD</div>
+  <div class="banner">True-date frame: synthetic events are moved into the patient&#39;s historical lifetime. Codes, instruments, and treatments remain modern and are anachronistic.</div>
+  <header>
+    <div>The Human Record</div>
+    <h1>Eva Perón</h1>
+    <div>Case HR-ML025-TD · Modern EHR teaching episode · Draft for review</div>
+  </header>
+  <main>
+    <section>
+      <h2>Review summary</h2>
+      <div class="grid">
+        <div class="card"><div class="label">Historical dates</div>May 7, 1919 – July 26, 1952</div>
+        <div class="card"><div class="label">Synthetic DOB</div>1919-05-07</div>
+        <div class="card"><div class="label">Index visit</div>1951-02-09 at age 31</div>
+        <div class="card"><div class="label">Synthetic MRN</div>HR-ML025-SYN-TD</div>
+      </div>
+      <p><strong>Teaching objective:</strong> Primary care and gynecologic oncology for a 31-year-old Spanish-speaking woman who has never had cervical screening and presents with abnormal bleeding and anemia: a speculum examination, direct biopsy of a visible cervical lesion with HPV testing and cytology, truthful and culturally sensitive disclosure of the diagnosis to the patient herself first, in her own language, with her choosing who else is told (the teaching contrast with the concealment of her historical diagnosis), FIGO 1943 staging with pelvic MRI and PET-CT, definitive chemoradiation with weekly cisplatin and image-guided brachytherapy for stage IIB disease, fertility and ovarian function counseling before treatment, management of anemia, treatment side effects and radiation-induced menopause, psychosocial support, and survivorship care, on the NCCN cervical cancer guideline, the FIGO 1943 staging system, the ASCCP 1944 management guidelines, the ASCO guidelines on patient-clinician communication, fertility preservation, and anxiety and depression, and the CMID anemia monograph.</p>
+      <div class="downloads">
+        <a href="../case.json">Canonical JSON</a>
+        <a href="fhir-bundle.json">FHIR R4 draft</a>
+        <a href="ccda.html">C-CDA R2.1 summary</a> <a href="ccda.xml">(XML)</a>
+        <a href="../sources.md">Evidence dossier</a>
+      </div>
+    </section>
+    <section><h2>Historical timeline</h2><table><thead><tr><th>Date</th><th>Event</th><th>Claims</th></tr></thead><tbody>
+  <tr><td>May 7, 1919</td><td>Born in Los Toldos, Province of Buenos Aires.</td><td>CLM-0001</td></tr>
+  <tr><td>October 22, 1945</td><td>Married Juan Perón.</td><td>CLM-0002</td></tr>
+  <tr><td>January 1950</td><td>Fainted; appendectomy. Weakness and anemia from vaginal bleeding followed.</td><td>CLM-0003</td></tr>
+  <tr><td>August 1951</td><td>Advanced cervical cancer found; treated with radium.</td><td>CLM-0004</td></tr>
+  <tr><td>November 1951</td><td>Hysterectomy for cancer that had spread to adjacent pelvic organs; she was not told the diagnosis.</td><td>CLM-0005</td></tr>
+  <tr><td>February 1952</td><td>Recurrence confirmed without telling her; more radiotherapy, later chemotherapy.</td><td>CLM-0006</td></tr>
+  <tr><td>1952</td><td>Reported prefrontal lobotomy in the last months of her illness (contested reconstruction).</td><td>CLM-0008</td></tr>
+  <tr><td>July 26, 1952</td><td>Died, at 33.</td><td>CLM-0007</td></tr>
+  <tr><td>June 3, 2000</td><td>Barron Lerner&#39;s account of her illness published in The Lancet.</td><td>CLM-0009</td></tr></tbody></table></section>
+    <section><h2>Evidence claims</h2><p class="muted">D = documented, R = retrospective, S = synthetic.</p><table><thead><tr><th>Grade</th><th>Claim</th><th>Certainty</th><th>Sources</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>She was born Eva María Ibarguren on May 7, 1919, in Los Toldos, a village in the Province of Buenos Aires, Argentina; her marriage contract later gave her birth date as May 7, 1922.</strong></td>
+    <td>confirmed</td>
+    <td><a href="https://www.encyclopedia.com/women/encyclopedias-almanacs-transcripts-and-maps/peron-eva-1919-1952" target="_blank" rel="noreferrer">Goodwin PB Jr. Perón, Eva (1919-1952). Women in World History: A Biographical Encyclopedia</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>She married Juan Perón on October 22, 1945, and became Argentina&#39;s first lady after his election in 1946. Her work for the poor made her a powerful political figure, and she is best known as Evita.</strong><div class="muted">Identity only; her public work anchors the modern social history.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.encyclopedia.com/women/encyclopedias-almanacs-transcripts-and-maps/peron-eva-1919-1952" target="_blank" rel="noreferrer">Goodwin PB Jr. Perón, Eva (1919-1952). Women in World History: A Biographical Encyclopedia</a> <span class="relationship">supports</span><br><a href="https://www.tampabay.com/archive/2000/06/12/eva-peron-and-her-doctors-deceit/" target="_blank" rel="noreferrer">Altman LK. Eva Peron and her doctors&#39; deceit</a> <span class="relationship">supports</span><br><a href="https://pubmed.ncbi.nlm.nih.gov/26126398/" target="_blank" rel="noreferrer">Nijensohn DE. Prefrontal lobotomy on Evita was done for behavior/personality modification, not just for pain control. Neurosurg Focus. 2015;39(1):E12 (PMID 26126398)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>Her medical ordeal began in January 1950, when she was 30: she fainted and underwent an appendectomy. Despite persistent weakness and anemia from vaginal bleeding, she delayed further tests.</strong><div class="muted">The anchor for the modern presenting problem (abnormal bleeding with anemia). Reported from the medical historian Barron Lerner&#39;s research; no medical record was fetched.</div></td>
+    <td>probable</td>
+    <td><a href="https://www.tampabay.com/archive/2000/06/12/eva-peron-and-her-doctors-deceit/" target="_blank" rel="noreferrer">Altman LK. Eva Peron and her doctors&#39; deceit</a> <span class="relationship">supports</span><br><a href="https://www.encyclopedia.com/women/encyclopedias-almanacs-transcripts-and-maps/peron-eva-1919-1952" target="_blank" rel="noreferrer">Goodwin PB Jr. Perón, Eva (1919-1952). Women in World History: A Biographical Encyclopedia</a> <span class="relationship">context</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>In August 1951, much weaker, she developed increasingly severe abdominal pain and fainted again. Examination showed advanced cancer of the cervix, and Argentine doctors treated her with radium, then a standard therapy.</strong><div class="muted">After the index date; recorded as history only. The modern diagnosis and treatment are synthetic.</div></td>
+    <td>probable</td>
+    <td><a href="https://www.tampabay.com/archive/2000/06/12/eva-peron-and-her-doctors-deceit/" target="_blank" rel="noreferrer">Altman LK. Eva Peron and her doctors&#39; deceit</a> <span class="relationship">supports</span><br><a href="https://www.encyclopedia.com/women/encyclopedias-almanacs-transcripts-and-maps/peron-eva-1919-1952" target="_blank" rel="noreferrer">Goodwin PB Jr. Perón, Eva (1919-1952). Women in World History: A Biographical Encyclopedia</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>In October 1951 the New York cancer surgeon George Pack examined her under anesthesia to confirm the cancer, and in November 1951 he performed extensive surgery, a hysterectomy, because the cancer had spread to adjacent pelvic organs. He entered the operating room after she was anesthetized and left before she awoke. She underwent both procedures believing she had vague female problems, and was not told she had cancer; the secrecy kept the diagnosis from her and from the public during a presidential campaign.</strong><div class="muted">After the index date; recorded as history only. The concealment is the teaching contrast for the modern episode, in which the diagnosis is told to her first and fully.</div></td>
+    <td>probable</td>
+    <td><a href="https://www.tampabay.com/archive/2000/06/12/eva-peron-and-her-doctors-deceit/" target="_blank" rel="noreferrer">Altman LK. Eva Peron and her doctors&#39; deceit</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>When abdominal pain returned in February 1952, her doctors confirmed, again without telling her, that the cancer had recurred. It shrank for a time with more radiotherapy, but the pain returned in May 1952, and chemotherapy failed.</strong><div class="muted">After the index date; recorded as history only.</div></td>
+    <td>probable</td>
+    <td><a href="https://www.tampabay.com/archive/2000/06/12/eva-peron-and-her-doctors-deceit/" target="_blank" rel="noreferrer">Altman LK. Eva Peron and her doctors&#39; deceit</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>She died on July 26, 1952, at 33, never knowing that she had cervical cancer.</strong><div class="muted">History only, stated without detail.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.tampabay.com/archive/2000/06/12/eva-peron-and-her-doctors-deceit/" target="_blank" rel="noreferrer">Altman LK. Eva Peron and her doctors&#39; deceit</a> <span class="relationship">supports</span><br><a href="https://www.encyclopedia.com/women/encyclopedias-almanacs-transcripts-and-maps/peron-eva-1919-1952" target="_blank" rel="noreferrer">Goodwin PB Jr. Perón, Eva (1919-1952). Women in World History: A Biographical Encyclopedia</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-R" title="Retrospective">R</span></td>
+    <td><strong>A study by Nijensohn and colleagues, published online in 2011, reported evidence that she underwent a prefrontal lobotomy in Buenos Aires in the last months of her illness, for pain, anxiety and agitation from metastatic cancer; the evidence includes a neurosurgeon&#39;s memoirs and press interviews, accounts of people close to her, and skull radiographs. A later paper by the same author argued that the operation was also meant to change her behavior.</strong><div class="muted">History only, without detail; a retrospective reconstruction from indirect evidence, not a medical record. Not carried into the modern episode.</div></td>
+    <td>possible</td>
+    <td><a href="https://pubmed.ncbi.nlm.nih.gov/22079825/" target="_blank" rel="noreferrer">Nijensohn DE, Savastano LE, Kaplan AD, Laws ER Jr. New evidence of prefrontal lobotomy in the last months of the illness of Eva Perón. World Neurosurg. 2012;77(3-4):583-90 (PMID 22079825)</a> <span class="relationship">supports</span><br><a href="https://pubmed.ncbi.nlm.nih.gov/26126398/" target="_blank" rel="noreferrer">Nijensohn DE. Prefrontal lobotomy on Evita was done for behavior/personality modification, not just for pain control. Neurosurg Focus. 2015;39(1):E12 (PMID 26126398)</a> <span class="relationship">context</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-R" title="Retrospective">R</span></td>
+    <td><strong>The medical historian Barron Lerner, who reported the case in The Lancet in 2000, said it showed how far medical practice and ethics have changed: patients with cancer were then rarely told what they had, whereas most patients in the United States are now told their diagnosis.</strong><div class="muted">An interpretation of the concealment; the reason the modern episode documents truthful, culturally sensitive disclosure to the patient herself.</div></td>
+    <td>probable</td>
+    <td><a href="https://www.tampabay.com/archive/2000/06/12/eva-peron-and-her-doctors-deceit/" target="_blank" rel="noreferrer">Altman LK. Eva Peron and her doctors&#39; deceit</a> <span class="relationship">supports</span><br><a href="https://pubmed.ncbi.nlm.nih.gov/10859055/" target="_blank" rel="noreferrer">Lerner BH. The illness and death of Eva Perón: cancer, politics, and secrecy. Lancet. 2000;355(9219):1988-91 (PMID 10859055)</a> <span class="relationship">context</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>The Pap smear, which can find cervical cancer at its earliest stage, was developed in 1942, but in 1950 it was not yet standard medical care in the United States or Argentina.</strong><div class="muted">Context for the modern screening history, which is synthetic (never screened).</div></td>
+    <td>probable</td>
+    <td><a href="https://www.tampabay.com/archive/2000/06/12/eva-peron-and-her-doctors-deceit/" target="_blank" rel="noreferrer">Altman LK. Eva Peron and her doctors&#39; deceit</a> <span class="relationship">supports</span></td>
+  </tr></tbody></table></section>
+    <section><h2>Modern synthetic problem list</h2><table><thead><tr><th>Grade</th><th>Problem</th><th>Clinical status</th><th>Verification</th><th>Placement</th><th>Historical claims</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Bleeding after intercourse and between periods, with heavier periods, for about four months, with tiredness and a dull pelvic ache. Never had cervical screening. Speculum examination shows a friable, exophytic mass about 4 cm across on the cervix that bleeds on contact. Punch biopsy, HPV test and cytology taken; urgent gynecologic oncology consultation booked</td>
+    <td>resolved</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td>CLM-0003</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Iron deficiency anemia from chronic blood loss: hemoglobin 9.4 g/dL, mean cell volume 72 fL, ferritin 6 ng/mL, with tiredness and breathlessness on stairs</td>
+    <td>resolved</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td>CLM-0003</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Invasive squamous cell carcinoma of the cervix, HPV 16 positive: an exophytic tumor about 4.5 cm across with clinical involvement of the left parametrium, not reaching the pelvic wall; pelvic MRI and PET-CT ordered for FIGO 1943 staging. Synthetic modern episode linked to her documented cervical cancer</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td>CLM-0003, CLM-0004, CLM-0005</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Acute cystitis during pelvic chemoradiation: two days of new burning, urgency and cloudy urine on top of mild radiation frequency, without fever or flank pain; urine dipstick positive for leukocyte esterase and nitrite; culture grew Escherichia coli sensitive to nitrofurantoin; neutrophil count and kidney function normal; resolved</td>
+    <td>resolved</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Ovarian failure after pelvic radiation, with hot flashes, night sweats, poor sleep and vaginal dryness two weeks after treatment; FSH 72 mIU/mL and estradiol 14 pg/mL</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td>CLM-0003, CLM-0004, CLM-0005</td>
+  </tr></tbody></table></section>
+    <section><h2>Synthetic outcome measures</h2><table><thead><tr><th>Grade</th><th>Date</th><th>Measure</th><th>Result</th><th>Coding</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1951-02-09</td>
+    <td>Hemoglobin [Mass/volume] in Blood</td>
+    <td>9.4 g/dL (low)<div class="muted">Reference 11.6-15 g/dL</div></td>
+    <td>http://loinc.org · 718-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1951-02-09</td>
+    <td>MCV [Entitic mean volume] in Red Blood Cells by Automated count</td>
+    <td>72 fL (low)<div class="muted">Reference 80-100 fL</div></td>
+    <td>http://loinc.org · 787-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1951-02-09</td>
+    <td>Leukocytes [#/volume] in Blood by Automated count</td>
+    <td>7.1 10*3/uL<div class="muted">Reference 4-11 10*3/uL</div></td>
+    <td>http://loinc.org · 6690-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1951-02-09</td>
+    <td>Platelets [#/volume] in Blood by Automated count</td>
+    <td>398 10*3/uL<div class="muted">Reference 150-400 10*3/uL</div></td>
+    <td>http://loinc.org · 777-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1951-02-09</td>
+    <td>Ferritin [Mass/volume] in Serum or Plasma</td>
+    <td>6 ng/mL (low)<div class="muted">Reference A ferritin of 30 ng/mL or less indicates iron deficiency</div></td>
+    <td>http://loinc.org · 2276-4</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1951-02-09</td>
+    <td>Pain severity - 0-10 verbal numeric rating [Score] - Reported</td>
+    <td>4</td>
+    <td>http://loinc.org · 72514-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1951-02-09</td>
+    <td>Patient Health Questionnaire 2 item (PHQ-2) total score [Reported]</td>
+    <td>1</td>
+    <td>http://loinc.org · 55758-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1951-02-17</td>
+    <td>Creatinine [Mass/volume] in Serum or Plasma</td>
+    <td>0.7 mg/dL<div class="muted">Reference 0.5-1.1 mg/dL</div></td>
+    <td>http://loinc.org · 2160-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1951-02-17</td>
+    <td>Glomerular filtration rate [Volume Rate/Area] in Serum, Plasma or Blood by Creatinine-based formula (CKD-EPI 1946)/1.73 sq M</td>
+    <td>117 mL/min/1.73 m²<div class="muted">Reference &gt;=60 mL/min/1.73 m²</div></td>
+    <td>http://loinc.org · 98979-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1951-02-17</td>
+    <td>Pain severity - 0-10 verbal numeric rating [Score] - Reported</td>
+    <td>4</td>
+    <td>http://loinc.org · 72514-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1951-02-17</td>
+    <td>Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]</td>
+    <td>9</td>
+    <td>http://loinc.org · 44261-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1951-02-17</td>
+    <td>Generalized anxiety disorder 7 item (GAD-7) total score [Reported.PHQ]</td>
+    <td>9</td>
+    <td>http://loinc.org · 70274-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1951-03-02</td>
+    <td>Hemoglobin [Mass/volume] in Blood</td>
+    <td>10.2 g/dL (low)<div class="muted">Reference 11.6-15 g/dL</div></td>
+    <td>http://loinc.org · 718-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1951-03-02</td>
+    <td>MCV [Entitic mean volume] in Red Blood Cells by Automated count</td>
+    <td>77 fL (low)<div class="muted">Reference 80-100 fL</div></td>
+    <td>http://loinc.org · 787-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1951-03-02</td>
+    <td>Leukocytes [#/volume] in Blood by Automated count</td>
+    <td>6.8 10*3/uL<div class="muted">Reference 4-11 10*3/uL</div></td>
+    <td>http://loinc.org · 6690-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1951-03-02</td>
+    <td>Platelets [#/volume] in Blood by Automated count</td>
+    <td>352 10*3/uL<div class="muted">Reference 150-400 10*3/uL</div></td>
+    <td>http://loinc.org · 777-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1951-03-02</td>
+    <td>Pain severity - 0-10 verbal numeric rating [Score] - Reported</td>
+    <td>3</td>
+    <td>http://loinc.org · 72514-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1951-03-02</td>
+    <td>Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]</td>
+    <td>8</td>
+    <td>http://loinc.org · 44261-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1951-03-02</td>
+    <td>Generalized anxiety disorder 7 item (GAD-7) total score [Reported.PHQ]</td>
+    <td>7</td>
+    <td>http://loinc.org · 70274-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1951-05-18</td>
+    <td>Hemoglobin [Mass/volume] in Blood</td>
+    <td>11.2 g/dL (low)<div class="muted">Reference 11.6-15 g/dL</div></td>
+    <td>http://loinc.org · 718-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1951-05-18</td>
+    <td>Creatinine [Mass/volume] in Serum or Plasma</td>
+    <td>0.8 mg/dL<div class="muted">Reference 0.5-1.1 mg/dL</div></td>
+    <td>http://loinc.org · 2160-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1951-05-18</td>
+    <td>Glomerular filtration rate [Volume Rate/Area] in Serum, Plasma or Blood by Creatinine-based formula (CKD-EPI 1946)/1.73 sq M</td>
+    <td>101 mL/min/1.73 m²<div class="muted">Reference &gt;=60 mL/min/1.73 m²</div></td>
+    <td>http://loinc.org · 98979-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1951-05-18</td>
+    <td>Pain severity - 0-10 verbal numeric rating [Score] - Reported</td>
+    <td>1</td>
+    <td>http://loinc.org · 72514-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1951-05-18</td>
+    <td>Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]</td>
+    <td>7</td>
+    <td>http://loinc.org · 44261-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1951-05-18</td>
+    <td>Generalized anxiety disorder 7 item (GAD-7) total score [Reported.PHQ]</td>
+    <td>6</td>
+    <td>http://loinc.org · 70274-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1951-08-17</td>
+    <td>Hemoglobin [Mass/volume] in Blood</td>
+    <td>12.6 g/dL<div class="muted">Reference 11.6-15 g/dL</div></td>
+    <td>http://loinc.org · 718-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1951-08-17</td>
+    <td>Ferritin [Mass/volume] in Serum or Plasma</td>
+    <td>48 ng/mL<div class="muted">Reference A ferritin of 30 ng/mL or less indicates iron deficiency</div></td>
+    <td>http://loinc.org · 2276-4</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1951-08-17</td>
+    <td>Pain severity - 0-10 verbal numeric rating [Score] - Reported</td>
+    <td>0</td>
+    <td>http://loinc.org · 72514-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1951-08-17</td>
+    <td>Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]</td>
+    <td>4</td>
+    <td>http://loinc.org · 44261-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1951-08-17</td>
+    <td>Generalized anxiety disorder 7 item (GAD-7) total score [Reported.PHQ]</td>
+    <td>4</td>
+    <td>http://loinc.org · 70274-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1951-03-27</td>
+    <td>Leukocytes [#/volume] in Blood by Automated count</td>
+    <td>4.1 10*3/uL<div class="muted">Reference 4-11 10*3/uL</div></td>
+    <td>http://loinc.org · 6690-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1951-03-27</td>
+    <td>Neutrophils [#/volume] in Blood by Automated count</td>
+    <td>2.6 10*3/uL<div class="muted">Reference 1.5-7.5 10*3/uL</div></td>
+    <td>http://loinc.org · 751-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1951-03-27</td>
+    <td>Hemoglobin [Mass/volume] in Blood</td>
+    <td>10.4 g/dL (low)<div class="muted">Reference 11.6-15 g/dL</div></td>
+    <td>http://loinc.org · 718-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1951-03-27</td>
+    <td>Platelets [#/volume] in Blood by Automated count</td>
+    <td>168 10*3/uL<div class="muted">Reference 150-400 10*3/uL</div></td>
+    <td>http://loinc.org · 777-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1951-03-27</td>
+    <td>Creatinine [Mass/volume] in Serum or Plasma</td>
+    <td>0.8 mg/dL<div class="muted">Reference 0.5-1.1 mg/dL</div></td>
+    <td>http://loinc.org · 2160-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1951-03-27</td>
+    <td>Glomerular filtration rate [Volume Rate/Area] in Serum, Plasma or Blood by Creatinine-based formula (CKD-EPI 1946)/1.73 sq M</td>
+    <td>101 mL/min/1.73 m²<div class="muted">Reference &gt;=60 mL/min/1.73 m²</div></td>
+    <td>http://loinc.org · 98979-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1951-09-21</td>
+    <td>Patient Health Questionnaire 2 item (PHQ-2) total score [Reported]</td>
+    <td>0</td>
+    <td>http://loinc.org · 55758-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1951-09-21</td>
+    <td>Total score [AUDIT-C]</td>
+    <td>1</td>
+    <td>http://loinc.org · 75626-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1951-05-18</td>
+    <td>Follitropin [Units/volume] in Serum or Plasma</td>
+    <td>72 m[IU]/mL (high)<div class="muted">Reference Typical premenopausal follicular-phase range</div></td>
+    <td>http://loinc.org · 15067-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1951-05-18</td>
+    <td>Estradiol (E2) [Mass/volume] in Serum or Plasma</td>
+    <td>14 pg/mL (low)<div class="muted">Reference Typical premenopausal range</div></td>
+    <td>http://loinc.org · 2243-4</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1951-05-18</td>
+    <td>Magnesium [Mass/volume] in Serum or Plasma</td>
+    <td>1.9 mg/dL<div class="muted">Reference 1.7-2.4 mg/dL</div></td>
+    <td>http://loinc.org · 19123-9</td>
+  </tr></tbody></table></section>
+    <section><h2>Synthetic vital signs</h2><table><thead><tr><th>Date</th><th>Measure</th><th>Result</th><th>LOINC</th><th>Grade</th></tr></thead><tbody>
+  <tr><td>1951-02-09</td><td>Body height</td><td>165 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1951-02-09</td><td>Body weight</td><td>53 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1951-02-09</td><td>Body mass index (BMI) [Ratio]</td><td>19.5 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1951-02-09</td><td>Systolic blood pressure</td><td>108 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1951-02-09</td><td>Diastolic blood pressure</td><td>68 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1951-02-09</td><td>Heart rate</td><td>92 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1951-02-09</td><td>Respiratory rate</td><td>16 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1951-02-09</td><td>Body temperature</td><td>36.8 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1951-02-09</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>99 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1951-02-17</td><td>Body height</td><td>165 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1951-02-17</td><td>Body weight</td><td>52.8 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1951-02-17</td><td>Body mass index (BMI) [Ratio]</td><td>19.4 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1951-02-17</td><td>Systolic blood pressure</td><td>112 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1951-02-17</td><td>Diastolic blood pressure</td><td>70 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1951-02-17</td><td>Heart rate</td><td>90 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1951-02-17</td><td>Respiratory rate</td><td>16 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1951-02-17</td><td>Body temperature</td><td>36.7 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1951-02-17</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>99 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1951-03-02</td><td>Body height</td><td>165 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1951-03-02</td><td>Body weight</td><td>52.5 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1951-03-02</td><td>Body mass index (BMI) [Ratio]</td><td>19.3 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1951-03-02</td><td>Systolic blood pressure</td><td>110 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1951-03-02</td><td>Diastolic blood pressure</td><td>68 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1951-03-02</td><td>Heart rate</td><td>84 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1951-03-02</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1951-03-02</td><td>Body temperature</td><td>36.7 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1951-03-02</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>99 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1951-05-18</td><td>Body height</td><td>165 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1951-05-18</td><td>Body weight</td><td>50.6 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1951-05-18</td><td>Body mass index (BMI) [Ratio]</td><td>18.6 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1951-05-18</td><td>Systolic blood pressure</td><td>104 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1951-05-18</td><td>Diastolic blood pressure</td><td>66 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1951-05-18</td><td>Heart rate</td><td>80 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1951-05-18</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1951-05-18</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1951-05-18</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>99 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1951-08-17</td><td>Body height</td><td>165 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1951-08-17</td><td>Body weight</td><td>52.4 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1951-08-17</td><td>Body mass index (BMI) [Ratio]</td><td>19.2 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1951-08-17</td><td>Systolic blood pressure</td><td>108 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1951-08-17</td><td>Diastolic blood pressure</td><td>68 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1951-08-17</td><td>Heart rate</td><td>74 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1951-08-17</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1951-08-17</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1951-08-17</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>99 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1951-03-27</td><td>Body height</td><td>165 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1951-03-27</td><td>Body weight</td><td>51.4 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1951-03-27</td><td>Body mass index (BMI) [Ratio]</td><td>18.9 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1951-03-27</td><td>Systolic blood pressure</td><td>106 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1951-03-27</td><td>Diastolic blood pressure</td><td>66 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1951-03-27</td><td>Heart rate</td><td>88 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1951-03-27</td><td>Respiratory rate</td><td>16 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1951-03-27</td><td>Body temperature</td><td>37.2 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1951-03-27</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>99 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1951-09-21</td><td>Body height</td><td>165 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1951-09-21</td><td>Body weight</td><td>52.8 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1951-09-21</td><td>Body mass index (BMI) [Ratio]</td><td>19.4 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1951-09-21</td><td>Systolic blood pressure</td><td>110 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1951-09-21</td><td>Diastolic blood pressure</td><td>70 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1951-09-21</td><td>Heart rate</td><td>72 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1951-09-21</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1951-09-21</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1951-09-21</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>99 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr></tbody></table></section>
+    <section><h2>Social, functional, and mental status</h2><h3>Social history</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Directs a large charitable foundation that serves low-income families; long working days, frequent public speaking, and travel. Wants to keep working as much as she can</li><li><span class="badge grade-S" title="Synthetic">S</span> Married; no children. She asks that all news about her health be given to her first, and she alone decides what her family and her colleagues are told</li><li><span class="badge grade-S" title="Synthetic">S</span> Language: Spanish is her preferred language for health care; she reads English but wants medical discussions in Spanish. Dr. Barragán speaks Spanish; a professional medical interpreter is booked for clinicians who do not. She declines family members as interpreters</li><li><span class="badge grade-S" title="Synthetic">S</span> Screening: never had cervical screening; did not receive the HPV vaccine</li><li><span class="badge grade-S" title="Synthetic">S</span> Tobacco: never smoked. Alcohol: a glass of wine on social occasions; no drugs</li><li><span class="badge grade-S" title="Synthetic">S</span> Sexual and reproductive health: one male partner, her spouse; no pregnancies; no contraception at present</li><li><span class="badge grade-S" title="Synthetic">S</span> Supports: a close friend and a long-time colleague at the foundation; her work gives her purpose. She would like the hospital&#39;s spiritual care team offered when she is in treatment</li></ul><h3>Functional status</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Independent; still working full days but exhausted by the evening; breathless climbing two flights of stairs</li></ul><h3>Mental status</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Alert, articulate and composed; worried about the bleeding and asks direct questions; PHQ-2 1; no thoughts of self-harm</li></ul></section>
+    
+    <section><h2>Allergies and medications</h2><h3>Allergies</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> No known allergy</li></ul><h3>Medications</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Ferrous sulfate 325 mg (65 mg elemental iron) oral tablet, one tablet by mouth once daily, with vitamin C-rich food or juice, apart from tea and dairy</li><li><span class="badge grade-S" title="Synthetic">S</span> Acetaminophen 500 mg oral tablet, one or two tablets by mouth every 6 hours when needed for pelvic pain, no more than 6 tablets a day</li><li><span class="badge grade-S" title="Synthetic">S</span> Nitrofurantoin (monohydrate and macrocrystals) 100 mg oral capsule, one capsule by mouth twice daily with food for 5 days</li><li><span class="badge grade-S" title="Synthetic">S</span> Cisplatin 40 mg/m2 (64 mg) intravenous infusion once weekly for five weeks during pelvic radiation, with hydration and antiemetic premedication in the infusion center</li><li><span class="badge grade-S" title="Synthetic">S</span> Ondansetron 8 mg oral tablet, one tablet by mouth every 8 hours when needed for nausea in the days after cisplatin</li><li><span class="badge grade-S" title="Synthetic">S</span> Loperamide 2 mg oral capsule, two capsules after the first loose stool, then one after each loose stool, no more than 8 a day</li><li><span class="badge grade-S" title="Synthetic">S</span> Estradiol 0.1 mg per day transdermal patch, one patch changed twice weekly</li><li><span class="badge grade-S" title="Synthetic">S</span> Progesterone 100 mg oral capsule, one capsule by mouth nightly, to protect any remaining endometrium while on estradiol</li></ul></section>
+    <section><h2>Procedures and immunizations</h2><h3>Procedures</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Punch biopsy of a visible cervical mass at the first visit, with an HPV test and cytology</li><li><span class="badge grade-S" title="Synthetic">S</span> Advance care planning conversation, about 18 minutes, in Spanish</li><li><span class="badge grade-S" title="Synthetic">S</span> Colposcopy of the cervix and vagina, with pelvic and rectovaginal examination, at the gynecologic oncology consultation</li><li><span class="badge grade-S" title="Synthetic">S</span> Pelvic MRI with contrast for staging</li><li><span class="badge grade-S" title="Synthetic">S</span> FDG PET-CT from the skull base to mid-thigh for staging</li><li><span class="badge grade-S" title="Synthetic">S</span> Pelvic external beam radiation therapy, 45 Gy in 25 fractions by intensity-modulated radiation therapy, with weekly cisplatin</li><li><span class="badge grade-S" title="Synthetic">S</span> Image-guided high-dose-rate intracavitary brachytherapy, 28 Gy in 4 weekly fractions</li><li><span class="badge grade-S" title="Synthetic">S</span> FDG PET-CT three months after treatment to assess response</li></ul><h3>Immunizations</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> 1951-09-21: Influenza vaccine, 1951-1952 season</li></ul></section>
+    <section><h2>Past medical history</h2><p class="muted">True biography with historical dates; not part of the synthetic care timeline.</p><ul><li><span class="badge grade-D" title="Documented">D</span> January 1950: Fainting followed by an appendectomy <span class="muted">(CLM-0003)</span></li><li><span class="badge grade-D" title="Documented">D</span> 1950: Persistent weakness and anemia from vaginal bleeding after the appendectomy, with further tests delayed <span class="muted">(CLM-0003)</span></li></ul><h3>Family history</h3><p class="muted">No family medical history is documented in the logged sources. Family history of real relatives is never synthesized.</p></section>
+    <section><h2>Care-plan goals</h2><table><thead><tr><th>Goal</th><th>Target date</th><th>Status</th><th>Outcome</th></tr></thead><tbody>
+  <tr><td>Diagnosis and stage explained to her directly, in Spanish, with time for questions, before any treatment decision</td><td>1951-03-02</td><td>completed</td><td>Diagnosis given to her in person at the second visit and the stage at the third; she made the treatment and fertility decisions herself</td></tr>
+  <tr><td>Hemoglobin 10 g/dL or more before radiation begins</td><td>1951-03-02</td><td>completed</td><td>Hemoglobin 10.2 g/dL</td></tr>
+  <tr><td>Chemoradiation and brachytherapy completed within eight weeks</td><td>1951-05-18</td><td>completed</td><td>Completed in eight weeks, with five cisplatin doses</td></tr>
+  <tr><td>No evidence of disease on PET-CT and examination three months after treatment</td><td>1951-08-17</td><td>completed</td><td>Complete metabolic response; examination without tumor</td></tr>
+  <tr><td>PHQ-9 below 5 by six months</td><td>1951-08-17</td><td>completed</td><td>PHQ-9 4</td></tr></tbody></table></section>
+    <section><h2>Interventions</h2><table><thead><tr><th>Intervention</th><th>Status</th><th>Guideline</th></tr></thead><tbody>
+  <tr><td>Diagnosis of a visible cervical lesion: punch biopsy at this visit, an HPV test and cytology, a pregnancy test, a blood count and ferritin; a lesion that looks like cancer is biopsied directly rather than managed by the screening algorithm</td><td>completed</td><td>GL-ASCCP-2019, GL-NCCN-CERV-2027</td></tr>
+  <tr><td>Urgent gynecologic oncology consultation, on the day the biopsy result is given: diagnosis, staging, treatment by stage, and fertility and ovarian function counseling</td><td>completed</td><td>GL-NCCN-CERV-2027, GL-ASCO-FP-2018</td></tr>
+  <tr><td>Truthful disclosure as she asked: the biopsy result given to her in person, in Spanish, at a visit with time set aside, before anyone else is told; she chooses who is present and who is told; a professional medical interpreter for clinicians who do not speak Spanish, never a family member; information shared step by step, checking what she wants to know</td><td>completed</td><td>GL-ASCO-COMM-2017</td></tr>
+  <tr><td>Iron deficiency anemia: ferrous sulfate daily, a blood count at about one month, a ferritin at the end of the course, and acetaminophen rather than anti-inflammatory painkillers for pelvic pain</td><td>completed</td><td>GL-CMID-2026</td></tr>
+  <tr><td>FIGO 1943 staging: pelvic MRI and FDG PET-CT, kidney function before cisplatin, an HIV test, and an examination of the vagina and parametria</td><td>completed</td><td>GL-FIGO-2018, GL-NCCN-CERV-2027</td></tr>
+  <tr><td>Fertility and ovarian function counseling before treatment: chemoradiation ends the ability to carry a pregnancy and usually ends ovarian function; egg or embryo freezing (about two weeks), surgical moving of the ovaries out of the radiation field, and a gestational carrier were explained; her decision is recorded</td><td>completed</td><td>GL-ASCO-FP-2018, GL-NCCN-CERV-2027</td></tr>
+  <tr><td>Psychosocial support: the oncology social worker, the PHQ-9 and GAD-7 at diagnosis, before treatment, at the end of treatment and in follow-up, spiritual care when she asks, and help planning work around treatment</td><td>completed</td><td>GL-ASCO-ANXDEP-2023, GL-ASCO-COMM-2017</td></tr>
+  <tr><td>Definitive chemoradiation for stage IIB disease: pelvic external beam radiation 45 Gy in 25 fractions with weekly cisplatin 40 mg/m2, then image-guided high-dose-rate brachytherapy, all within eight weeks; weekly blood count, creatinine and magnesium; ondansetron for nausea and loperamide for diarrhea</td><td>completed</td><td>GL-NCCN-CERV-2027, GL-FIGO-2018</td></tr>
+  <tr><td>Survivorship care: a vaginal dilator three times a week, estradiol with progesterone for radiation-induced menopause until the usual age of menopause, gynecologic oncology review every three months for two years, PET-CT about three months after treatment, and warning symptoms to report</td><td>completed</td><td>GL-NCCN-CERV-2027</td></tr></tbody></table></section>
+    <section><h2>Planned encounters</h2><ul>
+  <li><strong>1951-02-09</strong> — New patient with four months of bleeding after intercourse and between periods and tiredness: history in Spanish, speculum examination, a visible cervical mass biopsied, HPV test and cytology, anemia tests, and her wishes about how results are given <span class="muted">(ENC-001)</span></li>
+  <li><strong>1951-02-17</strong> — Biopsy result given to her in person, and gynecologic oncology consultation the same day: diagnosis, staging plan, treatment options, and fertility and ovarian function counseling <span class="muted">(ENC-002)</span></li>
+  <li><strong>1951-03-02</strong> — Staging results (pelvic MRI and PET-CT), FIGO stage, and her treatment and fertility decisions before chemoradiation <span class="muted">(ENC-003)</span></li>
+  <li><strong>1951-03-27</strong> — Same-day sick visit for burning on passing urine during chemoradiation <span class="muted">(ENC-006, unscheduled)</span></li>
+  <li><strong>1951-05-18</strong> — Review two weeks after completing chemoradiation and brachytherapy: side effects, menopause symptoms, and survivorship care <span class="muted">(ENC-004)</span></li>
+  <li><strong>1951-08-17</strong> — Review three months after treatment: PET-CT response, examination, anemia, mood, and the follow-up plan <span class="muted">(ENC-005)</span></li>
+  <li><strong>1951-09-21</strong> — Periodic adult preventive visit after cancer treatment <span class="muted">(ENC-007)</span></li></ul></section>
+    <section><h2>Supporting documents</h2><ul><li><a href="notes/hp.md">History and physical</a></li><li><a href="notes/progress-01.md">Progress note 01</a></li><li><a href="notes/progress-02.md">Progress note 02 — Focused Visit (Follow-up)</a></li><li><a href="notes/progress-03.md">Progress note 03 — Focused Visit (Follow-up)</a></li><li><a href="notes/progress-04.md">Progress note 04 — Sick Visit</a></li><li><a href="notes/progress-05.md">Progress note 05 — Focused Visit (Follow-up)</a></li><li><a href="notes/progress-06.md">Progress note 06 — Focused Visit (Care-plan review)</a></li><li><a href="notes/progress-07.md">Progress note 07 — Preventive Visit</a></li><li><a href="notes/referral-01.md">Gynecologic Oncology referral</a></li><li><a href="notes/consult-01.md">Gynecologic Oncology consultation</a></li><li><a href="notes/careplan.md">Patient care plan</a></li><li><a href="notes/teaching-note.md">Teaching note</a></li><li><a href="provenance.csv">Provenance CSV</a></li></ul></section>
+    <section><h2>C-CDA note documents</h2><p class="muted">Each link opens a readable copy; the XML beside it is the exchange file.</p><ul><li><a href="ccda/hp-01.html">History and physical</a> <a href="ccda/hp-01.xml">(XML)</a></li><li><a href="ccda/progress-01.html">Progress note 01</a> <a href="ccda/progress-01.xml">(XML)</a></li><li><a href="ccda/progress-02.html">Progress note 02 — Focused Visit (Follow-up)</a> <a href="ccda/progress-02.xml">(XML)</a></li><li><a href="ccda/progress-03.html">Progress note 03 — Focused Visit (Follow-up)</a> <a href="ccda/progress-03.xml">(XML)</a></li><li><a href="ccda/progress-04.html">Progress note 04 — Sick Visit</a> <a href="ccda/progress-04.xml">(XML)</a></li><li><a href="ccda/progress-05.html">Progress note 05 — Focused Visit (Follow-up)</a> <a href="ccda/progress-05.xml">(XML)</a></li><li><a href="ccda/progress-06.html">Progress note 06 — Focused Visit (Care-plan review)</a> <a href="ccda/progress-06.xml">(XML)</a></li><li><a href="ccda/progress-07.html">Progress note 07 — Preventive Visit</a> <a href="ccda/progress-07.xml">(XML)</a></li><li><a href="ccda/referral-01.html">Gynecologic Oncology referral</a> <a href="ccda/referral-01.xml">(XML)</a></li><li><a href="ccda/consult-01.html">Gynecologic Oncology consultation</a> <a href="ccda/consult-01.xml">(XML)</a></li></ul></section>
+    <section><h2>Sources</h2><table><thead><tr><th>ID</th><th>Source</th><th>Publisher</th><th>Type</th></tr></thead><tbody>
+  <tr>
+    <td>SRC-0001</td>
+    <td><a href="https://www.tampabay.com/archive/2000/06/12/eva-peron-and-her-doctors-deceit/" target="_blank" rel="noreferrer">Altman LK. Eva Peron and her doctors&#39; deceit</a></td>
+    <td>Tampa Bay Times (St. Petersburg Times)</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0002</td>
+    <td><a href="https://www.encyclopedia.com/women/encyclopedias-almanacs-transcripts-and-maps/peron-eva-1919-1952" target="_blank" rel="noreferrer">Goodwin PB Jr. Perón, Eva (1919-1952). Women in World History: A Biographical Encyclopedia</a></td>
+    <td>Gale, via Encyclopedia.com</td>
+    <td>biography</td>
+  </tr>
+  <tr>
+    <td>SRC-0003</td>
+    <td><a href="https://pubmed.ncbi.nlm.nih.gov/10859055/" target="_blank" rel="noreferrer">Lerner BH. The illness and death of Eva Perón: cancer, politics, and secrecy. Lancet. 2000;355(9219):1988-91 (PMID 10859055)</a></td>
+    <td>The Lancet</td>
+    <td>scholarly</td>
+  </tr>
+  <tr>
+    <td>SRC-0004</td>
+    <td><a href="https://pubmed.ncbi.nlm.nih.gov/22079825/" target="_blank" rel="noreferrer">Nijensohn DE, Savastano LE, Kaplan AD, Laws ER Jr. New evidence of prefrontal lobotomy in the last months of the illness of Eva Perón. World Neurosurg. 2012;77(3-4):583-90 (PMID 22079825)</a></td>
+    <td>World Neurosurgery</td>
+    <td>scholarly</td>
+  </tr>
+  <tr>
+    <td>SRC-0005</td>
+    <td><a href="https://pubmed.ncbi.nlm.nih.gov/26126398/" target="_blank" rel="noreferrer">Nijensohn DE. Prefrontal lobotomy on Evita was done for behavior/personality modification, not just for pain control. Neurosurg Focus. 2015;39(1):E12 (PMID 26126398)</a></td>
+    <td>Neurosurgical Focus</td>
+    <td>scholarly</td>
+  </tr>
+  <tr>
+    <td>SRC-0006</td>
+    <td><a href="https://humanrecord.example.org/internal/HISTMED_Master_Roster_v3.xlsx" target="_blank" rel="noreferrer">HISTMED Master Roster v3</a></td>
+    <td>The Human Record project</td>
+    <td>other</td>
+  </tr></tbody></table></section>
+    <section><h2>Review status</h2><table><thead><tr><th>Review</th><th>Status</th><th>Notes</th></tr></thead><tbody>
+  <tr><td>schema validation</td><td>not_started</td><td>Run scripts/build.ps1 -Conformance.</td></tr>
+  <tr><td>clinical review</td><td>not_started</td><td>Awaiting clinician review; check direct biopsy of a visible lesion, FIGO 2018 stage IIB by MRI and PET-CT, chemoradiation with weekly cisplatin and brachytherapy within eight weeks, the fertility counseling and her decision, estradiol with progesterone for radiation-induced menopause with the uterus in place, and the documentation of disclosure.</td></tr>
+  <tr><td>provenance review</td><td>not_started</td><td>Lawrence K. Altman&#39;s newspaper report of Barron Lerner&#39;s Lancet article (Tampa Bay Times, 2000), the Gale Women in World History entry, and two PubMed abstracts by Nijensohn logged; Lerner&#39;s Lancet article itself is cited without its text. The illness claims are D with certainty probable because they rest on Lerner&#39;s research as reported; the lobotomy is R, possible.</td></tr>
+  <tr><td>safe messaging review</td><td>not_started</td><td>The reported lobotomy is recorded once, as history only, marked sensitive, without detail, and is not carried into the modern episode. Political material is limited to what identifies her and explains the secrecy. No modern role is given to any real person.</td></tr></tbody></table></section>
+  </main>
+</body>
+</html>

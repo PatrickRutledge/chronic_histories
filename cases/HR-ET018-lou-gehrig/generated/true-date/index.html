@@ -1,0 +1,587 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Lou Gehrig — The Human Record</title>
+  <style>
+    :root { --navy:#17365d; --blue:#1f4e78; --pale:#eef5fa; --ink:#1f2933; --muted:#66788a; --amber:#fff2cc; --red:#f8d7da; --green:#d9ead3; }
+    * { box-sizing:border-box; }
+    body { margin:0; font:16px/1.5 Arial, sans-serif; color:var(--ink); background:#f6f8fa; }
+    header { background:var(--navy); color:white; padding:24px max(24px,calc((100vw - 1180px)/2)); }
+    header h1 { margin:4px 0; font-size:30px; }
+    .banner { background:#b42318; color:white; font-weight:700; text-align:center; padding:10px; letter-spacing:.03em; }
+    main { max-width:1180px; margin:24px auto 60px; padding:0 24px; }
+    section { background:white; border:1px solid #d9e1e8; border-radius:8px; margin:18px 0; padding:20px; }
+    h2 { color:var(--navy); margin:0 0 14px; font-size:22px; }
+    h3 { color:var(--blue); }
+    .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:12px; }
+    .card { background:var(--pale); border-left:4px solid var(--blue); padding:12px; }
+    .label { color:var(--muted); font-size:13px; text-transform:uppercase; letter-spacing:.04em; }
+    table { width:100%; border-collapse:collapse; }
+    th { background:var(--blue); color:white; text-align:left; }
+    th,td { padding:9px; border-bottom:1px solid #dfe6ec; vertical-align:top; }
+    .badge { display:inline-block; min-width:28px; text-align:center; font-weight:700; border-radius:12px; padding:2px 8px; }
+    .grade-D { background:var(--green); } .grade-R { background:var(--amber); } .grade-S { background:var(--red); }
+    .muted { color:var(--muted); font-size:14px; }
+    .relationship { color:var(--muted); font-size:12px; }
+    .downloads a { display:inline-block; margin:4px 8px 4px 0; padding:8px 12px; background:var(--blue); color:white; text-decoration:none; border-radius:5px; }
+    @media (max-width:700px) { table { display:block; overflow-x:auto; } }
+  </style>
+</head>
+<body>
+  <div class="banner">SYNTHETIC RECORD, NOT A REAL MEDICAL RECORD</div>
+  <div class="banner">True-date frame: synthetic events are moved into the patient&#39;s historical lifetime. Codes, instruments, and treatments remain modern and are anachronistic.</div>
+  <header>
+    <div>The Human Record</div>
+    <h1>Lou Gehrig</h1>
+    <div>Case HR-ET018-TD · Modern EHR teaching episode · Draft for review</div>
+  </header>
+  <main>
+    <section>
+      <h2>Review summary</h2>
+      <div class="grid">
+        <div class="card"><div class="label">Historical dates</div>June 19, 1903 – June 2, 1941</div>
+        <div class="card"><div class="label">Synthetic DOB</div>1903-06-19</div>
+        <div class="card"><div class="label">Index visit</div>1939-05-04 at age 35</div>
+        <div class="card"><div class="label">Synthetic MRN</div>HR-ET018-SYN-TD</div>
+      </div>
+      <p><strong>Teaching objective:</strong> Primary care for a 35-year-old professional baseball player with a year of progressive weakness and loss of coordination: recognizing mixed upper and lower motor neuron signs, excluding mimics (MRI of the brain and cervical spine, blood tests, EMG and nerve conduction studies), and making the diagnosis of amyotrophic lateral sclerosis on the Gold Coast and revised El Escorial criteria; riluzole with liver test monitoring, genetic testing (tofersen only for an SOD1 variant) and edaravone discussed; a multidisciplinary ALS clinic tracking ALSFRS-R, forced vital capacity and weight; nutrition, speech and swallowing, mobility equipment, noninvasive ventilation thresholds, work accommodation, mood screening, and early advance care planning, on the AAN ALS practice parameters (1922).</p>
+      <div class="downloads">
+        <a href="../case.json">Canonical JSON</a>
+        <a href="fhir-bundle.json">FHIR R4 draft</a>
+        <a href="ccda.html">C-CDA R2.1 summary</a> <a href="ccda.xml">(XML)</a>
+        <a href="../sources.md">Evidence dossier</a>
+      </div>
+    </section>
+    <section><h2>Historical timeline</h2><table><thead><tr><th>Date</th><th>Event</th><th>Claims</th></tr></thead><tbody>
+  <tr><td>June 19, 1903</td><td>Born in Yorkville, Manhattan.</td><td>CLM-0001</td></tr>
+  <tr><td>Winter of 1906</td><td>Death of his sister Sophie.</td><td>CLM-0002</td></tr>
+  <tr><td>February 1921</td><td>Enrolled at Columbia University.</td><td>CLM-0003</td></tr>
+  <tr><td>1938</td><td>First neurological symptoms; batting average fell to .295.</td><td>CLM-0005, CLM-0011</td></tr>
+  <tr><td>May 2, 1939</td><td>Took himself out of the lineup after 2,130 consecutive games.</td><td>CLM-0004</td></tr>
+  <tr><td>June 19, 1939</td><td>Diagnosis of amyotrophic lateral sclerosis certified at the Mayo Clinic.</td><td>CLM-0006</td></tr>
+  <tr><td>July 4, 1939</td><td>Retired from baseball on Lou Gehrig Appreciation Day.</td><td>CLM-0007</td></tr>
+  <tr><td>October 1939</td><td>Accepted appointment as a New York City Parole Commissioner.</td><td>CLM-0008</td></tr>
+  <tr><td>June 2, 1941</td><td>Died at home in the Bronx.</td><td>CLM-0009</td></tr>
+  <tr><td>June 17, 2016</td><td>Published discussion of the head-trauma hypothesis and the sealed records.</td><td>CLM-0010</td></tr></tbody></table></section>
+    <section><h2>Evidence claims</h2><p class="muted">D = documented, R = retrospective, S = synthetic.</p><table><thead><tr><th>Grade</th><th>Claim</th><th>Certainty</th><th>Sources</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>Henry Louis Gehrig was born on June 19, 1903, in the Yorkville section of Manhattan, New York, to Heinrich and Christina Gehrig, German immigrants.</strong><div class="muted">The birth date used for the synthetic date of birth.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://sabr.org/bioproj/person/lou-gehrig/" target="_blank" rel="noreferrer">Ray JL. Lou Gehrig</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>Three of his siblings died young: his sister Anna in September 1902 at about three months, his sister Sophie in the winter of 1906 of a combination of measles, diphtheria and bronchopneumonia, and a brother shortly after birth.</strong><div class="muted">Family history; the causes of Anna&#39;s and the infant brother&#39;s deaths are not recorded in the cited source.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://sabr.org/bioproj/person/lou-gehrig/" target="_blank" rel="noreferrer">Ray JL. Lou Gehrig</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>He enrolled at Columbia University on a football scholarship in February 1921.</strong><div class="muted">Social history.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://sabr.org/bioproj/person/lou-gehrig/" target="_blank" rel="noreferrer">Ray JL. Lou Gehrig</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>He played first base for the New York Yankees and, on May 2, 1939, in Detroit, took himself out of the lineup after a then-record 2,130 consecutive games.</strong><div class="muted">The anchor for the index date. PBS gives May 1, 1939; the Hall of Fame and SABR accounts of Detroit on May 2 are used.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://baseballhall.org/discover/gehrig-frates-hunter-furthered-als-cause" target="_blank" rel="noreferrer">Gehrig, Hunter and Frates each furthered cause of ALS cure</a> <span class="relationship">supports</span><br><a href="https://baseballhall.org/discover/gehrig-played-final-game-on-day-hall-of-fame-opened" target="_blank" rel="noreferrer">Hall of Fame opened the day of Lou Gehrig&#39;s final game</a> <span class="relationship">supports</span><br><a href="https://www.pbs.org/newshour/health/did-lou-gehrig-actually-die-of-lou-gehrigs-disease" target="_blank" rel="noreferrer">Markel H. Did Lou Gehrig actually die of Lou Gehrig&#39;s disease?</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>In 1938 he batted .295, the first time under .300 since 1925, and his hitting fell off sharply in midsummer; he had an attack of lumbago and a badly jammed thumb that season. In the winter of 1938 to 1939 he lost his strength and collapsed while ice skating, in spring training 1939 he collapsed while putting on his uniform pants and his reflexes had slowed alarmingly, and at 35 he batted .143 in the first games of the 1939 season.</strong><div class="muted">The anchor for the modern presenting problem: a year of progressive weakness and loss of coordination.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://sabr.org/bioproj/person/lou-gehrig/" target="_blank" rel="noreferrer">Ray JL. Lou Gehrig</a> <span class="relationship">supports</span><br><a href="https://baseballhall.org/discover/gehrig-frates-hunter-furthered-als-cause" target="_blank" rel="noreferrer">Gehrig, Hunter and Frates each furthered cause of ALS cure</a> <span class="relationship">supports</span><br><a href="https://baseballhall.org/discover/gehrig-played-final-game-on-day-hall-of-fame-opened" target="_blank" rel="noreferrer">Hall of Fame opened the day of Lou Gehrig&#39;s final game</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>His first neurological symptoms began in 1938, around the time of his 35th birthday.</strong><div class="muted">The anchor for the onset of weakness in the modern episode.</div></td>
+    <td>probable</td>
+    <td><a href="https://www.pbs.org/newshour/health/did-lou-gehrig-actually-die-of-lou-gehrigs-disease" target="_blank" rel="noreferrer">Markel H. Did Lou Gehrig actually die of Lou Gehrig&#39;s disease?</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>He had repeated head injuries, including concussions, during his playing career.</strong><div class="muted">Recorded as history; the modern episode records a history of concussions without assuming any effect.</div></td>
+    <td>probable</td>
+    <td><a href="https://www.pbs.org/newshour/health/did-lou-gehrig-actually-die-of-lou-gehrigs-disease" target="_blank" rel="noreferrer">Markel H. Did Lou Gehrig actually die of Lou Gehrig&#39;s disease?</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>He was examined at the Mayo Clinic in Rochester, Minnesota, from June 13 to June 19, 1939, and on his 36th birthday his internist, Harold C. Habein, certified the diagnosis of amyotrophic lateral sclerosis; the clinic&#39;s statement added that he could continue in some executive activity.</strong><div class="muted">The anchor for the modern diagnosis; after the true-frame index date. The Hall of Fame spells the physician&#39;s name Hobein in one article.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.pbs.org/newshour/health/did-lou-gehrig-actually-die-of-lou-gehrigs-disease" target="_blank" rel="noreferrer">Markel H. Did Lou Gehrig actually die of Lou Gehrig&#39;s disease?</a> <span class="relationship">supports</span><br><a href="https://baseballhall.org/discover/gehrig-frates-hunter-furthered-als-cause" target="_blank" rel="noreferrer">Gehrig, Hunter and Frates each furthered cause of ALS cure</a> <span class="relationship">supports</span><br><a href="https://sabr.org/bioproj/person/lou-gehrig/" target="_blank" rel="noreferrer">Ray JL. Lou Gehrig</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>He retired from baseball on July 4, 1939, when the Yankees held Lou Gehrig Appreciation Day before nearly 42,000 fans; in his speech he said that he considered himself &quot;the luckiest man on the face of the earth.&quot;</strong><div class="muted">History only; after the true-frame index date.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://sabr.org/bioproj/person/lou-gehrig/" target="_blank" rel="noreferrer">Ray JL. Lou Gehrig</a> <span class="relationship">supports</span><br><a href="https://baseballhall.org/discover/gehrig-frates-hunter-furthered-als-cause" target="_blank" rel="noreferrer">Gehrig, Hunter and Frates each furthered cause of ALS cure</a> <span class="relationship">supports</span><br><a href="https://baseballhall.org/discover/gehrig-played-final-game-on-day-hall-of-fame-opened" target="_blank" rel="noreferrer">Hall of Fame opened the day of Lou Gehrig&#39;s final game</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>In October 1939 he accepted Mayor La Guardia&#39;s appointment to a ten-year term as a New York City Parole Commissioner, was sworn in on January 2, 1940, and resigned quietly about a month before his death because his condition made the work impossible.</strong><div class="muted">The anchor for the modern work-accommodation theme (a desk role in public service); after the true-frame index date.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://sabr.org/bioproj/person/lou-gehrig/" target="_blank" rel="noreferrer">Ray JL. Lou Gehrig</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>He died at his home on Delafield Avenue in the Fieldston section of the Bronx on June 2, 1941, at 37.</strong><div class="muted">History only. PBS gives June 3, 1941.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://sabr.org/bioproj/person/lou-gehrig/" target="_blank" rel="noreferrer">Ray JL. Lou Gehrig</a> <span class="relationship">supports</span><br><a href="https://baseballhall.org/discover/gehrig-frates-hunter-furthered-als-cause" target="_blank" rel="noreferrer">Gehrig, Hunter and Frates each furthered cause of ALS cure</a> <span class="relationship">supports</span><br><a href="https://www.pbs.org/newshour/health/did-lou-gehrig-actually-die-of-lou-gehrigs-disease" target="_blank" rel="noreferrer">Markel H. Did Lou Gehrig actually die of Lou Gehrig&#39;s disease?</a> <span class="relationship">disputes</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-R" title="Retrospective">R</span></td>
+    <td><strong>Researchers at the Boston University center for the study of traumatic encephalopathy have suggested that repetitive head trauma can cause a syndrome that mimics ALS, and that his repeated head injuries may have contributed to his decline; the Mayo Clinic has sealed his records, and it is not known whether an autopsy was performed.</strong><div class="muted">A retrospective hypothesis; the documented diagnosis remains ALS and the modern episode does not adopt the hypothesis.</div></td>
+    <td>disputed</td>
+    <td><a href="https://www.pbs.org/newshour/health/did-lou-gehrig-actually-die-of-lou-gehrigs-disease" target="_blank" rel="noreferrer">Markel H. Did Lou Gehrig actually die of Lou Gehrig&#39;s disease?</a> <span class="relationship">supports</span></td>
+  </tr></tbody></table></section>
+    <section><h2>Modern synthetic problem list</h2><table><thead><tr><th>Grade</th><th>Problem</th><th>Clinical status</th><th>Verification</th><th>Placement</th><th>Historical claims</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Progressive weakness and loss of coordination for about a year: fumbling with buttons and a bat, tripping on curbs, a fall on the ice in the winter, muscle cramps and twitching in the arms and thighs; no numbness, pain, double vision, or trouble speaking or swallowing. Examination: wasting of the hand muscles (left more than right), fasciculations in both arms and thighs, weakness of grip and of left ankle dorsiflexion, brisk reflexes with spread and a positive Hoffmann sign, normal sensation. Mixed upper and lower motor neuron signs; evaluation for motor neuron disease and its mimics begun, with neuromuscular neurology consultation booked</td>
+    <td>resolved</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td>CLM-0004, CLM-0005, CLM-0011</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Amyotrophic lateral sclerosis, limb onset: progressive weakness for about a year with upper and lower motor neuron signs in the cervical and lumbosacral regions, and active and chronic denervation on EMG in the cervical, thoracic and lumbosacral regions with normal sensory nerve conduction; MRI of the brain and cervical spine and blood tests exclude mimics. Meets the Gold Coast criteria and the revised El Escorial category of clinically probable ALS. ALSFRS-R 42 and FVC 88% of predicted at diagnosis. Synthetic modern episode linked to his documented diagnosis</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>both_with_link</td>
+    <td>CLM-0006, CLM-0011</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Sprain of the left lateral ankle ligaments after tripping on a curb with left foot drop, while not wearing his ankle-foot orthosis: swelling and tenderness over the anterior talofibular ligament, able to bear weight, no bony tenderness by the Ottawa ankle rules; resolved</td>
+    <td>resolved</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td></td>
+  </tr></tbody></table></section>
+    <section><h2>Synthetic outcome measures</h2><table><thead><tr><th>Grade</th><th>Date</th><th>Measure</th><th>Result</th><th>Coding</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1939-05-04</td>
+    <td>Leukocytes [#/volume] in Blood by Automated count</td>
+    <td>6.8 10*3/uL<div class="muted">Reference 4-11 10*3/uL</div></td>
+    <td>http://loinc.org · 6690-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1939-05-04</td>
+    <td>Hemoglobin [Mass/volume] in Blood</td>
+    <td>15.2 g/dL<div class="muted">Reference 13.2-17.1 g/dL</div></td>
+    <td>http://loinc.org · 718-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1939-05-04</td>
+    <td>Platelets [#/volume] in Blood by Automated count</td>
+    <td>245 10*3/uL<div class="muted">Reference 150-400 10*3/uL</div></td>
+    <td>http://loinc.org · 777-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1939-05-04</td>
+    <td>Sodium [Moles/volume] in Serum or Plasma</td>
+    <td>140 mmol/L<div class="muted">Reference 135-145 mmol/L</div></td>
+    <td>http://loinc.org · 2951-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1939-05-04</td>
+    <td>Potassium [Moles/volume] in Serum or Plasma</td>
+    <td>4.4 mmol/L<div class="muted">Reference 3.5-5.1 mmol/L</div></td>
+    <td>http://loinc.org · 2823-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1939-05-04</td>
+    <td>Creatinine [Mass/volume] in Serum or Plasma</td>
+    <td>0.88 mg/dL<div class="muted">Reference 0.74-1.35 mg/dL</div></td>
+    <td>http://loinc.org · 2160-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1939-05-04</td>
+    <td>Glomerular filtration rate [Volume Rate/Area] in Serum, Plasma or Blood by Creatinine-based formula (CKD-EPI 1934)/1.73 sq M</td>
+    <td>115 mL/min/1.73 m²<div class="muted">Reference &gt;=60 mL/min/1.73 m²</div></td>
+    <td>http://loinc.org · 98979-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1939-05-04</td>
+    <td>Glucose [Mass/volume] in Serum or Plasma</td>
+    <td>92 mg/dL<div class="muted">Reference 70-99 mg/dL</div></td>
+    <td>http://loinc.org · 2345-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1939-05-04</td>
+    <td>Calcium [Mass/volume] in Serum or Plasma</td>
+    <td>9.4 mg/dL<div class="muted">Reference 8.6-10.3 mg/dL</div></td>
+    <td>http://loinc.org · 17861-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1939-05-04</td>
+    <td>Alanine aminotransferase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>32 U/L<div class="muted">Reference 7-55 U/L</div></td>
+    <td>http://loinc.org · 1742-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1939-05-04</td>
+    <td>Aspartate aminotransferase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>30 U/L<div class="muted">Reference 10-40 U/L</div></td>
+    <td>http://loinc.org · 1920-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1939-05-04</td>
+    <td>Creatine kinase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>412 U/L (high)<div class="muted">Reference 39-308 U/L</div></td>
+    <td>http://loinc.org · 2157-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1939-05-04</td>
+    <td>Cobalamin (Vitamin B12) [Mass/volume] in Serum or Plasma</td>
+    <td>512 pg/mL<div class="muted">Reference 232-1245 pg/mL</div></td>
+    <td>http://loinc.org · 2132-9</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1939-05-04</td>
+    <td>Thyrotropin [Units/volume] in Serum or Plasma</td>
+    <td>1.6 mIU/L<div class="muted">Reference 0.45-4.5 mIU/L</div></td>
+    <td>http://loinc.org · 3016-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1939-05-04</td>
+    <td>Hemoglobin A1c/Hemoglobin.total in Blood</td>
+    <td>5.2%<div class="muted">Reference Below 5.7% is normal; 5.7 to 6.4% prediabetes</div></td>
+    <td>http://loinc.org · 4548-4</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1939-05-04</td>
+    <td>Forced vital capacity [Volume] Respiratory system</td>
+    <td>4.62 L<div class="muted">Reference &gt;=4.1 L</div></td>
+    <td>http://loinc.org · 19870-5</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1939-05-04</td>
+    <td>FVC measured/predicted</td>
+    <td>90%<div class="muted">Reference 80% of predicted or more is normal; noninvasive ventilation is considered below 50%</div></td>
+    <td>http://loinc.org · 19872-1</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1939-05-04</td>
+    <td>Patient Health Questionnaire 2 item (PHQ-2) total score [Reported]</td>
+    <td>1</td>
+    <td>http://loinc.org · 55758-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1939-05-18</td>
+    <td>Forced vital capacity [Volume] Respiratory system</td>
+    <td>4.52 L<div class="muted">Reference &gt;=4.1 L</div></td>
+    <td>http://loinc.org · 19870-5</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1939-05-18</td>
+    <td>FVC measured/predicted</td>
+    <td>88%<div class="muted">Reference 80% of predicted or more is normal; noninvasive ventilation is considered below 50%</div></td>
+    <td>http://loinc.org · 19872-1</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1939-05-18</td>
+    <td>Total score [ALSFRS-R]</td>
+    <td>42</td>
+    <td>http://loinc.org · 82953-1</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1939-05-18</td>
+    <td>Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]</td>
+    <td>7</td>
+    <td>http://loinc.org · 44261-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1939-06-29</td>
+    <td>Alanine aminotransferase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>38 U/L<div class="muted">Reference 7-55 U/L</div></td>
+    <td>http://loinc.org · 1742-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1939-06-29</td>
+    <td>Aspartate aminotransferase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>33 U/L<div class="muted">Reference 10-40 U/L</div></td>
+    <td>http://loinc.org · 1920-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1939-06-29</td>
+    <td>Forced vital capacity [Volume] Respiratory system</td>
+    <td>4.31 L<div class="muted">Reference &gt;=4.1 L</div></td>
+    <td>http://loinc.org · 19870-5</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1939-06-29</td>
+    <td>FVC measured/predicted</td>
+    <td>84%<div class="muted">Reference 80% of predicted or more is normal; noninvasive ventilation is considered below 50%</div></td>
+    <td>http://loinc.org · 19872-1</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1939-06-29</td>
+    <td>Total score [ALSFRS-R]</td>
+    <td>40</td>
+    <td>http://loinc.org · 82953-1</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1939-06-29</td>
+    <td>Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]</td>
+    <td>8</td>
+    <td>http://loinc.org · 44261-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1939-08-24</td>
+    <td>Alanine aminotransferase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>35 U/L<div class="muted">Reference 7-55 U/L</div></td>
+    <td>http://loinc.org · 1742-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1939-08-24</td>
+    <td>Forced vital capacity [Volume] Respiratory system</td>
+    <td>4.05 L (low)<div class="muted">Reference &gt;=4.1 L</div></td>
+    <td>http://loinc.org · 19870-5</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1939-08-24</td>
+    <td>FVC measured/predicted</td>
+    <td>79% (low)<div class="muted">Reference 80% of predicted or more is normal; noninvasive ventilation is considered below 50%</div></td>
+    <td>http://loinc.org · 19872-1</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1939-08-24</td>
+    <td>Total score [ALSFRS-R]</td>
+    <td>38</td>
+    <td>http://loinc.org · 82953-1</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1939-08-24</td>
+    <td>Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]</td>
+    <td>7</td>
+    <td>http://loinc.org · 44261-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1939-10-19</td>
+    <td>Alanine aminotransferase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>33 U/L<div class="muted">Reference 7-55 U/L</div></td>
+    <td>http://loinc.org · 1742-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1939-10-19</td>
+    <td>Forced vital capacity [Volume] Respiratory system</td>
+    <td>3.69 L (low)<div class="muted">Reference &gt;=4.1 L</div></td>
+    <td>http://loinc.org · 19870-5</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1939-10-19</td>
+    <td>FVC measured/predicted</td>
+    <td>72% (low)<div class="muted">Reference 80% of predicted or more is normal; noninvasive ventilation is considered below 50%</div></td>
+    <td>http://loinc.org · 19872-1</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1939-10-19</td>
+    <td>Total score [ALSFRS-R]</td>
+    <td>36</td>
+    <td>http://loinc.org · 82953-1</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1939-10-19</td>
+    <td>Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]</td>
+    <td>6</td>
+    <td>http://loinc.org · 44261-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1939-07-20</td>
+    <td>Alanine aminotransferase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>41 U/L<div class="muted">Reference 7-55 U/L</div></td>
+    <td>http://loinc.org · 1742-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1939-09-21</td>
+    <td>Patient Health Questionnaire 2 item (PHQ-2) total score [Reported]</td>
+    <td>1</td>
+    <td>http://loinc.org · 55758-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1939-09-21</td>
+    <td>Total score [AUDIT-C]</td>
+    <td>2</td>
+    <td>http://loinc.org · 75626-2</td>
+  </tr></tbody></table></section>
+    <section><h2>Synthetic vital signs</h2><table><thead><tr><th>Date</th><th>Measure</th><th>Result</th><th>LOINC</th><th>Grade</th></tr></thead><tbody>
+  <tr><td>1939-05-04</td><td>Body height</td><td>183 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1939-05-04</td><td>Body weight</td><td>89.5 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1939-05-04</td><td>Body mass index (BMI) [Ratio]</td><td>26.7 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1939-05-04</td><td>Systolic blood pressure</td><td>124 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1939-05-04</td><td>Diastolic blood pressure</td><td>78 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1939-05-04</td><td>Heart rate</td><td>68 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1939-05-04</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1939-05-04</td><td>Body temperature</td><td>36.7 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1939-05-04</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>98 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1939-05-18</td><td>Body height</td><td>183 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1939-05-18</td><td>Body weight</td><td>89.2 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1939-05-18</td><td>Body mass index (BMI) [Ratio]</td><td>26.6 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1939-05-18</td><td>Systolic blood pressure</td><td>122 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1939-05-18</td><td>Diastolic blood pressure</td><td>76 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1939-05-18</td><td>Heart rate</td><td>70 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1939-05-18</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1939-05-18</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1939-05-18</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>98 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1939-06-29</td><td>Body height</td><td>183 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1939-06-29</td><td>Body weight</td><td>88.4 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1939-06-29</td><td>Body mass index (BMI) [Ratio]</td><td>26.4 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1939-06-29</td><td>Systolic blood pressure</td><td>120 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1939-06-29</td><td>Diastolic blood pressure</td><td>76 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1939-06-29</td><td>Heart rate</td><td>72 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1939-06-29</td><td>Respiratory rate</td><td>15 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1939-06-29</td><td>Body temperature</td><td>36.7 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1939-06-29</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>98 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1939-08-24</td><td>Body height</td><td>183 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1939-08-24</td><td>Body weight</td><td>87.4 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1939-08-24</td><td>Body mass index (BMI) [Ratio]</td><td>26.1 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1939-08-24</td><td>Systolic blood pressure</td><td>118 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1939-08-24</td><td>Diastolic blood pressure</td><td>74 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1939-08-24</td><td>Heart rate</td><td>74 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1939-08-24</td><td>Respiratory rate</td><td>16 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1939-08-24</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1939-08-24</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>97 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1939-10-19</td><td>Body height</td><td>183 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1939-10-19</td><td>Body weight</td><td>86.6 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1939-10-19</td><td>Body mass index (BMI) [Ratio]</td><td>25.9 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1939-10-19</td><td>Systolic blood pressure</td><td>118 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1939-10-19</td><td>Diastolic blood pressure</td><td>74 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1939-10-19</td><td>Heart rate</td><td>76 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1939-10-19</td><td>Respiratory rate</td><td>16 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1939-10-19</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1939-10-19</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>97 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1939-07-20</td><td>Body height</td><td>183 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1939-07-20</td><td>Body weight</td><td>88 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1939-07-20</td><td>Body mass index (BMI) [Ratio]</td><td>26.3 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1939-07-20</td><td>Systolic blood pressure</td><td>122 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1939-07-20</td><td>Diastolic blood pressure</td><td>76 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1939-07-20</td><td>Heart rate</td><td>74 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1939-07-20</td><td>Respiratory rate</td><td>15 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1939-07-20</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1939-07-20</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>98 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1939-09-21</td><td>Body height</td><td>183 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1939-09-21</td><td>Body weight</td><td>87 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1939-09-21</td><td>Body mass index (BMI) [Ratio]</td><td>26 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1939-09-21</td><td>Systolic blood pressure</td><td>118 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1939-09-21</td><td>Diastolic blood pressure</td><td>74 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1939-09-21</td><td>Heart rate</td><td>74 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1939-09-21</td><td>Respiratory rate</td><td>16 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1939-09-21</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1939-09-21</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>97 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr></tbody></table></section>
+    <section><h2>Social, functional, and mental status</h2><h3>Social history</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Professional baseball player, a first baseman for New York for many seasons; studied at Columbia University; two days ago he took himself out of the lineup because of his weakness, ending a long run of consecutive games</li><li><span class="badge grade-S" title="Synthetic">S</span> Never smoked; one or two beers on some weekends; no other substance use</li><li><span class="badge grade-S" title="Synthetic">S</span> Lives with his wife in a house with stairs to the bedrooms; he chooses who comes to his visits and what they are told</li><li><span class="badge grade-S" title="Synthetic">S</span> Several concussions over his career, the last more than five years ago, without lasting symptoms</li><li><span class="badge grade-S" title="Synthetic">S</span> Strengths and supports: disciplined, steady and modest; used to training and working with a team; financially secure; a close household and many friends in the game</li></ul><h3>Functional status</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Independent in all daily activities, but slow with buttons and laces; climbs stairs holding the rail; walks without an aid and trips on curbs now and then</li></ul><h3>Mental status</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Alert, quiet and courteous; frustrated and worried by his loss of strength; PHQ-2 1</li></ul></section>
+    
+    <section><h2>Allergies and medications</h2><h3>Allergies</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> No known allergy</li></ul><h3>Medications</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Riluzole 50 mg oral tablet, one tablet by mouth twice daily, an hour before or two hours after meals</li><li><span class="badge grade-S" title="Synthetic">S</span> Ibuprofen 400 mg oral tablet, one tablet by mouth every 8 hours with food as needed for ankle pain, for up to 5 days</li></ul></section>
+    <section><h2>Procedures and immunizations</h2><h3>Procedures</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Seated spirometry (forced vital capacity)</li><li><span class="badge grade-S" title="Synthetic">S</span> MRI of the brain</li><li><span class="badge grade-S" title="Synthetic">S</span> MRI of the cervical spine</li><li><span class="badge grade-S" title="Synthetic">S</span> Needle electromyography of four body regions</li><li><span class="badge grade-S" title="Synthetic">S</span> Motor and sensory nerve conduction studies of the arms and legs</li><li><span class="badge grade-S" title="Synthetic">S</span> Genetic testing for ALS-associated genes (SOD1, C9orf72 repeat, FUS, TARDBP and others), with genetic counseling</li><li><span class="badge grade-S" title="Synthetic">S</span> Advance care planning conversation, about 30 minutes</li></ul><h3>Immunizations</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> 1939-09-21: Influenza vaccine, 1939-1940 season (inactivated)</li><li><span class="badge grade-S" title="Synthetic">S</span> 1939-09-21: COVID-19 vaccine, 1939-1940 formula</li><li><span class="badge grade-S" title="Synthetic">S</span> 1939-09-21: Hepatitis B vaccine (HepB-CpG), first of two doses</li><li><span class="badge grade-S" title="Synthetic">S</span> 1939-10-19: Hepatitis B vaccine (HepB-CpG), second of two doses</li></ul></section>
+    <section><h2>Past medical history</h2><p class="muted">True biography with historical dates; not part of the synthetic care timeline.</p><ul><li><span class="badge grade-D" title="Documented">D</span> 1938: Lumbago and a badly jammed thumb during the season <span class="muted">(CLM-0005)</span></li><li><span class="badge grade-D" title="Documented">D</span> During his playing career: Repeated head injuries, including concussions <span class="muted">(CLM-0012)</span></li></ul><h3>Family history</h3><ul><li><span class="badge grade-D" title="Documented">D</span> sister: Died in infancy at about three months; cause not recorded in the cited source</li><li><span class="badge grade-D" title="Documented">D</span> sister: Died in early childhood of measles, diphtheria and bronchopneumonia</li><li><span class="badge grade-D" title="Documented">D</span> brother: Died shortly after birth; cause not recorded in the cited source</li></ul></section>
+    <section><h2>Care-plan goals</h2><table><thead><tr><th>Goal</th><th>Target date</th><th>Status</th><th>Outcome</th></tr></thead><tbody>
+  <tr><td>A clear diagnosis, with mimics excluded, within four weeks</td><td>1939-05-18</td><td>completed</td><td>Diagnosis made at two weeks on EMG, MRI and blood tests</td></tr>
+  <tr><td>No falls, using an ankle-foot orthosis, a cane, and a safer home</td><td>1939-10-19</td><td>active</td><td>One fall with an ankle sprain in July, on a day the orthosis was not worn; no falls since it has been worn for all walking outdoors</td></tr>
+  <tr><td>Weight held within 5% of the weight at diagnosis</td><td>1939-10-19</td><td>completed</td><td>89.2 kg at diagnosis and 86.6 kg at five months (2.9% lower)</td></tr>
+  <tr><td>Breathing tracked every visit, with noninvasive ventilation started as soon as criteria are met</td><td>1939-10-19</td><td>active</td><td>FVC 72% and no symptoms at five months; overnight oximetry ordered</td></tr>
+  <tr><td>Goals of care, a health care agent, and his wishes about ventilation and feeding recorded early and revisited</td><td>1939-09-21</td><td>completed</td><td>Agent named and wishes recorded at the preventive visit</td></tr>
+  <tr><td>Working in a role that suits him, with accommodations</td><td>1939-10-19</td><td>completed</td><td>Started a desk role in public service with accommodations</td></tr></tbody></table></section>
+    <section><h2>Interventions</h2><table><thead><tr><th>Intervention</th><th>Status</th><th>Guideline</th></tr></thead><tbody>
+  <tr><td>Evaluation of progressive weakness with mixed upper and lower motor neuron signs: blood count, metabolic panel with calcium, creatine kinase, vitamin B12, TSH, A1c, serum protein electrophoresis with immunofixation, and an HIV test; MRI of the brain and cervical spine; seated spirometry</td><td>completed</td><td>GL-GOLDCOAST-2020, GL-ELESCORIAL-2000, GL-AAN-ALS-CARE-2009</td></tr>
+  <tr><td>Neuromuscular neurology consultation with EMG and nerve conduction studies for progressive weakness with mixed upper and lower motor neuron signs</td><td>completed</td><td>GL-GOLDCOAST-2020, GL-AAN-ALS-CARE-2009</td></tr>
+  <tr><td>Safety while the evaluation proceeds: no competitive play or heavy lifting, a physical therapy assessment of balance and gait, home fall precautions (night lights, rails, no loose rugs), and a same-day call for any trouble swallowing or breathing; results given to him first, in person</td><td>completed</td><td>GL-AAN-ALS-CARE-2009</td></tr>
+  <tr><td>Riluzole 50 mg twice daily, with ALT monthly for the first 3 months and then every 3 months, and a blood count with any fever; genetic testing with genetic counseling for ALS-associated genes, with tofersen only if an SOD1 variant is found; edaravone discussed as an option with modest evidence in a selected group</td><td>completed</td><td>GL-AAN-ALS-DRUG-2009, GL-ALS-GENETICS-2023, GL-TOFERSEN-2022</td></tr>
+  <tr><td>Multidisciplinary ALS clinic every 2 to 3 months (neurology, nursing, physical, occupational and speech therapy, nutrition, respiratory therapy, social work and mental health): ALSFRS-R, seated forced vital capacity and maximal inspiratory pressure, and weight at every visit; cognitive and behavioral screening; PHQ-9</td><td>completed</td><td>GL-AAN-ALS-CARE-2009, GL-ALSFRSR-1999</td></tr>
+  <tr><td>Respiratory plan: forced vital capacity and maximal inspiratory pressure every visit, supine capacity and overnight oximetry when values fall or symptoms appear; noninvasive ventilation when forced vital capacity is below 50% of predicted, maximal inspiratory pressure is weaker than -60 cmH2O, overnight oximetry shows desaturation, or orthopnea or morning headaches appear; influenza and COVID-19 vaccines</td><td>completed</td><td>GL-AAN-ALS-DRUG-2009, GL-CDC-IMZ-2026</td></tr>
+  <tr><td>Nutrition, speech, swallowing and mobility: a high-calorie diet to keep weight stable, with gastrostomy discussed early, while forced vital capacity is above 50%; speech and swallowing assessments every visit and voice banking; a left ankle-foot orthosis, a cane, and an early power wheelchair evaluation because of lead times; home and car adaptations</td><td>completed</td><td>GL-AAN-ALS-DRUG-2009, GL-AAN-ALS-CARE-2009</td></tr>
+  <tr><td>Work and planning: workplace accommodations for a desk role (accessible office, flexible hours, rest breaks, voice-recognition software, parking), information on disability benefits, social work support, and early advance care planning, revisited at each change</td><td>completed</td><td>GL-AAN-ALS-CARE-2009</td></tr></tbody></table></section>
+    <section><h2>Planned encounters</h2><ul>
+  <li><strong>1939-05-04</strong> — New patient with progressive weakness and loss of coordination: evaluation for a motor neuron disorder and its mimics, safety, and how he wants to receive results <span class="muted">(ENC-001)</span></li>
+  <li><strong>1939-05-18</strong> — Neuromuscular neurology consultation with EMG and nerve conduction studies; results of MRI and blood tests; diagnosis and start of treatment <span class="muted">(ENC-002)</span></li>
+  <li><strong>1939-06-29</strong> — Six weeks after diagnosis: riluzole safety, genetic test result, multidisciplinary ALS clinic, mobility, mood, and his decision about work <span class="muted">(ENC-003)</span></li>
+  <li><strong>1939-07-20</strong> — Same-day sick visit for a left ankle sprain <span class="muted">(ENC-006, unscheduled)</span></li>
+  <li><strong>1939-08-24</strong> — Three months after diagnosis: ALSFRS-R, breathing, weight, speech, mobility equipment, and work accommodations <span class="muted">(ENC-004)</span></li>
+  <li><strong>1939-09-21</strong> — Periodic adult preventive visit <span class="muted">(ENC-007)</span></li>
+  <li><strong>1939-10-19</strong> — Five months after diagnosis: breathing tests and noninvasive ventilation planning, nutrition and gastrostomy discussion, and his new desk work <span class="muted">(ENC-005)</span></li></ul></section>
+    <section><h2>Supporting documents</h2><ul><li><a href="notes/hp.md">History and physical</a></li><li><a href="notes/progress-01.md">Progress note 01</a></li><li><a href="notes/progress-02.md">Progress note 02 — Focused Visit (Follow-up)</a></li><li><a href="notes/progress-03.md">Progress note 03 — Focused Visit (Follow-up)</a></li><li><a href="notes/progress-04.md">Progress note 04 — Sick Visit</a></li><li><a href="notes/progress-05.md">Progress note 05 — Focused Visit (Follow-up)</a></li><li><a href="notes/progress-06.md">Progress note 06 — Preventive Visit</a></li><li><a href="notes/progress-07.md">Progress note 07 — Focused Visit (Care-plan review)</a></li><li><a href="notes/referral-01.md">Neurology (neuromuscular) referral</a></li><li><a href="notes/consult-01.md">Neurology (neuromuscular) consultation</a></li><li><a href="notes/careplan.md">Patient care plan</a></li><li><a href="notes/teaching-note.md">Teaching note</a></li><li><a href="provenance.csv">Provenance CSV</a></li></ul></section>
+    <section><h2>C-CDA note documents</h2><p class="muted">Each link opens a readable copy; the XML beside it is the exchange file.</p><ul><li><a href="ccda/hp-01.html">History and physical</a> <a href="ccda/hp-01.xml">(XML)</a></li><li><a href="ccda/progress-01.html">Progress note 01</a> <a href="ccda/progress-01.xml">(XML)</a></li><li><a href="ccda/progress-02.html">Progress note 02 — Focused Visit (Follow-up)</a> <a href="ccda/progress-02.xml">(XML)</a></li><li><a href="ccda/progress-03.html">Progress note 03 — Focused Visit (Follow-up)</a> <a href="ccda/progress-03.xml">(XML)</a></li><li><a href="ccda/progress-04.html">Progress note 04 — Sick Visit</a> <a href="ccda/progress-04.xml">(XML)</a></li><li><a href="ccda/progress-05.html">Progress note 05 — Focused Visit (Follow-up)</a> <a href="ccda/progress-05.xml">(XML)</a></li><li><a href="ccda/progress-06.html">Progress note 06 — Preventive Visit</a> <a href="ccda/progress-06.xml">(XML)</a></li><li><a href="ccda/progress-07.html">Progress note 07 — Focused Visit (Care-plan review)</a> <a href="ccda/progress-07.xml">(XML)</a></li><li><a href="ccda/referral-01.html">Neurology (neuromuscular) referral</a> <a href="ccda/referral-01.xml">(XML)</a></li><li><a href="ccda/consult-01.html">Neurology (neuromuscular) consultation</a> <a href="ccda/consult-01.xml">(XML)</a></li></ul></section>
+    <section><h2>Sources</h2><table><thead><tr><th>ID</th><th>Source</th><th>Publisher</th><th>Type</th></tr></thead><tbody>
+  <tr>
+    <td>SRC-0001</td>
+    <td><a href="https://sabr.org/bioproj/person/lou-gehrig/" target="_blank" rel="noreferrer">Ray JL. Lou Gehrig</a></td>
+    <td>Society for American Baseball Research (SABR) BioProject</td>
+    <td>biography</td>
+  </tr>
+  <tr>
+    <td>SRC-0002</td>
+    <td><a href="https://baseballhall.org/discover/gehrig-frates-hunter-furthered-als-cause" target="_blank" rel="noreferrer">Gehrig, Hunter and Frates each furthered cause of ALS cure</a></td>
+    <td>National Baseball Hall of Fame and Museum</td>
+    <td>biography</td>
+  </tr>
+  <tr>
+    <td>SRC-0003</td>
+    <td><a href="https://baseballhall.org/discover/gehrig-played-final-game-on-day-hall-of-fame-opened" target="_blank" rel="noreferrer">Hall of Fame opened the day of Lou Gehrig&#39;s final game</a></td>
+    <td>National Baseball Hall of Fame and Museum</td>
+    <td>biography</td>
+  </tr>
+  <tr>
+    <td>SRC-0004</td>
+    <td><a href="https://www.pbs.org/newshour/health/did-lou-gehrig-actually-die-of-lou-gehrigs-disease" target="_blank" rel="noreferrer">Markel H. Did Lou Gehrig actually die of Lou Gehrig&#39;s disease?</a></td>
+    <td>PBS NewsHour</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0005</td>
+    <td><a href="https://humanrecord.example.org/internal/HISTMED_Master_Roster_v3.xlsx" target="_blank" rel="noreferrer">HISTMED Master Roster v3</a></td>
+    <td>The Human Record project</td>
+    <td>other</td>
+  </tr></tbody></table></section>
+    <section><h2>Review status</h2><table><thead><tr><th>Review</th><th>Status</th><th>Notes</th></tr></thead><tbody>
+  <tr><td>schema validation</td><td>not_started</td><td>Run scripts/build.ps1 -Conformance.</td></tr>
+  <tr><td>clinical review</td><td>not_started</td><td>Awaiting clinician review; check the mimic work-up, the EMG criteria (Gold Coast and revised El Escorial), riluzole liver monitoring, the decisions on edaravone and tofersen, the noninvasive ventilation thresholds, gastrostomy timing, and work accommodation.</td></tr>
+  <tr><td>provenance review</td><td>not_started</td><td>The SABR biography (Ray), two National Baseball Hall of Fame articles, and PBS NewsHour (Markel 2016) logged. The death date conflict (June 2 or 3, 1941) and the head-trauma hypothesis (R, disputed) are recorded.</td></tr>
+  <tr><td>safe messaging review</td><td>not_started</td><td>A progressive fatal illness: the modern episode screens mood at every visit (PHQ-9 below 10 throughout) and plans care early; his documented speech is quoted only as history; no decision, statement or health fact is attributed to his wife or other real people.</td></tr></tbody></table></section>
+  </main>
+</body>
+</html>

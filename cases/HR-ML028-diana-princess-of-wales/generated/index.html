@@ -1,0 +1,643 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Diana, Princess of Wales — The Human Record</title>
+  <style>
+    :root { --navy:#17365d; --blue:#1f4e78; --pale:#eef5fa; --ink:#1f2933; --muted:#66788a; --amber:#fff2cc; --red:#f8d7da; --green:#d9ead3; }
+    * { box-sizing:border-box; }
+    body { margin:0; font:16px/1.5 Arial, sans-serif; color:var(--ink); background:#f6f8fa; }
+    header { background:var(--navy); color:white; padding:24px max(24px,calc((100vw - 1180px)/2)); }
+    header h1 { margin:4px 0; font-size:30px; }
+    .banner { background:#b42318; color:white; font-weight:700; text-align:center; padding:10px; letter-spacing:.03em; }
+    main { max-width:1180px; margin:24px auto 60px; padding:0 24px; }
+    section { background:white; border:1px solid #d9e1e8; border-radius:8px; margin:18px 0; padding:20px; }
+    h2 { color:var(--navy); margin:0 0 14px; font-size:22px; }
+    h3 { color:var(--blue); }
+    .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:12px; }
+    .card { background:var(--pale); border-left:4px solid var(--blue); padding:12px; }
+    .label { color:var(--muted); font-size:13px; text-transform:uppercase; letter-spacing:.04em; }
+    table { width:100%; border-collapse:collapse; }
+    th { background:var(--blue); color:white; text-align:left; }
+    th,td { padding:9px; border-bottom:1px solid #dfe6ec; vertical-align:top; }
+    .badge { display:inline-block; min-width:28px; text-align:center; font-weight:700; border-radius:12px; padding:2px 8px; }
+    .grade-D { background:var(--green); } .grade-R { background:var(--amber); } .grade-S { background:var(--red); }
+    .muted { color:var(--muted); font-size:14px; }
+    .relationship { color:var(--muted); font-size:12px; }
+    .downloads a { display:inline-block; margin:4px 8px 4px 0; padding:8px 12px; background:var(--blue); color:white; text-decoration:none; border-radius:5px; }
+    @media (max-width:700px) { table { display:block; overflow-x:auto; } }
+  </style>
+</head>
+<body>
+  <div class="banner">SYNTHETIC RECORD, NOT A REAL MEDICAL RECORD</div>
+  <header>
+    <div>The Human Record</div>
+    <h1>Diana, Princess of Wales</h1>
+    <div>Case HR-ML028 · Modern EHR teaching episode · Draft for review</div>
+  </header>
+  <main>
+    <section>
+      <h2>Review summary</h2>
+      <div class="grid">
+        <div class="card"><div class="label">Historical dates</div>1 July 1961 – 31 August 1997</div>
+        <div class="card"><div class="label">Synthetic DOB</div>1997-07-01</div>
+        <div class="card"><div class="label">Index visit</div>2026-02-09 at age 28</div>
+        <div class="card"><div class="label">Synthetic MRN</div>HR-ML028-SYN</div>
+      </div>
+      <p><strong>Teaching objective:</strong> Respectful, unhurried primary care for a 28-year-old woman who asks for help with bulimia nervosa she has hidden for years: a structured eating-disorder assessment (SCOFF and EDE-Q) and DSM-5-TR severity grading; a medical risk assessment for purging (orthostatic vital signs, potassium, magnesium, phosphate and bicarbonate, an ECG with the QTc, and the parotid, dental and skin findings of vomiting), with oral potassium replacement and clear thresholds for a higher level of care; eating-disorder-focused cognitive behavioral therapy (CBT-E) as first-line treatment with fluoxetine 60 mg daily, the medicine with the best evidence; nutrition built on regular eating; dental protection; measurement-based care for co-occurring depression; and a structured safety assessment with the 988 Suicide &amp; Crisis Lifeline reviewed at every visit, on the APA 2023 eating disorders guideline, NICE NG69, and the CMID depression monograph.</p>
+      <div class="downloads">
+        <a href="../case.json">Canonical JSON</a>
+        <a href="fhir-bundle.json">FHIR R4 draft</a>
+        <a href="ccda.html">C-CDA R2.1 summary</a> <a href="ccda.xml">(XML)</a> <a href="review.html">Review checklist</a>
+        <a href="../sources.md">Evidence dossier</a>
+      </div>
+    </section>
+    <section><h2>Historical timeline</h2><table><thead><tr><th>Date</th><th>Event</th><th>Claims</th></tr></thead><tbody>
+  <tr><td>1 July 1961</td><td>Born at Park House, near Sandringham, Norfolk.</td><td>CLM-0001</td></tr>
+  <tr><td>29 July 1981</td><td>Married at St Paul&#39;s Cathedral, London.</td><td>CLM-0002</td></tr>
+  <tr><td>December 1992</td><td>Separated.</td><td>CLM-0004</td></tr>
+  <tr><td>20 November 1995</td><td>Panorama interview broadcast, in which she spoke of bulimia, post-natal depression, and self-injury.</td><td>CLM-0005, CLM-0006, CLM-0007, CLM-0008</td></tr>
+  <tr><td>28 August 1996</td><td>Divorced.</td><td>CLM-0004</td></tr>
+  <tr><td>31 August 1997</td><td>Died in Paris after a car crash.</td><td>CLM-0010</td></tr>
+  <tr><td>May 2021</td><td>BBC-commissioned inquiry found the interview had been obtained by deceit.</td><td>CLM-0009</td></tr></tbody></table></section>
+    <section><h2>Evidence claims</h2><p class="muted">D = documented, R = retrospective, S = synthetic.</p><table><thead><tr><th>Grade</th><th>Claim</th><th>Certainty</th><th>Sources</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>She was born The Honourable Diana Frances Spencer on 1 July 1961 at Park House, near Sandringham in Norfolk, England.</strong><div class="muted">Spencer is her birth surname, used for the coded family name.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.royal.uk/diana-princess-wales" target="_blank" rel="noreferrer">Diana, Princess of Wales</a> <span class="relationship">supports</span><br><a href="https://humanrecord.example.org/internal/HISTMED_Master_Roster_v3.xlsx" target="_blank" rel="noreferrer">HISTMED Master Roster v3</a> <span class="relationship">context</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>On 29 July 1981 she married the Prince of Wales at St Paul&#39;s Cathedral in London.</strong><div class="muted">Context only. The modern episode gives no role to her former husband, her children, or any other living person.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.royal.uk/diana-princess-wales" target="_blank" rel="noreferrer">Diana, Princess of Wales</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>During her marriage she was president or patron of more than 100 charities, and she drew attention to homelessness, disability, children&#39;s causes, and HIV/AIDS.</strong><div class="muted">Her charity work anchors the modern work history.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.royal.uk/diana-princess-wales" target="_blank" rel="noreferrer">Diana, Princess of Wales</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>She and the Prince of Wales separated in December 1992 and divorced on 28 August 1996.</strong><div class="muted">After the index date; context only.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.royal.uk/diana-princess-wales" target="_blank" rel="noreferrer">Diana, Princess of Wales</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>In an interview broadcast on the BBC&#39;s Panorama programme on 20 November 1995, she said that she had had bulimia for a number of years, calling it &quot;a secret disease&quot; that you inflict upon yourself &quot;because your self-esteem is at a low ebb&quot;; asked how long it went on, she said &quot;a long time&quot;, a little more than two or three years, and &quot;I&#39;m free of it now&quot;.</strong><div class="muted">Her own public account, given after the index date. It anchors the modern episode of bulimia nervosa; the frequency, findings and treatment in the modern episode are synthetic.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.pbs.org/wgbh/pages/frontline/shows/royals/interviews/bbc.html" target="_blank" rel="noreferrer">Interview with Diana, Princess of Wales (BBC Panorama, transcript)</a> <span class="relationship">supports</span><br><a href="https://www.upi.com/Archives/1995/11/20/Princess-Diana-admits-affair/7674816843600/" target="_blank" rel="noreferrer">Princess Diana admits affair</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>In the same interview she said that with bulimia &quot;you fill your stomach up four or five times a day&quot; and that &quot;it gives you a feeling of comfort&quot;; that it &quot;was a symptom of what was going on in my marriage&quot;; and that &quot;when you have bulimia you&#39;re very ashamed of yourself&quot;, so you do not discuss it with people.</strong><div class="muted">Her own words, recorded as history. The modern episode does not repeat her account of her marriage and gives no role to any real person.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.pbs.org/wgbh/pages/frontline/shows/royals/interviews/bbc.html" target="_blank" rel="noreferrer">Interview with Diana, Princess of Wales (BBC Panorama, transcript)</a> <span class="relationship">supports</span><br><a href="https://www.upi.com/Archives/1995/11/20/Princess-Diana-admits-affair/7674816843600/" target="_blank" rel="noreferrer">Princess Diana admits affair</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>In the same interview she said that she had been unwell with post-natal depression, &quot;which no one ever discusses&quot;.</strong><div class="muted">Her own public account of depression, recorded briefly as history; the modern mood findings are synthetic.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.pbs.org/wgbh/pages/frontline/shows/royals/interviews/bbc.html" target="_blank" rel="noreferrer">Interview with Diana, Princess of Wales (BBC Panorama, transcript)</a> <span class="relationship">supports</span><br><a href="https://www.upi.com/Archives/1995/11/20/Princess-Diana-admits-affair/7674816843600/" target="_blank" rel="noreferrer">Princess Diana admits affair</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>In the same interview she said that at a time of great distress she had hurt her arms and legs: &quot;You have so much pain inside yourself that you try and hurt yourself on the outside&quot;.</strong><div class="muted">Her own public account, recorded briefly as history only. The modern safety assessment notes past self-injury only as part of this history.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.pbs.org/wgbh/pages/frontline/shows/royals/interviews/bbc.html" target="_blank" rel="noreferrer">Interview with Diana, Princess of Wales (BBC Panorama, transcript)</a> <span class="relationship">supports</span><br><a href="https://www.upi.com/Archives/1995/11/20/Princess-Diana-admits-affair/7674816843600/" target="_blank" rel="noreferrer">Princess Diana admits affair</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>In May 2021 an independent inquiry commissioned by the BBC and led by Lord Dyson found that the 1995 interview had been obtained by deceit, in serious breach of the BBC&#39;s producer guidelines; the BBC accepted the findings in full and apologized.</strong><div class="muted">Bears on how the interview was obtained, not on the words she spoke in it; recorded because the case relies on the interview.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.cbsnews.com/news/princess-diana-interview-bbc-martin-bashir-decieved-earl-spencer-dyson-report/" target="_blank" rel="noreferrer">BBC journalist &quot;deceived and induced&quot; to land bombshell interview with Princess Diana, report says</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>She died in Paris on 31 August 1997 after a car crash.</strong><div class="muted">History only.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.royal.uk/diana-princess-wales" target="_blank" rel="noreferrer">Diana, Princess of Wales</a> <span class="relationship">supports</span></td>
+  </tr></tbody></table></section>
+    <section><h2>Modern synthetic problem list</h2><table><thead><tr><th>Grade</th><th>Problem</th><th>Clinical status</th><th>Verification</th><th>Placement</th><th>Historical claims</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Bulimia nervosa, severe: recurrent binge eating, each time with self-induced vomiting, averaging about ten episodes a week for about three years, hidden from everyone; self-worth tied closely to body shape and weight; no laxatives, diuretics, diet pills, or excessive exercise. SCOFF 4 of 5; EDE-Q global score 3.9. Findings: bilateral parotid enlargement, enamel erosion on the inner surfaces of the upper front teeth, calluses on the backs of two knuckles of the right hand, a pulse rise of 22 per minute on standing, low potassium and chloride with a raised bicarbonate, and a raised amylase; BMI 19.3. Synthetic modern episode linked to her own public account of bulimia</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td>CLM-0005, CLM-0006</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Hypokalemia (potassium 3.1 mmol/L) with low chloride and metabolic alkalosis from repeated vomiting; QTc 452 ms; no palpitations, weakness, or fainting</td>
+    <td>resolved</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td>CLM-0005, CLM-0006</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Major depressive disorder, recurrent, moderate: about two months of low mood, tiredness, poor sleep, and feeling worthless and hopeless, with little pleasure in things she used to enjoy; PHQ-9 14 with item 9 scored 0; an earlier episode of depression after childbirth. Synthetic modern episode linked to her own public account of depression</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td>CLM-0007</td>
+  </tr></tbody></table></section>
+    <section><h2>Synthetic outcome measures</h2><table><thead><tr><th>Grade</th><th>Date</th><th>Measure</th><th>Result</th><th>Coding</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-02-09</td>
+    <td>Leukocytes [#/volume] in Blood by Automated count</td>
+    <td>5.8 10*3/uL<div class="muted">Reference 4-11 10*3/uL</div></td>
+    <td>http://loinc.org · 6690-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-02-09</td>
+    <td>Hemoglobin [Mass/volume] in Blood</td>
+    <td>12.9 g/dL<div class="muted">Reference 11.6-15 g/dL</div></td>
+    <td>http://loinc.org · 718-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-02-09</td>
+    <td>Platelets [#/volume] in Blood by Automated count</td>
+    <td>236 10*3/uL<div class="muted">Reference 150-400 10*3/uL</div></td>
+    <td>http://loinc.org · 777-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-02-09</td>
+    <td>Sodium [Moles/volume] in Serum or Plasma</td>
+    <td>137 mmol/L<div class="muted">Reference 135-145 mmol/L</div></td>
+    <td>http://loinc.org · 2951-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-02-09</td>
+    <td>Potassium [Moles/volume] in Serum or Plasma</td>
+    <td>3.1 mmol/L (low)<div class="muted">Reference 3.5-5.1 mmol/L</div></td>
+    <td>http://loinc.org · 2823-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-02-09</td>
+    <td>Chloride [Moles/volume] in Serum or Plasma</td>
+    <td>94 mmol/L (low)<div class="muted">Reference 98-107 mmol/L</div></td>
+    <td>http://loinc.org · 2075-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-02-09</td>
+    <td>Carbon dioxide, total [Moles/volume] in Serum or Plasma</td>
+    <td>32 mmol/L (high)<div class="muted">Reference 22-29 mmol/L</div></td>
+    <td>http://loinc.org · 2028-9</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-02-09</td>
+    <td>Urea nitrogen [Mass/volume] in Serum or Plasma</td>
+    <td>19 mg/dL<div class="muted">Reference 7-20 mg/dL</div></td>
+    <td>http://loinc.org · 3094-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-02-09</td>
+    <td>Creatinine [Mass/volume] in Serum or Plasma</td>
+    <td>0.84 mg/dL<div class="muted">Reference 0.59-1.04 mg/dL</div></td>
+    <td>http://loinc.org · 2160-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-02-09</td>
+    <td>Glomerular filtration rate [Volume Rate/Area] in Serum, Plasma or Blood by Creatinine-based formula (CKD-EPI 2021)/1.73 sq M</td>
+    <td>97 mL/min/1.73 m²<div class="muted">Reference &gt;=60 mL/min/1.73 m²</div></td>
+    <td>http://loinc.org · 98979-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-02-09</td>
+    <td>Glucose [Mass/volume] in Serum or Plasma</td>
+    <td>81 mg/dL<div class="muted">Reference 70-99 mg/dL</div></td>
+    <td>http://loinc.org · 2345-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-02-09</td>
+    <td>Calcium [Mass/volume] in Serum or Plasma</td>
+    <td>9.3 mg/dL<div class="muted">Reference 8.6-10.2 mg/dL</div></td>
+    <td>http://loinc.org · 17861-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-02-09</td>
+    <td>Magnesium [Mass/volume] in Serum or Plasma</td>
+    <td>1.8 mg/dL<div class="muted">Reference 1.7-2.2 mg/dL</div></td>
+    <td>http://loinc.org · 19123-9</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-02-09</td>
+    <td>Phosphate [Mass/volume] in Serum or Plasma</td>
+    <td>3.4 mg/dL<div class="muted">Reference 2.5-4.5 mg/dL</div></td>
+    <td>http://loinc.org · 2777-1</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-02-09</td>
+    <td>Amylase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>146 U/L (high)<div class="muted">Reference 28-100 U/L</div></td>
+    <td>http://loinc.org · 1798-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-02-09</td>
+    <td>Thyrotropin [Units/volume] in Serum or Plasma</td>
+    <td>1.8 mIU/L<div class="muted">Reference 0.45-4.5 mIU/L</div></td>
+    <td>http://loinc.org · 3016-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-02-09</td>
+    <td>Q-T interval corrected</td>
+    <td>452 ms<div class="muted">Reference Above 460 ms is prolonged in women</div></td>
+    <td>http://loinc.org · 8636-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-02-09</td>
+    <td>Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]</td>
+    <td>14</td>
+    <td>http://loinc.org · 44261-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-02-09</td>
+    <td>Total score [AUDIT-C]</td>
+    <td>2</td>
+    <td>http://loinc.org · 75626-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-02-16</td>
+    <td>Sodium [Moles/volume] in Serum or Plasma</td>
+    <td>139 mmol/L<div class="muted">Reference 135-145 mmol/L</div></td>
+    <td>http://loinc.org · 2951-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-02-16</td>
+    <td>Potassium [Moles/volume] in Serum or Plasma</td>
+    <td>3.6 mmol/L<div class="muted">Reference 3.5-5.1 mmol/L</div></td>
+    <td>http://loinc.org · 2823-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-02-16</td>
+    <td>Chloride [Moles/volume] in Serum or Plasma</td>
+    <td>99 mmol/L<div class="muted">Reference 98-107 mmol/L</div></td>
+    <td>http://loinc.org · 2075-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-02-16</td>
+    <td>Carbon dioxide, total [Moles/volume] in Serum or Plasma</td>
+    <td>28 mmol/L<div class="muted">Reference 22-29 mmol/L</div></td>
+    <td>http://loinc.org · 2028-9</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-02-16</td>
+    <td>Creatinine [Mass/volume] in Serum or Plasma</td>
+    <td>0.8 mg/dL<div class="muted">Reference 0.59-1.04 mg/dL</div></td>
+    <td>http://loinc.org · 2160-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-02-16</td>
+    <td>Glomerular filtration rate [Volume Rate/Area] in Serum, Plasma or Blood by Creatinine-based formula (CKD-EPI 2021)/1.73 sq M</td>
+    <td>103 mL/min/1.73 m²<div class="muted">Reference &gt;=60 mL/min/1.73 m²</div></td>
+    <td>http://loinc.org · 98979-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-02-16</td>
+    <td>Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]</td>
+    <td>13</td>
+    <td>http://loinc.org · 44261-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-16</td>
+    <td>Sodium [Moles/volume] in Serum or Plasma</td>
+    <td>140 mmol/L<div class="muted">Reference 135-145 mmol/L</div></td>
+    <td>http://loinc.org · 2951-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-16</td>
+    <td>Potassium [Moles/volume] in Serum or Plasma</td>
+    <td>3.9 mmol/L<div class="muted">Reference 3.5-5.1 mmol/L</div></td>
+    <td>http://loinc.org · 2823-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-16</td>
+    <td>Chloride [Moles/volume] in Serum or Plasma</td>
+    <td>101 mmol/L<div class="muted">Reference 98-107 mmol/L</div></td>
+    <td>http://loinc.org · 2075-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-16</td>
+    <td>Carbon dioxide, total [Moles/volume] in Serum or Plasma</td>
+    <td>26 mmol/L<div class="muted">Reference 22-29 mmol/L</div></td>
+    <td>http://loinc.org · 2028-9</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-16</td>
+    <td>Creatinine [Mass/volume] in Serum or Plasma</td>
+    <td>0.78 mg/dL<div class="muted">Reference 0.59-1.04 mg/dL</div></td>
+    <td>http://loinc.org · 2160-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-16</td>
+    <td>Glomerular filtration rate [Volume Rate/Area] in Serum, Plasma or Blood by Creatinine-based formula (CKD-EPI 2021)/1.73 sq M</td>
+    <td>106 mL/min/1.73 m²<div class="muted">Reference &gt;=60 mL/min/1.73 m²</div></td>
+    <td>http://loinc.org · 98979-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-16</td>
+    <td>Magnesium [Mass/volume] in Serum or Plasma</td>
+    <td>2 mg/dL<div class="muted">Reference 1.7-2.2 mg/dL</div></td>
+    <td>http://loinc.org · 19123-9</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-16</td>
+    <td>Q-T interval corrected</td>
+    <td>441 ms<div class="muted">Reference Above 460 ms is prolonged in women</div></td>
+    <td>http://loinc.org · 8636-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-16</td>
+    <td>Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]</td>
+    <td>9</td>
+    <td>http://loinc.org · 44261-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-04-13</td>
+    <td>Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]</td>
+    <td>7</td>
+    <td>http://loinc.org · 44261-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-04-13</td>
+    <td>Total score [AUDIT-C]</td>
+    <td>1</td>
+    <td>http://loinc.org · 75626-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-05-11</td>
+    <td>Sodium [Moles/volume] in Serum or Plasma</td>
+    <td>139 mmol/L<div class="muted">Reference 135-145 mmol/L</div></td>
+    <td>http://loinc.org · 2951-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-05-11</td>
+    <td>Potassium [Moles/volume] in Serum or Plasma</td>
+    <td>4.1 mmol/L<div class="muted">Reference 3.5-5.1 mmol/L</div></td>
+    <td>http://loinc.org · 2823-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-05-11</td>
+    <td>Chloride [Moles/volume] in Serum or Plasma</td>
+    <td>102 mmol/L<div class="muted">Reference 98-107 mmol/L</div></td>
+    <td>http://loinc.org · 2075-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-05-11</td>
+    <td>Carbon dioxide, total [Moles/volume] in Serum or Plasma</td>
+    <td>25 mmol/L<div class="muted">Reference 22-29 mmol/L</div></td>
+    <td>http://loinc.org · 2028-9</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-05-11</td>
+    <td>Creatinine [Mass/volume] in Serum or Plasma</td>
+    <td>0.79 mg/dL<div class="muted">Reference 0.59-1.04 mg/dL</div></td>
+    <td>http://loinc.org · 2160-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-05-11</td>
+    <td>Glomerular filtration rate [Volume Rate/Area] in Serum, Plasma or Blood by Creatinine-based formula (CKD-EPI 2021)/1.73 sq M</td>
+    <td>104 mL/min/1.73 m²<div class="muted">Reference &gt;=60 mL/min/1.73 m²</div></td>
+    <td>http://loinc.org · 98979-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-05-11</td>
+    <td>Amylase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>88 U/L<div class="muted">Reference 28-100 U/L</div></td>
+    <td>http://loinc.org · 1798-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-05-11</td>
+    <td>Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]</td>
+    <td>5</td>
+    <td>http://loinc.org · 44261-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-07-13</td>
+    <td>Sodium [Moles/volume] in Serum or Plasma</td>
+    <td>140 mmol/L<div class="muted">Reference 135-145 mmol/L</div></td>
+    <td>http://loinc.org · 2951-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-07-13</td>
+    <td>Potassium [Moles/volume] in Serum or Plasma</td>
+    <td>4.2 mmol/L<div class="muted">Reference 3.5-5.1 mmol/L</div></td>
+    <td>http://loinc.org · 2823-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-07-13</td>
+    <td>Chloride [Moles/volume] in Serum or Plasma</td>
+    <td>103 mmol/L<div class="muted">Reference 98-107 mmol/L</div></td>
+    <td>http://loinc.org · 2075-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-07-13</td>
+    <td>Carbon dioxide, total [Moles/volume] in Serum or Plasma</td>
+    <td>25 mmol/L<div class="muted">Reference 22-29 mmol/L</div></td>
+    <td>http://loinc.org · 2028-9</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-07-13</td>
+    <td>Creatinine [Mass/volume] in Serum or Plasma</td>
+    <td>0.8 mg/dL<div class="muted">Reference 0.59-1.04 mg/dL</div></td>
+    <td>http://loinc.org · 2160-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-07-13</td>
+    <td>Glomerular filtration rate [Volume Rate/Area] in Serum, Plasma or Blood by Creatinine-based formula (CKD-EPI 2021)/1.73 sq M</td>
+    <td>102 mL/min/1.73 m²<div class="muted">Reference &gt;=60 mL/min/1.73 m²</div></td>
+    <td>http://loinc.org · 98979-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-07-13</td>
+    <td>Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]</td>
+    <td>4</td>
+    <td>http://loinc.org · 44261-6</td>
+  </tr></tbody></table></section>
+    <section><h2>Synthetic vital signs</h2><table><thead><tr><th>Date</th><th>Measure</th><th>Result</th><th>LOINC</th><th>Grade</th></tr></thead><tbody>
+  <tr><td>2026-02-09</td><td>Body height</td><td>178 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-02-09</td><td>Body weight</td><td>61 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-02-09</td><td>Body mass index (BMI) [Ratio]</td><td>19.3 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-02-09</td><td>Systolic blood pressure</td><td>102 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-02-09</td><td>Diastolic blood pressure</td><td>64 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-02-09</td><td>Heart rate</td><td>66 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-02-09</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-02-09</td><td>Body temperature</td><td>36.4 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-02-09</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>99 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-02-16</td><td>Body height</td><td>178 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-02-16</td><td>Body weight</td><td>61.2 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-02-16</td><td>Body mass index (BMI) [Ratio]</td><td>19.3 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-02-16</td><td>Systolic blood pressure</td><td>104 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-02-16</td><td>Diastolic blood pressure</td><td>66 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-02-16</td><td>Heart rate</td><td>68 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-02-16</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-02-16</td><td>Body temperature</td><td>36.5 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-02-16</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>99 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-16</td><td>Body height</td><td>178 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-16</td><td>Body weight</td><td>61.6 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-16</td><td>Body mass index (BMI) [Ratio]</td><td>19.4 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-16</td><td>Systolic blood pressure</td><td>106 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-16</td><td>Diastolic blood pressure</td><td>66 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-16</td><td>Heart rate</td><td>70 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-16</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-16</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-16</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>99 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-05-11</td><td>Body height</td><td>178 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-05-11</td><td>Body weight</td><td>62 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-05-11</td><td>Body mass index (BMI) [Ratio]</td><td>19.6 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-05-11</td><td>Systolic blood pressure</td><td>108 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-05-11</td><td>Diastolic blood pressure</td><td>68 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-05-11</td><td>Heart rate</td><td>68 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-05-11</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-05-11</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-05-11</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>99 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-07-13</td><td>Body height</td><td>178 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-07-13</td><td>Body weight</td><td>62.1 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-07-13</td><td>Body mass index (BMI) [Ratio]</td><td>19.6 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-07-13</td><td>Systolic blood pressure</td><td>108 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-07-13</td><td>Diastolic blood pressure</td><td>68 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-07-13</td><td>Heart rate</td><td>66 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-07-13</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-07-13</td><td>Body temperature</td><td>36.5 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-07-13</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>99 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-13</td><td>Body height</td><td>178 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-13</td><td>Body weight</td><td>61.8 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-13</td><td>Body mass index (BMI) [Ratio]</td><td>19.5 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-13</td><td>Systolic blood pressure</td><td>106 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-13</td><td>Diastolic blood pressure</td><td>68 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-13</td><td>Heart rate</td><td>68 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-13</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-13</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-13</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>99 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr></tbody></table></section>
+    <section><h2>Social, functional, and mental status</h2><h3>Social history</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Works full time for charities that support homeless young people, people with disabilities, and people living with HIV; travels often for her work and enjoys meeting the people it serves</li><li><span class="badge grade-S" title="Synthetic">S</span> Lives alone in an apartment; not in a relationship now; close friends, none of whom knows about the bulimia</li><li><span class="badge grade-S" title="Synthetic">S</span> Alcohol: a glass or two of wine at weekends (AUDIT-C 2); no cannabis or other drugs; no laxatives, diuretics, diet pills, or ipecac</li><li><span class="badge grade-S" title="Synthetic">S</span> Tobacco: does not smoke</li><li><span class="badge grade-S" title="Synthetic">S</span> Eating and exercise: skips breakfast and lunch on most days, then binges in the evening and makes herself sick, often more than once; on bad days several episodes. Swims or goes to the gym three or four times a week for enjoyment, not to make up for eating. Coffee three cups a day</li><li><span class="badge grade-S" title="Synthetic">S</span> Sexual and reproductive health: regular periods; not sexually active now; not planning a pregnancy</li><li><span class="badge grade-S" title="Synthetic">S</span> Supports: her friends and her work, which gives her purpose; she wants care that is kept private and decides who is told about her health</li></ul><h3>Functional status</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Independent in all activities; working full time but exhausted in the mornings after evenings of bingeing and vomiting</li><li><span class="badge grade-S" title="Synthetic">S</span> Examination: lying blood pressure 102/64 and pulse 66; after three minutes standing 98/62 and pulse 88, a rise of 22 per minute, without dizziness; both parotid glands visibly enlarged and non-tender; enamel erosion on the inner surfaces of the upper front teeth; small calluses on the backs of two knuckles of the right hand; no edema; skin intact, no scars of recent self-injury</li></ul><h3>Mental status</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Alert, articulate, and warm; tearful and ashamed when describing the bingeing and vomiting, and relieved to have said it; thought process organized; no psychotic features; insight good</li><li><span class="badge grade-S" title="Synthetic">S</span> Mood low, tired, and hopeless about stopping; feels worthless; PHQ-9 14 with item 9 scored 0; no current thoughts of suicide or self-harm</li></ul></section>
+    <section><h2>Structured safety assessment</h2><div class="grid"><div class="card"><div class="label">Current ideation</div>absent</div><div class="card"><div class="label">Intent</div>absent</div><div class="card"><div class="label">Plan</div>absent</div><div class="card"><div class="label">Disposition</div>Outpatient care with close follow-up. She has no current thoughts of suicide or self-harm and no self-injury now; past self-injury at a time of great distress is part of her history and was discussed with her gently. Eating disorders and depression both raise the risk of suicide and self-harm, so a written safety plan was made with her, with her own warning signs (a run of bad nights of bingeing, feeling hopeless, or wanting to hurt herself) and what to do about each, including whom to call. Lethal-means counseling: no firearm and no access to one; medicines are kept in small amounts. The 988 Suicide &amp; Crisis Lifeline (call or text 988) was given and saved in her phone, with the clinic number. Safety reviewed at every visit</div></div><p class="muted">This assessment is synthetic and does not convert historical behavior into a present-day fact.</p></section>
+    <section><h2>Allergies and medications</h2><h3>Allergies</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> No known allergy</li></ul><h3>Medications</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Potassium chloride 20 mEq extended-release oral tablet, one tablet by mouth twice daily with food</li><li><span class="badge grade-S" title="Synthetic">S</span> Fluoxetine 20 mg oral capsule, one capsule by mouth each morning for one week, then two capsules each morning for one week</li><li><span class="badge grade-S" title="Synthetic">S</span> Fluoxetine 60 mg oral tablet, one tablet by mouth each morning</li></ul></section>
+    <section><h2>Procedures and immunizations</h2><h3>Procedures</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Advance care planning conversation, about 16 minutes</li></ul><h3>Immunizations</h3><ul></ul></section>
+    <section><h2>Past medical history</h2><p class="muted">True biography with historical dates; not part of the synthetic care timeline.</p><ul></ul><h3>Family history</h3><p class="muted">No family medical history is documented in the logged sources. Family history of real relatives is never synthesized.</p></section>
+    <section><h2>Care-plan goals</h2><table><thead><tr><th>Goal</th><th>Target date</th><th>Status</th><th>Outcome</th></tr></thead><tbody>
+  <tr><td>No binge eating or vomiting for at least four weeks by the end of 20 weeks of CBT-E</td><td>2026-07-13</td><td>completed</td><td>No binge eating or vomiting for six weeks</td></tr>
+  <tr><td>Potassium at least 3.5 mmol/L on two checks within four weeks</td><td>2026-03-16</td><td>completed</td><td>Potassium 3.6 and 3.9 mmol/L; supplement stopped</td></tr>
+  <tr><td>Regular eating (three meals and two or three snacks) on most days by three months</td><td>2026-05-11</td><td>completed</td><td>Regular eating on six or seven days a week</td></tr>
+  <tr><td>PHQ-9 score below 5 by the end of treatment</td><td>2026-07-13</td><td>completed</td><td>PHQ-9 4</td></tr>
+  <tr><td>EDE-Q global score below 2.0 by the end of treatment</td><td>2026-07-13</td><td>completed</td><td>EDE-Q global score 1.6</td></tr></tbody></table></section>
+    <section><h2>Interventions</h2><table><thead><tr><th>Intervention</th><th>Status</th><th>Guideline</th></tr></thead><tbody>
+  <tr><td>Medical risk assessment and monitoring for purging: orthostatic vital signs and weight at every visit, potassium, chloride, bicarbonate and creatinine weekly until potassium is normal twice and then at each visit, magnesium and phosphate at baseline and when potassium is low, an ECG at baseline and after any QT-relevant medicine change while potassium is low, and urgent or inpatient care for potassium below 3.0 mmol/L despite replacement, QTc above 500 ms, fainting, a pulse below 50, or blood in the vomit</td><td>completed</td><td>GL-APA-ED-2023, GL-NICE-NG69</td></tr>
+  <tr><td>Eating disorders psychiatry consultation on the diagnosis and its severity, the right level of care, psychological treatment, fluoxetine, and medical monitoring</td><td>completed</td><td>GL-APA-ED-2023, GL-NICE-NG69</td></tr>
+  <tr><td>Oral potassium chloride 20 mEq twice daily, with a recheck in one week; stopped once potassium is normal and vomiting is less frequent</td><td>completed</td><td>GL-NICE-NG69, GL-APA-ED-2023</td></tr>
+  <tr><td>Nutrition: an eating disorders dietitian; regular eating of three meals and two or three snacks a day, no dieting or skipped meals, and no foods banned; caffeine cut down</td><td>completed</td><td>GL-NICE-NG69, GL-APA-ED-2023</td></tr>
+  <tr><td>Dental protection while vomiting continues: no brushing for an hour after vomiting, a non-acid fluoride mouthwash, fewer acidic drinks, and a dental examination</td><td>completed</td><td>GL-NICE-NG69</td></tr>
+  <tr><td>Structured safety assessment, a written safety plan with her warning signs, lethal-means counseling, the 988 Suicide &amp; Crisis Lifeline, the PHQ-9 at each visit, and safety review at every visit</td><td>completed</td><td>GL-SUICIDE-2024, GL-CMID-2026, GL-USPSTF-DEP-2023</td></tr>
+  <tr><td>Eating-disorder-focused cognitive behavioral therapy (CBT-E): 20 sessions over 20 weeks with an eating disorders therapist, twice weekly for the first four weeks, with weighing in session, self-monitoring records, regular eating, work on shape and weight concerns and on binges triggered by difficult feelings, and a written relapse-prevention plan at the end</td><td>completed</td><td>GL-APA-ED-2023, GL-NICE-NG69</td></tr>
+  <tr><td>Fluoxetine started at 20 mg each morning and raised to 40 mg after one week and 60 mg after two weeks, for both the bulimia and the depression; ECG two weeks after reaching 60 mg; mood, sleep, agitation and suicidal thoughts checked at each visit; continued for at least a year after remission</td><td>completed</td><td>GL-APA-ED-2023, GL-CMID-2026</td></tr></tbody></table></section>
+    <section><h2>Planned encounters</h2><ul>
+  <li><strong>2026-02-09</strong> — New patient visit at her own request for binge eating and vomiting: eating-disorder assessment, medical risk assessment, low potassium, mood, and safety planning <span class="muted">(ENC-001)</span></li>
+  <li><strong>2026-02-16</strong> — One-week review: potassium recheck and eating disorders psychiatry consultation <span class="muted">(ENC-002)</span></li>
+  <li><strong>2026-03-16</strong> — Five-week review: potassium and ECG on fluoxetine 60 mg, CBT-E progress, mood, and safety <span class="muted">(ENC-003)</span></li>
+  <li><strong>2026-04-13</strong> — Periodic adult preventive visit <span class="muted">(ENC-006)</span></li>
+  <li><strong>2026-05-11</strong> — Three-month review: binge and purge frequency, electrolytes, dental care, mood, and safety <span class="muted">(ENC-004)</span></li>
+  <li><strong>2026-07-13</strong> — End-of-treatment review after 20 weeks of CBT-E: remission, relapse prevention, and continuing fluoxetine <span class="muted">(ENC-005)</span></li></ul></section>
+    <section><h2>Supporting documents</h2><ul><li><a href="notes/hp.md">History and physical</a></li><li><a href="notes/progress-01.md">Progress note 01</a></li><li><a href="notes/progress-02.md">Progress note 02 — Focused Visit (Follow-up)</a></li><li><a href="notes/progress-03.md">Progress note 03 — Focused Visit (Follow-up)</a></li><li><a href="notes/progress-04.md">Progress note 04 — Preventive Visit</a></li><li><a href="notes/progress-05.md">Progress note 05 — Focused Visit (Follow-up)</a></li><li><a href="notes/progress-06.md">Progress note 06 — Focused Visit (Care-plan review)</a></li><li><a href="notes/referral-01.md">Psychiatry (eating disorders) referral</a></li><li><a href="notes/consult-01.md">Psychiatry (eating disorders) consultation</a></li><li><a href="notes/careplan.md">Patient care plan</a></li><li><a href="notes/teaching-note.md">Teaching note</a></li><li><a href="provenance.csv">Provenance CSV</a></li></ul></section>
+    <section><h2>C-CDA note documents</h2><p class="muted">Each link opens a readable copy; the XML beside it is the exchange file.</p><ul><li><a href="ccda/hp-01.html">History and physical</a> <a href="ccda/hp-01.xml">(XML)</a></li><li><a href="ccda/progress-01.html">Progress note 01</a> <a href="ccda/progress-01.xml">(XML)</a></li><li><a href="ccda/progress-02.html">Progress note 02 — Focused Visit (Follow-up)</a> <a href="ccda/progress-02.xml">(XML)</a></li><li><a href="ccda/progress-03.html">Progress note 03 — Focused Visit (Follow-up)</a> <a href="ccda/progress-03.xml">(XML)</a></li><li><a href="ccda/progress-04.html">Progress note 04 — Preventive Visit</a> <a href="ccda/progress-04.xml">(XML)</a></li><li><a href="ccda/progress-05.html">Progress note 05 — Focused Visit (Follow-up)</a> <a href="ccda/progress-05.xml">(XML)</a></li><li><a href="ccda/progress-06.html">Progress note 06 — Focused Visit (Care-plan review)</a> <a href="ccda/progress-06.xml">(XML)</a></li><li><a href="ccda/referral-01.html">Psychiatry (eating disorders) referral</a> <a href="ccda/referral-01.xml">(XML)</a></li><li><a href="ccda/consult-01.html">Psychiatry (eating disorders) consultation</a> <a href="ccda/consult-01.xml">(XML)</a></li></ul></section>
+    <section><h2>Sources</h2><table><thead><tr><th>ID</th><th>Source</th><th>Publisher</th><th>Type</th></tr></thead><tbody>
+  <tr>
+    <td>SRC-0001</td>
+    <td><a href="https://www.royal.uk/diana-princess-wales" target="_blank" rel="noreferrer">Diana, Princess of Wales</a></td>
+    <td>The Royal Family (royal.uk)</td>
+    <td>biography</td>
+  </tr>
+  <tr>
+    <td>SRC-0002</td>
+    <td><a href="https://www.pbs.org/wgbh/pages/frontline/shows/royals/interviews/bbc.html" target="_blank" rel="noreferrer">Interview with Diana, Princess of Wales (BBC Panorama, transcript)</a></td>
+    <td>FRONTLINE, WGBH Educational Foundation (PBS)</td>
+    <td>primary</td>
+  </tr>
+  <tr>
+    <td>SRC-0003</td>
+    <td><a href="https://www.upi.com/Archives/1995/11/20/Princess-Diana-admits-affair/7674816843600/" target="_blank" rel="noreferrer">Princess Diana admits affair</a></td>
+    <td>United Press International (UPI Archives)</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0004</td>
+    <td><a href="https://www.cbsnews.com/news/princess-diana-interview-bbc-martin-bashir-decieved-earl-spencer-dyson-report/" target="_blank" rel="noreferrer">BBC journalist &quot;deceived and induced&quot; to land bombshell interview with Princess Diana, report says</a></td>
+    <td>CBS News</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0005</td>
+    <td><a href="https://pubmed.ncbi.nlm.nih.gov/15684236/" target="_blank" rel="noreferrer">Currin L, Schmidt U, Treasure J, Jick H. Time trends in eating disorder incidence. Br J Psychiatry. 2005;186:132-135 (PMID 15684236)</a></td>
+    <td>British Journal of Psychiatry</td>
+    <td>scholarly</td>
+  </tr>
+  <tr>
+    <td>SRC-0006</td>
+    <td><a href="https://humanrecord.example.org/internal/HISTMED_Master_Roster_v3.xlsx" target="_blank" rel="noreferrer">HISTMED Master Roster v3</a></td>
+    <td>The Human Record project</td>
+    <td>other</td>
+  </tr></tbody></table></section>
+    <section><h2>Review status</h2><table><thead><tr><th>Review</th><th>Status</th><th>Notes</th></tr></thead><tbody>
+  <tr><td>schema validation</td><td>not_started</td><td>Run scripts/build.ps1 -Conformance.</td></tr>
+  <tr><td>clinical review</td><td>not_started</td><td>Awaiting clinician review; check the severity grading, the outpatient management of a potassium of 3.1 mmol/L, the fluoxetine titration to 60 mg, the ECG timing, the thresholds for a higher level of care, and the CBT-E schedule.</td></tr>
+  <tr><td>provenance review</td><td>not_started</td><td>The official royal.uk biography, the published Panorama transcript (PBS FRONTLINE), a contemporary UPI wire report, and a CBS News report of the 2021 inquiry are logged. Every health claim is her own public statement in the 1995 interview; the inquiry&#39;s finding that the interview was obtained by deceit is recorded as a fact about the source.</td></tr>
+  <tr><td>safe messaging review</td><td>not_started</td><td>Recent-death rule applies. Eating-disorder, depression and self-injury claims are marked sensitive and kept brief; her death is recorded in one sentence; the safety assessment records no current ideation, gives lethal-means counseling and the 988 Suicide &amp; Crisis Lifeline, and safety is reviewed at every visit.</td></tr></tbody></table></section>
+  </main>
+</body>
+</html>
