@@ -12,6 +12,7 @@
 | Active problem | ICD-10-CM FY2026 | Z79.811 | Long term (current) use of aromatase inhibitors | S |
 | Active problem | ICD-10-CM FY2026 | M85.80 | Other specified disorders of bone density and structure, unspecified site | S; low bone mass on the baseline DXA |
 | Resolved problem | ICD-10-CM FY2026 | L76.34 | Postprocedural seroma of skin and subcutaneous tissue following other procedure | S; recorded at the October sick visit |
+| Resolved problem (presenting concern) | ICD-10-CM FY2026 | N63.11 | Unspecified lump in the right breast, upper outer quadrant | S; active at the index visit, resolved at the diagnosis visit on August 24 |
 
 ## Medications (RxNorm)
 

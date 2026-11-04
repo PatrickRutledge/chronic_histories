@@ -251,7 +251,8 @@ for (const problem of data.clinical.problems) {
     category: [{ coding: [{ system: "http://terminology.hl7.org/CodeSystem/condition-category", code: "problem-list-item", display: "Problem List Item" }] }],
     code: { text: problem.display },
     subject: { reference: patientFullUrl },
-    recordedDate: data.synthetic_episode.index_date,
+    recordedDate: problem.recorded_date ?? data.synthetic_episode.index_date,
+    ...(problem.abatement_date ? { abatementDateTime: problem.abatement_date } : {}),
     note: [{ text: `Synthetic teaching-case problem. Evidence grade ${problem.provenance.evidence_grade}. Historical claims: ${problem.provenance.claim_ids.join(", ")}.` }]
   };
   if (problem.coding?.length) resource.code.coding = problem.coding.map(fhirCoding);

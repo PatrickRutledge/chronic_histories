@@ -102,6 +102,19 @@ foreach ($value in $syntheticDates | Where-Object { $_ }) {
     if ([datetime]$value -lt $dob -or [datetime]$value -gt [datetime]'2026-11-01') { $errors.Add("Synthetic date outside the modern frame: $value") }
 }
 
+# A care-plan step decided later carries the date of the visit that decided it.
+$visitDates = @($case.clinical.encounters.date)
+foreach ($item in $case.care_plan.interventions | Where-Object { $_.PSObject.Properties['recorded_date'] }) {
+    if ($visitDates -notcontains $item.recorded_date) { $errors.Add("$($item.id): recorded_date $($item.recorded_date) is not a visit date") }
+}
+# A problem that resolves or is superseded during the episode ends at a visit, after it was recorded.
+foreach ($problem in $case.clinical.problems | Where-Object { $_.PSObject.Properties['abatement_date'] }) {
+    if ($visitDates -notcontains $problem.abatement_date) { $errors.Add("$($problem.id): abatement_date $($problem.abatement_date) is not a visit date") }
+    if ($problem.clinical_status -ne 'resolved') { $errors.Add("$($problem.id): a problem with abatement_date must have clinical_status resolved") }
+    $start = if ($problem.recorded_date) { $problem.recorded_date } else { $case.synthetic_episode.index_date }
+    if ($problem.abatement_date -le $start) { $errors.Add("$($problem.id): abatement_date must come after the problem was recorded") }
+}
+
 # The true-date distribution shifts the episode by whole years, so the synthetic birthday must keep the true month and day.
 $trueBirth = $case.identity.historical_dates.birth.preferred
 if ($trueBirth.precision -eq 'day') {

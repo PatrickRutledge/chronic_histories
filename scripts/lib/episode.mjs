@@ -80,7 +80,12 @@ export const midSentence = (text) => /^[A-Z][a-z]/.test(text) ? text[0].toLowerC
 // Problems known at a visit: a problem with recorded_date (the visit that made the diagnosis) is
 // absent from earlier visits' documents. Problems without one are known from the index visit.
 export const problemsAt = (data, date) => data.clinical.problems.filter(problem => !date || !problem.recorded_date || problem.recorded_date <= date);
-export const activeProblemsAt = (data, date) => problemsAt(data, date).filter(problem => problem.clinical_status === "active");
+// Care-plan steps decided by a date: a step with recorded_date is absent from earlier documents.
+export const interventionsAt = (data, date) => data.care_plan.interventions.filter(item => !date || !item.recorded_date || item.recorded_date <= date);
+// A problem with abatement_date (for example a presenting symptom superseded by the diagnosis) is
+// active in documents dated before it and resolved from it on. Undated documents show the final status.
+export const problemStatusAt = (problem, date) => problem.abatement_date && date && date < problem.abatement_date ? "active" : problem.clinical_status;
+export const activeProblemsAt = (data, date) => problemsAt(data, date).filter(problem => problemStatusAt(problem, date) === "active");
 
 // Notes use the short clinical name when one is given (ALT rather than the full LOINC display).
 export const labelOf = (observation) => observation.label ?? observation.display;

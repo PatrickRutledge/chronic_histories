@@ -1,7 +1,7 @@
 import fs from "node:fs/promises";
 import path from "node:path";
 import { TRUE_DATE_NOTICE, frameLabel, isTrueDateFrame, outputDirFor } from "./lib/common.mjs";
-import { MONITORING_DOMAINS, PREVENTION_STATUS, isChronicCare, guidelinesFor, visitOnlyGuidelineIds, activeProblemsAt, claimsAtIndex, documentationOf, immunizationsOn, labelOf, medicationsAt, nextScheduledVisit, scheduledVisits, visitLabels, goalProgress as goalStatus, isConsultStep, laterClaimsNote, medicationChanges as medChanges, midSentence, resultChanges as changesAt, sentence, withUnit } from "./lib/episode.mjs";
+import { MONITORING_DOMAINS, PREVENTION_STATUS, isChronicCare, guidelinesFor, visitOnlyGuidelineIds, activeProblemsAt, interventionsAt, claimsAtIndex, documentationOf, immunizationsOn, labelOf, medicationsAt, nextScheduledVisit, scheduledVisits, visitLabels, goalProgress as goalStatus, isConsultStep, laterClaimsNote, medicationChanges as medChanges, midSentence, resultChanges as changesAt, sentence, withUnit } from "./lib/episode.mjs";
 
 const inputPath = process.argv[2];
 if (!inputPath) throw new Error("Usage: node scripts/generate_supporting_docs.mjs <case.json>");
@@ -33,7 +33,10 @@ const problems = activeProblemsAt(data, visits[0].date);
 const strengths = clinical.social_history.filter(x => /support/i.test(x.display));
 const strengthText = strengths.length ? bullets(strengths) : "- Engagement in care and meaningful activity **S**";
 const visitOnly = visitOnlyGuidelineIds(data);
-const guidelineText = care.guidelines.filter(x => !visitOnly.has(x.guideline_id)).map(x => `- ${x.title} (${x.version_or_year}), ${x.publisher}`).join("\n");
+// Guidelines cited only by care-plan steps decided after intake belong to those later visits.
+const intakePlanIds = new Set(interventionsAt(data, visits[0].date).flatMap(item => item.guideline_ids ?? []));
+const laterPlanOnly = new Set(care.interventions.flatMap(item => item.guideline_ids ?? []).filter(id => !intakePlanIds.has(id)));
+const guidelineText = care.guidelines.filter(x => !visitOnly.has(x.guideline_id) && !laterPlanOnly.has(x.guideline_id)).map(x => `- ${x.title} (${x.version_or_year}), ${x.publisher}`).join("\n");
 const pastHistory = clinical.past_medical_history.map(x => `- ${x.historical_date.display}: ${x.display} **${evidence(x)}** (${x.provenance.claim_ids.join(", ")})`).join("\n") || "- No historical medical events recorded.";
 const familyHistory = clinical.family_history.length
   ? clinical.family_history.map(x => `- ${x.relationship.display}: ${x.condition} **${evidence(x)}** (${x.provenance.claim_ids.join(", ")})`).join("\n")
@@ -43,9 +46,14 @@ const planItems = items => items.map(x => {
   const refs = care.guidelines.filter(g => x.guideline_ids.includes(g.guideline_id)).map(g => `${g.title} (${g.version_or_year})`).join("; ");
   return `- ${x.display}${refs ? `. Guideline: ${refs}` : ""} **${evidence(x)}**`;
 }).join("\n");
-const plan = planItems(care.interventions);
-const consultPlan = planItems(care.interventions.filter(x => !isConsultStep(x)));
 const first = visits[0], second = visits[1] ?? visits[0];
+// The intake documents list only steps decided by the intake visit; the patient care plan lists them all.
+const plan = planItems(interventionsAt(data, first.date));
+const fullPlan = planItems(care.interventions);
+// The referral step itself is left out of the referral and consultation plans; other steps that mention a referral stay.
+const referralStep = care.interventions.find(isConsultStep);
+const consultPlan = planItems(interventionsAt(data, first.date).filter(x => x !== referralStep));
+const consultPlanLater = planItems(interventionsAt(data, second.date).filter(x => x !== referralStep));
 const safety = clinical.safety_assessment;
 
 // The H&P is written at intake, so it lists only medications, procedures, and immunizations dated by then.
@@ -116,8 +124,8 @@ const referral = consultation
   : `${header(`${consultant.specialty} Referral`, first.date)}## Referral question\n\nPlease evaluate the active concerns and advise on the guideline-linked interventions in this fictional episode. **S**\n\n## Pertinent history\n\n${claims}${laterNote}\n\nBaseline: ${results(first.date)}\n\n## Requested recommendations\n\n${consultPlan}\n`;
 const consult = consultation
   ? `${header(`${consultant.specialty} Consultation`, second.date, consultant.name)}- Requested by: ${identity.synthetic_identity.fictional_primary_clinician}\n\n## Reason for consultation\n\n${sentence(consultation.referral.question)} **S**\n\n## History\n\n${sentence(consultation.consultant_note.history)} **S**\n\n## Examination\n\n| System | Finding |\n|---|---|\n${consultation.consultant_note.exam.map(e => `| ${cell(e.system)} | ${cell(e.finding)} |`).join("\n")}\n\n${vitals(second.date)}\n\n## Data reviewed\n\n${consultation.consultant_note.data_reviewed ? `${sentence(consultation.consultant_note.data_reviewed)} ` : ""}${consultation.consultant_note.data_reviewed && !clinical.observations.some(x => x.effective_date === second.date) ? "" : results(second.date)}\n\n## Assessment\n\n${consultation.consultant_note.assessment.map((x, i) => `${i + 1}. **${x.display}**${problemCode(x.problem_id) ? ` (${problemCode(x.problem_id)})` : ""}. ${sentence(x.assessment)} **S**`).join("\n")}\n\n## Recommendations\n\n${consultation.consultant_note.recommendations.map((x, i) => `${i + 1}. ${sentence(x)}`).join("\n")}\n\n## Strengths and supports\n\n${strengthText}\n\n${consultation.consultant_note.communication ? `## Communication\n\n${sentence(consultation.consultant_note.communication)} **S**\n\n` : ""}## Follow-up\n\n${sentence(consultation.consultant_note.follow_up)} **S**\n\n## Guideline basis\n\n${consultGuidelines}\n`
-  : `${header(`${consultant.specialty} Consultation`, second.date, consultant.name)}## Consultation summary\n\nThis is fictional. Historical evidence and retrospective interpretation remain separate from the generated care episode.\n\n## Assessment\n\n${activeProblemsAt(data, second.date).map(x => `- ${x.display}; coordinated follow-up is appropriate in this scenario. **S**`).join("\n")}\n\n## Strengths and supports\n\n${strengthText}\n\n## Recommendations\n\n${consultPlan}\n\n## Guideline basis\n\n${guidelineText}\n`;
-const careplan = `${header("Patient Care Plan", first.date)}## What we are working on\n\n${bullets(care.health_concerns)}\n\n## Your goals\n\n${care.goals.map(x => `- ${sentence(x.display)} Target: ${x.target_date}. Recorded outcome: ${x.outcome}. **${evidence(x)}**`).join("\n")}\n\n## What we agreed to do\n\n${plan}\n\n## Follow-up\n\n${scheduledVisits(data).map(x => `- ${x.date}: ${encounters.get(x.encounter_id)?.display ?? x.encounter_id} **S**`).join("\n")}\n\nThis teaching document does not replace care from a qualified clinician.\n`;
+  : `${header(`${consultant.specialty} Consultation`, second.date, consultant.name)}## Consultation summary\n\nThis is fictional. Historical evidence and retrospective interpretation remain separate from the generated care episode.\n\n## Assessment\n\n${activeProblemsAt(data, second.date).map(x => `- ${x.display}; coordinated follow-up is appropriate in this scenario. **S**`).join("\n")}\n\n## Strengths and supports\n\n${strengthText}\n\n## Recommendations\n\n${consultPlanLater}\n\n## Guideline basis\n\n${guidelineText}\n`;
+const careplan = `${header("Patient Care Plan", first.date)}## What we are working on\n\n${bullets(care.health_concerns)}\n\n## Your goals\n\n${care.goals.map(x => `- ${sentence(x.display)} Target: ${x.target_date}. Recorded outcome: ${x.outcome}. **${evidence(x)}**`).join("\n")}\n\n## What we agreed to do\n\n${fullPlan}\n\n## Follow-up\n\n${scheduledVisits(data).map(x => `- ${x.date}: ${encounters.get(x.encounter_id)?.display ?? x.encounter_id} **S**`).join("\n")}\n\nThis teaching document does not replace care from a qualified clinician.\n`;
 const byGrade = g => data.claims.filter(x => x.evidence_grade === g).map(x => x.statement).join(" ") || "None recorded.";
 const teaching = `# Teaching Note — ${identity.display_name} pilot\n\n> **${data.record_classification.banner}**\n\n## Why this case matters\n\nThis case shows how historical evidence can support a transparent fictional modern episode without presenting interpretation or generated content as documented fact.\n\n## Learning objectives\n\n1. Distinguish documented (**D**), retrospective (**R**), and synthetic (**S**) content.\n2. Keep historical and active problems distinct.\n3. Connect measurable goals and interventions to guidelines.\n4. Preserve strengths, function, identity, and agency.\n\n## Destigmatization message\n\nA health condition is one part of a person’s life and does not erase achievement, relationships, purpose, or agency.\n\n## Discussion questions\n\n- Which facts support concern without establishing a modern diagnosis?\n- Which entries belong in active problems, historical problems, or both?\n- What additional evidence would change an evidence grade?\n- How should an EHR distinguish synthetic and historical content?\n\n## Evidence-grade summary\n\n- **D:** ${byGrade("D")}\n- **R:** ${byGrade("R")}\n- **S:** Shifted identity, fictional care team, modern encounters, results, plans, and outcomes.\n`;
 

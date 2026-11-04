@@ -8,6 +8,7 @@
 |---|---|---|---|---|
 | Active problem | ICD-10-CM FY2026 | F03.A0 | Unspecified dementia, mild, without behavioral disturbance, psychotic disturbance, mood disturbance, and anxiety | S; linked to his documented failing memory; type undetermined |
 | Resolved problem (sick visit) | ICD-10-CM FY2026 | J00 | Acute nasopharyngitis [common cold] | S |
+| Resolved problem (presenting concern) | ICD-10-CM FY2026 | R41.3 | Other amnesia | S; memory loss under evaluation at the index visit, resolved at the diagnosis visit on June 2 |
 
 No specific dementia type (Alzheimer’s disease, vascular, Lewy body, frontotemporal) is coded; the type is recorded only as an R claim.
 

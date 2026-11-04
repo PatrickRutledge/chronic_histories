@@ -76,15 +76,13 @@ Mental status: Alert, oriented, calm, and reserved; asks direct questions about 
 
 1. Nicotine dependence, cigars, about ten a day for more than forty years; status draft. **S**
 2. Painful swallowing with oropharyngeal dysphagia from the tonsillar tumor; status draft. **S**
-3. Unintended weight loss from painful swallowing, about 2 kg before presentation and 9% of body weight by the end of treatment; status draft. **S**
+3. Unintended weight loss from painful swallowing, about 2 kg before presentation; status draft. **S**
 
 ## Plan
 
 - Urgent otolaryngology–head and neck surgery referral for a persistent right tonsillar lesion with painful swallowing in a heavy cigar smoker, for laryngoscopy and biopsy within two weeks. Guideline: NCCN Guidelines Insights: Head and Neck Cancers, Version 2.2025 (2025) **S**
 - Order a contrast-enhanced CT of the neck before the specialist visit, and PET/CT for staging once biopsy confirms carcinoma. Guideline: NCCN Guidelines Insights: Head and Neck Cancers, Version 2.2025 (2025) **S**
 - Tobacco cessation: advise stopping cigars, set a quit date, behavioral counseling at every visit, and varenicline. Guideline: Tobacco Smoking Cessation in Adults, Including Pregnant Persons: Interventions (2021) **S**
-- Nutrition: dietitian assessment before treatment, a soft calorie-dense diet with oral supplements, and a weight at every visit; the head and neck team decides on a feeding tube if weight loss nears 10%. Guideline: NCCN Guidelines Insights: Head and Neck Cancers, Version 2.2025 (2025) **S**
-- Dental evaluation and fluoride care before radiation to the neck. Guideline: NCCN Guidelines Insights: Head and Neck Cancers, Version 2.2025 (2025) **S**
 - Symptom control with liquid acetaminophen and topical lidocaine, pain scored at each visit, and escalation by the oncology team during treatment. Guideline: NCCN Guidelines Insights: Head and Neck Cancers, Version 2.2025 (2025) **S**
 - Check CBC, basic metabolic panel, and albumin before and after treatment; baseline TSH before neck radiation, repeated every six to twelve months afterward. Guideline: NCCN Guidelines Insights: Head and Neck Cancers, Version 2.2025 (2025); CMID: Clinical Monitoring Intelligence Database, depression and hypothyroidism monographs (2026) **S**
 - Screen for depression with the PHQ-2 at each primary care visit after the diagnosis. Guideline: CMID: Clinical Monitoring Intelligence Database, depression and hypothyroidism monographs (2026) **S**

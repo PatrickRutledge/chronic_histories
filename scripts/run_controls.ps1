@@ -121,6 +121,22 @@ try {
     $dir = New-ControlCase 'note-early-problem' { param($c) ($c.clinical.problems | Where-Object id -eq 'PRB-001') | Add-Member -NotePropertyName recorded_date -NotePropertyValue '2026-10-01' -Force }
     Assert-Control 'full note cites a problem before it was recorded' (Invoke-Script $build @('-CaseDirectory', $dir)) 'before it was recorded'
 
+    $dir = New-ControlCase 'abated-but-active' { param($c) ($c.clinical.problems | Where-Object id -eq 'PRB-001') | Add-Member -NotePropertyName abatement_date -NotePropertyValue ($c.clinical.encounters | Where-Object id -eq 'ENC-002').date -Force }
+    Assert-Control 'problem with an end date still marked active' (Invoke-Script $build @('-CaseDirectory', $dir)) 'must have clinical_status resolved'
+
+    $dir = New-ControlCase 'plan-step-off-visit' { param($c) $c.care_plan.interventions[0] | Add-Member -NotePropertyName recorded_date -NotePropertyValue '2026-10-02' -Force }
+    Assert-Control 'care-plan step dated off a visit' (Invoke-Script $build @('-CaseDirectory', $dir)) 'is not a visit date'
+
+    # A step decided at a later visit must be left out of the intake H&P and kept in the patient care plan.
+    $dir = New-ControlCase 'plan-step-later' { param($c) $c.care_plan.interventions[2] | Add-Member -NotePropertyName recorded_date -NotePropertyValue ($c.clinical.encounters | Where-Object id -eq 'ENC-002').date -Force }
+    $run = Invoke-Script $build @('-CaseDirectory', $dir)
+    $case = Get-Content -Raw (Join-Path $dir 'case.json') | ConvertFrom-Json -Depth 100
+    $step = $case.care_plan.interventions[2].display
+    $hp = Get-Content -Raw (Join-Path $dir 'generated\notes\hp.md')
+    $careplan = Get-Content -Raw (Join-Path $dir 'generated\notes\careplan.md')
+    $ok = $run.Exit -eq 0 -and -not $hp.Contains($step) -and $careplan.Contains($step)
+    $results.Add([pscustomobject]@{ Control = 'later care-plan step left out of the intake H&P'; Result = $(if ($ok) { 'PASS' } else { 'FAIL' }); Detail = $(if ($ok) { 'omitted at intake, kept in the care plan' } elseif ($run.Exit -ne 0) { 'build failed' } else { 'step placement wrong' }) })
+
     $dir = New-ControlCase 'focused-unlisted-result' { param($c) $row = ($c.clinical.encounters | Where-Object id -eq 'ENC-002').documentation.monitoring[0]; $row.observation_ids = @($row.observation_ids | Where-Object { $_ -ne 'OBS-PHQ9-002' }) }
     Assert-Control 'focused visit result missing from its protocol table' (Invoke-Script $build @('-CaseDirectory', $dir)) 'is not in the protocol monitoring table'
 

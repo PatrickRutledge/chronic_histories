@@ -8,6 +8,7 @@
 |---|---|---|---|---|
 | Active problem (both_with_link) | ICD-10-CM FY2026 | C50.122 | Malignant neoplasm of central portion of left male breast | S; linked to his public account of a lump under the left nipple |
 | Active problem | ICD-10-CM FY2026 | Z17.0 | Estrogen receptor positive status [ER+] | S |
+| Resolved problem (presenting concern) | ICD-10-CM FY2026 | N63.42 | Unspecified lump in left breast, subareolar | S; active at the index visit, resolved at the diagnosis visit on October 5 |
 
 No acquired-absence-of-breast code (Z90.1x) is used, because the sources conflict on whether one or both breasts were removed.
 

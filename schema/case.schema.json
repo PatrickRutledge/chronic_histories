@@ -474,7 +474,7 @@
         "interventions": {
           "type": "array",
           "items": {
-            "$ref": "#/$defs/clinicalElement"
+            "$ref": "#/$defs/intervention"
           }
         },
         "guidelines": {
@@ -925,6 +925,11 @@
               "type": "string",
               "format": "date",
               "description": "Visit date at which the diagnosis was made. Earlier visits' documents do not list the problem. Omit for problems known at the index visit."
+            },
+            "abatement_date": {
+              "type": "string",
+              "format": "date",
+              "description": "Visit date at which the problem resolved or was superseded, for example a presenting breast mass once the biopsy gives the diagnosis. Documents dated earlier show it as active; documents on or after this date show it as resolved. Requires clinical_status resolved."
             }
           }
         }
@@ -1975,6 +1980,22 @@
           }
         }
       }
+    },
+    "intervention": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/clinicalElement"
+        },
+        {
+          "properties": {
+            "recorded_date": {
+              "type": "string",
+              "format": "date",
+              "description": "Visit date at which this step was decided (for example chemotherapy chosen after surgery). Documents dated earlier do not list it. Omit for steps planned at the index visit."
+            }
+          }
+        }
+      ]
     }
   }
 }

@@ -21,7 +21,7 @@ BP 132/74 mmHg; pulse 70 bpm; respirations 14/min; temperature 36.6 °C; oxygen 
 
 ## Assessment
 
-Active problems: Neovascular (wet) age-related macular degeneration, left eye, with active choroidal neovascularization; Nonexudative age-related macular degeneration, right eye, intermediate stage. Strengths and supports remain part of the care plan. **S**
+Active problems: New distortion (wavy lines) and a blurred central spot with reduced acuity in the left eye; suspected neovascular macular degeneration, urgent retina referral. Strengths and supports remain part of the care plan. **S**
 
 ## Medication changes
 
@@ -30,9 +30,4 @@ Active problems: Neovascular (wet) age-related macular degeneration, left eye, w
 ## Plan
 
 - Same-week ophthalmology consultation for new distortion and reduced acuity in the left eye, with OCT and fluorescein or OCT angiography as needed. Guideline: Age-Related Macular Degeneration Preferred Practice Pattern (2024) **S**
-- Intravitreal aflibercept 2 mg in the left eye every four weeks for three doses, then treat-and-extend by two-week steps while the macula stays dry. Guideline: Age-Related Macular Degeneration Preferred Practice Pattern (2024) **S**
-- At each injection visit: best-corrected acuity, OCT, and intraocular pressure before and after injection; teach warning signs of endophthalmitis and retinal detachment. Guideline: Age-Related Macular Degeneration Preferred Practice Pattern (2024); CMID: Clinical Monitoring Intelligence Database, cataract and glaucoma monographs (eye-examination items) (2026) **S**
-- Start an AREDS2 supplement (vitamin C 500 mg, vitamin E 400 IU, lutein 10 mg, zeaxanthin 2 mg, zinc 80 mg, copper 2 mg daily) for intermediate AMD in the right eye; no beta-carotene. Guideline: Age-Related Macular Degeneration Preferred Practice Pattern (2024) **S**
-- Daily home Amsler grid checks for each eye, with same-day calls for new distortion; dilated examination of the right eye at each retina visit. Guideline: Age-Related Macular Degeneration Preferred Practice Pattern (2024) **S**
-- Low-vision rehabilitation: task lighting, magnification, high-contrast marking, home fall-risk review, and a driving assessment. Guideline: Age-Related Macular Degeneration Preferred Practice Pattern (2024); CMID: Clinical Monitoring Intelligence Database, cataract and glaucoma monographs (eye-examination items) (2026) **S**
 - Repeat the PHQ-2 at follow-up because vision loss raises the risk of depression. Guideline: CMID: Clinical Monitoring Intelligence Database, cataract and glaucoma monographs (eye-examination items) (2026) **S**

@@ -9,6 +9,7 @@
 | Active problem | ICD-10-CM FY2026 | H35.3221 | Exudative age-related macular degeneration, left eye, with active choroidal neovascularization | S; linked to documented failing eyesight and the 1972 letter |
 | Active problem | ICD-10-CM FY2026 | H35.3112 | Nonexudative age-related macular degeneration, right eye, intermediate dry stage | S |
 | Resolved problem | ICD-10-CM FY2026 | S93.492A | Sprain of other ligament of left ankle, initial encounter | S (anterior talofibular ligament sprain at the sick visit) |
+| Resolved problem (presenting concern) | ICD-10-CM FY2026 | H53.15 | Visual distortions of shape and size | S; active at the index visit, resolved at the retina consultation on March 12 |
 
 ## Medications
 

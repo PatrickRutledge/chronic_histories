@@ -40,6 +40,12 @@ A case ID is never reused for a different person.
 
 ### Fixed
 
+- The intake H&P, the first progress note, and the referral listed every care-plan step, including steps decided at later visits (for example chemotherapy chosen after surgery). Care-plan steps now take an optional `recorded_date`, the visit that decided them; documents dated earlier leave them out, and the patient care plan still lists every step. 74 steps across 29 records are dated. Validation requires the date to be a visit date, and two new controls prove the check and the omission.
+- The intake H&P's guideline basis cited guidelines used only by steps decided later.
+- The referral and consultation plans dropped every step whose text mentioned a referral (for example "cardiac rehabilitation referral if needed"), not just the referral step itself.
+- A diagnosis made at a later visit was named in the intake documents on the day the patient first came in with a symptom. Problems now take an optional `abatement_date` (FHIR `abatementDateTime`; a completed C-CDA concern with an end date), so a presenting concern such as a breast mass can be active at intake and resolved once the biopsy gives the diagnosis. Richard Roundtree, Frances Burney, Frederick Law Olmsted, and Georgia O'Keeffe now carry their presenting concerns this way. Validation requires the date to be a visit after the problem was recorded and the status to be resolved, and a new control proves it.
+- The FHIR Condition `recordedDate` used the index date even for problems recorded at a later visit.
+- Problem descriptions that stated findings from later visits (post-surgery stage, end-of-treatment weight loss) at intake are reworded.
 - The cross-case name check matched other cases' names and aliases inside ordinary words, so the alias "Ike" failed any record containing "likely". It now matches whole words, case-sensitively.
 - Note documents and the intake H&P listed medications that started after their date. They now list only medications started by then; the CCD summary keeps the full history.
 - The intake H&P listed procedures and immunizations dated after the intake visit.

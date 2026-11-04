@@ -14,12 +14,12 @@ Every generated artifact must display:
 
 ## Current state (November 3, 2026)
 
-- 43 records: 3 pilots (`pilots/`) and 40 batch records in four batches of ten (`cases/`). Every record passes CDA XSD, C-CDA R2.1 Schematron, the note documents, FHIR R4, and US Core 6.1.0 with 0 errors. `scripts/run_controls.ps1` runs 24 controls, all passing.
+- 43 records: 3 pilots (`pilots/`) and 40 batch records in four batches of ten (`cases/`). Every record passes CDA XSD, C-CDA R2.1 Schematron, the note documents, FHIR R4, and US Core 6.1.0 with 0 errors. `scripts/run_controls.ps1` runs 27 controls, all passing.
 - Every record has an intake H&P, focused chronic-care visits with protocol monitoring tables (missed checks recorded as deviations, never filled with invented results), an adult preventive or annual wellness visit, a sick visit (except the recent-death records), a case-specific referral and consultation, and a review checklist (`generated/review.html`).
 - All 43 records are drafts. The pilot reviews of November 2 were reopened on November 3 after the new visit types and consultations were added.
 - Batch 2 (Eisenhower, Churchill, Ali, Ray Charles, Theodore Roosevelt, Benjamin Franklin, Hume, Oakley, Nightingale, Keller) and batch 3 (Ashe, Billie Holiday, Dostoevsky, Doc Holliday, Michelangelo, Gandhi, Hepburn, Olmsted, Dickinson, Barton) fill chronic conditions the panel did not cover and add women, Black, and non-Western patients. Eisenhower (ET015), Ashe (ML013), Olmsted (NI022), Dickinson (NI023), and Barton (NI024) were promoted to the v3 roster from the Next 50 candidates.
 - Batch 4 (Brooke, Roundtree, Lorde, Burney, Nimoy, George H. W. Bush, Ann Richards, Brynner, Mandela, Humphrey) covers breast cancer in men and women, COPD, atrial fibrillation, hypothyroidism, low bone density, and lung, prostate, and bladder cancer. Endometrial cancer still has no well-documented candidate.
-- Known issue: care-plan steps carry no date, so the intake H&P and the referral list steps decided at later visits (for example chemotherapy chosen after surgery). Planned fix: an optional date on each step, used to filter those documents.
+- Care-plan steps decided after intake carry `recorded_date`, and presenting concerns superseded by a diagnosis carry `abatement_date`, so intake documents show only what was known at intake. About 15 steps that mix an intake decision with a later one are left for clinical review.
 
 ## Confirmed decisions
 
@@ -186,7 +186,7 @@ Done:
 - `scripts/build.ps1` runs every generator and check, stops at the first failure, and deletes earlier outputs first.
 - A build manifest with line-ending-normalized hashes rejects stale or hand-edited outputs. Conformance summaries use the same normalized hashes, so Git line-ending conversion no longer marks them stale.
 - Checks for real-looking identifiers (Social Security numbers, phone numbers outside 555-0100 to 555-0199, valid-checksum NPIs), a D, R, or S grade on every FHIR clinical resource and provenance row, and leakage of another case's name, alias, or MRN.
-- `scripts/run_controls.ps1` runs 24 negative and determinism controls, 2 of them against the formal validators.
+- `scripts/run_controls.ps1` runs 27 negative and determinism controls, 2 of them against the formal validators.
 - Consultant name and specialty come from `synthetic_identity.fictional_consultant`.
 
 Remaining:
