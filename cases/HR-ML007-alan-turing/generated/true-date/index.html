@@ -1,0 +1,673 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Alan Turing — The Human Record</title>
+  <style>
+    :root { --navy:#17365d; --blue:#1f4e78; --pale:#eef5fa; --ink:#1f2933; --muted:#66788a; --amber:#fff2cc; --red:#f8d7da; --green:#d9ead3; }
+    * { box-sizing:border-box; }
+    body { margin:0; font:16px/1.5 Arial, sans-serif; color:var(--ink); background:#f6f8fa; }
+    header { background:var(--navy); color:white; padding:24px max(24px,calc((100vw - 1180px)/2)); }
+    header h1 { margin:4px 0; font-size:30px; }
+    .banner { background:#b42318; color:white; font-weight:700; text-align:center; padding:10px; letter-spacing:.03em; }
+    main { max-width:1180px; margin:24px auto 60px; padding:0 24px; }
+    section { background:white; border:1px solid #d9e1e8; border-radius:8px; margin:18px 0; padding:20px; }
+    h2 { color:var(--navy); margin:0 0 14px; font-size:22px; }
+    h3 { color:var(--blue); }
+    .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:12px; }
+    .card { background:var(--pale); border-left:4px solid var(--blue); padding:12px; }
+    .label { color:var(--muted); font-size:13px; text-transform:uppercase; letter-spacing:.04em; }
+    table { width:100%; border-collapse:collapse; }
+    th { background:var(--blue); color:white; text-align:left; }
+    th,td { padding:9px; border-bottom:1px solid #dfe6ec; vertical-align:top; }
+    .badge { display:inline-block; min-width:28px; text-align:center; font-weight:700; border-radius:12px; padding:2px 8px; }
+    .grade-D { background:var(--green); } .grade-R { background:var(--amber); } .grade-S { background:var(--red); }
+    .muted { color:var(--muted); font-size:14px; }
+    .relationship { color:var(--muted); font-size:12px; }
+    .downloads a { display:inline-block; margin:4px 8px 4px 0; padding:8px 12px; background:var(--blue); color:white; text-decoration:none; border-radius:5px; }
+    @media (max-width:700px) { table { display:block; overflow-x:auto; } }
+  </style>
+</head>
+<body>
+  <div class="banner">SYNTHETIC RECORD, NOT A REAL MEDICAL RECORD</div>
+  <div class="banner">True-date frame: synthetic events are moved into the patient&#39;s historical lifetime. Codes, instruments, and treatments remain modern and are anachronistic.</div>
+  <header>
+    <div>The Human Record</div>
+    <h1>Alan Turing</h1>
+    <div>Case HR-ML007-TD · Modern EHR teaching episode · Draft for review</div>
+  </header>
+  <main>
+    <section>
+      <h2>Review summary</h2>
+      <div class="grid">
+        <div class="card"><div class="label">Historical dates</div>23 June 1912 – 7 June 1954</div>
+        <div class="card"><div class="label">Synthetic DOB</div>1912-06-23</div>
+        <div class="card"><div class="label">Index visit</div>1953-04-14 at age 40</div>
+        <div class="card"><div class="label">Synthetic MRN</div>HR-ML007-SYN-TD</div>
+      </div>
+      <p><strong>Teaching objective:</strong> Recognize and manage the harm of high-dose estrogen given to a 40-year-old gay man without his free and informed consent: evaluate gynecomastia as the EAA 1946 guideline advises (history, breast and testicular examination, testosterone, estradiol, LH, FSH, prolactin, SHBG, hCG, AFP, liver, kidney, and thyroid tests, scrotal ultrasound, breast imaging only if the examination is equivocal), name the cause as iatrogenic, stop the exposure, monitor recovery of the hypothalamic-pituitary-gonadal axis without testosterone therapy while it recovers, protect bone health, and offer surgery if gynecomastia persists; treat a moderate depressive episode with measurement-based care, gay-affirming psychotherapy, and an antidepressant only if he chooses one, with a structured suicide-risk assessment, a safety plan, and the 988 Lifeline; offer HIV and STI testing and a PrEP discussion as routine adult care with his consent; and practise LGBTQ-affirming primary care. Sexual orientation is recorded as part of his social history, never as a problem, and every test and treatment requires his free, informed consent.</p>
+      <div class="downloads">
+        <a href="../case.json">Canonical JSON</a>
+        <a href="fhir-bundle.json">FHIR R4 draft</a>
+        <a href="ccda.html">C-CDA R2.1 summary</a> <a href="ccda.xml">(XML)</a>
+        <a href="../sources.md">Evidence dossier</a>
+      </div>
+    </section>
+    <section><h2>Historical timeline</h2><table><thead><tr><th>Date</th><th>Event</th><th>Claims</th></tr></thead><tbody>
+  <tr><td>23 June 1912</td><td>Born in Paddington, London.</td><td>CLM-0001</td></tr>
+  <tr><td>1951</td><td>Training for long-distance running around Wilmslow.</td><td>CLM-0002</td></tr>
+  <tr><td>31 March 1952</td><td>Tried for gross indecency; accepts a year of oestrogen treatment instead of prison; loses his security clearance.</td><td>CLM-0003, CLM-0004, CLM-0005, CLM-0007, CLM-0008</td></tr>
+  <tr><td>November 1952</td><td>Decides to see a psychiatrist again and begins Jungian analysis.</td><td>CLM-0006</td></tr>
+  <tr><td>7 June 1954</td><td>Dies at his home in Wilmslow; the inquest verdict, suicide, is later disputed.</td><td>CLM-0009, CLM-0010, CLM-0011</td></tr>
+  <tr><td>10 September 2009</td><td>The Prime Minister apologises on behalf of the government.</td><td>CLM-0012</td></tr>
+  <tr><td>24 December 2013</td><td>Posthumous royal pardon.</td><td>CLM-0013</td></tr></tbody></table></section>
+    <section><h2>Evidence claims</h2><p class="muted">D = documented, R = retrospective, S = synthetic.</p><table><thead><tr><th>Grade</th><th>Claim</th><th>Certainty</th><th>Sources</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>Alan Mathison Turing was born on 23 June 1912 in a nursing home in Paddington, London.</strong></td>
+    <td>confirmed</td>
+    <td><a href="https://www.turing.org.uk/publications/dnb.html" target="_blank" rel="noreferrer">Hodges A. Alan Turing (overview biography, revised from the Oxford Dictionary of National Biography entry)</a> <span class="relationship">supports</span><br><a href="https://mathshistory.st-andrews.ac.uk/Biographies/Turing/" target="_blank" rel="noreferrer">O&#39;Connor JJ, Robertson EF. Alan Mathison Turing. MacTutor History of Mathematics</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>He was a long-distance runner: he built his strength in cross-country running, was known for running to scientific meetings, and in 1951 was still training for long-distance running on the roads around Wilmslow, where he had bought his first house.</strong></td>
+    <td>confirmed</td>
+    <td><a href="https://www.turing.org.uk/publications/dnb.html" target="_blank" rel="noreferrer">Hodges A. Alan Turing (overview biography, revised from the Oxford Dictionary of National Biography entry)</a> <span class="relationship">supports</span><br><a href="https://www.turing.org.uk/scrapbook/morph.html" target="_blank" rel="noreferrer">Hodges A. The Alan Turing Internet Scrapbook: Non-linear Life</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>After reporting a burglary at his home in 1952 he was arrested over a relationship with another man and tried on 31 March 1952 for &quot;gross indecency&quot;; rather than go to prison he accepted, for a year, oestrogen treatment intended to neutralise his libido.</strong><div class="muted">Same-sex relations between men were then a crime in England; the treatment was imposed as the alternative to a prison sentence, not chosen as care.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.turing.org.uk/publications/dnb.html" target="_blank" rel="noreferrer">Hodges A. Alan Turing (overview biography, revised from the Oxford Dictionary of National Biography entry)</a> <span class="relationship">supports</span><br><a href="https://mathshistory.st-andrews.ac.uk/Biographies/Turing/" target="_blank" rel="noreferrer">O&#39;Connor JJ, Robertson EF. Alan Mathison Turing. MacTutor History of Mathematics</a> <span class="relationship">supports</span><br><a href="https://www.bbc.com/news/science-environment-18561092" target="_blank" rel="noreferrer">Pease R. Alan Turing: Inquest&#39;s suicide verdict &#39;not supportable&#39;. BBC News, 23 June 2012</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>His biographer Andrew Hodges writes that the drug was probably stilboestrol, a synthetic oestrogen; the 2009 government statement and other sources describe the treatment as a series of injections of female hormones.</strong><div class="muted">The exact preparation and route are not settled in the sources read.</div></td>
+    <td>probable</td>
+    <td><a href="https://www.turing.org.uk/scrapbook/wondrous.html" target="_blank" rel="noreferrer">Hodges A. The Alan Turing Internet Scrapbook: Defiant until death</a> <span class="relationship">supports</span><br><a href="https://www.manchester.ac.uk/about/news/gordon-brown-issues-apology-for-treatment-of-alan-turing/" target="_blank" rel="noreferrer">Gordon Brown issues apology for treatment of Alan Turing</a> <span class="relationship">supports</span><br><a href="https://www.turing.org.uk/publications/dnb.html" target="_blank" rel="noreferrer">Hodges A. Alan Turing (overview biography, revised from the Oxford Dictionary of National Biography entry)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>Hodges describes the injurious and humiliating effect of the hormones on his body; it is often repeated that the treatment made him grow breasts, though he is known to have mentioned this only once.</strong><div class="muted">Breast growth (gynecomastia) is an expected effect of high-dose oestrogen in a man.</div></td>
+    <td>probable</td>
+    <td><a href="https://www.turing.org.uk/scrapbook/wondrous.html" target="_blank" rel="noreferrer">Hodges A. The Alan Turing Internet Scrapbook: Defiant until death</a> <span class="relationship">supports</span><br><a href="https://www.bbc.com/news/science-environment-18561092" target="_blank" rel="noreferrer">Pease R. Alan Turing: Inquest&#39;s suicide verdict &#39;not supportable&#39;. BBC News, 23 June 2012</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>In a letter of 23 November 1952 he wrote that he had decided to have &quot;another, and rather more co-operative go at a psychiatrist&quot;; this was Jungian analysis with a refugee analyst, and he became very enthusiastic about it and wrote down all his dreams.</strong><div class="muted">Seeking analysis is documented; no psychiatric diagnosis is recorded in the sources read.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.turing.org.uk/scrapbook/wondrous.html" target="_blank" rel="noreferrer">Hodges A. The Alan Turing Internet Scrapbook: Defiant until death</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>His conviction led to the removal of his security clearance, so that he could no longer work for Government Communications Headquarters as he had since the war.</strong></td>
+    <td>confirmed</td>
+    <td><a href="https://www.gov.uk/government/news/royal-pardon-for-ww2-code-breaker-dr-alan-turing" target="_blank" rel="noreferrer">Royal pardon for WW2 code-breaker Dr Alan Turing</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>After the trial he returned to a wide range of academic work, including morphogenesis, quantum theory, and relativity, at Manchester University.</strong></td>
+    <td>confirmed</td>
+    <td><a href="https://mathshistory.st-andrews.ac.uk/Biographies/Turing/" target="_blank" rel="noreferrer">O&#39;Connor JJ, Robertson EF. Alan Mathison Turing. MacTutor History of Mathematics</a> <span class="relationship">supports</span><br><a href="https://www.bbc.com/news/science-environment-18561092" target="_blank" rel="noreferrer">Pease R. Alan Turing: Inquest&#39;s suicide verdict &#39;not supportable&#39;. BBC News, 23 June 2012</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>He died on 7 June 1954 at his home in Wilmslow, Cheshire, of cyanide poisoning, and the coroner&#39;s verdict was suicide.</strong></td>
+    <td>confirmed</td>
+    <td><a href="https://www.turing.org.uk/publications/dnb.html" target="_blank" rel="noreferrer">Hodges A. Alan Turing (overview biography, revised from the Oxford Dictionary of National Biography entry)</a> <span class="relationship">supports</span><br><a href="https://mathshistory.st-andrews.ac.uk/Biographies/Turing/" target="_blank" rel="noreferrer">O&#39;Connor JJ, Robertson EF. Alan Mathison Turing. MacTutor History of Mathematics</a> <span class="relationship">supports</span><br><a href="https://www.bbc.com/news/science-environment-18561092" target="_blank" rel="noreferrer">Pease R. Alan Turing: Inquest&#39;s suicide verdict &#39;not supportable&#39;. BBC News, 23 June 2012</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-R" title="Retrospective">R</span></td>
+    <td><strong>In 2012 Professor Jack Copeland argued that the inquest evidence would not today support a suicide verdict, that friends had described him as cheerful in the days before he died, and that accidental inhalation of cyanide from a home electrolysis experiment was equally likely.</strong><div class="muted">A retrospective challenge to the inquest finding; the cause of death remains disputed.</div></td>
+    <td>disputed</td>
+    <td><a href="https://www.bbc.com/news/science-environment-18561092" target="_blank" rel="noreferrer">Pease R. Alan Turing: Inquest&#39;s suicide verdict &#39;not supportable&#39;. BBC News, 23 June 2012</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-R" title="Retrospective">R</span></td>
+    <td><strong>Hodges judges it more credible that Turing ended his own life and arranged matters so that it could be taken for an accident.</strong><div class="muted">A biographer&#39;s interpretation; it conflicts with CLM-0010.</div></td>
+    <td>disputed</td>
+    <td><a href="https://www.turing.org.uk/publications/dnb.html" target="_blank" rel="noreferrer">Hodges A. Alan Turing (overview biography, revised from the Oxford Dictionary of National Biography entry)</a> <span class="relationship">supports</span><br><a href="https://www.turing.org.uk/scrapbook/wondrous.html" target="_blank" rel="noreferrer">Hodges A. The Alan Turing Internet Scrapbook: Defiant until death</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>On 10 September 2009 the Prime Minister apologised on behalf of the British government, calling his treatment inhumane and describing his sentence as chemical castration by a series of injections of female hormones, accepted as the alternative to prison.</strong></td>
+    <td>confirmed</td>
+    <td><a href="https://www.manchester.ac.uk/about/news/gordon-brown-issues-apology-for-treatment-of-alan-turing/" target="_blank" rel="noreferrer">Gordon Brown issues apology for treatment of Alan Turing</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>On 24 December 2013 he received a posthumous royal pardon; the Justice Secretary called the conviction unjust and discriminatory, and the Prime Minister said the sentence of chemical castration had caused physical and emotional damage.</strong></td>
+    <td>confirmed</td>
+    <td><a href="https://www.gov.uk/government/news/royal-pardon-for-ww2-code-breaker-dr-alan-turing" target="_blank" rel="noreferrer">Royal pardon for WW2 code-breaker Dr Alan Turing</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-R" title="Retrospective">R</span></td>
+    <td><strong>The roster lists depression as a primary condition; the sources read document his prosecution, the hormone treatment, and his decision to seek Jungian analysis, but record no diagnosis of depression, so a depressive illness is a retrospective interpretation.</strong><div class="muted">Retrospective and uncertain; it must not be read as a documented diagnosis.</div></td>
+    <td>possible</td>
+    <td><a href="https://humanrecord.example.org/internal/HISTMED_Master_Roster_v3.xlsx" target="_blank" rel="noreferrer">HISTMED Master Roster v3</a> <span class="relationship">supports</span><br><a href="https://www.turing.org.uk/scrapbook/wondrous.html" target="_blank" rel="noreferrer">Hodges A. The Alan Turing Internet Scrapbook: Defiant until death</a> <span class="relationship">supports</span></td>
+  </tr></tbody></table></section>
+    <section><h2>Modern synthetic problem list</h2><table><thead><tr><th>Grade</th><th>Problem</th><th>Clinical status</th><th>Verification</th><th>Placement</th><th>Historical claims</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Bilateral gynecomastia, tender, about 4 cm of firm glandular tissue behind each nipple, after a year of high-dose estrogen; synthetic modern diagnosis linked to the documented breast growth from his hormone treatment</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>both_with_link</td>
+    <td>CLM-0005</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Suppressed testosterone and gonadotropins from exogenous estrogen (drug-induced hypogonadotropic hypogonadism), with low libido, erectile difficulty, and fatigue</td>
+    <td>resolved</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td>CLM-0003</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Adverse effects of high-dose estrogen given for a year without free and informed consent, as the alternative to imprisonment</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>both_with_link</td>
+    <td>CLM-0003, CLM-0004, CLM-0005, CLM-0012, CLM-0013</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Major depressive disorder, single episode, moderate, after prosecution and coerced hormone treatment; synthetic modern diagnosis (no depression diagnosis is documented in his lifetime)</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>both_with_link</td>
+    <td>CLM-0006, CLM-0014</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Vitamin D insufficiency (25-hydroxyvitamin D 22 ng/mL)</td>
+    <td>resolved</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Right lateral ankle sprain while trail running, able to bear weight, Ottawa ankle rules negative; resolved</td>
+    <td>resolved</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td></td>
+  </tr></tbody></table></section>
+    <section><h2>Synthetic outcome measures</h2><table><thead><tr><th>Grade</th><th>Date</th><th>Measure</th><th>Result</th><th>Coding</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1953-04-14</td>
+    <td>Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]</td>
+    <td>15</td>
+    <td>http://loinc.org · 44261-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1953-04-14</td>
+    <td>Generalized anxiety disorder 7 item (GAD-7) total score [Reported.PHQ]</td>
+    <td>8</td>
+    <td>http://loinc.org · 70274-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1953-04-14</td>
+    <td>Total score [AUDIT-C]</td>
+    <td>2</td>
+    <td>http://loinc.org · 75626-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1953-04-14</td>
+    <td>Testosterone [Mass/volume] in Serum or Plasma</td>
+    <td>112 ng/dL (low)<div class="muted">Reference 264-916 ng/dL</div></td>
+    <td>http://loinc.org · 2986-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1953-04-14</td>
+    <td>Estradiol (E2) [Mass/volume] in Serum or Plasma</td>
+    <td>148 pg/mL (high)<div class="muted">Reference 7.6-42.6 pg/mL</div></td>
+    <td>http://loinc.org · 2243-4</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1953-04-14</td>
+    <td>Lutropin [Units/volume] in Serum or Plasma</td>
+    <td>0.3 m[IU]/mL (low)<div class="muted">Reference 1.7-8.6 m[IU]/mL</div></td>
+    <td>http://loinc.org · 10501-5</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1953-04-14</td>
+    <td>Follitropin [Units/volume] in Serum or Plasma</td>
+    <td>0.4 m[IU]/mL (low)<div class="muted">Reference 1.5-12.4 m[IU]/mL</div></td>
+    <td>http://loinc.org · 15067-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1953-04-14</td>
+    <td>Sex hormone binding globulin [Moles/volume] in Serum or Plasma</td>
+    <td>88 nmol/L (high)<div class="muted">Reference 16.5-55.9 nmol/L</div></td>
+    <td>http://loinc.org · 13967-5</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1953-04-14</td>
+    <td>Prolactin [Mass/volume] in Serum or Plasma</td>
+    <td>21.6 ng/mL (high)<div class="muted">Reference 4-15.2 ng/mL</div></td>
+    <td>http://loinc.org · 2842-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1953-04-14</td>
+    <td>Choriogonadotropin.beta subunit [Units/volume] in Serum or Plasma</td>
+    <td>1 m[IU]/mL<div class="muted">Reference &lt;=3 m[IU]/mL</div></td>
+    <td>http://loinc.org · 21198-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1953-04-14</td>
+    <td>Alpha-1-Fetoprotein [Mass/volume] in Serum or Plasma</td>
+    <td>2.6 ng/mL<div class="muted">Reference &lt;=8.3 ng/mL</div></td>
+    <td>http://loinc.org · 1834-1</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1953-04-14</td>
+    <td>Alanine aminotransferase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>22 U/L<div class="muted">Reference 7-55 U/L</div></td>
+    <td>http://loinc.org · 1742-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1953-04-14</td>
+    <td>Aspartate aminotransferase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>24 U/L<div class="muted">Reference 8-48 U/L</div></td>
+    <td>http://loinc.org · 1920-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1953-04-14</td>
+    <td>Bilirubin.total [Mass/volume] in Serum or Plasma</td>
+    <td>0.6 mg/dL<div class="muted">Reference 0.1-1.2 mg/dL</div></td>
+    <td>http://loinc.org · 1975-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1953-04-14</td>
+    <td>Creatinine [Mass/volume] in Serum or Plasma</td>
+    <td>0.96 mg/dL<div class="muted">Reference 0.74-1.35 mg/dL</div></td>
+    <td>http://loinc.org · 2160-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1953-04-14</td>
+    <td>Glomerular filtration rate [Volume Rate/Area] in Serum, Plasma or Blood by Creatinine-based formula (CKD-EPI 1948)/1.73 sq M</td>
+    <td>102 mL/min/1.73 m²<div class="muted">Reference &gt;=60 mL/min/1.73 m²</div></td>
+    <td>http://loinc.org · 98979-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1953-04-14</td>
+    <td>Thyrotropin [Units/volume] in Serum or Plasma</td>
+    <td>1.9 mIU/L<div class="muted">Reference 0.4-4 mIU/L</div></td>
+    <td>http://loinc.org · 3016-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1953-04-14</td>
+    <td>Hemoglobin [Mass/volume] in Blood</td>
+    <td>13 g/dL (low)<div class="muted">Reference 13.2-16.6 g/dL</div></td>
+    <td>http://loinc.org · 718-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1953-04-14</td>
+    <td>25-Hydroxyvitamin D3+25-Hydroxyvitamin D2 [Mass/volume] in Serum or Plasma</td>
+    <td>22 ng/mL (low)<div class="muted">Reference 30-100 ng/mL</div></td>
+    <td>http://loinc.org · 62292-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1953-04-28</td>
+    <td>Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]</td>
+    <td>14</td>
+    <td>http://loinc.org · 44261-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1953-04-28</td>
+    <td>Estradiol (E2) [Mass/volume] in Serum or Plasma</td>
+    <td>46 pg/mL (high)<div class="muted">Reference 7.6-42.6 pg/mL</div></td>
+    <td>http://loinc.org · 2243-4</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1953-04-28</td>
+    <td>Lutropin [Units/volume] in Serum or Plasma</td>
+    <td>0.9 m[IU]/mL (low)<div class="muted">Reference 1.7-8.6 m[IU]/mL</div></td>
+    <td>http://loinc.org · 10501-5</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1953-06-09</td>
+    <td>Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]</td>
+    <td>12</td>
+    <td>http://loinc.org · 44261-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1953-06-09</td>
+    <td>Generalized anxiety disorder 7 item (GAD-7) total score [Reported.PHQ]</td>
+    <td>6</td>
+    <td>http://loinc.org · 70274-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1953-06-09</td>
+    <td>Testosterone [Mass/volume] in Serum or Plasma</td>
+    <td>238 ng/dL (low)<div class="muted">Reference 264-916 ng/dL</div></td>
+    <td>http://loinc.org · 2986-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1953-06-09</td>
+    <td>Estradiol (E2) [Mass/volume] in Serum or Plasma</td>
+    <td>26 pg/mL<div class="muted">Reference 7.6-42.6 pg/mL</div></td>
+    <td>http://loinc.org · 2243-4</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1953-06-09</td>
+    <td>Lutropin [Units/volume] in Serum or Plasma</td>
+    <td>2.4 m[IU]/mL<div class="muted">Reference 1.7-8.6 m[IU]/mL</div></td>
+    <td>http://loinc.org · 10501-5</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1953-06-09</td>
+    <td>Follitropin [Units/volume] in Serum or Plasma</td>
+    <td>3.1 m[IU]/mL<div class="muted">Reference 1.5-12.4 m[IU]/mL</div></td>
+    <td>http://loinc.org · 15067-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1953-06-09</td>
+    <td>Prolactin [Mass/volume] in Serum or Plasma</td>
+    <td>12.4 ng/mL<div class="muted">Reference 4-15.2 ng/mL</div></td>
+    <td>http://loinc.org · 2842-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1953-06-09</td>
+    <td>Hemoglobin [Mass/volume] in Blood</td>
+    <td>13.6 g/dL<div class="muted">Reference 13.2-16.6 g/dL</div></td>
+    <td>http://loinc.org · 718-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1953-08-04</td>
+    <td>Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]</td>
+    <td>7</td>
+    <td>http://loinc.org · 44261-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1953-08-04</td>
+    <td>Testosterone [Mass/volume] in Serum or Plasma</td>
+    <td>452 ng/dL<div class="muted">Reference 264-916 ng/dL</div></td>
+    <td>http://loinc.org · 2986-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1953-08-04</td>
+    <td>Lutropin [Units/volume] in Serum or Plasma</td>
+    <td>4.8 m[IU]/mL<div class="muted">Reference 1.7-8.6 m[IU]/mL</div></td>
+    <td>http://loinc.org · 10501-5</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1953-08-04</td>
+    <td>Follitropin [Units/volume] in Serum or Plasma</td>
+    <td>5.2 m[IU]/mL<div class="muted">Reference 1.5-12.4 m[IU]/mL</div></td>
+    <td>http://loinc.org · 15067-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1953-08-04</td>
+    <td>Hemoglobin [Mass/volume] in Blood</td>
+    <td>14.4 g/dL<div class="muted">Reference 13.2-16.6 g/dL</div></td>
+    <td>http://loinc.org · 718-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1953-10-06</td>
+    <td>Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]</td>
+    <td>4</td>
+    <td>http://loinc.org · 44261-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1953-10-06</td>
+    <td>Generalized anxiety disorder 7 item (GAD-7) total score [Reported.PHQ]</td>
+    <td>3</td>
+    <td>http://loinc.org · 70274-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1953-10-06</td>
+    <td>Testosterone [Mass/volume] in Serum or Plasma</td>
+    <td>536 ng/dL<div class="muted">Reference 264-916 ng/dL</div></td>
+    <td>http://loinc.org · 2986-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1953-10-06</td>
+    <td>Estradiol (E2) [Mass/volume] in Serum or Plasma</td>
+    <td>24 pg/mL<div class="muted">Reference 7.6-42.6 pg/mL</div></td>
+    <td>http://loinc.org · 2243-4</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1953-10-06</td>
+    <td>25-Hydroxyvitamin D3+25-Hydroxyvitamin D2 [Mass/volume] in Serum or Plasma</td>
+    <td>38 ng/mL<div class="muted">Reference 30-100 ng/mL</div></td>
+    <td>http://loinc.org · 62292-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1953-10-20</td>
+    <td>Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]</td>
+    <td>3</td>
+    <td>http://loinc.org · 44261-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1953-10-20</td>
+    <td>Total score [AUDIT-C]</td>
+    <td>2</td>
+    <td>http://loinc.org · 75626-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1953-10-20</td>
+    <td>Cholesterol [Mass/volume] in Serum or Plasma</td>
+    <td>182 mg/dL<div class="muted">Reference &lt;=199 mg/dL</div></td>
+    <td>http://loinc.org · 2093-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1953-10-20</td>
+    <td>Cholesterol in HDL [Mass/volume] in Serum or Plasma</td>
+    <td>62 mg/dL<div class="muted">Reference &gt;=40 mg/dL</div></td>
+    <td>http://loinc.org · 2085-9</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1953-10-20</td>
+    <td>Cholesterol in LDL [Mass/volume] in Serum or Plasma by calculation</td>
+    <td>104 mg/dL<div class="muted">Reference &lt;=129 mg/dL</div></td>
+    <td>http://loinc.org · 13457-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1953-10-20</td>
+    <td>Triglyceride [Mass/volume] in Serum or Plasma</td>
+    <td>80 mg/dL<div class="muted">Reference &lt;=149 mg/dL</div></td>
+    <td>http://loinc.org · 2571-8</td>
+  </tr></tbody></table></section>
+    <section><h2>Synthetic vital signs</h2><table><thead><tr><th>Date</th><th>Measure</th><th>Result</th><th>LOINC</th><th>Grade</th></tr></thead><tbody>
+  <tr><td>1953-04-14</td><td>Body height</td><td>178 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1953-04-14</td><td>Body weight</td><td>71.4 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1953-04-14</td><td>Body mass index (BMI) [Ratio]</td><td>22.5 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1953-04-14</td><td>Systolic blood pressure</td><td>122 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1953-04-14</td><td>Diastolic blood pressure</td><td>76 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1953-04-14</td><td>Heart rate</td><td>64 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1953-04-14</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1953-04-14</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1953-04-14</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>99 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1953-04-28</td><td>Body height</td><td>178 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1953-04-28</td><td>Body weight</td><td>71 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1953-04-28</td><td>Body mass index (BMI) [Ratio]</td><td>22.4 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1953-04-28</td><td>Systolic blood pressure</td><td>120 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1953-04-28</td><td>Diastolic blood pressure</td><td>74 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1953-04-28</td><td>Heart rate</td><td>62 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1953-04-28</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1953-04-28</td><td>Body temperature</td><td>36.5 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1953-04-28</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>99 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1953-06-09</td><td>Body height</td><td>178 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1953-06-09</td><td>Body weight</td><td>70.1 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1953-06-09</td><td>Body mass index (BMI) [Ratio]</td><td>22.1 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1953-06-09</td><td>Systolic blood pressure</td><td>118 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1953-06-09</td><td>Diastolic blood pressure</td><td>74 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1953-06-09</td><td>Heart rate</td><td>58 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1953-06-09</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1953-06-09</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1953-06-09</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>99 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1953-08-04</td><td>Body height</td><td>178 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1953-08-04</td><td>Body weight</td><td>69.3 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1953-08-04</td><td>Body mass index (BMI) [Ratio]</td><td>21.9 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1953-08-04</td><td>Systolic blood pressure</td><td>124 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1953-08-04</td><td>Diastolic blood pressure</td><td>78 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1953-08-04</td><td>Heart rate</td><td>60 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1953-08-04</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1953-08-04</td><td>Body temperature</td><td>36.7 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1953-08-04</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>99 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1953-10-06</td><td>Body height</td><td>178 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1953-10-06</td><td>Body weight</td><td>68.6 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1953-10-06</td><td>Body mass index (BMI) [Ratio]</td><td>21.7 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1953-10-06</td><td>Systolic blood pressure</td><td>118 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1953-10-06</td><td>Diastolic blood pressure</td><td>72 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1953-10-06</td><td>Heart rate</td><td>54 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1953-10-06</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1953-10-06</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1953-10-06</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>99 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1953-08-25</td><td>Body height</td><td>178 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1953-08-25</td><td>Body weight</td><td>69 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1953-08-25</td><td>Body mass index (BMI) [Ratio]</td><td>21.8 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1953-08-25</td><td>Systolic blood pressure</td><td>126 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1953-08-25</td><td>Diastolic blood pressure</td><td>78 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1953-08-25</td><td>Heart rate</td><td>70 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1953-08-25</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1953-08-25</td><td>Body temperature</td><td>36.7 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1953-08-25</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>99 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1953-10-20</td><td>Body height</td><td>178 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1953-10-20</td><td>Body weight</td><td>68.5 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1953-10-20</td><td>Body mass index (BMI) [Ratio]</td><td>21.6 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1953-10-20</td><td>Systolic blood pressure</td><td>116 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1953-10-20</td><td>Diastolic blood pressure</td><td>72 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1953-10-20</td><td>Heart rate</td><td>54 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1953-10-20</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1953-10-20</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1953-10-20</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>99 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr></tbody></table></section>
+    <section><h2>Social, functional, and mental status</h2><h3>Social history</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Occupation: mathematician and computer scientist; moved here three months ago to a university research post, after a criminal conviction abroad for a consensual relationship with another adult man under a law that criminalizes sex between men</li><li><span class="badge grade-S" title="Synthetic">S</span> Sexual orientation: gay; pronouns he/him; lives alone; not in a relationship now; has one or two close friends here and others abroad</li><li><span class="badge grade-S" title="Synthetic">S</span> Long-distance runner, usually 40 to 50 km a week; has run less in recent months and stopped changing at the running club because of his chest</li><li><span class="badge grade-S" title="Synthetic">S</span> Never smoker; two or three drinks a week; no drug use</li><li><span class="badge grade-S" title="Synthetic">S</span> Supports: absorbing research work, running, a few trusted friends, and a willingness to talk to a therapist; no firearms in the home</li></ul><h3>Functional status</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> At intake, working full days but sleeping badly, avoiding the running club changing room, and seeing friends less</li></ul><h3>Mental status</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Tall, lean, casually dressed; slightly hesitant speech that becomes quick and precise on technical subjects; wry humor; cooperative</li><li><span class="badge grade-S" title="Synthetic">S</span> Mood &quot;flattened, and angry about what was done to me&quot;; affect constricted, reactive; thought process linear; no suicidal ideation, intent, or plan; no psychotic features; insight and judgment good</li></ul></section>
+    <section><h2>Structured safety assessment</h2><div class="grid"><div class="card"><div class="label">Current ideation</div>absent</div><div class="card"><div class="label">Intent</div>absent</div><div class="card"><div class="label">Plan</div>absent</div><div class="card"><div class="label">Disposition</div>Outpatient care with a collaborative safety plan, the 988 Suicide &amp; Crisis Lifeline, and a two-week follow-up</div></div><p class="muted">This assessment is synthetic and does not convert historical behavior into a present-day fact.</p></section>
+    <section><h2>Allergies and medications</h2><h3>Allergies</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> No known allergy</li></ul><h3>Medications</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Cholecalciferol 1,000 units (25 mcg) oral tablet, one tablet by mouth daily</li><li><span class="badge grade-S" title="Synthetic">S</span> Bupropion extended-release 150 mg oral tablet, one tablet by mouth each morning</li><li><span class="badge grade-S" title="Synthetic">S</span> Ibuprofen 400 mg oral tablet, one tablet by mouth up to three times a day with food for no more than 5 days</li></ul></section>
+    <section><h2>Procedures and immunizations</h2><h3>Procedures</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Scrotal ultrasound for gynecomastia workup: testes about 15 mL each, homogeneous, no mass; no varicocele</li><li><span class="badge grade-S" title="Synthetic">S</span> Advance care planning conversation, about 20 minutes</li></ul><h3>Immunizations</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> 1952-10-14: Influenza vaccine, 1952-1953 season</li><li><span class="badge grade-S" title="Synthetic">S</span> 1948-05-11: Tdap vaccine</li><li><span class="badge grade-S" title="Synthetic">S</span> 1953-10-20: Influenza vaccine, 1953-1954 season</li></ul></section>
+    <section><h2>Past medical history</h2><p class="muted">True biography with historical dates; not part of the synthetic care timeline.</p><ul><li><span class="badge grade-D" title="Documented">D</span> 31 March 1952: Year of oestrogen treatment (probably stilboestrol) accepted as the alternative to prison after his conviction for gross indecency <span class="muted">(CLM-0003, CLM-0004)</span></li><li><span class="badge grade-D" title="Documented">D</span> 1952: Breast growth attributed to the hormone treatment, which he is known to have mentioned once <span class="muted">(CLM-0005)</span></li><li><span class="badge grade-D" title="Documented">D</span> November 1952: Decided to see a psychiatrist again and began Jungian analysis <span class="muted">(CLM-0006)</span></li></ul><h3>Family history</h3><p class="muted">No family medical history is documented in the logged sources. Family history of real relatives is never synthesized.</p></section>
+    <section><h2>Care-plan goals</h2><table><thead><tr><th>Goal</th><th>Target date</th><th>Status</th><th>Outcome</th></tr></thead><tbody>
+  <tr><td>Testosterone, LH, and FSH back in the reference range within six months of the last estrogen dose, without testosterone therapy</td><td>1953-08-04</td><td>completed</td><td>Testosterone 452 ng/dL with normal LH and FSH at sixteen weeks</td></tr>
+  <tr><td>Breast tenderness gone and gynecomastia reduced; a surgical opinion offered if it persists and troubles him</td><td>1953-10-06</td><td>active</td><td>Tenderness gone by six months; small residual glandular tissue; watchful waiting to twelve months</td></tr>
+  <tr><td>Depression response (PHQ-9 down by at least 50 percent) by sixteen weeks, then remission (PHQ-9 below 5)</td><td>1953-10-06</td><td>completed</td><td>PHQ-9 7 at sixteen weeks (down 53 percent) and 4 at six months</td></tr>
+  <tr><td>Back to running about 40 km a week and changing at his club again</td><td>1953-10-06</td><td>completed</td><td>Running 40 km a week and back with the club by six months</td></tr></tbody></table></section>
+    <section><h2>Interventions</h2><table><thead><tr><th>Intervention</th><th>Status</th><th>Guideline</th></tr></thead><tbody>
+  <tr><td>Consent first: every examination, test, and treatment is explained and offered, and he may decline any of it; intimate examinations only with his agreement at each step and with a chaperone offered. The estrogen he was given as a condition of avoiding prison was not freely consented treatment, and no further doses will be given</td><td>completed</td><td>GL-APA-SM-2021, GL-EAA-GM-2019, GL-ES-HYPOGONAD-2018</td></tr>
+  <tr><td>Gynecomastia workup: breast and testicular examination; testosterone, estradiol, LH, FSH, prolactin, SHBG, hCG, AFP, liver, kidney, and thyroid tests today; scrotal ultrasound; breast ultrasound only if the examination becomes equivocal</td><td>completed</td><td>GL-EAA-GM-2019, GL-ES-HYPOGONAD-2018</td></tr>
+  <tr><td>Endocrinology consultation to confirm that the estrogen explains the findings and to advise on recovery of the gonadal axis, testosterone therapy, bone health, and surgery</td><td>completed</td><td>GL-EAA-GM-2019, GL-ES-HYPOGONAD-2018</td></tr>
+  <tr><td>Watchful waiting for the gynecomastia after the estrogen stops; testosterone, estradiol, LH, and FSH every six to eight weeks until normal; no testosterone therapy while the axis is recovering; a surgical opinion if gynecomastia persists about twelve months and troubles him</td><td>completed</td><td>GL-EAA-GM-2019, GL-ES-HYPOGONAD-2018</td></tr>
+  <tr><td>Bone health: vitamin D replacement, calcium from food, continued running and strength work; bone density scan only if hypogonadism persists beyond six months or a fracture occurs</td><td>completed</td><td>GL-EAA-GM-2019, GL-ES-HYPOGONAD-2018, GL-ES-OSTEO-MEN-2012</td></tr>
+  <tr><td>Weekly psychotherapy with a gay-affirming clinic psychologist for about 16 sessions, addressing the prosecution, the coerced treatment, and minority stress; an antidepressant offered and declined for now, to be reconsidered if the PHQ-9 has not fallen by half at about eight weeks</td><td>completed</td><td>GL-MDD-2022, GL-CMID-2026, GL-APA-SM-2021</td></tr>
+  <tr><td>Collaborative safety plan with warning signs, coping steps, people to contact, the clinic number, and the 988 Suicide &amp; Crisis Lifeline; suicide-risk review and PHQ-9 at every visit</td><td>completed</td><td>GL-SUICIDE-2024, GL-CMID-2026</td></tr>
+  <tr><td>Sexual health as routine adult care: HIV and STI testing and a PrEP discussion offered at his preventive visit, with his consent; libido and erectile function reviewed as testosterone recovers</td><td>completed</td><td>GL-CDC-STI-2021, GL-USPSTF-PREP-2023, GL-APA-SM-2021</td></tr>
+  <tr><td>Affirming practice: his orientation, name, and pronouns recorded as he chooses; his records shared only with his consent; a written letter from this clinic, at his request, confirming that the estrogen he was given was not medically indicated</td><td>completed</td><td>GL-APA-SM-2021</td></tr>
+  <tr><td>Add bupropion XL 150 mg each morning, chosen by him after an informed discussion of options and side effects; nurse telephone check at two weeks; PHQ-9 and blood pressure at each visit</td><td>completed</td><td>GL-CMID-2026, GL-MDD-2022</td></tr></tbody></table></section>
+    <section><h2>Planned encounters</h2><ul>
+  <li><strong>1953-04-14</strong> — New-patient primary care visit for breast enlargement, low libido, and low mood after a year of high-dose estrogen given without his consent <span class="muted">(ENC-001)</span></li>
+  <li><strong>1953-04-28</strong> — Two-week follow-up with endocrinology consultation and scrotal ultrasound <span class="muted">(ENC-002)</span></li>
+  <li><strong>1953-06-09</strong> — Eight-week review of hormone recovery and depression treatment <span class="muted">(ENC-003)</span></li>
+  <li><strong>1953-08-04</strong> — Sixteen-week review of hormone recovery and depression treatment <span class="muted">(ENC-004)</span></li>
+  <li><strong>1953-08-25</strong> — Same-day sick visit for a right ankle sprain <span class="muted">(ENC-006, unscheduled)</span></li>
+  <li><strong>1953-10-06</strong> — Six-month review of gynecomastia and depression in continuation treatment <span class="muted">(ENC-005)</span></li>
+  <li><strong>1953-10-20</strong> — Periodic adult preventive visit <span class="muted">(ENC-007)</span></li></ul></section>
+    <section><h2>Supporting documents</h2><ul><li><a href="notes/hp.md">History and physical</a></li><li><a href="notes/progress-01.md">Progress note 01</a></li><li><a href="notes/progress-02.md">Progress note 02 — Focused Visit (Follow-up)</a></li><li><a href="notes/progress-03.md">Progress note 03 — Focused Visit (Follow-up)</a></li><li><a href="notes/progress-04.md">Progress note 04 — Focused Visit (Follow-up)</a></li><li><a href="notes/progress-05.md">Progress note 05 — Sick Visit</a></li><li><a href="notes/progress-06.md">Progress note 06 — Focused Visit (Care-plan review)</a></li><li><a href="notes/progress-07.md">Progress note 07 — Preventive Visit</a></li><li><a href="notes/referral-01.md">Endocrinology referral</a></li><li><a href="notes/consult-01.md">Endocrinology consultation</a></li><li><a href="notes/careplan.md">Patient care plan</a></li><li><a href="notes/teaching-note.md">Teaching note</a></li><li><a href="provenance.csv">Provenance CSV</a></li></ul></section>
+    <section><h2>C-CDA note documents</h2><p class="muted">Each link opens a readable copy; the XML beside it is the exchange file.</p><ul><li><a href="ccda/hp-01.html">History and physical</a> <a href="ccda/hp-01.xml">(XML)</a></li><li><a href="ccda/progress-01.html">Progress note 01</a> <a href="ccda/progress-01.xml">(XML)</a></li><li><a href="ccda/progress-02.html">Progress note 02 — Focused Visit (Follow-up)</a> <a href="ccda/progress-02.xml">(XML)</a></li><li><a href="ccda/progress-03.html">Progress note 03 — Focused Visit (Follow-up)</a> <a href="ccda/progress-03.xml">(XML)</a></li><li><a href="ccda/progress-04.html">Progress note 04 — Focused Visit (Follow-up)</a> <a href="ccda/progress-04.xml">(XML)</a></li><li><a href="ccda/progress-05.html">Progress note 05 — Sick Visit</a> <a href="ccda/progress-05.xml">(XML)</a></li><li><a href="ccda/progress-06.html">Progress note 06 — Focused Visit (Care-plan review)</a> <a href="ccda/progress-06.xml">(XML)</a></li><li><a href="ccda/progress-07.html">Progress note 07 — Preventive Visit</a> <a href="ccda/progress-07.xml">(XML)</a></li><li><a href="ccda/referral-01.html">Endocrinology referral</a> <a href="ccda/referral-01.xml">(XML)</a></li><li><a href="ccda/consult-01.html">Endocrinology consultation</a> <a href="ccda/consult-01.xml">(XML)</a></li></ul></section>
+    <section><h2>Sources</h2><table><thead><tr><th>ID</th><th>Source</th><th>Publisher</th><th>Type</th></tr></thead><tbody>
+  <tr>
+    <td>SRC-0001</td>
+    <td><a href="https://www.turing.org.uk/publications/dnb.html" target="_blank" rel="noreferrer">Hodges A. Alan Turing (overview biography, revised from the Oxford Dictionary of National Biography entry)</a></td>
+    <td>Andrew Hodges, The Alan Turing Home Page</td>
+    <td>biography</td>
+  </tr>
+  <tr>
+    <td>SRC-0002</td>
+    <td><a href="https://www.turing.org.uk/scrapbook/wondrous.html" target="_blank" rel="noreferrer">Hodges A. The Alan Turing Internet Scrapbook: Defiant until death</a></td>
+    <td>Andrew Hodges, The Alan Turing Home Page</td>
+    <td>biography</td>
+  </tr>
+  <tr>
+    <td>SRC-0003</td>
+    <td><a href="https://mathshistory.st-andrews.ac.uk/Biographies/Turing/" target="_blank" rel="noreferrer">O&#39;Connor JJ, Robertson EF. Alan Mathison Turing. MacTutor History of Mathematics</a></td>
+    <td>University of St Andrews</td>
+    <td>biography</td>
+  </tr>
+  <tr>
+    <td>SRC-0004</td>
+    <td><a href="https://www.turing.org.uk/scrapbook/morph.html" target="_blank" rel="noreferrer">Hodges A. The Alan Turing Internet Scrapbook: Non-linear Life</a></td>
+    <td>Andrew Hodges, The Alan Turing Home Page</td>
+    <td>biography</td>
+  </tr>
+  <tr>
+    <td>SRC-0005</td>
+    <td><a href="https://www.bbc.com/news/science-environment-18561092" target="_blank" rel="noreferrer">Pease R. Alan Turing: Inquest&#39;s suicide verdict &#39;not supportable&#39;. BBC News, 23 June 2012</a></td>
+    <td>BBC News</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0006</td>
+    <td><a href="https://www.gov.uk/government/news/royal-pardon-for-ww2-code-breaker-dr-alan-turing" target="_blank" rel="noreferrer">Royal pardon for WW2 code-breaker Dr Alan Turing</a></td>
+    <td>UK Ministry of Justice (GOV.UK)</td>
+    <td>government</td>
+  </tr>
+  <tr>
+    <td>SRC-0007</td>
+    <td><a href="https://www.manchester.ac.uk/about/news/gordon-brown-issues-apology-for-treatment-of-alan-turing/" target="_blank" rel="noreferrer">Gordon Brown issues apology for treatment of Alan Turing</a></td>
+    <td>The University of Manchester</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0008</td>
+    <td><a href="https://humanrecord.example.org/internal/HISTMED_Master_Roster_v3.xlsx" target="_blank" rel="noreferrer">HISTMED Master Roster v3</a></td>
+    <td>The Human Record project</td>
+    <td>other</td>
+  </tr></tbody></table></section>
+    <section><h2>Review status</h2><table><thead><tr><th>Review</th><th>Status</th><th>Notes</th></tr></thead><tbody>
+  <tr><td>schema validation</td><td>not_started</td><td>Run scripts/build.ps1 -Conformance.</td></tr>
+  <tr><td>clinical review</td><td>not_started</td><td>Awaiting clinician review; check the gynecomastia workup and watchful waiting, recovery of the gonadal axis without testosterone therapy, the bone-health plan, the depression treatment and safety review at every visit, routine sexual health care, and the recorded deviation.</td></tr>
+  <tr><td>provenance review</td><td>not_started</td><td>Hodges&#39;s biography pages, MacTutor, a BBC report, a GOV.UK press release, and a University of Manchester news item logged. The prosecution, the hormone treatment, Jungian analysis, and the death and verdict are D; depression and both readings of his death are R. The tablet-and-implant account of the treatment was not verified.</td></tr>
+  <tr><td>safe messaging review</td><td>not_started</td><td>Safety assessment is synthetic with no current ideation; the disputed circumstances of his death are recorded only as history, in plain terms and without method detail, and are not echoed in the modern episode. Sexual orientation is recorded respectfully and never as a problem.</td></tr></tbody></table></section>
+  </main>
+</body>
+</html>

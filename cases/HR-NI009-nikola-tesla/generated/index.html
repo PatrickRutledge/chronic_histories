@@ -1,0 +1,527 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Nikola Tesla — The Human Record</title>
+  <style>
+    :root { --navy:#17365d; --blue:#1f4e78; --pale:#eef5fa; --ink:#1f2933; --muted:#66788a; --amber:#fff2cc; --red:#f8d7da; --green:#d9ead3; }
+    * { box-sizing:border-box; }
+    body { margin:0; font:16px/1.5 Arial, sans-serif; color:var(--ink); background:#f6f8fa; }
+    header { background:var(--navy); color:white; padding:24px max(24px,calc((100vw - 1180px)/2)); }
+    header h1 { margin:4px 0; font-size:30px; }
+    .banner { background:#b42318; color:white; font-weight:700; text-align:center; padding:10px; letter-spacing:.03em; }
+    main { max-width:1180px; margin:24px auto 60px; padding:0 24px; }
+    section { background:white; border:1px solid #d9e1e8; border-radius:8px; margin:18px 0; padding:20px; }
+    h2 { color:var(--navy); margin:0 0 14px; font-size:22px; }
+    h3 { color:var(--blue); }
+    .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:12px; }
+    .card { background:var(--pale); border-left:4px solid var(--blue); padding:12px; }
+    .label { color:var(--muted); font-size:13px; text-transform:uppercase; letter-spacing:.04em; }
+    table { width:100%; border-collapse:collapse; }
+    th { background:var(--blue); color:white; text-align:left; }
+    th,td { padding:9px; border-bottom:1px solid #dfe6ec; vertical-align:top; }
+    .badge { display:inline-block; min-width:28px; text-align:center; font-weight:700; border-radius:12px; padding:2px 8px; }
+    .grade-D { background:var(--green); } .grade-R { background:var(--amber); } .grade-S { background:var(--red); }
+    .muted { color:var(--muted); font-size:14px; }
+    .relationship { color:var(--muted); font-size:12px; }
+    .downloads a { display:inline-block; margin:4px 8px 4px 0; padding:8px 12px; background:var(--blue); color:white; text-decoration:none; border-radius:5px; }
+    @media (max-width:700px) { table { display:block; overflow-x:auto; } }
+  </style>
+</head>
+<body>
+  <div class="banner">SYNTHETIC RECORD, NOT A REAL MEDICAL RECORD</div>
+  <header>
+    <div>The Human Record</div>
+    <h1>Nikola Tesla</h1>
+    <div>Case HR-NI009 · Modern EHR teaching episode · Draft for review</div>
+  </header>
+  <main>
+    <section>
+      <h2>Review summary</h2>
+      <div class="grid">
+        <div class="card"><div class="label">Historical dates</div>10 July 1856 – 7 January 1943</div>
+        <div class="card"><div class="label">Synthetic DOB</div>1980-07-10</div>
+        <div class="card"><div class="label">Index visit</div>2026-01-13 at age 45</div>
+        <div class="card"><div class="label">Synthetic MRN</div>HR-NI009-SYN</div>
+      </div>
+      <p><strong>Teaching objective:</strong> Assess and treat severe obsessive-compulsive disorder in a 45-year-old electrical engineer, following the APA practice guideline (2007, with the 2013 guideline watch) and NICE CG31: a structured assessment with the Y-BOCS symptom checklist and severity scale, screening for depression, anxiety, tics, bipolar disorder, psychosis, and substance use, exposure and response prevention as first-line psychotherapy, sertraline raised in 50 mg steps to an effective dose, with the longer trial OCD needs, the effect of the rituals on his work, meals, sleep, and hands, an examination that respects his contamination fears without forcing exposures, and a structured suicide-risk assessment with a safety plan and the 988 Lifeline, while treating his historical rituals as his own accounts and not mocking or sensationalizing them.</p>
+      <div class="downloads">
+        <a href="../case.json">Canonical JSON</a>
+        <a href="fhir-bundle.json">FHIR R4 draft</a>
+        <a href="ccda.html">C-CDA R2.1 summary</a> <a href="ccda.xml">(XML)</a> <a href="review.html">Review checklist</a>
+        <a href="../sources.md">Evidence dossier</a>
+      </div>
+    </section>
+    <section><h2>Historical timeline</h2><table><thead><tr><th>Date</th><th>Event</th><th>Claims</th></tr></thead><tbody>
+  <tr><td>10 July 1856</td><td>Born in Smiljan.</td><td>CLM-0001</td></tr>
+  <tr><td>Childhood</td><td>Aversions, counting, calculating, and acts in multiples of three, as he later described them.</td><td>CLM-0003, CLM-0004</td></tr>
+  <tr><td>About age twelve</td><td>Vivid images with flashes of light; first banishes an image by effort.</td><td>CLM-0002</td></tr>
+  <tr><td>About 1873</td><td>Cholera at seventeen; from about this age he visualizes inventions in detail.</td><td>CLM-0005, CLM-0006</td></tr>
+  <tr><td>1881</td><td>Moves to Budapest; complete breakdown of the nerves.</td><td>CLM-0007</td></tr>
+  <tr><td>1884</td><td>Arrives in New York.</td><td>CLM-0008, CLM-0009</td></tr>
+  <tr><td>1901</td><td>Wardenclyffe tower and laboratory under construction.</td><td>CLM-0008</td></tr>
+  <tr><td>1905</td><td>Wardenclyffe abandoned; nervous breakdown reported.</td><td>CLM-0010</td></tr>
+  <tr><td>After 1912</td><td>Later years: pigeons, heightened germ aversion, compulsive handwashing.</td><td>CLM-0011</td></tr>
+  <tr><td>7 January 1943</td><td>Dies alone in the New Yorker Hotel.</td><td>CLM-0012</td></tr></tbody></table></section>
+    <section><h2>Evidence claims</h2><p class="muted">D = documented, R = retrospective, S = synthetic.</p><table><thead><tr><th>Grade</th><th>Claim</th><th>Certainty</th><th>Sources</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>Nikola Tesla was born on 10 July 1856 in the village of Smiljan, in what is now Croatia, to Serbian parents; his father was an Orthodox priest.</strong><div class="muted">PBS describes him as born a subject of the Austro-Hungarian Empire.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://ethw.org/Nikola_Tesla" target="_blank" rel="noreferrer">Nikola Tesla. Engineering and Technology History Wiki</a> <span class="relationship">supports</span><br><a href="https://archive.org/details/my-inventions-and-other-works-jan.-oct.-1919-nikola-tesla" target="_blank" rel="noreferrer">Tesla N. My Inventions. Electrical Experimenter, February to June and October 1919 (scanned issues)</a> <span class="relationship">supports</span><br><a href="https://www.pbs.org/tesla/ll/ll_early.html" target="_blank" rel="noreferrer">Tesla: Master of Lightning. Tesla&#39;s Early Years</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>In his memoir My Inventions (1919) he wrote that in boyhood he suffered from &quot;a peculiar affliction due to the appearance of images, often accompanied by strong flashes of light&quot;, pictures of things he had really seen, which caused him great discomfort and anxiety; at about twelve he first banished an image by wilful effort, but he never controlled the flashes, which grew stronger until he was about twenty-five.</strong><div class="muted">His own retrospective account; the phenomena have been read in different ways (CLM-0013).</div></td>
+    <td>confirmed</td>
+    <td><a href="https://archive.org/details/my-inventions-and-other-works-jan.-oct.-1919-nikola-tesla" target="_blank" rel="noreferrer">Tesla N. My Inventions. Electrical Experimenter, February to June and October 1919 (scanned issues)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>He wrote that he had a violent aversion to women&#39;s earrings, that the sight of a pearl would almost give him a fit, and that he would not touch the hair of other people; in 1919 he wrote that he was still &quot;not insensible to some of these upsetting impulses&quot;.</strong><div class="muted">His own account.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://archive.org/details/my-inventions-and-other-works-jan.-oct.-1919-nikola-tesla" target="_blank" rel="noreferrer">Tesla N. My Inventions. Electrical Experimenter, February to June and October 1919 (scanned issues)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>He wrote that he counted the steps in his walks and calculated the cubical contents of soup plates, coffee cups, and pieces of food, or his meal was unenjoyable, and that all repeated acts had to be divisible by three, and if he missed he felt impelled to do it all over again, even if it took hours.</strong><div class="muted">His own account. Counting and arithmetic rituals of this kind are now recognized as compulsions, but that reading is retrospective (CLM-0013, CLM-0014).</div></td>
+    <td>confirmed</td>
+    <td><a href="https://archive.org/details/my-inventions-and-other-works-jan.-oct.-1919-nikola-tesla" target="_blank" rel="noreferrer">Tesla N. My Inventions. Electrical Experimenter, February to June and October 1919 (scanned issues)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>He wrote that from about seventeen he could visualize his inventions with the greatest facility and needed no models, drawings, or experiments.</strong></td>
+    <td>confirmed</td>
+    <td><a href="https://archive.org/details/my-inventions-and-other-works-jan.-oct.-1919-nikola-tesla" target="_blank" rel="noreferrer">Tesla N. My Inventions. Electrical Experimenter, February to June and October 1919 (scanned issues)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>At seventeen he contracted cholera.</strong></td>
+    <td>confirmed</td>
+    <td><a href="https://www.pbs.org/tesla/ll/ll_early.html" target="_blank" rel="noreferrer">Tesla: Master of Lightning. Tesla&#39;s Early Years</a> <span class="relationship">supports</span><br><a href="https://archive.org/details/my-inventions-and-other-works-jan.-oct.-1919-nikola-tesla" target="_blank" rel="noreferrer">Tesla N. My Inventions. Electrical Experimenter, February to June and October 1919 (scanned issues)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>In 1881 he moved to Budapest to help install a telephone exchange; there, in his own account, he suffered &quot;the complete breakdown of the nerves&quot;, with extreme sensitivity to sound, light, and vibration, a pulse he described as ranging up to 260 beats, and twitching and tremors; a physician called his illness unique and incurable, and he recovered with a powerful desire to live and the help of a friend.</strong><div class="muted">His own retrospective account of a severe illness; no diagnosis can be made from it.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://ethw.org/Nikola_Tesla" target="_blank" rel="noreferrer">Nikola Tesla. Engineering and Technology History Wiki</a> <span class="relationship">supports</span><br><a href="https://archive.org/details/my-inventions-and-other-works-jan.-oct.-1919-nikola-tesla" target="_blank" rel="noreferrer">Tesla N. My Inventions. Electrical Experimenter, February to June and October 1919 (scanned issues)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>In 1884 he went to New York; by 1901 he was building a tower and laboratory for wireless transmission at Wardenclyffe on Long Island.</strong></td>
+    <td>confirmed</td>
+    <td><a href="https://ethw.org/Nikola_Tesla" target="_blank" rel="noreferrer">Nikola Tesla. Engineering and Technology History Wiki</a> <span class="relationship">supports</span><br><a href="https://www.pbs.org/tesla/ll/ll_todre.html" target="_blank" rel="noreferrer">Tesla: Master of Lightning. Tower of Dreams</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>He claimed that his working hours at his first job in New York were from 10:30 in the morning until 5 the next morning, and even into old age he said he slept only two or three hours a night.</strong><div class="muted">His own claims, as reported.</div></td>
+    <td>probable</td>
+    <td><a href="https://www.pbs.org/tesla/ll/ll_america.html" target="_blank" rel="noreferrer">Tesla: Master of Lightning. Coming to America</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>After the Wardenclyffe project was abandoned for lack of money in 1905, PBS reports, he had a complete nervous breakdown.</strong></td>
+    <td>probable</td>
+    <td><a href="https://www.pbs.org/tesla/ll/ll_todre.html" target="_blank" rel="noreferrer">Tesla: Master of Lightning. Tower of Dreams</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>In later years he rescued injured pigeons and nursed them in his hotel room; his aversion to germs heightened, and he began to wash his hands compulsively and would eat only boiled foods, which prompted speculation about his mental well-being.</strong><div class="muted">Later-life behaviors as reported; not a diagnosis.</div></td>
+    <td>probable</td>
+    <td><a href="https://www.pbs.org/tesla/ll/ll_poevis.html" target="_blank" rel="noreferrer">Tesla: Master of Lightning. Poet and Visionary</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>Financial difficulties continued as his patents expired; increasingly reclusive, he lived alone in a room in the New Yorker Hotel until he died there on 7 January 1943.</strong></td>
+    <td>confirmed</td>
+    <td><a href="https://ethw.org/Nikola_Tesla" target="_blank" rel="noreferrer">Nikola Tesla. Engineering and Technology History Wiki</a> <span class="relationship">supports</span><br><a href="https://www.pbs.org/tesla/ll/ll_poevis.html" target="_blank" rel="noreferrer">Tesla: Master of Lightning. Poet and Visionary</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-R" title="Retrospective">R</span></td>
+    <td><strong>A 2013 neurology review reads the experiences he described in his autobiography as including migraine auras, synesthesias, obsessions, and compulsions.</strong><div class="muted">A retrospective interpretation; only the abstract was read.</div></td>
+    <td>possible</td>
+    <td><a href="https://pubmed.ncbi.nlm.nih.gov/23307357/" target="_blank" rel="noreferrer">Villarejo-Galende A, Herrero-San Martin A. Nikola Tesla: flashes of inspiration [in Spanish]. Rev Neurol. 2013;56(2):109-114</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-R" title="Retrospective">R</span></td>
+    <td><strong>The roster lists obsessive-compulsive disorder and probable autism spectrum features; no diagnosis was made in his lifetime, a diagnosis of obsessive-compulsive disorder is a later interpretation of his own accounts, and autism is speculative and is not diagnosed in this record.</strong><div class="muted">Retrospective and uncertain.</div></td>
+    <td>possible</td>
+    <td><a href="https://humanrecord.example.org/internal/HISTMED_Master_Roster_v3.xlsx" target="_blank" rel="noreferrer">HISTMED Master Roster v3</a> <span class="relationship">supports</span><br><a href="https://pubmed.ncbi.nlm.nih.gov/23307357/" target="_blank" rel="noreferrer">Villarejo-Galende A, Herrero-San Martin A. Nikola Tesla: flashes of inspiration [in Spanish]. Rev Neurol. 2013;56(2):109-114</a> <span class="relationship">supports</span></td>
+  </tr></tbody></table></section>
+    <section><h2>Modern synthetic problem list</h2><table><thead><tr><th>Grade</th><th>Problem</th><th>Clinical status</th><th>Verification</th><th>Placement</th><th>Historical claims</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Obsessive-compulsive disorder, severe (Y-BOCS 28), with good insight: contamination, symmetry, and number obsessions; washing, counting, repeating in threes, and calculating compulsions; synthetic modern diagnosis linked to his own accounts of counting and calculating rituals and aversions</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>both_with_link</td>
+    <td>CLM-0003, CLM-0004, CLM-0011, CLM-0013, CLM-0014</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Irritant contact dermatitis of both hands from washing them 40 to 60 times a day</td>
+    <td>resolved</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td>CLM-0011</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Underweight (BMI 18.1) with about 4 kg weight loss over six months, from skipped meals and food-calculating rituals</td>
+    <td>resolved</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td>CLM-0004</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Insufficient sleep, four hours a night, from late work and night-time rituals</td>
+    <td>resolved</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td>CLM-0009</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Acute viral gastroenteritis, probably norovirus, with mild dehydration; resolved</td>
+    <td>resolved</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td></td>
+  </tr></tbody></table></section>
+    <section><h2>Synthetic outcome measures</h2><table><thead><tr><th>Grade</th><th>Date</th><th>Measure</th><th>Result</th><th>Coding</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-01-13</td>
+    <td>Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]</td>
+    <td>8</td>
+    <td>http://loinc.org · 44261-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-01-13</td>
+    <td>Generalized anxiety disorder 7 item (GAD-7) total score [Reported.PHQ]</td>
+    <td>12</td>
+    <td>http://loinc.org · 70274-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-01-13</td>
+    <td>Total score [AUDIT-C]</td>
+    <td>1</td>
+    <td>http://loinc.org · 75626-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-01-13</td>
+    <td>Sodium [Moles/volume] in Serum or Plasma</td>
+    <td>138 mmol/L<div class="muted">Reference 135-145 mmol/L</div></td>
+    <td>http://loinc.org · 2951-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-01-13</td>
+    <td>Potassium [Moles/volume] in Serum or Plasma</td>
+    <td>4.1 mmol/L<div class="muted">Reference 3.5-5.1 mmol/L</div></td>
+    <td>http://loinc.org · 2823-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-01-13</td>
+    <td>Carbon dioxide, total [Moles/volume] in Serum or Plasma</td>
+    <td>25 mmol/L<div class="muted">Reference 22-29 mmol/L</div></td>
+    <td>http://loinc.org · 2028-9</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-01-13</td>
+    <td>Urea nitrogen [Mass/volume] in Serum or Plasma</td>
+    <td>11 mg/dL<div class="muted">Reference 6-21 mg/dL</div></td>
+    <td>http://loinc.org · 3094-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-01-13</td>
+    <td>Creatinine [Mass/volume] in Serum or Plasma</td>
+    <td>0.82 mg/dL<div class="muted">Reference 0.74-1.35 mg/dL</div></td>
+    <td>http://loinc.org · 2160-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-01-13</td>
+    <td>Glomerular filtration rate [Volume Rate/Area] in Serum, Plasma or Blood by Creatinine-based formula (CKD-EPI 2021)/1.73 sq M</td>
+    <td>110 mL/min/1.73 m²<div class="muted">Reference &gt;=60 mL/min/1.73 m²</div></td>
+    <td>http://loinc.org · 98979-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-01-13</td>
+    <td>Glucose [Mass/volume] in Serum or Plasma</td>
+    <td>81 mg/dL<div class="muted">Reference 70-99 mg/dL</div></td>
+    <td>http://loinc.org · 2345-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-01-13</td>
+    <td>Albumin [Mass/volume] in Serum or Plasma</td>
+    <td>3.8 g/dL<div class="muted">Reference 3.5-5 g/dL</div></td>
+    <td>http://loinc.org · 1751-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-01-13</td>
+    <td>Hemoglobin [Mass/volume] in Blood</td>
+    <td>13.4 g/dL<div class="muted">Reference 13.2-16.6 g/dL</div></td>
+    <td>http://loinc.org · 718-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-01-13</td>
+    <td>Thyrotropin [Units/volume] in Serum or Plasma</td>
+    <td>2.2 mIU/L<div class="muted">Reference 0.4-4 mIU/L</div></td>
+    <td>http://loinc.org · 3016-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-01-13</td>
+    <td>Cobalamin (Vitamin B12) [Mass/volume] in Serum or Plasma</td>
+    <td>284 pg/mL<div class="muted">Reference 232-1245 pg/mL</div></td>
+    <td>http://loinc.org · 2132-9</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-02-24</td>
+    <td>Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]</td>
+    <td>6</td>
+    <td>http://loinc.org · 44261-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-02-24</td>
+    <td>Generalized anxiety disorder 7 item (GAD-7) total score [Reported.PHQ]</td>
+    <td>10</td>
+    <td>http://loinc.org · 70274-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-06-30</td>
+    <td>Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]</td>
+    <td>3</td>
+    <td>http://loinc.org · 44261-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-06-30</td>
+    <td>Generalized anxiety disorder 7 item (GAD-7) total score [Reported.PHQ]</td>
+    <td>5</td>
+    <td>http://loinc.org · 70274-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-06-30</td>
+    <td>Cobalamin (Vitamin B12) [Mass/volume] in Serum or Plasma</td>
+    <td>412 pg/mL<div class="muted">Reference 232-1245 pg/mL</div></td>
+    <td>http://loinc.org · 2132-9</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-06-30</td>
+    <td>Albumin [Mass/volume] in Serum or Plasma</td>
+    <td>4.2 g/dL<div class="muted">Reference 3.5-5 g/dL</div></td>
+    <td>http://loinc.org · 1751-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-10-13</td>
+    <td>Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]</td>
+    <td>2</td>
+    <td>http://loinc.org · 44261-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-10-13</td>
+    <td>Total score [AUDIT-C]</td>
+    <td>1</td>
+    <td>http://loinc.org · 75626-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-10-13</td>
+    <td>Cholesterol [Mass/volume] in Serum or Plasma</td>
+    <td>176 mg/dL<div class="muted">Reference &lt;=199 mg/dL</div></td>
+    <td>http://loinc.org · 2093-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-10-13</td>
+    <td>Cholesterol in HDL [Mass/volume] in Serum or Plasma</td>
+    <td>58 mg/dL<div class="muted">Reference &gt;=40 mg/dL</div></td>
+    <td>http://loinc.org · 2085-9</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-10-13</td>
+    <td>Cholesterol in LDL [Mass/volume] in Serum or Plasma by calculation</td>
+    <td>102 mg/dL<div class="muted">Reference &lt;=129 mg/dL</div></td>
+    <td>http://loinc.org · 13457-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-10-13</td>
+    <td>Triglyceride [Mass/volume] in Serum or Plasma</td>
+    <td>78 mg/dL<div class="muted">Reference &lt;=149 mg/dL</div></td>
+    <td>http://loinc.org · 2571-8</td>
+  </tr></tbody></table></section>
+    <section><h2>Synthetic vital signs</h2><table><thead><tr><th>Date</th><th>Measure</th><th>Result</th><th>LOINC</th><th>Grade</th></tr></thead><tbody>
+  <tr><td>2026-01-13</td><td>Body height</td><td>188 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-01-13</td><td>Body weight</td><td>63.8 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-01-13</td><td>Body mass index (BMI) [Ratio]</td><td>18.1 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-01-13</td><td>Systolic blood pressure</td><td>116 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-01-13</td><td>Diastolic blood pressure</td><td>72 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-01-13</td><td>Heart rate</td><td>74 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-01-13</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-01-13</td><td>Body temperature</td><td>36.5 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-01-13</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>99 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-01-27</td><td>Body height</td><td>188 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-01-27</td><td>Body weight</td><td>63.9 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-01-27</td><td>Body mass index (BMI) [Ratio]</td><td>18.1 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-01-27</td><td>Systolic blood pressure</td><td>114 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-01-27</td><td>Diastolic blood pressure</td><td>70 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-01-27</td><td>Heart rate</td><td>72 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-01-27</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-01-27</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-01-27</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>99 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-02-24</td><td>Body height</td><td>188 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-02-24</td><td>Body weight</td><td>64.6 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-02-24</td><td>Body mass index (BMI) [Ratio]</td><td>18.3 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-02-24</td><td>Systolic blood pressure</td><td>116 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-02-24</td><td>Diastolic blood pressure</td><td>72 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-02-24</td><td>Heart rate</td><td>70 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-02-24</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-02-24</td><td>Body temperature</td><td>36.5 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-02-24</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>99 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-07</td><td>Body height</td><td>188 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-07</td><td>Body weight</td><td>65.2 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-07</td><td>Body mass index (BMI) [Ratio]</td><td>18.4 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-07</td><td>Systolic blood pressure</td><td>118 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-07</td><td>Diastolic blood pressure</td><td>74 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-07</td><td>Heart rate</td><td>68 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-07</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-07</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-07</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>99 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-30</td><td>Body height</td><td>188 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-30</td><td>Body weight</td><td>66.9 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-30</td><td>Body mass index (BMI) [Ratio]</td><td>18.9 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-30</td><td>Systolic blood pressure</td><td>116 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-30</td><td>Diastolic blood pressure</td><td>72 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-30</td><td>Heart rate</td><td>66 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-30</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-30</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-30</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>99 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-08-11</td><td>Body height</td><td>188 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-08-11</td><td>Body weight</td><td>65.9 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-08-11</td><td>Body mass index (BMI) [Ratio]</td><td>18.6 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-08-11</td><td>Systolic blood pressure</td><td>108 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-08-11</td><td>Diastolic blood pressure</td><td>68 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-08-11</td><td>Heart rate</td><td>92 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-08-11</td><td>Respiratory rate</td><td>16 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-08-11</td><td>Body temperature</td><td>37.8 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-08-11</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>99 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-13</td><td>Body height</td><td>188 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-13</td><td>Body weight</td><td>67.4 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-13</td><td>Body mass index (BMI) [Ratio]</td><td>19.1 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-13</td><td>Systolic blood pressure</td><td>114 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-13</td><td>Diastolic blood pressure</td><td>70 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-13</td><td>Heart rate</td><td>64 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-13</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-13</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-13</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>99 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr></tbody></table></section>
+    <section><h2>Social, functional, and mental status</h2><h3>Social history</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Occupation: electrical engineer and inventor who runs a small research company developing wireless power transmission; building a large test tower and laboratory on Long Island; works 14 to 16 hours a day; investors are pressing for results</li><li><span class="badge grade-S" title="Synthetic">S</span> Lives alone in a hotel apartment in Manhattan; never married; no children; eats most evening meals alone at the same restaurant table</li><li><span class="badge grade-S" title="Synthetic">S</span> Sleeps about four hours a night; has always believed he needs little sleep</li><li><span class="badge grade-S" title="Synthetic">S</span> Never smoker; one glass of wine a month; no drug use; two cups of tea a day</li><li><span class="badge grade-S" title="Synthetic">S</span> Supports: his work and its purpose, two long-serving engineers on his staff, and a long walk each day; no firearms in the home</li></ul><h3>Functional status</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> At intake, rituals take three to four hours a day; meals take up to an hour because he calculates the volume of each portion, so he often skips them; he avoids handshakes in investor meetings; laboratory work slows because he repeats steps until they come out in threes</li></ul><h3>Mental status</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Very tall and thin, immaculately dressed; formal, precise, and articulate; declines a handshake courteously and asks to use his own pen</li><li><span class="badge grade-S" title="Synthetic">S</span> Mood &quot;wound tight&quot;; affect anxious and reactive; thought process linear and detailed; obsessions about contamination and numbers that he recognizes as excessive (good insight); describes vivid deliberate visual imagery of his designs that he knows is his own imagination; no hallucinations or delusions; no suicidal ideation, intent, or plan; judgment good</li></ul></section>
+    <section><h2>Structured safety assessment</h2><div class="grid"><div class="card"><div class="label">Current ideation</div>absent</div><div class="card"><div class="label">Intent</div>absent</div><div class="card"><div class="label">Plan</div>absent</div><div class="card"><div class="label">Disposition</div>Outpatient care with a collaborative safety plan, the 988 Suicide &amp; Crisis Lifeline, and a two-week follow-up</div></div><p class="muted">This assessment is synthetic and does not convert historical behavior into a present-day fact.</p></section>
+    <section><h2>Allergies and medications</h2><h3>Allergies</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> No known allergy</li></ul><h3>Medications</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Sertraline 50 mg oral tablet, one tablet by mouth each morning</li><li><span class="badge grade-S" title="Synthetic">S</span> Sertraline 100 mg oral tablet, one tablet by mouth each morning</li><li><span class="badge grade-S" title="Synthetic">S</span> Sertraline 50 mg oral tablet, three tablets (150 mg) by mouth each morning</li><li><span class="badge grade-S" title="Synthetic">S</span> White petrolatum ointment, apply to both hands after each wash and at bedtime</li></ul></section>
+    <section><h2>Procedures and immunizations</h2><h3>Procedures</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Advance care planning conversation, about 20 minutes</li></ul><h3>Immunizations</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> 2025-10-20: Influenza vaccine, 2025-2026 season</li><li><span class="badge grade-S" title="Synthetic">S</span> 2019-03-12: Tdap vaccine</li><li><span class="badge grade-S" title="Synthetic">S</span> 2026-10-13: Influenza vaccine, 2026-2027 season</li></ul></section>
+    <section><h2>Past medical history</h2><p class="muted">True biography with historical dates; not part of the synthetic care timeline.</p><ul><li><span class="badge grade-D" title="Documented">D</span> Childhood: Aversions (pearls, women&#39;s earrings, touching other people&#39;s hair), counting steps, calculating the volume of food before eating, and repeating acts in multiples of three, as he later described them <span class="muted">(CLM-0003, CLM-0004)</span></li><li><span class="badge grade-D" title="Documented">D</span> About age twelve: Vivid involuntary images with flashes of light that caused him discomfort and anxiety; learned to banish the images at about twelve <span class="muted">(CLM-0002)</span></li><li><span class="badge grade-D" title="Documented">D</span> About 1873: Cholera at seventeen <span class="muted">(CLM-0006)</span></li><li><span class="badge grade-D" title="Documented">D</span> 1881: Severe illness in Budapest that he called a complete breakdown of the nerves, with extreme sensitivity to sound and light, tremor, and a racing pulse; recovered <span class="muted">(CLM-0007)</span></li></ul><h3>Family history</h3><p class="muted">No family medical history is documented in the logged sources. Family history of real relatives is never synthesized.</p></section>
+    <section><h2>Care-plan goals</h2><table><thead><tr><th>Goal</th><th>Target date</th><th>Status</th><th>Outcome</th></tr></thead><tbody>
+  <tr><td>Y-BOCS down by at least 35 percent (treatment response) by twenty-four weeks</td><td>2026-06-30</td><td>completed</td><td>Y-BOCS 13 at twenty-four weeks, down 54 percent from 28</td></tr>
+  <tr><td>Rituals under one hour a day, with meals eaten without calculating</td><td>2026-06-30</td><td>completed</td><td>Rituals about 45 minutes a day; most meals eaten without calculation</td></tr>
+  <tr><td>BMI at least 18.5 with three meals a day</td><td>2026-06-30</td><td>completed</td><td>Weight 66.9 kg, BMI 18.9</td></tr>
+  <tr><td>Hands healed, with washing under 15 times a day</td><td>2026-04-07</td><td>completed</td><td>Skin healed; washing about 12 times a day by twelve weeks</td></tr>
+  <tr><td>At least six hours of sleep most nights</td><td>2026-06-30</td><td>completed</td><td>About six hours most nights</td></tr></tbody></table></section>
+    <section><h2>Interventions</h2><table><thead><tr><th>Intervention</th><th>Status</th><th>Guideline</th></tr></thead><tbody>
+  <tr><td>Structured assessment: Y-BOCS symptom checklist and severity scale, PHQ-9, GAD-7, and AUDIT-C today; interview for tics, bipolar disorder, psychosis, hoarding, and body dysmorphic symptoms; thyroid, blood count, metabolic panel, albumin, and vitamin B12 for weight loss</td><td>completed</td><td>GL-APA-OCD-2007, GL-APA-OCD-2013, GL-NICE-CG31</td></tr>
+  <tr><td>Psychiatry consultation to confirm the diagnosis, review comorbidity, and advise on sertraline dosing and the length of the trial</td><td>completed</td><td>GL-APA-OCD-2007, GL-APA-OCD-2013, GL-NICE-CG31</td></tr>
+  <tr><td>Exposure and response prevention with the clinic psychologist, weekly for 16 to 20 sessions, with a hierarchy he builds himself (touching door handles, shaking hands, eating without calculating, doing things in numbers other than three) and homework between sessions</td><td>completed</td><td>GL-APA-OCD-2007, GL-APA-OCD-2013, GL-NICE-CG31</td></tr>
+  <tr><td>Start sertraline 50 mg each morning; if the response is inadequate after four to six weeks, raise it in 50 mg steps every four to six weeks as tolerated, up to 200 mg, warning him about side effects and checking for them after each increase; judge the response only after eight to twelve weeks with at least four to six weeks at the top tolerated dose; continue for one to two years after a response</td><td>completed</td><td>GL-APA-OCD-2007, GL-APA-OCD-2013, GL-NICE-CG31</td></tr>
+  <tr><td>Collaborative safety plan with warning signs, coping steps, people to contact, the clinic number, and the 988 Suicide &amp; Crisis Lifeline; suicide-risk review at every visit</td><td>completed</td><td>GL-SUICIDE-2024</td></tr>
+  <tr><td>Nutrition: three fixed mealtimes, energy-dense foods he accepts, a session with the clinic dietitian, and weight at every visit; eating without calculating is an exposure target, not a rule imposed at the table</td><td>completed</td><td>GL-APA-OCD-2007, GL-APA-OCD-2013, GL-NICE-CG31</td></tr>
+  <tr><td>Hands: petrolatum after each wash and at night, cotton gloves overnight, nitrile gloves for laboratory solvents; cutting down washing is part of the exposure work</td><td>completed</td><td>GL-APA-OCD-2007, GL-APA-OCD-2013, GL-NICE-CG31</td></tr>
+  <tr><td>Sleep: a fixed six-to-seven-hour sleep window, no laboratory work after midnight, and a sleep diary</td><td>completed</td><td>GL-APA-OCD-2007, GL-APA-OCD-2013, GL-NICE-CG31</td></tr>
+  <tr><td>Respectful examination: explain each step and ask before touching; offer hand sanitizer, gloves, and paper covers before and after; let him wash if he wishes; no handshake expected; no unplanned exposures in clinic, which belong in therapy</td><td>completed</td><td>GL-APA-OCD-2007, GL-APA-OCD-2013, GL-NICE-CG31</td></tr></tbody></table></section>
+    <section><h2>Planned encounters</h2><ul>
+  <li><strong>2026-01-13</strong> — New-patient primary care visit for counting, washing, and food rituals that are taking hours each day, with weight loss and sore hands <span class="muted">(ENC-001)</span></li>
+  <li><strong>2026-01-27</strong> — Two-week sertraline tolerability and safety check, with psychiatry consultation <span class="muted">(ENC-002)</span></li>
+  <li><strong>2026-02-24</strong> — Six-week OCD treatment review <span class="muted">(ENC-003)</span></li>
+  <li><strong>2026-04-07</strong> — Twelve-week OCD treatment review <span class="muted">(ENC-004)</span></li>
+  <li><strong>2026-06-30</strong> — Twenty-four-week OCD treatment review <span class="muted">(ENC-005)</span></li>
+  <li><strong>2026-08-11</strong> — Same-day sick visit for vomiting and diarrhea <span class="muted">(ENC-006, unscheduled)</span></li>
+  <li><strong>2026-10-13</strong> — Periodic adult preventive visit <span class="muted">(ENC-007)</span></li></ul></section>
+    <section><h2>Supporting documents</h2><ul><li><a href="notes/hp.md">History and physical</a></li><li><a href="notes/progress-01.md">Progress note 01</a></li><li><a href="notes/progress-02.md">Progress note 02 — Focused Visit (Follow-up)</a></li><li><a href="notes/progress-03.md">Progress note 03 — Focused Visit (Follow-up)</a></li><li><a href="notes/progress-04.md">Progress note 04 — Focused Visit (Follow-up)</a></li><li><a href="notes/progress-05.md">Progress note 05 — Focused Visit (Care-plan review)</a></li><li><a href="notes/progress-06.md">Progress note 06 — Sick Visit</a></li><li><a href="notes/progress-07.md">Progress note 07 — Preventive Visit</a></li><li><a href="notes/referral-01.md">Psychiatry referral</a></li><li><a href="notes/consult-01.md">Psychiatry consultation</a></li><li><a href="notes/careplan.md">Patient care plan</a></li><li><a href="notes/teaching-note.md">Teaching note</a></li><li><a href="provenance.csv">Provenance CSV</a></li></ul></section>
+    <section><h2>C-CDA note documents</h2><p class="muted">Each link opens a readable copy; the XML beside it is the exchange file.</p><ul><li><a href="ccda/hp-01.html">History and physical</a> <a href="ccda/hp-01.xml">(XML)</a></li><li><a href="ccda/progress-01.html">Progress note 01</a> <a href="ccda/progress-01.xml">(XML)</a></li><li><a href="ccda/progress-02.html">Progress note 02 — Focused Visit (Follow-up)</a> <a href="ccda/progress-02.xml">(XML)</a></li><li><a href="ccda/progress-03.html">Progress note 03 — Focused Visit (Follow-up)</a> <a href="ccda/progress-03.xml">(XML)</a></li><li><a href="ccda/progress-04.html">Progress note 04 — Focused Visit (Follow-up)</a> <a href="ccda/progress-04.xml">(XML)</a></li><li><a href="ccda/progress-05.html">Progress note 05 — Focused Visit (Care-plan review)</a> <a href="ccda/progress-05.xml">(XML)</a></li><li><a href="ccda/progress-06.html">Progress note 06 — Sick Visit</a> <a href="ccda/progress-06.xml">(XML)</a></li><li><a href="ccda/progress-07.html">Progress note 07 — Preventive Visit</a> <a href="ccda/progress-07.xml">(XML)</a></li><li><a href="ccda/referral-01.html">Psychiatry referral</a> <a href="ccda/referral-01.xml">(XML)</a></li><li><a href="ccda/consult-01.html">Psychiatry consultation</a> <a href="ccda/consult-01.xml">(XML)</a></li></ul></section>
+    <section><h2>Sources</h2><table><thead><tr><th>ID</th><th>Source</th><th>Publisher</th><th>Type</th></tr></thead><tbody>
+  <tr>
+    <td>SRC-0001</td>
+    <td><a href="https://ethw.org/Nikola_Tesla" target="_blank" rel="noreferrer">Nikola Tesla. Engineering and Technology History Wiki</a></td>
+    <td>IEEE History Center (ETHW)</td>
+    <td>biography</td>
+  </tr>
+  <tr>
+    <td>SRC-0002</td>
+    <td><a href="https://archive.org/details/my-inventions-and-other-works-jan.-oct.-1919-nikola-tesla" target="_blank" rel="noreferrer">Tesla N. My Inventions. Electrical Experimenter, February to June and October 1919 (scanned issues)</a></td>
+    <td>Internet Archive</td>
+    <td>primary</td>
+  </tr>
+  <tr>
+    <td>SRC-0003</td>
+    <td><a href="https://www.pbs.org/tesla/ll/ll_early.html" target="_blank" rel="noreferrer">Tesla: Master of Lightning. Tesla&#39;s Early Years</a></td>
+    <td>PBS</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0004</td>
+    <td><a href="https://www.pbs.org/tesla/ll/ll_america.html" target="_blank" rel="noreferrer">Tesla: Master of Lightning. Coming to America</a></td>
+    <td>PBS</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0005</td>
+    <td><a href="https://www.pbs.org/tesla/ll/ll_todre.html" target="_blank" rel="noreferrer">Tesla: Master of Lightning. Tower of Dreams</a></td>
+    <td>PBS</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0006</td>
+    <td><a href="https://www.pbs.org/tesla/ll/ll_poevis.html" target="_blank" rel="noreferrer">Tesla: Master of Lightning. Poet and Visionary</a></td>
+    <td>PBS</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0007</td>
+    <td><a href="https://pubmed.ncbi.nlm.nih.gov/23307357/" target="_blank" rel="noreferrer">Villarejo-Galende A, Herrero-San Martin A. Nikola Tesla: flashes of inspiration [in Spanish]. Rev Neurol. 2013;56(2):109-114</a></td>
+    <td>PubMed (PMID 23307357)</td>
+    <td>scholarly</td>
+  </tr>
+  <tr>
+    <td>SRC-0008</td>
+    <td><a href="https://humanrecord.example.org/internal/HISTMED_Master_Roster_v3.xlsx" target="_blank" rel="noreferrer">HISTMED Master Roster v3</a></td>
+    <td>The Human Record project</td>
+    <td>other</td>
+  </tr></tbody></table></section>
+    <section><h2>Review status</h2><table><thead><tr><th>Review</th><th>Status</th><th>Notes</th></tr></thead><tbody>
+  <tr><td>schema validation</td><td>not_started</td><td>Run scripts/build.ps1 -Conformance.</td></tr>
+  <tr><td>clinical review</td><td>not_started</td><td>Awaiting clinician review; check the Y-BOCS assessment, ERP, sertraline titration to OCD doses and the length of the trial, nutrition, hand care, the respectful examination, safety review at every visit, and the recorded deviation.</td></tr>
+  <tr><td>provenance review</td><td>not_started</td><td>His 1919 memoir (scanned magazine text), the IEEE ETHW biography, four PBS companion pages, and one PubMed abstract logged. His rituals and aversions are D in his own words; OCD is R; autism is speculative and not diagnosed. The napkin anecdote could not be verified and is not used.</td></tr>
+  <tr><td>safe messaging review</td><td>not_started</td><td>Safety assessment is synthetic with no current ideation; his behaviors are recorded as he described them, without mockery; the later-life poverty and isolation stay in the history.</td></tr></tbody></table></section>
+  </main>
+</body>
+</html>

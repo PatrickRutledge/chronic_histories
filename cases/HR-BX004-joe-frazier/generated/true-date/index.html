@@ -1,0 +1,682 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Joe Frazier — The Human Record</title>
+  <style>
+    :root { --navy:#17365d; --blue:#1f4e78; --pale:#eef5fa; --ink:#1f2933; --muted:#66788a; --amber:#fff2cc; --red:#f8d7da; --green:#d9ead3; }
+    * { box-sizing:border-box; }
+    body { margin:0; font:16px/1.5 Arial, sans-serif; color:var(--ink); background:#f6f8fa; }
+    header { background:var(--navy); color:white; padding:24px max(24px,calc((100vw - 1180px)/2)); }
+    header h1 { margin:4px 0; font-size:30px; }
+    .banner { background:#b42318; color:white; font-weight:700; text-align:center; padding:10px; letter-spacing:.03em; }
+    main { max-width:1180px; margin:24px auto 60px; padding:0 24px; }
+    section { background:white; border:1px solid #d9e1e8; border-radius:8px; margin:18px 0; padding:20px; }
+    h2 { color:var(--navy); margin:0 0 14px; font-size:22px; }
+    h3 { color:var(--blue); }
+    .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:12px; }
+    .card { background:var(--pale); border-left:4px solid var(--blue); padding:12px; }
+    .label { color:var(--muted); font-size:13px; text-transform:uppercase; letter-spacing:.04em; }
+    table { width:100%; border-collapse:collapse; }
+    th { background:var(--blue); color:white; text-align:left; }
+    th,td { padding:9px; border-bottom:1px solid #dfe6ec; vertical-align:top; }
+    .badge { display:inline-block; min-width:28px; text-align:center; font-weight:700; border-radius:12px; padding:2px 8px; }
+    .grade-D { background:var(--green); } .grade-R { background:var(--amber); } .grade-S { background:var(--red); }
+    .muted { color:var(--muted); font-size:14px; }
+    .relationship { color:var(--muted); font-size:12px; }
+    .downloads a { display:inline-block; margin:4px 8px 4px 0; padding:8px 12px; background:var(--blue); color:white; text-decoration:none; border-radius:5px; }
+    @media (max-width:700px) { table { display:block; overflow-x:auto; } }
+  </style>
+</head>
+<body>
+  <div class="banner">SYNTHETIC RECORD, NOT A REAL MEDICAL RECORD</div>
+  <div class="banner">True-date frame: synthetic events are moved into the patient&#39;s historical lifetime. Codes, instruments, and treatments remain modern and are anachronistic.</div>
+  <header>
+    <div>The Human Record</div>
+    <h1>Joe Frazier</h1>
+    <div>Case HR-BX004-TD · Modern EHR teaching episode · Draft for review</div>
+  </header>
+  <main>
+    <section>
+      <h2>Review summary</h2>
+      <div class="grid">
+        <div class="card"><div class="label">Historical dates</div>January 12, 1944 – November 7, 2011</div>
+        <div class="card"><div class="label">Synthetic DOB</div>1944-01-12</div>
+        <div class="card"><div class="label">Index visit</div>2008-02-16 at age 64</div>
+        <div class="card"><div class="label">Synthetic MRN</div>HR-BX004-SYN-TD</div>
+      </div>
+      <p><strong>Teaching objective:</strong> Type 2 diabetes and hypertension in a 64-year-old Black man, a former professional heavyweight boxer who runs a gym, managed under the ADA Standards of Care 2008, the 2007 AHA/ACC blood pressure guideline and the CMID monographs: A1c, kidney function by the race-free CKD-EPI 2003 equation and urine albumin, lipids and a high-intensity statin, a GLP-1 receptor agonist with cardiovascular and kidney benefit, blood pressure to below 130/80 with home readings, eye and foot examinations, and cost and access. The yearly liver check finds a high FIB-4, and the AASLD 2005 MASLD guidance leads to elastography and a diagnosis of compensated cirrhosis from MASLD; under the AASLD 2005 hepatocellular carcinoma guidance he begins ultrasound with AFP every six months, the kind of surveillance that can find liver cancer early, with variceal screening, vaccines and no alcohol. Brain health in a former boxer is addressed with a documented cognitive screen and risk-factor care, and without a diagnosis of chronic traumatic encephalopathy, which can be made only after death.</p>
+      <div class="downloads">
+        <a href="../case.json">Canonical JSON</a>
+        <a href="fhir-bundle.json">FHIR R4 draft</a>
+        <a href="ccda.html">C-CDA R2.1 summary</a> <a href="ccda.xml">(XML)</a>
+        <a href="../sources.md">Evidence dossier</a>
+      </div>
+    </section>
+    <section><h2>Historical timeline</h2><table><thead><tr><th>Date</th><th>Event</th><th>Claims</th></tr></thead><tbody>
+  <tr><td>January 12, 1944</td><td>Born in Beaufort County, South Carolina.</td><td>CLM-0001</td></tr>
+  <tr><td>late 1950s</td><td>Moved to Philadelphia as a teenager; worked in a slaughterhouse.</td><td>CLM-0002</td></tr>
+  <tr><td>1964</td><td>Olympic heavyweight gold medal in Tokyo, with a broken left thumb; a cataract found in his left eye later that year.</td><td>CLM-0003, CLM-0004</td></tr>
+  <tr><td>February 16, 1970</td><td>Became undisputed heavyweight champion.</td><td>CLM-0005</td></tr>
+  <tr><td>1975</td><td>Third fight of his rivalry, stopped before the fifteenth round when he could not see; vision 20/400 in the left eye.</td><td>CLM-0004, CLM-0006</td></tr>
+  <tr><td>1976</td><td>Retired from boxing (one further bout in 1981).</td><td>CLM-0005</td></tr>
+  <tr><td>1996</td><td>Published his autobiography, Smokin&#39; Joe.</td><td>CLM-0011</td></tr>
+  <tr><td>early 2000s</td><td>Living in Philadelphia and running his gym; diabetes and high blood pressure reported publicly.</td><td>CLM-0007, CLM-0008</td></tr>
+  <tr><td>October 2011</td><td>Diagnosed with liver cancer; hospice care at home in his last week.</td><td>CLM-0009</td></tr>
+  <tr><td>November 7, 2011</td><td>Died in Philadelphia at 67.</td><td>CLM-0010</td></tr></tbody></table></section>
+    <section><h2>Evidence claims</h2><p class="muted">D = documented, R = retrospective, S = synthetic.</p><table><thead><tr><th>Grade</th><th>Claim</th><th>Certainty</th><th>Sources</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>Joe Frazier was born on January 12, 1944, in Beaufort County, South Carolina, the eleventh child of a sharecropping family.</strong></td>
+    <td>confirmed</td>
+    <td><a href="http://www.espn.com/classic/biography/s/frazier_joe.html" target="_blank" rel="noreferrer">Sielski M. Joe Frazier biography (ESPN Classic)</a> <span class="relationship">supports</span><br><a href="https://www.espn.com/boxing/story/_/id/7206261" target="_blank" rel="noreferrer">Boxing legend Joe Frazier dies</a> <span class="relationship">supports</span><br><a href="https://www.inquirer.com/philly/sports/boxing/Philadelphia_boxing_legend_Joe_Frazier_dies.html" target="_blank" rel="noreferrer">Gelston D, Dahlberg T. Philadelphia boxing legend Joe Frazier dies (Associated Press)</a> <span class="relationship">supports</span><br><a href="https://www.irishtimes.com/news/cancer-catches-joe-frazier-1.1285648" target="_blank" rel="noreferrer">Cancer catches Joe Frazier</a> <span class="relationship">supports</span><br><a href="https://humanrecord.example.org/internal/HISTMED_Master_Roster_v3.xlsx" target="_blank" rel="noreferrer">HISTMED Master Roster v3</a> <span class="relationship">context</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>As a teenager he moved to Philadelphia, where he had relatives, and worked in a slaughterhouse, where he punched sides of beef in the cold room.</strong><div class="muted">Anchors his Philadelphia home and working life in the modern social history.</div></td>
+    <td>confirmed</td>
+    <td><a href="http://www.espn.com/classic/biography/s/frazier_joe.html" target="_blank" rel="noreferrer">Sielski M. Joe Frazier biography (ESPN Classic)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>He won the heavyweight gold medal at the 1964 Olympic Games in Tokyo, fighting the final with a broken left thumb.</strong></td>
+    <td>confirmed</td>
+    <td><a href="http://www.espn.com/classic/biography/s/frazier_joe.html" target="_blank" rel="noreferrer">Sielski M. Joe Frazier biography (ESPN Classic)</a> <span class="relationship">supports</span><br><a href="https://www.inquirer.com/philly/sports/boxing/Philadelphia_boxing_legend_Joe_Frazier_dies.html" target="_blank" rel="noreferrer">Gelston D, Dahlberg T. Philadelphia boxing legend Joe Frazier dies (Associated Press)</a> <span class="relationship">supports</span><br><a href="https://www.espn.com/boxing/story/_/id/7206261" target="_blank" rel="noreferrer">Boxing legend Joe Frazier dies</a> <span class="relationship">supports</span><br><a href="https://www.irishtimes.com/news/cancer-catches-joe-frazier-1.1285648" target="_blank" rel="noreferrer">Cancer catches Joe Frazier</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>Later in 1964 he learned that he had a cataract in his left eye; visually impaired, he turned professional anyway. The cataract grew worse, and by 1975, according to his eye doctor, his vision was 20/50 in the right eye and 20/400 in the left.</strong><div class="muted">Reported during his life. Anchors the reduced vision in the left eye in the modern episode. Later accounts that he hid the eye from examiners appeared only after his death and are not used.</div></td>
+    <td>confirmed</td>
+    <td><a href="http://www.espn.com/classic/biography/s/frazier_joe.html" target="_blank" rel="noreferrer">Sielski M. Joe Frazier biography (ESPN Classic)</a> <span class="relationship">supports</span><br><a href="http://www.espn.com/classic/s/Frazier_joe_add.html" target="_blank" rel="noreferrer">Diskin B. Smokin&#39; Joe had vicious left hook (ESPN Classic)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>He became undisputed world heavyweight champion in February 1970 and held the title until January 1973, defending it four times; he retired in 1976 after a professional record of 32 wins, 4 losses and 1 draw, with 27 knockouts, and returned for a single bout in 1981.</strong><div class="muted">Anchors a long professional career with many blows to the head, the basis for brain-health care in the modern episode.</div></td>
+    <td>confirmed</td>
+    <td><a href="http://www.espn.com/classic/biography/s/frazier_joe.html" target="_blank" rel="noreferrer">Sielski M. Joe Frazier biography (ESPN Classic)</a> <span class="relationship">supports</span><br><a href="https://www.cbsnews.com/losangeles/news/joe-frazier-dead-at-67" target="_blank" rel="noreferrer">Joe Frazier dead at 67 (Associated Press)</a> <span class="relationship">supports</span><br><a href="https://www.inquirer.com/philly/sports/boxing/Philadelphia_boxing_legend_Joe_Frazier_dies.html" target="_blank" rel="noreferrer">Gelston D, Dahlberg T. Philadelphia boxing legend Joe Frazier dies (Associated Press)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>His three-fight rivalry in the 1970s included a 1971 victory that handed his opponent his first professional defeat; in the third fight, in Manila in 1975, he could no longer see, and his trainer would not let him come out for the fifteenth round.</strong><div class="muted">History only; the opponent is not named in this record.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.inquirer.com/philly/sports/boxing/Philadelphia_boxing_legend_Joe_Frazier_dies.html" target="_blank" rel="noreferrer">Gelston D, Dahlberg T. Philadelphia boxing legend Joe Frazier dies (Associated Press)</a> <span class="relationship">supports</span><br><a href="http://www.espn.com/classic/biography/s/frazier_joe.html" target="_blank" rel="noreferrer">Sielski M. Joe Frazier biography (ESPN Classic)</a> <span class="relationship">supports</span><br><a href="https://www.cbsnews.com/losangeles/news/joe-frazier-dead-at-67" target="_blank" rel="noreferrer">Joe Frazier dead at 67 (Associated Press)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>In later life he lived in Philadelphia, where he owned and ran a boxing gym, and he had financial trouble.</strong><div class="muted">Anchors his work at the gym and cost concerns in the modern social history.</div></td>
+    <td>confirmed</td>
+    <td><a href="http://www.espn.com/classic/biography/s/frazier_joe.html" target="_blank" rel="noreferrer">Sielski M. Joe Frazier biography (ESPN Classic)</a> <span class="relationship">supports</span><br><a href="https://www.inquirer.com/philly/sports/boxing/Philadelphia_boxing_legend_Joe_Frazier_dies.html" target="_blank" rel="noreferrer">Gelston D, Dahlberg T. Philadelphia boxing legend Joe Frazier dies (Associated Press)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>During his life it was reported publicly that he had diabetes and high blood pressure.</strong><div class="muted">The anchor for the modern diabetes and hypertension; the duration, severity and treatment in the modern episode are synthetic.</div></td>
+    <td>confirmed</td>
+    <td><a href="http://www.espn.com/classic/biography/s/frazier_joe.html" target="_blank" rel="noreferrer">Sielski M. Joe Frazier biography (ESPN Classic)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>In October 2011 he was diagnosed with liver cancer; he was in and out of the hospital from early October and received hospice care at home in his last week.</strong><div class="muted">History after the modern episode, as his manager and a family friend stated publicly. The modern episode contains no liver cancer; its teaching point is surveillance that can find liver cancer early.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.cbsnews.com/losangeles/news/joe-frazier-dead-at-67" target="_blank" rel="noreferrer">Joe Frazier dead at 67 (Associated Press)</a> <span class="relationship">supports</span><br><a href="https://vindyarchives.com/news/2011/nov/08/ex-champ-frazier-dies-of-liver-cancer" target="_blank" rel="noreferrer">Ex-champ Frazier dies of liver cancer (Associated Press)</a> <span class="relationship">supports</span><br><a href="https://www.irishtimes.com/news/cancer-catches-joe-frazier-1.1285648" target="_blank" rel="noreferrer">Cancer catches Joe Frazier</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>He died on November 7, 2011, in Philadelphia, at 67, after a brief illness with liver cancer.</strong><div class="muted">History only, recorded in one plain sentence.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.cbsnews.com/losangeles/news/joe-frazier-dead-at-67" target="_blank" rel="noreferrer">Joe Frazier dead at 67 (Associated Press)</a> <span class="relationship">supports</span><br><a href="https://www.espn.com/boxing/story/_/id/7206261" target="_blank" rel="noreferrer">Boxing legend Joe Frazier dies</a> <span class="relationship">supports</span><br><a href="https://www.inquirer.com/philly/sports/boxing/Philadelphia_boxing_legend_Joe_Frazier_dies.html" target="_blank" rel="noreferrer">Gelston D, Dahlberg T. Philadelphia boxing legend Joe Frazier dies (Associated Press)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>He published an autobiography, Smokin&#39; Joe, in 1996.</strong><div class="muted">His nickname, used here as an alias.</div></td>
+    <td>confirmed</td>
+    <td><a href="http://www.espn.com/classic/biography/s/frazier_joe.html" target="_blank" rel="noreferrer">Sielski M. Joe Frazier biography (ESPN Classic)</a> <span class="relationship">supports</span></td>
+  </tr></tbody></table></section>
+    <section><h2>Modern synthetic problem list</h2><table><thead><tr><th>Grade</th><th>Problem</th><th>Clinical status</th><th>Verification</th><th>Placement</th><th>Historical claims</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Type 2 diabetes with hyperglycemia, about twelve years&#39; duration, A1c 8.4% on metformin; synthetic modern episode linked to his publicly reported diabetes</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>both_with_link</td>
+    <td>CLM-0008</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Hypertension above goal on lisinopril (152/92 mmHg in the clinic); synthetic modern episode linked to his publicly reported high blood pressure</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>both_with_link</td>
+    <td>CLM-0008</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Raised AST (48 U/L) with mildly low platelets (138) and a FIB-4 score of 3.43 at the yearly liver check, to be evaluated</td>
+    <td>resolved</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Metabolic dysfunction-associated steatotic liver disease (MASLD): steatosis on elastography (controlled attenuation parameter 318 dB/m) and ultrasound, with diabetes, obesity, low HDL and high triglycerides, and little alcohol</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Compensated cirrhosis (compensated advanced chronic liver disease) from MASLD: liver stiffness 17.6 kPa, platelets 138, nodular liver surface and a spleen of 13.4 cm on ultrasound; no ascites, encephalopathy, bleeding or jaundice; Child-Pugh A</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Hyperlipidemia: LDL 132 mg/dL, HDL 38 and triglycerides 210, not on a statin</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Obesity, class 1 (BMI 31.4)</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Reduced vision in the left eye since a cataract found at 20 (counting fingers at 1 meter); right eye 20/30</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td>CLM-0004</td>
+  </tr></tbody></table></section>
+    <section><h2>Synthetic outcome measures</h2><table><thead><tr><th>Grade</th><th>Date</th><th>Measure</th><th>Result</th><th>Coding</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2008-02-16</td>
+    <td>Hemoglobin A1c/Hemoglobin.total in Blood</td>
+    <td>8.4% (high)<div class="muted">Reference Below 5.7% is normal; goal below 7% for him</div></td>
+    <td>http://loinc.org · 4548-4</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2008-02-16</td>
+    <td>Glucose [Mass/volume] in Serum or Plasma</td>
+    <td>168 mg/dL (high)<div class="muted">Reference 70-99 mg/dL</div></td>
+    <td>http://loinc.org · 2345-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2008-02-16</td>
+    <td>Sodium [Moles/volume] in Serum or Plasma</td>
+    <td>139 mmol/L<div class="muted">Reference 135-145 mmol/L</div></td>
+    <td>http://loinc.org · 2951-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2008-02-16</td>
+    <td>Potassium [Moles/volume] in Serum or Plasma</td>
+    <td>4.6 mmol/L<div class="muted">Reference 3.5-5.1 mmol/L</div></td>
+    <td>http://loinc.org · 2823-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2008-02-16</td>
+    <td>Creatinine [Mass/volume] in Serum or Plasma</td>
+    <td>1.08 mg/dL<div class="muted">Reference 0.74-1.35 mg/dL</div></td>
+    <td>http://loinc.org · 2160-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2008-02-16</td>
+    <td>Glomerular filtration rate [Volume Rate/Area] in Serum, Plasma or Blood by Creatinine-based formula (CKD-EPI 2003)/1.73 sq M</td>
+    <td>77 mL/min/1.73 m²<div class="muted">Reference 60 or higher without kidney damage markers is not CKD</div></td>
+    <td>http://loinc.org · 98979-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2008-02-16</td>
+    <td>Albumin/Creatinine [Mass Ratio] in Urine</td>
+    <td>18 mg/g<div class="muted">Reference Below 30 mg/g is normal (A1)</div></td>
+    <td>http://loinc.org · 9318-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2008-02-16</td>
+    <td>Cholesterol [Mass/volume] in Serum or Plasma</td>
+    <td>212 mg/dL (high)<div class="muted">Reference &lt;=199 mg/dL</div></td>
+    <td>http://loinc.org · 2093-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2008-02-16</td>
+    <td>Cholesterol in LDL [Mass/volume] in Serum or Plasma by calculation</td>
+    <td>132 mg/dL (high)<div class="muted">Reference Goal below 70 mg/dL with diabetes and other risk factors</div></td>
+    <td>http://loinc.org · 13457-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2008-02-16</td>
+    <td>Cholesterol in HDL [Mass/volume] in Serum or Plasma</td>
+    <td>38 mg/dL (low)<div class="muted">Reference &gt;=40 mg/dL</div></td>
+    <td>http://loinc.org · 2085-9</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2008-02-16</td>
+    <td>Triglyceride [Mass/volume] in Serum or Plasma</td>
+    <td>210 mg/dL (high)<div class="muted">Reference &lt;=149 mg/dL</div></td>
+    <td>http://loinc.org · 2571-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2008-02-16</td>
+    <td>Aspartate aminotransferase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>48 U/L (high)<div class="muted">Reference 10-40 U/L</div></td>
+    <td>http://loinc.org · 1920-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2008-02-16</td>
+    <td>Alanine aminotransferase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>42 U/L<div class="muted">Reference 7-55 U/L</div></td>
+    <td>http://loinc.org · 1742-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2008-02-16</td>
+    <td>Alkaline phosphatase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>96 U/L<div class="muted">Reference 40-129 U/L</div></td>
+    <td>http://loinc.org · 6768-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2008-02-16</td>
+    <td>Albumin [Mass/volume] in Serum or Plasma</td>
+    <td>4 g/dL<div class="muted">Reference 3.5-5 g/dL</div></td>
+    <td>http://loinc.org · 1751-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2008-02-16</td>
+    <td>Bilirubin.total [Mass/volume] in Serum or Plasma</td>
+    <td>0.9 mg/dL<div class="muted">Reference 0.1-1.2 mg/dL</div></td>
+    <td>http://loinc.org · 1975-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2008-02-16</td>
+    <td>Hemoglobin [Mass/volume] in Blood</td>
+    <td>14.2 g/dL<div class="muted">Reference 13.5-17.5 g/dL</div></td>
+    <td>http://loinc.org · 718-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2008-02-16</td>
+    <td>Platelets [#/volume] in Blood by Automated count</td>
+    <td>138 10*3/uL (low)<div class="muted">Reference 150-400 10*3/uL</div></td>
+    <td>http://loinc.org · 777-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2008-02-16</td>
+    <td>Cobalamin (Vitamin B12) [Mass/volume] in Serum or Plasma</td>
+    <td>340 pg/mL<div class="muted">Reference 232-1245 pg/mL</div></td>
+    <td>http://loinc.org · 2132-9</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2008-02-16</td>
+    <td>Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]</td>
+    <td>4</td>
+    <td>http://loinc.org · 44261-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2008-02-16</td>
+    <td>Total score [AUDIT-C]</td>
+    <td>2</td>
+    <td>http://loinc.org · 75626-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2008-03-02</td>
+    <td>Liver stiffness by US.transient elastography</td>
+    <td>17.6 kPa (high)<div class="muted">Reference Below 8 kPa makes advanced fibrosis unlikely; 15 kPa or higher is consistent with compensated advanced chronic liver disease</div></td>
+    <td>http://loinc.org · 77615-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2008-03-02</td>
+    <td>INR in Platelet poor plasma by Coagulation assay</td>
+    <td>1.1<div class="muted">Reference 0.8-1.2</div></td>
+    <td>http://loinc.org · 6301-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2008-03-02</td>
+    <td>Alpha-1-Fetoprotein [Mass/volume] in Serum or Plasma</td>
+    <td>4.2 ng/mL<div class="muted">Reference &lt;=8.3 ng/mL</div></td>
+    <td>http://loinc.org · 1834-1</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2008-04-13</td>
+    <td>Potassium [Moles/volume] in Serum or Plasma</td>
+    <td>4.7 mmol/L<div class="muted">Reference 3.5-5.1 mmol/L</div></td>
+    <td>http://loinc.org · 2823-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2008-04-13</td>
+    <td>Creatinine [Mass/volume] in Serum or Plasma</td>
+    <td>1.1 mg/dL<div class="muted">Reference 0.74-1.35 mg/dL</div></td>
+    <td>http://loinc.org · 2160-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2008-04-13</td>
+    <td>Glomerular filtration rate [Volume Rate/Area] in Serum, Plasma or Blood by Creatinine-based formula (CKD-EPI 2003)/1.73 sq M</td>
+    <td>75 mL/min/1.73 m²<div class="muted">Reference 60 or higher without kidney damage markers is not CKD</div></td>
+    <td>http://loinc.org · 98979-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2008-04-13</td>
+    <td>Cholesterol [Mass/volume] in Serum or Plasma</td>
+    <td>148 mg/dL<div class="muted">Reference &lt;=199 mg/dL</div></td>
+    <td>http://loinc.org · 2093-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2008-04-13</td>
+    <td>Cholesterol in LDL [Mass/volume] in Serum or Plasma by calculation</td>
+    <td>68 mg/dL<div class="muted">Reference Goal below 70 mg/dL with diabetes and other risk factors</div></td>
+    <td>http://loinc.org · 13457-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2008-04-13</td>
+    <td>Cholesterol in HDL [Mass/volume] in Serum or Plasma</td>
+    <td>40 mg/dL<div class="muted">Reference &gt;=40 mg/dL</div></td>
+    <td>http://loinc.org · 2085-9</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2008-04-13</td>
+    <td>Triglyceride [Mass/volume] in Serum or Plasma</td>
+    <td>168 mg/dL (high)<div class="muted">Reference &lt;=149 mg/dL</div></td>
+    <td>http://loinc.org · 2571-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2008-04-13</td>
+    <td>Aspartate aminotransferase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>44 U/L (high)<div class="muted">Reference 10-40 U/L</div></td>
+    <td>http://loinc.org · 1920-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2008-04-13</td>
+    <td>Alanine aminotransferase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>40 U/L<div class="muted">Reference 7-55 U/L</div></td>
+    <td>http://loinc.org · 1742-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2008-05-18</td>
+    <td>Hemoglobin A1c/Hemoglobin.total in Blood</td>
+    <td>7.3% (high)<div class="muted">Reference Below 5.7% is normal; goal below 7% for him</div></td>
+    <td>http://loinc.org · 4548-4</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2008-07-13</td>
+    <td>Patient Health Questionnaire 2 item (PHQ-2) total score [Reported]</td>
+    <td>1</td>
+    <td>http://loinc.org · 55758-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2008-07-13</td>
+    <td>Total score [MoCA]</td>
+    <td>26</td>
+    <td>http://loinc.org · 72172-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2008-09-14</td>
+    <td>Hemoglobin A1c/Hemoglobin.total in Blood</td>
+    <td>6.8% (high)<div class="muted">Reference Below 5.7% is normal; goal below 7% for him</div></td>
+    <td>http://loinc.org · 4548-4</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2008-09-14</td>
+    <td>Sodium [Moles/volume] in Serum or Plasma</td>
+    <td>140 mmol/L<div class="muted">Reference 135-145 mmol/L</div></td>
+    <td>http://loinc.org · 2951-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2008-09-14</td>
+    <td>Potassium [Moles/volume] in Serum or Plasma</td>
+    <td>4.5 mmol/L<div class="muted">Reference 3.5-5.1 mmol/L</div></td>
+    <td>http://loinc.org · 2823-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2008-09-14</td>
+    <td>Creatinine [Mass/volume] in Serum or Plasma</td>
+    <td>1.06 mg/dL<div class="muted">Reference 0.74-1.35 mg/dL</div></td>
+    <td>http://loinc.org · 2160-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2008-09-14</td>
+    <td>Glomerular filtration rate [Volume Rate/Area] in Serum, Plasma or Blood by Creatinine-based formula (CKD-EPI 2003)/1.73 sq M</td>
+    <td>78 mL/min/1.73 m²<div class="muted">Reference 60 or higher without kidney damage markers is not CKD</div></td>
+    <td>http://loinc.org · 98979-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2008-09-14</td>
+    <td>Albumin/Creatinine [Mass Ratio] in Urine</td>
+    <td>14 mg/g<div class="muted">Reference Below 30 mg/g is normal (A1)</div></td>
+    <td>http://loinc.org · 9318-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2008-09-14</td>
+    <td>Aspartate aminotransferase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>38 U/L<div class="muted">Reference 10-40 U/L</div></td>
+    <td>http://loinc.org · 1920-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2008-09-14</td>
+    <td>Alanine aminotransferase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>31 U/L<div class="muted">Reference 7-55 U/L</div></td>
+    <td>http://loinc.org · 1742-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2008-09-14</td>
+    <td>Albumin [Mass/volume] in Serum or Plasma</td>
+    <td>4.1 g/dL<div class="muted">Reference 3.5-5 g/dL</div></td>
+    <td>http://loinc.org · 1751-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2008-09-14</td>
+    <td>Bilirubin.total [Mass/volume] in Serum or Plasma</td>
+    <td>0.8 mg/dL<div class="muted">Reference 0.1-1.2 mg/dL</div></td>
+    <td>http://loinc.org · 1975-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2008-09-14</td>
+    <td>Platelets [#/volume] in Blood by Automated count</td>
+    <td>140 10*3/uL (low)<div class="muted">Reference 150-400 10*3/uL</div></td>
+    <td>http://loinc.org · 777-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2008-09-14</td>
+    <td>Alpha-1-Fetoprotein [Mass/volume] in Serum or Plasma</td>
+    <td>4 ng/mL<div class="muted">Reference &lt;=8.3 ng/mL</div></td>
+    <td>http://loinc.org · 1834-1</td>
+  </tr></tbody></table></section>
+    <section><h2>Synthetic vital signs</h2><table><thead><tr><th>Date</th><th>Measure</th><th>Result</th><th>LOINC</th><th>Grade</th></tr></thead><tbody>
+  <tr><td>2008-02-16</td><td>Body height</td><td>182 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2008-02-16</td><td>Body weight</td><td>104 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2008-02-16</td><td>Body mass index (BMI) [Ratio]</td><td>31.4 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2008-02-16</td><td>Systolic blood pressure</td><td>152 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2008-02-16</td><td>Diastolic blood pressure</td><td>92 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2008-02-16</td><td>Heart rate</td><td>76 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2008-02-16</td><td>Respiratory rate</td><td>16 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2008-02-16</td><td>Body temperature</td><td>36.7 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2008-02-16</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>97 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2008-03-02</td><td>Body height</td><td>182 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2008-03-02</td><td>Body weight</td><td>103.6 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2008-03-02</td><td>Body mass index (BMI) [Ratio]</td><td>31.3 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2008-03-02</td><td>Systolic blood pressure</td><td>148 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2008-03-02</td><td>Diastolic blood pressure</td><td>90 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2008-03-02</td><td>Heart rate</td><td>74 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2008-03-02</td><td>Respiratory rate</td><td>16 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2008-03-02</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2008-03-02</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>97 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2008-04-13</td><td>Body height</td><td>182 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2008-04-13</td><td>Body weight</td><td>101.8 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2008-04-13</td><td>Body mass index (BMI) [Ratio]</td><td>30.7 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2008-04-13</td><td>Systolic blood pressure</td><td>134 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2008-04-13</td><td>Diastolic blood pressure</td><td>82 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2008-04-13</td><td>Heart rate</td><td>72 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2008-04-13</td><td>Respiratory rate</td><td>16 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2008-04-13</td><td>Body temperature</td><td>36.7 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2008-04-13</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>98 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2008-05-18</td><td>Body height</td><td>182 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2008-05-18</td><td>Body weight</td><td>99.9 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2008-05-18</td><td>Body mass index (BMI) [Ratio]</td><td>30.2 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2008-05-18</td><td>Systolic blood pressure</td><td>126 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2008-05-18</td><td>Diastolic blood pressure</td><td>78 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2008-05-18</td><td>Heart rate</td><td>74 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2008-05-18</td><td>Respiratory rate</td><td>16 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2008-05-18</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2008-05-18</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>98 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2008-09-14</td><td>Body height</td><td>182 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2008-09-14</td><td>Body weight</td><td>97.2 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2008-09-14</td><td>Body mass index (BMI) [Ratio]</td><td>29.3 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2008-09-14</td><td>Systolic blood pressure</td><td>122 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2008-09-14</td><td>Diastolic blood pressure</td><td>76 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2008-09-14</td><td>Heart rate</td><td>72 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2008-09-14</td><td>Respiratory rate</td><td>16 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2008-09-14</td><td>Body temperature</td><td>36.7 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2008-09-14</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>98 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2008-07-13</td><td>Body height</td><td>182 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2008-07-13</td><td>Body weight</td><td>98.6 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2008-07-13</td><td>Body mass index (BMI) [Ratio]</td><td>29.8 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2008-07-13</td><td>Systolic blood pressure</td><td>124 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2008-07-13</td><td>Diastolic blood pressure</td><td>76 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2008-07-13</td><td>Heart rate</td><td>72 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2008-07-13</td><td>Respiratory rate</td><td>16 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2008-07-13</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2008-07-13</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>98 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr></tbody></table></section>
+    <section><h2>Social, functional, and mental status</h2><h3>Social history</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Former professional heavyweight boxer and Olympic champion; owns and runs a boxing gym in Philadelphia, where he trains young fighters most days</li><li><span class="badge grade-S" title="Synthetic">S</span> Grew up on a farm in South Carolina; moved to Philadelphia as a teenager and worked in a slaughterhouse</li><li><span class="badge grade-S" title="Synthetic">S</span> Money is tight; worries about the cost of medicines and appointments; prefers generics and 90-day supplies</li><li><span class="badge grade-S" title="Synthetic">S</span> Alcohol: one or two beers on some weekends (AUDIT-C 2); no other drug use</li><li><span class="badge grade-S" title="Synthetic">S</span> Tobacco: never</li><li><span class="badge grade-S" title="Synthetic">S</span> Activity: on his feet at the gym most of the day and holds pads for his fighters; no longer runs because of his knees</li><li><span class="badge grade-S" title="Synthetic">S</span> Strengths: discipline, pride in his work, the young fighters who rely on him, his faith, and a long habit of showing up</li></ul><h3>Functional status</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Independent in all activities; walks without an aid; reads with his right eye</li></ul><h3>Mental status</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Alert, direct and good-humored; oriented; fluent conversation with good recall of recent events; PHQ-9 score 4</li></ul></section>
+    
+    <section><h2>Allergies and medications</h2><h3>Allergies</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> No known allergy</li></ul><h3>Medications</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Metformin 1000 mg oral tablet, one tablet twice daily with meals; taken for years</li><li><span class="badge grade-S" title="Synthetic">S</span> Lisinopril 20 mg oral tablet, one tablet daily; taken for years</li><li><span class="badge grade-S" title="Synthetic">S</span> Atorvastatin 40 mg oral tablet, one tablet daily</li><li><span class="badge grade-S" title="Synthetic">S</span> Amlodipine 5 mg oral tablet, one tablet daily</li><li><span class="badge grade-S" title="Synthetic">S</span> Amlodipine 10 mg oral tablet, one tablet daily</li><li><span class="badge grade-S" title="Synthetic">S</span> Semaglutide pen (0.25 mg or 0.5 mg per dose), 0.25 mg under the skin once weekly for four weeks, then 0.5 mg once weekly</li><li><span class="badge grade-S" title="Synthetic">S</span> Semaglutide pen (1 mg per dose), 1 mg under the skin once weekly</li></ul></section>
+    <section><h2>Procedures and immunizations</h2><h3>Procedures</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Twelve-lead electrocardiogram</li><li><span class="badge grade-S" title="Synthetic">S</span> Comprehensive diabetic foot examination with a 10-g monofilament, vibration and pulses</li><li><span class="badge grade-S" title="Synthetic">S</span> Liver transient elastography with controlled attenuation parameter</li><li><span class="badge grade-S" title="Synthetic">S</span> Liver ultrasound for hepatocellular carcinoma surveillance, baseline</li><li><span class="badge grade-S" title="Synthetic">S</span> Upper endoscopy to screen for varices</li><li><span class="badge grade-S" title="Synthetic">S</span> Dilated eye examination at the eye clinic</li><li><span class="badge grade-S" title="Synthetic">S</span> Liver ultrasound for hepatocellular carcinoma surveillance, six months</li><li><span class="badge grade-S" title="Synthetic">S</span> Advance care planning conversation, about 18 minutes</li></ul><h3>Immunizations</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> 2008-02-16: Tdap vaccine</li><li><span class="badge grade-S" title="Synthetic">S</span> 2008-03-02: Pneumococcal conjugate vaccine PCV20</li><li><span class="badge grade-S" title="Synthetic">S</span> 2008-03-02: Hepatitis B vaccine (HepB-CpG), dose 1 of 2</li><li><span class="badge grade-S" title="Synthetic">S</span> 2008-03-02: Hepatitis A vaccine, adult, dose 1 of 2</li><li><span class="badge grade-S" title="Synthetic">S</span> 2008-04-13: Hepatitis B vaccine (HepB-CpG), dose 2 of 2</li><li><span class="badge grade-S" title="Synthetic">S</span> 2008-09-14: Hepatitis A vaccine, adult, dose 2 of 2</li><li><span class="badge grade-S" title="Synthetic">S</span> 2008-07-13: Recombinant zoster vaccine, dose 1 of 2</li><li><span class="badge grade-S" title="Synthetic">S</span> 2008-09-14: Recombinant zoster vaccine, dose 2 of 2</li><li><span class="badge grade-S" title="Synthetic">S</span> 2008-09-14: Influenza vaccine, inactivated, this season</li><li><span class="badge grade-S" title="Synthetic">S</span> 2008-09-14: COVID-19 vaccine, mRNA, this season</li><li><span class="badge grade-S" title="Synthetic">S</span> 2008-09-14: RSV vaccine, single dose</li></ul></section>
+    <section><h2>Past medical history</h2><p class="muted">True biography with historical dates; not part of the synthetic care timeline.</p><ul><li><span class="badge grade-D" title="Documented">D</span> 1964: Broken left thumb in the 1964 Olympic final <span class="muted">(CLM-0003)</span></li><li><span class="badge grade-D" title="Documented">D</span> 1964: Cataract in the left eye found at 20, with reduced vision in that eye through his boxing career (20/400 in that eye by 1975) <span class="muted">(CLM-0004)</span></li><li><span class="badge grade-D" title="Documented">D</span> 1965 to 1976, and one bout in 1981: Professional heavyweight boxing career with many blows to the head, including a 1975 bout stopped when he could no longer see <span class="muted">(CLM-0005, CLM-0006)</span></li><li><span class="badge grade-D" title="Documented">D</span> early 2000s: Diabetes and high blood pressure, reported publicly <span class="muted">(CLM-0008)</span></li></ul><h3>Family history</h3><p class="muted">No family medical history is documented in the logged sources. Family history of real relatives is never synthesized.</p></section>
+    <section><h2>Care-plan goals</h2><table><thead><tr><th>Goal</th><th>Target date</th><th>Status</th><th>Outcome</th></tr></thead><tbody>
+  <tr><td>A1c below 7% within six to nine months, without low blood sugar</td><td>2008-09-14</td><td>completed</td><td>8.4% to 6.8% at seven months; no low blood sugar</td></tr>
+  <tr><td>Blood pressure below 130/80 mmHg in the clinic and at home</td><td>2008-09-14</td><td>completed</td><td>122/76 in the clinic; home average 124/78</td></tr>
+  <tr><td>LDL cholesterol below 70 mg/dL</td><td>2008-04-13</td><td>completed</td><td>132 to 68 mg/dL on atorvastatin</td></tr>
+  <tr><td>Weight loss of 7 to 10% for liver health within a year</td><td>2008-09-14</td><td>active</td><td>104.0 to 97.2 kg (6.5%) at seven months</td></tr>
+  <tr><td>Liver cancer surveillance by ultrasound with AFP every six months, on time</td><td>2008-09-14</td><td>completed</td><td>Baseline and six-month ultrasounds with AFP on schedule; no focal lesion; AFP 4.2 and 4.0 ng/mL</td></tr>
+  <tr><td>No alcohol, to protect the liver</td><td>2008-09-14</td><td>completed</td><td>No alcohol since the two-week visit</td></tr></tbody></table></section>
+    <section><h2>Interventions</h2><table><thead><tr><th>Intervention</th><th>Status</th><th>Guideline</th></tr></thead><tbody>
+  <tr><td>Diabetes: continue metformin, an A1c every three months until at goal and then every six months, diabetes self-management education, a vitamin B12 check on long-term metformin, and no medicine that causes low blood sugar</td><td>completed</td><td>GL-ADA-PHARM-2026, GL-CMID-2026</td></tr>
+  <tr><td>Hepatology consultation for a high FIB-4 with mildly low platelets, with transient elastography and a liver ultrasound the same day</td><td>completed</td><td>GL-AASLD-MASLD-2023, GL-ADA-COMORB-2026</td></tr>
+  <tr><td>Liver assessment: FIB-4 from the yearly liver tests, then transient elastography if FIB-4 is 1.3 or higher; hepatitis B, hepatitis C and HIV tests, iron studies, and an alcohol history</td><td>completed</td><td>GL-AASLD-MASLD-2023, GL-ADA-COMORB-2026, GL-CMID-2026</td></tr>
+  <tr><td>Compensated cirrhosis: liver ultrasound with AFP every six months for hepatocellular carcinoma surveillance, upper endoscopy to screen for varices, hepatitis A and B and pneumococcal vaccines, no alcohol, no NSAIDs, acetaminophen no more than 2 g a day, and teaching on the warning signs of decompensation</td><td>completed</td><td>GL-AASLD-HCC-2023, GL-BAVENO-VII, GL-AASLD-MASLD-2023, GL-CDC-IMZ-2026</td></tr>
+  <tr><td>Semaglutide once weekly, increased every four to eight weeks as tolerated, for its cardiovascular and kidney benefit, weight and steatotic liver disease; prior authorization and the manufacturer&#39;s assistance program handled by the clinic</td><td>completed</td><td>GL-ADA-PHARM-2026, GL-ADA-COMORB-2026, GL-AASLD-MASLD-2023</td></tr>
+  <tr><td>Blood pressure: a validated home monitor with a large cuff, readings twice a day for a week, a goal below 130/80 mmHg, and less salt</td><td>completed</td><td>GL-AHA-HTN-2025, GL-CMID-2026</td></tr>
+  <tr><td>Amlodipine added to lisinopril and increased to reach the goal, with ankle-swelling checks</td><td>completed</td><td>GL-AHA-HTN-2025, GL-ADA-CVD-2026</td></tr>
+  <tr><td>Cardiovascular risk: atorvastatin 40 mg with a lipid panel at four to twelve weeks; a baseline ECG; aspirin for primary prevention not used because of bleeding risk</td><td>completed</td><td>GL-ADA-CVD-2026, GL-CMID-2026</td></tr>
+  <tr><td>Kidneys: eGFR by the race-free CKD-EPI 2003 equation and urine albumin-to-creatinine ratio at least yearly, and potassium and creatinine on lisinopril</td><td>completed</td><td>GL-ADA-CKD-2026, GL-CMID-2026</td></tr>
+  <tr><td>Eyes and feet: a dilated eye examination at the eye clinic, a comprehensive foot examination yearly, daily foot checks and callus care</td><td>completed</td><td>GL-ADA-RETFOOT-2026</td></tr>
+  <tr><td>Brain health: a documented cognitive screen at the preventive visit, blood pressure and glucose control, sleep, hearing and mood checks, and an honest conversation that chronic traumatic encephalopathy cannot be diagnosed during life</td><td>completed</td><td>GL-NINDS-TES-2021, GL-CMID-2026</td></tr>
+  <tr><td>Cost and access: low-cost generics, 90-day supplies, and help with coverage for any brand-name medicine</td><td>completed</td><td>GL-ADA-POP-2026</td></tr></tbody></table></section>
+    <section><h2>Planned encounters</h2><ul>
+  <li><strong>2008-02-16</strong> — Establishing primary care for type 2 diabetes and high blood pressure above goal: A1c, kidney function, urine albumin, lipids, the yearly liver check with FIB-4, eyes, feet and brain health in a former professional boxer <span class="muted">(ENC-001)</span></li>
+  <li><strong>2008-03-02</strong> — Two-week review of home blood pressure readings, with liver elastography, a liver ultrasound and the hepatology consultation <span class="muted">(ENC-002)</span></li>
+  <li><strong>2008-04-13</strong> — Eight-week review: blood pressure, lipids, kidney function, semaglutide, the endoscopy result and vaccines <span class="muted">(ENC-003)</span></li>
+  <li><strong>2008-05-18</strong> — Three-month review: A1c, blood pressure, weight, semaglutide dose and the eye examination <span class="muted">(ENC-004)</span></li>
+  <li><strong>2008-07-13</strong> — Periodic adult preventive visit <span class="muted">(ENC-006)</span></li>
+  <li><strong>2008-09-14</strong> — Seven-month review: six-month liver cancer surveillance ultrasound and AFP, A1c, kidney function, urine albumin and vaccines <span class="muted">(ENC-005)</span></li></ul></section>
+    <section><h2>Supporting documents</h2><ul><li><a href="notes/hp.md">History and physical</a></li><li><a href="notes/progress-01.md">Progress note 01</a></li><li><a href="notes/progress-02.md">Progress note 02 — Focused Visit (Follow-up)</a></li><li><a href="notes/progress-03.md">Progress note 03 — Focused Visit (Follow-up)</a></li><li><a href="notes/progress-04.md">Progress note 04 — Focused Visit (Follow-up)</a></li><li><a href="notes/progress-05.md">Progress note 05 — Preventive Visit</a></li><li><a href="notes/progress-06.md">Progress note 06 — Focused Visit (Care-plan review)</a></li><li><a href="notes/referral-01.md">Hepatology referral</a></li><li><a href="notes/consult-01.md">Hepatology consultation</a></li><li><a href="notes/careplan.md">Patient care plan</a></li><li><a href="notes/teaching-note.md">Teaching note</a></li><li><a href="provenance.csv">Provenance CSV</a></li></ul></section>
+    <section><h2>C-CDA note documents</h2><p class="muted">Each link opens a readable copy; the XML beside it is the exchange file.</p><ul><li><a href="ccda/hp-01.html">History and physical</a> <a href="ccda/hp-01.xml">(XML)</a></li><li><a href="ccda/progress-01.html">Progress note 01</a> <a href="ccda/progress-01.xml">(XML)</a></li><li><a href="ccda/progress-02.html">Progress note 02 — Focused Visit (Follow-up)</a> <a href="ccda/progress-02.xml">(XML)</a></li><li><a href="ccda/progress-03.html">Progress note 03 — Focused Visit (Follow-up)</a> <a href="ccda/progress-03.xml">(XML)</a></li><li><a href="ccda/progress-04.html">Progress note 04 — Focused Visit (Follow-up)</a> <a href="ccda/progress-04.xml">(XML)</a></li><li><a href="ccda/progress-05.html">Progress note 05 — Preventive Visit</a> <a href="ccda/progress-05.xml">(XML)</a></li><li><a href="ccda/progress-06.html">Progress note 06 — Focused Visit (Care-plan review)</a> <a href="ccda/progress-06.xml">(XML)</a></li><li><a href="ccda/referral-01.html">Hepatology referral</a> <a href="ccda/referral-01.xml">(XML)</a></li><li><a href="ccda/consult-01.html">Hepatology consultation</a> <a href="ccda/consult-01.xml">(XML)</a></li></ul></section>
+    <section><h2>Sources</h2><table><thead><tr><th>ID</th><th>Source</th><th>Publisher</th><th>Type</th></tr></thead><tbody>
+  <tr>
+    <td>SRC-0001</td>
+    <td><a href="http://www.espn.com/classic/biography/s/frazier_joe.html" target="_blank" rel="noreferrer">Sielski M. Joe Frazier biography (ESPN Classic)</a></td>
+    <td>ESPN</td>
+    <td>biography</td>
+  </tr>
+  <tr>
+    <td>SRC-0002</td>
+    <td><a href="http://www.espn.com/classic/s/Frazier_joe_add.html" target="_blank" rel="noreferrer">Diskin B. Smokin&#39; Joe had vicious left hook (ESPN Classic)</a></td>
+    <td>ESPN</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0003</td>
+    <td><a href="https://www.espn.com/boxing/story/_/id/7206261" target="_blank" rel="noreferrer">Boxing legend Joe Frazier dies</a></td>
+    <td>ESPN.com news services</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0004</td>
+    <td><a href="https://www.inquirer.com/philly/sports/boxing/Philadelphia_boxing_legend_Joe_Frazier_dies.html" target="_blank" rel="noreferrer">Gelston D, Dahlberg T. Philadelphia boxing legend Joe Frazier dies (Associated Press)</a></td>
+    <td>The Philadelphia Inquirer</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0005</td>
+    <td><a href="https://www.cbsnews.com/losangeles/news/joe-frazier-dead-at-67" target="_blank" rel="noreferrer">Joe Frazier dead at 67 (Associated Press)</a></td>
+    <td>CBS Los Angeles</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0006</td>
+    <td><a href="https://vindyarchives.com/news/2011/nov/08/ex-champ-frazier-dies-of-liver-cancer" target="_blank" rel="noreferrer">Ex-champ Frazier dies of liver cancer (Associated Press)</a></td>
+    <td>The Vindicator</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0007</td>
+    <td><a href="https://www.irishtimes.com/news/cancer-catches-joe-frazier-1.1285648" target="_blank" rel="noreferrer">Cancer catches Joe Frazier</a></td>
+    <td>The Irish Times</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0008</td>
+    <td><a href="https://humanrecord.example.org/internal/HISTMED_Master_Roster_v3.xlsx" target="_blank" rel="noreferrer">HISTMED Master Roster v3</a></td>
+    <td>The Human Record project</td>
+    <td>other</td>
+  </tr></tbody></table></section>
+    <section><h2>Review status</h2><table><thead><tr><th>Review</th><th>Status</th><th>Notes</th></tr></thead><tbody>
+  <tr><td>schema validation</td><td>not_started</td><td>Run scripts/build.ps1 -Conformance.</td></tr>
+  <tr><td>clinical review</td><td>not_started</td><td>Awaiting clinician review; check the FIB-4 to elastography pathway, the diagnosis of compensated cirrhosis from a liver stiffness of 17.6 kPa with platelets of 138 and ultrasound findings, the endoscopy rather than a beta-blocker, six-monthly ultrasound with AFP, semaglutide with metformin, the eGFR without a race term, amlodipine with lisinopril, aspirin not used, and the cognitive screen without a CTE diagnosis.</td></tr>
+  <tr><td>provenance review</td><td>not_started</td><td>Sources: an ESPN Classic biography and an ESPN Classic article written during his life, and obituaries from ESPN, the Associated Press (The Philadelphia Inquirer, CBS Los Angeles, The Vindicator) and The Irish Times. A posthumous magazine profile was not used.</td></tr>
+  <tr><td>safe messaging review</td><td>not_started</td><td>Recent-death rule: only what was reported publicly during his life or in obituaries and statements by his manager and family. No sick visit. No mental health or substance claim is made. The liver disease, cognitive screen and every clinical finding are synthetic. No living relative is named, and his rival is not named.</td></tr></tbody></table></section>
+  </main>
+</body>
+</html>

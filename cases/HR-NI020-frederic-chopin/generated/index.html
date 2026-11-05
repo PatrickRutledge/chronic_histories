@@ -1,0 +1,626 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Frédéric Chopin — The Human Record</title>
+  <style>
+    :root { --navy:#17365d; --blue:#1f4e78; --pale:#eef5fa; --ink:#1f2933; --muted:#66788a; --amber:#fff2cc; --red:#f8d7da; --green:#d9ead3; }
+    * { box-sizing:border-box; }
+    body { margin:0; font:16px/1.5 Arial, sans-serif; color:var(--ink); background:#f6f8fa; }
+    header { background:var(--navy); color:white; padding:24px max(24px,calc((100vw - 1180px)/2)); }
+    header h1 { margin:4px 0; font-size:30px; }
+    .banner { background:#b42318; color:white; font-weight:700; text-align:center; padding:10px; letter-spacing:.03em; }
+    main { max-width:1180px; margin:24px auto 60px; padding:0 24px; }
+    section { background:white; border:1px solid #d9e1e8; border-radius:8px; margin:18px 0; padding:20px; }
+    h2 { color:var(--navy); margin:0 0 14px; font-size:22px; }
+    h3 { color:var(--blue); }
+    .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:12px; }
+    .card { background:var(--pale); border-left:4px solid var(--blue); padding:12px; }
+    .label { color:var(--muted); font-size:13px; text-transform:uppercase; letter-spacing:.04em; }
+    table { width:100%; border-collapse:collapse; }
+    th { background:var(--blue); color:white; text-align:left; }
+    th,td { padding:9px; border-bottom:1px solid #dfe6ec; vertical-align:top; }
+    .badge { display:inline-block; min-width:28px; text-align:center; font-weight:700; border-radius:12px; padding:2px 8px; }
+    .grade-D { background:var(--green); } .grade-R { background:var(--amber); } .grade-S { background:var(--red); }
+    .muted { color:var(--muted); font-size:14px; }
+    .relationship { color:var(--muted); font-size:12px; }
+    .downloads a { display:inline-block; margin:4px 8px 4px 0; padding:8px 12px; background:var(--blue); color:white; text-decoration:none; border-radius:5px; }
+    @media (max-width:700px) { table { display:block; overflow-x:auto; } }
+  </style>
+</head>
+<body>
+  <div class="banner">SYNTHETIC RECORD, NOT A REAL MEDICAL RECORD</div>
+  <header>
+    <div>The Human Record</div>
+    <h1>Frédéric Chopin</h1>
+    <div>Case HR-NI020 · Modern EHR teaching episode · Draft for review</div>
+  </header>
+  <main>
+    <section>
+      <h2>Review summary</h2>
+      <div class="grid">
+        <div class="card"><div class="label">Historical dates</div>March 1, 1810 – October 17, 1849</div>
+        <div class="card"><div class="label">Synthetic DOB</div>1998-03-01</div>
+        <div class="card"><div class="label">Index visit</div>2026-03-17 at age 28</div>
+        <div class="card"><div class="label">Synthetic MRN</div>HR-NI020-SYN</div>
+      </div>
+      <p><strong>Teaching objective:</strong> Chronic cough with hemoptysis and weight loss in a 28-year-old pianist and piano teacher: chest X-ray and CT, three sputum samples for acid-fast smear, nucleic acid amplification, culture and drug susceptibility, an interferon-gamma release assay, HIV and hepatitis testing, home airborne isolation and same-day public-health reporting; the presenting problem resolved into a diagnosis of drug-susceptible cavitary pulmonary tuberculosis; an honest test of the proposed alternatives for his lifelong chest illness (sweat chloride for cystic fibrosis and a serum alpha-1 antitrypsin level), both normal; treatment with the four-month rifapentine, moxifloxacin, isoniazid, and pyrazinamide regimen by video-observed therapy under the 2022 CDC interim guidance and the ATS/CDC/IDSA guidelines, with eligibility, weight-band dosing, baseline and monitoring tests, and the 119-dose completion rule; release from isolation and return to teaching; a contact investigation led by the health department; care for moderate malnutrition; attention to low mood and the stigma he fears; and an honest record of a missed monthly symptom check.</p>
+      <div class="downloads">
+        <a href="../case.json">Canonical JSON</a>
+        <a href="fhir-bundle.json">FHIR R4 draft</a>
+        <a href="ccda.html">C-CDA R2.1 summary</a> <a href="ccda.xml">(XML)</a> <a href="review.html">Review checklist</a>
+        <a href="../sources.md">Evidence dossier</a>
+      </div>
+    </section>
+    <section><h2>Historical timeline</h2><table><thead><tr><th>Date</th><th>Event</th><th>Claims</th></tr></thead><tbody>
+  <tr><td>March 1, 1810</td><td>Born at Żelazowa Wola; the family moved to Warsaw within months.</td><td>CLM-0001, CLM-0002</td></tr>
+  <tr><td>1820s</td><td>Recurrent cough, fever, headaches, and swollen glands in his teens.</td><td>CLM-0004</td></tr>
+  <tr><td>1827</td><td>His youngest sister died of tuberculosis.</td><td>CLM-0003</td></tr>
+  <tr><td>November 2, 1830</td><td>Left Warsaw, never to return.</td><td>CLM-0005</td></tr>
+  <tr><td>September 1831</td><td>Settled in Paris, where he earned his living mainly by teaching.</td><td>CLM-0005, CLM-0006</td></tr>
+  <tr><td>1836</td><td>An engagement made conditional on his health; met George Sand; seriously ill the following winter.</td><td>CLM-0007, CLM-0008</td></tr>
+  <tr><td>November 8, 1838</td><td>Arrived on Majorca; gravely ill at Valldemossa through the winter.</td><td>CLM-0009, CLM-0010</td></tr>
+  <tr><td>February 1839</td><td>Convalescence in Marseille, then Nohant.</td><td>CLM-0011</td></tr>
+  <tr><td>July 1847</td><td>Final parting from George Sand.</td><td>CLM-0012</td></tr>
+  <tr><td>1840s</td><td>Chest pain, hemoptysis, and breathlessness later in life.</td><td>CLM-0020</td></tr>
+  <tr><td>November 16, 1848</td><td>Last concert, in London, despite frailty and fever.</td><td>CLM-0013</td></tr>
+  <tr><td>June 22, 1849</td><td>Two hemorrhages; tuberculosis diagnosed in its final stage.</td><td>CLM-0014</td></tr>
+  <tr><td>October 17, 1849</td><td>Died in Paris.</td><td>CLM-0015</td></tr>
+  <tr><td>2003</td><td>Cystic fibrosis and alpha-1 antitrypsin deficiency proposed as retrospective diagnoses.</td><td>CLM-0017, CLM-0018</td></tr>
+  <tr><td>2014</td><td>Macroscopic examination of his preserved heart.</td><td>CLM-0016</td></tr>
+  <tr><td>2018</td><td>Heart failure with cirrhosis proposed as an alternative cause of death.</td><td>CLM-0019</td></tr></tbody></table></section>
+    <section><h2>Evidence claims</h2><p class="muted">D = documented, R = retrospective, S = synthetic.</p><table><thead><tr><th>Grade</th><th>Claim</th><th>Certainty</th><th>Sources</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>Fryderyk Franciszek Chopin was born in the village of Żelazowa Wola, in Mazovia, on March 1, 1810, according to his own statements and his family&#39;s; his baptismal certificate, written several weeks after the birth, gives February 22.</strong></td>
+    <td>confirmed</td>
+    <td><a href="https://chopin.pl/biography_chopin.en.html" target="_blank" rel="noreferrer">Biography: general outline (Barbara Smoleńska-Zielińska)</a> <span class="relationship">supports</span><br><a href="https://polmic.pl/en/encyclopedia/subject-entries/c/chopin-fryderyk-en" target="_blank" rel="noreferrer">Chopin Fryderyk: a calendar of the composer&#39;s life and the list of works</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>His father, Mikołaj (Nicolas) Chopin, was a Frenchman from Lorraine who settled permanently in Poland and brought up his children as Poles; the family moved to Warsaw a few months after Fryderyk&#39;s birth.</strong><div class="muted">Supports his Polish and French background.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://chopin.pl/biography_chopin.en.html" target="_blank" rel="noreferrer">Biography: general outline (Barbara Smoleńska-Zielińska)</a> <span class="relationship">supports</span><br><a href="https://polmic.pl/en/encyclopedia/subject-entries/c/chopin-fryderyk-en" target="_blank" rel="noreferrer">Chopin Fryderyk: a calendar of the composer&#39;s life and the list of works</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>In 1827 the youngest of the Chopin children, his sister Emilia, died of tuberculosis.</strong><div class="muted">Family history of tuberculosis.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://greatcomposers.nifc.pl/en/chopin/routes/71_family" target="_blank" rel="noreferrer">Fryderyk Chopin: routes, family</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>A review of the documentary sources reports recurrent episodes of cough, fever, headaches, and swollen lymph nodes beginning in his teens.</strong><div class="muted">Anchor for the lifelong chest illness behind the presenting problem.</div></td>
+    <td>probable</td>
+    <td><a href="https://pubmed.ncbi.nlm.nih.gov/29597050/" target="_blank" rel="noreferrer">Perciaccante A, Charlier P, Negri C, et al. Did Frédéric Chopin Die From Heart Failure? J Card Fail. 2018;24(5):342-344</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>He left Warsaw on November 2, 1830, never to return, reached Paris in September 1831, and in 1834 chose the status of a political refugee rather than apply to the Russian embassy for a passport.</strong><div class="muted">Supports his life away from his homeland in the modern social history.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://polmic.pl/en/encyclopedia/subject-entries/c/chopin-fryderyk-en" target="_blank" rel="noreferrer">Chopin Fryderyk: a calendar of the composer&#39;s life and the list of works</a> <span class="relationship">supports</span><br><a href="https://chopin.pl/biography_chopin.en.html" target="_blank" rel="noreferrer">Biography: general outline (Barbara Smoleńska-Zielińska)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>In Paris his most important source of income was giving lessons; he became a popular teacher, and although ranked among the greatest pianists of his time, he disliked public performances, appeared rarely, and preferred an intimate group of listeners.</strong><div class="muted">Supports his modern occupation as a pianist who earns his living by teaching.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://chopin.pl/biography_chopin.en.html" target="_blank" rel="noreferrer">Biography: general outline (Barbara Smoleńska-Zielińska)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>In 1836 a proposal of marriage was accepted on condition that he take better care of his health; the engagement ended a year later, the family of his fiancée being disturbed by the bad state of his health, as he had been seriously ill in the winter.</strong><div class="muted">Documented frailty and a serious winter illness before the index date.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://chopin.pl/biography_chopin.en.html" target="_blank" rel="noreferrer">Biography: general outline (Barbara Smoleńska-Zielińska)</a> <span class="relationship">supports</span><br><a href="https://polmic.pl/en/encyclopedia/subject-entries/c/chopin-fryderyk-en" target="_blank" rel="noreferrer">Chopin Fryderyk: a calendar of the composer&#39;s life and the list of works</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>He met the writer George Sand in Paris in 1836; their relationship, which began soon after, lasted nearly ten years.</strong></td>
+    <td>confirmed</td>
+    <td><a href="https://www.chopin.pl/majorca.en.html" target="_blank" rel="noreferrer">Fryderyk Chopin and George Sand: the trip to Majorca (Bożena Schmid-Adamczyk, Fryderyk Chopin and George Sand Museum, Valldemossa)</a> <span class="relationship">supports</span><br><a href="https://polmic.pl/en/encyclopedia/subject-entries/c/chopin-fryderyk-en" target="_blank" rel="noreferrer">Chopin Fryderyk: a calendar of the composer&#39;s life and the list of works</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>In the winter of 1838 to 1839 he stayed on Majorca, arriving in Palma on November 8, 1838. In early December the rented villa became cold and damp, his health worsened, and doctors were called; he wrote on December 3 that he had become &quot;sick as a dog&quot; over the previous two weeks. Neighbors fearing an infectious disease led the owner to force them to leave. At the former Carthusian monastery in Valldemossa, from December 15 to February 11, he became gravely ill and showed symptoms of tuberculosis, and for many weeks was too weak to leave the house, yet composed most of the 24 Preludes.</strong><div class="muted">The documented crisis of his chest illness, after the index date.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.chopin.pl/majorca.en.html" target="_blank" rel="noreferrer">Fryderyk Chopin and George Sand: the trip to Majorca (Bożena Schmid-Adamczyk, Fryderyk Chopin and George Sand Museum, Valldemossa)</a> <span class="relationship">supports</span><br><a href="https://chopin.pl/biography_chopin.en.html" target="_blank" rel="noreferrer">Biography: general outline (Barbara Smoleńska-Zielińska)</a> <span class="relationship">supports</span><br><a href="https://polmic.pl/en/encyclopedia/subject-entries/c/chopin-fryderyk-en" target="_blank" rel="noreferrer">Chopin Fryderyk: a calendar of the composer&#39;s life and the list of works</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>On Majorca he suffered long periods of doubt and depression, associated with his illness, and the hostility of local people who feared his illness worsened his state of mind.</strong><div class="muted">Low mood with illness and stigma, in the lay words of the source; not a diagnosis.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.chopin.pl/majorca.en.html" target="_blank" rel="noreferrer">Fryderyk Chopin and George Sand: the trip to Majorca (Bożena Schmid-Adamczyk, Fryderyk Chopin and George Sand Museum, Valldemossa)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>After Majorca he convalesced in Marseille from late February to May 1839, cared for by a physician, and moved to Nohant in central France still greatly weakened.</strong></td>
+    <td>confirmed</td>
+    <td><a href="https://www.chopin.pl/majorca.en.html" target="_blank" rel="noreferrer">Fryderyk Chopin and George Sand: the trip to Majorca (Bożena Schmid-Adamczyk, Fryderyk Chopin and George Sand Museum, Valldemossa)</a> <span class="relationship">supports</span><br><a href="https://chopin.pl/biography_chopin.en.html" target="_blank" rel="noreferrer">Biography: general outline (Barbara Smoleńska-Zielińska)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>The final parting from George Sand in July 1847 and the loss of Nohant had a devastating effect on his mental and physical state, and he almost gave up composing.</strong></td>
+    <td>confirmed</td>
+    <td><a href="https://chopin.pl/biography_chopin.en.html" target="_blank" rel="noreferrer">Biography: general outline (Barbara Smoleńska-Zielińska)</a> <span class="relationship">supports</span><br><a href="https://polmic.pl/en/encyclopedia/subject-entries/c/chopin-fryderyk-en" target="_blank" rel="noreferrer">Chopin Fryderyk: a calendar of the composer&#39;s life and the list of works</a> <span class="relationship">context</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>From April to November 1848 he toured England and Scotland; the travel, the many performances, and a climate harmful to his lungs further damaged his health, and on November 16, 1848, despite frailty and a fever, he gave his last concert, in London.</strong></td>
+    <td>confirmed</td>
+    <td><a href="https://chopin.pl/biography_chopin.en.html" target="_blank" rel="noreferrer">Biography: general outline (Barbara Smoleńska-Zielińska)</a> <span class="relationship">supports</span><br><a href="https://polmic.pl/en/encyclopedia/subject-entries/c/chopin-fryderyk-en" target="_blank" rel="noreferrer">Chopin Fryderyk: a calendar of the composer&#39;s life and the list of works</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>In 1849, after two hemorrhages on June 22, a physician diagnosed tuberculosis in its final stage.</strong><div class="muted">The documented diagnosis made in his lifetime.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://polmic.pl/en/encyclopedia/subject-entries/c/chopin-fryderyk-en" target="_blank" rel="noreferrer">Chopin Fryderyk: a calendar of the composer&#39;s life and the list of works</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>He died on October 17, 1849, in his apartment on the Place Vendôme in Paris, of pulmonary tuberculosis according to the Fryderyk Chopin Institute, and was buried in the Père-Lachaise cemetery; at his request his heart was taken to Warsaw and placed in a pillar of the Holy Cross Church.</strong><div class="muted">Recorded as a fact; the modern episode ends in cure.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://chopin.pl/biography_chopin.en.html" target="_blank" rel="noreferrer">Biography: general outline (Barbara Smoleńska-Zielińska)</a> <span class="relationship">supports</span><br><a href="https://polmic.pl/en/encyclopedia/subject-entries/c/chopin-fryderyk-en" target="_blank" rel="noreferrer">Chopin Fryderyk: a calendar of the composer&#39;s life and the list of works</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-R" title="Retrospective">R</span></td>
+    <td><strong>A macroscopic examination of his preserved heart in 2014 found it enlarged and covered with a fibrinous coating with multiple small nodular foci, which the examiners interpreted as tuberculous pericarditis; they concluded that chronic tuberculosis was the most plausible diagnosis and that rapidly progressing tuberculous pericarditis was probably the immediate cause of death. An earlier review of his case history also judged tuberculosis the most probable diagnosis.</strong><div class="muted">Supports the choice of pulmonary tuberculosis as the modern diagnosis; the heart was examined without tissue or microbiological testing in the cited abstracts.</div></td>
+    <td>probable</td>
+    <td><a href="https://pubmed.ncbi.nlm.nih.gov/29031593/" target="_blank" rel="noreferrer">Witt M, Szklener A, Kawecki J, et al. A Closer Look at Frederic Chopin&#39;s Cause of Death. Am J Med. 2018;131(2):211-212</a> <span class="relationship">supports</span><br><a href="https://pubmed.ncbi.nlm.nih.gov/30047032/" target="_blank" rel="noreferrer">Witt M, Szklener A, Marchwica W, Dobosz T. Disease not genetic but infectious: multiple tuberculomas and fibrinous pericarditis as symptoms pathognomonic for tuberculosis of Frederic Chopin. J Appl Genet. 2018;59(4):471-473</a> <span class="relationship">supports</span><br><a href="https://pubmed.ncbi.nlm.nih.gov/34347238/" target="_blank" rel="noreferrer">Witt M, Dobosz T. Inheritance vs. infectivity as a mechanism of malady and death of Frederic Chopin. J Appl Genet. 2021;62(4):607-611</a> <span class="relationship">supports</span><br><a href="https://pubmed.ncbi.nlm.nih.gov/25117047/" target="_blank" rel="noreferrer">Young P, Bernaciak JM, Bruetman JE, Finn BC, Miranda MC. Frederic Chopin (1810-1849), and his disease. Rev Med Chil. 2014;142(4):529-35</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-R" title="Retrospective">R</span></td>
+    <td><strong>Cystic fibrosis has been proposed as the cause of his lifelong illness and death; the roster lists a &quot;probable cystic fibrosis variant.&quot; The heart examination&#39;s authors later argued that the disease was infectious, not genetic.</strong><div class="muted">Unproven alternative; addressed in the modern episode with a sweat chloride test and not adopted.</div></td>
+    <td>disputed</td>
+    <td><a href="https://pubmed.ncbi.nlm.nih.gov/12590184/" target="_blank" rel="noreferrer">Majka L, Goździk J, Witt M. Cystic fibrosis: a probable cause of Frédéric Chopin&#39;s suffering and death. J Appl Genet. 2003;44(1):77-84</a> <span class="relationship">supports</span><br><a href="https://pubmed.ncbi.nlm.nih.gov/30047032/" target="_blank" rel="noreferrer">Witt M, Szklener A, Marchwica W, Dobosz T. Disease not genetic but infectious: multiple tuberculomas and fibrinous pericarditis as symptoms pathognomonic for tuberculosis of Frederic Chopin. J Appl Genet. 2018;59(4):471-473</a> <span class="relationship">disputes</span><br><a href="https://humanrecord.example.org/internal/HISTMED_Master_Roster_v3.xlsx" target="_blank" rel="noreferrer">HISTMED Master Roster v3</a> <span class="relationship">context</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-R" title="Retrospective">R</span></td>
+    <td><strong>Alpha-1 antitrypsin deficiency has also been proposed, while noting that the lost autopsy record makes any diagnosis hard to confirm.</strong><div class="muted">Unproven alternative; addressed in the modern episode with a serum alpha-1 antitrypsin level and not adopted.</div></td>
+    <td>disputed</td>
+    <td><a href="https://pubmed.ncbi.nlm.nih.gov/12914142/" target="_blank" rel="noreferrer">Eriksson S. Did Chopin suffer of antitrypsin deficiency? Lost autopsy protocol has caused frustration among physicians of our time in their attempts to confirm the diagnosis. Lakartidningen. 2003;100(30-31):2449-54</a> <span class="relationship">supports</span><br><a href="https://pubmed.ncbi.nlm.nih.gov/30047032/" target="_blank" rel="noreferrer">Witt M, Szklener A, Marchwica W, Dobosz T. Disease not genetic but infectious: multiple tuberculomas and fibrinous pericarditis as symptoms pathognomonic for tuberculosis of Frederic Chopin. J Appl Genet. 2018;59(4):471-473</a> <span class="relationship">disputes</span><br><a href="https://pubmed.ncbi.nlm.nih.gov/25117047/" target="_blank" rel="noreferrer">Young P, Bernaciak JM, Bruetman JE, Finn BC, Miranda MC. Frederic Chopin (1810-1849), and his disease. Rev Med Chil. 2014;142(4):529-35</a> <span class="relationship">context</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>The same review reports that later in life he had chest pain, hemoptysis, hematemesis, neuralgia, and joint pain, and that exhaustion and breathlessness characterized all his adult life.</strong><div class="muted">Anchor for the hemoptysis and frailty of the presenting illness; the dated hemoptysis comes after the index date.</div></td>
+    <td>probable</td>
+    <td><a href="https://pubmed.ncbi.nlm.nih.gov/29597050/" target="_blank" rel="noreferrer">Perciaccante A, Charlier P, Negri C, et al. Did Frédéric Chopin Die From Heart Failure? J Card Fail. 2018;24(5):342-344</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-R" title="Retrospective">R</span></td>
+    <td><strong>Another documentary review proposed that he had dilated cardiomyopathy with heart failure and cirrhosis, rather than tuberculosis, as the cause of death.</strong><div class="muted">Alternative interpretation recorded for completeness; not used.</div></td>
+    <td>disputed</td>
+    <td><a href="https://pubmed.ncbi.nlm.nih.gov/29597050/" target="_blank" rel="noreferrer">Perciaccante A, Charlier P, Negri C, et al. Did Frédéric Chopin Die From Heart Failure? J Card Fail. 2018;24(5):342-344</a> <span class="relationship">supports</span><br><a href="https://pubmed.ncbi.nlm.nih.gov/34347238/" target="_blank" rel="noreferrer">Witt M, Dobosz T. Inheritance vs. infectivity as a mechanism of malady and death of Frederic Chopin. J Appl Genet. 2021;62(4):607-611</a> <span class="relationship">disputes</span></td>
+  </tr></tbody></table></section>
+    <section><h2>Modern synthetic problem list</h2><table><thead><tr><th>Grade</th><th>Problem</th><th>Clinical status</th><th>Verification</th><th>Placement</th><th>Historical claims</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Cough for about three months, blood-streaked sputum for two weeks, night sweats, and weight loss of about 6 kg in a man of 28, with a right upper lobe cavity on chest X-ray and CT: suspected pulmonary tuberculosis; home airborne isolation and three sputum samples for acid-fast smear, nucleic acid amplification, and culture</td>
+    <td>resolved</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td>CLM-0004, CLM-0020</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Pulmonary tuberculosis of the right upper lobe, cavitary and sputum smear-positive, confirmed by nucleic acid amplification without rifampin resistance</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>both_with_link</td>
+    <td>CLM-0004, CLM-0014, CLM-0016</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Moderate protein-calorie malnutrition: BMI 16.8, about 11 percent weight loss in three months, and albumin 3.2 g/dL</td>
+    <td>resolved</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td>CLM-0004, CLM-0007</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Acute viral upper respiratory infection during the continuation phase of tuberculosis treatment; resolved</td>
+    <td>resolved</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td></td>
+  </tr></tbody></table></section>
+    <section><h2>Synthetic outcome measures</h2><table><thead><tr><th>Grade</th><th>Date</th><th>Measure</th><th>Result</th><th>Coding</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-17</td>
+    <td>Hemoglobin [Mass/volume] in Blood</td>
+    <td>12.1 g/dL (low)<div class="muted">Reference 13.2-16.6 g/dL</div></td>
+    <td>http://loinc.org · 718-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-17</td>
+    <td>Leukocytes [#/volume] in Blood by Automated count</td>
+    <td>9.6 10*3/uL<div class="muted">Reference 4-11 10*3/uL</div></td>
+    <td>http://loinc.org · 6690-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-17</td>
+    <td>Platelets [#/volume] in Blood by Automated count</td>
+    <td>442 10*3/uL (high)<div class="muted">Reference 150-400 10*3/uL</div></td>
+    <td>http://loinc.org · 777-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-17</td>
+    <td>Alanine aminotransferase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>18 U/L<div class="muted">Reference 7-56 U/L</div></td>
+    <td>http://loinc.org · 1742-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-17</td>
+    <td>Aspartate aminotransferase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>24 U/L<div class="muted">Reference 10-40 U/L</div></td>
+    <td>http://loinc.org · 1920-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-17</td>
+    <td>Bilirubin.total [Mass/volume] in Serum or Plasma</td>
+    <td>0.5 mg/dL<div class="muted">Reference 0.1-1.2 mg/dL</div></td>
+    <td>http://loinc.org · 1975-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-17</td>
+    <td>Alkaline phosphatase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>84 U/L<div class="muted">Reference 40-129 U/L</div></td>
+    <td>http://loinc.org · 6768-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-17</td>
+    <td>Albumin [Mass/volume] in Serum or Plasma</td>
+    <td>3.2 g/dL (low)<div class="muted">Reference 3.5-5 g/dL</div></td>
+    <td>http://loinc.org · 1751-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-17</td>
+    <td>Creatinine [Mass/volume] in Serum or Plasma</td>
+    <td>0.78 mg/dL<div class="muted">Reference 0.74-1.35 mg/dL</div></td>
+    <td>http://loinc.org · 2160-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-17</td>
+    <td>Glomerular filtration rate [Volume Rate/Area] in Serum, Plasma or Blood by Creatinine-based formula (CKD-EPI 2021)/1.73 sq M</td>
+    <td>125 mL/min/1.73 m²<div class="muted">Reference &gt;=60 mL/min/1.73 m²</div></td>
+    <td>http://loinc.org · 98979-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-17</td>
+    <td>Glucose [Mass/volume] in Serum or Plasma</td>
+    <td>86 mg/dL<div class="muted">Reference 70-99 mg/dL</div></td>
+    <td>http://loinc.org · 2345-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-17</td>
+    <td>Potassium [Moles/volume] in Serum or Plasma</td>
+    <td>4 mmol/L<div class="muted">Reference 3.5-5.1 mmol/L</div></td>
+    <td>http://loinc.org · 2823-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-17</td>
+    <td>Calcium [Mass/volume] in Serum or Plasma</td>
+    <td>9 mg/dL<div class="muted">Reference 8.6-10.3 mg/dL</div></td>
+    <td>http://loinc.org · 17861-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-17</td>
+    <td>Magnesium [Mass/volume] in Serum or Plasma</td>
+    <td>2 mg/dL<div class="muted">Reference 1.7-2.2 mg/dL</div></td>
+    <td>http://loinc.org · 19123-9</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-17</td>
+    <td>Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]</td>
+    <td>7</td>
+    <td>http://loinc.org · 44261-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-17</td>
+    <td>Total score [AUDIT-C]</td>
+    <td>2</td>
+    <td>http://loinc.org · 75626-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-04-07</td>
+    <td>Alanine aminotransferase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>34 U/L<div class="muted">Reference 7-56 U/L</div></td>
+    <td>http://loinc.org · 1742-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-04-07</td>
+    <td>Aspartate aminotransferase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>31 U/L<div class="muted">Reference 10-40 U/L</div></td>
+    <td>http://loinc.org · 1920-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-04-07</td>
+    <td>Bilirubin.total [Mass/volume] in Serum or Plasma</td>
+    <td>0.8 mg/dL<div class="muted">Reference 0.1-1.2 mg/dL</div></td>
+    <td>http://loinc.org · 1975-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-04-07</td>
+    <td>Chloride [Moles/volume] in Sweat</td>
+    <td>18 mmol/L<div class="muted">Reference &lt;=29 mmol/L</div></td>
+    <td>http://loinc.org · 2077-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-04-07</td>
+    <td>Alpha 1 antitrypsin [Mass/volume] in Serum or Plasma by Nephelometry</td>
+    <td>142 mg/dL<div class="muted">Reference 100-190 mg/dL</div></td>
+    <td>http://loinc.org · 6771-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-05-15</td>
+    <td>Alanine aminotransferase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>29 U/L<div class="muted">Reference 7-56 U/L</div></td>
+    <td>http://loinc.org · 1742-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-05-15</td>
+    <td>Aspartate aminotransferase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>27 U/L<div class="muted">Reference 10-40 U/L</div></td>
+    <td>http://loinc.org · 1920-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-05-15</td>
+    <td>Bilirubin.total [Mass/volume] in Serum or Plasma</td>
+    <td>0.6 mg/dL<div class="muted">Reference 0.1-1.2 mg/dL</div></td>
+    <td>http://loinc.org · 1975-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-05-15</td>
+    <td>Hemoglobin [Mass/volume] in Blood</td>
+    <td>13 g/dL (low)<div class="muted">Reference 13.2-16.6 g/dL</div></td>
+    <td>http://loinc.org · 718-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-05-15</td>
+    <td>Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]</td>
+    <td>4</td>
+    <td>http://loinc.org · 44261-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-07-21</td>
+    <td>Hemoglobin [Mass/volume] in Blood</td>
+    <td>14.1 g/dL<div class="muted">Reference 13.2-16.6 g/dL</div></td>
+    <td>http://loinc.org · 718-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-07-21</td>
+    <td>Albumin [Mass/volume] in Serum or Plasma</td>
+    <td>4 g/dL<div class="muted">Reference 3.5-5 g/dL</div></td>
+    <td>http://loinc.org · 1751-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-07-21</td>
+    <td>Alanine aminotransferase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>22 U/L<div class="muted">Reference 7-56 U/L</div></td>
+    <td>http://loinc.org · 1742-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-07-21</td>
+    <td>Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]</td>
+    <td>3</td>
+    <td>http://loinc.org · 44261-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-09-15</td>
+    <td>Patient Health Questionnaire 2 item (PHQ-2) total score [Reported]</td>
+    <td>0</td>
+    <td>http://loinc.org · 55758-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-09-15</td>
+    <td>Total score [AUDIT-C]</td>
+    <td>2</td>
+    <td>http://loinc.org · 75626-2</td>
+  </tr></tbody></table></section>
+    <section><h2>Synthetic vital signs</h2><table><thead><tr><th>Date</th><th>Measure</th><th>Result</th><th>LOINC</th><th>Grade</th></tr></thead><tbody>
+  <tr><td>2026-03-17</td><td>Body height</td><td>170 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-17</td><td>Body weight</td><td>48.5 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-17</td><td>Body mass index (BMI) [Ratio]</td><td>16.8 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-17</td><td>Systolic blood pressure</td><td>104 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-17</td><td>Diastolic blood pressure</td><td>66 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-17</td><td>Heart rate</td><td>102 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-17</td><td>Respiratory rate</td><td>20 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-17</td><td>Body temperature</td><td>37.9 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-17</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>95 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-20</td><td>Body height</td><td>170 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-20</td><td>Body weight</td><td>48.4 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-20</td><td>Body mass index (BMI) [Ratio]</td><td>16.7 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-20</td><td>Systolic blood pressure</td><td>102 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-20</td><td>Diastolic blood pressure</td><td>64 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-20</td><td>Heart rate</td><td>98 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-20</td><td>Respiratory rate</td><td>18 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-20</td><td>Body temperature</td><td>37.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-20</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>95 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-07</td><td>Body height</td><td>170 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-07</td><td>Body weight</td><td>49.6 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-07</td><td>Body mass index (BMI) [Ratio]</td><td>17.2 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-07</td><td>Systolic blood pressure</td><td>106 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-07</td><td>Diastolic blood pressure</td><td>66 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-07</td><td>Heart rate</td><td>86 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-07</td><td>Respiratory rate</td><td>16 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-07</td><td>Body temperature</td><td>37 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-07</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>97 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-05-15</td><td>Body height</td><td>170 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-05-15</td><td>Body weight</td><td>52 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-05-15</td><td>Body mass index (BMI) [Ratio]</td><td>18 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-05-15</td><td>Systolic blood pressure</td><td>108 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-05-15</td><td>Diastolic blood pressure</td><td>68 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-05-15</td><td>Heart rate</td><td>78 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-05-15</td><td>Respiratory rate</td><td>16 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-05-15</td><td>Body temperature</td><td>36.8 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-05-15</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>98 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-07-21</td><td>Body height</td><td>170 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-07-21</td><td>Body weight</td><td>55 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-07-21</td><td>Body mass index (BMI) [Ratio]</td><td>19 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-07-21</td><td>Systolic blood pressure</td><td>110 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-07-21</td><td>Diastolic blood pressure</td><td>70 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-07-21</td><td>Heart rate</td><td>72 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-07-21</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-07-21</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-07-21</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>98 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-09</td><td>Body height</td><td>170 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-09</td><td>Body weight</td><td>53.6 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-09</td><td>Body mass index (BMI) [Ratio]</td><td>18.5 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-09</td><td>Systolic blood pressure</td><td>108 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-09</td><td>Diastolic blood pressure</td><td>68 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-09</td><td>Heart rate</td><td>88 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-09</td><td>Respiratory rate</td><td>16 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-09</td><td>Body temperature</td><td>37.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-09</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>97 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-09-15</td><td>Body height</td><td>170 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-09-15</td><td>Body weight</td><td>56.2 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-09-15</td><td>Body mass index (BMI) [Ratio]</td><td>19.4 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-09-15</td><td>Systolic blood pressure</td><td>112 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-09-15</td><td>Diastolic blood pressure</td><td>70 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-09-15</td><td>Heart rate</td><td>70 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-09-15</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-09-15</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-09-15</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>98 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr></tbody></table></section>
+    <section><h2>Social, functional, and mental status</h2><h3>Social history</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Concert pianist and composer who earns most of his living teaching piano in the studio of his apartment; performs a few times a year and prefers small gatherings to large halls</li><li><span class="badge grade-S" title="Synthetic">S</span> Born in Poland to a French father and a Polish mother; left home at 20 and has not been back; sources of support he names: a close circle of friends from home, his students, and his music</li><li><span class="badge grade-S" title="Synthetic">S</span> Lives alone; teaches about fifteen students a week, teenagers and adults, in his apartment; no children under five and no one with a weakened immune system among his close contacts that he knows of</li><li><span class="badge grade-S" title="Synthetic">S</span> Alcohol: a glass of wine with dinner a few times a week (AUDIT-C 2); never smoked; no drug use; no incarceration, homelessness, or work in health care</li></ul><h3>Functional status</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Independent; has cut his teaching from about fifteen to eight lessons a week over the past month because of tiredness, cough, and night sweats</li></ul><h3>Mental status</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Quiet, courteous, and precise; organized thought; thin and tired</li><li><span class="badge grade-S" title="Synthetic">S</span> Mood low and anxious about the illness and his students; homesick; PHQ-9 7, with item 9 scored 0; no thoughts of suicide or self-harm</li></ul></section>
+    
+    <section><h2>Allergies and medications</h2><h3>Allergies</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> No known allergy</li></ul><h3>Medications</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Rifapentine 150 mg tablets, eight tablets (1200 mg) daily with food</li><li><span class="badge grade-S" title="Synthetic">S</span> Moxifloxacin 400 mg tablet, one tablet daily</li><li><span class="badge grade-S" title="Synthetic">S</span> Isoniazid 300 mg tablet, one tablet daily</li><li><span class="badge grade-S" title="Synthetic">S</span> Pyrazinamide 500 mg tablets, two tablets (1000 mg) daily</li><li><span class="badge grade-S" title="Synthetic">S</span> Vitamin B6 (pyridoxine) 50 mg tablet, one tablet daily</li></ul></section>
+    <section><h2>Procedures and immunizations</h2><h3>Procedures</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Chest X-ray, two views: right upper lobe consolidation with a 2.5 cm thick-walled cavity and patchy opacities in the left upper zone; no effusion</li><li><span class="badge grade-S" title="Synthetic">S</span> CT of the chest without contrast: a 2.5 cm thick-walled cavity in the apical segment of the right upper lobe with surrounding consolidation and tree-in-bud nodules in both upper lobes; no bronchiectasis, no emphysema, no enlarged lymph nodes, no effusion</li><li><span class="badge grade-S" title="Synthetic">S</span> Chest X-ray, two views, at the end of treatment: cavity closed, with a small area of right upper lobe scarring; kept as the baseline for any future comparison</li></ul><h3>Immunizations</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> 2023-10-04: Tetanus, diphtheria, and pertussis (Tdap) booster</li><li><span class="badge grade-S" title="Synthetic">S</span> 2026-09-15: Influenza vaccine, 2026-2027 season</li></ul></section>
+    <section><h2>Past medical history</h2><p class="muted">True biography with historical dates; not part of the synthetic care timeline.</p><ul><li><span class="badge grade-D" title="Documented">D</span> 1820s: Recurrent episodes of cough, fever, headaches, and swollen lymph nodes in his teens <span class="muted">(CLM-0004)</span></li><li><span class="badge grade-D" title="Documented">D</span> winter of 1836 to 1837: Serious illness; cause not recorded in the cited source <span class="muted">(CLM-0007)</span></li></ul><h3>Family history</h3><ul><li><span class="badge grade-D" title="Documented">D</span> sister: Tuberculosis; died of it in 1827</li></ul></section>
+    <section><h2>Care-plan goals</h2><table><thead><tr><th>Goal</th><th>Target date</th><th>Status</th><th>Outcome</th></tr></thead><tbody>
+  <tr><td>Complete all 119 doses within five months by video-observed therapy</td><td>2026-07-21</td><td>completed</td><td>All 119 doses completed in 17 weeks: 56 in the intensive phase and 63 in the continuation phase, with none missed</td></tr>
+  <tr><td>Sputum culture negative at two months</td><td>2026-07-21</td><td>completed</td><td>The two-month culture showed no growth, as did the cultures from the third week</td></tr>
+  <tr><td>Return to teaching once the health department confirms he is no longer infectious</td><td>2026-04-07</td><td>completed</td><td>Released from isolation after three negative smears and more than two weeks of treatment; teaching again from the third week</td></tr>
+  <tr><td>Weight back to at least 55 kg by the end of treatment</td><td>2026-07-21</td><td>completed</td><td>55.0 kg at the end of treatment, from 48.5 kg at diagnosis</td></tr>
+  <tr><td>PHQ-9 below 5 by the end of treatment</td><td>2026-07-21</td><td>completed</td><td>PHQ-9 3 at the end of treatment, from 7 at diagnosis</td></tr></tbody></table></section>
+    <section><h2>Interventions</h2><table><thead><tr><th>Intervention</th><th>Status</th><th>Guideline</th></tr></thead><tbody>
+  <tr><td>Infectious diseases consultation to confirm the diagnosis, choose between the six-month and four-month regimens, plan monitoring and his return to teaching, and address cystic fibrosis and alpha-1 antitrypsin deficiency as explanations for his lifelong chest illness</td><td>completed</td><td>GL-ATS-TB-2016, GL-CDC-4MO-2022</td></tr>
+  <tr><td>Diagnosis: three sputum samples at least eight hours apart, one early in the morning, for acid-fast smear, nucleic acid amplification with rifampin resistance, culture, molecular testing for isoniazid and fluoroquinolone resistance, and phenotypic susceptibility; an interferon-gamma release assay; HIV, hepatitis B, and hepatitis C tests; and baseline blood count, liver and kidney tests, potassium, calcium, and magnesium</td><td>completed</td><td>GL-ATS-TB-2016, GL-CDC-4MO-2022</td></tr>
+  <tr><td>Infection control and public health: home airborne isolation with no students or visitors and a surgical mask around others; same-day report of suspected tuberculosis to the health department; a contact investigation of his students, friends, and other close contacts led by the health department</td><td>completed</td><td>GL-CDC-CONTACT-2005, GL-ATS-TB-2016</td></tr>
+  <tr><td>Nutrition: two dietitian visits in the first month, three meals and three energy-dense snacks a day, two oral nutrition supplement drinks a day, and weight at every visit</td><td>completed</td><td>GL-ASPEN-MALN-2012, GL-ATS-TB-2016</td></tr>
+  <tr><td>Support: plain information about how tuberculosis spreads, how quickly treatment makes him non-infectious, and that it is curable; help with what to tell his students; PHQ-9 at diagnosis, at two months, and at the end of treatment</td><td>completed</td><td>GL-USPSTF-DEP-2023, GL-ATS-TB-2016</td></tr>
+  <tr><td>Treatment: the four-month regimen of rifapentine 1200 mg, moxifloxacin 400 mg, isoniazid 300 mg, and pyrazinamide 1000 mg daily with food for eight weeks, then rifapentine, moxifloxacin, and isoniazid for nine weeks, with pyridoxine, by video-observed therapy seven days a week; complete when 119 doses are taken within five months</td><td>completed</td><td>GL-CDC-4MO-2022, GL-ATS-TB-2025, GL-ATS-TB-2016</td></tr>
+  <tr><td>Monitoring: symptoms, weight, adverse effects (liver, tendons, nerves) and observed doses at every visit; liver tests at two to three weeks and for symptoms; sputum smears in the third week for release, then monthly culture until two are negative, including the two-month culture; phenotypic susceptibility including moxifloxacin; PHQ-9 at two months and at the end</td><td>completed</td><td>GL-CDC-4MO-2022, GL-ATS-HEPATOTOX-2006</td></tr>
+  <tr><td>Sweat chloride test and serum alpha-1 antitrypsin level once he is out of isolation, to address cystic fibrosis and alpha-1 antitrypsin deficiency as the proposed alternatives</td><td>completed</td><td>GL-CFF-DX-2017, GL-ATS-A1AT-2003</td></tr></tbody></table></section>
+    <section><h2>Planned encounters</h2><ul>
+  <li><strong>2026-03-17</strong> — Three months of cough, two weeks of blood-streaked sputum, night sweats, and weight loss: chest X-ray and CT, sputum samples, blood tests, home airborne isolation, and a report of suspected tuberculosis to the health department <span class="muted">(ENC-001)</span></li>
+  <li><strong>2026-03-20</strong> — Results visit: pulmonary tuberculosis confirmed; infectious diseases consultation and the start of the four-month rifapentine-moxifloxacin regimen by video-observed therapy <span class="muted">(ENC-002)</span></li>
+  <li><strong>2026-04-07</strong> — Two-and-a-half-week review: release from isolation, return to teaching, liver tests, and tests for cystic fibrosis and alpha-1 antitrypsin deficiency <span class="muted">(ENC-003)</span></li>
+  <li><strong>2026-05-15</strong> — End of the eight-week intensive phase: susceptibility results, the two-month sputum culture, and the start of the continuation phase <span class="muted">(ENC-004)</span></li>
+  <li><strong>2026-06-09</strong> — Same-day sick visit for a cold with cough during tuberculosis treatment <span class="muted">(ENC-006, unscheduled)</span></li>
+  <li><strong>2026-07-21</strong> — End-of-treatment review after 119 doses <span class="muted">(ENC-005)</span></li>
+  <li><strong>2026-09-15</strong> — Adult preventive visit <span class="muted">(ENC-007)</span></li></ul></section>
+    <section><h2>Supporting documents</h2><ul><li><a href="notes/hp.md">History and physical</a></li><li><a href="notes/progress-01.md">Progress note 01</a></li><li><a href="notes/progress-02.md">Progress note 02 — Focused Visit (Follow-up)</a></li><li><a href="notes/progress-03.md">Progress note 03 — Focused Visit (Follow-up)</a></li><li><a href="notes/progress-04.md">Progress note 04 — Focused Visit (Follow-up)</a></li><li><a href="notes/progress-05.md">Progress note 05 — Sick Visit</a></li><li><a href="notes/progress-06.md">Progress note 06 — Focused Visit (Care-plan review)</a></li><li><a href="notes/progress-07.md">Progress note 07 — Preventive Visit</a></li><li><a href="notes/referral-01.md">Infectious Diseases referral</a></li><li><a href="notes/consult-01.md">Infectious Diseases consultation</a></li><li><a href="notes/careplan.md">Patient care plan</a></li><li><a href="notes/teaching-note.md">Teaching note</a></li><li><a href="provenance.csv">Provenance CSV</a></li></ul></section>
+    <section><h2>C-CDA note documents</h2><p class="muted">Each link opens a readable copy; the XML beside it is the exchange file.</p><ul><li><a href="ccda/hp-01.html">History and physical</a> <a href="ccda/hp-01.xml">(XML)</a></li><li><a href="ccda/progress-01.html">Progress note 01</a> <a href="ccda/progress-01.xml">(XML)</a></li><li><a href="ccda/progress-02.html">Progress note 02 — Focused Visit (Follow-up)</a> <a href="ccda/progress-02.xml">(XML)</a></li><li><a href="ccda/progress-03.html">Progress note 03 — Focused Visit (Follow-up)</a> <a href="ccda/progress-03.xml">(XML)</a></li><li><a href="ccda/progress-04.html">Progress note 04 — Focused Visit (Follow-up)</a> <a href="ccda/progress-04.xml">(XML)</a></li><li><a href="ccda/progress-05.html">Progress note 05 — Sick Visit</a> <a href="ccda/progress-05.xml">(XML)</a></li><li><a href="ccda/progress-06.html">Progress note 06 — Focused Visit (Care-plan review)</a> <a href="ccda/progress-06.xml">(XML)</a></li><li><a href="ccda/progress-07.html">Progress note 07 — Preventive Visit</a> <a href="ccda/progress-07.xml">(XML)</a></li><li><a href="ccda/referral-01.html">Infectious Diseases referral</a> <a href="ccda/referral-01.xml">(XML)</a></li><li><a href="ccda/consult-01.html">Infectious Diseases consultation</a> <a href="ccda/consult-01.xml">(XML)</a></li></ul></section>
+    <section><h2>Sources</h2><table><thead><tr><th>ID</th><th>Source</th><th>Publisher</th><th>Type</th></tr></thead><tbody>
+  <tr>
+    <td>SRC-0001</td>
+    <td><a href="https://chopin.pl/biography_chopin.en.html" target="_blank" rel="noreferrer">Biography: general outline (Barbara Smoleńska-Zielińska)</a></td>
+    <td>The Fryderyk Chopin Institute (chopin.pl)</td>
+    <td>biography</td>
+  </tr>
+  <tr>
+    <td>SRC-0002</td>
+    <td><a href="https://polmic.pl/en/encyclopedia/subject-entries/c/chopin-fryderyk-en" target="_blank" rel="noreferrer">Chopin Fryderyk: a calendar of the composer&#39;s life and the list of works</a></td>
+    <td>Polish Music Information Centre (POLMIC), Polish Composers&#39; Union</td>
+    <td>biography</td>
+  </tr>
+  <tr>
+    <td>SRC-0003</td>
+    <td><a href="https://www.chopin.pl/majorca.en.html" target="_blank" rel="noreferrer">Fryderyk Chopin and George Sand: the trip to Majorca (Bożena Schmid-Adamczyk, Fryderyk Chopin and George Sand Museum, Valldemossa)</a></td>
+    <td>The Fryderyk Chopin Institute (chopin.pl)</td>
+    <td>biography</td>
+  </tr>
+  <tr>
+    <td>SRC-0004</td>
+    <td><a href="https://greatcomposers.nifc.pl/en/chopin/routes/71_family" target="_blank" rel="noreferrer">Fryderyk Chopin: routes, family</a></td>
+    <td>Narodowy Instytut Fryderyka Chopina (Great Composers)</td>
+    <td>biography</td>
+  </tr>
+  <tr>
+    <td>SRC-0005</td>
+    <td><a href="https://pubmed.ncbi.nlm.nih.gov/29031593/" target="_blank" rel="noreferrer">Witt M, Szklener A, Kawecki J, et al. A Closer Look at Frederic Chopin&#39;s Cause of Death. Am J Med. 2018;131(2):211-212</a></td>
+    <td>American Journal of Medicine (PubMed 29031593)</td>
+    <td>scholarly</td>
+  </tr>
+  <tr>
+    <td>SRC-0006</td>
+    <td><a href="https://pubmed.ncbi.nlm.nih.gov/30047032/" target="_blank" rel="noreferrer">Witt M, Szklener A, Marchwica W, Dobosz T. Disease not genetic but infectious: multiple tuberculomas and fibrinous pericarditis as symptoms pathognomonic for tuberculosis of Frederic Chopin. J Appl Genet. 2018;59(4):471-473</a></td>
+    <td>Journal of Applied Genetics (PubMed 30047032)</td>
+    <td>scholarly</td>
+  </tr>
+  <tr>
+    <td>SRC-0007</td>
+    <td><a href="https://pubmed.ncbi.nlm.nih.gov/34347238/" target="_blank" rel="noreferrer">Witt M, Dobosz T. Inheritance vs. infectivity as a mechanism of malady and death of Frederic Chopin. J Appl Genet. 2021;62(4):607-611</a></td>
+    <td>Journal of Applied Genetics (PubMed 34347238)</td>
+    <td>scholarly</td>
+  </tr>
+  <tr>
+    <td>SRC-0008</td>
+    <td><a href="https://pubmed.ncbi.nlm.nih.gov/12590184/" target="_blank" rel="noreferrer">Majka L, Goździk J, Witt M. Cystic fibrosis: a probable cause of Frédéric Chopin&#39;s suffering and death. J Appl Genet. 2003;44(1):77-84</a></td>
+    <td>Journal of Applied Genetics (PubMed 12590184)</td>
+    <td>scholarly</td>
+  </tr>
+  <tr>
+    <td>SRC-0009</td>
+    <td><a href="https://pubmed.ncbi.nlm.nih.gov/12914142/" target="_blank" rel="noreferrer">Eriksson S. Did Chopin suffer of antitrypsin deficiency? Lost autopsy protocol has caused frustration among physicians of our time in their attempts to confirm the diagnosis. Lakartidningen. 2003;100(30-31):2449-54</a></td>
+    <td>Läkartidningen (PubMed 12914142)</td>
+    <td>scholarly</td>
+  </tr>
+  <tr>
+    <td>SRC-0010</td>
+    <td><a href="https://pubmed.ncbi.nlm.nih.gov/29597050/" target="_blank" rel="noreferrer">Perciaccante A, Charlier P, Negri C, et al. Did Frédéric Chopin Die From Heart Failure? J Card Fail. 2018;24(5):342-344</a></td>
+    <td>Journal of Cardiac Failure (PubMed 29597050)</td>
+    <td>scholarly</td>
+  </tr>
+  <tr>
+    <td>SRC-0011</td>
+    <td><a href="https://pubmed.ncbi.nlm.nih.gov/25117047/" target="_blank" rel="noreferrer">Young P, Bernaciak JM, Bruetman JE, Finn BC, Miranda MC. Frederic Chopin (1810-1849), and his disease. Rev Med Chil. 2014;142(4):529-35</a></td>
+    <td>Revista Médica de Chile (PubMed 25117047)</td>
+    <td>scholarly</td>
+  </tr>
+  <tr>
+    <td>SRC-0012</td>
+    <td><a href="https://humanrecord.example.org/internal/HISTMED_Master_Roster_v3.xlsx" target="_blank" rel="noreferrer">HISTMED Master Roster v3</a></td>
+    <td>The Human Record project</td>
+    <td>other</td>
+  </tr></tbody></table></section>
+    <section><h2>Review status</h2><table><thead><tr><th>Review</th><th>Status</th><th>Notes</th></tr></thead><tbody>
+  <tr><td>schema validation</td><td>not_started</td><td>Run scripts/build.ps1 -Conformance.</td></tr>
+  <tr><td>clinical review</td><td>not_started</td><td>Awaiting clinician review.</td></tr>
+  <tr><td>provenance review</td><td>not_started</td><td>Biography from the Fryderyk Chopin Institute, the Polish Music Information Centre, and the Valldemossa museum page; retrospective diagnoses from PubMed records. The birth-date conflict (March 1 or February 22, 1810) is recorded. Tuberculosis is graded D as diagnosed in his lifetime and R (probable) for the 2014 heart examination; cystic fibrosis, alpha-1 antitrypsin deficiency, and heart failure are R and disputed.</td></tr>
+  <tr><td>safe messaging review</td><td>not_started</td><td>The two claims about low mood are marked sensitive and quoted in the source&#39;s lay words, not as diagnoses. PHQ-9 at most 7 and no F-code, so no safety assessment is required; item 9 is recorded at each PHQ-9. George Sand appears only in documented history claims; contacts in the investigation are synthetic and unnamed, and no result is attributed to anyone.</td></tr></tbody></table></section>
+  </main>
+</body>
+</html>

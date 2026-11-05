@@ -1,0 +1,718 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Madam C. J. Walker — The Human Record</title>
+  <style>
+    :root { --navy:#17365d; --blue:#1f4e78; --pale:#eef5fa; --ink:#1f2933; --muted:#66788a; --amber:#fff2cc; --red:#f8d7da; --green:#d9ead3; }
+    * { box-sizing:border-box; }
+    body { margin:0; font:16px/1.5 Arial, sans-serif; color:var(--ink); background:#f6f8fa; }
+    header { background:var(--navy); color:white; padding:24px max(24px,calc((100vw - 1180px)/2)); }
+    header h1 { margin:4px 0; font-size:30px; }
+    .banner { background:#b42318; color:white; font-weight:700; text-align:center; padding:10px; letter-spacing:.03em; }
+    main { max-width:1180px; margin:24px auto 60px; padding:0 24px; }
+    section { background:white; border:1px solid #d9e1e8; border-radius:8px; margin:18px 0; padding:20px; }
+    h2 { color:var(--navy); margin:0 0 14px; font-size:22px; }
+    h3 { color:var(--blue); }
+    .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:12px; }
+    .card { background:var(--pale); border-left:4px solid var(--blue); padding:12px; }
+    .label { color:var(--muted); font-size:13px; text-transform:uppercase; letter-spacing:.04em; }
+    table { width:100%; border-collapse:collapse; }
+    th { background:var(--blue); color:white; text-align:left; }
+    th,td { padding:9px; border-bottom:1px solid #dfe6ec; vertical-align:top; }
+    .badge { display:inline-block; min-width:28px; text-align:center; font-weight:700; border-radius:12px; padding:2px 8px; }
+    .grade-D { background:var(--green); } .grade-R { background:var(--amber); } .grade-S { background:var(--red); }
+    .muted { color:var(--muted); font-size:14px; }
+    .relationship { color:var(--muted); font-size:12px; }
+    .downloads a { display:inline-block; margin:4px 8px 4px 0; padding:8px 12px; background:var(--blue); color:white; text-decoration:none; border-radius:5px; }
+    @media (max-width:700px) { table { display:block; overflow-x:auto; } }
+  </style>
+</head>
+<body>
+  <div class="banner">SYNTHETIC RECORD, NOT A REAL MEDICAL RECORD</div>
+  <div class="banner">True-date frame: synthetic events are moved into the patient&#39;s historical lifetime. Codes, instruments, and treatments remain modern and are anachronistic.</div>
+  <header>
+    <div>The Human Record</div>
+    <h1>Madam C. J. Walker</h1>
+    <div>Case HR-ET019-TD · Modern EHR teaching episode · Draft for review</div>
+  </header>
+  <main>
+    <section>
+      <h2>Review summary</h2>
+      <div class="grid">
+        <div class="card"><div class="label">Historical dates</div>December 23, 1867 – May 25, 1919</div>
+        <div class="card"><div class="label">Synthetic DOB</div>1867-12-23</div>
+        <div class="card"><div class="label">Index visit</div>1917-02-09 at age 49</div>
+        <div class="card"><div class="label">Synthetic MRN</div>HR-ET019-SYN-TD</div>
+      </div>
+      <p><strong>Teaching objective:</strong> Hypertension with chronic kidney disease in a 49-year-old Black woman who founded and runs a national hair-care company and travels most weeks to train her sales agents. The episode covers accurate office measurement and 24-hour ambulatory and home monitoring under the 1916 AHA/ACC guideline; kidney function by the race-free CKD-EPI 1912 equation, stated explicitly, with the urine albumin-to-creatinine ratio, chronicity and KDIGO 1915 staging and risk; an angiotensin receptor blocker titrated to the maximum dose, an SGLT2 inhibitor for CKD with albuminuria, and a calcium channel blocker to reach goal; a statin chosen by shared decision; potassium and creatinine after each start or increase; sick-day rules tested by a real gastroenteritis; sodium counseling built on the food she likes; nephrology consultation; and a work and rest plan she sets herself. The teaching contrast is the historical advice to rest and slow down: here the risks are stated plainly, the treatment does the work, and she decides how she lives. Race and medicine: the eGFR uses no race term, the first medicine is chosen for the albuminuria rather than for her race, and APOL1 genetic testing is offered with counseling and left to her choice.</p>
+      <div class="downloads">
+        <a href="../case.json">Canonical JSON</a>
+        <a href="fhir-bundle.json">FHIR R4 draft</a>
+        <a href="ccda.html">C-CDA R2.1 summary</a> <a href="ccda.xml">(XML)</a>
+        <a href="../sources.md">Evidence dossier</a>
+      </div>
+    </section>
+    <section><h2>Historical timeline</h2><table><thead><tr><th>Date</th><th>Event</th><th>Claims</th></tr></thead><tbody>
+  <tr><td>December 23, 1867</td><td>Born Sarah Breedlove in Delta, Louisiana, to formerly enslaved parents.</td><td>CLM-0001</td></tr>
+  <tr><td>by 1875</td><td>Both parents had died by the time she was seven.</td><td>CLM-0002</td></tr>
+  <tr><td>1904</td><td>Hair loss and scalp disease; began selling hair-care products as an agent.</td><td>CLM-0003</td></tr>
+  <tr><td>January 4, 1906</td><td>Married Charles Joseph Walker in Denver and began her own company as Madam C. J. Walker.</td><td>CLM-0004</td></tr>
+  <tr><td>1910</td><td>Company moved to Indianapolis; thousands of agents trained.</td><td>CLM-0004, CLM-0005</td></tr>
+  <tr><td>1916</td><td>Rest cure at Hot Springs, Arkansas, for her health; high blood pressure.</td><td>CLM-0006</td></tr>
+  <tr><td>July 1917</td><td>Joined the committee of the Negro Silent Protest Parade petitioning for a federal law against lynching.</td><td>CLM-0010</td></tr>
+  <tr><td>mid-November 1917</td><td>Nephritis worsened by hypertension diagnosed; rest at Battle Creek advised.</td><td>CLM-0007</td></tr>
+  <tr><td>April 1919</td><td>Gravely ill in St. Louis; returned to New York.</td><td>CLM-0008</td></tr>
+  <tr><td>May 25, 1919</td><td>Died at Villa Lewaro, Irvington-on-Hudson, at 51.</td><td>CLM-0009</td></tr></tbody></table></section>
+    <section><h2>Evidence claims</h2><p class="muted">D = documented, R = retrospective, S = synthetic.</p><table><thead><tr><th>Grade</th><th>Claim</th><th>Certainty</th><th>Sources</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>Madam C. J. Walker was born Sarah Breedlove on December 23, 1867, in Delta, Louisiana, the daughter of Owen and Minerva Anderson Breedlove. Both parents had been enslaved on a Madison Parish plantation, and she was their first child born into freedom.</strong></td>
+    <td>confirmed</td>
+    <td><a href="https://indianahistory.org/education/educator-resources/famous-hoosiers/madam-c-j-walker/" target="_blank" rel="noreferrer">Madam C.J. Walker (Famous Hoosiers)</a> <span class="relationship">supports</span><br><a href="https://64parishes.org/entry/madam-c-j-walker" target="_blank" rel="noreferrer">Jeansonne G, Luhrssen D. Madam C. J. Walker</a> <span class="relationship">supports</span><br><a href="https://prologue.blogs.archives.gov/2021/07/22/madam-c-j-walkers-rags-to-riches-story-found-in-the-holdings-of-the-national-archives/" target="_blank" rel="noreferrer">McNatt M. Madam C. J. Walker&#39;s Rags to Riches Story Found in the Holdings of the National Archives</a> <span class="relationship">supports</span><br><a href="https://www.womenshistory.org/education-resources/biographies/madam-cj-walker" target="_blank" rel="noreferrer">Madam C.J. Walker (biography)</a> <span class="relationship">supports</span><br><a href="https://aleliabundles.com/2019/05/" target="_blank" rel="noreferrer">Bundles A. The Centennial of Madam C. J. Walker&#39;s Death, May 25, 1919</a> <span class="relationship">supports</span><br><a href="https://humanrecord.example.org/internal/HISTMED_Master_Roster_v3.xlsx" target="_blank" rel="noreferrer">HISTMED Master Roster v3</a> <span class="relationship">context</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>Both her parents had died by the time she was seven, and she went to live with an older sister and moved across the river to Vicksburg, Mississippi. She married Moses McWilliams at fourteen, had her only child, Lelia (later A&#39;Lelia), and was widowed at twenty. She then moved to St. Louis, where she worked as a laundress and cook, sometimes for as little as a dollar a day.</strong><div class="muted">Anchors her early loss of both parents (cause not recorded) and the years of heavy physical work in the modern social history.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://64parishes.org/entry/madam-c-j-walker" target="_blank" rel="noreferrer">Jeansonne G, Luhrssen D. Madam C. J. Walker</a> <span class="relationship">supports</span><br><a href="https://prologue.blogs.archives.gov/2021/07/22/madam-c-j-walkers-rags-to-riches-story-found-in-the-holdings-of-the-national-archives/" target="_blank" rel="noreferrer">McNatt M. Madam C. J. Walker&#39;s Rags to Riches Story Found in the Holdings of the National Archives</a> <span class="relationship">supports</span><br><a href="https://www.womenshistory.org/education-resources/biographies/madam-cj-walker" target="_blank" rel="noreferrer">Madam C.J. Walker (biography)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>While working as a laundress she began to lose her hair, a problem many Black women of her time shared. Her biographers attribute it to scalp disease such as dandruff, poor diet, a hard life and harsh washing products, in an era when most homes lacked indoor plumbing. In 1904 she began using and selling another Black woman&#39;s hair grower as a sales agent, then developed her own sulfur-containing ointments and shampoos to treat scalp disease.</strong><div class="muted">History only; the origin of her products. The modern episode adds no scalp or hair diagnosis.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://indianahistory.org/education/educator-resources/famous-hoosiers/madam-c-j-walker/" target="_blank" rel="noreferrer">Madam C.J. Walker (Famous Hoosiers)</a> <span class="relationship">supports</span><br><a href="https://64parishes.org/entry/madam-c-j-walker" target="_blank" rel="noreferrer">Jeansonne G, Luhrssen D. Madam C. J. Walker</a> <span class="relationship">supports</span><br><a href="https://www.womenshistory.org/education-resources/biographies/madam-cj-walker" target="_blank" rel="noreferrer">Madam C.J. Walker (biography)</a> <span class="relationship">supports</span><br><a href="https://encyclopedia.com/women/encyclopedias-almanacs-transcripts-and-maps/walker-madame-cj-1867-1919" target="_blank" rel="noreferrer">Walker, Madame C.J. (1867-1919), Women in World History: A Biographical Encyclopedia</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>In Denver she married Charles Joseph Walker, a newspaper advertising salesman (in January 1906, or 1905 in one account), and began calling herself Madam Walker, in part to avoid the familiar forms of address then used for Black women. She launched her own hair-care line there, set up headquarters and a training school for her agents in Pittsburgh in 1908, and moved the company to Indianapolis in 1910. She trained thousands of sales agents, &quot;hair culturists,&quot; who earned a share of the profits. She kept the name after the marriage ended.</strong><div class="muted">Anchors her chosen form of address and her work as a founder who trained agents and traveled constantly to sell and teach.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://64parishes.org/entry/madam-c-j-walker" target="_blank" rel="noreferrer">Jeansonne G, Luhrssen D. Madam C. J. Walker</a> <span class="relationship">supports</span><br><a href="https://prologue.blogs.archives.gov/2021/07/22/madam-c-j-walkers-rags-to-riches-story-found-in-the-holdings-of-the-national-archives/" target="_blank" rel="noreferrer">McNatt M. Madam C. J. Walker&#39;s Rags to Riches Story Found in the Holdings of the National Archives</a> <span class="relationship">supports</span><br><a href="https://encyclopedia.com/women/encyclopedias-almanacs-transcripts-and-maps/walker-madame-cj-1867-1919" target="_blank" rel="noreferrer">Walker, Madame C.J. (1867-1919), Women in World History: A Biographical Encyclopedia</a> <span class="relationship">supports</span><br><a href="https://indianahistory.org/education/educator-resources/famous-hoosiers/madam-c-j-walker/" target="_blank" rel="noreferrer">Madam C.J. Walker (Famous Hoosiers)</a> <span class="relationship">supports</span><br><a href="https://lemelson.mit.edu/resources/madam-walker" target="_blank" rel="noreferrer">Madam Walker</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>As her wealth grew she became a philanthropist and activist: she gave to the YWCA and paid tuition for students at Tuskegee Institute, and in 1915 she sued over discrimination at an Indianapolis theater.</strong><div class="muted">Anchors her philanthropy and civic work in the modern social history.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.womenshistory.org/education-resources/biographies/madam-cj-walker" target="_blank" rel="noreferrer">Madam C.J. Walker (biography)</a> <span class="relationship">supports</span><br><a href="https://prologue.blogs.archives.gov/2021/07/22/madam-c-j-walkers-rags-to-riches-story-found-in-the-holdings-of-the-national-archives/" target="_blank" rel="noreferrer">McNatt M. Madam C. J. Walker&#39;s Rags to Riches Story Found in the Holdings of the National Archives</a> <span class="relationship">supports</span><br><a href="https://indianahistory.org/education/educator-resources/famous-hoosiers/madam-c-j-walker/" target="_blank" rel="noreferrer">Madam C.J. Walker (Famous Hoosiers)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>In 1917 she joined the committee of the Negro Silent Protest Parade in petitioning the President and Congress to make lynching a national crime. She gave $5,000 to the NAACP&#39;s anti-lynching work, and by her own report her company had more than twenty thousand agents by 1919.</strong><div class="muted">History after the index date; anchors the later civic work and the size of her agent network.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://prologue.blogs.archives.gov/2021/07/22/madam-c-j-walkers-rags-to-riches-story-found-in-the-holdings-of-the-national-archives/" target="_blank" rel="noreferrer">McNatt M. Madam C. J. Walker&#39;s Rags to Riches Story Found in the Holdings of the National Archives</a> <span class="relationship">supports</span><br><a href="https://www.womenshistory.org/education-resources/biographies/madam-cj-walker" target="_blank" rel="noreferrer">Madam C.J. Walker (biography)</a> <span class="relationship">supports</span><br><a href="https://64parishes.org/entry/madam-c-j-walker" target="_blank" rel="noreferrer">Jeansonne G, Luhrssen D. Madam C. J. Walker</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>The physical demands she placed on herself undermined her health, and she suffered from high blood pressure. She went for a rest cure at Hot Springs, Arkansas, in 1916, but otherwise did not slow her pace.</strong><div class="muted">The anchor for the modern hypertension. The teaching contrast: the historical advice was to rest and slow down; the modern plan treats the blood pressure and fits care around the work she chooses.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://encyclopedia.com/women/encyclopedias-almanacs-transcripts-and-maps/walker-madame-cj-1867-1919" target="_blank" rel="noreferrer">Walker, Madame C.J. (1867-1919), Women in World History: A Biographical Encyclopedia</a> <span class="relationship">supports</span><br><a href="https://indianahistory.org/education/educator-resources/famous-hoosiers/madam-c-j-walker/" target="_blank" rel="noreferrer">Madam C.J. Walker (Famous Hoosiers)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>By mid-November 1917 a Chicago physician, Dr. George Sauer, diagnosed nephritis, an often irreversible inflammation of the kidneys made worse by her worsening hypertension, and advised an indefinite stay at the Battle Creek Sanitarium in Michigan, where she took a rest cure that year.</strong><div class="muted">History after the modern episode. Anchors the modern kidney disease; the modern kidney findings are synthetic.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://en.wikipedia.org/wiki/Madam_C._J._Walker" target="_blank" rel="noreferrer">Bundles A. On Her Own Ground: The Life and Times of Madam C. J. Walker (Scribner, 2001), chapter 17, as quoted in the Wikipedia article on her</a> <span class="relationship">supports</span><br><a href="https://encyclopedia.com/women/encyclopedias-almanacs-transcripts-and-maps/walker-madame-cj-1867-1919" target="_blank" rel="noreferrer">Walker, Madame C.J. (1867-1919), Women in World History: A Biographical Encyclopedia</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>She moved into Villa Lewaro, her house at Irvington-on-Hudson, New York (in 1918; 1917 in one account). In April 1919 she became gravely ill in St. Louis and returned to New York.</strong><div class="muted">History after the modern episode.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://encyclopedia.com/women/encyclopedias-almanacs-transcripts-and-maps/walker-madame-cj-1867-1919" target="_blank" rel="noreferrer">Walker, Madame C.J. (1867-1919), Women in World History: A Biographical Encyclopedia</a> <span class="relationship">supports</span><br><a href="https://indianahistory.org/education/educator-resources/famous-hoosiers/madam-c-j-walker/" target="_blank" rel="noreferrer">Madam C.J. Walker (Famous Hoosiers)</a> <span class="relationship">supports</span><br><a href="https://64parishes.org/entry/madam-c-j-walker" target="_blank" rel="noreferrer">Jeansonne G, Luhrssen D. Madam C. J. Walker</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>She died on May 25, 1919, at Villa Lewaro, at 51. Accounts of the cause differ: chronic interstitial nephritis; kidney failure; or high blood pressure and kidney failure.</strong><div class="muted">History only, two years after the modern episode. Anchors the hypertension and kidney disease.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://encyclopedia.com/women/encyclopedias-almanacs-transcripts-and-maps/walker-madame-cj-1867-1919" target="_blank" rel="noreferrer">Walker, Madame C.J. (1867-1919), Women in World History: A Biographical Encyclopedia</a> <span class="relationship">supports</span><br><a href="https://www.womenshistory.org/education-resources/biographies/madam-cj-walker" target="_blank" rel="noreferrer">Madam C.J. Walker (biography)</a> <span class="relationship">supports</span><br><a href="https://lemelson.mit.edu/resources/madam-walker" target="_blank" rel="noreferrer">Madam Walker</a> <span class="relationship">supports</span><br><a href="https://indianahistory.org/education/educator-resources/famous-hoosiers/madam-c-j-walker/" target="_blank" rel="noreferrer">Madam C.J. Walker (Famous Hoosiers)</a> <span class="relationship">supports</span><br><a href="https://64parishes.org/entry/madam-c-j-walker" target="_blank" rel="noreferrer">Jeansonne G, Luhrssen D. Madam C. J. Walker</a> <span class="relationship">supports</span><br><a href="https://aleliabundles.com/2019/05/" target="_blank" rel="noreferrer">Bundles A. The Centennial of Madam C. J. Walker&#39;s Death, May 25, 1919</a> <span class="relationship">supports</span></td>
+  </tr></tbody></table></section>
+    <section><h2>Modern synthetic problem list</h2><table><thead><tr><th>Grade</th><th>Problem</th><th>Clinical status</th><th>Verification</th><th>Placement</th><th>Historical claims</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Elevated blood pressure at intake (166/102 mmHg, average of two readings), first found at a workplace screening; ambulatory monitoring to confirm</td>
+    <td>resolved</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td>CLM-0006</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Albumin in the urine (urine albumin-to-creatinine ratio 286 mg/g) with eGFR 54 by the race-free CKD-EPI 1912 equation; she recalls protein in the urine at an executive physical a year ago, and those records are requested; to be repeated and investigated</td>
+    <td>resolved</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td>CLM-0007</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Hypertension, stage 2, confirmed by 24-hour ambulatory monitoring (24-hour mean 149/94, daytime 154/98, night 140/88 without the normal nighttime fall), with left ventricular hypertrophy on ECG and mild hypertensive retinopathy; synthetic modern episode linked to her documented high blood pressure</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>both_with_link</td>
+    <td>CLM-0006, CLM-0007</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Chronic kidney disease G3a A2 (eGFR 54 to 55 mL/min/1.73 m2 by the race-free CKD-EPI 1912 equation; albumin-to-creatinine ratio 286 to 294 mg/g; present for more than three months), most likely hypertensive kidney disease; bland urine sediment and normal-sized kidneys on ultrasound; 5-year kidney failure risk 1.6%</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td>CLM-0007, CLM-0009</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Hyperlipidemia: LDL 174 mg/dL; 10-year ASCVD risk 7.9% by the Pooled Cohort Equations (intermediate)</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Viral gastroenteritis after a sales convention, with mild volume depletion and losartan and empagliflozin held under her sick-day rules; no acute kidney injury; resolved</td>
+    <td>resolved</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td></td>
+  </tr></tbody></table></section>
+    <section><h2>Synthetic outcome measures</h2><table><thead><tr><th>Grade</th><th>Date</th><th>Measure</th><th>Result</th><th>Coding</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1917-02-09</td>
+    <td>Sodium [Moles/volume] in Serum or Plasma</td>
+    <td>140 mmol/L<div class="muted">Reference 135-145 mmol/L</div></td>
+    <td>http://loinc.org · 2951-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1917-02-09</td>
+    <td>Potassium [Moles/volume] in Serum or Plasma</td>
+    <td>4.4 mmol/L<div class="muted">Reference 3.5-5.1 mmol/L</div></td>
+    <td>http://loinc.org · 2823-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1917-02-09</td>
+    <td>Carbon dioxide, total [Moles/volume] in Serum or Plasma</td>
+    <td>25 mmol/L<div class="muted">Reference 22-29 mmol/L</div></td>
+    <td>http://loinc.org · 2028-9</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1917-02-09</td>
+    <td>Creatinine [Mass/volume] in Serum or Plasma</td>
+    <td>1.22 mg/dL (high)<div class="muted">Reference 0.59-1.04 mg/dL</div></td>
+    <td>http://loinc.org · 2160-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1917-02-09</td>
+    <td>Glucose [Mass/volume] in Serum or Plasma</td>
+    <td>94 mg/dL<div class="muted">Reference 70-99 mg/dL</div></td>
+    <td>http://loinc.org · 2345-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1917-02-09</td>
+    <td>Glomerular filtration rate [Volume Rate/Area] in Serum, Plasma or Blood by Creatinine-based formula (CKD-EPI 1912)/1.73 sq M</td>
+    <td>54 mL/min/1.73 m² (low)<div class="muted">Reference 60 or higher (G1 to G2) unless other kidney damage; 45 to 59 is G3a</div></td>
+    <td>http://loinc.org · 98979-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1917-02-09</td>
+    <td>Albumin/Creatinine [Mass Ratio] in Urine</td>
+    <td>286 mg/g (high)<div class="muted">Reference Below 30 mg/g normal (A1); 30 to 300 moderately increased (A2); above 300 severely increased (A3)</div></td>
+    <td>http://loinc.org · 9318-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1917-02-09</td>
+    <td>Hemoglobin A1c/Hemoglobin.total in Blood</td>
+    <td>5.4%<div class="muted">Reference Below 5.7% is normal</div></td>
+    <td>http://loinc.org · 4548-4</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1917-02-09</td>
+    <td>Cholesterol [Mass/volume] in Serum or Plasma</td>
+    <td>250 mg/dL (high)<div class="muted">Reference &lt;=199 mg/dL</div></td>
+    <td>http://loinc.org · 2093-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1917-02-09</td>
+    <td>Cholesterol in LDL [Mass/volume] in Serum or Plasma by calculation</td>
+    <td>174 mg/dL (high)<div class="muted">Reference Below 130 mg/dL; lower on treatment by at least 30%</div></td>
+    <td>http://loinc.org · 13457-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1917-02-09</td>
+    <td>Cholesterol in HDL [Mass/volume] in Serum or Plasma</td>
+    <td>46 mg/dL (low)<div class="muted">Reference &gt;=50 mg/dL</div></td>
+    <td>http://loinc.org · 2085-9</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1917-02-09</td>
+    <td>Triglyceride [Mass/volume] in Serum or Plasma</td>
+    <td>150 mg/dL (high)<div class="muted">Reference &lt;=149 mg/dL</div></td>
+    <td>http://loinc.org · 2571-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1917-02-09</td>
+    <td>Hemoglobin [Mass/volume] in Blood</td>
+    <td>12.4 g/dL<div class="muted">Reference 12-15.5 g/dL</div></td>
+    <td>http://loinc.org · 718-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1917-02-09</td>
+    <td>Thyrotropin [Units/volume] in Serum or Plasma</td>
+    <td>1.9 mIU/L<div class="muted">Reference 0.4-4.5 mIU/L</div></td>
+    <td>http://loinc.org · 3016-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1917-02-09</td>
+    <td>Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]</td>
+    <td>4</td>
+    <td>http://loinc.org · 44261-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1917-02-23</td>
+    <td>Albumin/Creatinine [Mass Ratio] in Urine</td>
+    <td>294 mg/g (high)<div class="muted">Reference Below 30 mg/g normal (A1); 30 to 300 moderately increased (A2); above 300 severely increased (A3)</div></td>
+    <td>http://loinc.org · 9318-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1917-02-23</td>
+    <td>Creatinine [Mass/volume] in Serum or Plasma</td>
+    <td>1.21 mg/dL (high)<div class="muted">Reference 0.59-1.04 mg/dL</div></td>
+    <td>http://loinc.org · 2160-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1917-02-23</td>
+    <td>Glomerular filtration rate [Volume Rate/Area] in Serum, Plasma or Blood by Creatinine-based formula (CKD-EPI 1912)/1.73 sq M</td>
+    <td>55 mL/min/1.73 m² (low)<div class="muted">Reference 60 or higher (G1 to G2) unless other kidney damage; 45 to 59 is G3a</div></td>
+    <td>http://loinc.org · 98979-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1917-02-23</td>
+    <td>Calcium [Mass/volume] in Serum or Plasma</td>
+    <td>9.4 mg/dL<div class="muted">Reference 8.6-10.3 mg/dL</div></td>
+    <td>http://loinc.org · 17861-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1917-02-23</td>
+    <td>Phosphate [Mass/volume] in Serum or Plasma</td>
+    <td>3.6 mg/dL<div class="muted">Reference 2.5-4.5 mg/dL</div></td>
+    <td>http://loinc.org · 2777-1</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1917-02-23</td>
+    <td>Parathyrin.intact [Mass/volume] in Serum or Plasma</td>
+    <td>58 pg/mL<div class="muted">Reference 15-65 pg/mL</div></td>
+    <td>http://loinc.org · 2731-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1917-02-23</td>
+    <td>25-Hydroxyvitamin D3+25-Hydroxyvitamin D2 [Mass/volume] in Serum or Plasma</td>
+    <td>31 ng/mL<div class="muted">Reference 30-100 ng/mL</div></td>
+    <td>http://loinc.org · 62292-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1917-03-09</td>
+    <td>Sodium [Moles/volume] in Serum or Plasma</td>
+    <td>139 mmol/L<div class="muted">Reference 135-145 mmol/L</div></td>
+    <td>http://loinc.org · 2951-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1917-03-09</td>
+    <td>Potassium [Moles/volume] in Serum or Plasma</td>
+    <td>4.6 mmol/L<div class="muted">Reference 3.5-5.1 mmol/L</div></td>
+    <td>http://loinc.org · 2823-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1917-03-09</td>
+    <td>Carbon dioxide, total [Moles/volume] in Serum or Plasma</td>
+    <td>24 mmol/L<div class="muted">Reference 22-29 mmol/L</div></td>
+    <td>http://loinc.org · 2028-9</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1917-03-09</td>
+    <td>Creatinine [Mass/volume] in Serum or Plasma</td>
+    <td>1.29 mg/dL (high)<div class="muted">Reference 0.59-1.04 mg/dL</div></td>
+    <td>http://loinc.org · 2160-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1917-03-09</td>
+    <td>Glomerular filtration rate [Volume Rate/Area] in Serum, Plasma or Blood by Creatinine-based formula (CKD-EPI 1912)/1.73 sq M</td>
+    <td>51 mL/min/1.73 m² (low)<div class="muted">Reference 60 or higher (G1 to G2) unless other kidney damage; 45 to 59 is G3a</div></td>
+    <td>http://loinc.org · 98979-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1917-04-13</td>
+    <td>Sodium [Moles/volume] in Serum or Plasma</td>
+    <td>137 mmol/L<div class="muted">Reference 135-145 mmol/L</div></td>
+    <td>http://loinc.org · 2951-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1917-04-13</td>
+    <td>Potassium [Moles/volume] in Serum or Plasma</td>
+    <td>4.9 mmol/L<div class="muted">Reference 3.5-5.1 mmol/L</div></td>
+    <td>http://loinc.org · 2823-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1917-04-13</td>
+    <td>Carbon dioxide, total [Moles/volume] in Serum or Plasma</td>
+    <td>21 mmol/L (low)<div class="muted">Reference 22-29 mmol/L</div></td>
+    <td>http://loinc.org · 2028-9</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1917-04-13</td>
+    <td>Creatinine [Mass/volume] in Serum or Plasma</td>
+    <td>1.46 mg/dL (high)<div class="muted">Reference 0.59-1.04 mg/dL</div></td>
+    <td>http://loinc.org · 2160-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1917-04-13</td>
+    <td>Glucose [Mass/volume] in Serum or Plasma</td>
+    <td>88 mg/dL<div class="muted">Reference 70-99 mg/dL</div></td>
+    <td>http://loinc.org · 2345-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1917-04-13</td>
+    <td>Glomerular filtration rate [Volume Rate/Area] in Serum, Plasma or Blood by Creatinine-based formula (CKD-EPI 1912)/1.73 sq M</td>
+    <td>44 mL/min/1.73 m² (low)<div class="muted">Reference 60 or higher (G1 to G2) unless other kidney damage; 45 to 59 is G3a</div></td>
+    <td>http://loinc.org · 98979-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1917-04-27</td>
+    <td>Sodium [Moles/volume] in Serum or Plasma</td>
+    <td>139 mmol/L<div class="muted">Reference 135-145 mmol/L</div></td>
+    <td>http://loinc.org · 2951-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1917-04-27</td>
+    <td>Potassium [Moles/volume] in Serum or Plasma</td>
+    <td>4.7 mmol/L<div class="muted">Reference 3.5-5.1 mmol/L</div></td>
+    <td>http://loinc.org · 2823-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1917-04-27</td>
+    <td>Carbon dioxide, total [Moles/volume] in Serum or Plasma</td>
+    <td>24 mmol/L<div class="muted">Reference 22-29 mmol/L</div></td>
+    <td>http://loinc.org · 2028-9</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1917-04-27</td>
+    <td>Creatinine [Mass/volume] in Serum or Plasma</td>
+    <td>1.31 mg/dL (high)<div class="muted">Reference 0.59-1.04 mg/dL</div></td>
+    <td>http://loinc.org · 2160-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1917-04-27</td>
+    <td>Glomerular filtration rate [Volume Rate/Area] in Serum, Plasma or Blood by Creatinine-based formula (CKD-EPI 1912)/1.73 sq M</td>
+    <td>50 mL/min/1.73 m² (low)<div class="muted">Reference 60 or higher (G1 to G2) unless other kidney damage; 45 to 59 is G3a</div></td>
+    <td>http://loinc.org · 98979-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1917-04-27</td>
+    <td>Albumin/Creatinine [Mass Ratio] in Urine</td>
+    <td>176 mg/g (high)<div class="muted">Reference Below 30 mg/g normal (A1); 30 to 300 moderately increased (A2); above 300 severely increased (A3)</div></td>
+    <td>http://loinc.org · 9318-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1917-04-27</td>
+    <td>Cholesterol [Mass/volume] in Serum or Plasma</td>
+    <td>172 mg/dL<div class="muted">Reference &lt;=199 mg/dL</div></td>
+    <td>http://loinc.org · 2093-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1917-04-27</td>
+    <td>Cholesterol in LDL [Mass/volume] in Serum or Plasma by calculation</td>
+    <td>98 mg/dL<div class="muted">Reference Below 130 mg/dL; lower on treatment by at least 30%</div></td>
+    <td>http://loinc.org · 13457-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1917-04-27</td>
+    <td>Cholesterol in HDL [Mass/volume] in Serum or Plasma</td>
+    <td>48 mg/dL (low)<div class="muted">Reference &gt;=50 mg/dL</div></td>
+    <td>http://loinc.org · 2085-9</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1917-04-27</td>
+    <td>Triglyceride [Mass/volume] in Serum or Plasma</td>
+    <td>130 mg/dL<div class="muted">Reference &lt;=149 mg/dL</div></td>
+    <td>http://loinc.org · 2571-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1917-04-27</td>
+    <td>Alanine aminotransferase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>22 U/L<div class="muted">Reference 7-35 U/L</div></td>
+    <td>http://loinc.org · 1742-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1917-08-17</td>
+    <td>Sodium [Moles/volume] in Serum or Plasma</td>
+    <td>140 mmol/L<div class="muted">Reference 135-145 mmol/L</div></td>
+    <td>http://loinc.org · 2951-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1917-08-17</td>
+    <td>Potassium [Moles/volume] in Serum or Plasma</td>
+    <td>4.8 mmol/L<div class="muted">Reference 3.5-5.1 mmol/L</div></td>
+    <td>http://loinc.org · 2823-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1917-08-17</td>
+    <td>Carbon dioxide, total [Moles/volume] in Serum or Plasma</td>
+    <td>25 mmol/L<div class="muted">Reference 22-29 mmol/L</div></td>
+    <td>http://loinc.org · 2028-9</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1917-08-17</td>
+    <td>Creatinine [Mass/volume] in Serum or Plasma</td>
+    <td>1.3 mg/dL (high)<div class="muted">Reference 0.59-1.04 mg/dL</div></td>
+    <td>http://loinc.org · 2160-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1917-08-17</td>
+    <td>Glomerular filtration rate [Volume Rate/Area] in Serum, Plasma or Blood by Creatinine-based formula (CKD-EPI 1912)/1.73 sq M</td>
+    <td>50 mL/min/1.73 m² (low)<div class="muted">Reference 60 or higher (G1 to G2) unless other kidney damage; 45 to 59 is G3a</div></td>
+    <td>http://loinc.org · 98979-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1917-08-17</td>
+    <td>Albumin/Creatinine [Mass Ratio] in Urine</td>
+    <td>128 mg/g (high)<div class="muted">Reference Below 30 mg/g normal (A1); 30 to 300 moderately increased (A2); above 300 severely increased (A3)</div></td>
+    <td>http://loinc.org · 9318-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1917-08-17</td>
+    <td>Hemoglobin [Mass/volume] in Blood</td>
+    <td>12.6 g/dL<div class="muted">Reference 12-15.5 g/dL</div></td>
+    <td>http://loinc.org · 718-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1917-08-17</td>
+    <td>Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]</td>
+    <td>3</td>
+    <td>http://loinc.org · 44261-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1917-06-08</td>
+    <td>Patient Health Questionnaire 2 item (PHQ-2) total score [Reported]</td>
+    <td>0</td>
+    <td>http://loinc.org · 55758-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1917-06-08</td>
+    <td>Total score [AUDIT-C]</td>
+    <td>1</td>
+    <td>http://loinc.org · 75626-2</td>
+  </tr></tbody></table></section>
+    <section><h2>Synthetic vital signs</h2><table><thead><tr><th>Date</th><th>Measure</th><th>Result</th><th>LOINC</th><th>Grade</th></tr></thead><tbody>
+  <tr><td>1917-02-09</td><td>Body height</td><td>163 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1917-02-09</td><td>Body weight</td><td>79 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1917-02-09</td><td>Body mass index (BMI) [Ratio]</td><td>29.7 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1917-02-09</td><td>Systolic blood pressure</td><td>166 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1917-02-09</td><td>Diastolic blood pressure</td><td>102 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1917-02-09</td><td>Heart rate</td><td>82 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1917-02-09</td><td>Respiratory rate</td><td>16 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1917-02-09</td><td>Body temperature</td><td>36.7 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1917-02-09</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>98 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1917-02-23</td><td>Body height</td><td>163 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1917-02-23</td><td>Body weight</td><td>78.6 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1917-02-23</td><td>Body mass index (BMI) [Ratio]</td><td>29.6 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1917-02-23</td><td>Systolic blood pressure</td><td>160 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1917-02-23</td><td>Diastolic blood pressure</td><td>100 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1917-02-23</td><td>Heart rate</td><td>80 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1917-02-23</td><td>Respiratory rate</td><td>16 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1917-02-23</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1917-02-23</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>98 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1917-03-09</td><td>Body height</td><td>163 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1917-03-09</td><td>Body weight</td><td>78.2 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1917-03-09</td><td>Body mass index (BMI) [Ratio]</td><td>29.4 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1917-03-09</td><td>Systolic blood pressure</td><td>148 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1917-03-09</td><td>Diastolic blood pressure</td><td>92 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1917-03-09</td><td>Heart rate</td><td>78 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1917-03-09</td><td>Respiratory rate</td><td>16 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1917-03-09</td><td>Body temperature</td><td>36.7 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1917-03-09</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>98 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1917-04-27</td><td>Body height</td><td>163 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1917-04-27</td><td>Body weight</td><td>77.2 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1917-04-27</td><td>Body mass index (BMI) [Ratio]</td><td>29.1 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1917-04-27</td><td>Systolic blood pressure</td><td>136 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1917-04-27</td><td>Diastolic blood pressure</td><td>86 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1917-04-27</td><td>Heart rate</td><td>76 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1917-04-27</td><td>Respiratory rate</td><td>16 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1917-04-27</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1917-04-27</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>98 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1917-08-17</td><td>Body height</td><td>163 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1917-08-17</td><td>Body weight</td><td>75.8 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1917-08-17</td><td>Body mass index (BMI) [Ratio]</td><td>28.5 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1917-08-17</td><td>Systolic blood pressure</td><td>122 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1917-08-17</td><td>Diastolic blood pressure</td><td>76 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1917-08-17</td><td>Heart rate</td><td>72 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1917-08-17</td><td>Respiratory rate</td><td>16 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1917-08-17</td><td>Body temperature</td><td>36.7 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1917-08-17</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>98 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1917-04-13</td><td>Body height</td><td>163 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1917-04-13</td><td>Body weight</td><td>76.4 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1917-04-13</td><td>Body mass index (BMI) [Ratio]</td><td>28.8 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1917-04-13</td><td>Systolic blood pressure</td><td>112 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1917-04-13</td><td>Diastolic blood pressure</td><td>72 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1917-04-13</td><td>Heart rate</td><td>96 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1917-04-13</td><td>Respiratory rate</td><td>16 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1917-04-13</td><td>Body temperature</td><td>37.4 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1917-04-13</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>98 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1917-06-08</td><td>Body height</td><td>163 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1917-06-08</td><td>Body weight</td><td>76.6 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1917-06-08</td><td>Body mass index (BMI) [Ratio]</td><td>28.8 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1917-06-08</td><td>Systolic blood pressure</td><td>126 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1917-06-08</td><td>Diastolic blood pressure</td><td>80 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1917-06-08</td><td>Heart rate</td><td>74 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1917-06-08</td><td>Respiratory rate</td><td>16 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1917-06-08</td><td>Body temperature</td><td>36.7 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1917-06-08</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>98 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr></tbody></table></section>
+    <section><h2>Social, functional, and mental status</h2><h3>Social history</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Founder and chief executive of a hair-care and beauty company with a national network of independent sales agents, most of them Black women, whom she recruits and trains in person; travels most weeks to conventions, churches, schools and halls to teach and speak</li><li><span class="badge grade-S" title="Synthetic">S</span> Gives to scholarships, schools, the YWCA and civil-rights organizations, and has gone to court against racial discrimination</li><li><span class="badge grade-S" title="Synthetic">S</span> Lives in the city in a house she owns, and is having a larger house built outside it; one adult daughter. Grew up in rural Louisiana and Mississippi and worked for years as a laundress before her business</li><li><span class="badge grade-S" title="Synthetic">S</span> Eats most meals on the road at banquets, receptions and restaurants; cooks on Sundays at home, the Louisiana dishes she grew up with; uses a salty seasoning blend and smoked meats for flavor; drinks a lot of coffee and too little water when traveling</li><li><span class="badge grade-S" title="Synthetic">S</span> Tobacco: never. Alcohol: a glass of wine at some events, under one drink a week. No drug use</li><li><span class="badge grade-S" title="Synthetic">S</span> Sleeps five to six hours on travel nights and seven at home; walks when she can between meetings; health insurance through her company</li><li><span class="badge grade-S" title="Synthetic">S</span> Asks to be addressed as Madam Walker, the title she chose for herself</li></ul><h3>Functional status</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Independent in all daily activities; works long days and travels most weeks; no limitation in walking or climbing stairs</li></ul><h3>Mental status</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Alert, direct, organized and quick; asks for the numbers and the reasons; mood steady; PHQ-9 score 4</li></ul></section>
+    
+    <section><h2>Allergies and medications</h2><h3>Allergies</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> No known allergy</li></ul><h3>Medications</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Losartan 50 mg oral tablet, one tablet each morning</li><li><span class="badge grade-S" title="Synthetic">S</span> Losartan 100 mg oral tablet, one tablet each morning</li><li><span class="badge grade-S" title="Synthetic">S</span> Empagliflozin 10 mg oral tablet, one tablet each morning; stop on days of vomiting, diarrhea or not eating, and before surgery</li><li><span class="badge grade-S" title="Synthetic">S</span> Atorvastatin 20 mg oral tablet, one tablet daily</li><li><span class="badge grade-S" title="Synthetic">S</span> Ondansetron 4 mg orally disintegrating tablet, one tablet on the tongue every 8 hours as needed for nausea, for up to two days</li><li><span class="badge grade-S" title="Synthetic">S</span> Amlodipine 5 mg oral tablet, one tablet daily</li></ul></section>
+    <section><h2>Procedures and immunizations</h2><h3>Procedures</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Twelve-lead electrocardiogram</li><li><span class="badge grade-S" title="Synthetic">S</span> 24-hour ambulatory blood pressure monitoring on a day at home, with readings every 20 minutes by day and every 30 minutes by night</li><li><span class="badge grade-S" title="Synthetic">S</span> Ultrasound of both kidneys and the bladder</li><li><span class="badge grade-S" title="Synthetic">S</span> Transthoracic echocardiogram</li><li><span class="badge grade-S" title="Synthetic">S</span> Advance care planning conversation, about 20 minutes</li><li><span class="badge grade-S" title="Synthetic">S</span> Screening mammogram, both breasts</li></ul><h3>Immunizations</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> 1917-02-09: Influenza vaccine, inactivated, this season</li><li><span class="badge grade-S" title="Synthetic">S</span> 1917-06-08: Pneumococcal conjugate vaccine PCV20</li><li><span class="badge grade-S" title="Synthetic">S</span> 1917-06-08: Tetanus, diphtheria, and acellular pertussis vaccine (Tdap)</li><li><span class="badge grade-S" title="Synthetic">S</span> 1917-06-08: Hepatitis B vaccine (HepB-CpG), dose 1 of 2</li><li><span class="badge grade-S" title="Synthetic">S</span> 1917-08-17: Hepatitis B vaccine (HepB-CpG), dose 2 of 2</li></ul></section>
+    <section><h2>Past medical history</h2><p class="muted">True biography with historical dates; not part of the synthetic care timeline.</p><ul><li><span class="badge grade-D" title="Documented">D</span> 1904: Hair loss and scalp disease in her thirties, while working as a laundress; resolved <span class="muted">(CLM-0003)</span></li><li><span class="badge grade-D" title="Documented">D</span> 1916: High blood pressure, for which she took a rest cure at Hot Springs, Arkansas, the year before this visit; no treatment recorded <span class="muted">(CLM-0006)</span></li></ul><h3>Family history</h3><ul><li><span class="badge grade-D" title="Documented">D</span> mother: Died when she was a young child; cause not recorded in the cited source</li><li><span class="badge grade-D" title="Documented">D</span> father: Died when she was a young child; cause not recorded in the cited source</li></ul></section>
+    <section><h2>Care-plan goals</h2><table><thead><tr><th>Goal</th><th>Target date</th><th>Status</th><th>Outcome</th></tr></thead><tbody>
+  <tr><td>Blood pressure below 130/80 mmHg in the clinic and at home within six months, lower toward a systolic of 120 if well tolerated</td><td>1917-08-17</td><td>completed</td><td>122/76 in the clinic; home average 123/77 on losartan 100 mg and amlodipine 5 mg</td></tr>
+  <tr><td>Urine albumin-to-creatinine ratio lower by at least 30% within six months</td><td>1917-08-17</td><td>completed</td><td>286 to 294 mg/g at baseline; 128 mg/g at six months, 56% lower</td></tr>
+  <tr><td>Kidney function stable, without a fall in eGFR of more than 30% after starting treatment</td><td>1917-08-17</td><td>completed</td><td>eGFR 54 to 55 at baseline; 50 to 51 on treatment, a dip of under 10%</td></tr>
+  <tr><td>Sodium under 2 g a day using foods she likes, at home and on the road</td><td>1917-08-17</td><td>active</td><td>Salt-free seasoning at home and ordering strategies on the road; restaurant meals still the hardest part</td></tr>
+  <tr><td>LDL cholesterol lower by at least 30%</td><td>1917-04-27</td><td>completed</td><td>174 to 98 mg/dL on atorvastatin 20 mg, 44% lower</td></tr>
+  <tr><td>Care that fits her work: every check scheduled around her travel, by her choice</td><td>1917-08-17</td><td>completed</td><td>Laboratory checks booked before trips are planned after two missed checks; video visits between trips</td></tr></tbody></table></section>
+    <section><h2>Interventions</h2><table><thead><tr><th>Intervention</th><th>Status</th><th>Guideline</th></tr></thead><tbody>
+  <tr><td>Nephrology consultation at the two-week visit for albuminuria and a reduced eGFR found at 49: the likely cause, whether more tests or a biopsy are needed, kidney-protective treatment, APOL1 testing, and monitoring that fits her travel</td><td>completed</td><td>GL-KDIGO-CKD-2024, GL-CMID-2026</td></tr>
+  <tr><td>Confirm the diagnosis outside the office: 24-hour ambulatory monitoring on a day at home, and a validated upper-arm home monitor with a correctly sized cuff that travels with her, two readings morning and evening for seven days, travel days included; recheck in two weeks</td><td>completed</td><td>GL-AHA-HTN-2025, GL-CMID-2026</td></tr>
+  <tr><td>Kidney evaluation: repeat urine albumin and creatinine at two weeks, compared with last year&#39;s results to establish chronicity; urinalysis; kidney ultrasound; calcium, phosphate, parathyroid hormone and 25-hydroxyvitamin D at baseline; every eGFR reported by the race-free CKD-EPI 1912 equation; no ibuprofen or naproxen</td><td>completed</td><td>GL-KDIGO-CKD-2024, GL-NKF-ASN-2021, GL-CKDEPI-2021, GL-CMID-2026</td></tr>
+  <tr><td>Heart and vascular risk: ECG at intake and an echocardiogram for the left ventricular hypertrophy it shows; a fundus examination; TSH and A1c at diagnosis; lipid panel and 10-year ASCVD risk by the Pooled Cohort Equations</td><td>completed</td><td>GL-AHA-HTN-2025, GL-ACC-CHOL-2018, GL-CMID-2026</td></tr>
+  <tr><td>Food: sodium under 2 g a day built on what she eats, not a new diet: a salt-free seasoning blend for the dishes she cooks on Sundays, smoked turkey in small amounts in place of salt pork, ordering strategies for banquets and restaurants, water instead of a third coffee on travel days; video sessions with a registered dietitian between trips; no potassium-based salt substitutes until her kidney tests and any new medicines are settled</td><td>completed</td><td>GL-AHA-HTN-2025, GL-KDIGO-CKD-2024</td></tr>
+  <tr><td>Work and rest on her terms: she sets her schedule; the risks of uncontrolled blood pressure and kidney disease are stated plainly and any medicines are chosen to do the work, timed to her home clock across time zones, with a written sick-day card for her bag; a protected sleep window on travel nights and walking during layovers; video visits between trips and laboratory checks on her days at home</td><td>completed</td><td>GL-AHA-HTN-2025, GL-KDIGO-CKD-2024</td></tr>
+  <tr><td>Mood and stress: PHQ-9 at intake and yearly</td><td>completed</td><td>GL-USPSTF-DEP-2023, GL-CMID-2026</td></tr>
+  <tr><td>Vaccines: influenza today; pneumococcal, hepatitis B and Tdap needs reviewed at the preventive visit; influenza and COVID-19 each autumn</td><td>completed</td><td>GL-CDC-IMZ-2026</td></tr>
+  <tr><td>Gastroenteritis: oral rehydration, ondansetron as needed, losartan and empagliflozin held until she has eaten and drunk normally for 24 hours, then restarted; a metabolic panel within a week</td><td>completed</td><td>GL-KDIGO-CKD-2024</td></tr>
+  <tr><td>As the nephrologist advised: losartan 50 mg, increased to 100 mg at two weeks if potassium and creatinine allow; empagliflozin 10 mg daily; sick-day rules for both; potassium and creatinine two to four weeks after each start or increase, accepting a creatinine rise of up to 30%; urine albumin at about three months, then every six months; blood pressure goal below 130/80, lower toward a systolic of 120 if well tolerated, with amlodipine as the next medicine</td><td>completed</td><td>GL-KDIGO-CKD-2024, GL-KDIGO-BP-2021, GL-AHA-HTN-2025, GL-CMID-2026</td></tr>
+  <tr><td>Atorvastatin 20 mg daily, chosen with her after reviewing her 10-year ASCVD risk of 7.9% with CKD as a risk enhancer; lipid panel and ALT at four to twelve weeks</td><td>completed</td><td>GL-ACC-CHOL-2018, GL-KDIGO-CKD-2024, GL-CMID-2026</td></tr>
+  <tr><td>Amlodipine 5 mg added for home readings above goal on losartan 100 mg; every laboratory check booked on a home day before her trips are scheduled, by her office, after two missed checks</td><td>completed</td><td>GL-AHA-HTN-2025, GL-KDIGO-CKD-2024, GL-CMID-2026</td></tr></tbody></table></section>
+    <section><h2>Planned encounters</h2><ul>
+  <li><strong>1917-02-09</strong> — Establishing care for high blood pressure found at a workplace screening, morning headaches and protein in the urine at last year&#39;s executive physical, in a company founder who travels most weeks <span class="muted">(ENC-001)</span></li>
+  <li><strong>1917-02-23</strong> — Two-week review of the 24-hour ambulatory blood pressure and the repeat kidney tests, with a kidney ultrasound and a nephrology consultation <span class="muted">(ENC-002)</span></li>
+  <li><strong>1917-03-09</strong> — Two-week check of potassium and creatinine after starting losartan and empagliflozin, home readings, and the echocardiogram <span class="muted">(ENC-003)</span></li>
+  <li><strong>1917-04-13</strong> — Same-day sick visit for vomiting and diarrhea after a sales convention <span class="muted">(ENC-006, unscheduled)</span></li>
+  <li><strong>1917-04-27</strong> — Eleven-week review: home readings on maximum losartan, urine albumin, kidney function after a recent gastroenteritis, lipids on atorvastatin <span class="muted">(ENC-004)</span></li>
+  <li><strong>1917-06-08</strong> — Periodic adult preventive visit <span class="muted">(ENC-007)</span></li>
+  <li><strong>1917-08-17</strong> — Six-month review: blood pressure at goal, urine albumin, kidney function, hemoglobin, mood, and the travel season ahead <span class="muted">(ENC-005)</span></li></ul></section>
+    <section><h2>Supporting documents</h2><ul><li><a href="notes/hp.md">History and physical</a></li><li><a href="notes/progress-01.md">Progress note 01</a></li><li><a href="notes/progress-02.md">Progress note 02 — Focused Visit (Follow-up)</a></li><li><a href="notes/progress-03.md">Progress note 03 — Focused Visit (Follow-up)</a></li><li><a href="notes/progress-04.md">Progress note 04 — Sick Visit</a></li><li><a href="notes/progress-05.md">Progress note 05 — Focused Visit (Follow-up)</a></li><li><a href="notes/progress-06.md">Progress note 06 — Preventive Visit</a></li><li><a href="notes/progress-07.md">Progress note 07 — Focused Visit (Care-plan review)</a></li><li><a href="notes/referral-01.md">Nephrology referral</a></li><li><a href="notes/consult-01.md">Nephrology consultation</a></li><li><a href="notes/careplan.md">Patient care plan</a></li><li><a href="notes/teaching-note.md">Teaching note</a></li><li><a href="provenance.csv">Provenance CSV</a></li></ul></section>
+    <section><h2>C-CDA note documents</h2><p class="muted">Each link opens a readable copy; the XML beside it is the exchange file.</p><ul><li><a href="ccda/hp-01.html">History and physical</a> <a href="ccda/hp-01.xml">(XML)</a></li><li><a href="ccda/progress-01.html">Progress note 01</a> <a href="ccda/progress-01.xml">(XML)</a></li><li><a href="ccda/progress-02.html">Progress note 02 — Focused Visit (Follow-up)</a> <a href="ccda/progress-02.xml">(XML)</a></li><li><a href="ccda/progress-03.html">Progress note 03 — Focused Visit (Follow-up)</a> <a href="ccda/progress-03.xml">(XML)</a></li><li><a href="ccda/progress-04.html">Progress note 04 — Sick Visit</a> <a href="ccda/progress-04.xml">(XML)</a></li><li><a href="ccda/progress-05.html">Progress note 05 — Focused Visit (Follow-up)</a> <a href="ccda/progress-05.xml">(XML)</a></li><li><a href="ccda/progress-06.html">Progress note 06 — Preventive Visit</a> <a href="ccda/progress-06.xml">(XML)</a></li><li><a href="ccda/progress-07.html">Progress note 07 — Focused Visit (Care-plan review)</a> <a href="ccda/progress-07.xml">(XML)</a></li><li><a href="ccda/referral-01.html">Nephrology referral</a> <a href="ccda/referral-01.xml">(XML)</a></li><li><a href="ccda/consult-01.html">Nephrology consultation</a> <a href="ccda/consult-01.xml">(XML)</a></li></ul></section>
+    <section><h2>Sources</h2><table><thead><tr><th>ID</th><th>Source</th><th>Publisher</th><th>Type</th></tr></thead><tbody>
+  <tr>
+    <td>SRC-0001</td>
+    <td><a href="https://indianahistory.org/education/educator-resources/famous-hoosiers/madam-c-j-walker/" target="_blank" rel="noreferrer">Madam C.J. Walker (Famous Hoosiers)</a></td>
+    <td>Indiana Historical Society</td>
+    <td>biography</td>
+  </tr>
+  <tr>
+    <td>SRC-0002</td>
+    <td><a href="https://64parishes.org/entry/madam-c-j-walker" target="_blank" rel="noreferrer">Jeansonne G, Luhrssen D. Madam C. J. Walker</a></td>
+    <td>64 Parishes (Louisiana Endowment for the Humanities)</td>
+    <td>biography</td>
+  </tr>
+  <tr>
+    <td>SRC-0003</td>
+    <td><a href="https://prologue.blogs.archives.gov/2021/07/22/madam-c-j-walkers-rags-to-riches-story-found-in-the-holdings-of-the-national-archives/" target="_blank" rel="noreferrer">McNatt M. Madam C. J. Walker&#39;s Rags to Riches Story Found in the Holdings of the National Archives</a></td>
+    <td>U.S. National Archives (The Text Message blog)</td>
+    <td>government</td>
+  </tr>
+  <tr>
+    <td>SRC-0004</td>
+    <td><a href="https://www.womenshistory.org/education-resources/biographies/madam-cj-walker" target="_blank" rel="noreferrer">Madam C.J. Walker (biography)</a></td>
+    <td>National Women&#39;s History Museum</td>
+    <td>biography</td>
+  </tr>
+  <tr>
+    <td>SRC-0005</td>
+    <td><a href="https://encyclopedia.com/women/encyclopedias-almanacs-transcripts-and-maps/walker-madame-cj-1867-1919" target="_blank" rel="noreferrer">Walker, Madame C.J. (1867-1919), Women in World History: A Biographical Encyclopedia</a></td>
+    <td>Gale, via Encyclopedia.com</td>
+    <td>biography</td>
+  </tr>
+  <tr>
+    <td>SRC-0006</td>
+    <td><a href="https://lemelson.mit.edu/resources/madam-walker" target="_blank" rel="noreferrer">Madam Walker</a></td>
+    <td>Lemelson Center for the Study of Invention and Innovation</td>
+    <td>biography</td>
+  </tr>
+  <tr>
+    <td>SRC-0007</td>
+    <td><a href="https://en.wikipedia.org/wiki/Madam_C._J._Walker" target="_blank" rel="noreferrer">Bundles A. On Her Own Ground: The Life and Times of Madam C. J. Walker (Scribner, 2001), chapter 17, as quoted in the Wikipedia article on her</a></td>
+    <td>Wikipedia (quoting the Scribner biography)</td>
+    <td>biography</td>
+  </tr>
+  <tr>
+    <td>SRC-0008</td>
+    <td><a href="https://aleliabundles.com/2019/05/" target="_blank" rel="noreferrer">Bundles A. The Centennial of Madam C. J. Walker&#39;s Death, May 25, 1919</a></td>
+    <td>A&#39;Lelia Bundles (author&#39;s site)</td>
+    <td>biography</td>
+  </tr>
+  <tr>
+    <td>SRC-0009</td>
+    <td><a href="https://humanrecord.example.org/internal/HISTMED_Master_Roster_v3.xlsx" target="_blank" rel="noreferrer">HISTMED Master Roster v3</a></td>
+    <td>The Human Record project</td>
+    <td>other</td>
+  </tr></tbody></table></section>
+    <section><h2>Review status</h2><table><thead><tr><th>Review</th><th>Status</th><th>Notes</th></tr></thead><tbody>
+  <tr><td>schema validation</td><td>not_started</td><td>Run scripts/build.ps1 -Conformance.</td></tr>
+  <tr><td>clinical review</td><td>not_started</td><td>Awaiting clinician review; check the confirmation of hypertension by ambulatory monitoring, the CKD G3a A2 staging with the race-free eGFR and prior results for chronicity, losartan titration and the creatinine and potassium checks, empagliflozin without diabetes, the statin chosen at intermediate risk, the sick-day handling during gastroenteritis, and the APOL1 discussion.</td></tr>
+  <tr><td>provenance review</td><td>not_started</td><td>Sources: the Indiana Historical Society, 64 Parishes, the National Archives, the National Women&#39;s History Museum, the Gale Women in World History entry, the Lemelson Center, A&#39;Lelia Bundles&#39;s site, and a passage of her biography quoted in Wikipedia. The NMAAHC pages, the New York Times obituary and the biography itself could not be read.</td></tr>
+  <tr><td>safe messaging review</td><td>not_started</td><td>No mental health claim is made; the mood screen is synthetic and below the threshold for a safety assessment. Her history is told with attention to slavery, poverty and the forms of address she refused, without stereotype; her work is treated as hers to direct.</td></tr></tbody></table></section>
+  </main>
+</body>
+</html>

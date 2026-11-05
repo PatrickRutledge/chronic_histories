@@ -1,0 +1,613 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Judy Garland — The Human Record</title>
+  <style>
+    :root { --navy:#17365d; --blue:#1f4e78; --pale:#eef5fa; --ink:#1f2933; --muted:#66788a; --amber:#fff2cc; --red:#f8d7da; --green:#d9ead3; }
+    * { box-sizing:border-box; }
+    body { margin:0; font:16px/1.5 Arial, sans-serif; color:var(--ink); background:#f6f8fa; }
+    header { background:var(--navy); color:white; padding:24px max(24px,calc((100vw - 1180px)/2)); }
+    header h1 { margin:4px 0; font-size:30px; }
+    .banner { background:#b42318; color:white; font-weight:700; text-align:center; padding:10px; letter-spacing:.03em; }
+    main { max-width:1180px; margin:24px auto 60px; padding:0 24px; }
+    section { background:white; border:1px solid #d9e1e8; border-radius:8px; margin:18px 0; padding:20px; }
+    h2 { color:var(--navy); margin:0 0 14px; font-size:22px; }
+    h3 { color:var(--blue); }
+    .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:12px; }
+    .card { background:var(--pale); border-left:4px solid var(--blue); padding:12px; }
+    .label { color:var(--muted); font-size:13px; text-transform:uppercase; letter-spacing:.04em; }
+    table { width:100%; border-collapse:collapse; }
+    th { background:var(--blue); color:white; text-align:left; }
+    th,td { padding:9px; border-bottom:1px solid #dfe6ec; vertical-align:top; }
+    .badge { display:inline-block; min-width:28px; text-align:center; font-weight:700; border-radius:12px; padding:2px 8px; }
+    .grade-D { background:var(--green); } .grade-R { background:var(--amber); } .grade-S { background:var(--red); }
+    .muted { color:var(--muted); font-size:14px; }
+    .relationship { color:var(--muted); font-size:12px; }
+    .downloads a { display:inline-block; margin:4px 8px 4px 0; padding:8px 12px; background:var(--blue); color:white; text-decoration:none; border-radius:5px; }
+    @media (max-width:700px) { table { display:block; overflow-x:auto; } }
+  </style>
+</head>
+<body>
+  <div class="banner">SYNTHETIC RECORD, NOT A REAL MEDICAL RECORD</div>
+  <div class="banner">True-date frame: synthetic events are moved into the patient&#39;s historical lifetime. Codes, instruments, and treatments remain modern and are anachronistic.</div>
+  <header>
+    <div>The Human Record</div>
+    <h1>Judy Garland</h1>
+    <div>Case HR-ML005-TD · Modern EHR teaching episode · Draft for review</div>
+  </header>
+  <main>
+    <section>
+      <h2>Review summary</h2>
+      <div class="grid">
+        <div class="card"><div class="label">Historical dates</div>June 10, 1922 – June 22, 1969</div>
+        <div class="card"><div class="label">Synthetic DOB</div>1922-06-10</div>
+        <div class="card"><div class="label">Index visit</div>1955-06-22 at age 33</div>
+        <div class="card"><div class="label">Synthetic MRN</div>HR-ML005-SYN-TD</div>
+      </div>
+      <p><strong>Teaching objective:</strong> Iatrogenic dependence and the duty to prescribe controlled drugs safely, especially to minors: nonjudgmental primary care for a 33-year-old singer and actor, three months after childbirth, who has taken prescribed barbiturate sleeping pills and amphetamine since she was a teenager. The episode covers a DSM-5-TR assessment that does not count tolerance and withdrawal from supervised use, the DAST-10, a prescription drug monitoring program review, one prescriber and limited dispensing, a supervised hospital change to phenobarbital because barbiturate withdrawal can cause seizures, a slow outpatient taper that follows the tapering principles of the 1954 Joint Clinical Practice Guideline on Benzodiazepine Tapering (which excludes barbiturates) with addiction medicine guidance, a short stimulant taper, CBT for insomnia as first-line treatment instead of another hypnotic, depression and anxiety care with a structured safety assessment, means safety and the 988 Suicide &amp; Crisis Lifeline, contraception that phenobarbital does not weaken, nutrition and weight without stigma, the reason naloxone was not prescribed, and planning around the demands of performing.</p>
+      <div class="downloads">
+        <a href="../case.json">Canonical JSON</a>
+        <a href="fhir-bundle.json">FHIR R4 draft</a>
+        <a href="ccda.html">C-CDA R2.1 summary</a> <a href="ccda.xml">(XML)</a>
+        <a href="../sources.md">Evidence dossier</a>
+      </div>
+    </section>
+    <section><h2>Historical timeline</h2><table><thead><tr><th>Date</th><th>Event</th><th>Claims</th></tr></thead><tbody>
+  <tr><td>June 10, 1922</td><td>Born Frances Ethel Gumm in Grand Rapids, Minnesota.</td><td>CLM-0001</td></tr>
+  <tr><td>1935</td><td>Signed by Metro-Goldwyn-Mayer at 13.</td><td>CLM-0002</td></tr>
+  <tr><td>1939</td><td>A national star at 17 in The Wizard of Oz; by then taking stimulant and sleeping pills given to her as a teenage performer.</td><td>CLM-0002, CLM-0003, CLM-0004</td></tr>
+  <tr><td>1949</td><td>Hospital stay in Boston; treated for what was publicly called exhaustion.</td><td>CLM-0007, CLM-0005</td></tr>
+  <tr><td>1950</td><td>Studio contract ended; a suicide attempt was reported publicly; return to the stage in concert.</td><td>CLM-0006, CLM-0008</td></tr>
+  <tr><td>1954</td><td>A Star Is Born released; Academy Award nomination.</td><td>CLM-0009</td></tr>
+  <tr><td>March 1955</td><td>Birth of her third child.</td><td>CLM-0010</td></tr>
+  <tr><td>September 24, 1955</td><td>Television debut on the first Ford Star Jubilee broadcast.</td><td>CLM-0011</td></tr>
+  <tr><td>1959</td><td>Hospitalized with acute hepatitis.</td><td>CLM-0012</td></tr>
+  <tr><td>June 22, 1969</td><td>Died in London at 47; the coroner ruled the death an accidental barbiturate overdose.</td><td>CLM-0013</td></tr></tbody></table></section>
+    <section><h2>Evidence claims</h2><p class="muted">D = documented, R = retrospective, S = synthetic.</p><table><thead><tr><th>Grade</th><th>Claim</th><th>Certainty</th><th>Sources</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>Judy Garland was born Frances Ethel Gumm on June 10, 1922, in Grand Rapids, Minnesota, to parents in vaudeville, and first appeared on stage as a small child.</strong></td>
+    <td>confirmed</td>
+    <td><a href="https://www.encyclopedia.com/women/encyclopedias-almanacs-transcripts-and-maps/garland-judy-1922-1969" target="_blank" rel="noreferrer">Powers N. Garland, Judy (1922-1969). Women in World History: A Biographical Encyclopedia (Gale)</a> <span class="relationship">supports</span><br><a href="https://time.com/archive/6637032/milestones-jun-27-1969" target="_blank" rel="noreferrer">Milestones, Jun. 27, 1969</a> <span class="relationship">supports</span><br><a href="https://www.pbs.org/wnet/americanmasters/blog/5-interesting-facts-about-judy-garland" target="_blank" rel="noreferrer">5 Interesting Facts About Judy Garland</a> <span class="relationship">supports</span><br><a href="https://time.com/5684673/judy-garland-movie-true-story/" target="_blank" rel="noreferrer">Haynes S. The True Story Behind Judy, the New Film Based on Judy Garland&#39;s Life</a> <span class="relationship">supports</span><br><a href="https://humanrecord.example.org/internal/HISTMED_Master_Roster_v3.xlsx" target="_blank" rel="noreferrer">HISTMED Master Roster v3</a> <span class="relationship">context</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>She was signed by Metro-Goldwyn-Mayer at 13 and became a national star at 17 in The Wizard of Oz.</strong><div class="muted">Anchors her work as a performer from childhood and the studio years in the modern social history.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.pbs.org/wnet/americanmasters/blog/5-interesting-facts-about-judy-garland" target="_blank" rel="noreferrer">5 Interesting Facts About Judy Garland</a> <span class="relationship">supports</span><br><a href="https://time.com/archive/6637032/milestones-jun-27-1969" target="_blank" rel="noreferrer">Milestones, Jun. 27, 1969</a> <span class="relationship">supports</span><br><a href="https://time.com/5684673/judy-garland-movie-true-story/" target="_blank" rel="noreferrer">Haynes S. The True Story Behind Judy, the New Film Based on Judy Garland&#39;s Life</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>As a teenage studio performer she was given stimulant &quot;pep pills&quot; (amphetamines; Benzedrine is named) to suppress her appetite and keep up her energy through long working days, and sleeping pills (barbiturates; Seconal is named) so that she could sleep. She later described being given pills to stay on her feet and then being put to sleep with sleeping pills at the studio hospital.</strong><div class="muted">The anchor for the synthetic sedative-hypnotic and stimulant use disorders and for the teaching point: dependence that began with drugs given to a minor by adults with power over her. Recorded without blame.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.biography.com/actors/judy-garland-pills-diet-wizard-of-oz" target="_blank" rel="noreferrer">Bertram C. Judy Garland Filmed The Wizard of Oz Under Grueling Conditions</a> <span class="relationship">supports</span><br><a href="https://www.history.com/articles/judy-garland-barbiturates-hollywood-studio-drugs" target="_blank" rel="noreferrer">Blakemore E. Golden Age Hollywood Had a Dirty Little Secret: Drugs</a> <span class="relationship">supports</span><br><a href="https://time.com/5684673/judy-garland-movie-true-story/" target="_blank" rel="noreferrer">Haynes S. The True Story Behind Judy, the New Film Based on Judy Garland&#39;s Life</a> <span class="relationship">supports</span><br><a href="https://www.encyclopedia.com/women/encyclopedias-almanacs-transcripts-and-maps/garland-judy-1922-1969" target="_blank" rel="noreferrer">Powers N. Garland, Judy (1922-1969). Women in World History: A Biographical Encyclopedia (Gale)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-R" title="Retrospective">R</span></td>
+    <td><strong>Accounts differ on who first gave her the pills. A biography by Gerald Clarke reports that her mother gave her pills for energy and sleep in early childhood, before she joined the studio; other accounts attribute the pills to the studio and its doctors.</strong><div class="muted">Recorded only to show that the account of how her dependence began is contested; the episode relies on the documented fact that the pills were given to her as a minor, not on who began it.</div></td>
+    <td>disputed</td>
+    <td><a href="https://www.biography.com/actors/judy-garland-pills-diet-wizard-of-oz" target="_blank" rel="noreferrer">Bertram C. Judy Garland Filmed The Wizard of Oz Under Grueling Conditions</a> <span class="relationship">supports</span><br><a href="https://www.publishersweekly.com/9780375503788" target="_blank" rel="noreferrer">Review of Clarke G. Get Happy: The Life of Judy Garland</a> <span class="relationship">supports</span><br><a href="https://www.history.com/articles/judy-garland-barbiturates-hollywood-studio-drugs" target="_blank" rel="noreferrer">Blakemore E. Golden Age Hollywood Had a Dirty Little Secret: Drugs</a> <span class="relationship">supports</span><br><a href="https://www.history.com/articles/judy-garland-barbiturates-hollywood-studio-drugs" target="_blank" rel="noreferrer">Blakemore E. Golden Age Hollywood Had a Dirty Little Secret: Drugs</a> <span class="relationship">disputes</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>She struggled with dependence on prescribed medicines, stimulants and sleeping pills, for the rest of her life; by her twenties she was already dependent on pills.</strong><div class="muted">The anchor for long-term dependence in the modern episode.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.encyclopedia.com/women/encyclopedias-almanacs-transcripts-and-maps/garland-judy-1922-1969" target="_blank" rel="noreferrer">Powers N. Garland, Judy (1922-1969). Women in World History: A Biographical Encyclopedia (Gale)</a> <span class="relationship">supports</span><br><a href="https://www.kirkusreviews.com/book-reviews/gerald-clarke/get-happy/" target="_blank" rel="noreferrer">Review of Clarke G. Get Happy: The Life of Judy Garland</a> <span class="relationship">supports</span><br><a href="https://www.biography.com/actors/judy-garland-london-concerts-final-years" target="_blank" rel="noreferrer">Bertram C. Inside Judy Garland&#39;s Final Years and Her London Concerts</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>Suicide attempts were reported publicly, including one in 1950; a biographical encyclopedia describes others in the 1940s and early 1950s.</strong><div class="muted">History only, without detail. In the modern episode it is a historical risk factor in the structured safety assessment.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://time.com/archive/6637032/milestones-jun-27-1969" target="_blank" rel="noreferrer">Milestones, Jun. 27, 1969</a> <span class="relationship">supports</span><br><a href="https://www.encyclopedia.com/women/encyclopedias-almanacs-transcripts-and-maps/garland-judy-1922-1969" target="_blank" rel="noreferrer">Powers N. Garland, Judy (1922-1969). Women in World History: A Biographical Encyclopedia (Gale)</a> <span class="relationship">supports</span><br><a href="https://www.kirkusreviews.com/book-reviews/gerald-clarke/get-happy/" target="_blank" rel="noreferrer">Review of Clarke G. Get Happy: The Life of Judy Garland</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>In her twenties she was treated for what was publicly called exhaustion and spent periods in hospitals and sanitariums, including a stay at Peter Bent Brigham Hospital in Boston in 1949.</strong><div class="muted">History only, without detail.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.kirkusreviews.com/book-reviews/gerald-clarke/get-happy/" target="_blank" rel="noreferrer">Review of Clarke G. Get Happy: The Life of Judy Garland</a> <span class="relationship">supports</span><br><a href="https://www.encyclopedia.com/women/encyclopedias-almanacs-transcripts-and-maps/garland-judy-1922-1969" target="_blank" rel="noreferrer">Powers N. Garland, Judy (1922-1969). Women in World History: A Biographical Encyclopedia (Gale)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>Her contract with Metro-Goldwyn-Mayer ended in 1950, and she returned to the stage in concert.</strong></td>
+    <td>confirmed</td>
+    <td><a href="https://www.encyclopedia.com/women/encyclopedias-almanacs-transcripts-and-maps/garland-judy-1922-1969" target="_blank" rel="noreferrer">Powers N. Garland, Judy (1922-1969). Women in World History: A Biographical Encyclopedia (Gale)</a> <span class="relationship">supports</span><br><a href="https://time.com/5684673/judy-garland-movie-true-story/" target="_blank" rel="noreferrer">Haynes S. The True Story Behind Judy, the New Film Based on Judy Garland&#39;s Life</a> <span class="relationship">supports</span><br><a href="https://time.com/archive/6637032/milestones-jun-27-1969" target="_blank" rel="noreferrer">Milestones, Jun. 27, 1969</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>She starred in A Star Is Born, released in 1954, and was nominated for the Academy Award for Best Actress.</strong><div class="muted">Anchors her film work in the year before the modern episode.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://time.com/archive/6637032/milestones-jun-27-1969" target="_blank" rel="noreferrer">Milestones, Jun. 27, 1969</a> <span class="relationship">supports</span><br><a href="https://time.com/5684673/judy-garland-movie-true-story/" target="_blank" rel="noreferrer">Haynes S. The True Story Behind Judy, the New Film Based on Judy Garland&#39;s Life</a> <span class="relationship">supports</span><br><a href="https://www.encyclopedia.com/women/encyclopedias-almanacs-transcripts-and-maps/garland-judy-1922-1969" target="_blank" rel="noreferrer">Powers N. Garland, Judy (1922-1969). Women in World History: A Biographical Encyclopedia (Gale)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>She gave birth to her third child, a son, in March 1955.</strong><div class="muted">Anchors the postpartum timing of the modern episode; the child is not named.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.encyclopedia.com/women/encyclopedias-almanacs-transcripts-and-maps/garland-judy-1922-1969" target="_blank" rel="noreferrer">Powers N. Garland, Judy (1922-1969). Women in World History: A Biographical Encyclopedia (Gale)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>On September 24, 1955, she made her television debut on the first Ford Star Jubilee broadcast.</strong><div class="muted">History after the index visit.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://lantern.mediahist.org/catalog/tvguide-philadelphia-1955-09-24_0007" target="_blank" rel="noreferrer">TV Guide, Philadelphia edition, September 24, 1955 (Media History Digital Library)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>In 1959 she was hospitalized with acute hepatitis and liver disease.</strong><div class="muted">History after the modern episode; the episode records no liver disease.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://time.com/5684673/judy-garland-movie-true-story/" target="_blank" rel="noreferrer">Haynes S. The True Story Behind Judy, the New Film Based on Judy Garland&#39;s Life</a> <span class="relationship">supports</span><br><a href="https://www.encyclopedia.com/women/encyclopedias-almanacs-transcripts-and-maps/garland-judy-1922-1969" target="_blank" rel="noreferrer">Powers N. Garland, Judy (1922-1969). Women in World History: A Biographical Encyclopedia (Gale)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>She died in London on June 22, 1969, at 47; the coroner ruled her death an accidental overdose of barbiturates.</strong><div class="muted">History only, recorded in one plain sentence.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.biography.com/actors/judy-garland-london-concerts-final-years" target="_blank" rel="noreferrer">Bertram C. Inside Judy Garland&#39;s Final Years and Her London Concerts</a> <span class="relationship">supports</span><br><a href="https://time.com/5684673/judy-garland-movie-true-story/" target="_blank" rel="noreferrer">Haynes S. The True Story Behind Judy, the New Film Based on Judy Garland&#39;s Life</a> <span class="relationship">supports</span><br><a href="https://www.encyclopedia.com/women/encyclopedias-almanacs-transcripts-and-maps/garland-judy-1922-1969" target="_blank" rel="noreferrer">Powers N. Garland, Judy (1922-1969). Women in World History: A Biographical Encyclopedia (Gale)</a> <span class="relationship">supports</span><br><a href="https://time.com/archive/6637032/milestones-jun-27-1969" target="_blank" rel="noreferrer">Milestones, Jun. 27, 1969</a> <span class="relationship">supports</span></td>
+  </tr></tbody></table></section>
+    <section><h2>Modern synthetic problem list</h2><table><thead><tr><th>Grade</th><th>Problem</th><th>Clinical status</th><th>Verification</th><th>Placement</th><th>Historical claims</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Sedative, hypnotic, or anxiolytic use disorder (barbiturate), moderate, with physiological dependence; began with sleeping pills given in adolescence; synthetic modern episode linked to her documented lifelong dependence on prescribed sleeping pills</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>both_with_link</td>
+    <td>CLM-0003, CLM-0005</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Stimulant use disorder (prescribed amphetamine), mild; began with stimulants given in adolescence for weight and energy; synthetic modern episode linked to her documented pep pills</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>both_with_link</td>
+    <td>CLM-0003, CLM-0005</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Chronic insomnia disorder, long-standing, with sleep tied to sleeping pills since adolescence</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td>CLM-0003</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Contraception three months after childbirth while starting an enzyme-inducing drug: injectable progestin chosen because barbiturates, including any used for the withdrawal, weaken contraceptive pills, patches, rings and implants</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td>CLM-0010</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Major depressive disorder, single episode, moderate, with anxious distress; Mood Disorder Questionnaire negative and no history of mania or hypomania</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Acute laryngitis, probably viral, during rehearsals, treated with voice rest and supportive care; resolved</td>
+    <td>resolved</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td></td>
+  </tr></tbody></table></section>
+    <section><h2>Synthetic outcome measures</h2><table><thead><tr><th>Grade</th><th>Date</th><th>Measure</th><th>Result</th><th>Coding</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1955-06-22</td>
+    <td>Hemoglobin [Mass/volume] in Blood</td>
+    <td>12.3 g/dL<div class="muted">Reference 12-15.5 g/dL</div></td>
+    <td>http://loinc.org · 718-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1955-06-22</td>
+    <td>MCV [Entitic mean volume] in Red Blood Cells by Automated count</td>
+    <td>86 fL<div class="muted">Reference 80-100 fL</div></td>
+    <td>http://loinc.org · 787-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1955-06-22</td>
+    <td>Platelets [#/volume] in Blood by Automated count</td>
+    <td>284 10*3/uL<div class="muted">Reference 150-400 10*3/uL</div></td>
+    <td>http://loinc.org · 777-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1955-06-22</td>
+    <td>Ferritin [Mass/volume] in Serum or Plasma</td>
+    <td>24 ng/mL<div class="muted">Reference 15-150 ng/mL</div></td>
+    <td>http://loinc.org · 2276-4</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1955-06-22</td>
+    <td>Sodium [Moles/volume] in Serum or Plasma</td>
+    <td>139 mmol/L<div class="muted">Reference 135-145 mmol/L</div></td>
+    <td>http://loinc.org · 2951-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1955-06-22</td>
+    <td>Potassium [Moles/volume] in Serum or Plasma</td>
+    <td>4.1 mmol/L<div class="muted">Reference 3.5-5.1 mmol/L</div></td>
+    <td>http://loinc.org · 2823-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1955-06-22</td>
+    <td>Creatinine [Mass/volume] in Serum or Plasma</td>
+    <td>0.66 mg/dL<div class="muted">Reference 0.59-1.04 mg/dL</div></td>
+    <td>http://loinc.org · 2160-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1955-06-22</td>
+    <td>Glomerular filtration rate [Volume Rate/Area] in Serum, Plasma or Blood by Creatinine-based formula (CKD-EPI 1950)/1.73 sq M</td>
+    <td>119 mL/min/1.73 m²<div class="muted">Reference &gt;=60 mL/min/1.73 m²</div></td>
+    <td>http://loinc.org · 98979-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1955-06-22</td>
+    <td>Glucose [Mass/volume] in Serum or Plasma</td>
+    <td>82 mg/dL<div class="muted">Reference 70-99 mg/dL</div></td>
+    <td>http://loinc.org · 2345-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1955-06-22</td>
+    <td>Aspartate aminotransferase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>21 U/L<div class="muted">Reference 10-35 U/L</div></td>
+    <td>http://loinc.org · 1920-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1955-06-22</td>
+    <td>Alanine aminotransferase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>18 U/L<div class="muted">Reference 7-35 U/L</div></td>
+    <td>http://loinc.org · 1742-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1955-06-22</td>
+    <td>Gamma glutamyl transferase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>24 U/L<div class="muted">Reference 5-40 U/L</div></td>
+    <td>http://loinc.org · 2324-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1955-06-22</td>
+    <td>Thyrotropin [Units/volume] in Serum or Plasma</td>
+    <td>1.9 mIU/L<div class="muted">Reference 0.4-4.5 mIU/L</div></td>
+    <td>http://loinc.org · 3016-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1955-06-22</td>
+    <td>Total score [DAST-10]</td>
+    <td>6</td>
+    <td>http://loinc.org · 82667-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1955-06-22</td>
+    <td>Total score [AUDIT-C]</td>
+    <td>2</td>
+    <td>http://loinc.org · 75626-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1955-06-22</td>
+    <td>Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]</td>
+    <td>14</td>
+    <td>http://loinc.org · 44261-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1955-06-22</td>
+    <td>Generalized anxiety disorder 7 item (GAD-7) total score [Reported.PHQ]</td>
+    <td>13</td>
+    <td>http://loinc.org · 70274-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1955-07-20</td>
+    <td>Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]</td>
+    <td>12</td>
+    <td>http://loinc.org · 44261-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1955-07-20</td>
+    <td>Generalized anxiety disorder 7 item (GAD-7) total score [Reported.PHQ]</td>
+    <td>11</td>
+    <td>http://loinc.org · 70274-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1955-08-31</td>
+    <td>Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]</td>
+    <td>9</td>
+    <td>http://loinc.org · 44261-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1955-08-31</td>
+    <td>Generalized anxiety disorder 7 item (GAD-7) total score [Reported.PHQ]</td>
+    <td>8</td>
+    <td>http://loinc.org · 70274-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1955-09-28</td>
+    <td>Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]</td>
+    <td>7</td>
+    <td>http://loinc.org · 44261-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1955-10-26</td>
+    <td>Hemoglobin [Mass/volume] in Blood</td>
+    <td>12.9 g/dL<div class="muted">Reference 12-15.5 g/dL</div></td>
+    <td>http://loinc.org · 718-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1955-10-26</td>
+    <td>MCV [Entitic mean volume] in Red Blood Cells by Automated count</td>
+    <td>87 fL<div class="muted">Reference 80-100 fL</div></td>
+    <td>http://loinc.org · 787-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1955-10-26</td>
+    <td>Platelets [#/volume] in Blood by Automated count</td>
+    <td>268 10*3/uL<div class="muted">Reference 150-400 10*3/uL</div></td>
+    <td>http://loinc.org · 777-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1955-10-26</td>
+    <td>Ferritin [Mass/volume] in Serum or Plasma</td>
+    <td>41 ng/mL<div class="muted">Reference 15-150 ng/mL</div></td>
+    <td>http://loinc.org · 2276-4</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1955-10-26</td>
+    <td>Sodium [Moles/volume] in Serum or Plasma</td>
+    <td>140 mmol/L<div class="muted">Reference 135-145 mmol/L</div></td>
+    <td>http://loinc.org · 2951-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1955-10-26</td>
+    <td>Potassium [Moles/volume] in Serum or Plasma</td>
+    <td>4.2 mmol/L<div class="muted">Reference 3.5-5.1 mmol/L</div></td>
+    <td>http://loinc.org · 2823-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1955-10-26</td>
+    <td>Creatinine [Mass/volume] in Serum or Plasma</td>
+    <td>0.68 mg/dL<div class="muted">Reference 0.59-1.04 mg/dL</div></td>
+    <td>http://loinc.org · 2160-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1955-10-26</td>
+    <td>Glomerular filtration rate [Volume Rate/Area] in Serum, Plasma or Blood by Creatinine-based formula (CKD-EPI 1950)/1.73 sq M</td>
+    <td>118 mL/min/1.73 m²<div class="muted">Reference &gt;=60 mL/min/1.73 m²</div></td>
+    <td>http://loinc.org · 98979-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1955-10-26</td>
+    <td>Aspartate aminotransferase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>23 U/L<div class="muted">Reference 10-35 U/L</div></td>
+    <td>http://loinc.org · 1920-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1955-10-26</td>
+    <td>Alanine aminotransferase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>20 U/L<div class="muted">Reference 7-35 U/L</div></td>
+    <td>http://loinc.org · 1742-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1955-10-26</td>
+    <td>Gamma glutamyl transferase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>48 U/L (high)<div class="muted">Reference 5-40 U/L</div></td>
+    <td>http://loinc.org · 2324-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1955-10-26</td>
+    <td>Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]</td>
+    <td>5</td>
+    <td>http://loinc.org · 44261-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1955-10-26</td>
+    <td>Generalized anxiety disorder 7 item (GAD-7) total score [Reported.PHQ]</td>
+    <td>5</td>
+    <td>http://loinc.org · 70274-6</td>
+  </tr></tbody></table></section>
+    <section><h2>Synthetic vital signs</h2><table><thead><tr><th>Date</th><th>Measure</th><th>Result</th><th>LOINC</th><th>Grade</th></tr></thead><tbody>
+  <tr><td>1955-06-22</td><td>Body height</td><td>151 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1955-06-22</td><td>Body weight</td><td>46.5 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1955-06-22</td><td>Body mass index (BMI) [Ratio]</td><td>20.4 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1955-06-22</td><td>Systolic blood pressure</td><td>128 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1955-06-22</td><td>Diastolic blood pressure</td><td>84 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1955-06-22</td><td>Heart rate</td><td>98 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1955-06-22</td><td>Respiratory rate</td><td>16 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1955-06-22</td><td>Body temperature</td><td>36.8 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1955-06-22</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>99 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1955-06-29</td><td>Body height</td><td>151 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1955-06-29</td><td>Body weight</td><td>46.8 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1955-06-29</td><td>Body mass index (BMI) [Ratio]</td><td>20.5 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1955-06-29</td><td>Systolic blood pressure</td><td>124 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1955-06-29</td><td>Diastolic blood pressure</td><td>80 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1955-06-29</td><td>Heart rate</td><td>92 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1955-06-29</td><td>Respiratory rate</td><td>16 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1955-06-29</td><td>Body temperature</td><td>36.7 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1955-06-29</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>99 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1955-07-20</td><td>Body height</td><td>151 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1955-07-20</td><td>Body weight</td><td>47.6 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1955-07-20</td><td>Body mass index (BMI) [Ratio]</td><td>20.9 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1955-07-20</td><td>Systolic blood pressure</td><td>118 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1955-07-20</td><td>Diastolic blood pressure</td><td>76 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1955-07-20</td><td>Heart rate</td><td>82 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1955-07-20</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1955-07-20</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1955-07-20</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>99 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1955-08-31</td><td>Body height</td><td>151 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1955-08-31</td><td>Body weight</td><td>48.9 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1955-08-31</td><td>Body mass index (BMI) [Ratio]</td><td>21.4 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1955-08-31</td><td>Systolic blood pressure</td><td>112 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1955-08-31</td><td>Diastolic blood pressure</td><td>72 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1955-08-31</td><td>Heart rate</td><td>72 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1955-08-31</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1955-08-31</td><td>Body temperature</td><td>36.7 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1955-08-31</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>99 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1955-10-26</td><td>Body height</td><td>151 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1955-10-26</td><td>Body weight</td><td>50 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1955-10-26</td><td>Body mass index (BMI) [Ratio]</td><td>21.9 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1955-10-26</td><td>Systolic blood pressure</td><td>112 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1955-10-26</td><td>Diastolic blood pressure</td><td>70 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1955-10-26</td><td>Heart rate</td><td>68 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1955-10-26</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1955-10-26</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1955-10-26</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>99 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1955-09-28</td><td>Body height</td><td>151 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1955-09-28</td><td>Body weight</td><td>49.4 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1955-09-28</td><td>Body mass index (BMI) [Ratio]</td><td>21.7 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1955-09-28</td><td>Systolic blood pressure</td><td>110 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1955-09-28</td><td>Diastolic blood pressure</td><td>70 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1955-09-28</td><td>Heart rate</td><td>70 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1955-09-28</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1955-09-28</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1955-09-28</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>99 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1955-08-17</td><td>Body height</td><td>151 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1955-08-17</td><td>Body weight</td><td>48.4 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1955-08-17</td><td>Body mass index (BMI) [Ratio]</td><td>21.2 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1955-08-17</td><td>Systolic blood pressure</td><td>116 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1955-08-17</td><td>Diastolic blood pressure</td><td>74 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1955-08-17</td><td>Heart rate</td><td>84 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1955-08-17</td><td>Respiratory rate</td><td>16 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1955-08-17</td><td>Body temperature</td><td>37.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1955-08-17</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>98 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr></tbody></table></section>
+    <section><h2>Social, functional, and mental status</h2><h3>Social history</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Singer and actor who has performed since early childhood and worked for a film studio from 13; recently finished a major film; preparing for concert and television work, with long rehearsal days and late performances</li><li><span class="badge grade-S" title="Synthetic">S</span> Has been given pills for energy, appetite and sleep since she was a girl, and says she cannot remember sleeping without one; currently fills prescriptions from three prescribers at two pharmacies; no pills from any other source</li><li><span class="badge grade-S" title="Synthetic">S</span> Lives with her family, including a baby born three months ago; has help at home at night; not breastfeeding</li><li><span class="badge grade-S" title="Synthetic">S</span> Alcohol: a glass of wine about once a week (AUDIT-C 2); agrees to no alcohol while taking a barbiturate</li><li><span class="badge grade-S" title="Synthetic">S</span> Tobacco: about ten cigarettes a day; wants to deal with the pills first</li><li><span class="badge grade-S" title="Synthetic">S</span> Eats one real meal a day on working days and skips meals on the stimulant; worried about gaining weight because she has been told about her weight since childhood</li><li><span class="badge grade-S" title="Synthetic">S</span> Strengths: her work and her audience, her humor, wanting to be well for her children, and a close friend who knows about the pills</li></ul><h3>Functional status</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Independent in all activities; groggy in the mornings and tired in the afternoons; works long days</li></ul><h3>Mental status</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Alert, warm and quick, anxious at first and then candid; speech normal in rate; no signs of intoxication or withdrawal</li><li><span class="badge grade-S" title="Synthetic">S</span> Mood low and worried; PHQ-9 14 with item 9 scored 0, GAD-7 13; Mood Disorder Questionnaire negative; no thoughts of suicide or self-harm now</li></ul></section>
+    <section><h2>Structured safety assessment</h2><div class="grid"><div class="card"><div class="label">Current ideation</div>absent</div><div class="card"><div class="label">Intent</div>absent</div><div class="card"><div class="label">Plan</div>absent</div><div class="card"><div class="label">Disposition</div>Outpatient care with close follow-up. Risk factors reviewed without detail: past suicide attempts reported in earlier years, a sedative use disorder, depression, the months after childbirth, and the low mood that can follow stopping a stimulant. Barbiturates are dangerous in overdose, so means safety is part of the plan: she agreed to take the unused capsules from earlier prescriptions to a pharmacy take-back at the next visit, to keep the current supply in a locked box, and to receive no more than seven days at a time. No alcohol with the barbiturate. A written safety plan was made with her, and the 988 Suicide &amp; Crisis Lifeline (call or text 988) was saved in her phone. Safety is reviewed at every visit</div></div><p class="muted">This assessment is synthetic and does not convert historical behavior into a present-day fact.</p></section>
+    <section><h2>Allergies and medications</h2><h3>Allergies</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> No known allergy</li></ul><h3>Medications</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Secobarbital 100 mg oral capsule, two capsules (200 mg) at bedtime; prescribed elsewhere for years; continued by this clinic at the verified dose, seven days at a time, until a supervised withdrawal is planned with addiction medicine</li><li><span class="badge grade-S" title="Synthetic">S</span> Dextroamphetamine 10 mg oral tablet, one tablet each morning; no extra doses; prescribed elsewhere for weight and energy</li><li><span class="badge grade-S" title="Synthetic">S</span> Dextroamphetamine 5 mg oral tablet, one tablet each morning for two weeks, then stop</li><li><span class="badge grade-S" title="Synthetic">S</span> Sertraline 25 mg oral tablet, one tablet daily</li><li><span class="badge grade-S" title="Synthetic">S</span> Sertraline 50 mg oral tablet, one tablet daily</li><li><span class="badge grade-S" title="Synthetic">S</span> Phenobarbital 32.4 mg oral tablet, one tablet three times daily (97.2 mg a day), started in hospital in place of secobarbital</li><li><span class="badge grade-S" title="Synthetic">S</span> Phenobarbital 16.2 mg oral tablet on a written taper schedule in two or three divided doses: 81 mg a day from the four-week visit, lowered by 8.1 to 16.2 mg about every two weeks and paused when needed; dispensed two weeks at a time</li><li><span class="badge grade-S" title="Synthetic">S</span> Medroxyprogesterone acetate 150 mg/mL injection, 150 mg into the muscle every 13 weeks</li><li><span class="badge grade-S" title="Synthetic">S</span> Acetaminophen 500 mg oral tablet, two tablets by mouth every 6 hours as needed for throat pain, no more than 3,000 mg a day, for up to five days</li></ul></section>
+    <section><h2>Procedures and immunizations</h2><h3>Procedures</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Twelve-lead electrocardiogram before continuing a stimulant</li><li><span class="badge grade-S" title="Synthetic">S</span> Medically managed barbiturate withdrawal: four-day hospital admission to the addiction medicine service to change secobarbital to phenobarbital, with withdrawal scoring, seizure precautions and dose stabilization</li><li><span class="badge grade-S" title="Synthetic">S</span> Advance care planning conversation, about 17 minutes</li></ul><h3>Immunizations</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> 1955-06-22: Tdap vaccine</li><li><span class="badge grade-S" title="Synthetic">S</span> 1955-09-28: Influenza vaccine, inactivated, this season</li></ul></section>
+    <section><h2>Past medical history</h2><p class="muted">True biography with historical dates; not part of the synthetic care timeline.</p><ul><li><span class="badge grade-D" title="Documented">D</span> by 1939: Stimulant pills for appetite and energy and barbiturate sleeping pills given to her as a teenage studio performer, with dependence on prescribed medicines since <span class="muted">(CLM-0003, CLM-0005)</span></li><li><span class="badge grade-D" title="Documented">D</span> 1949: Hospital and sanitarium stays in her twenties, publicly described as treatment for exhaustion <span class="muted">(CLM-0007)</span></li><li><span class="badge grade-D" title="Documented">D</span> 1950: Suicide attempts reported publicly, including one in 1950; recorded without detail <span class="muted">(CLM-0006)</span></li><li><span class="badge grade-D" title="Documented">D</span> March 1955: Birth of her third child three months before the index visit <span class="muted">(CLM-0010)</span></li></ul><h3>Family history</h3><p class="muted">No family medical history is documented in the logged sources. Family history of real relatives is never synthesized.</p></section>
+    <section><h2>Care-plan goals</h2><table><thead><tr><th>Goal</th><th>Target date</th><th>Status</th><th>Outcome</th></tr></thead><tbody>
+  <tr><td>Change from secobarbital to phenobarbital under supervision without a withdrawal seizure or delirium</td><td>1955-07-20</td><td>completed</td><td>Four-day supervised admission; no seizure, delirium or severe withdrawal</td></tr>
+  <tr><td>Lower the phenobarbital dose slowly, at no more than about 20% every two weeks, toward stopping</td><td>1955-10-26</td><td>active</td><td>97.2 mg a day at discharge to 32.4 mg a day at four months; two pauses when needed; taper continuing</td></tr>
+  <tr><td>Stop dextroamphetamine with a short taper and no return to it</td><td>1955-08-31</td><td>completed</td><td>Stopped after a two-week taper; tiredness for about two weeks, then better</td></tr>
+  <tr><td>Sleep six hours or more on most nights using CBT for insomnia</td><td>1955-10-26</td><td>active</td><td>About six hours on most nights; rebound wakefulness after each dose step settles within a week</td></tr>
+  <tr><td>PHQ-9 below 5 by six months</td><td>1955-10-26</td><td>active</td><td>PHQ-9 14 to 5 at four months; response</td></tr>
+  <tr><td>Regular meals and weight she is comfortable with, without dieting drugs</td><td>1955-10-26</td><td>completed</td><td>Three meals on most days; weight up 3.5 kg to a BMI of 21.9; she says she feels stronger</td></tr></tbody></table></section>
+    <section><h2>Interventions</h2><table><thead><tr><th>Intervention</th><th>Status</th><th>Guideline</th></tr></thead><tbody>
+  <tr><td>Safe prescribing of controlled drugs: one prescriber and one pharmacy, a prescription drug monitoring program check before every controlled-substance prescription, a written shared treatment agreement, urine drug testing explained as part of care, seven-day supplies at first, a locked box, and take-back of unused capsules</td><td>completed</td><td>GL-BZD-TAPER-2025, GL-CDC-PDMP</td></tr>
+  <tr><td>Addiction medicine consultation to confirm the diagnoses, plan a safe barbiturate withdrawal and taper, and advise on stopping the stimulant</td><td>completed</td><td>GL-BZD-TAPER-2025, GL-ASAM-AWM-2020, GL-ASAM-STIM-2024</td></tr>
+  <tr><td>Supervised barbiturate withdrawal: a short hospital admission to change secobarbital to phenobarbital with withdrawal scoring and seizure precautions, then a slow outpatient phenobarbital taper of no more than about 20% every two weeks, slower toward the end, paused for withdrawal symptoms, illness or a major performance, never stopped abruptly; no benzodiazepine or Z-drug in its place; no alcohol</td><td>completed</td><td>GL-BZD-TAPER-2025, GL-ASAM-AWM-2020</td></tr>
+  <tr><td>Stimulant: dextroamphetamine held at one fixed morning dose until phenobarbital is stable, then 5 mg for two weeks and stopped, with mood, sleep and appetite checks; no other stimulant</td><td>completed</td><td>GL-ASAM-STIM-2024</td></tr>
+  <tr><td>Insomnia: cognitive behavioral therapy for insomnia as first-line treatment, adapted to late performances (a fixed wake time, a wind-down routine after shows, sleep restriction only after the taper is stable), with a sleep diary; no new hypnotic</td><td>completed</td><td>GL-ACP-INSOMNIA-2016, GL-AASM-INSOMNIA-2017</td></tr>
+  <tr><td>Depression and anxiety: PHQ-9 and GAD-7 at each visit, sertraline, weekly psychotherapy, the Mood Disorder Questionnaire before the antidepressant, a structured safety assessment with a written safety plan, means safety and the 988 Suicide &amp; Crisis Lifeline, and safety review at every visit</td><td>completed</td><td>GL-CMID-2026, GL-USPSTF-DEP-2023, GL-SUICIDE-2024</td></tr>
+  <tr><td>Nutrition and weight without stigma: regular meals and snacks around rehearsals, a dietitian visit, no weight-loss target and no dieting drugs, and screening for disordered eating</td><td>completed</td><td>GL-ASAM-STIM-2024</td></tr>
+  <tr><td>Contraception that barbiturates do not weaken: medroxyprogesterone injection every 13 weeks, after a negative pregnancy test, with an intrauterine device as an alternative</td><td>completed</td><td>GL-CDC-MEC-2024</td></tr>
+  <tr><td>Naloxone not prescribed: she takes no opioid, has no opioid prescription in the monitoring program, her urine test shows no opioids or fentanyl, and all her pills come from a pharmacy; naloxone does not reverse a barbiturate overdose. To be offered at once if an opioid is ever prescribed or any pill comes from outside a pharmacy</td><td>completed</td><td>GL-ASAM-STIM-2024, GL-CDC-PDMP</td></tr>
+  <tr><td>Work: taper steps scheduled away from major performances, a written plan for late nights and travel, and letters she controls</td><td>completed</td><td>GL-BZD-TAPER-2025</td></tr></tbody></table></section>
+    <section><h2>Planned encounters</h2><ul>
+  <li><strong>1955-06-22</strong> — Establishing primary care for long-term prescribed sleeping pills and stimulants that began in adolescence: a nonjudgmental assessment, a prescription drug monitoring program review, sleep, mood, anxiety and safety, nutrition, and contraception three months after childbirth <span class="muted">(ENC-001)</span></li>
+  <li><strong>1955-06-29</strong> — One-week review with the addiction medicine consultation: planning a supervised barbiturate withdrawal <span class="muted">(ENC-002)</span></li>
+  <li><strong>1955-07-20</strong> — Four-week review eleven days after a supervised hospital change from secobarbital to phenobarbital: starting the outpatient taper and the stimulant taper <span class="muted">(ENC-003)</span></li>
+  <li><strong>1955-08-17</strong> — Same-day sick visit for acute laryngitis <span class="muted">(ENC-007, unscheduled)</span></li>
+  <li><strong>1955-08-31</strong> — Ten-week review: phenobarbital taper, life after stopping the stimulant, sleep, mood, weight and work <span class="muted">(ENC-004)</span></li>
+  <li><strong>1955-09-28</strong> — Periodic adult preventive visit <span class="muted">(ENC-006)</span></li>
+  <li><strong>1955-10-26</strong> — Four-month review: phenobarbital taper, sleep, mood, laboratory checks and the plan to finish <span class="muted">(ENC-005)</span></li></ul></section>
+    <section><h2>Supporting documents</h2><ul><li><a href="notes/hp.md">History and physical</a></li><li><a href="notes/progress-01.md">Progress note 01</a></li><li><a href="notes/progress-02.md">Progress note 02 — Focused Visit (Follow-up)</a></li><li><a href="notes/progress-03.md">Progress note 03 — Focused Visit (Follow-up)</a></li><li><a href="notes/progress-04.md">Progress note 04 — Sick Visit</a></li><li><a href="notes/progress-05.md">Progress note 05 — Focused Visit (Follow-up)</a></li><li><a href="notes/progress-06.md">Progress note 06 — Preventive Visit</a></li><li><a href="notes/progress-07.md">Progress note 07 — Focused Visit (Care-plan review)</a></li><li><a href="notes/referral-01.md">Addiction Medicine referral</a></li><li><a href="notes/consult-01.md">Addiction Medicine consultation</a></li><li><a href="notes/careplan.md">Patient care plan</a></li><li><a href="notes/teaching-note.md">Teaching note</a></li><li><a href="provenance.csv">Provenance CSV</a></li></ul></section>
+    <section><h2>C-CDA note documents</h2><p class="muted">Each link opens a readable copy; the XML beside it is the exchange file.</p><ul><li><a href="ccda/hp-01.html">History and physical</a> <a href="ccda/hp-01.xml">(XML)</a></li><li><a href="ccda/progress-01.html">Progress note 01</a> <a href="ccda/progress-01.xml">(XML)</a></li><li><a href="ccda/progress-02.html">Progress note 02 — Focused Visit (Follow-up)</a> <a href="ccda/progress-02.xml">(XML)</a></li><li><a href="ccda/progress-03.html">Progress note 03 — Focused Visit (Follow-up)</a> <a href="ccda/progress-03.xml">(XML)</a></li><li><a href="ccda/progress-04.html">Progress note 04 — Sick Visit</a> <a href="ccda/progress-04.xml">(XML)</a></li><li><a href="ccda/progress-05.html">Progress note 05 — Focused Visit (Follow-up)</a> <a href="ccda/progress-05.xml">(XML)</a></li><li><a href="ccda/progress-06.html">Progress note 06 — Preventive Visit</a> <a href="ccda/progress-06.xml">(XML)</a></li><li><a href="ccda/progress-07.html">Progress note 07 — Focused Visit (Care-plan review)</a> <a href="ccda/progress-07.xml">(XML)</a></li><li><a href="ccda/referral-01.html">Addiction Medicine referral</a> <a href="ccda/referral-01.xml">(XML)</a></li><li><a href="ccda/consult-01.html">Addiction Medicine consultation</a> <a href="ccda/consult-01.xml">(XML)</a></li></ul></section>
+    <section><h2>Sources</h2><table><thead><tr><th>ID</th><th>Source</th><th>Publisher</th><th>Type</th></tr></thead><tbody>
+  <tr>
+    <td>SRC-0001</td>
+    <td><a href="https://www.encyclopedia.com/women/encyclopedias-almanacs-transcripts-and-maps/garland-judy-1922-1969" target="_blank" rel="noreferrer">Powers N. Garland, Judy (1922-1969). Women in World History: A Biographical Encyclopedia (Gale)</a></td>
+    <td>Encyclopedia.com</td>
+    <td>biography</td>
+  </tr>
+  <tr>
+    <td>SRC-0002</td>
+    <td><a href="https://time.com/archive/6637032/milestones-jun-27-1969" target="_blank" rel="noreferrer">Milestones, Jun. 27, 1969</a></td>
+    <td>TIME</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0003</td>
+    <td><a href="https://www.pbs.org/wnet/americanmasters/blog/5-interesting-facts-about-judy-garland" target="_blank" rel="noreferrer">5 Interesting Facts About Judy Garland</a></td>
+    <td>PBS American Masters (WNET)</td>
+    <td>biography</td>
+  </tr>
+  <tr>
+    <td>SRC-0004</td>
+    <td><a href="https://time.com/5684673/judy-garland-movie-true-story/" target="_blank" rel="noreferrer">Haynes S. The True Story Behind Judy, the New Film Based on Judy Garland&#39;s Life</a></td>
+    <td>TIME</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0005</td>
+    <td><a href="https://www.biography.com/actors/judy-garland-pills-diet-wizard-of-oz" target="_blank" rel="noreferrer">Bertram C. Judy Garland Filmed The Wizard of Oz Under Grueling Conditions</a></td>
+    <td>Biography.com (A&amp;E Television Networks)</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0006</td>
+    <td><a href="https://www.history.com/articles/judy-garland-barbiturates-hollywood-studio-drugs" target="_blank" rel="noreferrer">Blakemore E. Golden Age Hollywood Had a Dirty Little Secret: Drugs</a></td>
+    <td>History.com (A&amp;E Television Networks)</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0007</td>
+    <td><a href="https://www.biography.com/actors/judy-garland-london-concerts-final-years" target="_blank" rel="noreferrer">Bertram C. Inside Judy Garland&#39;s Final Years and Her London Concerts</a></td>
+    <td>Biography.com (A&amp;E Television Networks)</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0008</td>
+    <td><a href="https://www.kirkusreviews.com/book-reviews/gerald-clarke/get-happy/" target="_blank" rel="noreferrer">Review of Clarke G. Get Happy: The Life of Judy Garland</a></td>
+    <td>Kirkus Reviews</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0009</td>
+    <td><a href="https://www.publishersweekly.com/9780375503788" target="_blank" rel="noreferrer">Review of Clarke G. Get Happy: The Life of Judy Garland</a></td>
+    <td>Publishers Weekly</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0010</td>
+    <td><a href="https://lantern.mediahist.org/catalog/tvguide-philadelphia-1955-09-24_0007" target="_blank" rel="noreferrer">TV Guide, Philadelphia edition, September 24, 1955 (Media History Digital Library)</a></td>
+    <td>Lantern, Media History Digital Library</td>
+    <td>primary</td>
+  </tr>
+  <tr>
+    <td>SRC-0011</td>
+    <td><a href="https://humanrecord.example.org/internal/HISTMED_Master_Roster_v3.xlsx" target="_blank" rel="noreferrer">HISTMED Master Roster v3</a></td>
+    <td>The Human Record project</td>
+    <td>other</td>
+  </tr></tbody></table></section>
+    <section><h2>Review status</h2><table><thead><tr><th>Review</th><th>Status</th><th>Notes</th></tr></thead><tbody>
+  <tr><td>schema validation</td><td>not_started</td><td>Run scripts/build.ps1 -Conformance.</td></tr>
+  <tr><td>clinical review</td><td>not_started</td><td>Awaiting clinician review; check the DSM-5-TR criteria count that excludes tolerance and withdrawal, the secobarbital to phenobarbital conversion and the admission, the taper pace (the 2025 benzodiazepine guideline applied by analogy, since it excludes barbiturates), the order of the stimulant taper, sertraline with phenobarbital, the contraception choice with an enzyme inducer, and the decision not to prescribe naloxone.</td></tr>
+  <tr><td>provenance review</td><td>not_started</td><td>Sources: Women in World History (Encyclopedia.com), TIME (1969 and 2019), PBS American Masters, Biography.com (two articles), History.com, Kirkus Reviews and Publishers Weekly reviews of Gerald Clarke&#39;s biography, and TV Guide (1955) through the Media History Digital Library. The biography itself was not read. Who first gave her pills is graded R and disputed.</td></tr>
+  <tr><td>safe messaging review</td><td>not_started</td><td>Substance use and mental health claims are marked sensitive; past suicide attempts and hospital stays are recorded without detail; her death is recorded once in one plain sentence; person-first language; the pills given to her as a minor are presented as harm done to her, not her fault; the safety assessment gives the 988 Suicide &amp; Crisis Lifeline and addresses means safety. No living relative is named.</td></tr></tbody></table></section>
+  </main>
+</body>
+</html>

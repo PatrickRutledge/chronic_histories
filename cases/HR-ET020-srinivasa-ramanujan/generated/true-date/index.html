@@ -1,0 +1,831 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Srinivasa Ramanujan — The Human Record</title>
+  <style>
+    :root { --navy:#17365d; --blue:#1f4e78; --pale:#eef5fa; --ink:#1f2933; --muted:#66788a; --amber:#fff2cc; --red:#f8d7da; --green:#d9ead3; }
+    * { box-sizing:border-box; }
+    body { margin:0; font:16px/1.5 Arial, sans-serif; color:var(--ink); background:#f6f8fa; }
+    header { background:var(--navy); color:white; padding:24px max(24px,calc((100vw - 1180px)/2)); }
+    header h1 { margin:4px 0; font-size:30px; }
+    .banner { background:#b42318; color:white; font-weight:700; text-align:center; padding:10px; letter-spacing:.03em; }
+    main { max-width:1180px; margin:24px auto 60px; padding:0 24px; }
+    section { background:white; border:1px solid #d9e1e8; border-radius:8px; margin:18px 0; padding:20px; }
+    h2 { color:var(--navy); margin:0 0 14px; font-size:22px; }
+    h3 { color:var(--blue); }
+    .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:12px; }
+    .card { background:var(--pale); border-left:4px solid var(--blue); padding:12px; }
+    .label { color:var(--muted); font-size:13px; text-transform:uppercase; letter-spacing:.04em; }
+    table { width:100%; border-collapse:collapse; }
+    th { background:var(--blue); color:white; text-align:left; }
+    th,td { padding:9px; border-bottom:1px solid #dfe6ec; vertical-align:top; }
+    .badge { display:inline-block; min-width:28px; text-align:center; font-weight:700; border-radius:12px; padding:2px 8px; }
+    .grade-D { background:var(--green); } .grade-R { background:var(--amber); } .grade-S { background:var(--red); }
+    .muted { color:var(--muted); font-size:14px; }
+    .relationship { color:var(--muted); font-size:12px; }
+    .downloads a { display:inline-block; margin:4px 8px 4px 0; padding:8px 12px; background:var(--blue); color:white; text-decoration:none; border-radius:5px; }
+    @media (max-width:700px) { table { display:block; overflow-x:auto; } }
+  </style>
+</head>
+<body>
+  <div class="banner">SYNTHETIC RECORD, NOT A REAL MEDICAL RECORD</div>
+  <div class="banner">True-date frame: synthetic events are moved into the patient&#39;s historical lifetime. Codes, instruments, and treatments remain modern and are anachronistic.</div>
+  <header>
+    <div>The Human Record</div>
+    <h1>Srinivasa Ramanujan</h1>
+    <div>Case HR-ET020-TD · Modern EHR teaching episode · Draft for review</div>
+  </header>
+  <main>
+    <section>
+      <h2>Review summary</h2>
+      <div class="grid">
+        <div class="card"><div class="label">Historical dates</div>22 December 1887 – 26 April 1920</div>
+        <div class="card"><div class="label">Synthetic DOB</div>1887-12-22</div>
+        <div class="card"><div class="label">Index visit</div>1917-01-12 at age 29</div>
+        <div class="card"><div class="label">Synthetic MRN</div>HR-ET020-SYN-TD</div>
+      </div>
+      <p><strong>Teaching objective:</strong> The evaluation of fever, weight loss and right upper quadrant pain in a 29-year-old mathematician from Tamil Nadu, a strict vegetarian, who came to a research fellowship far from home. The episode works through the differential that divided his historical physicians and later historians, tuberculosis or amebiasis, with modern tests: a chest radiograph, induced sputum for smears, NAAT and culture, an interferon-gamma release assay, stool tests and Entamoeba histolytica serology, and an abdominal ultrasound. The single modern diagnosis is an amebic liver abscess, treated by CDC guidance with metronidazole and then the luminal agent paromomycin; the positive IGRA with negative cultures is latent tuberculosis infection, treated after the abscess with four months of rifampin under the 1911 NTCA/CDC guideline, with the ATS/CDC/IDSA guidelines for diagnosis and treatment. The episode adds a nutrition assessment with vitamin B12 and vitamin D repletion suited to a lacto-vegetarian, a dietary plan built on his own food and rules, PHQ-9 and GAD-7 screening with a structured safety assessment, counseling, and practical support for a student far from home. The modern diagnosis is synthetic and does not settle the historical question.</p>
+      <div class="downloads">
+        <a href="../case.json">Canonical JSON</a>
+        <a href="fhir-bundle.json">FHIR R4 draft</a>
+        <a href="ccda.html">C-CDA R2.1 summary</a> <a href="ccda.xml">(XML)</a>
+        <a href="../sources.md">Evidence dossier</a>
+      </div>
+    </section>
+    <section><h2>Historical timeline</h2><table><thead><tr><th>Date</th><th>Event</th><th>Claims</th></tr></thead><tbody>
+  <tr><td>22 December 1887</td><td>Born in Erode; grew up in Kumbakonam.</td><td>CLM-0001, CLM-0002</td></tr>
+  <tr><td>December 1889</td><td>Smallpox.</td><td>CLM-0003</td></tr>
+  <tr><td>about 1906</td><td>First of two episodes of dysentery in India (dates approximate).</td><td>CLM-0004</td></tr>
+  <tr><td>1909</td><td>Operation after a serious illness; married Janaki; second episode of dysentery about this time.</td><td>CLM-0003, CLM-0004, CLM-0005</td></tr>
+  <tr><td>April 1914</td><td>Arrived in England and moved into rooms at Trinity College, Cambridge.</td><td>CLM-0005, CLM-0006</td></tr>
+  <tr><td>May 1917</td><td>Admitted to a nursing hostel in Cambridge; treated in sanatoria and nursing homes until early 1919.</td><td>CLM-0008, CLM-0009, CLM-0010, CLM-0011, CLM-0012</td></tr>
+  <tr><td>late 1917 or early 1918 (reported)</td><td>Reported suicide attempt in the London Underground; the account rests on later recollection.</td><td>CLM-0014, CLM-0007</td></tr>
+  <tr><td>2 May 1918</td><td>Elected a Fellow of the Royal Society.</td><td>CLM-0013</td></tr>
+  <tr><td>13 March 1919</td><td>Returned to India.</td><td>CLM-0015</td></tr>
+  <tr><td>26 April 1920</td><td>Died at 32.</td><td>CLM-0015</td></tr>
+  <tr><td>January 1994</td><td>D. A. B. Young proposed hepatic amoebiasis as the cause of his illness.</td><td>CLM-0011</td></tr></tbody></table></section>
+    <section><h2>Evidence claims</h2><p class="muted">D = documented, R = retrospective, S = synthetic.</p><table><thead><tr><th>Grade</th><th>Claim</th><th>Certainty</th><th>Sources</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>Srinivasa Ramanujan was born on 22 December 1887 in his grandmother&#39;s house in Erode, in what is now Tamil Nadu, and grew up in Kumbakonam. His father, Kuppuswamy Srinivasa, was a clerk in a cloth merchant&#39;s shop, and his mother, Komalatammal, sang devotional songs; the family was Brahmin and poor.</strong></td>
+    <td>confirmed</td>
+    <td><a href="https://mathshistory.st-andrews.ac.uk/Biographies/Ramanujan/" target="_blank" rel="noreferrer">O&#39;Connor JJ, Robertson EF. Srinivasa Aiyangar Ramanujan (MacTutor History of Mathematics biography)</a> <span class="relationship">supports</span><br><a href="https://mathshistory.st-andrews.ac.uk/DNB/Ramanujan.html" target="_blank" rel="noreferrer">Kanigel R. Ramanujan, Srinivasa (1887-1920), mathematician, Oxford Dictionary of National Biography (2004), as reproduced by MacTutor</a> <span class="relationship">supports</span><br><a href="https://humanrecord.example.org/internal/HISTMED_Master_Roster_v3.xlsx" target="_blank" rel="noreferrer">HISTMED Master Roster v3</a> <span class="relationship">context</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>He had no family name in the Western sense. In Tamil usage the father&#39;s given name comes first as an initial or prefix, so &quot;Srinivasa&quot; is his father&#39;s name and &quot;Ramanujan&quot; is his own given name, the name by which he was known and addressed.</strong><div class="muted">Anchors the coded name: Ramanujan is the given name; Srinivasa, the patronymic, takes the family-name position.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://mathshistory.st-andrews.ac.uk/DNB/Ramanujan.html" target="_blank" rel="noreferrer">Kanigel R. Ramanujan, Srinivasa (1887-1920), mathematician, Oxford Dictionary of National Biography (2004), as reproduced by MacTutor</a> <span class="relationship">supports</span><br><a href="https://en.wikipedia.org/wiki/Srinivasa_Ramanujan" target="_blank" rel="noreferrer">Srinivasa Ramanujan</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>He had smallpox in December 1889, fell ill after about three months at a college in Madras in 1906, and had a serious illness in 1908 followed by an operation in 1909 and a long recovery.</strong></td>
+    <td>confirmed</td>
+    <td><a href="https://mathshistory.st-andrews.ac.uk/Biographies/Ramanujan/" target="_blank" rel="noreferrer">O&#39;Connor JJ, Robertson EF. Srinivasa Aiyangar Ramanujan (MacTutor History of Mathematics biography)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>He had two episodes of dysentery in India, about eleven and eight years before his illness in England.</strong><div class="muted">Anchors the modern history of dysentery years ago, the clue that points to amebiasis.</div></td>
+    <td>probable</td>
+    <td><a href="https://www.imsc.res.in/~rao/ramanujan/newnow/Medicography.htm" target="_blank" rel="noreferrer">Life and Work: Illness (summary of Young DAB, Ramanujan&#39;s illness, Current Science 1994)</a> <span class="relationship">supports</span><br><a href="https://en.wikipedia.org/wiki/Srinivasa_Ramanujan" target="_blank" rel="noreferrer">Srinivasa Ramanujan</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>He married Janaki in July 1909, worked as a clerk at the Madras Port Trust from March 1912, wrote to G. H. Hardy at Cambridge in January 1913, sailed for England in March 1914, and moved into rooms at Trinity College, Cambridge, at the end of April 1914.</strong><div class="muted">Anchors his modern life as a mathematician far from his wife and family.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://mathshistory.st-andrews.ac.uk/Biographies/Ramanujan/" target="_blank" rel="noreferrer">O&#39;Connor JJ, Robertson EF. Srinivasa Aiyangar Ramanujan (MacTutor History of Mathematics biography)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>An orthodox Brahmin, he was a strict vegetarian. He had trouble with his diet from the start in England; the war that began a few months after his arrival made the foods he needed harder to get, and he cooked for himself, sometimes only once a day or every other day.</strong><div class="muted">Anchors the vegetarian diet, the nutritional assessment and the culturally respectful dietary plan.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://mathshistory.st-andrews.ac.uk/Biographies/Ramanujan/" target="_blank" rel="noreferrer">O&#39;Connor JJ, Robertson EF. Srinivasa Aiyangar Ramanujan (MacTutor History of Mathematics biography)</a> <span class="relationship">supports</span><br><a href="https://www.imsc.res.in/~rao/ramanujan/newnow/Hillgrove.htm" target="_blank" rel="noreferrer">Ramanujan as a Patient (Hill Grove)</a> <span class="relationship">supports</span><br><a href="https://mathshistory.st-andrews.ac.uk/DNB/Ramanujan.html" target="_blank" rel="noreferrer">Kanigel R. Ramanujan, Srinivasa (1887-1920), mathematician, Oxford Dictionary of National Biography (2004), as reproduced by MacTutor</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>In wartime England he was lonely, and letters from home were often absent.</strong><div class="muted">Anchors the isolation, the mood screening and the support for a student far from home. The modern mood findings are synthetic.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://mathshistory.st-andrews.ac.uk/DNB/Ramanujan.html" target="_blank" rel="noreferrer">Kanigel R. Ramanujan, Srinivasa (1887-1920), mathematician, Oxford Dictionary of National Biography (2004), as reproduced by MacTutor</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>His health was reasonably good during his first three years in Cambridge. He fell seriously ill in 1917: from May 1917 he was in a nursing hostel in Cambridge, then a sanatorium in the Mendip Hills in October 1917, Matlock House in Derbyshire from November 1917 to June 1918, Fitzroy House in London from June to December 1918, and Colinette House in Putney at the end of December 1918.</strong><div class="muted">History after the modern episode; the dates of the episode were chosen so that no modern visit falls in these stays.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.imsc.res.in/~rao/ramanujan/newnow/Hillgrove.htm" target="_blank" rel="noreferrer">Ramanujan as a Patient (Hill Grove)</a> <span class="relationship">supports</span><br><a href="https://mathshistory.st-andrews.ac.uk/Biographies/Ramanujan/" target="_blank" rel="noreferrer">O&#39;Connor JJ, Robertson EF. Srinivasa Aiyangar Ramanujan (MacTutor History of Mathematics biography)</a> <span class="relationship">supports</span><br><a href="https://mathshistory.st-andrews.ac.uk/DNB/Ramanujan.html" target="_blank" rel="noreferrer">Kanigel R. Ramanujan, Srinivasa (1887-1920), mathematician, Oxford Dictionary of National Biography (2004), as reproduced by MacTutor</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>He was treated mostly for tuberculosis. A gastric ulcer was considered and given up, and in February 1918 Hardy wrote that tuberculosis was the provisionally accepted theory.</strong><div class="muted">History after the modern episode: what his physicians suspected and treated.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://mathshistory.st-andrews.ac.uk/DNB/Ramanujan.html" target="_blank" rel="noreferrer">Kanigel R. Ramanujan, Srinivasa (1887-1920), mathematician, Oxford Dictionary of National Biography (2004), as reproduced by MacTutor</a> <span class="relationship">supports</span><br><a href="https://mathshistory.st-andrews.ac.uk/Biographies/Ramanujan/" target="_blank" rel="noreferrer">O&#39;Connor JJ, Robertson EF. Srinivasa Aiyangar Ramanujan (MacTutor History of Mathematics biography)</a> <span class="relationship">supports</span><br><a href="https://www.imsc.res.in/~rao/ramanujan/newnow/Hillgrove.htm" target="_blank" rel="noreferrer">Ramanujan as a Patient (Hill Grove)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-R" title="Retrospective">R</span></td>
+    <td><strong>Retrospective interpretation: his illness in England was tuberculosis, as his physicians provisionally concluded.</strong><div class="muted">One side of the diagnostic conflict; not settled by this record. The modern IGRA and cultures are synthetic.</div></td>
+    <td>disputed</td>
+    <td><a href="https://mathshistory.st-andrews.ac.uk/Biographies/Ramanujan/" target="_blank" rel="noreferrer">O&#39;Connor JJ, Robertson EF. Srinivasa Aiyangar Ramanujan (MacTutor History of Mathematics biography)</a> <span class="relationship">supports</span><br><a href="https://pubmed.ncbi.nlm.nih.gov/11615274/" target="_blank" rel="noreferrer">Young DA. Ramanujan&#39;s illness. Notes Rec R Soc Lond. 1994;48(1):107-19. doi:10.1098/rsnr.1994.0009</a> <span class="relationship">disputes</span><br><a href="https://www.imsc.res.in/~rao/ramanujan/newnow/Medicography.htm" target="_blank" rel="noreferrer">Life and Work: Illness (summary of Young DAB, Ramanujan&#39;s illness, Current Science 1994)</a> <span class="relationship">disputes</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-R" title="Retrospective">R</span></td>
+    <td><strong>Retrospective interpretation: in 1994 D. A. B. Young, reviewing his medical history, proposed that the illness was hepatic amoebiasis, a liver infection following his earlier dysentery, then regarded as a tropical disease and hard to diagnose, and treatable once diagnosed.</strong><div class="muted">The other side of the diagnostic conflict and the anchor for the modern diagnosis of amebic liver abscess, which is synthetic and does not settle the question.</div></td>
+    <td>disputed</td>
+    <td><a href="https://pubmed.ncbi.nlm.nih.gov/11615274/" target="_blank" rel="noreferrer">Young DA. Ramanujan&#39;s illness. Notes Rec R Soc Lond. 1994;48(1):107-19. doi:10.1098/rsnr.1994.0009</a> <span class="relationship">supports</span><br><a href="https://www.imsc.res.in/~rao/ramanujan/newnow/Medicography.htm" target="_blank" rel="noreferrer">Life and Work: Illness (summary of Young DAB, Ramanujan&#39;s illness, Current Science 1994)</a> <span class="relationship">supports</span><br><a href="https://mathshistory.st-andrews.ac.uk/DNB/Ramanujan.html" target="_blank" rel="noreferrer">Kanigel R. Ramanujan, Srinivasa (1887-1920), mathematician, Oxford Dictionary of National Biography (2004), as reproduced by MacTutor</a> <span class="relationship">context</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-R" title="Retrospective">R</span></td>
+    <td><strong>Retrospective interpretation: other diagnoses advanced over the years include vitamin deficiency, lead poisoning and cancer.</strong><div class="muted">Anchors the modern vitamin B12 and vitamin D assessment, which is synthetic.</div></td>
+    <td>possible</td>
+    <td><a href="https://mathshistory.st-andrews.ac.uk/DNB/Ramanujan.html" target="_blank" rel="noreferrer">Kanigel R. Ramanujan, Srinivasa (1887-1920), mathematician, Oxford Dictionary of National Biography (2004), as reproduced by MacTutor</a> <span class="relationship">supports</span><br><a href="https://en.wikipedia.org/wiki/Srinivasa_Ramanujan" target="_blank" rel="noreferrer">Srinivasa Ramanujan</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>He was elected a Fellow of the Royal Society in May 1918 and a Fellow of Trinity College in October 1918.</strong></td>
+    <td>confirmed</td>
+    <td><a href="https://mathshistory.st-andrews.ac.uk/Biographies/Ramanujan/" target="_blank" rel="noreferrer">O&#39;Connor JJ, Robertson EF. Srinivasa Aiyangar Ramanujan (MacTutor History of Mathematics biography)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-R" title="Retrospective">R</span></td>
+    <td><strong>Retrospective account: in the period of his illness, ill health, the absence of letters from home and loneliness are said to have driven him to a suicide attempt in the London Underground, from which he came away with only a bloodied shin. The account rests on later recollection; the date is given as late 1917 or early 1918.</strong><div class="muted">History only. Not used in the modern episode, which ends before it would have occurred; the modern mood care and safety assessment are synthetic.</div></td>
+    <td>possible</td>
+    <td><a href="https://mathshistory.st-andrews.ac.uk/DNB/Ramanujan.html" target="_blank" rel="noreferrer">Kanigel R. Ramanujan, Srinivasa (1887-1920), mathematician, Oxford Dictionary of National Biography (2004), as reproduced by MacTutor</a> <span class="relationship">supports</span><br><a href="https://en.wikipedia.org/wiki/Srinivasa_Ramanujan" target="_blank" rel="noreferrer">Srinivasa Ramanujan</a> <span class="relationship">context</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>He sailed for India on 27 February 1919, arriving on 13 March 1919, and died on 26 April 1920, at 32, in Kumbakonam according to one biography or in Madras according to the Oxford Dictionary of National Biography.</strong><div class="muted">History only, three years after the modern episode.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://mathshistory.st-andrews.ac.uk/Biographies/Ramanujan/" target="_blank" rel="noreferrer">O&#39;Connor JJ, Robertson EF. Srinivasa Aiyangar Ramanujan (MacTutor History of Mathematics biography)</a> <span class="relationship">supports</span><br><a href="https://mathshistory.st-andrews.ac.uk/DNB/Ramanujan.html" target="_blank" rel="noreferrer">Kanigel R. Ramanujan, Srinivasa (1887-1920), mathematician, Oxford Dictionary of National Biography (2004), as reproduced by MacTutor</a> <span class="relationship">supports</span></td>
+  </tr></tbody></table></section>
+    <section><h2>Modern synthetic problem list</h2><table><thead><tr><th>Grade</th><th>Problem</th><th>Clinical status</th><th>Verification</th><th>Placement</th><th>Historical claims</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Evening fevers to 38.6 °C with night sweats for about four weeks</td>
+    <td>resolved</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td>CLM-0008, CLM-0009</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Weight loss of 5 kg over two months (57 to 52 kg), with poor appetite</td>
+    <td>resolved</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td>CLM-0008, CLM-0009, CLM-0006</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Dull right upper quadrant pain for three weeks, worse on deep breathing and lying on the right side, with a tender liver edge</td>
+    <td>resolved</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td>CLM-0011</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Amebic liver abscess: a single 6.2 x 5.4 cm abscess in the right lobe (segment VII) on ultrasound, Entamoeba histolytica antibody positive, blood cultures negative, years after two episodes of dysentery in India; treated with metronidazole and then paromomycin; synthetic modern diagnosis linked to the hepatic amoebiasis later proposed for his illness</td>
+    <td>resolved</td>
+    <td>confirmed</td>
+    <td>both_with_link</td>
+    <td>CLM-0011, CLM-0004</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Vitamin B12 deficiency from a strict vegetarian diet (B12 168 pg/mL), with anemia (hemoglobin 11.2 g/dL, MCV 99 fL) to which inflammation also contributes</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td>CLM-0006, CLM-0012</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Vitamin D deficiency (25-hydroxyvitamin D 9 ng/mL)</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td>CLM-0006, CLM-0012</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Positive interferon-gamma release assay, with chest radiograph and sputum smears and NAAT negative for tuberculosis; cultures pending</td>
+    <td>resolved</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td>CLM-0010</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Latent tuberculosis infection: positive interferon-gamma release assay, normal lungs on the radiograph, three sputum smears, NAAT and cultures negative; treated with four months of rifampin</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td>CLM-0010</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Adjustment disorder with depressed mood (PHQ-9 12, no thoughts of self-harm) during a serious illness, far from his wife and family</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td>CLM-0007</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Acute viral upper respiratory infection, three weeks into rifampin and six weeks after treatment of the liver abscess, without signs of abscess relapse; resolved</td>
+    <td>resolved</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td></td>
+  </tr></tbody></table></section>
+    <section><h2>Synthetic outcome measures</h2><table><thead><tr><th>Grade</th><th>Date</th><th>Measure</th><th>Result</th><th>Coding</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1917-01-12</td>
+    <td>Leukocytes [#/volume] in Blood by Automated count</td>
+    <td>13.6 10*3/uL (high)<div class="muted">Reference 4-11 10*3/uL</div></td>
+    <td>http://loinc.org · 6690-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1917-01-12</td>
+    <td>Hemoglobin [Mass/volume] in Blood</td>
+    <td>11.2 g/dL (low)<div class="muted">Reference 13.2-17.1 g/dL</div></td>
+    <td>http://loinc.org · 718-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1917-01-12</td>
+    <td>MCV [Entitic mean volume] in Red Blood Cells by Automated count</td>
+    <td>99 fL<div class="muted">Reference 80-100 fL</div></td>
+    <td>http://loinc.org · 787-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1917-01-12</td>
+    <td>Platelets [#/volume] in Blood by Automated count</td>
+    <td>412 10*3/uL (high)<div class="muted">Reference 150-400 10*3/uL</div></td>
+    <td>http://loinc.org · 777-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1917-01-12</td>
+    <td>C reactive protein [Mass/volume] in Serum or Plasma</td>
+    <td>92 mg/L (high)<div class="muted">Reference &lt;=5 mg/L</div></td>
+    <td>http://loinc.org · 1988-5</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1917-01-12</td>
+    <td>Sodium [Moles/volume] in Serum or Plasma</td>
+    <td>134 mmol/L (low)<div class="muted">Reference 135-145 mmol/L</div></td>
+    <td>http://loinc.org · 2951-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1917-01-12</td>
+    <td>Potassium [Moles/volume] in Serum or Plasma</td>
+    <td>4.1 mmol/L<div class="muted">Reference 3.5-5.1 mmol/L</div></td>
+    <td>http://loinc.org · 2823-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1917-01-12</td>
+    <td>Creatinine [Mass/volume] in Serum or Plasma</td>
+    <td>0.94 mg/dL<div class="muted">Reference 0.74-1.35 mg/dL</div></td>
+    <td>http://loinc.org · 2160-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1917-01-12</td>
+    <td>Glomerular filtration rate [Volume Rate/Area] in Serum, Plasma or Blood by Creatinine-based formula (CKD-EPI 1912)/1.73 sq M</td>
+    <td>113 mL/min/1.73 m²<div class="muted">Reference &gt;=60 mL/min/1.73 m²</div></td>
+    <td>http://loinc.org · 98979-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1917-01-12</td>
+    <td>Alkaline phosphatase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>214 U/L (high)<div class="muted">Reference 40-129 U/L</div></td>
+    <td>http://loinc.org · 6768-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1917-01-12</td>
+    <td>Alanine aminotransferase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>46 U/L (high)<div class="muted">Reference 7-41 U/L</div></td>
+    <td>http://loinc.org · 1742-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1917-01-12</td>
+    <td>Aspartate aminotransferase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>38 U/L<div class="muted">Reference 10-40 U/L</div></td>
+    <td>http://loinc.org · 1920-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1917-01-12</td>
+    <td>Bilirubin.total [Mass/volume] in Serum or Plasma</td>
+    <td>0.9 mg/dL<div class="muted">Reference 0.1-1.2 mg/dL</div></td>
+    <td>http://loinc.org · 1975-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1917-01-12</td>
+    <td>Albumin [Mass/volume] in Serum or Plasma</td>
+    <td>3.2 g/dL (low)<div class="muted">Reference 3.5-5 g/dL</div></td>
+    <td>http://loinc.org · 1751-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1917-01-12</td>
+    <td>Hemoglobin A1c/Hemoglobin.total in Blood</td>
+    <td>5.4%<div class="muted">Reference Below 5.7% is normal</div></td>
+    <td>http://loinc.org · 4548-4</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1917-01-12</td>
+    <td>Cobalamin (Vitamin B12) [Mass/volume] in Serum or Plasma</td>
+    <td>168 pg/mL (low)<div class="muted">Reference 232-1245 pg/mL</div></td>
+    <td>http://loinc.org · 2132-9</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1917-01-12</td>
+    <td>Folate [Mass/volume] in Serum or Plasma</td>
+    <td>12.4 ng/mL<div class="muted">Reference &gt;=3 ng/mL</div></td>
+    <td>http://loinc.org · 2284-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1917-01-12</td>
+    <td>Ferritin [Mass/volume] in Serum or Plasma</td>
+    <td>310 ng/mL<div class="muted">Reference 24-336 ng/mL</div></td>
+    <td>http://loinc.org · 2276-4</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1917-01-12</td>
+    <td>25-Hydroxyvitamin D3+25-Hydroxyvitamin D2 [Mass/volume] in Serum or Plasma</td>
+    <td>9 ng/mL (low)<div class="muted">Reference 30-100 ng/mL</div></td>
+    <td>http://loinc.org · 62292-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1917-01-12</td>
+    <td>Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]</td>
+    <td>12</td>
+    <td>http://loinc.org · 44261-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1917-01-12</td>
+    <td>Generalized anxiety disorder 7 item (GAD-7) total score [Reported.PHQ]</td>
+    <td>9</td>
+    <td>http://loinc.org · 70274-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1917-01-26</td>
+    <td>Leukocytes [#/volume] in Blood by Automated count</td>
+    <td>8.9 10*3/uL<div class="muted">Reference 4-11 10*3/uL</div></td>
+    <td>http://loinc.org · 6690-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1917-01-26</td>
+    <td>Hemoglobin [Mass/volume] in Blood</td>
+    <td>11.6 g/dL (low)<div class="muted">Reference 13.2-17.1 g/dL</div></td>
+    <td>http://loinc.org · 718-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1917-01-26</td>
+    <td>Platelets [#/volume] in Blood by Automated count</td>
+    <td>380 10*3/uL<div class="muted">Reference 150-400 10*3/uL</div></td>
+    <td>http://loinc.org · 777-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1917-01-26</td>
+    <td>C reactive protein [Mass/volume] in Serum or Plasma</td>
+    <td>24 mg/L (high)<div class="muted">Reference &lt;=5 mg/L</div></td>
+    <td>http://loinc.org · 1988-5</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1917-01-26</td>
+    <td>Alkaline phosphatase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>168 U/L (high)<div class="muted">Reference 40-129 U/L</div></td>
+    <td>http://loinc.org · 6768-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1917-01-26</td>
+    <td>Alanine aminotransferase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>34 U/L<div class="muted">Reference 7-41 U/L</div></td>
+    <td>http://loinc.org · 1742-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1917-01-26</td>
+    <td>Albumin [Mass/volume] in Serum or Plasma</td>
+    <td>3.5 g/dL<div class="muted">Reference 3.5-5 g/dL</div></td>
+    <td>http://loinc.org · 1751-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1917-01-26</td>
+    <td>Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]</td>
+    <td>10</td>
+    <td>http://loinc.org · 44261-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1917-01-26</td>
+    <td>Generalized anxiety disorder 7 item (GAD-7) total score [Reported.PHQ]</td>
+    <td>7</td>
+    <td>http://loinc.org · 70274-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1917-02-23</td>
+    <td>Leukocytes [#/volume] in Blood by Automated count</td>
+    <td>6.8 10*3/uL<div class="muted">Reference 4-11 10*3/uL</div></td>
+    <td>http://loinc.org · 6690-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1917-02-23</td>
+    <td>Hemoglobin [Mass/volume] in Blood</td>
+    <td>12.6 g/dL (low)<div class="muted">Reference 13.2-17.1 g/dL</div></td>
+    <td>http://loinc.org · 718-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1917-02-23</td>
+    <td>MCV [Entitic mean volume] in Red Blood Cells by Automated count</td>
+    <td>94 fL<div class="muted">Reference 80-100 fL</div></td>
+    <td>http://loinc.org · 787-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1917-02-23</td>
+    <td>Platelets [#/volume] in Blood by Automated count</td>
+    <td>290 10*3/uL<div class="muted">Reference 150-400 10*3/uL</div></td>
+    <td>http://loinc.org · 777-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1917-02-23</td>
+    <td>C reactive protein [Mass/volume] in Serum or Plasma</td>
+    <td>6 mg/L (high)<div class="muted">Reference &lt;=5 mg/L</div></td>
+    <td>http://loinc.org · 1988-5</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1917-02-23</td>
+    <td>Alkaline phosphatase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>118 U/L<div class="muted">Reference 40-129 U/L</div></td>
+    <td>http://loinc.org · 6768-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1917-02-23</td>
+    <td>Alanine aminotransferase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>28 U/L<div class="muted">Reference 7-41 U/L</div></td>
+    <td>http://loinc.org · 1742-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1917-02-23</td>
+    <td>Aspartate aminotransferase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>24 U/L<div class="muted">Reference 10-40 U/L</div></td>
+    <td>http://loinc.org · 1920-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1917-02-23</td>
+    <td>Bilirubin.total [Mass/volume] in Serum or Plasma</td>
+    <td>0.6 mg/dL<div class="muted">Reference 0.1-1.2 mg/dL</div></td>
+    <td>http://loinc.org · 1975-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1917-02-23</td>
+    <td>Albumin [Mass/volume] in Serum or Plasma</td>
+    <td>3.9 g/dL<div class="muted">Reference 3.5-5 g/dL</div></td>
+    <td>http://loinc.org · 1751-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1917-02-23</td>
+    <td>Cobalamin (Vitamin B12) [Mass/volume] in Serum or Plasma</td>
+    <td>410 pg/mL<div class="muted">Reference 232-1245 pg/mL</div></td>
+    <td>http://loinc.org · 2132-9</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1917-02-23</td>
+    <td>Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]</td>
+    <td>8</td>
+    <td>http://loinc.org · 44261-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1917-02-23</td>
+    <td>Generalized anxiety disorder 7 item (GAD-7) total score [Reported.PHQ]</td>
+    <td>6</td>
+    <td>http://loinc.org · 70274-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1917-04-20</td>
+    <td>Leukocytes [#/volume] in Blood by Automated count</td>
+    <td>6.2 10*3/uL<div class="muted">Reference 4-11 10*3/uL</div></td>
+    <td>http://loinc.org · 6690-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1917-04-20</td>
+    <td>Hemoglobin [Mass/volume] in Blood</td>
+    <td>13.8 g/dL<div class="muted">Reference 13.2-17.1 g/dL</div></td>
+    <td>http://loinc.org · 718-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1917-04-20</td>
+    <td>MCV [Entitic mean volume] in Red Blood Cells by Automated count</td>
+    <td>90 fL<div class="muted">Reference 80-100 fL</div></td>
+    <td>http://loinc.org · 787-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1917-04-20</td>
+    <td>Platelets [#/volume] in Blood by Automated count</td>
+    <td>262 10*3/uL<div class="muted">Reference 150-400 10*3/uL</div></td>
+    <td>http://loinc.org · 777-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1917-04-20</td>
+    <td>C reactive protein [Mass/volume] in Serum or Plasma</td>
+    <td>2 mg/L<div class="muted">Reference &lt;=5 mg/L</div></td>
+    <td>http://loinc.org · 1988-5</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1917-04-20</td>
+    <td>Alkaline phosphatase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>96 U/L<div class="muted">Reference 40-129 U/L</div></td>
+    <td>http://loinc.org · 6768-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1917-04-20</td>
+    <td>Alanine aminotransferase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>30 U/L<div class="muted">Reference 7-41 U/L</div></td>
+    <td>http://loinc.org · 1742-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1917-04-20</td>
+    <td>Aspartate aminotransferase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>26 U/L<div class="muted">Reference 10-40 U/L</div></td>
+    <td>http://loinc.org · 1920-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1917-04-20</td>
+    <td>Bilirubin.total [Mass/volume] in Serum or Plasma</td>
+    <td>0.7 mg/dL<div class="muted">Reference 0.1-1.2 mg/dL</div></td>
+    <td>http://loinc.org · 1975-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1917-04-20</td>
+    <td>Cobalamin (Vitamin B12) [Mass/volume] in Serum or Plasma</td>
+    <td>520 pg/mL<div class="muted">Reference 232-1245 pg/mL</div></td>
+    <td>http://loinc.org · 2132-9</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1917-04-20</td>
+    <td>25-Hydroxyvitamin D3+25-Hydroxyvitamin D2 [Mass/volume] in Serum or Plasma</td>
+    <td>32 ng/mL<div class="muted">Reference 30-100 ng/mL</div></td>
+    <td>http://loinc.org · 62292-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1917-04-20</td>
+    <td>Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]</td>
+    <td>5</td>
+    <td>http://loinc.org · 44261-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1917-04-20</td>
+    <td>Generalized anxiety disorder 7 item (GAD-7) total score [Reported.PHQ]</td>
+    <td>4</td>
+    <td>http://loinc.org · 70274-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1917-03-16</td>
+    <td>Leukocytes [#/volume] in Blood by Automated count</td>
+    <td>7.4 10*3/uL<div class="muted">Reference 4-11 10*3/uL</div></td>
+    <td>http://loinc.org · 6690-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1917-03-16</td>
+    <td>C reactive protein [Mass/volume] in Serum or Plasma</td>
+    <td>11 mg/L (high)<div class="muted">Reference &lt;=5 mg/L</div></td>
+    <td>http://loinc.org · 1988-5</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1917-03-16</td>
+    <td>Alkaline phosphatase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>104 U/L<div class="muted">Reference 40-129 U/L</div></td>
+    <td>http://loinc.org · 6768-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1917-03-16</td>
+    <td>Alanine aminotransferase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>32 U/L<div class="muted">Reference 7-41 U/L</div></td>
+    <td>http://loinc.org · 1742-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1917-03-16</td>
+    <td>Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]</td>
+    <td>7</td>
+    <td>http://loinc.org · 44261-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1917-04-06</td>
+    <td>Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]</td>
+    <td>6</td>
+    <td>http://loinc.org · 44261-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1917-04-06</td>
+    <td>Total score [AUDIT-C]</td>
+    <td>0</td>
+    <td>http://loinc.org · 75626-2</td>
+  </tr></tbody></table></section>
+    <section><h2>Synthetic vital signs</h2><table><thead><tr><th>Date</th><th>Measure</th><th>Result</th><th>LOINC</th><th>Grade</th></tr></thead><tbody>
+  <tr><td>1917-01-12</td><td>Body height</td><td>165 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1917-01-12</td><td>Body weight</td><td>52 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1917-01-12</td><td>Body mass index (BMI) [Ratio]</td><td>19.1 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1917-01-12</td><td>Systolic blood pressure</td><td>112 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1917-01-12</td><td>Diastolic blood pressure</td><td>70 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1917-01-12</td><td>Heart rate</td><td>104 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1917-01-12</td><td>Respiratory rate</td><td>18 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1917-01-12</td><td>Body temperature</td><td>38.4 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1917-01-12</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>97 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1917-01-14</td><td>Body height</td><td>165 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1917-01-14</td><td>Body weight</td><td>51.8 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1917-01-14</td><td>Body mass index (BMI) [Ratio]</td><td>19 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1917-01-14</td><td>Systolic blood pressure</td><td>110 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1917-01-14</td><td>Diastolic blood pressure</td><td>68 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1917-01-14</td><td>Heart rate</td><td>100 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1917-01-14</td><td>Respiratory rate</td><td>18 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1917-01-14</td><td>Body temperature</td><td>38.2 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1917-01-14</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>97 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1917-01-26</td><td>Body height</td><td>165 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1917-01-26</td><td>Body weight</td><td>52.6 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1917-01-26</td><td>Body mass index (BMI) [Ratio]</td><td>19.3 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1917-01-26</td><td>Systolic blood pressure</td><td>114 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1917-01-26</td><td>Diastolic blood pressure</td><td>72 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1917-01-26</td><td>Heart rate</td><td>80 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1917-01-26</td><td>Respiratory rate</td><td>16 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1917-01-26</td><td>Body temperature</td><td>36.8 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1917-01-26</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>98 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1917-02-23</td><td>Body height</td><td>165 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1917-02-23</td><td>Body weight</td><td>54.8 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1917-02-23</td><td>Body mass index (BMI) [Ratio]</td><td>20.1 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1917-02-23</td><td>Systolic blood pressure</td><td>116 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1917-02-23</td><td>Diastolic blood pressure</td><td>72 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1917-02-23</td><td>Heart rate</td><td>74 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1917-02-23</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1917-02-23</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1917-02-23</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>99 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1917-04-20</td><td>Body height</td><td>165 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1917-04-20</td><td>Body weight</td><td>56.6 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1917-04-20</td><td>Body mass index (BMI) [Ratio]</td><td>20.8 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1917-04-20</td><td>Systolic blood pressure</td><td>118 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1917-04-20</td><td>Diastolic blood pressure</td><td>74 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1917-04-20</td><td>Heart rate</td><td>70 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1917-04-20</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1917-04-20</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1917-04-20</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>99 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1917-03-16</td><td>Body height</td><td>165 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1917-03-16</td><td>Body weight</td><td>55.2 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1917-03-16</td><td>Body mass index (BMI) [Ratio]</td><td>20.3 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1917-03-16</td><td>Systolic blood pressure</td><td>114 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1917-03-16</td><td>Diastolic blood pressure</td><td>70 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1917-03-16</td><td>Heart rate</td><td>88 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1917-03-16</td><td>Respiratory rate</td><td>16 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1917-03-16</td><td>Body temperature</td><td>37.8 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1917-03-16</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>98 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1917-04-06</td><td>Body height</td><td>165 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1917-04-06</td><td>Body weight</td><td>56 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1917-04-06</td><td>Body mass index (BMI) [Ratio]</td><td>20.6 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1917-04-06</td><td>Systolic blood pressure</td><td>116 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1917-04-06</td><td>Diastolic blood pressure</td><td>72 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1917-04-06</td><td>Heart rate</td><td>70 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1917-04-06</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1917-04-06</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1917-04-06</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>99 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr></tbody></table></section>
+    <section><h2>Social, functional, and mental status</h2><h3>Social history</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Mathematician holding a research fellowship at a university here; came from Tamil Nadu three years ago; before that a clerk in a port office while he worked on mathematics on his own; works long hours, often through the night</li><li><span class="badge grade-S" title="Synthetic">S</span> Lives alone in a college room with a small kitchen; married, and his wife lives with his parents in India; calls home rarely and letters are slow; few friends here who share his language or food</li><li><span class="badge grade-S" title="Synthetic">S</span> Strict lacto-vegetarian by his tradition: rice, lentils and other pulses, vegetables, fruit, milk, curd and ghee; no meat, fish or eggs; cooks for himself, prefers food prepared by himself or within his tradition, and in recent weeks has cooked only once a day or less; finds few of his foods in local shops</li><li><span class="badge grade-S" title="Synthetic">S</span> Tobacco: never. Alcohol: never, by his tradition. No drug use</li><li><span class="badge grade-S" title="Synthetic">S</span> Hindu; prays daily; his faith and his mathematics matter most to him</li><li><span class="badge grade-S" title="Synthetic">S</span> Stipend from his fellowship; student health insurance; no car; walks everywhere</li><li><span class="badge grade-S" title="Synthetic">S</span> Prefers to be addressed as Mr. Ramanujan; explains that Srinivasa is his father&#39;s name and that he has no family name</li></ul><h3>Functional status</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Independent in daily activities, but tired by afternoon, cooking less, and has missed some seminars in the last two weeks</li></ul><h3>Mental status</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Quiet and courteous, thoughtful, with soft speech and some slowing; mood low and worried; affect constricted but brightens when he talks about his work; thought clear and logical; no thoughts of self-harm; PHQ-9 12, GAD-7 9</li></ul></section>
+    <section><h2>Structured safety assessment</h2><div class="grid"><div class="card"><div class="label">Current ideation</div>absent</div><div class="card"><div class="label">Intent</div>absent</div><div class="card"><div class="label">Plan</div>absent</div><div class="card"><div class="label">Disposition</div>Outpatient care with close follow-up. He has no thoughts of suicide or self-harm now and has had none. Because he is ill, isolated, far from home and screening in the moderate range, his risk factors were reviewed with him privately and a written safety plan was made: his warning signs (not sleeping, not eating, not wanting to see anyone), what helps, who he can call, and the clinic number. The 988 Suicide &amp; Crisis Lifeline was given and saved in his phone. Lethal-means counseling: no firearm; medicines dispensed in short supplies. Safety reviewed at every visit</div></div><p class="muted">This assessment is synthetic and does not convert historical behavior into a present-day fact.</p></section>
+    <section><h2>Allergies and medications</h2><h3>Allergies</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> No known allergy</li></ul><h3>Medications</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Metronidazole 250 mg oral tablet, three tablets (750 mg) three times a day with food for 10 days</li><li><span class="badge grade-S" title="Synthetic">S</span> Paromomycin 250 mg oral capsule, two capsules (500 mg) three times a day with meals for 7 days, started the day after metronidazole ends</li><li><span class="badge grade-S" title="Synthetic">S</span> Vitamin B12 (cyanocobalamin) 1,000 microgram oral tablet, one tablet daily</li><li><span class="badge grade-S" title="Synthetic">S</span> Cholecalciferol 50,000 unit (1.25 mg) oral tablet, one tablet once a week for 8 weeks</li><li><span class="badge grade-S" title="Synthetic">S</span> Cholecalciferol 2,000 unit (50 microgram) oral tablet, one tablet daily, from the end of the weekly course</li><li><span class="badge grade-S" title="Synthetic">S</span> Rifampin 300 mg oral capsule, two capsules (600 mg) once daily on an empty stomach for 4 months</li></ul></section>
+    <section><h2>Procedures and immunizations</h2><h3>Procedures</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Chest radiograph, two views</li><li><span class="badge grade-S" title="Synthetic">S</span> Sputum induction with hypertonic saline for acid-fast smear, NAAT and mycobacterial culture (first of three samples)</li><li><span class="badge grade-S" title="Synthetic">S</span> Ultrasound of the abdomen</li><li><span class="badge grade-S" title="Synthetic">S</span> Advance care planning conversation, about 15 minutes</li></ul><h3>Immunizations</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> 1917-04-06: Tetanus, diphtheria, and acellular pertussis vaccine (Tdap)</li><li><span class="badge grade-S" title="Synthetic">S</span> 1917-04-06: Hepatitis B vaccine (HepB-CpG), dose 1 of 2</li><li><span class="badge grade-S" title="Synthetic">S</span> 1917-04-06: Typhoid Vi capsular polysaccharide vaccine, injectable</li><li><span class="badge grade-S" title="Synthetic">S</span> 1917-02-23: Influenza vaccine, inactivated, this season</li></ul></section>
+    <section><h2>Past medical history</h2><p class="muted">True biography with historical dates; not part of the synthetic care timeline.</p><ul><li><span class="badge grade-D" title="Documented">D</span> December 1889: Smallpox in early childhood; recovered <span class="muted">(CLM-0003)</span></li><li><span class="badge grade-D" title="Documented">D</span> about 1906: Dysentery in India, two episodes, the first about eleven years ago (dates approximate); no record of the treatment <span class="muted">(CLM-0004)</span></li><li><span class="badge grade-D" title="Documented">D</span> 1909: A serious illness followed by an operation, with a long recovery <span class="muted">(CLM-0003)</span></li></ul><h3>Family history</h3><p class="muted">No family medical history is documented in the logged sources. Family history of real relatives is never synthesized.</p></section>
+    <section><h2>Care-plan goals</h2><table><thead><tr><th>Goal</th><th>Target date</th><th>Status</th><th>Outcome</th></tr></thead><tbody>
+  <tr><td>A diagnosis within days, with tuberculosis either confirmed or excluded before any treatment that could hide it</td><td>1917-02-23</td><td>completed</td><td>Amebic liver abscess diagnosed at the second visit; active tuberculosis excluded by the radiograph, three smears, NAAT and cultures at six weeks</td></tr>
+  <tr><td>No fever, the abscess treated, and the luminal course completed</td><td>1917-04-20</td><td>completed</td><td>Afebrile by the third day of metronidazole; paromomycin completed; CRP and liver tests normal</td></tr>
+  <tr><td>Regain at least half of the lost weight within three months, on a diet that keeps his rules</td><td>1917-04-20</td><td>completed</td><td>52.0 to 56.6 kg, nearly all the weight lost</td></tr>
+  <tr><td>Vitamin B12 and vitamin D in the normal range and the anemia resolved</td><td>1917-04-20</td><td>completed</td><td>B12 520 pg/mL; 25-hydroxyvitamin D 32 ng/mL; hemoglobin 13.8 g/dL</td></tr>
+  <tr><td>PHQ-9 below 10 with no thoughts of self-harm, and regular contact with people who matter to him</td><td>1917-04-20</td><td>completed</td><td>PHQ-9 12 to 5; weekly calls home and a weekly meal with others from his community</td></tr>
+  <tr><td>Complete four months of rifampin for latent tuberculosis infection</td><td>1917-04-20</td><td>active</td><td>Month two of four; no side effects; liver tests normal</td></tr></tbody></table></section>
+    <section><h2>Interventions</h2><table><thead><tr><th>Intervention</th><th>Status</th><th>Guideline</th></tr></thead><tbody>
+  <tr><td>Infectious diseases consultation at the second visit for fever, weight loss and right upper quadrant pain in a young man from South India with a history of dysentery, to interpret the tuberculosis and amebiasis tests, the imaging, and the choice and order of treatment</td><td>completed</td><td>GL-ATS-TBDX-2017, GL-CDC-AMEBA</td></tr>
+  <tr><td>Tuberculosis evaluation before any antibiotic: chest radiograph, three induced sputum samples for acid-fast smear, NAAT and mycobacterial culture, an interferon-gamma release assay, and HIV testing; airborne precautions until three smears are negative</td><td>completed</td><td>GL-ATS-TBDX-2017, GL-ATS-TB-2016</td></tr>
+  <tr><td>Liver and gut evaluation: abdominal ultrasound tomorrow morning, Entamoeba histolytica serology, stool antigen or PCR and microscopy, two sets of blood cultures, liver tests and CRP</td><td>completed</td><td>GL-CDC-AMEBA, GL-OFID-AMEBA-2018</td></tr>
+  <tr><td>Nutrition: vitamin B12, folate, ferritin and 25-hydroxyvitamin D measured; weight at every visit; a dietitian visit to plan meals within his vegetarian diet and his rules</td><td>completed</td><td>GL-AND-VEG-2016, GL-CMID-2026</td></tr>
+  <tr><td>Mood and safety: PHQ-9 and GAD-7 at intake and at least monthly while symptoms last; structured safety assessment and a written safety plan with the 988 Suicide &amp; Crisis Lifeline; safety reviewed at every visit; short-term counseling with the university counseling service, at times he chooses</td><td>completed</td><td>GL-USPSTF-DEP-2023, GL-SUICIDE-2024, GL-CMID-2026</td></tr>
+  <tr><td>Support far from home: the university&#39;s international student office and his department&#39;s graduate office about leave and deadlines while he is ill; a regular time to call his family; introductions, at his wish, to the local Tamil association and a Hindu temple community with shared meals; a letter for his fellowship about his illness</td><td>completed</td><td>GL-USPSTF-DEP-2023</td></tr>
+  <tr><td>Acetaminophen for fever and pain, no more than 3 g a day; nothing else until the results are known</td><td>completed</td><td>GL-CDC-AMEBA</td></tr>
+  <tr><td>Cold: rest, fluids, warm salt-water gargles, honey in warm water and acetaminophen; continue rifampin; no antibiotic; return for fever over three days, right upper quadrant pain, or breathlessness</td><td>completed</td><td>GL-CDC-LTBI-2020</td></tr>
+  <tr><td>As the infectious diseases physician advised: metronidazole 750 mg three times a day for 10 days, then paromomycin 500 mg three times a day for 7 days, not taken together; no aspiration unless fever persists after 72 hours, the abscess grows, or rupture threatens; a nurse phone check on the third day; no repeat imaging if he recovers</td><td>completed</td><td>GL-CDC-AMEBA, GL-OFID-AMEBA-2018</td></tr>
+  <tr><td>Vitamin B12 1,000 micrograms by mouth daily and vitamin D 50,000 units weekly for 8 weeks, then 2,000 units daily; a dietitian plan within his rules: protein from dal, chickpeas, beans, milk, curd and paneer; dairy and fortified foods for B12; batch cooking once a day for two meals; easy foods such as curd rice and khichdi on tired days; an Indian grocery delivery</td><td>completed</td><td>GL-AND-VEG-2016, GL-CMID-2026</td></tr>
+  <tr><td>Latent tuberculosis infection, once cultures were negative and the liver tests normal: rifampin 600 mg daily for 4 months, with a monthly clinical check for nausea, rash, jaundice and adherence; liver tests at baseline and at two months because of the recent liver disease; orange body fluids explained</td><td>completed</td><td>GL-CDC-LTBI-2020, GL-ATS-TBDX-2017</td></tr></tbody></table></section>
+    <section><h2>Planned encounters</h2><ul>
+  <li><strong>1917-01-12</strong> — New patient with four weeks of evening fevers and night sweats, weight loss and right upper quadrant pain, in a 29-year-old mathematician from Tamil Nadu who came to a research fellowship here three years ago <span class="muted">(ENC-001)</span></li>
+  <li><strong>1917-01-14</strong> — Results of the abdominal ultrasound, serology and tuberculosis tests, with an infectious diseases consultation, and start of treatment <span class="muted">(ENC-002)</span></li>
+  <li><strong>1917-01-26</strong> — Day 12: end of metronidazole and start of paromomycin, blood count, CRP and liver tests, mood and safety review <span class="muted">(ENC-003)</span></li>
+  <li><strong>1917-02-23</strong> — Six weeks: recovery, final sputum cultures, liver tests before rifampin, vitamin B12, mood, influenza vaccine <span class="muted">(ENC-004)</span></li>
+  <li><strong>1917-03-16</strong> — Same-day sick visit for a cold with fever, and the question of an abscess relapse <span class="muted">(ENC-006, unscheduled)</span></li>
+  <li><strong>1917-04-06</strong> — Periodic adult preventive visit with pre-travel advice <span class="muted">(ENC-007)</span></li>
+  <li><strong>1917-04-20</strong> — Three months: abscess treatment complete, rifampin month two, blood count, liver tests, vitamins, mood, and plans to visit home <span class="muted">(ENC-005)</span></li></ul></section>
+    <section><h2>Supporting documents</h2><ul><li><a href="notes/hp.md">History and physical</a></li><li><a href="notes/progress-01.md">Progress note 01</a></li><li><a href="notes/progress-02.md">Progress note 02 — Focused Visit (Follow-up)</a></li><li><a href="notes/progress-03.md">Progress note 03 — Focused Visit (Follow-up)</a></li><li><a href="notes/progress-04.md">Progress note 04 — Focused Visit (Follow-up)</a></li><li><a href="notes/progress-05.md">Progress note 05 — Sick Visit</a></li><li><a href="notes/progress-06.md">Progress note 06 — Preventive Visit</a></li><li><a href="notes/progress-07.md">Progress note 07 — Focused Visit (Care-plan review)</a></li><li><a href="notes/referral-01.md">Infectious Diseases referral</a></li><li><a href="notes/consult-01.md">Infectious Diseases consultation</a></li><li><a href="notes/careplan.md">Patient care plan</a></li><li><a href="notes/teaching-note.md">Teaching note</a></li><li><a href="provenance.csv">Provenance CSV</a></li></ul></section>
+    <section><h2>C-CDA note documents</h2><p class="muted">Each link opens a readable copy; the XML beside it is the exchange file.</p><ul><li><a href="ccda/hp-01.html">History and physical</a> <a href="ccda/hp-01.xml">(XML)</a></li><li><a href="ccda/progress-01.html">Progress note 01</a> <a href="ccda/progress-01.xml">(XML)</a></li><li><a href="ccda/progress-02.html">Progress note 02 — Focused Visit (Follow-up)</a> <a href="ccda/progress-02.xml">(XML)</a></li><li><a href="ccda/progress-03.html">Progress note 03 — Focused Visit (Follow-up)</a> <a href="ccda/progress-03.xml">(XML)</a></li><li><a href="ccda/progress-04.html">Progress note 04 — Focused Visit (Follow-up)</a> <a href="ccda/progress-04.xml">(XML)</a></li><li><a href="ccda/progress-05.html">Progress note 05 — Sick Visit</a> <a href="ccda/progress-05.xml">(XML)</a></li><li><a href="ccda/progress-06.html">Progress note 06 — Preventive Visit</a> <a href="ccda/progress-06.xml">(XML)</a></li><li><a href="ccda/progress-07.html">Progress note 07 — Focused Visit (Care-plan review)</a> <a href="ccda/progress-07.xml">(XML)</a></li><li><a href="ccda/referral-01.html">Infectious Diseases referral</a> <a href="ccda/referral-01.xml">(XML)</a></li><li><a href="ccda/consult-01.html">Infectious Diseases consultation</a> <a href="ccda/consult-01.xml">(XML)</a></li></ul></section>
+    <section><h2>Sources</h2><table><thead><tr><th>ID</th><th>Source</th><th>Publisher</th><th>Type</th></tr></thead><tbody>
+  <tr>
+    <td>SRC-0001</td>
+    <td><a href="https://mathshistory.st-andrews.ac.uk/Biographies/Ramanujan/" target="_blank" rel="noreferrer">O&#39;Connor JJ, Robertson EF. Srinivasa Aiyangar Ramanujan (MacTutor History of Mathematics biography)</a></td>
+    <td>School of Mathematics and Statistics, University of St Andrews</td>
+    <td>biography</td>
+  </tr>
+  <tr>
+    <td>SRC-0002</td>
+    <td><a href="https://mathshistory.st-andrews.ac.uk/DNB/Ramanujan.html" target="_blank" rel="noreferrer">Kanigel R. Ramanujan, Srinivasa (1887-1920), mathematician, Oxford Dictionary of National Biography (2004), as reproduced by MacTutor</a></td>
+    <td>Oxford University Press, via the University of St Andrews</td>
+    <td>biography</td>
+  </tr>
+  <tr>
+    <td>SRC-0003</td>
+    <td><a href="https://www.imsc.res.in/~rao/ramanujan/newnow/Hillgrove.htm" target="_blank" rel="noreferrer">Ramanujan as a Patient (Hill Grove)</a></td>
+    <td>Institute of Mathematical Sciences, Chennai (Ramanujan pages)</td>
+    <td>biography</td>
+  </tr>
+  <tr>
+    <td>SRC-0004</td>
+    <td><a href="https://www.imsc.res.in/~rao/ramanujan/newnow/Medicography.htm" target="_blank" rel="noreferrer">Life and Work: Illness (summary of Young DAB, Ramanujan&#39;s illness, Current Science 1994)</a></td>
+    <td>Institute of Mathematical Sciences, Chennai (Ramanujan pages)</td>
+    <td>biography</td>
+  </tr>
+  <tr>
+    <td>SRC-0005</td>
+    <td><a href="https://pubmed.ncbi.nlm.nih.gov/11615274/" target="_blank" rel="noreferrer">Young DA. Ramanujan&#39;s illness. Notes Rec R Soc Lond. 1994;48(1):107-19. doi:10.1098/rsnr.1994.0009</a></td>
+    <td>Royal Society (PubMed 11615274)</td>
+    <td>scholarly</td>
+  </tr>
+  <tr>
+    <td>SRC-0006</td>
+    <td><a href="https://en.wikipedia.org/wiki/Srinivasa_Ramanujan" target="_blank" rel="noreferrer">Srinivasa Ramanujan</a></td>
+    <td>Wikipedia</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0007</td>
+    <td><a href="https://humanrecord.example.org/internal/HISTMED_Master_Roster_v3.xlsx" target="_blank" rel="noreferrer">HISTMED Master Roster v3</a></td>
+    <td>The Human Record project</td>
+    <td>other</td>
+  </tr></tbody></table></section>
+    <section><h2>Review status</h2><table><thead><tr><th>Review</th><th>Status</th><th>Notes</th></tr></thead><tbody>
+  <tr><td>schema validation</td><td>not_started</td><td>Run scripts/build.ps1 -Conformance.</td></tr>
+  <tr><td>clinical review</td><td>not_started</td><td>Awaiting clinician review; check the order of the tuberculosis and amebiasis evaluation, the decision not to aspirate, metronidazole then paromomycin, the diagnosis of latent infection only after negative cultures, rifampin after the liver tests normalized, oral B12 and vitamin D repletion, and the safety assessment.</td></tr>
+  <tr><td>provenance review</td><td>not_started</td><td>Sources: MacTutor (St Andrews), the Oxford DNB entry reproduced by MacTutor, two Institute of Mathematical Sciences pages, the PubMed record of Young (1994), and Wikipedia for the naming note and context only. Kanigel&#39;s book and Young&#39;s full text were not read.</td></tr>
+  <tr><td>safe messaging review</td><td>not_started</td><td>The reported suicide attempt (CLM-0014) is history only, graded R, marked sensitive, stated without method detail beyond the source&#39;s own words, and kept out of the modern episode, which ends before it would have occurred. The modern adjustment disorder and safety assessment are synthetic, record no suicidal ideation, and include the 988 Lifeline.</td></tr></tbody></table></section>
+  </main>
+</body>
+</html>
