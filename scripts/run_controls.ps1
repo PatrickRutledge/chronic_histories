@@ -85,6 +85,11 @@ try {
     $dir = New-ControlCase 'npi' { param($c) Add-SocialText $c 'Prescriber 1234567893' }
     Assert-Control 'valid-format NPI' (Invoke-Script $build @('-CaseDirectory', $dir)) 'Valid-format NPI'
 
+    # The reverse: a ten-digit SNOMED CT code that happens to pass the NPI check digit is terminology, not an identifier.
+    $dir = New-ControlCase 'snomed-not-npi' { param($c) $c.clinical.procedures[0].coding[0].code = '1356786008'; $c.clinical.procedures[0].coding[0].display = 'Magnetic resonance imaging of heart' }
+    $run = Invoke-Script $build @('-CaseDirectory', $dir)
+    $results.Add([pscustomobject]@{ Control = 'ten-digit SNOMED code that passes the NPI check digit'; Result = $(if ($run.Output -notmatch 'Valid-format NPI') { 'PASS' } else { 'FAIL' }); Detail = $(if ($run.Output -notmatch 'Valid-format NPI') { 'not flagged' } else { 'flagged as an NPI' }) })
+
     $dir = New-ControlCase 'grade' { param($c) $c.clinical.past_medical_history[2].provenance.evidence_grade = 'D' }
     Assert-Control 'history graded above its claims' (Invoke-Script $build @('-CaseDirectory', $dir)) 'graded D but its claims support R'
 

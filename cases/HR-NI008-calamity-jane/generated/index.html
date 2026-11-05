@@ -1,0 +1,835 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Calamity Jane — The Human Record</title>
+  <style>
+    :root { --navy:#17365d; --blue:#1f4e78; --pale:#eef5fa; --ink:#1f2933; --muted:#66788a; --amber:#fff2cc; --red:#f8d7da; --green:#d9ead3; }
+    * { box-sizing:border-box; }
+    body { margin:0; font:16px/1.5 Arial, sans-serif; color:var(--ink); background:#f6f8fa; }
+    header { background:var(--navy); color:white; padding:24px max(24px,calc((100vw - 1180px)/2)); }
+    header h1 { margin:4px 0; font-size:30px; }
+    .banner { background:#b42318; color:white; font-weight:700; text-align:center; padding:10px; letter-spacing:.03em; }
+    main { max-width:1180px; margin:24px auto 60px; padding:0 24px; }
+    section { background:white; border:1px solid #d9e1e8; border-radius:8px; margin:18px 0; padding:20px; }
+    h2 { color:var(--navy); margin:0 0 14px; font-size:22px; }
+    h3 { color:var(--blue); }
+    .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:12px; }
+    .card { background:var(--pale); border-left:4px solid var(--blue); padding:12px; }
+    .label { color:var(--muted); font-size:13px; text-transform:uppercase; letter-spacing:.04em; }
+    table { width:100%; border-collapse:collapse; }
+    th { background:var(--blue); color:white; text-align:left; }
+    th,td { padding:9px; border-bottom:1px solid #dfe6ec; vertical-align:top; }
+    .badge { display:inline-block; min-width:28px; text-align:center; font-weight:700; border-radius:12px; padding:2px 8px; }
+    .grade-D { background:var(--green); } .grade-R { background:var(--amber); } .grade-S { background:var(--red); }
+    .muted { color:var(--muted); font-size:14px; }
+    .relationship { color:var(--muted); font-size:12px; }
+    .downloads a { display:inline-block; margin:4px 8px 4px 0; padding:8px 12px; background:var(--blue); color:white; text-decoration:none; border-radius:5px; }
+    @media (max-width:700px) { table { display:block; overflow-x:auto; } }
+  </style>
+</head>
+<body>
+  <div class="banner">SYNTHETIC RECORD, NOT A REAL MEDICAL RECORD</div>
+  <header>
+    <div>The Human Record</div>
+    <h1>Calamity Jane</h1>
+    <div>Case HR-NI008 · Modern EHR teaching episode · Draft for review</div>
+  </header>
+  <main>
+    <section>
+      <h2>Review summary</h2>
+      <div class="grid">
+        <div class="card"><div class="label">Historical dates</div>About 1856, perhaps May 1 – August 1, 1903</div>
+        <div class="card"><div class="label">Synthetic DOB</div>1981-05-01</div>
+        <div class="card"><div class="label">Index visit</div>2026-03-02 at age 44</div>
+        <div class="card"><div class="label">Synthetic MRN</div>HR-NI008-SYN</div>
+      </div>
+      <p><strong>Teaching objective:</strong> Severe alcohol use disorder in a woman living in rural poverty: a 44-year-old who does odd jobs and moves between towns comes to a clinic a few weeks after a stay on a county poor farm. The episode covers a nonjudgmental, trauma-informed assessment with the AUDIT, DSM-5-TR criteria and PEth, withdrawal risk with the PAWSS and CIWA-Ar, outpatient withdrawal management with daily checks under the ASAM guideline, parenteral thiamine, electrolytes and nutrition, naltrexone under the APA guideline and the change to a monthly injection when daily pills are hard to keep, liver assessment with FIB-4 and transient elastography, depressive symptoms judged after weeks without alcohol, a structured safety assessment with firearm storage and the 988 Suicide &amp; Crisis Lifeline, peer recovery support and mutual-help choices, harm reduction and a return to drinking met without blame, the ways alcohol harms women more, and help with housing, food, income and health coverage through real public programs.</p>
+      <div class="downloads">
+        <a href="../case.json">Canonical JSON</a>
+        <a href="fhir-bundle.json">FHIR R4 draft</a>
+        <a href="ccda.html">C-CDA R2.1 summary</a> <a href="ccda.xml">(XML)</a> <a href="review.html">Review checklist</a>
+        <a href="../sources.md">Evidence dossier</a>
+      </div>
+    </section>
+    <section><h2>Historical timeline</h2><table><thead><tr><th>Date</th><th>Event</th><th>Claims</th></tr></thead><tbody>
+  <tr><td>About 1856, perhaps May 1</td><td>Born Martha Canary near Princeton, Missouri.</td><td>CLM-0001</td></tr>
+  <tr><td>1866 to 1867</td><td>Her mother dies in Montana Territory and her father in Utah; she is orphaned at about eleven.</td><td>CLM-0002</td></tr>
+  <tr><td>From 1868</td><td>Works in Wyoming railroad camps and military posts; later drives ox teams and hauls wood; often wears men&#39;s clothing.</td><td>CLM-0003</td></tr>
+  <tr><td>1875 to 1876</td><td>Joins the Black Hills expedition; known as Calamity Jane by 1876; travels to Deadwood in a train that includes Hickok, who is killed that August.</td><td>CLM-0004, CLM-0005, CLM-0006</td></tr>
+  <tr><td>From 1876</td><td>Heavy drinking reported in newspapers; arrests for intoxication.</td><td>CLM-0009, CLM-0010</td></tr>
+  <tr><td>1878</td><td>Nurses sick people during a smallpox epidemic in the Black Hills.</td><td>CLM-0007</td></tr>
+  <tr><td>1882 to 1887</td><td>A son dies soon after birth; a daughter is born in 1887; newspapers report that a partner beat her.</td><td>CLM-0011, CLM-0012</td></tr>
+  <tr><td>1880s and 1890s</td><td>Moves from town to town in poverty, at one time living in a pest house.</td><td>CLM-0013</td></tr>
+  <tr><td>1896</td><td>Tours with a dime museum show; her ghostwritten pamphlet is published.</td><td>CLM-0014, CLM-0008</td></tr>
+  <tr><td>February 1901</td><td>Taken ill without money and cared for at the Gallatin County poor farm in Bozeman.</td><td>CLM-0015</td></tr>
+  <tr><td>May 1901</td><td>A visiting writer finds her aged beyond her years.</td><td>CLM-0016</td></tr>
+  <tr><td>July 1901</td><td>Taken to the Pan-American Exposition in Buffalo; returns west late in the year.</td><td>CLM-0017</td></tr>
+  <tr><td>August 1, 1903</td><td>Dies in Terry, South Dakota; buried in Deadwood.</td><td>CLM-0018, CLM-0019</td></tr></tbody></table></section>
+    <section><h2>Evidence claims</h2><p class="muted">D = documented, R = retrospective, S = synthetic.</p><table><thead><tr><th>Grade</th><th>Claim</th><th>Certainty</th><th>Sources</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>Calamity Jane was born Martha Canary about 1856, perhaps on May 1, near Princeton in Mercer County, Missouri, the eldest of six children of Robert and Charlotte Canary; the 1860 census lists her as born in 1856. Many popular accounts give 1852.</strong><div class="muted">The birth year is uncertain; the case uses 1856, the year the census and her principal biographer support.</div></td>
+    <td>probable</td>
+    <td><a href="https://montanawomenshistory.mt.gov/_docs/main-assets/21-45EtulainSum2014.pdf" target="_blank" rel="noreferrer">Etulain RW. Calamity Jane: A Life and Legends. Montana The Magazine of Western History 2014;64(2):21-45</a> <span class="relationship">supports</span><br><a href="https://www.cityofdeadwood.com/sites/default/files/fileattachments/historic_preservation_office/page/3981/martha_calamity_jane_canary_brochure.pdf" target="_blank" rel="noreferrer">Martha &quot;Calamity Jane&quot; Canary, 1856-1903 (Travel Through History brochure)</a> <span class="relationship">supports</span><br><a href="https://plainshumanities.unl.edu/encyclopedia/doc/egp.gen.006.html" target="_blank" rel="noreferrer">McLaird JD. Calamity Jane (1856-1903). Encyclopedia of the Great Plains</a> <span class="relationship">supports</span><br><a href="https://humanrecord.example.org/internal/HISTMED_Master_Roster_v3.xlsx" target="_blank" rel="noreferrer">HISTMED Master Roster v3</a> <span class="relationship">disputes</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>Her family moved to the Montana gold camps about 1864; in December 1864 a Virginia City newspaper reported the Canary girls destitute. Her mother died at Blackfoot City, Montana Territory, in 1866 and her father in Utah in 1867, leaving her an orphan of about eleven with younger brothers and sisters.</strong><div class="muted">Anchors the early bereavement and childhood poverty in the trauma-informed history; the parents&#39; causes of death are not recorded in the cited sources.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://montanawomenshistory.mt.gov/_docs/main-assets/21-45EtulainSum2014.pdf" target="_blank" rel="noreferrer">Etulain RW. Calamity Jane: A Life and Legends. Montana The Magazine of Western History 2014;64(2):21-45</a> <span class="relationship">supports</span><br><a href="https://www.cityofdeadwood.com/sites/default/files/fileattachments/historic_preservation_office/page/3981/martha_calamity_jane_canary_brochure.pdf" target="_blank" rel="noreferrer">Martha &quot;Calamity Jane&quot; Canary, 1856-1903 (Travel Through History brochure)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>After her parents&#39; deaths she made her way alone through the railroad construction camps and military posts of Wyoming, working as a dance-hall girl, waitress and laundress, and later at work usually done by men, such as driving ox teams as a bullwhacker and hauling wood. She often wore men&#39;s clothing, including buckskins.</strong><div class="muted">Recorded neutrally as documented social history, not as a medical matter; no gender identity is assigned.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://plainshumanities.unl.edu/encyclopedia/doc/egp.gen.006.html" target="_blank" rel="noreferrer">McLaird JD. Calamity Jane (1856-1903). Encyclopedia of the Great Plains</a> <span class="relationship">supports</span><br><a href="https://www.cityofdeadwood.com/sites/default/files/fileattachments/historic_preservation_office/page/3981/martha_calamity_jane_canary_brochure.pdf" target="_blank" rel="noreferrer">Martha &quot;Calamity Jane&quot; Canary, 1856-1903 (Travel Through History brochure)</a> <span class="relationship">supports</span><br><a href="https://montanawomenshistory.mt.gov/_docs/main-assets/21-45EtulainSum2014.pdf" target="_blank" rel="noreferrer">Etulain RW. Calamity Jane: A Life and Legends. Montana The Magazine of Western History 2014;64(2):21-45</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>In 1875 she joined the Newton-Jenney expedition to the Black Hills without authorization, and by 1876 she was known as Calamity Jane; how she came by the name is uncertain, and the story that an army captain named her after she saved his life is unconfirmed.</strong><div class="muted">History only.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://montanawomenshistory.mt.gov/_docs/main-assets/21-45EtulainSum2014.pdf" target="_blank" rel="noreferrer">Etulain RW. Calamity Jane: A Life and Legends. Montana The Magazine of Western History 2014;64(2):21-45</a> <span class="relationship">supports</span><br><a href="https://www.cityofdeadwood.com/sites/default/files/fileattachments/historic_preservation_office/page/3981/martha_calamity_jane_canary_brochure.pdf" target="_blank" rel="noreferrer">Martha &quot;Calamity Jane&quot; Canary, 1856-1903 (Travel Through History brochure)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>In June 1876 she traveled to Deadwood in a wagon train that included James Butler (Wild Bill) Hickok, who was murdered in Deadwood on August 2, 1876.</strong><div class="muted">History only; nothing is attributed to Hickok.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.cityofdeadwood.com/sites/default/files/fileattachments/historic_preservation_office/page/3981/martha_calamity_jane_canary_brochure.pdf" target="_blank" rel="noreferrer">Martha &quot;Calamity Jane&quot; Canary, 1856-1903 (Travel Through History brochure)</a> <span class="relationship">supports</span><br><a href="https://montanawomenshistory.mt.gov/_docs/main-assets/21-45EtulainSum2014.pdf" target="_blank" rel="noreferrer">Etulain RW. Calamity Jane: A Life and Legends. Montana The Magazine of Western History 2014;64(2):21-45</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-R" title="Retrospective">R</span></td>
+    <td><strong>Stories of a romance or marriage between her and Hickok are legend; her biographers find that they were acquaintances for a few weeks and that no evidence supports a love affair.</strong><div class="muted">Recorded only to mark the claim as disputed; it plays no part in the modern episode.</div></td>
+    <td>disputed</td>
+    <td><a href="https://montanawomenshistory.mt.gov/_docs/main-assets/21-45EtulainSum2014.pdf" target="_blank" rel="noreferrer">Etulain RW. Calamity Jane: A Life and Legends. Montana The Magazine of Western History 2014;64(2):21-45</a> <span class="relationship">supports</span><br><a href="https://www.cityofdeadwood.com/sites/default/files/fileattachments/historic_preservation_office/page/3981/martha_calamity_jane_canary_brochure.pdf" target="_blank" rel="noreferrer">Martha &quot;Calamity Jane&quot; Canary, 1856-1903 (Travel Through History brochure)</a> <span class="relationship">context</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>During a smallpox epidemic in the Black Hills in 1878 she nursed sick people, and several contemporaries and memoirists remembered her as a nurse to the sick and a helper of people in need.</strong><div class="muted">Anchors her strengths, including caring for others, in the modern social history.</div></td>
+    <td>probable</td>
+    <td><a href="https://www.cityofdeadwood.com/sites/default/files/fileattachments/historic_preservation_office/page/3981/martha_calamity_jane_canary_brochure.pdf" target="_blank" rel="noreferrer">Martha &quot;Calamity Jane&quot; Canary, 1856-1903 (Travel Through History brochure)</a> <span class="relationship">supports</span><br><a href="https://www.sdpb.org/rural-life-and-history/2023-07-31/calamity-jane-the-life-and-the-legend" target="_blank" rel="noreferrer">McLaird JD. Calamity Jane: The Life and the Legend. South Dakota History 1994;24(1), reproduced by South Dakota Public Broadcasting</a> <span class="relationship">supports</span><br><a href="https://montanawomenshistory.mt.gov/_docs/main-assets/21-45EtulainSum2014.pdf" target="_blank" rel="noreferrer">Etulain RW. Calamity Jane: A Life and Legends. Montana The Magazine of Western History 2014;64(2):21-45</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>Her 1896 autobiographical pamphlet, Life and Adventures of Calamity Jane, By Herself, written with a ghostwriter, describes exploits as an army scout and rider that historians regard as largely imaginary.</strong><div class="muted">Her own account is treated with care; weak claims from it are not used.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://montanawomenshistory.mt.gov/_docs/main-assets/21-45EtulainSum2014.pdf" target="_blank" rel="noreferrer">Etulain RW. Calamity Jane: A Life and Legends. Montana The Magazine of Western History 2014;64(2):21-45</a> <span class="relationship">supports</span><br><a href="https://www.sdpb.org/rural-life-and-history/2023-07-31/calamity-jane-the-life-and-the-legend" target="_blank" rel="noreferrer">McLaird JD. Calamity Jane: The Life and the Legend. South Dakota History 1994;24(1), reproduced by South Dakota Public Broadcasting</a> <span class="relationship">supports</span><br><a href="https://plainshumanities.unl.edu/encyclopedia/doc/egp.gen.006.html" target="_blank" rel="noreferrer">McLaird JD. Calamity Jane (1856-1903). Encyclopedia of the Great Plains</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>Newspapers and contemporaries repeatedly reported her heavy drinking from the 1870s on; she was arrested for intoxication and disorderly conduct, and her principal biographer writes that every effort to end her drinking failed. Her drinking, wandering and lack of money left her poor even in settled periods.</strong><div class="muted">The anchor for the synthetic alcohol use disorder; recorded without blame.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.sdpb.org/rural-life-and-history/2023-07-31/calamity-jane-the-life-and-the-legend" target="_blank" rel="noreferrer">McLaird JD. Calamity Jane: The Life and the Legend. South Dakota History 1994;24(1), reproduced by South Dakota Public Broadcasting</a> <span class="relationship">supports</span><br><a href="https://montanawomenshistory.mt.gov/_docs/main-assets/21-45EtulainSum2014.pdf" target="_blank" rel="noreferrer">Etulain RW. Calamity Jane: A Life and Legends. Montana The Magazine of Western History 2014;64(2):21-45</a> <span class="relationship">supports</span><br><a href="https://www.cityofdeadwood.com/sites/default/files/fileattachments/historic_preservation_office/page/3981/martha_calamity_jane_canary_brochure.pdf" target="_blank" rel="noreferrer">Martha &quot;Calamity Jane&quot; Canary, 1856-1903 (Travel Through History brochure)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-R" title="Retrospective">R</span></td>
+    <td><strong>Historians describe her as an alcoholic; a diagnosis in present-day terms cannot be made from the historical record.</strong><div class="muted">Retrospective interpretation; the modern diagnosis is synthetic.</div></td>
+    <td>probable</td>
+    <td><a href="https://plainshumanities.unl.edu/encyclopedia/doc/egp.gen.006.html" target="_blank" rel="noreferrer">McLaird JD. Calamity Jane (1856-1903). Encyclopedia of the Great Plains</a> <span class="relationship">supports</span><br><a href="https://www.cityofdeadwood.com/sites/default/files/fileattachments/historic_preservation_office/page/3981/martha_calamity_jane_canary_brochure.pdf" target="_blank" rel="noreferrer">Martha &quot;Calamity Jane&quot; Canary, 1856-1903 (Travel Through History brochure)</a> <span class="relationship">supports</span><br><a href="https://humanrecord.example.org/internal/HISTMED_Master_Roster_v3.xlsx" target="_blank" rel="noreferrer">HISTMED Master Roster v3</a> <span class="relationship">context</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>She gave birth to a son in 1882 who died soon after birth, and to a daughter in 1887.</strong><div class="muted">Recorded as history; the children are not named and nothing is attributed to them.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://montanawomenshistory.mt.gov/_docs/main-assets/21-45EtulainSum2014.pdf" target="_blank" rel="noreferrer">Etulain RW. Calamity Jane: A Life and Legends. Montana The Magazine of Western History 2014;64(2):21-45</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>In the mid-1880s, newspapers in Rawlins, Wyoming, reported that a man she lived with, and later married, beat her and stole from her.</strong><div class="muted">Anchors the trauma-informed approach; recorded without detail, and the man is not named.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://montanawomenshistory.mt.gov/_docs/main-assets/21-45EtulainSum2014.pdf" target="_blank" rel="noreferrer">Etulain RW. Calamity Jane: A Life and Legends. Montana The Magazine of Western History 2014;64(2):21-45</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>In the 1880s and 1890s she moved from town to town in Montana, Wyoming and the Dakotas, working in hotels and saloons and hauling wood, selling copies of her pamphlet and photographs, living at times on the help of acquaintances, and for a time staying in a pest house set aside for people with communicable diseases.</strong><div class="muted">Anchors the synthetic housing instability, food insecurity and the tuberculosis screening; no infection is documented.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://montanawomenshistory.mt.gov/_docs/main-assets/21-45EtulainSum2014.pdf" target="_blank" rel="noreferrer">Etulain RW. Calamity Jane: A Life and Legends. Montana The Magazine of Western History 2014;64(2):21-45</a> <span class="relationship">supports</span><br><a href="https://humanrecord.example.org/internal/HISTMED_Master_Roster_v3.xlsx" target="_blank" rel="noreferrer">HISTMED Master Roster v3</a> <span class="relationship">context</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>In 1896 she toured the northern United States with the Kohl and Middleton dime museum show.</strong><div class="muted">History only.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.cityofdeadwood.com/sites/default/files/fileattachments/historic_preservation_office/page/3981/martha_calamity_jane_canary_brochure.pdf" target="_blank" rel="noreferrer">Martha &quot;Calamity Jane&quot; Canary, 1856-1903 (Travel Through History brochure)</a> <span class="relationship">supports</span><br><a href="https://montanawomenshistory.mt.gov/_docs/main-assets/21-45EtulainSum2014.pdf" target="_blank" rel="noreferrer">Etulain RW. Calamity Jane: A Life and Legends. Montana The Magazine of Western History 2014;64(2):21-45</a> <span class="relationship">supports</span><br><a href="https://www.sdpb.org/rural-life-and-history/2023-07-31/calamity-jane-the-life-and-the-legend" target="_blank" rel="noreferrer">McLaird JD. Calamity Jane: The Life and the Legend. South Dakota History 1994;24(1), reproduced by South Dakota Public Broadcasting</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>In February 1901 she fell ill on a train journey from Livingston, Montana, and, having no money, was taken to the Gallatin County poor farm at Bozeman; she was discharged within days, and afterwards she angrily denied newspaper reports that she had been a county charge.</strong><div class="muted">The documented poverty and illness just before the index visit; the nature of the illness is not recorded and is not inferred.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://bozemanmagazine.com/articles/2018/05/31/28291_calamity_jane_dries_out_in_bozeman" target="_blank" rel="noreferrer">Phillips R. Calamity Jane Dries Out in Bozeman. Bozeman Magazine, May 31, 2018</a> <span class="relationship">supports</span><br><a href="https://montanawomenshistory.mt.gov/_docs/main-assets/21-45EtulainSum2014.pdf" target="_blank" rel="noreferrer">Etulain RW. Calamity Jane: A Life and Legends. Montana The Magazine of Western History 2014;64(2):21-45</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-R" title="Retrospective">R</span></td>
+    <td><strong>By 1901 a writer who met her in Livingston thought she had aged far beyond her years from heavy drinking and poor nutrition.</strong><div class="muted">A contemporary impression reported by a later historian; anchors the synthetic underweight.</div></td>
+    <td>probable</td>
+    <td><a href="https://historynet.com/the-calamities-of-calamity-jane/" target="_blank" rel="noreferrer">Secrest WB. The Calamities of Calamity Jane. HistoryNet (Wild West)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>In July 1901 a New York writer brought her to the Pan-American Exposition in Buffalo, where binge drinking got her into trouble, and she returned west late that year.</strong><div class="muted">History after the modern episode.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://montanawomenshistory.mt.gov/_docs/main-assets/21-45EtulainSum2014.pdf" target="_blank" rel="noreferrer">Etulain RW. Calamity Jane: A Life and Legends. Montana The Magazine of Western History 2014;64(2):21-45</a> <span class="relationship">supports</span><br><a href="https://historynet.com/the-calamities-of-calamity-jane/" target="_blank" rel="noreferrer">Secrest WB. The Calamities of Calamity Jane. HistoryNet (Wild West)</a> <span class="relationship">supports</span><br><a href="https://www.cityofdeadwood.com/sites/default/files/fileattachments/historic_preservation_office/page/3981/martha_calamity_jane_canary_brochure.pdf" target="_blank" rel="noreferrer">Martha &quot;Calamity Jane&quot; Canary, 1856-1903 (Travel Through History brochure)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>She died at the Calloway Hotel in Terry, South Dakota, on August 1, 1903, of what was recorded as inflammation of the bowels, with pneumonia also reported, and was buried at Mount Moriah Cemetery in Deadwood near Hickok&#39;s grave, reportedly at her wish.</strong><div class="muted">History only, recorded in one plain sentence.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.sdpb.org/rural-life-and-history/2023-07-31/calamity-jane-the-life-and-the-legend" target="_blank" rel="noreferrer">McLaird JD. Calamity Jane: The Life and the Legend. South Dakota History 1994;24(1), reproduced by South Dakota Public Broadcasting</a> <span class="relationship">supports</span><br><a href="https://www.cityofdeadwood.com/sites/default/files/fileattachments/historic_preservation_office/page/3981/martha_calamity_jane_canary_brochure.pdf" target="_blank" rel="noreferrer">Martha &quot;Calamity Jane&quot; Canary, 1856-1903 (Travel Through History brochure)</a> <span class="relationship">supports</span><br><a href="https://montanawomenshistory.mt.gov/_docs/main-assets/21-45EtulainSum2014.pdf" target="_blank" rel="noreferrer">Etulain RW. Calamity Jane: A Life and Legends. Montana The Magazine of Western History 2014;64(2):21-45</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-R" title="Retrospective">R</span></td>
+    <td><strong>Her biographers judge that years of heavy drinking contributed to her death.</strong><div class="muted">Retrospective interpretation; history only.</div></td>
+    <td>probable</td>
+    <td><a href="https://www.sdpb.org/rural-life-and-history/2023-07-31/calamity-jane-the-life-and-the-legend" target="_blank" rel="noreferrer">McLaird JD. Calamity Jane: The Life and the Legend. South Dakota History 1994;24(1), reproduced by South Dakota Public Broadcasting</a> <span class="relationship">supports</span><br><a href="https://montanawomenshistory.mt.gov/_docs/main-assets/21-45EtulainSum2014.pdf" target="_blank" rel="noreferrer">Etulain RW. Calamity Jane: A Life and Legends. Montana The Magazine of Western History 2014;64(2):21-45</a> <span class="relationship">supports</span></td>
+  </tr></tbody></table></section>
+    <section><h2>Modern synthetic problem list</h2><table><thead><tr><th>Grade</th><th>Problem</th><th>Clinical status</th><th>Verification</th><th>Placement</th><th>Historical claims</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Alcohol use disorder, severe (nine of eleven DSM-5-TR criteria), daily drinking of about a pint of whiskey with heavier binges for many years; synthetic modern episode linked to her documented lifelong heavy drinking</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>both_with_link</td>
+    <td>CLM-0009, CLM-0010</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Alcohol withdrawal, mild, at low risk of complications (PAWSS 3, CIWA-Ar 9 at intake; no past seizures or delirium tremens), managed as an outpatient with daily nurse checks</td>
+    <td>resolved</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td>CLM-0009, CLM-0010</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Raised liver enzymes (AST 96, ALT 44, GGT 240 U/L) with a FIB-4 index of 3.93, above the cut point for possible advanced fibrosis; liver stiffness measurement planned</td>
+    <td>resolved</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td>CLM-0009, CLM-0010</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Alcohol-associated steatotic liver disease, without cirrhosis: liver stiffness 9.6 kPa after four weeks without alcohol, falling enzymes, normal bilirubin, albumin, INR and platelets</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td>CLM-0009, CLM-0010</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Depressive symptoms during heavy drinking (PHQ-9 14, item 9 scored 0); whether they are alcohol-induced or an independent depression to be judged after two to four weeks without alcohol</td>
+    <td>resolved</td>
+    <td>provisional</td>
+    <td>active</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Daily chewing tobacco for many years; not ready to stop at intake</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td>CLM-0009</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Underweight (BMI 18.4) with poor food intake, low folate, magnesium and phosphate, and slightly low albumin</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td>CLM-0016</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Housing instability: staying in a spare room at a friend&#39;s house, with nowhere to go if that ends; has stayed in shelters in past winters</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td>CLM-0013, CLM-0015</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Food insecurity: often goes without meals at the end of the month</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td>CLM-0013, CLM-0015</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Periapical abscess of a lower left molar with facial swelling and low-grade fever, on naltrexone; treated without opioids, tooth removed at the dental clinic the next day; resolved</td>
+    <td>resolved</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td></td>
+  </tr></tbody></table></section>
+    <section><h2>Synthetic outcome measures</h2><table><thead><tr><th>Grade</th><th>Date</th><th>Measure</th><th>Result</th><th>Coding</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-02</td>
+    <td>Leukocytes [#/volume] in Blood by Automated count</td>
+    <td>6.8 10*3/uL<div class="muted">Reference 4-11 10*3/uL</div></td>
+    <td>http://loinc.org · 6690-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-02</td>
+    <td>Hemoglobin [Mass/volume] in Blood</td>
+    <td>12.1 g/dL<div class="muted">Reference 12-15.5 g/dL</div></td>
+    <td>http://loinc.org · 718-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-02</td>
+    <td>MCV [Entitic mean volume] in Red Blood Cells by Automated count</td>
+    <td>103 fL (high)<div class="muted">Reference 80-100 fL</div></td>
+    <td>http://loinc.org · 787-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-02</td>
+    <td>Platelets [#/volume] in Blood by Automated count</td>
+    <td>162 10*3/uL<div class="muted">Reference 150-400 10*3/uL</div></td>
+    <td>http://loinc.org · 777-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-02</td>
+    <td>Sodium [Moles/volume] in Serum or Plasma</td>
+    <td>134 mmol/L (low)<div class="muted">Reference 135-145 mmol/L</div></td>
+    <td>http://loinc.org · 2951-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-02</td>
+    <td>Potassium [Moles/volume] in Serum or Plasma</td>
+    <td>3.3 mmol/L (low)<div class="muted">Reference 3.5-5.1 mmol/L</div></td>
+    <td>http://loinc.org · 2823-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-02</td>
+    <td>Creatinine [Mass/volume] in Serum or Plasma</td>
+    <td>0.62 mg/dL<div class="muted">Reference 0.59-1.04 mg/dL</div></td>
+    <td>http://loinc.org · 2160-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-02</td>
+    <td>Glomerular filtration rate [Volume Rate/Area] in Serum, Plasma or Blood by Creatinine-based formula (CKD-EPI 2021)/1.73 sq M</td>
+    <td>113 mL/min/1.73 m²<div class="muted">Reference &gt;=60 mL/min/1.73 m²</div></td>
+    <td>http://loinc.org · 98979-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-02</td>
+    <td>Glucose [Mass/volume] in Serum or Plasma</td>
+    <td>78 mg/dL<div class="muted">Reference 70-99 mg/dL</div></td>
+    <td>http://loinc.org · 2345-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-02</td>
+    <td>Magnesium [Mass/volume] in Serum or Plasma</td>
+    <td>1.5 mg/dL (low)<div class="muted">Reference 1.7-2.3 mg/dL</div></td>
+    <td>http://loinc.org · 19123-9</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-02</td>
+    <td>Phosphate [Mass/volume] in Serum or Plasma</td>
+    <td>2.4 mg/dL (low)<div class="muted">Reference 2.5-4.5 mg/dL</div></td>
+    <td>http://loinc.org · 2777-1</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-02</td>
+    <td>Albumin [Mass/volume] in Serum or Plasma</td>
+    <td>3.4 g/dL (low)<div class="muted">Reference 3.5-5 g/dL</div></td>
+    <td>http://loinc.org · 1751-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-02</td>
+    <td>Bilirubin.total [Mass/volume] in Serum or Plasma</td>
+    <td>1.1 mg/dL<div class="muted">Reference &lt;=1.2 mg/dL</div></td>
+    <td>http://loinc.org · 1975-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-02</td>
+    <td>INR in Platelet poor plasma by Coagulation assay</td>
+    <td>1<div class="muted">Reference 0.9-1.1</div></td>
+    <td>http://loinc.org · 6301-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-02</td>
+    <td>Aspartate aminotransferase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>96 U/L (high)<div class="muted">Reference 10-35 U/L</div></td>
+    <td>http://loinc.org · 1920-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-02</td>
+    <td>Alanine aminotransferase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>44 U/L (high)<div class="muted">Reference 7-35 U/L</div></td>
+    <td>http://loinc.org · 1742-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-02</td>
+    <td>Gamma glutamyl transferase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>240 U/L (high)<div class="muted">Reference 5-40 U/L</div></td>
+    <td>http://loinc.org · 2324-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-02</td>
+    <td>Folate [Mass/volume] in Serum or Plasma</td>
+    <td>3.2 ng/mL (low)<div class="muted">Reference &gt;=4 ng/mL</div></td>
+    <td>http://loinc.org · 2284-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-02</td>
+    <td>Cobalamin (Vitamin B12) [Mass/volume] in Serum or Plasma</td>
+    <td>410 pg/mL<div class="muted">Reference 200-900 pg/mL</div></td>
+    <td>http://loinc.org · 2132-9</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-02</td>
+    <td>Phosphatidylethanol [Mass/volume] in Blood</td>
+    <td>820 ng/mL (high)<div class="muted">Reference &lt;=20 ng/mL</div></td>
+    <td>http://loinc.org · 74661-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-02</td>
+    <td>Total score [AUDIT]</td>
+    <td>31</td>
+    <td>http://loinc.org · 75624-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-02</td>
+    <td>Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]</td>
+    <td>14</td>
+    <td>http://loinc.org · 44261-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-02</td>
+    <td>Generalized anxiety disorder 7 item (GAD-7) total score [Reported.PHQ]</td>
+    <td>11</td>
+    <td>http://loinc.org · 70274-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-02</td>
+    <td>PC-PTSD-5 score [PC-PTSD-5]</td>
+    <td>2</td>
+    <td>http://loinc.org · 102017-1</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-09</td>
+    <td>Potassium [Moles/volume] in Serum or Plasma</td>
+    <td>3.9 mmol/L<div class="muted">Reference 3.5-5.1 mmol/L</div></td>
+    <td>http://loinc.org · 2823-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-09</td>
+    <td>Magnesium [Mass/volume] in Serum or Plasma</td>
+    <td>1.8 mg/dL<div class="muted">Reference 1.7-2.3 mg/dL</div></td>
+    <td>http://loinc.org · 19123-9</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-30</td>
+    <td>Hemoglobin [Mass/volume] in Blood</td>
+    <td>12.6 g/dL<div class="muted">Reference 12-15.5 g/dL</div></td>
+    <td>http://loinc.org · 718-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-30</td>
+    <td>MCV [Entitic mean volume] in Red Blood Cells by Automated count</td>
+    <td>100 fL<div class="muted">Reference 80-100 fL</div></td>
+    <td>http://loinc.org · 787-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-30</td>
+    <td>Platelets [#/volume] in Blood by Automated count</td>
+    <td>191 10*3/uL<div class="muted">Reference 150-400 10*3/uL</div></td>
+    <td>http://loinc.org · 777-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-30</td>
+    <td>Aspartate aminotransferase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>48 U/L (high)<div class="muted">Reference 10-35 U/L</div></td>
+    <td>http://loinc.org · 1920-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-30</td>
+    <td>Alanine aminotransferase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>33 U/L<div class="muted">Reference 7-35 U/L</div></td>
+    <td>http://loinc.org · 1742-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-30</td>
+    <td>Gamma glutamyl transferase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>132 U/L (high)<div class="muted">Reference 5-40 U/L</div></td>
+    <td>http://loinc.org · 2324-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-30</td>
+    <td>Albumin [Mass/volume] in Serum or Plasma</td>
+    <td>3.6 g/dL<div class="muted">Reference 3.5-5 g/dL</div></td>
+    <td>http://loinc.org · 1751-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-30</td>
+    <td>Phosphatidylethanol [Mass/volume] in Blood</td>
+    <td>24 ng/mL (high)<div class="muted">Reference &lt;=20 ng/mL</div></td>
+    <td>http://loinc.org · 74661-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-30</td>
+    <td>Liver stiffness by US.transient elastography</td>
+    <td>9.6 kPa (high)<div class="muted">Reference &lt;=8 kPa</div></td>
+    <td>http://loinc.org · 77615-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-30</td>
+    <td>Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]</td>
+    <td>9</td>
+    <td>http://loinc.org · 44261-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-30</td>
+    <td>Generalized anxiety disorder 7 item (GAD-7) total score [Reported.PHQ]</td>
+    <td>7</td>
+    <td>http://loinc.org · 70274-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-04-27</td>
+    <td>Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]</td>
+    <td>7</td>
+    <td>http://loinc.org · 44261-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-05-11</td>
+    <td>Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]</td>
+    <td>5</td>
+    <td>http://loinc.org · 44261-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-05-11</td>
+    <td>Generalized anxiety disorder 7 item (GAD-7) total score [Reported.PHQ]</td>
+    <td>5</td>
+    <td>http://loinc.org · 70274-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-06-22</td>
+    <td>Hemoglobin [Mass/volume] in Blood</td>
+    <td>13.1 g/dL<div class="muted">Reference 12-15.5 g/dL</div></td>
+    <td>http://loinc.org · 718-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-06-22</td>
+    <td>MCV [Entitic mean volume] in Red Blood Cells by Automated count</td>
+    <td>95 fL<div class="muted">Reference 80-100 fL</div></td>
+    <td>http://loinc.org · 787-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-06-22</td>
+    <td>Platelets [#/volume] in Blood by Automated count</td>
+    <td>214 10*3/uL<div class="muted">Reference 150-400 10*3/uL</div></td>
+    <td>http://loinc.org · 777-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-06-22</td>
+    <td>Sodium [Moles/volume] in Serum or Plasma</td>
+    <td>139 mmol/L<div class="muted">Reference 135-145 mmol/L</div></td>
+    <td>http://loinc.org · 2951-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-06-22</td>
+    <td>Potassium [Moles/volume] in Serum or Plasma</td>
+    <td>4.2 mmol/L<div class="muted">Reference 3.5-5.1 mmol/L</div></td>
+    <td>http://loinc.org · 2823-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-06-22</td>
+    <td>Creatinine [Mass/volume] in Serum or Plasma</td>
+    <td>0.66 mg/dL<div class="muted">Reference 0.59-1.04 mg/dL</div></td>
+    <td>http://loinc.org · 2160-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-06-22</td>
+    <td>Glomerular filtration rate [Volume Rate/Area] in Serum, Plasma or Blood by Creatinine-based formula (CKD-EPI 2021)/1.73 sq M</td>
+    <td>111 mL/min/1.73 m²<div class="muted">Reference &gt;=60 mL/min/1.73 m²</div></td>
+    <td>http://loinc.org · 98979-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-06-22</td>
+    <td>Glucose [Mass/volume] in Serum or Plasma</td>
+    <td>84 mg/dL<div class="muted">Reference 70-99 mg/dL</div></td>
+    <td>http://loinc.org · 2345-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-06-22</td>
+    <td>Aspartate aminotransferase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>31 U/L<div class="muted">Reference 10-35 U/L</div></td>
+    <td>http://loinc.org · 1920-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-06-22</td>
+    <td>Alanine aminotransferase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>24 U/L<div class="muted">Reference 7-35 U/L</div></td>
+    <td>http://loinc.org · 1742-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-06-22</td>
+    <td>Gamma glutamyl transferase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>58 U/L (high)<div class="muted">Reference 5-40 U/L</div></td>
+    <td>http://loinc.org · 2324-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-06-22</td>
+    <td>Albumin [Mass/volume] in Serum or Plasma</td>
+    <td>3.9 g/dL<div class="muted">Reference 3.5-5 g/dL</div></td>
+    <td>http://loinc.org · 1751-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-06-22</td>
+    <td>Phosphatidylethanol [Mass/volume] in Blood</td>
+    <td>64 ng/mL (high)<div class="muted">Reference &lt;=20 ng/mL</div></td>
+    <td>http://loinc.org · 74661-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-06-22</td>
+    <td>Liver stiffness by US.transient elastography</td>
+    <td>6.8 kPa<div class="muted">Reference &lt;=8 kPa</div></td>
+    <td>http://loinc.org · 77615-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-06-22</td>
+    <td>Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]</td>
+    <td>5</td>
+    <td>http://loinc.org · 44261-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-06-22</td>
+    <td>Generalized anxiety disorder 7 item (GAD-7) total score [Reported.PHQ]</td>
+    <td>5</td>
+    <td>http://loinc.org · 70274-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-04-27</td>
+    <td>Cholesterol [Mass/volume] in Serum or Plasma</td>
+    <td>168 mg/dL<div class="muted">Reference &lt;=199 mg/dL</div></td>
+    <td>http://loinc.org · 2093-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-04-27</td>
+    <td>Cholesterol in HDL [Mass/volume] in Serum or Plasma</td>
+    <td>72 mg/dL<div class="muted">Reference &gt;=50 mg/dL</div></td>
+    <td>http://loinc.org · 2085-9</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-04-27</td>
+    <td>Cholesterol in LDL [Mass/volume] in Serum or Plasma by calculation</td>
+    <td>80 mg/dL<div class="muted">Reference &lt;=99 mg/dL</div></td>
+    <td>http://loinc.org · 13457-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-04-27</td>
+    <td>Triglyceride [Mass/volume] in Serum or Plasma</td>
+    <td>82 mg/dL<div class="muted">Reference &lt;=149 mg/dL</div></td>
+    <td>http://loinc.org · 2571-8</td>
+  </tr></tbody></table></section>
+    <section><h2>Synthetic vital signs</h2><table><thead><tr><th>Date</th><th>Measure</th><th>Result</th><th>LOINC</th><th>Grade</th></tr></thead><tbody>
+  <tr><td>2026-03-02</td><td>Body height</td><td>165 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-02</td><td>Body weight</td><td>50 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-02</td><td>Body mass index (BMI) [Ratio]</td><td>18.4 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-02</td><td>Systolic blood pressure</td><td>146 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-02</td><td>Diastolic blood pressure</td><td>92 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-02</td><td>Heart rate</td><td>104 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-02</td><td>Respiratory rate</td><td>18 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-02</td><td>Body temperature</td><td>37.2 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-02</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>97 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-09</td><td>Body height</td><td>165 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-09</td><td>Body weight</td><td>50.4 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-09</td><td>Body mass index (BMI) [Ratio]</td><td>18.5 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-09</td><td>Systolic blood pressure</td><td>128 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-09</td><td>Diastolic blood pressure</td><td>82 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-09</td><td>Heart rate</td><td>84 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-09</td><td>Respiratory rate</td><td>16 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-09</td><td>Body temperature</td><td>36.8 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-09</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>98 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-30</td><td>Body height</td><td>165 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-30</td><td>Body weight</td><td>50.9 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-30</td><td>Body mass index (BMI) [Ratio]</td><td>18.7 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-30</td><td>Systolic blood pressure</td><td>122 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-30</td><td>Diastolic blood pressure</td><td>78 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-30</td><td>Heart rate</td><td>78 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-30</td><td>Respiratory rate</td><td>16 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-30</td><td>Body temperature</td><td>36.7 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-30</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>98 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-05-11</td><td>Body height</td><td>165 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-05-11</td><td>Body weight</td><td>51.8 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-05-11</td><td>Body mass index (BMI) [Ratio]</td><td>19 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-05-11</td><td>Systolic blood pressure</td><td>118 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-05-11</td><td>Diastolic blood pressure</td><td>76 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-05-11</td><td>Heart rate</td><td>74 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-05-11</td><td>Respiratory rate</td><td>16 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-05-11</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-05-11</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>98 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-22</td><td>Body height</td><td>165 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-22</td><td>Body weight</td><td>52.6 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-22</td><td>Body mass index (BMI) [Ratio]</td><td>19.3 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-22</td><td>Systolic blood pressure</td><td>116 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-22</td><td>Diastolic blood pressure</td><td>74 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-22</td><td>Heart rate</td><td>72 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-22</td><td>Respiratory rate</td><td>16 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-22</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-22</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>98 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-27</td><td>Body height</td><td>165 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-27</td><td>Body weight</td><td>51.4 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-27</td><td>Body mass index (BMI) [Ratio]</td><td>18.9 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-27</td><td>Systolic blood pressure</td><td>120 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-27</td><td>Diastolic blood pressure</td><td>76 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-27</td><td>Heart rate</td><td>76 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-27</td><td>Respiratory rate</td><td>16 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-27</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-27</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>98 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-23</td><td>Body height</td><td>165 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-23</td><td>Body weight</td><td>50.6 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-23</td><td>Body mass index (BMI) [Ratio]</td><td>18.6 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-23</td><td>Systolic blood pressure</td><td>124 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-23</td><td>Diastolic blood pressure</td><td>80 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-23</td><td>Heart rate</td><td>92 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-23</td><td>Respiratory rate</td><td>16 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-23</td><td>Body temperature</td><td>38.1 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-23</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>98 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr></tbody></table></section>
+    <section><h2>Social, functional, and mental status</h2><h3>Social history</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Does odd jobs, mostly cleaning, hauling and ranch work, and has always done work that most women around her did not; moves between small towns in the region for work; no steady income</li><li><span class="badge grade-S" title="Synthetic">S</span> Staying in a spare room at a friend&#39;s house for the past month; has stayed in shelters in past winters; no health coverage; often without food at the end of the month</li><li><span class="badge grade-S" title="Synthetic">S</span> Lost both parents before she was twelve and looked after younger siblings; a baby son died soon after birth years ago; has a grown daughter she has not seen for some time; a past partner was violent; no current partner, and she feels safe where she is staying</li><li><span class="badge grade-S" title="Synthetic">S</span> Alcohol: about a pint of whiskey a day for years, more on binges, often starting in the morning to stop the shakes; drinks mostly alone or in bars; has stopped on her own for a few days several times and had shakes and sweats, never seizures or hallucinations</li><li><span class="badge grade-S" title="Synthetic">S</span> Tobacco: chews tobacco daily; does not smoke; no other drugs; no opioids</li><li><span class="badge grade-S" title="Synthetic">S</span> Wears work clothes; owns a hunting rifle</li><li><span class="badge grade-S" title="Synthetic">S</span> Strengths: a lifetime of looking after people who are sick or down on their luck, humor and a gift for storytelling, physical toughness, friends in several towns, and her own decision to come in</li></ul><h3>Functional status</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Independent in all activities; tremor in the mornings until she drinks; works when work is offered</li></ul><h3>Mental status</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Alert and oriented; guarded at first, then frank and funny; mild tremor and sweating; no hallucinations or confusion; mood low and tired; PHQ-9 14 with item 9 scored 0, GAD-7 11; no thoughts of suicide or self-harm</li></ul></section>
+    <section><h2>Structured safety assessment</h2><div class="grid"><div class="card"><div class="label">Current ideation</div>absent</div><div class="card"><div class="label">Intent</div>absent</div><div class="card"><div class="label">Plan</div>absent</div><div class="card"><div class="label">Disposition</div>Outpatient care with daily nurse checks during withdrawal and close follow-up. Risk factors reviewed without detail: severe alcohol use disorder, depressive symptoms, early losses, past violence by a partner, housing instability and living alone at times. Firearm safety was discussed: she agreed to leave her rifle, unloaded, with her friend, who keeps it locked, during the first months of recovery. A written safety plan was made with her, and the 988 Suicide &amp; Crisis Lifeline (call or text 988) was written on the card she carries, since she has no phone. Safety is reviewed at every visit</div></div><p class="muted">This assessment is synthetic and does not convert historical behavior into a present-day fact.</p></section>
+    <section><h2>Allergies and medications</h2><h3>Allergies</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> No known allergy</li></ul><h3>Medications</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Gabapentin 300 mg oral capsule on a written five-day schedule for alcohol withdrawal: 300 mg in the morning, 300 mg in the afternoon and 600 mg at bedtime for three days, then 300 mg twice daily on day four, 300 mg at bedtime on day five, then stop; dispensed for the five days only</li><li><span class="badge grade-S" title="Synthetic">S</span> Thiamine 100 mg by intramuscular injection once daily for three days, given in the clinic</li><li><span class="badge grade-S" title="Synthetic">S</span> Thiamine 100 mg oral tablet, one tablet daily</li><li><span class="badge grade-S" title="Synthetic">S</span> Folic acid 1 mg oral tablet, one tablet daily</li><li><span class="badge grade-S" title="Synthetic">S</span> Potassium chloride extended-release 20 mEq oral tablet, one tablet daily with food for five days</li><li><span class="badge grade-S" title="Synthetic">S</span> Magnesium oxide 400 mg oral tablet, one tablet twice daily for two weeks</li><li><span class="badge grade-S" title="Synthetic">S</span> Naltrexone 50 mg oral tablet, one tablet daily</li><li><span class="badge grade-S" title="Synthetic">S</span> Extended-release naltrexone 380 mg by deep intramuscular injection into the buttock every four weeks, given by the clinic nurse</li><li><span class="badge grade-S" title="Synthetic">S</span> Amoxicillin 500 mg oral capsule, one capsule three times daily for five days</li><li><span class="badge grade-S" title="Synthetic">S</span> Ibuprofen 400 mg oral tablet, one tablet with food every 8 hours as needed for tooth pain, for up to five days</li><li><span class="badge grade-S" title="Synthetic">S</span> Acetaminophen 500 mg oral tablet, one tablet every 6 hours as needed with the ibuprofen, no more than 2,000 mg a day, for up to five days</li></ul></section>
+    <section><h2>Procedures and immunizations</h2><h3>Procedures</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Advance care planning conversation, about 16 minutes</li></ul><h3>Immunizations</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> 2026-04-27: Tdap vaccine; no tetanus booster she can recall</li><li><span class="badge grade-S" title="Synthetic">S</span> 2026-04-27: Hepatitis B vaccine (HepB-CpG), first of two doses; not immune at intake</li><li><span class="badge grade-S" title="Synthetic">S</span> 2026-04-27: Hepatitis A vaccine, adult, first of two doses</li><li><span class="badge grade-S" title="Synthetic">S</span> 2026-04-27: Pneumococcal conjugate vaccine (PCV20)</li><li><span class="badge grade-S" title="Synthetic">S</span> 2026-06-22: Hepatitis B vaccine (HepB-CpG), second of two doses</li></ul></section>
+    <section><h2>Past medical history</h2><p class="muted">True biography with historical dates; not part of the synthetic care timeline.</p><ul><li><span class="badge grade-D" title="Documented">D</span> 1866 to 1867: Orphaned at about eleven after the deaths of both parents within a year; causes of death not recorded in the cited sources <span class="muted">(CLM-0002)</span></li><li><span class="badge grade-D" title="Documented">D</span> from 1876: Heavy drinking reported from her twenties on, with arrests for intoxication <span class="muted">(CLM-0009)</span></li><li><span class="badge grade-D" title="Documented">D</span> 1882 and 1887: Birth of a son who died soon after birth, and later of a daughter <span class="muted">(CLM-0011)</span></li><li><span class="badge grade-D" title="Documented">D</span> mid-1880s: Violence by a partner reported in newspapers; recorded without detail <span class="muted">(CLM-0012)</span></li><li><span class="badge grade-D" title="Documented">D</span> February 1901: An illness, nature not recorded, for which she was cared for at a county poor farm for a few days <span class="muted">(CLM-0015)</span></li></ul><h3>Family history</h3><p class="muted">No family medical history is documented in the logged sources. Family history of real relatives is never synthesized.</p></section>
+    <section><h2>Care-plan goals</h2><table><thead><tr><th>Goal</th><th>Target date</th><th>Status</th><th>Outcome</th></tr></thead><tbody>
+  <tr><td>Finish withdrawal safely at home without a seizure or delirium</td><td>2026-03-09</td><td>completed</td><td>Five days of gabapentin with daily nurse checks; CIWA-Ar 9 at intake, 10 at most, 2 at one week; no seizure, hallucinations or confusion</td></tr>
+  <tr><td>No drinking, her goal, with a medicine for alcohol use disorder</td><td>2026-06-22</td><td>active</td><td>No alcohol for twelve weeks, then two days of drinking in late May, followed by three weeks without; PEth 820 to 24, then 64 after the lapse</td></tr>
+  <tr><td>Liver tests back to normal and a clear answer on liver scarring</td><td>2026-06-22</td><td>completed</td><td>AST 96 to 31 and ALT 44 to 24 U/L; liver stiffness 9.6 to 6.8 kPa; no advanced fibrosis</td></tr>
+  <tr><td>Regular meals and a healthier weight</td><td>2026-06-22</td><td>active</td><td>Weight 50.0 to 52.6 kg (BMI 18.4 to 19.3); SNAP benefits and two meals a day on most days</td></tr>
+  <tr><td>A room of her own and health coverage</td><td>2026-06-22</td><td>completed</td><td>Medicaid approved by the four-week visit; a rented room through a housing program by the ten-week visit</td></tr>
+  <tr><td>PHQ-9 below 10, and reassessment once she has stopped drinking</td><td>2026-05-11</td><td>completed</td><td>PHQ-9 14 to 5 after ten weeks without alcohol</td></tr></tbody></table></section>
+    <section><h2>Interventions</h2><table><thead><tr><th>Intervention</th><th>Status</th><th>Guideline</th></tr></thead><tbody>
+  <tr><td>A nonjudgmental, trauma-informed assessment: AUDIT, DSM-5-TR criteria and PEth explained as part of care, person-first language, a female clinician and a chaperone offered, consent asked before each part of the examination, and her own goals and choices first</td><td>completed</td><td>GL-NIAAA-CORE, GL-APA-AUD-2018, GL-USPSTF-ALC-2018</td></tr>
+  <tr><td>Addiction medicine consultation to confirm the diagnosis, review withdrawal and choose a medicine for alcohol use disorder</td><td>completed</td><td>GL-APA-AUD-2018, GL-ASAM-AWM-2020</td></tr>
+  <tr><td>Outpatient withdrawal management at low risk (PAWSS 3, CIWA-Ar 9): a five-day gabapentin schedule, daily nurse checks with the CIWA-Ar in person or by the clinic phone, her friend as support, fluids and food; hospital care at once for a CIWA-Ar of 15 or more, a seizure, hallucinations, confusion or vomiting</td><td>completed</td><td>GL-ASAM-AWM-2020</td></tr>
+  <tr><td>Thiamine 100 mg by injection for three days, then by mouth, with folic acid, potassium and magnesium replacement</td><td>completed</td><td>GL-ASAM-AWM-2020, GL-AASLD-ALD-2019</td></tr>
+  <tr><td>Medicine for alcohol use disorder: naltrexone 50 mg daily, with a monthly extended-release naltrexone injection if daily tablets are hard to keep; liver tests rechecked on treatment; acamprosate if naltrexone cannot be used; disulfiram not used; a wallet card explaining that naltrexone blocks opioid pain medicines</td><td>completed</td><td>GL-APA-AUD-2018, GL-NIAAA-CORE</td></tr>
+  <tr><td>Liver: FIB-4 of 3.93, so transient elastography; liver enzymes, albumin, INR and platelets followed; hepatitis A and B vaccination; acetaminophen no more than 2 g a day</td><td>completed</td><td>GL-AASLD-ALD-2019</td></tr>
+  <tr><td>Mood and safety: PHQ-9 and GAD-7 again after two to four weeks without alcohol before deciding on depression treatment; a structured safety assessment, a written safety plan, the rifle stored with her friend, the 988 Suicide &amp; Crisis Lifeline, and safety review at every visit</td><td>completed</td><td>GL-CMID-2026, GL-USPSTF-DEP-2023, GL-SUICIDE-2024, GL-APA-AUD-2018</td></tr>
+  <tr><td>Recovery support and harm reduction: weekly contact with the clinic&#39;s peer recovery support specialist, her choice of mutual-help meetings (Alcoholics Anonymous, SMART Recovery or Women for Sobriety), and a plan for a return to drinking: call the peer specialist or the clinic, eat, do not drink alone or drive, keep taking any medicine for alcohol use disorder, and come back without shame</td><td>completed</td><td>GL-NIAAA-CORE, GL-APA-AUD-2018</td></tr>
+  <tr><td>Housing, food, income and coverage: the clinic&#39;s community health worker helps with a Montana Medicaid application, SNAP benefits, a food bank, the local Human Resource Development Council&#39;s housing programs, Montana 211, and a free phone through the Lifeline program</td><td>completed</td><td>GL-NIAAA-CORE</td></tr>
+  <tr><td>Alcohol and women&#39;s health: why the same amount of alcohol does women more harm (higher blood alcohol, faster liver damage, a higher breast cancer risk), a pregnancy test, contraception if needed, and breast and cervical cancer screening at the preventive visit</td><td>completed</td><td>GL-NIAAA-CORE</td></tr>
+  <tr><td>Chewing tobacco: advice to stop and nicotine replacement offered whenever she is ready</td><td>completed</td><td>GL-USPSTF-TOB-2021</td></tr></tbody></table></section>
+    <section><h2>Planned encounters</h2><ul>
+  <li><strong>2026-03-02</strong> — Establishing primary care for heavy daily drinking: a nonjudgmental, trauma-informed assessment, withdrawal risk and outpatient withdrawal management, thiamine, liver tests, nutrition, mood and safety, and housing, food and income <span class="muted">(ENC-001)</span></li>
+  <li><strong>2026-03-09</strong> — One-week review, seen the same day by addiction medicine: after withdrawal, a medicine for alcohol use disorder, the liver plan and recovery supports <span class="muted">(ENC-002)</span></li>
+  <li><strong>2026-03-23</strong> — Same-day sick visit for a dental abscess <span class="muted">(ENC-007, unscheduled)</span></li>
+  <li><strong>2026-03-30</strong> — Four-week review: naltrexone and the change to a monthly injection, liver stiffness, mood after four weeks without alcohol, and benefits <span class="muted">(ENC-003)</span></li>
+  <li><strong>2026-04-27</strong> — Periodic adult preventive visit <span class="muted">(ENC-006)</span></li>
+  <li><strong>2026-05-11</strong> — Ten-week review: recovery, mood, housing and results <span class="muted">(ENC-004)</span></li>
+  <li><strong>2026-06-22</strong> — Sixteen-week review after a two-day return to drinking: liver tests, PEth, elastography and the plan ahead <span class="muted">(ENC-005)</span></li></ul></section>
+    <section><h2>Supporting documents</h2><ul><li><a href="notes/hp.md">History and physical</a></li><li><a href="notes/progress-01.md">Progress note 01</a></li><li><a href="notes/progress-02.md">Progress note 02 — Focused Visit (Follow-up)</a></li><li><a href="notes/progress-03.md">Progress note 03 — Sick Visit</a></li><li><a href="notes/progress-04.md">Progress note 04 — Focused Visit (Follow-up)</a></li><li><a href="notes/progress-05.md">Progress note 05 — Preventive Visit</a></li><li><a href="notes/progress-06.md">Progress note 06 — Focused Visit (Follow-up)</a></li><li><a href="notes/progress-07.md">Progress note 07 — Focused Visit (Care-plan review)</a></li><li><a href="notes/referral-01.md">Addiction Medicine referral</a></li><li><a href="notes/consult-01.md">Addiction Medicine consultation</a></li><li><a href="notes/careplan.md">Patient care plan</a></li><li><a href="notes/teaching-note.md">Teaching note</a></li><li><a href="provenance.csv">Provenance CSV</a></li></ul></section>
+    <section><h2>C-CDA note documents</h2><p class="muted">Each link opens a readable copy; the XML beside it is the exchange file.</p><ul><li><a href="ccda/hp-01.html">History and physical</a> <a href="ccda/hp-01.xml">(XML)</a></li><li><a href="ccda/progress-01.html">Progress note 01</a> <a href="ccda/progress-01.xml">(XML)</a></li><li><a href="ccda/progress-02.html">Progress note 02 — Focused Visit (Follow-up)</a> <a href="ccda/progress-02.xml">(XML)</a></li><li><a href="ccda/progress-03.html">Progress note 03 — Sick Visit</a> <a href="ccda/progress-03.xml">(XML)</a></li><li><a href="ccda/progress-04.html">Progress note 04 — Focused Visit (Follow-up)</a> <a href="ccda/progress-04.xml">(XML)</a></li><li><a href="ccda/progress-05.html">Progress note 05 — Preventive Visit</a> <a href="ccda/progress-05.xml">(XML)</a></li><li><a href="ccda/progress-06.html">Progress note 06 — Focused Visit (Follow-up)</a> <a href="ccda/progress-06.xml">(XML)</a></li><li><a href="ccda/progress-07.html">Progress note 07 — Focused Visit (Care-plan review)</a> <a href="ccda/progress-07.xml">(XML)</a></li><li><a href="ccda/referral-01.html">Addiction Medicine referral</a> <a href="ccda/referral-01.xml">(XML)</a></li><li><a href="ccda/consult-01.html">Addiction Medicine consultation</a> <a href="ccda/consult-01.xml">(XML)</a></li></ul></section>
+    <section><h2>Sources</h2><table><thead><tr><th>ID</th><th>Source</th><th>Publisher</th><th>Type</th></tr></thead><tbody>
+  <tr>
+    <td>SRC-0001</td>
+    <td><a href="https://montanawomenshistory.mt.gov/_docs/main-assets/21-45EtulainSum2014.pdf" target="_blank" rel="noreferrer">Etulain RW. Calamity Jane: A Life and Legends. Montana The Magazine of Western History 2014;64(2):21-45</a></td>
+    <td>Montana Historical Society</td>
+    <td>scholarly</td>
+  </tr>
+  <tr>
+    <td>SRC-0002</td>
+    <td><a href="https://www.cityofdeadwood.com/sites/default/files/fileattachments/historic_preservation_office/page/3981/martha_calamity_jane_canary_brochure.pdf" target="_blank" rel="noreferrer">Martha &quot;Calamity Jane&quot; Canary, 1856-1903 (Travel Through History brochure)</a></td>
+    <td>City of Deadwood Historic Preservation Office</td>
+    <td>government</td>
+  </tr>
+  <tr>
+    <td>SRC-0003</td>
+    <td><a href="https://www.sdpb.org/rural-life-and-history/2023-07-31/calamity-jane-the-life-and-the-legend" target="_blank" rel="noreferrer">McLaird JD. Calamity Jane: The Life and the Legend. South Dakota History 1994;24(1), reproduced by South Dakota Public Broadcasting</a></td>
+    <td>South Dakota State Historical Society (South Dakota History); South Dakota Public Broadcasting</td>
+    <td>scholarly</td>
+  </tr>
+  <tr>
+    <td>SRC-0004</td>
+    <td><a href="https://plainshumanities.unl.edu/encyclopedia/doc/egp.gen.006.html" target="_blank" rel="noreferrer">McLaird JD. Calamity Jane (1856-1903). Encyclopedia of the Great Plains</a></td>
+    <td>University of Nebraska-Lincoln</td>
+    <td>biography</td>
+  </tr>
+  <tr>
+    <td>SRC-0005</td>
+    <td><a href="https://bozemanmagazine.com/articles/2018/05/31/28291_calamity_jane_dries_out_in_bozeman" target="_blank" rel="noreferrer">Phillips R. Calamity Jane Dries Out in Bozeman. Bozeman Magazine, May 31, 2018</a></td>
+    <td>Bozeman Magazine</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0006</td>
+    <td><a href="https://historynet.com/the-calamities-of-calamity-jane/" target="_blank" rel="noreferrer">Secrest WB. The Calamities of Calamity Jane. HistoryNet (Wild West)</a></td>
+    <td>HistoryNet</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0007</td>
+    <td><a href="https://humanrecord.example.org/internal/HISTMED_Master_Roster_v3.xlsx" target="_blank" rel="noreferrer">HISTMED Master Roster v3</a></td>
+    <td>The Human Record project</td>
+    <td>other</td>
+  </tr></tbody></table></section>
+    <section><h2>Review status</h2><table><thead><tr><th>Review</th><th>Status</th><th>Notes</th></tr></thead><tbody>
+  <tr><td>schema validation</td><td>not_started</td><td>Run scripts/build.ps1 -Conformance.</td></tr>
+  <tr><td>clinical review</td><td>not_started</td><td>Awaiting clinician review; check the DSM-5-TR count, outpatient withdrawal management at a PAWSS of 3 with gabapentin instead of a benzodiazepine, parenteral thiamine, naltrexone with AST under three times normal and the change to the monthly injection, the FIB-4 and elastography reading, the timing of the depression reassessment, the response to the two-day return to drinking, and the dental abscess managed without opioids on naltrexone.</td></tr>
+  <tr><td>provenance review</td><td>not_started</td><td>Sources: Etulain (Montana Historical Society journal, 2014), the City of Deadwood Historic Preservation Office brochure, McLaird (South Dakota History, 1994, as reproduced by SDPB) and his Encyclopedia of the Great Plains entry, Bozeman Magazine (2018, quoting 1901 newspapers) and HistoryNet (2010). McLaird&#39;s book was not read. Her 1896 pamphlet is treated as unreliable; the Hickok romance is R and disputed; the birth year is 1856, not 1852.</td></tr>
+  <tr><td>safe messaging review</td><td>not_started</td><td>Substance use claims, the losses of her children and the reported violence are marked sensitive and recorded once each, plainly and without detail; person-first language; her drinking is described without blame or sensational language. Her clothing and work are documented social history, not a medical matter, and no gender identity is assigned. No relative or companion is named in the modern episode. The safety assessment gives the 988 Suicide &amp; Crisis Lifeline and covers firearm storage.</td></tr></tbody></table></section>
+  </main>
+</body>
+</html>

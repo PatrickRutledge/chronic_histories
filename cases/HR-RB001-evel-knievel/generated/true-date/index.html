@@ -1,0 +1,951 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Evel Knievel — The Human Record</title>
+  <style>
+    :root { --navy:#17365d; --blue:#1f4e78; --pale:#eef5fa; --ink:#1f2933; --muted:#66788a; --amber:#fff2cc; --red:#f8d7da; --green:#d9ead3; }
+    * { box-sizing:border-box; }
+    body { margin:0; font:16px/1.5 Arial, sans-serif; color:var(--ink); background:#f6f8fa; }
+    header { background:var(--navy); color:white; padding:24px max(24px,calc((100vw - 1180px)/2)); }
+    header h1 { margin:4px 0; font-size:30px; }
+    .banner { background:#b42318; color:white; font-weight:700; text-align:center; padding:10px; letter-spacing:.03em; }
+    main { max-width:1180px; margin:24px auto 60px; padding:0 24px; }
+    section { background:white; border:1px solid #d9e1e8; border-radius:8px; margin:18px 0; padding:20px; }
+    h2 { color:var(--navy); margin:0 0 14px; font-size:22px; }
+    h3 { color:var(--blue); }
+    .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:12px; }
+    .card { background:var(--pale); border-left:4px solid var(--blue); padding:12px; }
+    .label { color:var(--muted); font-size:13px; text-transform:uppercase; letter-spacing:.04em; }
+    table { width:100%; border-collapse:collapse; }
+    th { background:var(--blue); color:white; text-align:left; }
+    th,td { padding:9px; border-bottom:1px solid #dfe6ec; vertical-align:top; }
+    .badge { display:inline-block; min-width:28px; text-align:center; font-weight:700; border-radius:12px; padding:2px 8px; }
+    .grade-D { background:var(--green); } .grade-R { background:var(--amber); } .grade-S { background:var(--red); }
+    .muted { color:var(--muted); font-size:14px; }
+    .relationship { color:var(--muted); font-size:12px; }
+    .downloads a { display:inline-block; margin:4px 8px 4px 0; padding:8px 12px; background:var(--blue); color:white; text-decoration:none; border-radius:5px; }
+    @media (max-width:700px) { table { display:block; overflow-x:auto; } }
+  </style>
+</head>
+<body>
+  <div class="banner">SYNTHETIC RECORD, NOT A REAL MEDICAL RECORD</div>
+  <div class="banner">True-date frame: synthetic events are moved into the patient&#39;s historical lifetime. Codes, instruments, and treatments remain modern and are anachronistic.</div>
+  <header>
+    <div>The Human Record</div>
+    <h1>Evel Knievel</h1>
+    <div>Case HR-RB001-TD · Modern EHR teaching episode · Draft for review</div>
+  </header>
+  <main>
+    <section>
+      <h2>Review summary</h2>
+      <div class="grid">
+        <div class="card"><div class="label">Historical dates</div>October 17, 1938 – November 30, 2007</div>
+        <div class="card"><div class="label">Synthetic DOB</div>1938-10-17</div>
+        <div class="card"><div class="label">Index visit</div>1996-01-12 at age 57</div>
+        <div class="card"><div class="label">Synthetic MRN</div>HR-RB001-SYN-TD</div>
+      </div>
+      <p><strong>Teaching objective:</strong> Find and treat chronic hepatitis C with cirrhosis in a 57-year-old former stunt performer who received many transfusions before 1962: raised transaminases and low platelets prompt hepatitis C antibody with reflex RNA; staging by FIB-4, elastography and ultrasound, with Child-Pugh and MELD-Na; the AASLD-IDSA simplified pathway for compensated cirrhosis with a pan-genotypic regimen (sofosbuvir-velpatasvir for 12 weeks), hepatitis B testing, a drug interaction check (proton pump inhibitor, statin) and hypoglycemia monitoring; cure confirmed by HCV RNA 12 or more weeks after treatment; Baveno VII use of liver stiffness and platelets to identify clinically significant portal hypertension and treat it with carvedilol instead of screening endoscopy; liver cancer surveillance by ultrasound with alpha-fetoprotein every six months that continues after cure; hepatitis A and B vaccination; transplant referral only if decompensation or a MELD-Na of 15 or more develops; pain care that is safe in cirrhosis (acetaminophen up to 2 g a day, no oral NSAIDs, no opioids, topical treatment, physical and aquatic therapy, sleep and coping skills); diabetes care adapted to cirrhosis, with continuous glucose monitoring because the A1c can read falsely low; alcohol counseling toward abstinence; and fall and fracture prevention, with bone density testing, vitamin D and an intravenous bisphosphonate, on the AASLD-IDSA HCV guidance, the AASLD 1993 HCC guidance, Baveno VII, the AASLD portal hypertension and ascites guidance, the ADA Standards of Care and the CMID diabetes and osteoporosis monographs.</p>
+      <div class="downloads">
+        <a href="../case.json">Canonical JSON</a>
+        <a href="fhir-bundle.json">FHIR R4 draft</a>
+        <a href="ccda.html">C-CDA R2.1 summary</a> <a href="ccda.xml">(XML)</a>
+        <a href="../sources.md">Evidence dossier</a>
+      </div>
+    </section>
+    <section><h2>Historical timeline</h2><table><thead><tr><th>Date</th><th>Event</th><th>Claims</th></tr></thead><tbody>
+  <tr><td>October 17, 1938</td><td>Born Robert Craig Knievel in Butte, Montana; raised by his grandparents.</td><td>CLM-0001</td></tr>
+  <tr><td>1965</td><td>Begins his daredevil career with a touring motorcycle show.</td><td>CLM-0002</td></tr>
+  <tr><td>1968</td><td>Crashes after jumping the fountains at Caesars Palace, Las Vegas, and is hospitalized, by the obituaries&#39; account in a coma for a month.</td><td>CLM-0002</td></tr>
+  <tr><td>September 8, 1974</td><td>Rocket-powered attempt to jump Idaho&#39;s Snake River Canyon fails.</td><td>CLM-0003</td></tr>
+  <tr><td>1975</td><td>Breaks his pelvis in the crash landing of a jump over 13 buses at Wembley Stadium; Guinness World Records later counts 433 fractures by the end of the year.</td><td>CLM-0003, CLM-0004</td></tr>
+  <tr><td>1976</td><td>Concussion and two broken arms in a jump attempt in Chicago; retires from major jumps.</td><td>CLM-0003</td></tr>
+  <tr><td>1999</td><td>Liver transplant after nearly dying of hepatitis C, likely acquired through a transfusion after a crash; reported to have stopped drinking at the time of the transplant.</td><td>CLM-0005, CLM-0006</td></tr>
+  <tr><td>November 30, 2007</td><td>Dies at 69 in Clearwater, Florida, of natural causes after years of diabetes, idiopathic pulmonary fibrosis, pain from his injuries and two strokes.</td><td>CLM-0007, CLM-0008, CLM-0009</td></tr></tbody></table></section>
+    <section><h2>Evidence claims</h2><p class="muted">D = documented, R = retrospective, S = synthetic.</p><table><thead><tr><th>Grade</th><th>Claim</th><th>Certainty</th><th>Sources</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>Robert Craig Knievel was born on October 17, 1938, in the copper-mining town of Butte, Montana, and was raised by his grandparents.</strong></td>
+    <td>confirmed</td>
+    <td><a href="https://www2.ljworld.com/news/2007/dec/01/evel_knievel_iconic_daredevil_dies_69_natural_caus/" target="_blank" rel="noreferrer">Stacy M (Associated Press). Evel Knievel, iconic daredevil, dies at 69 of natural causes</a> <span class="relationship">supports</span><br><a href="https://humanrecord.example.org/internal/HISTMED_Master_Roster_v3.xlsx" target="_blank" rel="noreferrer">HISTMED Master Roster v3</a> <span class="relationship">context</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>He began his daredevil career in 1965 with a touring motorcycle show. His crash after jumping the fountains at Caesars Palace in Las Vegas, dated 1968 in the wire obituaries, put him in the hospital, by their account in a coma for a month.</strong><div class="muted">One of the crashes behind the many fractures and the chronic pain in the modern episode. The length of the coma is disputed in later accounts.</div></td>
+    <td>probable</td>
+    <td><a href="https://www2.ljworld.com/news/2007/dec/01/evel_knievel_iconic_daredevil_dies_69_natural_caus/" target="_blank" rel="noreferrer">Stacy M (Associated Press). Evel Knievel, iconic daredevil, dies at 69 of natural causes</a> <span class="relationship">supports</span><br><a href="https://www.espn.co.uk/espn/news/story?id=3135532" target="_blank" rel="noreferrer">Evel Knievel dies at 69; had long been in failing health</a> <span class="relationship">supports</span><br><a href="https://mg.co.za/2007-12-01-daredevil-evel-knievel-dies-after-long-illness/" target="_blank" rel="noreferrer">Reuters. Daredevil Evel Knievel dies after long illness</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>In 1974 his rocket-powered cycle failed in an attempt to jump Idaho&#39;s Snake River Canyon. In 1975 the crash landing of his jump over 13 buses at Wembley Stadium in London broke his pelvis. In the winter of 1976 an attempt to jump a tank of live sharks in Chicago left him with a concussion and two broken arms, after which he retired from major jumps.</strong><div class="muted">More of the documented injuries behind the modern pain and fracture history.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www2.ljworld.com/news/2007/dec/01/evel_knievel_iconic_daredevil_dies_69_natural_caus/" target="_blank" rel="noreferrer">Stacy M (Associated Press). Evel Knievel, iconic daredevil, dies at 69 of natural causes</a> <span class="relationship">supports</span><br><a href="https://www.espn.co.uk/espn/news/story?id=3135532" target="_blank" rel="noreferrer">Evel Knievel dies at 69; had long been in failing health</a> <span class="relationship">supports</span><br><a href="https://www.guinnessworldrecords.com/world-records/most-broken-bones-in-a-lifetime" target="_blank" rel="noreferrer">Most broken bones in a lifetime</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>Guinness World Records lists him as holding the record for the most broken bones in a lifetime, with 433 bone fractures by the end of 1975. His obituaries instead said he suffered nearly 40 broken bones before he retired in 1980.</strong><div class="muted">The number of fractures is disputed; that he had very many fractures from crashes is not. The modern episode uses &#39;dozens of fractures&#39; rather than either number.</div></td>
+    <td>disputed</td>
+    <td><a href="https://www.guinnessworldrecords.com/world-records/most-broken-bones-in-a-lifetime" target="_blank" rel="noreferrer">Most broken bones in a lifetime</a> <span class="relationship">supports</span><br><a href="https://www.guinnessworldrecords.com/news/2025/11/stunt-legend-evel-knievels-unfortunate-record-after-he-broke-his-bones-hundreds-of-times" target="_blank" rel="noreferrer">Selbie J. Stunt legend Evel Knievel&#39;s unfortunate record after he broke his bones hundreds of times</a> <span class="relationship">supports</span><br><a href="https://www2.ljworld.com/news/2007/dec/01/evel_knievel_iconic_daredevil_dies_69_natural_caus/" target="_blank" rel="noreferrer">Stacy M (Associated Press). Evel Knievel, iconic daredevil, dies at 69 of natural causes</a> <span class="relationship">disputes</span><br><a href="https://humanrecord.example.org/internal/HISTMED_Master_Roster_v3.xlsx" target="_blank" rel="noreferrer">HISTMED Master Roster v3</a> <span class="relationship">context</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>He had a liver transplant in 1999 after nearly dying of hepatitis C, which his obituaries said he likely contracted through a blood transfusion after one of his crashes.</strong><div class="muted">The anchor for the modern episode: transfusion-acquired chronic hepatitis C with advanced liver disease, set three years before the transplant. The stage of his liver disease and any treatment before the transplant were not made public.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www2.ljworld.com/news/2007/dec/01/evel_knievel_iconic_daredevil_dies_69_natural_caus/" target="_blank" rel="noreferrer">Stacy M (Associated Press). Evel Knievel, iconic daredevil, dies at 69 of natural causes</a> <span class="relationship">supports</span><br><a href="https://www.deseret.com/2007/11/30/20056581/motorcycle-daredevil-evel-knievel-dies-at-69/" target="_blank" rel="noreferrer">Motorcycle daredevil Evel Knievel dies at 69 (The Associated Press)</a> <span class="relationship">supports</span><br><a href="https://www.espn.co.uk/espn/news/story?id=3135532" target="_blank" rel="noreferrer">Evel Knievel dies at 69; had long been in failing health</a> <span class="relationship">supports</span><br><a href="https://humanrecord.example.org/internal/HISTMED_Master_Roster_v3.xlsx" target="_blank" rel="noreferrer">HISTMED Master Roster v3</a> <span class="relationship">context</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>A news agency obituary reported that he did not quit drinking until his liver transplant in 1999.</strong><div class="muted">Reported in an obituary; used in the modern episode only as a reason for alcohol counseling in liver disease, with no diagnosis of an alcohol use disorder.</div></td>
+    <td>probable</td>
+    <td><a href="https://mg.co.za/2007-12-01-daredevil-evel-knievel-dies-after-long-illness/" target="_blank" rel="noreferrer">Reuters. Daredevil Evel Knievel dies after long illness</a> <span class="relationship">supports</span><br><a href="https://humanrecord.example.org/internal/HISTMED_Master_Roster_v3.xlsx" target="_blank" rel="noreferrer">HISTMED Master Roster v3</a> <span class="relationship">context</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>In his last years he was in failing health with diabetes and idiopathic pulmonary fibrosis, an incurable scarring of the lungs, and had two strokes in the years before his death.</strong><div class="muted">His diabetes is documented only in his last years; the modern episode places type 2 diabetes at the index age as a synthetic choice. The lung disease and strokes came after the index age and are not used in the modern episode.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www2.ljworld.com/news/2007/dec/01/evel_knievel_iconic_daredevil_dies_69_natural_caus/" target="_blank" rel="noreferrer">Stacy M (Associated Press). Evel Knievel, iconic daredevil, dies at 69 of natural causes</a> <span class="relationship">supports</span><br><a href="https://www.deseret.com/2007/11/30/20056581/motorcycle-daredevil-evel-knievel-dies-at-69/" target="_blank" rel="noreferrer">Motorcycle daredevil Evel Knievel dies at 69 (The Associated Press)</a> <span class="relationship">supports</span><br><a href="https://www.espn.co.uk/espn/news/story?id=3135532" target="_blank" rel="noreferrer">Evel Knievel dies at 69; had long been in failing health</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>His final years were plagued by pain from his accidents. In a newspaper interview published early in 2007 he was described as frail and reliant on an oxygen tank and an implanted drug pump to relieve his pain.</strong><div class="muted">Chronic pain from old injuries is documented; the modern episode places it at the index age and manages it without opioids.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://mg.co.za/2007-12-01-daredevil-evel-knievel-dies-after-long-illness/" target="_blank" rel="noreferrer">Reuters. Daredevil Evel Knievel dies after long illness</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>He died on November 30, 2007, at 69, at his condominium in Clearwater, Florida, after having trouble breathing; his death was reported as from natural causes.</strong><div class="muted">History only, stated without detail. The roster&#39;s statement that pulmonary fibrosis caused his death is not stated by the obituaries fetched, which give natural causes after years of diabetes and pulmonary fibrosis.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www2.ljworld.com/news/2007/dec/01/evel_knievel_iconic_daredevil_dies_69_natural_caus/" target="_blank" rel="noreferrer">Stacy M (Associated Press). Evel Knievel, iconic daredevil, dies at 69 of natural causes</a> <span class="relationship">supports</span><br><a href="https://www.guinnessworldrecords.com/news/2025/11/stunt-legend-evel-knievels-unfortunate-record-after-he-broke-his-bones-hundreds-of-times" target="_blank" rel="noreferrer">Selbie J. Stunt legend Evel Knievel&#39;s unfortunate record after he broke his bones hundreds of times</a> <span class="relationship">supports</span><br><a href="https://www.espn.co.uk/espn/news/story?id=3135532" target="_blank" rel="noreferrer">Evel Knievel dies at 69; had long been in failing health</a> <span class="relationship">supports</span><br><a href="https://humanrecord.example.org/internal/HISTMED_Master_Roster_v3.xlsx" target="_blank" rel="noreferrer">HISTMED Master Roster v3</a> <span class="relationship">context</span></td>
+  </tr></tbody></table></section>
+    <section><h2>Modern synthetic problem list</h2><table><thead><tr><th>Grade</th><th>Problem</th><th>Clinical status</th><th>Verification</th><th>Placement</th><th>Historical claims</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Raised transaminases (ALT 88, AST 96 U/L) and low platelets (118) on today&#39;s tests, with spider angiomas and palmar erythema, in a man of 57 who received many blood transfusions after crashes before 1962 and drinks most evenings: chronic liver disease, most likely hepatitis C, must be excluded. Hepatitis C antibody with reflex RNA, hepatitis A and B serology, HIV, liver ultrasound and hepatology review ordered</td>
+    <td>resolved</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Chronic hepatitis C, genotype 1a, treatment-naive, HCV RNA 2.35 million IU/mL, likely acquired through blood transfusions after crashes; synthetic modern detail linked to his publicly reported transfusion-acquired hepatitis C</td>
+    <td>resolved</td>
+    <td>confirmed</td>
+    <td>both_with_link</td>
+    <td>CLM-0005</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Compensated cirrhosis from hepatitis C, with alcohol as a cofactor: liver stiffness 26.8 kPa, FIB-4 4.94, nodular liver and a 14.2 cm spleen on ultrasound, platelets 118; Child-Pugh A5, MELD-Na 8; no ascites, encephalopathy, jaundice or bleeding</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>both_with_link</td>
+    <td>CLM-0005</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Clinically significant portal hypertension in compensated cirrhosis (liver stiffness 25 kPa or more), treated with carvedilol without screening endoscopy (Baveno VII)</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Type 2 diabetes on metformin, A1c 7.4%</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td>CLM-0007</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Chronic pain in the back, hips, pelvis and knees after dozens of fractures from stunt crashes, including a broken pelvis; ibuprofen stopped, and managed without oral NSAIDs or opioids</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>both_with_link</td>
+    <td>CLM-0002, CLM-0003, CLM-0004, CLM-0008</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Osteoporosis in a man with cirrhosis, prior heavy alcohol use and dozens of old fractures: femoral neck T-score -2.6, lumbar spine -1.9</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Vitamin D deficiency (25-hydroxyvitamin D 17 ng/mL)</td>
+    <td>resolved</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td></td>
+  </tr></tbody></table></section>
+    <section><h2>Synthetic outcome measures</h2><table><thead><tr><th>Grade</th><th>Date</th><th>Measure</th><th>Result</th><th>Coding</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1996-01-12</td>
+    <td>Hemoglobin [Mass/volume] in Blood</td>
+    <td>13.9 g/dL<div class="muted">Reference 13.5-17.5 g/dL</div></td>
+    <td>http://loinc.org · 718-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1996-01-12</td>
+    <td>Leukocytes [#/volume] in Blood by Automated count</td>
+    <td>4.6 10*3/uL<div class="muted">Reference 4-11 10*3/uL</div></td>
+    <td>http://loinc.org · 6690-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1996-01-12</td>
+    <td>Platelets [#/volume] in Blood by Automated count</td>
+    <td>118 10*3/uL (low)<div class="muted">Reference 150-400 10*3/uL</div></td>
+    <td>http://loinc.org · 777-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1996-01-12</td>
+    <td>Sodium [Moles/volume] in Serum or Plasma</td>
+    <td>137 mmol/L<div class="muted">Reference 135-145 mmol/L</div></td>
+    <td>http://loinc.org · 2951-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1996-01-12</td>
+    <td>Potassium [Moles/volume] in Serum or Plasma</td>
+    <td>4.3 mmol/L<div class="muted">Reference 3.5-5.1 mmol/L</div></td>
+    <td>http://loinc.org · 2823-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1996-01-12</td>
+    <td>Creatinine [Mass/volume] in Serum or Plasma</td>
+    <td>0.92 mg/dL<div class="muted">Reference 0.74-1.35 mg/dL</div></td>
+    <td>http://loinc.org · 2160-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1996-01-12</td>
+    <td>Glomerular filtration rate [Volume Rate/Area] in Serum, Plasma or Blood by Creatinine-based formula (CKD-EPI 1991)/1.73 sq M</td>
+    <td>97 mL/min/1.73 m²<div class="muted">Reference &gt;=60 mL/min/1.73 m²</div></td>
+    <td>http://loinc.org · 98979-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1996-01-12</td>
+    <td>Glucose [Mass/volume] in Serum or Plasma</td>
+    <td>162 mg/dL (high)<div class="muted">Reference 70-99 mg/dL</div></td>
+    <td>http://loinc.org · 2345-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1996-01-12</td>
+    <td>Alanine aminotransferase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>88 U/L (high)<div class="muted">Reference 7-55 U/L</div></td>
+    <td>http://loinc.org · 1742-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1996-01-12</td>
+    <td>Aspartate aminotransferase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>96 U/L (high)<div class="muted">Reference 8-48 U/L</div></td>
+    <td>http://loinc.org · 1920-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1996-01-12</td>
+    <td>Alkaline phosphatase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>104 U/L<div class="muted">Reference 40-129 U/L</div></td>
+    <td>http://loinc.org · 6768-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1996-01-12</td>
+    <td>Bilirubin.total [Mass/volume] in Serum or Plasma</td>
+    <td>1.1 mg/dL<div class="muted">Reference 0.1-1.2 mg/dL</div></td>
+    <td>http://loinc.org · 1975-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1996-01-12</td>
+    <td>Albumin [Mass/volume] in Serum or Plasma</td>
+    <td>3.6 g/dL<div class="muted">Reference 3.5-5 g/dL</div></td>
+    <td>http://loinc.org · 1751-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1996-01-12</td>
+    <td>INR in Platelet poor plasma by Coagulation assay</td>
+    <td>1.1<div class="muted">Reference 0.9-1.1</div></td>
+    <td>http://loinc.org · 6301-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1996-01-12</td>
+    <td>Hemoglobin A1c/Hemoglobin.total in Blood</td>
+    <td>7.4% (high)<div class="muted">Reference Below 5.7% is normal; individual goal below 7%; may read falsely low in cirrhosis</div></td>
+    <td>http://loinc.org · 4548-4</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1996-01-12</td>
+    <td>Cholesterol [Mass/volume] in Serum or Plasma</td>
+    <td>186 mg/dL<div class="muted">Reference &lt;=199 mg/dL</div></td>
+    <td>http://loinc.org · 2093-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1996-01-12</td>
+    <td>Cholesterol in LDL [Mass/volume] in Serum or Plasma by calculation</td>
+    <td>112 mg/dL (high)<div class="muted">Reference Goal below 100 mg/dL in diabetes, below 70 if higher risk</div></td>
+    <td>http://loinc.org · 13457-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1996-01-12</td>
+    <td>Cholesterol in HDL [Mass/volume] in Serum or Plasma</td>
+    <td>38 mg/dL (low)<div class="muted">Reference &gt;=40 mg/dL</div></td>
+    <td>http://loinc.org · 2085-9</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1996-01-12</td>
+    <td>Triglyceride [Mass/volume] in Serum or Plasma</td>
+    <td>178 mg/dL (high)<div class="muted">Reference &lt;=149 mg/dL</div></td>
+    <td>http://loinc.org · 2571-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1996-01-12</td>
+    <td>Albumin/Creatinine [Mass Ratio] in Urine</td>
+    <td>18 mg/g<div class="muted">Reference &lt;=29 mg/g</div></td>
+    <td>http://loinc.org · 9318-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1996-01-12</td>
+    <td>Total score [AUDIT-C]</td>
+    <td>7</td>
+    <td>http://loinc.org · 75626-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1996-01-12</td>
+    <td>Patient Health Questionnaire 2 item (PHQ-2) total score [Reported]</td>
+    <td>1</td>
+    <td>http://loinc.org · 55758-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1996-01-12</td>
+    <td>Pain severity - 0-10 verbal numeric rating [Score] - Reported</td>
+    <td>7</td>
+    <td>http://loinc.org · 72514-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1996-01-26</td>
+    <td>Liver stiffness by US.transient elastography</td>
+    <td>26.8 kPa (high)<div class="muted">Reference Below 7 kPa normal; above 12.5 kPa cirrhosis; 25 kPa or more clinically significant portal hypertension</div></td>
+    <td>http://loinc.org · 77615-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1996-01-26</td>
+    <td>Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]</td>
+    <td>6</td>
+    <td>http://loinc.org · 44261-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1996-01-26</td>
+    <td>Total score [AUDIT-C]</td>
+    <td>4</td>
+    <td>http://loinc.org · 75626-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1996-01-26</td>
+    <td>Pain severity - 0-10 verbal numeric rating [Score] - Reported</td>
+    <td>6</td>
+    <td>http://loinc.org · 72514-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1996-02-23</td>
+    <td>Hemoglobin [Mass/volume] in Blood</td>
+    <td>14 g/dL<div class="muted">Reference 13.5-17.5 g/dL</div></td>
+    <td>http://loinc.org · 718-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1996-02-23</td>
+    <td>Leukocytes [#/volume] in Blood by Automated count</td>
+    <td>4.8 10*3/uL<div class="muted">Reference 4-11 10*3/uL</div></td>
+    <td>http://loinc.org · 6690-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1996-02-23</td>
+    <td>Platelets [#/volume] in Blood by Automated count</td>
+    <td>121 10*3/uL (low)<div class="muted">Reference 150-400 10*3/uL</div></td>
+    <td>http://loinc.org · 777-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1996-02-23</td>
+    <td>Creatinine [Mass/volume] in Serum or Plasma</td>
+    <td>0.9 mg/dL<div class="muted">Reference 0.74-1.35 mg/dL</div></td>
+    <td>http://loinc.org · 2160-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1996-02-23</td>
+    <td>Glomerular filtration rate [Volume Rate/Area] in Serum, Plasma or Blood by Creatinine-based formula (CKD-EPI 1991)/1.73 sq M</td>
+    <td>100 mL/min/1.73 m²<div class="muted">Reference &gt;=60 mL/min/1.73 m²</div></td>
+    <td>http://loinc.org · 98979-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1996-02-23</td>
+    <td>Glucose [Mass/volume] in Serum or Plasma</td>
+    <td>141 mg/dL (high)<div class="muted">Reference 70-99 mg/dL</div></td>
+    <td>http://loinc.org · 2345-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1996-02-23</td>
+    <td>Alanine aminotransferase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>81 U/L (high)<div class="muted">Reference 7-55 U/L</div></td>
+    <td>http://loinc.org · 1742-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1996-02-23</td>
+    <td>Aspartate aminotransferase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>90 U/L (high)<div class="muted">Reference 8-48 U/L</div></td>
+    <td>http://loinc.org · 1920-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1996-02-23</td>
+    <td>Bilirubin.total [Mass/volume] in Serum or Plasma</td>
+    <td>1 mg/dL<div class="muted">Reference 0.1-1.2 mg/dL</div></td>
+    <td>http://loinc.org · 1975-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1996-02-23</td>
+    <td>Albumin [Mass/volume] in Serum or Plasma</td>
+    <td>3.7 g/dL<div class="muted">Reference 3.5-5 g/dL</div></td>
+    <td>http://loinc.org · 1751-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1996-02-23</td>
+    <td>Calcium [Mass/volume] in Serum or Plasma</td>
+    <td>9.1 mg/dL<div class="muted">Reference 8.6-10.3 mg/dL</div></td>
+    <td>http://loinc.org · 17861-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1996-02-23</td>
+    <td>25-Hydroxyvitamin D3+25-Hydroxyvitamin D2 [Mass/volume] in Serum or Plasma</td>
+    <td>17 ng/mL (low)<div class="muted">Reference 30-100 ng/mL</div></td>
+    <td>http://loinc.org · 62292-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1996-02-23</td>
+    <td>Cobalamin (Vitamin B12) [Mass/volume] in Serum or Plasma</td>
+    <td>388 pg/mL<div class="muted">Reference 232-1245 pg/mL</div></td>
+    <td>http://loinc.org · 2132-9</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1996-02-23</td>
+    <td>Thyrotropin [Units/volume] in Serum or Plasma</td>
+    <td>2.1 mIU/L<div class="muted">Reference 0.4-4.5 mIU/L</div></td>
+    <td>http://loinc.org · 3016-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1996-02-23</td>
+    <td>Total score [AUDIT-C]</td>
+    <td>1</td>
+    <td>http://loinc.org · 75626-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1996-02-23</td>
+    <td>Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]</td>
+    <td>5</td>
+    <td>http://loinc.org · 44261-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1996-02-23</td>
+    <td>Pain severity - 0-10 verbal numeric rating [Score] - Reported</td>
+    <td>5</td>
+    <td>http://loinc.org · 72514-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1996-05-18</td>
+    <td>Hemoglobin [Mass/volume] in Blood</td>
+    <td>14.2 g/dL<div class="muted">Reference 13.5-17.5 g/dL</div></td>
+    <td>http://loinc.org · 718-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1996-05-18</td>
+    <td>Leukocytes [#/volume] in Blood by Automated count</td>
+    <td>5 10*3/uL<div class="muted">Reference 4-11 10*3/uL</div></td>
+    <td>http://loinc.org · 6690-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1996-05-18</td>
+    <td>Platelets [#/volume] in Blood by Automated count</td>
+    <td>129 10*3/uL (low)<div class="muted">Reference 150-400 10*3/uL</div></td>
+    <td>http://loinc.org · 777-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1996-05-18</td>
+    <td>Creatinine [Mass/volume] in Serum or Plasma</td>
+    <td>0.89 mg/dL<div class="muted">Reference 0.74-1.35 mg/dL</div></td>
+    <td>http://loinc.org · 2160-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1996-05-18</td>
+    <td>Glomerular filtration rate [Volume Rate/Area] in Serum, Plasma or Blood by Creatinine-based formula (CKD-EPI 1991)/1.73 sq M</td>
+    <td>100 mL/min/1.73 m²<div class="muted">Reference &gt;=60 mL/min/1.73 m²</div></td>
+    <td>http://loinc.org · 98979-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1996-05-18</td>
+    <td>Glucose [Mass/volume] in Serum or Plasma</td>
+    <td>118 mg/dL (high)<div class="muted">Reference 70-99 mg/dL</div></td>
+    <td>http://loinc.org · 2345-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1996-05-18</td>
+    <td>Alanine aminotransferase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>24 U/L<div class="muted">Reference 7-55 U/L</div></td>
+    <td>http://loinc.org · 1742-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1996-05-18</td>
+    <td>Aspartate aminotransferase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>29 U/L<div class="muted">Reference 8-48 U/L</div></td>
+    <td>http://loinc.org · 1920-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1996-05-18</td>
+    <td>Bilirubin.total [Mass/volume] in Serum or Plasma</td>
+    <td>0.8 mg/dL<div class="muted">Reference 0.1-1.2 mg/dL</div></td>
+    <td>http://loinc.org · 1975-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1996-05-18</td>
+    <td>Albumin [Mass/volume] in Serum or Plasma</td>
+    <td>3.9 g/dL<div class="muted">Reference 3.5-5 g/dL</div></td>
+    <td>http://loinc.org · 1751-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1996-05-18</td>
+    <td>Calcium [Mass/volume] in Serum or Plasma</td>
+    <td>9.3 mg/dL<div class="muted">Reference 8.6-10.3 mg/dL</div></td>
+    <td>http://loinc.org · 17861-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1996-05-18</td>
+    <td>Hepatitis C virus RNA [Units/volume] (viral load) in Serum or Plasma by NAA with probe detection</td>
+    <td>0 [IU]/mL<div class="muted">Reference Not detected is reported as 0; lower limit of quantification 15 IU/mL</div></td>
+    <td>http://loinc.org · 11011-4</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1996-05-18</td>
+    <td>Hemoglobin A1c/Hemoglobin.total in Blood</td>
+    <td>6.4% (high)<div class="muted">Reference Below 5.7% is normal; individual goal below 7%; may read falsely low in cirrhosis</div></td>
+    <td>http://loinc.org · 4548-4</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1996-05-18</td>
+    <td>Glucose management indicator</td>
+    <td>6.9%<div class="muted">Reference Individual goal below 7%</div></td>
+    <td>http://loinc.org · 97506-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1996-05-18</td>
+    <td>25-Hydroxyvitamin D3+25-Hydroxyvitamin D2 [Mass/volume] in Serum or Plasma</td>
+    <td>34 ng/mL<div class="muted">Reference 30-100 ng/mL</div></td>
+    <td>http://loinc.org · 62292-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1996-05-18</td>
+    <td>Parathyrin.intact [Mass/volume] in Serum or Plasma</td>
+    <td>48 pg/mL<div class="muted">Reference 15-65 pg/mL</div></td>
+    <td>http://loinc.org · 2731-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1996-05-18</td>
+    <td>Testosterone [Mass/volume] in Serum or Plasma</td>
+    <td>455 ng/dL<div class="muted">Reference 264-916 ng/dL</div></td>
+    <td>http://loinc.org · 2986-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1996-05-18</td>
+    <td>Total score [AUDIT-C]</td>
+    <td>0</td>
+    <td>http://loinc.org · 75626-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1996-05-18</td>
+    <td>Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]</td>
+    <td>4</td>
+    <td>http://loinc.org · 44261-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1996-05-18</td>
+    <td>Pain severity - 0-10 verbal numeric rating [Score] - Reported</td>
+    <td>4</td>
+    <td>http://loinc.org · 72514-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1996-08-17</td>
+    <td>Hemoglobin [Mass/volume] in Blood</td>
+    <td>14.4 g/dL<div class="muted">Reference 13.5-17.5 g/dL</div></td>
+    <td>http://loinc.org · 718-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1996-08-17</td>
+    <td>Leukocytes [#/volume] in Blood by Automated count</td>
+    <td>5.2 10*3/uL<div class="muted">Reference 4-11 10*3/uL</div></td>
+    <td>http://loinc.org · 6690-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1996-08-17</td>
+    <td>Platelets [#/volume] in Blood by Automated count</td>
+    <td>134 10*3/uL (low)<div class="muted">Reference 150-400 10*3/uL</div></td>
+    <td>http://loinc.org · 777-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1996-08-17</td>
+    <td>Creatinine [Mass/volume] in Serum or Plasma</td>
+    <td>0.88 mg/dL<div class="muted">Reference 0.74-1.35 mg/dL</div></td>
+    <td>http://loinc.org · 2160-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1996-08-17</td>
+    <td>Glomerular filtration rate [Volume Rate/Area] in Serum, Plasma or Blood by Creatinine-based formula (CKD-EPI 1991)/1.73 sq M</td>
+    <td>100 mL/min/1.73 m²<div class="muted">Reference &gt;=60 mL/min/1.73 m²</div></td>
+    <td>http://loinc.org · 98979-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1996-08-17</td>
+    <td>Glucose [Mass/volume] in Serum or Plasma</td>
+    <td>112 mg/dL (high)<div class="muted">Reference 70-99 mg/dL</div></td>
+    <td>http://loinc.org · 2345-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1996-08-17</td>
+    <td>Alanine aminotransferase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>22 U/L<div class="muted">Reference 7-55 U/L</div></td>
+    <td>http://loinc.org · 1742-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1996-08-17</td>
+    <td>Aspartate aminotransferase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>26 U/L<div class="muted">Reference 8-48 U/L</div></td>
+    <td>http://loinc.org · 1920-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1996-08-17</td>
+    <td>Alkaline phosphatase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>92 U/L<div class="muted">Reference 40-129 U/L</div></td>
+    <td>http://loinc.org · 6768-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1996-08-17</td>
+    <td>Bilirubin.total [Mass/volume] in Serum or Plasma</td>
+    <td>0.8 mg/dL<div class="muted">Reference 0.1-1.2 mg/dL</div></td>
+    <td>http://loinc.org · 1975-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1996-08-17</td>
+    <td>Albumin [Mass/volume] in Serum or Plasma</td>
+    <td>4 g/dL<div class="muted">Reference 3.5-5 g/dL</div></td>
+    <td>http://loinc.org · 1751-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1996-08-17</td>
+    <td>INR in Platelet poor plasma by Coagulation assay</td>
+    <td>1<div class="muted">Reference 0.9-1.1</div></td>
+    <td>http://loinc.org · 6301-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1996-08-17</td>
+    <td>Hepatitis C virus RNA [Units/volume] (viral load) in Serum or Plasma by NAA with probe detection</td>
+    <td>0 [IU]/mL<div class="muted">Reference Not detected is reported as 0; lower limit of quantification 15 IU/mL</div></td>
+    <td>http://loinc.org · 11011-4</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1996-08-17</td>
+    <td>Alpha-1-Fetoprotein [Mass/volume] in Serum or Plasma</td>
+    <td>3.4 ng/mL<div class="muted">Reference &lt;=8.3 ng/mL</div></td>
+    <td>http://loinc.org · 1834-1</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1996-08-17</td>
+    <td>Hemoglobin A1c/Hemoglobin.total in Blood</td>
+    <td>6.3% (high)<div class="muted">Reference Below 5.7% is normal; individual goal below 7%; may read falsely low in cirrhosis</div></td>
+    <td>http://loinc.org · 4548-4</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1996-08-17</td>
+    <td>Glucose management indicator</td>
+    <td>6.8%<div class="muted">Reference Individual goal below 7%</div></td>
+    <td>http://loinc.org · 97506-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1996-08-17</td>
+    <td>Total score [AUDIT-C]</td>
+    <td>0</td>
+    <td>http://loinc.org · 75626-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1996-08-17</td>
+    <td>Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]</td>
+    <td>3</td>
+    <td>http://loinc.org · 44261-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1996-08-17</td>
+    <td>Pain severity - 0-10 verbal numeric rating [Score] - Reported</td>
+    <td>4</td>
+    <td>http://loinc.org · 72514-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1996-09-21</td>
+    <td>Cholesterol [Mass/volume] in Serum or Plasma</td>
+    <td>148 mg/dL<div class="muted">Reference &lt;=199 mg/dL</div></td>
+    <td>http://loinc.org · 2093-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1996-09-21</td>
+    <td>Cholesterol in LDL [Mass/volume] in Serum or Plasma by calculation</td>
+    <td>68 mg/dL<div class="muted">Reference Goal below 100 mg/dL in diabetes, below 70 if higher risk</div></td>
+    <td>http://loinc.org · 13457-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1996-09-21</td>
+    <td>Cholesterol in HDL [Mass/volume] in Serum or Plasma</td>
+    <td>42 mg/dL<div class="muted">Reference &gt;=40 mg/dL</div></td>
+    <td>http://loinc.org · 2085-9</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1996-09-21</td>
+    <td>Triglyceride [Mass/volume] in Serum or Plasma</td>
+    <td>140 mg/dL<div class="muted">Reference &lt;=149 mg/dL</div></td>
+    <td>http://loinc.org · 2571-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1996-09-21</td>
+    <td>Prostate specific Ag [Mass/volume] in Serum or Plasma</td>
+    <td>1.3 ng/mL<div class="muted">Reference &lt;=4 ng/mL</div></td>
+    <td>http://loinc.org · 2857-1</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1996-09-21</td>
+    <td>Patient Health Questionnaire 2 item (PHQ-2) total score [Reported]</td>
+    <td>0</td>
+    <td>http://loinc.org · 55758-7</td>
+  </tr></tbody></table></section>
+    <section><h2>Synthetic vital signs</h2><table><thead><tr><th>Date</th><th>Measure</th><th>Result</th><th>LOINC</th><th>Grade</th></tr></thead><tbody>
+  <tr><td>1996-01-12</td><td>Body height</td><td>178 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1996-01-12</td><td>Body weight</td><td>86 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1996-01-12</td><td>Body mass index (BMI) [Ratio]</td><td>27.1 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1996-01-12</td><td>Systolic blood pressure</td><td>138 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1996-01-12</td><td>Diastolic blood pressure</td><td>84 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1996-01-12</td><td>Heart rate</td><td>80 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1996-01-12</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1996-01-12</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1996-01-12</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>98 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1996-01-26</td><td>Body height</td><td>178 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1996-01-26</td><td>Body weight</td><td>85.6 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1996-01-26</td><td>Body mass index (BMI) [Ratio]</td><td>27 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1996-01-26</td><td>Systolic blood pressure</td><td>136 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1996-01-26</td><td>Diastolic blood pressure</td><td>82 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1996-01-26</td><td>Heart rate</td><td>78 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1996-01-26</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1996-01-26</td><td>Body temperature</td><td>36.7 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1996-01-26</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>98 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1996-02-23</td><td>Body height</td><td>178 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1996-02-23</td><td>Body weight</td><td>84.8 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1996-02-23</td><td>Body mass index (BMI) [Ratio]</td><td>26.8 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1996-02-23</td><td>Systolic blood pressure</td><td>128 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1996-02-23</td><td>Diastolic blood pressure</td><td>78 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1996-02-23</td><td>Heart rate</td><td>68 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1996-02-23</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1996-02-23</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1996-02-23</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>98 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1996-05-18</td><td>Body height</td><td>178 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1996-05-18</td><td>Body weight</td><td>83.2 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1996-05-18</td><td>Body mass index (BMI) [Ratio]</td><td>26.3 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1996-05-18</td><td>Systolic blood pressure</td><td>118 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1996-05-18</td><td>Diastolic blood pressure</td><td>72 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1996-05-18</td><td>Heart rate</td><td>62 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1996-05-18</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1996-05-18</td><td>Body temperature</td><td>36.5 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1996-05-18</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>98 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1996-08-17</td><td>Body height</td><td>178 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1996-08-17</td><td>Body weight</td><td>82.6 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1996-08-17</td><td>Body mass index (BMI) [Ratio]</td><td>26.1 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1996-08-17</td><td>Systolic blood pressure</td><td>120 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1996-08-17</td><td>Diastolic blood pressure</td><td>74 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1996-08-17</td><td>Heart rate</td><td>60 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1996-08-17</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1996-08-17</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1996-08-17</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>98 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1996-09-21</td><td>Body height</td><td>178 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1996-09-21</td><td>Body weight</td><td>82.4 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1996-09-21</td><td>Body mass index (BMI) [Ratio]</td><td>26 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1996-09-21</td><td>Systolic blood pressure</td><td>122 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1996-09-21</td><td>Diastolic blood pressure</td><td>74 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1996-09-21</td><td>Heart rate</td><td>62 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1996-09-21</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1996-09-21</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1996-09-21</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>98 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr></tbody></table></section>
+    <section><h2>Social, functional, and mental status</h2><h3>Social history</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Retired motorcycle stunt performer; earns his living from public appearances, autographs and product endorsements; travels often</li><li><span class="badge grade-S" title="Synthetic">S</span> Lives in Florida in the winter and Montana in the summer; four grown children</li><li><span class="badge grade-S" title="Synthetic">S</span> Alcohol: three or four drinks of whiskey or beer most evenings for many years, which he says helps him sleep through the pain; no drink-driving; willing to talk about cutting down</li><li><span class="badge grade-S" title="Synthetic">S</span> Tobacco: never smoked cigarettes; no drug use; no tattoos or shared needles; many blood transfusions after crashes in the 1960s and 1970s</li><li><span class="badge grade-S" title="Synthetic">S</span> Exercise: golf when his hips allow; walks short distances</li></ul><h3>Functional status</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Independent in daily activities; walks about two blocks before hip and knee pain stops him; uses a cane for long distances; two falls in the past year without injury</li></ul><h3>Mental status</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Alert, oriented, talkative and blunt; good humor about his injuries; PHQ-2 negative; no thoughts of self-harm</li></ul></section>
+    
+    <section><h2>Allergies and medications</h2><h3>Allergies</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> No known allergy</li></ul><h3>Medications</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Metformin 1000 mg oral tablet, one tablet by mouth twice daily with meals</li><li><span class="badge grade-S" title="Synthetic">S</span> Ibuprofen 800 mg oral tablet, one tablet three times a day for joint and back pain</li><li><span class="badge grade-S" title="Synthetic">S</span> Omeprazole 20 mg delayed-release oral capsule, one capsule daily for indigestion from ibuprofen</li><li><span class="badge grade-S" title="Synthetic">S</span> Acetaminophen 500 mg oral tablet, two tablets by mouth up to twice a day as needed for pain, no more than 2 g a day</li><li><span class="badge grade-S" title="Synthetic">S</span> Diclofenac sodium 1% topical gel, 4 g to the knees up to four times a day</li><li><span class="badge grade-S" title="Synthetic">S</span> Carvedilol 6.25 mg oral tablet, one tablet daily</li><li><span class="badge grade-S" title="Synthetic">S</span> Carvedilol 12.5 mg oral tablet, one tablet daily</li><li><span class="badge grade-S" title="Synthetic">S</span> Atorvastatin 20 mg oral tablet, one tablet daily</li><li><span class="badge grade-S" title="Synthetic">S</span> Sofosbuvir 400 mg and velpatasvir 100 mg oral tablet, one tablet daily for 12 weeks</li><li><span class="badge grade-S" title="Synthetic">S</span> Cholecalciferol (vitamin D3) 50 mcg (1970 units) oral capsule, one capsule daily</li><li><span class="badge grade-S" title="Synthetic">S</span> Zoledronic acid 5 mg in 100 mL, intravenous infusion over at least 15 minutes, once a year</li></ul></section>
+    <section><h2>Procedures and immunizations</h2><h3>Procedures</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Ultrasound of the abdomen with Doppler: nodular liver surface and coarse echotexture; no focal liver lesion; spleen 14.2 cm; portal vein patent with forward flow; no ascites; gallbladder normal</li><li><span class="badge grade-S" title="Synthetic">S</span> Transient elastography (FibroScan) at the hepatology visit: median liver stiffness 26.8 kPa (interquartile range under 30% of the median), controlled attenuation parameter 248 dB/m</li><li><span class="badge grade-S" title="Synthetic">S</span> Outpatient physical therapy assessment: limited hip and knee range from old fractures, slow gait, Timed Up and Go 13 seconds, poor single-leg balance; aquatic therapy twice a week and a home exercise program; cane for long distances</li><li><span class="badge grade-S" title="Synthetic">S</span> Dual-energy X-ray absorptiometry: femoral neck T-score -2.6, total hip -2.2, lumbar spine -1.9 (read with caution because of old fractures and degenerative change); 10-year FRAX risk of major osteoporotic fracture 14% and hip fracture 4.1%</li><li><span class="badge grade-S" title="Synthetic">S</span> Surveillance ultrasound of the liver six months after the baseline scan: nodular liver, no focal lesion; spleen 13.8 cm; no ascites (LI-RADS US-1, negative)</li><li><span class="badge grade-S" title="Synthetic">S</span> Advance care planning conversation, about 20 minutes</li></ul><h3>Immunizations</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> 1996-01-26: Hepatitis A vaccine, adult, dose 1 of 2</li><li><span class="badge grade-S" title="Synthetic">S</span> 1996-01-26: Hepatitis B vaccine (recombinant, CpG adjuvanted), dose 1 of 2</li><li><span class="badge grade-S" title="Synthetic">S</span> 1996-02-23: Hepatitis B vaccine (recombinant, CpG adjuvanted), dose 2 of 2</li><li><span class="badge grade-S" title="Synthetic">S</span> 1996-08-17: Hepatitis A vaccine, adult, dose 2 of 2</li><li><span class="badge grade-S" title="Synthetic">S</span> 1996-09-21: Influenza vaccine, inactivated, trivalent, preservative free, this season</li><li><span class="badge grade-S" title="Synthetic">S</span> 1996-09-21: Pneumococcal conjugate vaccine PCV20</li><li><span class="badge grade-S" title="Synthetic">S</span> 1996-09-21: Recombinant zoster vaccine, dose 1 of 2</li><li><span class="badge grade-S" title="Synthetic">S</span> 1996-09-21: Tetanus, diphtheria, and acellular pertussis vaccine (Tdap)</li></ul></section>
+    <section><h2>Past medical history</h2><p class="muted">True biography with historical dates; not part of the synthetic care timeline.</p><ul><li><span class="badge grade-D" title="Documented">D</span> 1968: Crash after jumping the fountains at Caesars Palace, Las Vegas, with a long hospital stay (reported as a month in a coma) <span class="muted">(CLM-0002)</span></li><li><span class="badge grade-D" title="Documented">D</span> September 8, 1974: Failed rocket-cycle jump of the Snake River Canyon, Idaho <span class="muted">(CLM-0003)</span></li><li><span class="badge grade-D" title="Documented">D</span> 1975: Broken pelvis in the crash landing of a jump over 13 buses at Wembley Stadium, London; Guinness World Records counts 433 fractures by the end of that year (disputed; his obituaries say nearly 40 broken bones in his career) <span class="muted">(CLM-0003, CLM-0004)</span></li><li><span class="badge grade-D" title="Documented">D</span> 1976: Concussion and two broken arms in a jump attempt in Chicago; retired from major jumps <span class="muted">(CLM-0003)</span></li></ul><h3>Family history</h3><p class="muted">No family medical history is documented in the logged sources. Family history of real relatives is never synthesized.</p></section>
+    <section><h2>Care-plan goals</h2><table><thead><tr><th>Goal</th><th>Target date</th><th>Status</th><th>Outcome</th></tr></thead><tbody>
+  <tr><td>Hepatitis C confirmed or excluded and liver disease staged within three weeks</td><td>1996-01-26</td><td>completed</td><td>Chronic hepatitis C, genotype 1a, with compensated cirrhosis staged at two weeks</td></tr>
+  <tr><td>Cure of hepatitis C: HCV RNA not detected 12 or more weeks after treatment</td><td>1996-08-17</td><td>completed</td><td>HCV RNA not detected 13 weeks after a 12-week course</td></tr>
+  <tr><td>No decompensation (ascites, variceal bleeding, encephalopathy or jaundice); Child-Pugh A and MELD-Na below 15</td><td>1996-08-17</td><td>completed</td><td>No decompensation; Child-Pugh A5; MELD-Na 6 after cure</td></tr>
+  <tr><td>No alcohol</td><td>1996-08-17</td><td>completed</td><td>No alcohol since the start of antiviral treatment; AUDIT-C 0</td></tr>
+  <tr><td>Pain 4 of 10 or less, walking 30 minutes, with no oral NSAIDs or opioids</td><td>1996-08-17</td><td>completed</td><td>Pain 4 of 10; walking 30 minutes in the pool and on flat ground; no NSAIDs or opioids</td></tr>
+  <tr><td>Glucose management indicator below 7% without hypoglycemia</td><td>1996-08-17</td><td>completed</td><td>Glucose management indicator 6.8%; no hypoglycemia</td></tr>
+  <tr><td>Vitamin D replete and osteoporosis treatment started; no falls with injury</td><td>1996-08-17</td><td>completed</td><td>Vitamin D 34 ng/mL; zoledronic acid given; no further falls</td></tr></tbody></table></section>
+    <section><h2>Interventions</h2><table><thead><tr><th>Intervention</th><th>Status</th><th>Guideline</th></tr></thead><tbody>
+  <tr><td>Hepatology consultation within three weeks to confirm and stage chronic liver disease and plan antiviral treatment if hepatitis C is confirmed</td><td>completed</td><td>GL-AASLD-HCV-2026, GL-AASLD-HCC-2023</td></tr>
+  <tr><td>Liver work-up for raised transaminases and low platelets: hepatitis C antibody with reflex RNA, hepatitis B surface antigen, core antibody and surface antibody, hepatitis A IgG, HIV, INR, ultrasound of the abdomen, and FIB-4 from today&#39;s tests</td><td>completed</td><td>GL-AASLD-HCV-2026, GL-USPSTF-HCV-2020</td></tr>
+  <tr><td>Pain care safe in liver disease: stop ibuprofen and omeprazole; acetaminophen up to 2 g a day; topical diclofenac for the knees; no opioids; physical and aquatic therapy; heat, pacing and sleep routines; pain coping skills</td><td>completed</td><td>GL-RAKOSKI-2018, GL-CDC-OPIOID-2022</td></tr>
+  <tr><td>Alcohol: brief counseling toward stopping completely, because alcohol speeds liver scarring; follow-up AUDIT-C at each visit; counseling or medicine for alcohol use offered if he cannot stop</td><td>completed</td><td>GL-USPSTF-ALC-2018, GL-AASLD-ALD-2019</td></tr>
+  <tr><td>Sofosbuvir-velpatasvir one tablet daily for 12 weeks under the AASLD-IDSA simplified pathway for compensated cirrhosis, after hepatitis B testing and a drug interaction check (no proton pump inhibitor; watch for muscle pain on atorvastatin); glucose monitoring for hypoglycemia; HCV RNA and liver tests 12 or more weeks after the last dose</td><td>completed</td><td>GL-AASLD-HCV-2026, GL-AASLD-HCV-MON, GL-EPCLUSA-LABEL</td></tr>
+  <tr><td>Carvedilol for clinically significant portal hypertension (liver stiffness 25 kPa or more), started at 6.25 mg and raised to 12.5 mg daily if blood pressure allows; no screening endoscopy while he takes it; liver stiffness and platelets rechecked a year after cure</td><td>completed</td><td>GL-BAVENO-VII-2022, GL-AASLD-PH-2024</td></tr>
+  <tr><td>Liver cancer surveillance by ultrasound with alpha-fetoprotein every six months, continuing after cure because cirrhosis remains</td><td>completed</td><td>GL-AASLD-HCC-2023, GL-AASLD-HCV-2026</td></tr>
+  <tr><td>Vaccines for chronic liver disease: hepatitis A (two doses) and hepatitis B (two doses), then influenza, pneumococcal and zoster vaccines at the preventive visit</td><td>completed</td><td>GL-CDC-IMZ-2026, GL-AASLD-HCV-2026</td></tr>
+  <tr><td>Teaching on decompensation (swelling of the abdomen or legs, black stools or vomiting blood, confusion, yellow eyes) with same-day contact; transplant referral only if decompensation occurs or the MELD-Na reaches 15</td><td>completed</td><td>GL-AASLD-ASCITES-2021, GL-AASLD-PH-2024</td></tr>
+  <tr><td>Diabetes care adapted to cirrhosis: metformin continued while kidney function is normal and he does not drink; continuous glucose monitoring because the A1c can read falsely low; moderate-intensity statin; yearly eye and foot examinations and urine albumin</td><td>completed</td><td>GL-ADA-4-2026, GL-ADA-6-2026, GL-CMID-2026</td></tr>
+  <tr><td>Falls and fractures: physical therapy and a home safety review; vitamin D; bone density scan, since cirrhosis, alcohol and many old fractures raise the risk of osteoporosis</td><td>completed</td><td>GL-ENDO-OSTEO-MEN-2012, GL-CMID-2026</td></tr>
+  <tr><td>Zoledronic acid 5 mg intravenously once a year, after vitamin D repletion and a normal calcium, rather than an oral bisphosphonate because of portal hypertension; dental review first; bone density again in two years</td><td>completed</td><td>GL-ENDO-OSTEO-MEN-2012, GL-CMID-2026</td></tr>
+  <tr><td>Depression and distress screening at each visit, and plain explanations with written information</td><td>completed</td><td>GL-USPSTF-DEP-2023, GL-CMID-2026</td></tr></tbody></table></section>
+    <section><h2>Planned encounters</h2><ul>
+  <li><strong>1996-01-12</strong> — New patient: chronic pain from old fractures, diabetes, and raised liver tests with low platelets on today&#39;s tests: hepatitis C and liver work-up, NSAIDs stopped, alcohol counseling, and hepatology review booked <span class="muted">(ENC-001)</span></li>
+  <li><strong>1996-01-26</strong> — Hepatitis C confirmed with compensated cirrhosis: elastography, hepatology consultation, carvedilol for portal hypertension, statin, vaccines, and the antiviral plan <span class="muted">(ENC-002)</span></li>
+  <li><strong>1996-02-23</strong> — Day 1 of sofosbuvir-velpatasvir: drug interaction check, carvedilol titration, glucose monitoring, vitamin D, and the bone density plan <span class="muted">(ENC-003)</span></li>
+  <li><strong>1996-05-18</strong> — End of 12 weeks of antiviral treatment: liver tests, glucose monitoring in cirrhosis, osteoporosis, pain, and abstinence <span class="muted">(ENC-004)</span></li>
+  <li><strong>1996-08-17</strong> — Cure confirmed (SVR12): six-month liver cancer surveillance, cirrhosis care after cure, and transplant criteria reviewed <span class="muted">(ENC-005)</span></li>
+  <li><strong>1996-09-21</strong> — Periodic adult preventive visit <span class="muted">(ENC-006)</span></li></ul></section>
+    <section><h2>Supporting documents</h2><ul><li><a href="notes/hp.md">History and physical</a></li><li><a href="notes/progress-01.md">Progress note 01</a></li><li><a href="notes/progress-02.md">Progress note 02 — Focused Visit (Follow-up)</a></li><li><a href="notes/progress-03.md">Progress note 03 — Focused Visit (Follow-up)</a></li><li><a href="notes/progress-04.md">Progress note 04 — Focused Visit (Follow-up)</a></li><li><a href="notes/progress-05.md">Progress note 05 — Focused Visit (Care-plan review)</a></li><li><a href="notes/progress-06.md">Progress note 06 — Preventive Visit</a></li><li><a href="notes/referral-01.md">Hepatology referral</a></li><li><a href="notes/consult-01.md">Hepatology consultation</a></li><li><a href="notes/careplan.md">Patient care plan</a></li><li><a href="notes/teaching-note.md">Teaching note</a></li><li><a href="provenance.csv">Provenance CSV</a></li></ul></section>
+    <section><h2>C-CDA note documents</h2><p class="muted">Each link opens a readable copy; the XML beside it is the exchange file.</p><ul><li><a href="ccda/hp-01.html">History and physical</a> <a href="ccda/hp-01.xml">(XML)</a></li><li><a href="ccda/progress-01.html">Progress note 01</a> <a href="ccda/progress-01.xml">(XML)</a></li><li><a href="ccda/progress-02.html">Progress note 02 — Focused Visit (Follow-up)</a> <a href="ccda/progress-02.xml">(XML)</a></li><li><a href="ccda/progress-03.html">Progress note 03 — Focused Visit (Follow-up)</a> <a href="ccda/progress-03.xml">(XML)</a></li><li><a href="ccda/progress-04.html">Progress note 04 — Focused Visit (Follow-up)</a> <a href="ccda/progress-04.xml">(XML)</a></li><li><a href="ccda/progress-05.html">Progress note 05 — Focused Visit (Care-plan review)</a> <a href="ccda/progress-05.xml">(XML)</a></li><li><a href="ccda/progress-06.html">Progress note 06 — Preventive Visit</a> <a href="ccda/progress-06.xml">(XML)</a></li><li><a href="ccda/referral-01.html">Hepatology referral</a> <a href="ccda/referral-01.xml">(XML)</a></li><li><a href="ccda/consult-01.html">Hepatology consultation</a> <a href="ccda/consult-01.xml">(XML)</a></li></ul></section>
+    <section><h2>Sources</h2><table><thead><tr><th>ID</th><th>Source</th><th>Publisher</th><th>Type</th></tr></thead><tbody>
+  <tr>
+    <td>SRC-0001</td>
+    <td><a href="https://www2.ljworld.com/news/2007/dec/01/evel_knievel_iconic_daredevil_dies_69_natural_caus/" target="_blank" rel="noreferrer">Stacy M (Associated Press). Evel Knievel, iconic daredevil, dies at 69 of natural causes</a></td>
+    <td>Lawrence Journal-World</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0002</td>
+    <td><a href="https://www.espn.co.uk/espn/news/story?id=3135532" target="_blank" rel="noreferrer">Evel Knievel dies at 69; had long been in failing health</a></td>
+    <td>ESPN.com news services</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0003</td>
+    <td><a href="https://mg.co.za/2007-12-01-daredevil-evel-knievel-dies-after-long-illness/" target="_blank" rel="noreferrer">Reuters. Daredevil Evel Knievel dies after long illness</a></td>
+    <td>Mail &amp; Guardian</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0004</td>
+    <td><a href="https://www.guinnessworldrecords.com/world-records/most-broken-bones-in-a-lifetime" target="_blank" rel="noreferrer">Most broken bones in a lifetime</a></td>
+    <td>Guinness World Records</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0005</td>
+    <td><a href="https://www.guinnessworldrecords.com/news/2025/11/stunt-legend-evel-knievels-unfortunate-record-after-he-broke-his-bones-hundreds-of-times" target="_blank" rel="noreferrer">Selbie J. Stunt legend Evel Knievel&#39;s unfortunate record after he broke his bones hundreds of times</a></td>
+    <td>Guinness World Records</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0006</td>
+    <td><a href="https://www.deseret.com/2007/11/30/20056581/motorcycle-daredevil-evel-knievel-dies-at-69/" target="_blank" rel="noreferrer">Motorcycle daredevil Evel Knievel dies at 69 (The Associated Press)</a></td>
+    <td>Deseret News</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0007</td>
+    <td><a href="https://humanrecord.example.org/internal/HISTMED_Master_Roster_v3.xlsx" target="_blank" rel="noreferrer">HISTMED Master Roster v3</a></td>
+    <td>The Human Record project</td>
+    <td>other</td>
+  </tr></tbody></table></section>
+    <section><h2>Review status</h2><table><thead><tr><th>Review</th><th>Status</th><th>Notes</th></tr></thead><tbody>
+  <tr><td>schema validation</td><td>not_started</td><td>Run scripts/build.ps1 -Conformance.</td></tr>
+  <tr><td>clinical review</td><td>not_started</td><td>Awaiting clinician review; check the diagnostic pathway, the staging (FIB-4, elastography, Child-Pugh, MELD-Na), the choice of sofosbuvir-velpatasvir with the drug interaction check, carvedilol without screening endoscopy under Baveno VII, HCC surveillance after cure, the pain plan without NSAIDs or opioids, continuous glucose monitoring in cirrhosis, and zoledronic acid rather than an oral bisphosphonate.</td></tr>
+  <tr><td>provenance review</td><td>not_started</td><td>Recent-death rule: only what he made public, what was reported during his life, and obituaries and record-keeper accounts: the Associated Press, ESPN, Reuters, the Deseret News and Guinness World Records. The stage of his liver disease and any treatment before the 1999 transplant were not made public; everything clinical is synthetic.</td></tr>
+  <tr><td>safe messaging review</td><td>not_started</td><td>The drinking reported in a Reuters obituary (CLM-0006) and the drug pump for pain in his last year (CLM-0008) are marked sensitive. No diagnosis of an alcohol or opioid use disorder is made; alcohol appears only as counseling and AUDIT-C scores, which are synthetic. Mood screens are synthetic and below the threshold for a safety assessment. His 1977 conviction is not medical and is left out. No relative is named or given a role.</td></tr></tbody></table></section>
+  </main>
+</body>
+</html>

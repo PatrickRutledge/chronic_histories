@@ -1,0 +1,858 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ernest Hemingway — The Human Record</title>
+  <style>
+    :root { --navy:#17365d; --blue:#1f4e78; --pale:#eef5fa; --ink:#1f2933; --muted:#66788a; --amber:#fff2cc; --red:#f8d7da; --green:#d9ead3; }
+    * { box-sizing:border-box; }
+    body { margin:0; font:16px/1.5 Arial, sans-serif; color:var(--ink); background:#f6f8fa; }
+    header { background:var(--navy); color:white; padding:24px max(24px,calc((100vw - 1180px)/2)); }
+    header h1 { margin:4px 0; font-size:30px; }
+    .banner { background:#b42318; color:white; font-weight:700; text-align:center; padding:10px; letter-spacing:.03em; }
+    main { max-width:1180px; margin:24px auto 60px; padding:0 24px; }
+    section { background:white; border:1px solid #d9e1e8; border-radius:8px; margin:18px 0; padding:20px; }
+    h2 { color:var(--navy); margin:0 0 14px; font-size:22px; }
+    h3 { color:var(--blue); }
+    .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:12px; }
+    .card { background:var(--pale); border-left:4px solid var(--blue); padding:12px; }
+    .label { color:var(--muted); font-size:13px; text-transform:uppercase; letter-spacing:.04em; }
+    table { width:100%; border-collapse:collapse; }
+    th { background:var(--blue); color:white; text-align:left; }
+    th,td { padding:9px; border-bottom:1px solid #dfe6ec; vertical-align:top; }
+    .badge { display:inline-block; min-width:28px; text-align:center; font-weight:700; border-radius:12px; padding:2px 8px; }
+    .grade-D { background:var(--green); } .grade-R { background:var(--amber); } .grade-S { background:var(--red); }
+    .muted { color:var(--muted); font-size:14px; }
+    .relationship { color:var(--muted); font-size:12px; }
+    .downloads a { display:inline-block; margin:4px 8px 4px 0; padding:8px 12px; background:var(--blue); color:white; text-decoration:none; border-radius:5px; }
+    @media (max-width:700px) { table { display:block; overflow-x:auto; } }
+  </style>
+</head>
+<body>
+  <div class="banner">SYNTHETIC RECORD, NOT A REAL MEDICAL RECORD</div>
+  <div class="banner">True-date frame: synthetic events are moved into the patient&#39;s historical lifetime. Codes, instruments, and treatments remain modern and are anachronistic.</div>
+  <header>
+    <div>The Human Record</div>
+    <h1>Ernest Hemingway</h1>
+    <div>Case HR-ET003-TD · Modern EHR teaching episode · Draft for review</div>
+  </header>
+  <main>
+    <section>
+      <h2>Review summary</h2>
+      <div class="grid">
+        <div class="card"><div class="label">Historical dates</div>July 21, 1899 – July 2, 1961</div>
+        <div class="card"><div class="label">Synthetic DOB</div>1899-07-21</div>
+        <div class="card"><div class="label">Index visit</div>1955-03-02 at age 55</div>
+        <div class="card"><div class="label">Synthetic MRN</div>HR-ET003-SYN-TD</div>
+      </div>
+      <p><strong>Teaching objective:</strong> Several conditions that make each other worse, met in one man without judgment: a 55-year-old writer with severe alcohol use disorder, a year after a concussion with a skull fracture, whose routine intake tests show iron overload. The episode covers the diagnosis of hereditary hemochromatosis by transferrin saturation, ferritin and HFE genotyping; staging the liver with elastography and MRI instead of biopsy (AASLD 1940, ACG 1948); weekly phlebotomy to a ferritin of 50 to 100 ng/mL; avoiding iron and vitamin C supplements and raw shellfish; why alcohol multiplies the liver risk of iron overload; offering testing to first-degree relatives without attributing results to anyone; the AUDIT, DSM-5-TR criteria, brief intervention and naltrexone, with the patient choosing his own drinking goal (APA 1947); depression treated with psychotherapy and a carefully chosen SSRI (VA/DoD 1951); a structured suicide-risk assessment with respectful lethal-means counseling about firearms and the 988 Suicide &amp; Crisis Lifeline (VA/DoD 1953); post-concussion symptoms managed by symptom (VA/DoD 1950) with cognitive screening and no diagnosis of chronic traumatic encephalopathy, which can be confirmed only after death; hypertension (CMID, ACC/AHA 1946); and diabetes screening.</p>
+      <div class="downloads">
+        <a href="../case.json">Canonical JSON</a>
+        <a href="fhir-bundle.json">FHIR R4 draft</a>
+        <a href="ccda.html">C-CDA R2.1 summary</a> <a href="ccda.xml">(XML)</a>
+        <a href="../sources.md">Evidence dossier</a>
+      </div>
+    </section>
+    <section><h2>Historical timeline</h2><table><thead><tr><th>Date</th><th>Event</th><th>Claims</th></tr></thead><tbody>
+  <tr><td>July 21, 1899</td><td>Born in Oak Park, Illinois.</td><td>CLM-0001</td></tr>
+  <tr><td>1918</td><td>Wounded by a mortar shell near Fossalta di Piave while serving with a volunteer ambulance unit in Italy; long hospital stay.</td><td>CLM-0002</td></tr>
+  <tr><td>1928</td><td>His father died by suicide.</td><td>CLM-0007, CLM-0008</td></tr>
+  <tr><td>1939</td><td>Made his home at Finca Vigía outside Havana, where he lived until 1960.</td><td>CLM-0006</td></tr>
+  <tr><td>January 1954</td><td>Two plane crashes in Uganda on consecutive days: concussion, skull fracture and internal injuries.</td><td>CLM-0004</td></tr>
+  <tr><td>1954</td><td>Awarded the Nobel Prize in Literature; unable to attend the ceremony because of ill health.</td><td>CLM-0005, CLM-0003</td></tr>
+  <tr><td>December 1960</td><td>Admitted to the Mayo Clinic for severe depression and treated with electroconvulsive therapy; readmitted after a relapse in April 1961; complained afterwards that his memory was damaged.</td><td>CLM-0010, CLM-0011, CLM-0012, CLM-0013, CLM-0014, CLM-0015</td></tr>
+  <tr><td>July 2, 1961</td><td>Died by suicide at his home in Ketchum, Idaho.</td><td>CLM-0016, CLM-0009</td></tr></tbody></table></section>
+    <section><h2>Evidence claims</h2><p class="muted">D = documented, R = retrospective, S = synthetic.</p><table><thead><tr><th>Grade</th><th>Claim</th><th>Certainty</th><th>Sources</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>Ernest Hemingway was born on July 21, 1899, in Oak Park, Illinois, the son of a physician.</strong></td>
+    <td>confirmed</td>
+    <td><a href="https://www.nobelprize.org/prizes/literature/1954/hemingway/facts/" target="_blank" rel="noreferrer">Ernest Hemingway: Facts</a> <span class="relationship">supports</span><br><a href="https://www.nobelprize.org/prizes/literature/1954/hemingway/biographical/" target="_blank" rel="noreferrer">Ernest Hemingway: Biographical</a> <span class="relationship">supports</span><br><a href="https://www.pbs.org/newshour/health/how-mental-health-struggles-wrote-ernest-hemingways-final-chapter" target="_blank" rel="noreferrer">Markel H. How mental health struggles wrote Ernest Hemingway&#39;s final chapter</a> <span class="relationship">supports</span><br><a href="https://humanrecord.example.org/internal/HISTMED_Master_Roster_v3.xlsx" target="_blank" rel="noreferrer">HISTMED Master Roster v3</a> <span class="relationship">context</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>In the First World War he joined a volunteer ambulance unit in the Italian army; in 1918 he was wounded at the front near Fossalta di Piave by a mortar shell, was decorated by the Italian government, and spent a long time in hospitals.</strong><div class="muted">The first of the head and blast injuries recorded in his history; it anchors the history of head injury in the modern episode.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.nobelprize.org/prizes/literature/1954/hemingway/biographical/" target="_blank" rel="noreferrer">Ernest Hemingway: Biographical</a> <span class="relationship">supports</span><br><a href="https://hekint.org/2026/04/27/ernest-hemingway-a-medical-portrait/" target="_blank" rel="noreferrer">Dunea G. Ernest Hemingway: A medical portrait</a> <span class="relationship">supports</span><br><a href="https://www.psychiatrictimes.com/view/hemingways-chronic-traumatic-encephalopathy" target="_blank" rel="noreferrer">Smith ST. Hemingway&#39;s Chronic Traumatic Encephalopathy (interview with Andrew Farah, MD)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>He drank heavily for most of his adult life.</strong><div class="muted">The anchor for the synthetic alcohol use disorder in the modern episode; recorded without judgment.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://hekint.org/2026/04/27/ernest-hemingway-a-medical-portrait/" target="_blank" rel="noreferrer">Dunea G. Ernest Hemingway: A medical portrait</a> <span class="relationship">supports</span><br><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC9651498/" target="_blank" rel="noreferrer">Coutinho L, Teive HAG. &quot;But man is not made for defeat&quot;: insights into Ernest Hemingway&#39;s dementia. Arq Neuropsiquiatr 2022;80(1):97-100 (PMID 35239807)</a> <span class="relationship">supports</span><br><a href="https://www.psychiatrictimes.com/view/hemingways-chronic-traumatic-encephalopathy" target="_blank" rel="noreferrer">Smith ST. Hemingway&#39;s Chronic Traumatic Encephalopathy (interview with Andrew Farah, MD)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>In January 1954, on a safari in Africa, he survived two plane crashes on consecutive days in Uganda. In the second he forced a jammed door open with his head and suffered a concussion and a skull fracture; he also reported a ruptured right kidney and injuries to his liver and spleen. The Nobel Prize biography records that the accidents caused severe pain for the rest of his life.</strong><div class="muted">The most recent and most severe head injury before the index visit; it anchors the post-concussion symptoms in the modern episode.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.smithsonianmag.com/smart-news/hemingway-and-his-wife-survived-two-plane-crashes-just-one-day-apart-180982884/" target="_blank" rel="noreferrer">Wexler E. Ernest Hemingway and His Wife Survived Two Plane Crashes Just One Day Apart</a> <span class="relationship">supports</span><br><a href="https://hekint.org/2026/04/27/ernest-hemingway-a-medical-portrait/" target="_blank" rel="noreferrer">Dunea G. Ernest Hemingway: A medical portrait</a> <span class="relationship">supports</span><br><a href="https://www.nobelprize.org/prizes/literature/1954/hemingway/facts/" target="_blank" rel="noreferrer">Ernest Hemingway: Facts</a> <span class="relationship">supports</span><br><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC9651498/" target="_blank" rel="noreferrer">Coutinho L, Teive HAG. &quot;But man is not made for defeat&quot;: insights into Ernest Hemingway&#39;s dementia. Arq Neuropsiquiatr 2022;80(1):97-100 (PMID 35239807)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>He was awarded the 1954 Nobel Prize in Literature and could not attend the ceremony in Stockholm because of ill health.</strong><div class="muted">Anchors his work and his health in the months before the index visit.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.nobelprize.org/prizes/literature/1954/hemingway/speech/" target="_blank" rel="noreferrer">Ernest Hemingway: Banquet speech</a> <span class="relationship">supports</span><br><a href="https://www.nobelprize.org/prizes/literature/1954/hemingway/facts/" target="_blank" rel="noreferrer">Ernest Hemingway: Facts</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>His home from 1939 to 1960 was Finca Vigía, a farm on a hillside outside Havana, Cuba, where he wrote much of his work.</strong><div class="muted">Places him at his home in the months of the modern episode.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.wbur.org/hereandnow/2018/03/20/ernest-hemingway-havana-cuba-finca-vigia" target="_blank" rel="noreferrer">O&#39;Dowd P. American and Cuban preservationists work to save Hemingway&#39;s home in Cuba</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>His father, a physician who was described as depressed and diabetic, died by suicide in 1928.</strong><div class="muted">Family history recorded once without detail; in the modern episode it is a historical risk factor in the safety assessment.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.pbs.org/newshour/health/how-mental-health-struggles-wrote-ernest-hemingways-final-chapter" target="_blank" rel="noreferrer">Markel H. How mental health struggles wrote Ernest Hemingway&#39;s final chapter</a> <span class="relationship">supports</span><br><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC9651498/" target="_blank" rel="noreferrer">Coutinho L, Teive HAG. &quot;But man is not made for defeat&quot;: insights into Ernest Hemingway&#39;s dementia. Arq Neuropsiquiatr 2022;80(1):97-100 (PMID 35239807)</a> <span class="relationship">supports</span><br><a href="https://www.psychiatrictimes.com/view/hemingways-chronic-traumatic-encephalopathy" target="_blank" rel="noreferrer">Smith ST. Hemingway&#39;s Chronic Traumatic Encephalopathy (interview with Andrew Farah, MD)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>Several earlier members of his family also had depression and died by suicide, and he understood himself to be descended from men who had died by suicide on both sides of his family.</strong><div class="muted">Family history recorded without names or detail.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://hekint.org/2026/04/27/ernest-hemingway-a-medical-portrait/" target="_blank" rel="noreferrer">Dunea G. Ernest Hemingway: A medical portrait</a> <span class="relationship">supports</span><br><a href="https://www.psychiatrictimes.com/view/hemingways-chronic-traumatic-encephalopathy" target="_blank" rel="noreferrer">Smith ST. Hemingway&#39;s Chronic Traumatic Encephalopathy (interview with Andrew Farah, MD)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-R" title="Retrospective">R</span></td>
+    <td><strong>A family history of hemochromatosis has been described.</strong><div class="muted">Recorded only as a reported family pattern; no relative is named and the modern episode attributes no result to any real relative.</div></td>
+    <td>possible</td>
+    <td><a href="https://hekint.org/2026/04/27/ernest-hemingway-a-medical-portrait/" target="_blank" rel="noreferrer">Dunea G. Ernest Hemingway: A medical portrait</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>In December 1960 he was admitted to the Mayo Clinic in Rochester, Minnesota, under a false name, publicly for high blood pressure but in fact for severe depression; he was treated with electroconvulsive therapy, discharged in January 1961, and readmitted after a relapse in April 1961. The clinic recorded severe hypertension, prediabetes and dyslipidemia.</strong><div class="muted">History after the modern episode; recorded only as history.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.pbs.org/newshour/health/how-mental-health-struggles-wrote-ernest-hemingways-final-chapter" target="_blank" rel="noreferrer">Markel H. How mental health struggles wrote Ernest Hemingway&#39;s final chapter</a> <span class="relationship">supports</span><br><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC9651498/" target="_blank" rel="noreferrer">Coutinho L, Teive HAG. &quot;But man is not made for defeat&quot;: insights into Ernest Hemingway&#39;s dementia. Arq Neuropsiquiatr 2022;80(1):97-100 (PMID 35239807)</a> <span class="relationship">supports</span><br><a href="https://hekint.org/2026/04/27/ernest-hemingway-a-medical-portrait/" target="_blank" rel="noreferrer">Dunea G. Ernest Hemingway: A medical portrait</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>In his last years he had paranoid fears, including a belief that he was under FBI surveillance; the FBI did keep a file on him.</strong><div class="muted">History after the modern episode.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC9651498/" target="_blank" rel="noreferrer">Coutinho L, Teive HAG. &quot;But man is not made for defeat&quot;: insights into Ernest Hemingway&#39;s dementia. Arq Neuropsiquiatr 2022;80(1):97-100 (PMID 35239807)</a> <span class="relationship">supports</span><br><a href="https://www.pbs.org/newshour/health/how-mental-health-struggles-wrote-ernest-hemingways-final-chapter" target="_blank" rel="noreferrer">Markel H. How mental health struggles wrote Ernest Hemingway&#39;s final chapter</a> <span class="relationship">supports</span><br><a href="https://freshairarchive.org/segments/ae-hotchner-pays-tribute-ernest-hemingway" target="_blank" rel="noreferrer">A. E. Hotchner pays tribute to Ernest Hemingway (Fresh Air)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>He complained that the electroconvulsive treatments had damaged his memory, which he saw as essential to his work as a writer.</strong><div class="muted">History after the modern episode.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.psychiatrictimes.com/view/hemingways-chronic-traumatic-encephalopathy" target="_blank" rel="noreferrer">Smith ST. Hemingway&#39;s Chronic Traumatic Encephalopathy (interview with Andrew Farah, MD)</a> <span class="relationship">supports</span><br><a href="https://hekint.org/2026/04/27/ernest-hemingway-a-medical-portrait/" target="_blank" rel="noreferrer">Dunea G. Ernest Hemingway: A medical portrait</a> <span class="relationship">supports</span><br><a href="https://freshairarchive.org/segments/ae-hotchner-pays-tribute-ernest-hemingway" target="_blank" rel="noreferrer">A. E. Hotchner pays tribute to Ernest Hemingway (Fresh Air)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-R" title="Retrospective">R</span></td>
+    <td><strong>Whether he had hereditary hemochromatosis is disputed. Some accounts state that he had it; one review says it was suspected but that a liver biopsy was not done because of his poor health; a retired physician is reported to have recalled a normal serum iron level.</strong><div class="muted">The modern hemochromatosis is synthetic and is not offered as proof of this disputed diagnosis.</div></td>
+    <td>disputed</td>
+    <td><a href="https://www.pbs.org/newshour/health/how-mental-health-struggles-wrote-ernest-hemingways-final-chapter" target="_blank" rel="noreferrer">Markel H. How mental health struggles wrote Ernest Hemingway&#39;s final chapter</a> <span class="relationship">supports</span><br><a href="https://hekint.org/2026/04/27/ernest-hemingway-a-medical-portrait/" target="_blank" rel="noreferrer">Dunea G. Ernest Hemingway: A medical portrait</a> <span class="relationship">supports</span><br><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC9651498/" target="_blank" rel="noreferrer">Coutinho L, Teive HAG. &quot;But man is not made for defeat&quot;: insights into Ernest Hemingway&#39;s dementia. Arq Neuropsiquiatr 2022;80(1):97-100 (PMID 35239807)</a> <span class="relationship">disputes</span><br><a href="https://www.psychiatrictimes.com/view/hemingways-chronic-traumatic-encephalopathy" target="_blank" rel="noreferrer">Smith ST. Hemingway&#39;s Chronic Traumatic Encephalopathy (interview with Andrew Farah, MD)</a> <span class="relationship">disputes</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-R" title="Retrospective">R</span></td>
+    <td><strong>Bipolar disorder has been proposed retrospectively, but a psychiatrist who studied his history found no true manic episode.</strong><div class="muted">Not used as a diagnosis; the modern depression is synthetic and the Mood Disorder Questionnaire is negative.</div></td>
+    <td>disputed</td>
+    <td><a href="https://www.pbs.org/newshour/health/how-mental-health-struggles-wrote-ernest-hemingways-final-chapter" target="_blank" rel="noreferrer">Markel H. How mental health struggles wrote Ernest Hemingway&#39;s final chapter</a> <span class="relationship">supports</span><br><a href="https://hekint.org/2026/04/27/ernest-hemingway-a-medical-portrait/" target="_blank" rel="noreferrer">Dunea G. Ernest Hemingway: A medical portrait</a> <span class="relationship">supports</span><br><a href="https://www.psychiatrictimes.com/view/hemingways-chronic-traumatic-encephalopathy" target="_blank" rel="noreferrer">Smith ST. Hemingway&#39;s Chronic Traumatic Encephalopathy (interview with Andrew Farah, MD)</a> <span class="relationship">disputes</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-R" title="Retrospective">R</span></td>
+    <td><strong>The psychiatrist Andrew Farah, in Hemingway&#39;s Brain (2017), proposed that repeated concussions, at least nine major ones, caused chronic traumatic encephalopathy, complicated by alcohol, diabetes and hypertension, with a mixed dementia; a 2022 neurology review also describes cognitive decline in his last years.</strong><div class="muted">A retrospective proposal only. Chronic traumatic encephalopathy can be confirmed only by examining the brain after death, so it is not a modern diagnosis in this record.</div></td>
+    <td>possible</td>
+    <td><a href="https://www.psychiatrictimes.com/view/hemingways-chronic-traumatic-encephalopathy" target="_blank" rel="noreferrer">Smith ST. Hemingway&#39;s Chronic Traumatic Encephalopathy (interview with Andrew Farah, MD)</a> <span class="relationship">supports</span><br><a href="https://www.smithsonianmag.com/smart-news/hemingway-and-his-wife-survived-two-plane-crashes-just-one-day-apart-180982884/" target="_blank" rel="noreferrer">Wexler E. Ernest Hemingway and His Wife Survived Two Plane Crashes Just One Day Apart</a> <span class="relationship">supports</span><br><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC9651498/" target="_blank" rel="noreferrer">Coutinho L, Teive HAG. &quot;But man is not made for defeat&quot;: insights into Ernest Hemingway&#39;s dementia. Arq Neuropsiquiatr 2022;80(1):97-100 (PMID 35239807)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>He died by suicide at his home in Ketchum, Idaho, on July 2, 1961.</strong><div class="muted">History only, recorded in one plain sentence.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.nobelprize.org/prizes/literature/1954/hemingway/facts/" target="_blank" rel="noreferrer">Ernest Hemingway: Facts</a> <span class="relationship">supports</span><br><a href="https://hekint.org/2026/04/27/ernest-hemingway-a-medical-portrait/" target="_blank" rel="noreferrer">Dunea G. Ernest Hemingway: A medical portrait</a> <span class="relationship">supports</span><br><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC9651498/" target="_blank" rel="noreferrer">Coutinho L, Teive HAG. &quot;But man is not made for defeat&quot;: insights into Ernest Hemingway&#39;s dementia. Arq Neuropsiquiatr 2022;80(1):97-100 (PMID 35239807)</a> <span class="relationship">supports</span></td>
+  </tr></tbody></table></section>
+    <section><h2>Modern synthetic problem list</h2><table><thead><tr><th>Grade</th><th>Problem</th><th>Clinical status</th><th>Verification</th><th>Placement</th><th>Historical claims</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Alcohol use disorder, severe; heavy daily drinking for most of his adult life; synthetic modern episode linked to his documented heavy drinking</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>both_with_link</td>
+    <td>CLM-0003</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Raised transferrin saturation and ferritin found on routine intake tests, cause not yet known (heavy drinking, liver disease or iron overload)</td>
+    <td>resolved</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Hereditary hemochromatosis, HFE C282Y homozygous, with iron overload (ferritin over 1,000 ng/mL) and no advanced liver fibrosis on imaging</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Major depressive disorder, single episode, moderate; Mood Disorder Questionnaire negative and no history of mania or hypomania</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Essential hypertension, stage 2, with heavy drinking contributing</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Post-concussion symptoms (headaches, slowed thinking and forgetfulness) after repeated head injuries, most recently a concussion with a skull fracture a year ago; chronic traumatic encephalopathy is not diagnosed</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td>CLM-0002, CLM-0004</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Prediabetes (HbA1c 6.1%)</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Fishhook puncture wound of the right hand with early cellulitis after saltwater exposure, in a man with iron overload; treated with antibiotics covering Vibrio; resolved</td>
+    <td>resolved</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td></td>
+  </tr></tbody></table></section>
+    <section><h2>Synthetic outcome measures</h2><table><thead><tr><th>Grade</th><th>Date</th><th>Measure</th><th>Result</th><th>Coding</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1955-03-02</td>
+    <td>Hemoglobin [Mass/volume] in Blood</td>
+    <td>15.6 g/dL<div class="muted">Reference 13.5-17.5 g/dL</div></td>
+    <td>http://loinc.org · 718-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1955-03-02</td>
+    <td>MCV [Entitic mean volume] in Red Blood Cells by Automated count</td>
+    <td>102 fL (high)<div class="muted">Reference 80-100 fL</div></td>
+    <td>http://loinc.org · 787-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1955-03-02</td>
+    <td>Platelets [#/volume] in Blood by Automated count</td>
+    <td>208 10*3/uL<div class="muted">Reference 150-400 10*3/uL</div></td>
+    <td>http://loinc.org · 777-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1955-03-02</td>
+    <td>Sodium [Moles/volume] in Serum or Plasma</td>
+    <td>138 mmol/L<div class="muted">Reference 135-145 mmol/L</div></td>
+    <td>http://loinc.org · 2951-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1955-03-02</td>
+    <td>Potassium [Moles/volume] in Serum or Plasma</td>
+    <td>4.2 mmol/L<div class="muted">Reference 3.5-5.1 mmol/L</div></td>
+    <td>http://loinc.org · 2823-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1955-03-02</td>
+    <td>Creatinine [Mass/volume] in Serum or Plasma</td>
+    <td>0.98 mg/dL<div class="muted">Reference 0.74-1.35 mg/dL</div></td>
+    <td>http://loinc.org · 2160-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1955-03-02</td>
+    <td>Glomerular filtration rate [Volume Rate/Area] in Serum, Plasma or Blood by Creatinine-based formula (CKD-EPI 1950)/1.73 sq M</td>
+    <td>91 mL/min/1.73 m²<div class="muted">Reference &gt;=60 mL/min/1.73 m²</div></td>
+    <td>http://loinc.org · 98979-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1955-03-02</td>
+    <td>Glucose [Mass/volume] in Serum or Plasma</td>
+    <td>96 mg/dL<div class="muted">Reference 70-99 mg/dL</div></td>
+    <td>http://loinc.org · 2345-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1955-03-02</td>
+    <td>Aspartate aminotransferase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>70 U/L (high)<div class="muted">Reference 10-40 U/L</div></td>
+    <td>http://loinc.org · 1920-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1955-03-02</td>
+    <td>Alanine aminotransferase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>78 U/L (high)<div class="muted">Reference 7-55 U/L</div></td>
+    <td>http://loinc.org · 1742-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1955-03-02</td>
+    <td>Gamma glutamyl transferase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>196 U/L (high)<div class="muted">Reference 8-61 U/L</div></td>
+    <td>http://loinc.org · 2324-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1955-03-02</td>
+    <td>Bilirubin.total [Mass/volume] in Serum or Plasma</td>
+    <td>1 mg/dL<div class="muted">Reference 0.1-1.2 mg/dL</div></td>
+    <td>http://loinc.org · 1975-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1955-03-02</td>
+    <td>Albumin [Mass/volume] in Serum or Plasma</td>
+    <td>4.1 g/dL<div class="muted">Reference 3.5-5 g/dL</div></td>
+    <td>http://loinc.org · 1751-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1955-03-02</td>
+    <td>Iron [Mass/volume] in Serum or Plasma</td>
+    <td>214 ug/dL (high)<div class="muted">Reference 65-175 ug/dL</div></td>
+    <td>http://loinc.org · 2498-4</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1955-03-02</td>
+    <td>Iron saturation [Mass Fraction] in Serum or Plasma</td>
+    <td>76% (high)<div class="muted">Reference 20-50%</div></td>
+    <td>http://loinc.org · 2502-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1955-03-02</td>
+    <td>Ferritin [Mass/volume] in Serum or Plasma</td>
+    <td>1460 ng/mL (high)<div class="muted">Reference 24-336 ng/mL</div></td>
+    <td>http://loinc.org · 2276-4</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1955-03-02</td>
+    <td>Hemoglobin A1c/Hemoglobin.total in Blood</td>
+    <td>6.1% (high)<div class="muted">Reference 4-5.6%</div></td>
+    <td>http://loinc.org · 4548-4</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1955-03-02</td>
+    <td>Cholesterol [Mass/volume] in Serum or Plasma</td>
+    <td>214 mg/dL (high)<div class="muted">Reference &lt;=199 mg/dL</div></td>
+    <td>http://loinc.org · 2093-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1955-03-02</td>
+    <td>Cholesterol in LDL [Mass/volume] in Serum or Plasma by calculation</td>
+    <td>118 mg/dL<div class="muted">Reference &lt;=129 mg/dL</div></td>
+    <td>http://loinc.org · 13457-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1955-03-02</td>
+    <td>Cholesterol in HDL [Mass/volume] in Serum or Plasma</td>
+    <td>52 mg/dL<div class="muted">Reference &gt;=40 mg/dL</div></td>
+    <td>http://loinc.org · 2085-9</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1955-03-02</td>
+    <td>Triglyceride [Mass/volume] in Serum or Plasma</td>
+    <td>236 mg/dL (high)<div class="muted">Reference &lt;=149 mg/dL</div></td>
+    <td>http://loinc.org · 2571-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1955-03-02</td>
+    <td>Thyrotropin [Units/volume] in Serum or Plasma</td>
+    <td>2.1 mIU/L<div class="muted">Reference 0.4-4.5 mIU/L</div></td>
+    <td>http://loinc.org · 3016-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1955-03-02</td>
+    <td>Cobalamin (Vitamin B12) [Mass/volume] in Serum or Plasma</td>
+    <td>412 pg/mL<div class="muted">Reference 232-1245 pg/mL</div></td>
+    <td>http://loinc.org · 2132-9</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1955-03-02</td>
+    <td>Albumin/Creatinine [Mass Ratio] in Urine</td>
+    <td>14 mg/g<div class="muted">Reference &lt;=29 mg/g</div></td>
+    <td>http://loinc.org · 9318-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1955-03-02</td>
+    <td>Total score [AUDIT]</td>
+    <td>26</td>
+    <td>http://loinc.org · 75624-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1955-03-02</td>
+    <td>Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]</td>
+    <td>16</td>
+    <td>http://loinc.org · 44261-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1955-03-02</td>
+    <td>Total score [MoCA]</td>
+    <td>25</td>
+    <td>http://loinc.org · 72172-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1955-03-16</td>
+    <td>Aspartate aminotransferase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>58 U/L (high)<div class="muted">Reference 10-40 U/L</div></td>
+    <td>http://loinc.org · 1920-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1955-03-16</td>
+    <td>Alanine aminotransferase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>66 U/L (high)<div class="muted">Reference 7-55 U/L</div></td>
+    <td>http://loinc.org · 1742-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1955-03-16</td>
+    <td>Gamma glutamyl transferase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>160 U/L (high)<div class="muted">Reference 8-61 U/L</div></td>
+    <td>http://loinc.org · 2324-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1955-03-16</td>
+    <td>Ferritin [Mass/volume] in Serum or Plasma</td>
+    <td>1395 ng/mL (high)<div class="muted">Reference 24-336 ng/mL</div></td>
+    <td>http://loinc.org · 2276-4</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1955-03-16</td>
+    <td>Liver stiffness by US.transient elastography</td>
+    <td>9.4 kPa (high)<div class="muted">Reference Below 7.0 kPa makes significant fibrosis unlikely; 12.5 kPa or more suggests cirrhosis</div></td>
+    <td>http://loinc.org · 77615-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1955-04-13</td>
+    <td>Hemoglobin [Mass/volume] in Blood</td>
+    <td>14.2 g/dL<div class="muted">Reference 13.5-17.5 g/dL</div></td>
+    <td>http://loinc.org · 718-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1955-04-13</td>
+    <td>MCV [Entitic mean volume] in Red Blood Cells by Automated count</td>
+    <td>99 fL<div class="muted">Reference 80-100 fL</div></td>
+    <td>http://loinc.org · 787-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1955-04-13</td>
+    <td>Aspartate aminotransferase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>41 U/L (high)<div class="muted">Reference 10-40 U/L</div></td>
+    <td>http://loinc.org · 1920-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1955-04-13</td>
+    <td>Alanine aminotransferase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>49 U/L<div class="muted">Reference 7-55 U/L</div></td>
+    <td>http://loinc.org · 1742-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1955-04-13</td>
+    <td>Gamma glutamyl transferase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>104 U/L (high)<div class="muted">Reference 8-61 U/L</div></td>
+    <td>http://loinc.org · 2324-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1955-04-13</td>
+    <td>Ferritin [Mass/volume] in Serum or Plasma</td>
+    <td>1180 ng/mL (high)<div class="muted">Reference 24-336 ng/mL</div></td>
+    <td>http://loinc.org · 2276-4</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1955-04-13</td>
+    <td>Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]</td>
+    <td>13</td>
+    <td>http://loinc.org · 44261-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1955-04-13</td>
+    <td>Total score [AUDIT-C]</td>
+    <td>7</td>
+    <td>http://loinc.org · 75626-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1955-06-08</td>
+    <td>Hemoglobin [Mass/volume] in Blood</td>
+    <td>13.6 g/dL<div class="muted">Reference 13.5-17.5 g/dL</div></td>
+    <td>http://loinc.org · 718-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1955-06-08</td>
+    <td>MCV [Entitic mean volume] in Red Blood Cells by Automated count</td>
+    <td>96 fL<div class="muted">Reference 80-100 fL</div></td>
+    <td>http://loinc.org · 787-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1955-06-08</td>
+    <td>Aspartate aminotransferase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>32 U/L<div class="muted">Reference 10-40 U/L</div></td>
+    <td>http://loinc.org · 1920-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1955-06-08</td>
+    <td>Alanine aminotransferase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>36 U/L<div class="muted">Reference 7-55 U/L</div></td>
+    <td>http://loinc.org · 1742-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1955-06-08</td>
+    <td>Gamma glutamyl transferase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>58 U/L<div class="muted">Reference 8-61 U/L</div></td>
+    <td>http://loinc.org · 2324-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1955-06-08</td>
+    <td>Ferritin [Mass/volume] in Serum or Plasma</td>
+    <td>620 ng/mL (high)<div class="muted">Reference 24-336 ng/mL</div></td>
+    <td>http://loinc.org · 2276-4</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1955-06-08</td>
+    <td>Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]</td>
+    <td>8</td>
+    <td>http://loinc.org · 44261-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1955-06-08</td>
+    <td>Total score [AUDIT-C]</td>
+    <td>3</td>
+    <td>http://loinc.org · 75626-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1955-08-31</td>
+    <td>Hemoglobin [Mass/volume] in Blood</td>
+    <td>13.4 g/dL (low)<div class="muted">Reference 13.5-17.5 g/dL</div></td>
+    <td>http://loinc.org · 718-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1955-08-31</td>
+    <td>MCV [Entitic mean volume] in Red Blood Cells by Automated count</td>
+    <td>93 fL<div class="muted">Reference 80-100 fL</div></td>
+    <td>http://loinc.org · 787-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1955-08-31</td>
+    <td>Platelets [#/volume] in Blood by Automated count</td>
+    <td>226 10*3/uL<div class="muted">Reference 150-400 10*3/uL</div></td>
+    <td>http://loinc.org · 777-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1955-08-31</td>
+    <td>Aspartate aminotransferase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>27 U/L<div class="muted">Reference 10-40 U/L</div></td>
+    <td>http://loinc.org · 1920-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1955-08-31</td>
+    <td>Alanine aminotransferase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>31 U/L<div class="muted">Reference 7-55 U/L</div></td>
+    <td>http://loinc.org · 1742-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1955-08-31</td>
+    <td>Gamma glutamyl transferase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>41 U/L<div class="muted">Reference 8-61 U/L</div></td>
+    <td>http://loinc.org · 2324-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1955-08-31</td>
+    <td>Iron [Mass/volume] in Serum or Plasma</td>
+    <td>148 ug/dL<div class="muted">Reference 65-175 ug/dL</div></td>
+    <td>http://loinc.org · 2498-4</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1955-08-31</td>
+    <td>Iron saturation [Mass Fraction] in Serum or Plasma</td>
+    <td>44%<div class="muted">Reference 20-50%</div></td>
+    <td>http://loinc.org · 2502-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1955-08-31</td>
+    <td>Ferritin [Mass/volume] in Serum or Plasma</td>
+    <td>268 ng/mL<div class="muted">Reference 24-336 ng/mL</div></td>
+    <td>http://loinc.org · 2276-4</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1955-08-31</td>
+    <td>Cholesterol [Mass/volume] in Serum or Plasma</td>
+    <td>194 mg/dL<div class="muted">Reference &lt;=199 mg/dL</div></td>
+    <td>http://loinc.org · 2093-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1955-08-31</td>
+    <td>Cholesterol in LDL [Mass/volume] in Serum or Plasma by calculation</td>
+    <td>114 mg/dL<div class="muted">Reference &lt;=129 mg/dL</div></td>
+    <td>http://loinc.org · 13457-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1955-08-31</td>
+    <td>Cholesterol in HDL [Mass/volume] in Serum or Plasma</td>
+    <td>49 mg/dL<div class="muted">Reference &gt;=40 mg/dL</div></td>
+    <td>http://loinc.org · 2085-9</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1955-08-31</td>
+    <td>Triglyceride [Mass/volume] in Serum or Plasma</td>
+    <td>136 mg/dL<div class="muted">Reference &lt;=149 mg/dL</div></td>
+    <td>http://loinc.org · 2571-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1955-08-31</td>
+    <td>Hemoglobin A1c/Hemoglobin.total in Blood</td>
+    <td>5.9% (high)<div class="muted">Reference 4-5.6%</div></td>
+    <td>http://loinc.org · 4548-4</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1955-08-31</td>
+    <td>Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]</td>
+    <td>5</td>
+    <td>http://loinc.org · 44261-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1955-08-31</td>
+    <td>Total score [AUDIT-C]</td>
+    <td>0</td>
+    <td>http://loinc.org · 75626-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1955-08-31</td>
+    <td>Total score [MoCA]</td>
+    <td>27</td>
+    <td>http://loinc.org · 72172-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1955-07-27</td>
+    <td>Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]</td>
+    <td>6</td>
+    <td>http://loinc.org · 44261-6</td>
+  </tr></tbody></table></section>
+    <section><h2>Synthetic vital signs</h2><table><thead><tr><th>Date</th><th>Measure</th><th>Result</th><th>LOINC</th><th>Grade</th></tr></thead><tbody>
+  <tr><td>1955-03-02</td><td>Body height</td><td>183 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1955-03-02</td><td>Body weight</td><td>98 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1955-03-02</td><td>Body mass index (BMI) [Ratio]</td><td>29.3 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1955-03-02</td><td>Systolic blood pressure</td><td>152 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1955-03-02</td><td>Diastolic blood pressure</td><td>94 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1955-03-02</td><td>Heart rate</td><td>88 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1955-03-02</td><td>Respiratory rate</td><td>16 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1955-03-02</td><td>Body temperature</td><td>36.8 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1955-03-02</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>97 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1955-03-16</td><td>Body height</td><td>183 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1955-03-16</td><td>Body weight</td><td>97.4 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1955-03-16</td><td>Body mass index (BMI) [Ratio]</td><td>29.1 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1955-03-16</td><td>Systolic blood pressure</td><td>144 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1955-03-16</td><td>Diastolic blood pressure</td><td>90 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1955-03-16</td><td>Heart rate</td><td>84 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1955-03-16</td><td>Respiratory rate</td><td>16 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1955-03-16</td><td>Body temperature</td><td>36.7 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1955-03-16</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>97 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1955-04-13</td><td>Body height</td><td>183 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1955-04-13</td><td>Body weight</td><td>96.2 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1955-04-13</td><td>Body mass index (BMI) [Ratio]</td><td>28.7 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1955-04-13</td><td>Systolic blood pressure</td><td>138 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1955-04-13</td><td>Diastolic blood pressure</td><td>86 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1955-04-13</td><td>Heart rate</td><td>80 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1955-04-13</td><td>Respiratory rate</td><td>16 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1955-04-13</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1955-04-13</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>97 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1955-06-08</td><td>Body height</td><td>183 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1955-06-08</td><td>Body weight</td><td>94.6 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1955-06-08</td><td>Body mass index (BMI) [Ratio]</td><td>28.2 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1955-06-08</td><td>Systolic blood pressure</td><td>134 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1955-06-08</td><td>Diastolic blood pressure</td><td>84 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1955-06-08</td><td>Heart rate</td><td>76 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1955-06-08</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1955-06-08</td><td>Body temperature</td><td>36.7 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1955-06-08</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>98 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1955-08-31</td><td>Body height</td><td>183 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1955-08-31</td><td>Body weight</td><td>92.8 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1955-08-31</td><td>Body mass index (BMI) [Ratio]</td><td>27.7 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1955-08-31</td><td>Systolic blood pressure</td><td>126 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1955-08-31</td><td>Diastolic blood pressure</td><td>78 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1955-08-31</td><td>Heart rate</td><td>72 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1955-08-31</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1955-08-31</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1955-08-31</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>98 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1955-05-11</td><td>Body height</td><td>183 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1955-05-11</td><td>Body weight</td><td>95.4 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1955-05-11</td><td>Body mass index (BMI) [Ratio]</td><td>28.5 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1955-05-11</td><td>Systolic blood pressure</td><td>136 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1955-05-11</td><td>Diastolic blood pressure</td><td>84 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1955-05-11</td><td>Heart rate</td><td>90 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1955-05-11</td><td>Respiratory rate</td><td>16 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1955-05-11</td><td>Body temperature</td><td>37.5 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1955-05-11</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>98 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1955-07-27</td><td>Body height</td><td>183 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1955-07-27</td><td>Body weight</td><td>93.6 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1955-07-27</td><td>Body mass index (BMI) [Ratio]</td><td>27.9 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1955-07-27</td><td>Systolic blood pressure</td><td>128 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1955-07-27</td><td>Diastolic blood pressure</td><td>80 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1955-07-27</td><td>Heart rate</td><td>74 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1955-07-27</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1955-07-27</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1955-07-27</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>98 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr></tbody></table></section>
+    <section><h2>Social, functional, and mental status</h2><h3>Social history</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Writer who works in the mornings; won a major literary prize a few months ago; has written about war, bullfighting, hunting and fishing; served with an ambulance unit in a war as a young man and later worked as a war correspondent</li><li><span class="badge grade-S" title="Synthetic">S</span> Lives on a hillside farm near the coast; fishes from his own boat and hunts birds; travels for long hunting and fishing trips</li><li><span class="badge grade-S" title="Synthetic">S</span> Alcohol: about ten drinks a day for many years, mostly spirits, with wine at meals; first drink before noon on most days; AUDIT 26; no withdrawal seizures or delirium; has never had treatment</li><li><span class="badge grade-S" title="Synthetic">S</span> Owns several shotguns and rifles for hunting, kept in a cabinet at home that is not locked</li><li><span class="badge grade-S" title="Synthetic">S</span> Tobacco: does not smoke cigarettes; no other drug use</li><li><span class="badge grade-S" title="Synthetic">S</span> Married; lives with his household at the farm; close friends from fishing and hunting</li><li><span class="badge grade-S" title="Synthetic">S</span> Strengths: his work, which he wants to protect; the sea and his boat; his friends; his discipline as a morning writer</li></ul><h3>Functional status</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Independent in all activities; back pain and stiffness since the crashes limit long walks; writing more slowly than before</li></ul><h3>Mental status</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Alert, courteous and guarded at first, then direct; speech normal in rate; smells of alcohol at a late-morning visit without signs of intoxication or withdrawal</li><li><span class="badge grade-S" title="Synthetic">S</span> Mood low; PHQ-9 16 with item 9 scored 1; Mood Disorder Questionnaire negative; no psychotic features; passive thoughts that he would be better off dead on several days, without intent or plan</li><li><span class="badge grade-S" title="Synthetic">S</span> MoCA 25 of 30: lost points on delayed recall and serial sevens; oriented; language and visuospatial items normal</li></ul></section>
+    <section><h2>Structured safety assessment</h2><div class="grid"><div class="card"><div class="label">Current ideation</div>present</div><div class="card"><div class="label">Intent</div>absent</div><div class="card"><div class="label">Plan</div>absent</div><div class="card"><div class="label">Disposition</div>Outpatient care with close follow-up. C-SSRS screen: wish to be dead on several days in the past month; no active thoughts of suicide, intent, plan, preparation or past attempt. Risk factors reviewed without detail: a father who died by suicide, other deaths by suicide in his family, heavy drinking, depression, repeated head injuries, chronic pain, and firearms at home. Lethal-means counseling about firearms was done respectfully, as a hunter&#39;s safety question rather than a judgment: he chose to have his guns held in the locked storage at his shooting club while his mood and drinking are treated, and to keep no ammunition at home. A written safety plan was made with him, and the 988 Suicide &amp; Crisis Lifeline (call or text 988) was saved in his phone. Safety is reviewed at every visit</div></div><p class="muted">This assessment is synthetic and does not convert historical behavior into a present-day fact.</p></section>
+    <section><h2>Allergies and medications</h2><h3>Allergies</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> No known allergy</li></ul><h3>Medications</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Naltrexone 50 mg oral tablet, one tablet daily, to reduce heavy drinking</li><li><span class="badge grade-S" title="Synthetic">S</span> Thiamine 100 mg oral tablet, one tablet daily</li><li><span class="badge grade-S" title="Synthetic">S</span> Sertraline 50 mg oral tablet, one tablet daily</li><li><span class="badge grade-S" title="Synthetic">S</span> Sertraline 100 mg oral tablet, one tablet daily</li><li><span class="badge grade-S" title="Synthetic">S</span> Amlodipine 5 mg oral tablet, one tablet daily</li><li><span class="badge grade-S" title="Synthetic">S</span> Amlodipine 10 mg oral tablet, one tablet daily</li><li><span class="badge grade-S" title="Synthetic">S</span> Cephalexin 500 mg oral capsule, one capsule four times daily for seven days</li><li><span class="badge grade-S" title="Synthetic">S</span> Doxycycline hyclate 100 mg oral capsule, one capsule twice daily for seven days, with a full glass of water, sitting upright</li><li><span class="badge grade-S" title="Synthetic">S</span> Acetaminophen 500 mg oral tablet, one or two tablets every 6 hours as needed for pain, no more than 2,000 mg a day while he is drinking</li></ul></section>
+    <section><h2>Procedures and immunizations</h2><h3>Procedures</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Twelve-lead electrocardiogram at the diagnosis of hypertension: sinus rhythm at 86, normal intervals, borderline voltage for left ventricular hypertrophy</li><li><span class="badge grade-S" title="Synthetic">S</span> Transient elastography of the liver in the hepatology clinic: liver stiffness 9.4 kPa (indeterminate); controlled attenuation parameter 288 dB/m (fatty change)</li><li><span class="badge grade-S" title="Synthetic">S</span> MRI of the liver without contrast with R2* liver iron quantification and magnetic resonance elastography: liver iron concentration about 9.8 mg Fe/g dry weight (raised); stiffness 3.1 kPa, in keeping with mild fibrosis and no advanced fibrosis or cirrhosis; no liver lesion</li><li><span class="badge grade-S" title="Synthetic">S</span> Transthoracic echocardiogram for stage 2 hypertension and iron overload: mild concentric left ventricular hypertrophy, ejection fraction 60%, normal diastolic filling for age, no features of iron-related cardiomyopathy</li><li><span class="badge grade-S" title="Synthetic">S</span> Therapeutic phlebotomy, 500 mL weekly at the clinic&#39;s infusion room, with a hemoglobin check before each session (held if under 12.0 g/dL); twenty-two sessions before the six-month visit</li><li><span class="badge grade-S" title="Synthetic">S</span> Advance care planning conversation, about 18 minutes</li></ul><h3>Immunizations</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> 1955-05-11: Tdap vaccine for a tetanus-prone wound; last tetanus booster more than ten years ago</li><li><span class="badge grade-S" title="Synthetic">S</span> 1955-07-27: Pneumococcal conjugate vaccine (PCV20), one dose for chronic liver disease and alcohol use disorder</li><li><span class="badge grade-S" title="Synthetic">S</span> 1955-07-27: Recombinant zoster vaccine, dose 1 of 2</li><li><span class="badge grade-S" title="Synthetic">S</span> 1955-07-27: Hepatitis A and hepatitis B vaccine, dose 1 of 3, for chronic liver disease after nonreactive hepatitis B tests</li></ul></section>
+    <section><h2>Past medical history</h2><p class="muted">True biography with historical dates; not part of the synthetic care timeline.</p><ul><li><span class="badge grade-D" title="Documented">D</span> 1918: Wounded by a mortar shell near Fossalta di Piave while serving with an ambulance unit in Italy, with a long hospital stay <span class="muted">(CLM-0002)</span></li><li><span class="badge grade-D" title="Documented">D</span> January 1954: Two plane crashes in Uganda on consecutive days: concussion and skull fracture, ruptured right kidney, and liver and spleen injuries, with lasting pain <span class="muted">(CLM-0004)</span></li><li><span class="badge grade-D" title="Documented">D</span> by 1954: Heavy drinking for most of his adult life <span class="muted">(CLM-0003)</span></li></ul><h3>Family history</h3><ul><li><span class="badge grade-D" title="Documented">D</span> father: Depression and diabetes; died by suicide in 1928</li></ul></section>
+    <section><h2>Care-plan goals</h2><table><thead><tr><th>Goal</th><th>Target date</th><th>Status</th><th>Outcome</th></tr></thead><tbody>
+  <tr><td>Drinking goal chosen by him: no more than two drinks a day and none before evening, then reconsidered once the liver results are known</td><td>1955-06-08</td><td>completed</td><td>Reduced to three or four drinks a day by six weeks; he then chose to stop, and has had no alcohol for three weeks</td></tr>
+  <tr><td>Ferritin 50 to 100 ng/mL with weekly phlebotomy, then maintenance</td><td>1955-08-31</td><td>active</td><td>Ferritin 1,460 to 268 ng/mL after twenty-two sessions; induction continuing</td></tr>
+  <tr><td>PHQ-9 below 5</td><td>1955-08-31</td><td>active</td><td>PHQ-9 16 to 5 at six months; response, nearly in remission</td></tr>
+  <tr><td>Blood pressure below 130/80 mmHg</td><td>1955-08-31</td><td>completed</td><td>126/78 in clinic and an average of 124/76 at home on amlodipine 10 mg</td></tr>
+  <tr><td>Fewer headaches and clearer thinking, so that he can write</td><td>1955-08-31</td><td>active</td><td>Headaches once a week from three; MoCA 25 to 27; writing every morning</td></tr></tbody></table></section>
+    <section><h2>Interventions</h2><table><thead><tr><th>Intervention</th><th>Status</th><th>Guideline</th></tr></thead><tbody>
+  <tr><td>Alcohol: AUDIT and DSM-5-TR assessment, brief intervention in his own terms, naltrexone 50 mg daily, thiamine, a drinking diary, a goal he chooses and revisits, withdrawal precautions if he stops (no abrupt stop at his intake level without a plan), and mutual-help or counseling options offered</td><td>completed</td><td>GL-APA-AUD-2018, GL-ASAM-AWM-2020, GL-USPSTF-ALC-2018</td></tr>
+  <tr><td>Hepatology consultation for raised iron studies and liver tests in a heavy drinker: to confirm the cause, stage the liver, and plan treatment</td><td>completed</td><td>GL-AASLD-HH-2011, GL-ACG-HH-2019</td></tr>
+  <tr><td>Hemochromatosis: weekly phlebotomy of 500 mL with a hemoglobin check before each, to a ferritin of 50 to 100 ng/mL, then maintenance; MRI with liver iron quantification and elastography instead of biopsy; no iron or vitamin C supplements, no raw shellfish; no alcohol advised while iron is high and the liver is healing; HFE and iron testing offered to first-degree relatives through a letter he may share, with no result recorded here</td><td>completed</td><td>GL-AASLD-HH-2011, GL-ACG-HH-2019</td></tr>
+  <tr><td>Depression: PHQ-9 at each visit, weekly psychotherapy (cognitive behavioral therapy) with the clinic&#39;s behavioral health clinician, sertraline, the Mood Disorder Questionnaire before the antidepressant, a structured safety assessment with a written safety plan, lethal-means counseling about firearms, the 988 Suicide &amp; Crisis Lifeline, and safety review at every visit</td><td>completed</td><td>GL-VADOD-MDD-2022, GL-SUICIDE-2024, GL-CMID-2026</td></tr>
+  <tr><td>Post-concussion symptoms: symptom-based care (headache plan without daily analgesics, sleep routine, graded activity, writing in shorter sessions), MoCA repeated after three months with less alcohol, no routine brain imaging without warning signs, and neuropsychological testing if thinking does not improve; chronic traumatic encephalopathy not diagnosed</td><td>completed</td><td>GL-VADOD-MTBI-2021</td></tr>
+  <tr><td>Hypertension: home blood pressure monitoring, amlodipine, less alcohol and salt, ECG and urine albumin at diagnosis, echocardiogram for stage 2 hypertension, and a target below 130/80 mmHg</td><td>completed</td><td>GL-CMID-2026, GL-ACC-AHA-HTN-2017</td></tr>
+  <tr><td>Prediabetes: HbA1c repeated at six months, less alcohol, activity and diet; iron overload and alcohol both raise the risk of diabetes</td><td>completed</td><td>GL-USPSTF-DM-2021, GL-ACG-HH-2019</td></tr></tbody></table></section>
+    <section><h2>Planned encounters</h2><ul>
+  <li><strong>1955-03-02</strong> — Establishing primary care: heavy drinking, low mood and forgetfulness a year after two plane crashes, with high blood pressure and abnormal liver and iron tests on the intake panel <span class="muted">(ENC-001)</span></li>
+  <li><strong>1955-03-16</strong> — Two-week review with the hepatology consultation: HFE result, liver stiffness and the phlebotomy plan <span class="muted">(ENC-002)</span></li>
+  <li><strong>1955-04-13</strong> — Six-week review: phlebotomy, drinking, mood, blood pressure and liver imaging <span class="muted">(ENC-003)</span></li>
+  <li><strong>1955-05-11</strong> — Same-day sick visit for a fishhook wound of the hand with early cellulitis <span class="muted">(ENC-006, unscheduled)</span></li>
+  <li><strong>1955-06-08</strong> — Fourteen-week review: phlebotomy, the decision to stop drinking, mood and blood pressure <span class="muted">(ENC-004)</span></li>
+  <li><strong>1955-07-27</strong> — Periodic adult preventive visit <span class="muted">(ENC-007)</span></li>
+  <li><strong>1955-08-31</strong> — Six-month review: iron, liver, mood, memory and the plan for maintenance phlebotomy <span class="muted">(ENC-005)</span></li></ul></section>
+    <section><h2>Supporting documents</h2><ul><li><a href="notes/hp.md">History and physical</a></li><li><a href="notes/progress-01.md">Progress note 01</a></li><li><a href="notes/progress-02.md">Progress note 02 — Focused Visit (Follow-up)</a></li><li><a href="notes/progress-03.md">Progress note 03 — Focused Visit (Follow-up)</a></li><li><a href="notes/progress-04.md">Progress note 04 — Sick Visit</a></li><li><a href="notes/progress-05.md">Progress note 05 — Focused Visit (Follow-up)</a></li><li><a href="notes/progress-06.md">Progress note 06 — Preventive Visit</a></li><li><a href="notes/progress-07.md">Progress note 07 — Focused Visit (Care-plan review)</a></li><li><a href="notes/referral-01.md">Hepatology referral</a></li><li><a href="notes/consult-01.md">Hepatology consultation</a></li><li><a href="notes/careplan.md">Patient care plan</a></li><li><a href="notes/teaching-note.md">Teaching note</a></li><li><a href="provenance.csv">Provenance CSV</a></li></ul></section>
+    <section><h2>C-CDA note documents</h2><p class="muted">Each link opens a readable copy; the XML beside it is the exchange file.</p><ul><li><a href="ccda/hp-01.html">History and physical</a> <a href="ccda/hp-01.xml">(XML)</a></li><li><a href="ccda/progress-01.html">Progress note 01</a> <a href="ccda/progress-01.xml">(XML)</a></li><li><a href="ccda/progress-02.html">Progress note 02 — Focused Visit (Follow-up)</a> <a href="ccda/progress-02.xml">(XML)</a></li><li><a href="ccda/progress-03.html">Progress note 03 — Focused Visit (Follow-up)</a> <a href="ccda/progress-03.xml">(XML)</a></li><li><a href="ccda/progress-04.html">Progress note 04 — Sick Visit</a> <a href="ccda/progress-04.xml">(XML)</a></li><li><a href="ccda/progress-05.html">Progress note 05 — Focused Visit (Follow-up)</a> <a href="ccda/progress-05.xml">(XML)</a></li><li><a href="ccda/progress-06.html">Progress note 06 — Preventive Visit</a> <a href="ccda/progress-06.xml">(XML)</a></li><li><a href="ccda/progress-07.html">Progress note 07 — Focused Visit (Care-plan review)</a> <a href="ccda/progress-07.xml">(XML)</a></li><li><a href="ccda/referral-01.html">Hepatology referral</a> <a href="ccda/referral-01.xml">(XML)</a></li><li><a href="ccda/consult-01.html">Hepatology consultation</a> <a href="ccda/consult-01.xml">(XML)</a></li></ul></section>
+    <section><h2>Sources</h2><table><thead><tr><th>ID</th><th>Source</th><th>Publisher</th><th>Type</th></tr></thead><tbody>
+  <tr>
+    <td>SRC-0001</td>
+    <td><a href="https://www.nobelprize.org/prizes/literature/1954/hemingway/biographical/" target="_blank" rel="noreferrer">Ernest Hemingway: Biographical</a></td>
+    <td>NobelPrize.org (Nobel Prize Outreach)</td>
+    <td>biography</td>
+  </tr>
+  <tr>
+    <td>SRC-0002</td>
+    <td><a href="https://www.nobelprize.org/prizes/literature/1954/hemingway/facts/" target="_blank" rel="noreferrer">Ernest Hemingway: Facts</a></td>
+    <td>NobelPrize.org (Nobel Prize Outreach)</td>
+    <td>biography</td>
+  </tr>
+  <tr>
+    <td>SRC-0003</td>
+    <td><a href="https://www.nobelprize.org/prizes/literature/1954/hemingway/speech/" target="_blank" rel="noreferrer">Ernest Hemingway: Banquet speech</a></td>
+    <td>NobelPrize.org (Nobel Prize Outreach)</td>
+    <td>primary</td>
+  </tr>
+  <tr>
+    <td>SRC-0004</td>
+    <td><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC9651498/" target="_blank" rel="noreferrer">Coutinho L, Teive HAG. &quot;But man is not made for defeat&quot;: insights into Ernest Hemingway&#39;s dementia. Arq Neuropsiquiatr 2022;80(1):97-100 (PMID 35239807)</a></td>
+    <td>Arquivos de Neuro-Psiquiatria</td>
+    <td>scholarly</td>
+  </tr>
+  <tr>
+    <td>SRC-0005</td>
+    <td><a href="https://www.pbs.org/newshour/health/how-mental-health-struggles-wrote-ernest-hemingways-final-chapter" target="_blank" rel="noreferrer">Markel H. How mental health struggles wrote Ernest Hemingway&#39;s final chapter</a></td>
+    <td>PBS NewsHour</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0006</td>
+    <td><a href="https://hekint.org/2026/04/27/ernest-hemingway-a-medical-portrait/" target="_blank" rel="noreferrer">Dunea G. Ernest Hemingway: A medical portrait</a></td>
+    <td>Hektoen International</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0007</td>
+    <td><a href="https://www.psychiatrictimes.com/view/hemingways-chronic-traumatic-encephalopathy" target="_blank" rel="noreferrer">Smith ST. Hemingway&#39;s Chronic Traumatic Encephalopathy (interview with Andrew Farah, MD)</a></td>
+    <td>Psychiatric Times</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0008</td>
+    <td><a href="https://www.smithsonianmag.com/smart-news/hemingway-and-his-wife-survived-two-plane-crashes-just-one-day-apart-180982884/" target="_blank" rel="noreferrer">Wexler E. Ernest Hemingway and His Wife Survived Two Plane Crashes Just One Day Apart</a></td>
+    <td>Smithsonian Magazine</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0009</td>
+    <td><a href="https://freshairarchive.org/segments/ae-hotchner-pays-tribute-ernest-hemingway" target="_blank" rel="noreferrer">A. E. Hotchner pays tribute to Ernest Hemingway (Fresh Air)</a></td>
+    <td>WHYY Fresh Air Archive</td>
+    <td>primary</td>
+  </tr>
+  <tr>
+    <td>SRC-0010</td>
+    <td><a href="https://www.wbur.org/hereandnow/2018/03/20/ernest-hemingway-havana-cuba-finca-vigia" target="_blank" rel="noreferrer">O&#39;Dowd P. American and Cuban preservationists work to save Hemingway&#39;s home in Cuba</a></td>
+    <td>WBUR Here &amp; Now</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0011</td>
+    <td><a href="https://humanrecord.example.org/internal/HISTMED_Master_Roster_v3.xlsx" target="_blank" rel="noreferrer">HISTMED Master Roster v3</a></td>
+    <td>The Human Record project</td>
+    <td>other</td>
+  </tr></tbody></table></section>
+    <section><h2>Review status</h2><table><thead><tr><th>Review</th><th>Status</th><th>Notes</th></tr></thead><tbody>
+  <tr><td>schema validation</td><td>not_started</td><td>Run scripts/build.ps1 -Conformance.</td></tr>
+  <tr><td>clinical review</td><td>not_started</td><td>Awaiting clinician review; check naltrexone with raised aminotransferases, the choice of sertraline, the drinking goal and the gradual reduction without medicine for withdrawal, noninvasive staging instead of biopsy with a ferritin over 1,000 ng/mL, the phlebotomy schedule and target, the post-concussion plan without imaging, and the lethal-means counseling.</td></tr>
+  <tr><td>provenance review</td><td>not_started</td><td>Sources: NobelPrize.org (three pages), a 2022 review in Arquivos de Neuro-Psiquiatria, PBS NewsHour, Hektoen International, Psychiatric Times (interview with Andrew Farah), Smithsonian Magazine, the Fresh Air archive and WBUR. The biographies and Hemingway&#39;s Brain were not read. Hemochromatosis and bipolar disorder are graded R and disputed; chronic traumatic encephalopathy is R and possible.</td></tr>
+  <tr><td>safe messaging review</td><td>not_started</td><td>Mental health and alcohol claims are marked sensitive; his death and his father&#39;s are recorded once each in one plain sentence without method; family deaths are recorded without names or detail; the safety assessment gives the 988 Suicide &amp; Crisis Lifeline and addresses firearms respectfully. No living relative is named.</td></tr></tbody></table></section>
+  </main>
+</body>
+</html>

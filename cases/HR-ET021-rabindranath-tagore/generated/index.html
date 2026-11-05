@@ -1,0 +1,721 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Rabindranath Tagore — The Human Record</title>
+  <style>
+    :root { --navy:#17365d; --blue:#1f4e78; --pale:#eef5fa; --ink:#1f2933; --muted:#66788a; --amber:#fff2cc; --red:#f8d7da; --green:#d9ead3; }
+    * { box-sizing:border-box; }
+    body { margin:0; font:16px/1.5 Arial, sans-serif; color:var(--ink); background:#f6f8fa; }
+    header { background:var(--navy); color:white; padding:24px max(24px,calc((100vw - 1180px)/2)); }
+    header h1 { margin:4px 0; font-size:30px; }
+    .banner { background:#b42318; color:white; font-weight:700; text-align:center; padding:10px; letter-spacing:.03em; }
+    main { max-width:1180px; margin:24px auto 60px; padding:0 24px; }
+    section { background:white; border:1px solid #d9e1e8; border-radius:8px; margin:18px 0; padding:20px; }
+    h2 { color:var(--navy); margin:0 0 14px; font-size:22px; }
+    h3 { color:var(--blue); }
+    .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:12px; }
+    .card { background:var(--pale); border-left:4px solid var(--blue); padding:12px; }
+    .label { color:var(--muted); font-size:13px; text-transform:uppercase; letter-spacing:.04em; }
+    table { width:100%; border-collapse:collapse; }
+    th { background:var(--blue); color:white; text-align:left; }
+    th,td { padding:9px; border-bottom:1px solid #dfe6ec; vertical-align:top; }
+    .badge { display:inline-block; min-width:28px; text-align:center; font-weight:700; border-radius:12px; padding:2px 8px; }
+    .grade-D { background:var(--green); } .grade-R { background:var(--amber); } .grade-S { background:var(--red); }
+    .muted { color:var(--muted); font-size:14px; }
+    .relationship { color:var(--muted); font-size:12px; }
+    .downloads a { display:inline-block; margin:4px 8px 4px 0; padding:8px 12px; background:var(--blue); color:white; text-decoration:none; border-radius:5px; }
+    @media (max-width:700px) { table { display:block; overflow-x:auto; } }
+  </style>
+</head>
+<body>
+  <div class="banner">SYNTHETIC RECORD, NOT A REAL MEDICAL RECORD</div>
+  <header>
+    <div>The Human Record</div>
+    <h1>Rabindranath Tagore</h1>
+    <div>Case HR-ET021 · Modern EHR teaching episode · Draft for review</div>
+  </header>
+  <main>
+    <section>
+      <h2>Review summary</h2>
+      <div class="grid">
+        <div class="card"><div class="label">Historical dates</div>7 May 1861 – 7 August 1941</div>
+        <div class="card"><div class="label">Synthetic DOB</div>1946-05-07</div>
+        <div class="card"><div class="label">Index visit</div>2026-02-17 at age 79</div>
+        <div class="card"><div class="label">Synthetic MRN</div>HR-ET021-SYN</div>
+      </div>
+      <p><strong>Teaching objective:</strong> Evaluation and management of lower urinary tract symptoms with urinary retention in a 79-year-old man, on the AUA benign prostatic hyperplasia guideline (2021, amended 2023), the AUA white paper on nonneurogenic chronic urinary retention, and the CMID benign prostatic hyperplasia monograph: the IPSS, post-void residual, urinalysis and culture, creatinine and kidney ultrasound for obstruction, PSA with shared decision-making about what it means at his age, an indwelling catheter with catheter-associated infection prevention and treatment (IDSA 2009), an alpha-blocker before a trial without catheter, a 5-alpha-reductase inhibitor for a large prostate, surgical options (laser enucleation, transurethral resection, and less invasive procedures such as prostatic artery embolization) weighed against frailty, a geriatric assessment (falls with alpha-blockers, delirium risk, cognition) with the AGS Beers Criteria 2023, a goals-of-care conversation, and his own values about surgery and his traditional remedies, recorded in his own terms and respected.</p>
+      <div class="downloads">
+        <a href="../case.json">Canonical JSON</a>
+        <a href="fhir-bundle.json">FHIR R4 draft</a>
+        <a href="ccda.html">C-CDA R2.1 summary</a> <a href="ccda.xml">(XML)</a> <a href="review.html">Review checklist</a>
+        <a href="../sources.md">Evidence dossier</a>
+      </div>
+    </section>
+    <section><h2>Historical timeline</h2><table><thead><tr><th>Date</th><th>Event</th><th>Claims</th></tr></thead><tbody>
+  <tr><td>7 May 1861</td><td>Born in the Jorasanko mansion, Calcutta.</td><td>CLM-0001</td></tr>
+  <tr><td>22 December 1901</td><td>His school at Santiniketan begins formally.</td><td>CLM-0003</td></tr>
+  <tr><td>1913</td><td>Nobel Prize in Literature.</td><td>CLM-0002, CLM-0004</td></tr>
+  <tr><td>Late 1937</td><td>Loses consciousness; comatose and near death for a time.</td><td>CLM-0005</td></tr>
+  <tr><td>15 September 1940</td><td>Falls seriously ill at Kalimpong with lower abdominal pain and a severe urinary infection; brought back to Calcutta.</td><td>CLM-0006</td></tr>
+  <tr><td>1940 to 1941</td><td>Confined to the house by illness; seeks allopathic, homeopathic, and ayurvedic treatment.</td><td>CLM-0007, CLM-0008, CLM-0016</td></tr>
+  <tr><td>30 July 1941</td><td>Operation at Jorasanko.</td><td>CLM-0009, CLM-0010, CLM-0011, CLM-0012, CLM-0014</td></tr>
+  <tr><td>7 August 1941</td><td>Dies at Jorasanko, aged 80.</td><td>CLM-0013, CLM-0015</td></tr></tbody></table></section>
+    <section><h2>Evidence claims</h2><p class="muted">D = documented, R = retrospective, S = synthetic.</p><table><thead><tr><th>Grade</th><th>Claim</th><th>Certainty</th><th>Sources</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>Rabindranath Tagore was born on 7 May 1861 in the Jorasanko mansion in Calcutta, the youngest son of Debendranath Tagore, a leader of the Brahmo Samaj; the name Tagore is the anglicised transliteration of Thakur.</strong></td>
+    <td>confirmed</td>
+    <td><a href="https://en.wikipedia.org/wiki/Rabindranath_Tagore" target="_blank" rel="noreferrer">Rabindranath Tagore</a> <span class="relationship">supports</span><br><a href="https://www.nobelprize.org/prizes/literature/1913/tagore/biographical/" target="_blank" rel="noreferrer">Rabindranath Tagore: Biographical. From Nobel Lectures, Literature 1901-1967</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>He was awarded the Nobel Prize in Literature in 1913 &quot;because of his profoundly sensitive, fresh and beautiful verse, by which, with consummate skill, he has made his poetic thought, expressed in his own English words, a part of the literature of the West&quot;.</strong></td>
+    <td>confirmed</td>
+    <td><a href="https://www.nobelprize.org/prizes/literature/1913/summary/" target="_blank" rel="noreferrer">The Nobel Prize in Literature 1913: Summary</a> <span class="relationship">supports</span><br><a href="https://www.nobelprize.org/prizes/literature/1913/tagore/biographical/" target="_blank" rel="noreferrer">Rabindranath Tagore: Biographical. From Nobel Lectures, Literature 1901-1967</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>He started a school at Santiniketan that began formally on 22 December 1901 with five students, and around it he built Visva-Bharati, an unconventional university.</strong></td>
+    <td>confirmed</td>
+    <td><a href="https://visvabharati.ac.in/History.html" target="_blank" rel="noreferrer">History</a> <span class="relationship">supports</span><br><a href="https://en.wikipedia.org/wiki/Rabindranath_Tagore" target="_blank" rel="noreferrer">Rabindranath Tagore</a> <span class="relationship">supports</span><br><a href="https://www.nobelprize.org/prizes/literature/1913/tagore/biographical/" target="_blank" rel="noreferrer">Rabindranath Tagore: Biographical. From Nobel Lectures, Literature 1901-1967</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>He was known by the sobriquets Gurudeb, Kobiguru, and Bishwokobi.</strong></td>
+    <td>confirmed</td>
+    <td><a href="https://en.wikipedia.org/wiki/Rabindranath_Tagore" target="_blank" rel="noreferrer">Rabindranath Tagore</a> <span class="relationship">supports</span><br><a href="https://gitanjaliandbeyond.co.uk/wp-content/uploads/2023/10/55.-GB-9_Shyamasri-Maji.pdf" target="_blank" rel="noreferrer">Maji S. Review of The Last Days of Rabindranath Tagore in Memoirs, translated and edited by Somdatta Mandal (2021). Gitanjali and Beyond, issue 9</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>His last five years were marked by chronic pain and two long periods of illness: in late 1937 he lost consciousness and remained comatose and near death for a time, and in late 1940 a similar spell followed, from which he never recovered.</strong><div class="muted">The 1937 illness is not further characterized in the sources read.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://en.wikipedia.org/wiki/Rabindranath_Tagore" target="_blank" rel="noreferrer">Rabindranath Tagore</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>On 15 September 1940, while visiting Kalimpong, he fell seriously ill with severe pain in his lower abdomen; doctors diagnosed a severe urinary tract infection, and he was brought back, unconscious, to Calcutta.</strong><div class="muted">The anchor for the synthetic urinary history.</div></td>
+    <td>probable</td>
+    <td><a href="https://gulfnews.com/world/asia/india/india-pays-homage-to-tagore-on-his-75th-death-anniversary-1.1875109" target="_blank" rel="noreferrer">Dinda A. India pays homage to Tagore on his 75th death anniversary</a> <span class="relationship">supports</span><br><a href="https://gitanjaliandbeyond.co.uk/wp-content/uploads/2023/10/55.-GB-9_Shyamasri-Maji.pdf" target="_blank" rel="noreferrer">Maji S. Review of The Last Days of Rabindranath Tagore in Memoirs, translated and edited by Somdatta Mandal (2021). Gitanjali and Beyond, issue 9</a> <span class="relationship">supports</span><br><a href="https://asiatimes.com/2016/08/rare-exhibition-gives-insight-into-the-last-days-of-bard-of-bengal-tagore/" target="_blank" rel="noreferrer">Mukherjee A. Rare exhibition gives insight into the last days of Bard of Bengal, Tagore</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>In the last two years of his life illness confined him to the house, with swollen feet, numbness of the fingers, and frequent fevers; women of his family and household nursed him at home.</strong></td>
+    <td>confirmed</td>
+    <td><a href="https://gitanjaliandbeyond.co.uk/wp-content/uploads/2023/10/55.-GB-9_Shyamasri-Maji.pdf" target="_blank" rel="noreferrer">Maji S. Review of The Last Days of Rabindranath Tagore in Memoirs, translated and edited by Somdatta Mandal (2021). Gitanjali and Beyond, issue 9</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>He sought cure in allopathy, homeopathy, and ayurvedic medicine; physicians including Bidhan Chandra Roy and Nilratan Sarkar supervised his treatment; he is reported to have refused surgery despite repeated insistence from his doctors, to have sought a herbal cure, and to have said that he was more afraid of complicated medical treatment than of death.</strong><div class="muted">The anchor for the documented preference in the synthetic episode; included with respect.</div></td>
+    <td>probable</td>
+    <td><a href="https://gitanjaliandbeyond.co.uk/wp-content/uploads/2023/10/55.-GB-9_Shyamasri-Maji.pdf" target="_blank" rel="noreferrer">Maji S. Review of The Last Days of Rabindranath Tagore in Memoirs, translated and edited by Somdatta Mandal (2021). Gitanjali and Beyond, issue 9</a> <span class="relationship">supports</span><br><a href="https://gulfnews.com/world/asia/india/india-pays-homage-to-tagore-on-his-75th-death-anniversary-1.1875109" target="_blank" rel="noreferrer">Dinda A. India pays homage to Tagore on his 75th death anniversary</a> <span class="relationship">supports</span><br><a href="https://asiatimes.com/2016/08/rare-exhibition-gives-insight-into-the-last-days-of-bard-of-bengal-tagore/" target="_blank" rel="noreferrer">Mukherjee A. Rare exhibition gives insight into the last days of Bard of Bengal, Tagore</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>He was very anxious about the operation and asked several times whether it would hurt; a few days before it he asked for a prayer-poem asking not for rescue from danger but for courage in it.</strong></td>
+    <td>confirmed</td>
+    <td><a href="https://gitanjaliandbeyond.co.uk/wp-content/uploads/2023/10/55.-GB-9_Shyamasri-Maji.pdf" target="_blank" rel="noreferrer">Maji S. Review of The Last Days of Rabindranath Tagore in Memoirs, translated and edited by Somdatta Mandal (2021). Gitanjali and Beyond, issue 9</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>He was operated on at Jorasanko, on a veranda outside his room made into an operating theatre, on 30 July 1941; one reference work instead says he dictated a poem on 30 July, a day before a scheduled operation.</strong><div class="muted">The date is reported inconsistently.</div></td>
+    <td>probable</td>
+    <td><a href="https://gitanjaliandbeyond.co.uk/wp-content/uploads/2023/10/55.-GB-9_Shyamasri-Maji.pdf" target="_blank" rel="noreferrer">Maji S. Review of The Last Days of Rabindranath Tagore in Memoirs, translated and edited by Somdatta Mandal (2021). Gitanjali and Beyond, issue 9</a> <span class="relationship">supports</span><br><a href="https://gulfnews.com/world/asia/india/india-pays-homage-to-tagore-on-his-75th-death-anniversary-1.1875109" target="_blank" rel="noreferrer">Dinda A. India pays homage to Tagore on his 75th death anniversary</a> <span class="relationship">supports</span><br><a href="https://asiatimes.com/2016/08/rare-exhibition-gives-insight-into-the-last-days-of-bard-of-bengal-tagore/" target="_blank" rel="noreferrer">Mukherjee A. Rare exhibition gives insight into the last days of Bard of Bengal, Tagore</a> <span class="relationship">supports</span><br><a href="https://en.wikipedia.org/wiki/Rabindranath_Tagore" target="_blank" rel="noreferrer">Rabindranath Tagore</a> <span class="relationship">context</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-R" title="Retrospective">R</span></td>
+    <td><strong>Doctors reviewing his records for a 2016 exhibition said he had an enlarged prostate that was stopping his urine flow.</strong><div class="muted">Retrospective medical reading of his final illness.</div></td>
+    <td>probable</td>
+    <td><a href="https://asiatimes.com/2016/08/rare-exhibition-gives-insight-into-the-last-days-of-bard-of-bengal-tagore/" target="_blank" rel="noreferrer">Mukherjee A. Rare exhibition gives insight into the last days of Bard of Bengal, Tagore</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-R" title="Retrospective">R</span></td>
+    <td><strong>Accounts of the operation differ: one says the doctors could not operate on the enlarged prostate and instead performed a bypass to drain the accumulated urine and relieve pain; another says the operation was performed and was successful.</strong><div class="muted">The nature of the operation is reported inconsistently.</div></td>
+    <td>disputed</td>
+    <td><a href="https://gulfnews.com/world/asia/india/india-pays-homage-to-tagore-on-his-75th-death-anniversary-1.1875109" target="_blank" rel="noreferrer">Dinda A. India pays homage to Tagore on his 75th death anniversary</a> <span class="relationship">supports</span><br><a href="https://asiatimes.com/2016/08/rare-exhibition-gives-insight-into-the-last-days-of-bard-of-bengal-tagore/" target="_blank" rel="noreferrer">Mukherjee A. Rare exhibition gives insight into the last days of Bard of Bengal, Tagore</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-R" title="Retrospective">R</span></td>
+    <td><strong>Present-day doctors believe that infection after the operation led to septicaemia and his death.</strong><div class="muted">Retrospective interpretation.</div></td>
+    <td>possible</td>
+    <td><a href="https://gulfnews.com/world/asia/india/india-pays-homage-to-tagore-on-his-75th-death-anniversary-1.1875109" target="_blank" rel="noreferrer">Dinda A. India pays homage to Tagore on his 75th death anniversary</a> <span class="relationship">supports</span><br><a href="https://asiatimes.com/2016/08/rare-exhibition-gives-insight-into-the-last-days-of-bard-of-bengal-tagore/" target="_blank" rel="noreferrer">Mukherjee A. Rare exhibition gives insight into the last days of Bard of Bengal, Tagore</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-R" title="Retrospective">R</span></td>
+    <td><strong>A university vice-chancellor said in 2018 that he was suffering from cancer in his prostate; other accounts describe only an enlarged prostate.</strong><div class="muted">Not adopted; the synthetic episode makes no cancer diagnosis and does not suggest one.</div></td>
+    <td>disputed</td>
+    <td><a href="https://gulfnews.com/world/asia/india/india-pays-homage-to-tagore-on-his-75th-death-anniversary-1.1875109" target="_blank" rel="noreferrer">Dinda A. India pays homage to Tagore on his 75th death anniversary</a> <span class="relationship">supports</span><br><a href="https://asiatimes.com/2016/08/rare-exhibition-gives-insight-into-the-last-days-of-bard-of-bengal-tagore/" target="_blank" rel="noreferrer">Mukherjee A. Rare exhibition gives insight into the last days of Bard of Bengal, Tagore</a> <span class="relationship">context</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>He died on 7 August 1941, aged 80, at the Jorasanko house, after a prolonged period of suffering.</strong><div class="muted">Record the death as a fact without detail.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://en.wikipedia.org/wiki/Rabindranath_Tagore" target="_blank" rel="noreferrer">Rabindranath Tagore</a> <span class="relationship">supports</span><br><a href="https://www.nobelprize.org/prizes/literature/1913/tagore/biographical/" target="_blank" rel="noreferrer">Rabindranath Tagore: Biographical. From Nobel Lectures, Literature 1901-1967</a> <span class="relationship">supports</span><br><a href="https://asiatimes.com/2016/08/rare-exhibition-gives-insight-into-the-last-days-of-bard-of-bengal-tagore/" target="_blank" rel="noreferrer">Mukherjee A. Rare exhibition gives insight into the last days of Bard of Bengal, Tagore</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>He suffered the untimely deaths of his wife and three of his children; he took his daughter Renuka to hill stations in the Himalayas for her recovery from tuberculosis.</strong><div class="muted">Family history only.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://gitanjaliandbeyond.co.uk/wp-content/uploads/2023/10/55.-GB-9_Shyamasri-Maji.pdf" target="_blank" rel="noreferrer">Maji S. Review of The Last Days of Rabindranath Tagore in Memoirs, translated and edited by Somdatta Mandal (2021). Gitanjali and Beyond, issue 9</a> <span class="relationship">supports</span></td>
+  </tr></tbody></table></section>
+    <section><h2>Modern synthetic problem list</h2><table><thead><tr><th>Grade</th><th>Problem</th><th>Clinical status</th><th>Verification</th><th>Placement</th><th>Historical claims</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Benign prostatic hyperplasia with severe lower urinary tract symptoms (IPSS 26) and bladder outlet obstruction: prostate about 85 mL on ultrasound, smooth and benign on examination, PSA 4.9 ng/mL (PSA density 0.06)</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>both_with_link</td>
+    <td>CLM-0006, CLM-0011</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Urinary retention with severe lower urinary tract symptoms (bladder scan 640 mL after voiding) and a raised creatinine, cause under evaluation</td>
+    <td>resolved</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td>CLM-0006, CLM-0011</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Chronic urinary retention from bladder outlet obstruction, low risk once drained (no hydronephrosis; creatinine normal after drainage), managed with an indwelling urethral catheter</td>
+    <td>resolved</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td>CLM-0006, CLM-0011</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Catheter-associated urinary tract infection with fever, without sepsis; resolved</td>
+    <td>resolved</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td>CLM-0006</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Mild frailty (Clinical Frailty Scale 5): slow gait (Timed Up and Go 15 seconds), needs help with heavy housework and travel; cognition normal (Mini-Cog 4)</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td>CLM-0007</td>
+  </tr></tbody></table></section>
+    <section><h2>Synthetic outcome measures</h2><table><thead><tr><th>Grade</th><th>Date</th><th>Measure</th><th>Result</th><th>Coding</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-02-17</td>
+    <td>Symptom score [AUASI]</td>
+    <td>26</td>
+    <td>http://loinc.org · 80891-5</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-02-17</td>
+    <td>If you were to spend the rest of your life with your urinary condition just the way it is now, how would you feel about that [IPSS]</td>
+    <td>5</td>
+    <td>http://loinc.org · 81090-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-02-17</td>
+    <td>US Urinary bladder Volume post void</td>
+    <td>640 mL (high)<div class="muted">Reference &lt;=100 mL</div></td>
+    <td>http://loinc.org · 98856-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-02-17</td>
+    <td>Leukocytes [#/area] in Urine sediment by Microscopy high power field</td>
+    <td>3 /[HPF]<div class="muted">Reference &lt;=5 /[HPF]</div></td>
+    <td>http://loinc.org · 5821-4</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-02-17</td>
+    <td>Hemoglobin [Mass/volume] in Blood</td>
+    <td>13.6 g/dL<div class="muted">Reference 13.2-16.6 g/dL</div></td>
+    <td>http://loinc.org · 718-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-02-17</td>
+    <td>Sodium [Moles/volume] in Serum or Plasma</td>
+    <td>139 mmol/L<div class="muted">Reference 135-145 mmol/L</div></td>
+    <td>http://loinc.org · 2951-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-02-17</td>
+    <td>Potassium [Moles/volume] in Serum or Plasma</td>
+    <td>4.7 mmol/L<div class="muted">Reference 3.5-5.1 mmol/L</div></td>
+    <td>http://loinc.org · 2823-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-02-17</td>
+    <td>Carbon dioxide, total [Moles/volume] in Serum or Plasma</td>
+    <td>23 mmol/L<div class="muted">Reference 22-29 mmol/L</div></td>
+    <td>http://loinc.org · 2028-9</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-02-17</td>
+    <td>Urea nitrogen [Mass/volume] in Serum or Plasma</td>
+    <td>27 mg/dL (high)<div class="muted">Reference 8-23 mg/dL</div></td>
+    <td>http://loinc.org · 3094-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-02-17</td>
+    <td>Creatinine [Mass/volume] in Serum or Plasma</td>
+    <td>1.42 mg/dL (high)<div class="muted">Reference 0.74-1.35 mg/dL</div></td>
+    <td>http://loinc.org · 2160-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-02-17</td>
+    <td>Glomerular filtration rate [Volume Rate/Area] in Serum, Plasma or Blood by Creatinine-based formula (CKD-EPI 2021)/1.73 sq M</td>
+    <td>50 mL/min/1.73 m² (low)<div class="muted">Reference &gt;=60 mL/min/1.73 m²</div></td>
+    <td>http://loinc.org · 98979-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-02-17</td>
+    <td>Glucose [Mass/volume] in Serum or Plasma</td>
+    <td>97 mg/dL<div class="muted">Reference 70-99 mg/dL</div></td>
+    <td>http://loinc.org · 2345-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-02-17</td>
+    <td>Prostate specific Ag [Mass/volume] in Serum or Plasma</td>
+    <td>4.9 ng/mL<div class="muted">Reference Age-specific upper limit 6.5 ng/mL for 70 to 79 years; halve the expected value on finasteride</div></td>
+    <td>http://loinc.org · 2857-1</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-03</td>
+    <td>Sodium [Moles/volume] in Serum or Plasma</td>
+    <td>140 mmol/L<div class="muted">Reference 135-145 mmol/L</div></td>
+    <td>http://loinc.org · 2951-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-03</td>
+    <td>Potassium [Moles/volume] in Serum or Plasma</td>
+    <td>4.4 mmol/L<div class="muted">Reference 3.5-5.1 mmol/L</div></td>
+    <td>http://loinc.org · 2823-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-03</td>
+    <td>Carbon dioxide, total [Moles/volume] in Serum or Plasma</td>
+    <td>25 mmol/L<div class="muted">Reference 22-29 mmol/L</div></td>
+    <td>http://loinc.org · 2028-9</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-03</td>
+    <td>Urea nitrogen [Mass/volume] in Serum or Plasma</td>
+    <td>18 mg/dL<div class="muted">Reference 8-23 mg/dL</div></td>
+    <td>http://loinc.org · 3094-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-03</td>
+    <td>Creatinine [Mass/volume] in Serum or Plasma</td>
+    <td>1.18 mg/dL<div class="muted">Reference 0.74-1.35 mg/dL</div></td>
+    <td>http://loinc.org · 2160-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-03</td>
+    <td>Glomerular filtration rate [Volume Rate/Area] in Serum, Plasma or Blood by Creatinine-based formula (CKD-EPI 2021)/1.73 sq M</td>
+    <td>63 mL/min/1.73 m²<div class="muted">Reference &gt;=60 mL/min/1.73 m²</div></td>
+    <td>http://loinc.org · 98979-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-03</td>
+    <td>Glucose [Mass/volume] in Serum or Plasma</td>
+    <td>94 mg/dL<div class="muted">Reference 70-99 mg/dL</div></td>
+    <td>http://loinc.org · 2345-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-03</td>
+    <td>Prostate Volume by derived from height, width and length (US)</td>
+    <td>85 mL (high)<div class="muted">Reference &lt;=30 mL</div></td>
+    <td>http://loinc.org · 15308-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-17</td>
+    <td>Leukocytes [#/volume] in Blood by Automated count</td>
+    <td>13.8 10*3/uL (high)<div class="muted">Reference 3.4-9.6 10*3/uL</div></td>
+    <td>http://loinc.org · 6690-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-17</td>
+    <td>Hemoglobin [Mass/volume] in Blood</td>
+    <td>13.4 g/dL<div class="muted">Reference 13.2-16.6 g/dL</div></td>
+    <td>http://loinc.org · 718-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-17</td>
+    <td>Sodium [Moles/volume] in Serum or Plasma</td>
+    <td>136 mmol/L<div class="muted">Reference 135-145 mmol/L</div></td>
+    <td>http://loinc.org · 2951-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-17</td>
+    <td>Potassium [Moles/volume] in Serum or Plasma</td>
+    <td>4.5 mmol/L<div class="muted">Reference 3.5-5.1 mmol/L</div></td>
+    <td>http://loinc.org · 2823-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-17</td>
+    <td>Carbon dioxide, total [Moles/volume] in Serum or Plasma</td>
+    <td>23 mmol/L<div class="muted">Reference 22-29 mmol/L</div></td>
+    <td>http://loinc.org · 2028-9</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-17</td>
+    <td>Urea nitrogen [Mass/volume] in Serum or Plasma</td>
+    <td>25 mg/dL (high)<div class="muted">Reference 8-23 mg/dL</div></td>
+    <td>http://loinc.org · 3094-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-17</td>
+    <td>Creatinine [Mass/volume] in Serum or Plasma</td>
+    <td>1.31 mg/dL<div class="muted">Reference 0.74-1.35 mg/dL</div></td>
+    <td>http://loinc.org · 2160-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-17</td>
+    <td>Glomerular filtration rate [Volume Rate/Area] in Serum, Plasma or Blood by Creatinine-based formula (CKD-EPI 2021)/1.73 sq M</td>
+    <td>55 mL/min/1.73 m² (low)<div class="muted">Reference &gt;=60 mL/min/1.73 m²</div></td>
+    <td>http://loinc.org · 98979-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-17</td>
+    <td>Glucose [Mass/volume] in Serum or Plasma</td>
+    <td>112 mg/dL (high)<div class="muted">Reference 70-99 mg/dL</div></td>
+    <td>http://loinc.org · 2345-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-17</td>
+    <td>Leukocytes [#/area] in Urine sediment by Microscopy high power field</td>
+    <td>60 /[HPF] (high)<div class="muted">Reference &lt;=5 /[HPF]</div></td>
+    <td>http://loinc.org · 5821-4</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-31</td>
+    <td>US Urinary bladder Volume post void</td>
+    <td>420 mL (high)<div class="muted">Reference &lt;=100 mL</div></td>
+    <td>http://loinc.org · 98856-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-31</td>
+    <td>Sodium [Moles/volume] in Serum or Plasma</td>
+    <td>139 mmol/L<div class="muted">Reference 135-145 mmol/L</div></td>
+    <td>http://loinc.org · 2951-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-31</td>
+    <td>Potassium [Moles/volume] in Serum or Plasma</td>
+    <td>4.6 mmol/L<div class="muted">Reference 3.5-5.1 mmol/L</div></td>
+    <td>http://loinc.org · 2823-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-31</td>
+    <td>Carbon dioxide, total [Moles/volume] in Serum or Plasma</td>
+    <td>24 mmol/L<div class="muted">Reference 22-29 mmol/L</div></td>
+    <td>http://loinc.org · 2028-9</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-31</td>
+    <td>Urea nitrogen [Mass/volume] in Serum or Plasma</td>
+    <td>19 mg/dL<div class="muted">Reference 8-23 mg/dL</div></td>
+    <td>http://loinc.org · 3094-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-31</td>
+    <td>Creatinine [Mass/volume] in Serum or Plasma</td>
+    <td>1.16 mg/dL<div class="muted">Reference 0.74-1.35 mg/dL</div></td>
+    <td>http://loinc.org · 2160-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-31</td>
+    <td>Glomerular filtration rate [Volume Rate/Area] in Serum, Plasma or Blood by Creatinine-based formula (CKD-EPI 2021)/1.73 sq M</td>
+    <td>64 mL/min/1.73 m²<div class="muted">Reference &gt;=60 mL/min/1.73 m²</div></td>
+    <td>http://loinc.org · 98979-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-31</td>
+    <td>Glucose [Mass/volume] in Serum or Plasma</td>
+    <td>95 mg/dL<div class="muted">Reference 70-99 mg/dL</div></td>
+    <td>http://loinc.org · 2345-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-31</td>
+    <td>Total score [Mini-Cog]</td>
+    <td>4</td>
+    <td>http://loinc.org · 72233-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-06-09</td>
+    <td>Patient Health Questionnaire 2 item (PHQ-2) total score [Reported]</td>
+    <td>1</td>
+    <td>http://loinc.org · 55758-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-07-14</td>
+    <td>US Urinary bladder Volume post void</td>
+    <td>150 mL (high)<div class="muted">Reference &lt;=100 mL</div></td>
+    <td>http://loinc.org · 98856-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-07-14</td>
+    <td>Symptom score [AUASI]</td>
+    <td>13</td>
+    <td>http://loinc.org · 80891-5</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-07-14</td>
+    <td>If you were to spend the rest of your life with your urinary condition just the way it is now, how would you feel about that [IPSS]</td>
+    <td>3</td>
+    <td>http://loinc.org · 81090-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-07-14</td>
+    <td>Sodium [Moles/volume] in Serum or Plasma</td>
+    <td>140 mmol/L<div class="muted">Reference 135-145 mmol/L</div></td>
+    <td>http://loinc.org · 2951-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-07-14</td>
+    <td>Potassium [Moles/volume] in Serum or Plasma</td>
+    <td>4.5 mmol/L<div class="muted">Reference 3.5-5.1 mmol/L</div></td>
+    <td>http://loinc.org · 2823-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-07-14</td>
+    <td>Carbon dioxide, total [Moles/volume] in Serum or Plasma</td>
+    <td>25 mmol/L<div class="muted">Reference 22-29 mmol/L</div></td>
+    <td>http://loinc.org · 2028-9</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-07-14</td>
+    <td>Urea nitrogen [Mass/volume] in Serum or Plasma</td>
+    <td>18 mg/dL<div class="muted">Reference 8-23 mg/dL</div></td>
+    <td>http://loinc.org · 3094-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-07-14</td>
+    <td>Creatinine [Mass/volume] in Serum or Plasma</td>
+    <td>1.12 mg/dL<div class="muted">Reference 0.74-1.35 mg/dL</div></td>
+    <td>http://loinc.org · 2160-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-07-14</td>
+    <td>Glomerular filtration rate [Volume Rate/Area] in Serum, Plasma or Blood by Creatinine-based formula (CKD-EPI 2021)/1.73 sq M</td>
+    <td>66 mL/min/1.73 m²<div class="muted">Reference &gt;=60 mL/min/1.73 m²</div></td>
+    <td>http://loinc.org · 98979-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-07-14</td>
+    <td>Glucose [Mass/volume] in Serum or Plasma</td>
+    <td>93 mg/dL<div class="muted">Reference 70-99 mg/dL</div></td>
+    <td>http://loinc.org · 2345-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-07-14</td>
+    <td>Prostate specific Ag [Mass/volume] in Serum or Plasma</td>
+    <td>2.6 ng/mL<div class="muted">Reference Age-specific upper limit 6.5 ng/mL for 70 to 79 years; halve the expected value on finasteride</div></td>
+    <td>http://loinc.org · 2857-1</td>
+  </tr></tbody></table></section>
+    <section><h2>Synthetic vital signs</h2><table><thead><tr><th>Date</th><th>Measure</th><th>Result</th><th>LOINC</th><th>Grade</th></tr></thead><tbody>
+  <tr><td>2026-02-17</td><td>Body height</td><td>183 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-02-17</td><td>Body weight</td><td>66 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-02-17</td><td>Body mass index (BMI) [Ratio]</td><td>19.7 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-02-17</td><td>Systolic blood pressure</td><td>138 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-02-17</td><td>Diastolic blood pressure</td><td>78 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-02-17</td><td>Heart rate</td><td>76 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-02-17</td><td>Respiratory rate</td><td>16 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-02-17</td><td>Body temperature</td><td>36.7 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-02-17</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>97 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-03</td><td>Body height</td><td>183 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-03</td><td>Body weight</td><td>65.8 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-03</td><td>Body mass index (BMI) [Ratio]</td><td>19.6 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-03</td><td>Systolic blood pressure</td><td>132 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-03</td><td>Diastolic blood pressure</td><td>76 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-03</td><td>Heart rate</td><td>72 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-03</td><td>Respiratory rate</td><td>16 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-03</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-03</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>97 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-17</td><td>Body height</td><td>183 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-17</td><td>Body weight</td><td>65.1 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-17</td><td>Body mass index (BMI) [Ratio]</td><td>19.4 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-17</td><td>Systolic blood pressure</td><td>118 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-17</td><td>Diastolic blood pressure</td><td>68 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-17</td><td>Heart rate</td><td>98 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-17</td><td>Respiratory rate</td><td>18 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-17</td><td>Body temperature</td><td>38.4 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-17</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>96 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-31</td><td>Body height</td><td>183 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-31</td><td>Body weight</td><td>65.3 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-31</td><td>Body mass index (BMI) [Ratio]</td><td>19.5 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-31</td><td>Systolic blood pressure</td><td>128 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-31</td><td>Diastolic blood pressure</td><td>72 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-31</td><td>Heart rate</td><td>74 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-31</td><td>Respiratory rate</td><td>16 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-31</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-31</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>97 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-28</td><td>Body height</td><td>183 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-28</td><td>Body weight</td><td>65.6 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-28</td><td>Body mass index (BMI) [Ratio]</td><td>19.6 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-28</td><td>Systolic blood pressure</td><td>130 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-28</td><td>Diastolic blood pressure</td><td>74 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-28</td><td>Heart rate</td><td>72 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-28</td><td>Respiratory rate</td><td>16 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-28</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-28</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>97 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-09</td><td>Body height</td><td>183 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-09</td><td>Body weight</td><td>66 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-09</td><td>Body mass index (BMI) [Ratio]</td><td>19.7 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-09</td><td>Systolic blood pressure</td><td>132 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-09</td><td>Diastolic blood pressure</td><td>76 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-09</td><td>Heart rate</td><td>70 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-09</td><td>Respiratory rate</td><td>16 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-09</td><td>Body temperature</td><td>36.7 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-09</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>97 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-07-14</td><td>Body height</td><td>183 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-07-14</td><td>Body weight</td><td>66.2 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-07-14</td><td>Body mass index (BMI) [Ratio]</td><td>19.8 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-07-14</td><td>Systolic blood pressure</td><td>130 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-07-14</td><td>Diastolic blood pressure</td><td>74 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-07-14</td><td>Heart rate</td><td>70 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-07-14</td><td>Respiratory rate</td><td>16 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-07-14</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-07-14</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>97 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr></tbody></table></section>
+    <section><h2>Social, functional, and mental status</h2><h3>Social history</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Poet, writer, composer, and painter; founder of a school and a university in a rural town, where he lives on the campus; still writes every day, dictating when he is tired</li><li><span class="badge grade-S" title="Synthetic">S</span> Widower; lives with family members and is looked after at home by several devoted helpers; none is named in this record</li><li><span class="badge grade-S" title="Synthetic">S</span> Never smoked; no alcohol; no drug use; prefers simple, plain food</li><li><span class="badge grade-S" title="Synthetic">S</span> For the past five months has taken a herbal preparation from a practitioner of traditional Indian medicine (ayurveda), whom he trusts; he hoped it would spare him an operation</li><li><span class="badge grade-S" title="Synthetic">S</span> Supports: his writing, his students and colleagues, his family and helpers, and a daily practice of prayer and quiet; no firearms in the home</li></ul><h3>Functional status</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Independent in bathing, dressing, eating, and transfers; walks slowly indoors without an aid; needs help with travel and heavy housework; up four times a night to pass urine, which leaves him tired by day</li></ul><h3>Mental status</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Tall, white-bearded, courteous, and articulate, with a dry humor; mood &quot;patient, but tired of my own body&quot;; worried about losing his independence and about an operation; thinking clear and well organized; no depression or thoughts of self-harm</li></ul></section>
+    
+    <section><h2>Allergies and medications</h2><h3>Allergies</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> No known allergy</li></ul><h3>Medications</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Tamsulosin 0.4 mg oral capsule, one capsule by mouth at bedtime</li><li><span class="badge grade-S" title="Synthetic">S</span> Finasteride 5 mg oral tablet, one tablet by mouth daily</li><li><span class="badge grade-S" title="Synthetic">S</span> Polyethylene glycol 3350, 17 g in water once daily as needed for constipation</li><li><span class="badge grade-S" title="Synthetic">S</span> Ceftriaxone 1 g intramuscularly, one dose in clinic</li><li><span class="badge grade-S" title="Synthetic">S</span> Cefpodoxime 200 mg oral tablet, one tablet by mouth twice daily for 6 days</li><li><span class="badge grade-S" title="Synthetic">S</span> Acetaminophen 500 mg oral tablet, two tablets by mouth every 6 hours as needed for fever or discomfort</li></ul></section>
+    <section><h2>Procedures and immunizations</h2><h3>Procedures</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Indwelling urethral catheter inserted (16 French, 10 mL balloon) with a leg bag and night bag; 680 mL drained; observed for two hours for post-obstructive diuresis, which did not occur</li><li><span class="badge grade-S" title="Synthetic">S</span> Ultrasound of both kidneys and the bladder: no hydronephrosis; kidneys normal in size; bladder wall trabeculated, catheter balloon in place; prostate about 85 mL with a modest median lobe</li><li><span class="badge grade-S" title="Synthetic">S</span> Change of urethral catheter before cultures for a febrile catheter-associated infection; urine culture taken from the new catheter</li><li><span class="badge grade-S" title="Synthetic">S</span> Trial without catheter after six weeks of tamsulosin: catheter removed in the early morning; voided small amounts; bladder scan 420 mL; catheter replaced</li><li><span class="badge grade-S" title="Synthetic">S</span> Second trial without catheter after four months of finasteride with tamsulosin: catheter removed in the early morning; voided 240 mL and 210 mL; bladder scan 150 mL; catheter left out</li></ul><h3>Immunizations</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> 2025-10-14: High-dose influenza vaccine, 2025-2026 season</li><li><span class="badge grade-S" title="Synthetic">S</span> 2026-06-09: Respiratory syncytial virus vaccine (adjuvanted), single dose</li><li><span class="badge grade-S" title="Synthetic">S</span> 2026-06-09: Pneumococcal conjugate vaccine PCV20</li><li><span class="badge grade-S" title="Synthetic">S</span> 2026-06-09: Recombinant zoster vaccine, dose 1 of 2</li></ul></section>
+    <section><h2>Past medical history</h2><p class="muted">True biography with historical dates; not part of the synthetic care timeline.</p><ul><li><span class="badge grade-D" title="Documented">D</span> Late 1937: Loss of consciousness, comatose and near death for a time; the illness is not characterized further in the cited source <span class="muted">(CLM-0005)</span></li><li><span class="badge grade-D" title="Documented">D</span> 15 September 1940: Severe lower abdominal pain with a severe urinary tract infection while visiting the hills at Kalimpong; brought back unconscious to Calcutta for treatment <span class="muted">(CLM-0006)</span></li></ul><h3>Family history</h3><ul><li><span class="badge grade-D" title="Documented">D</span> natural daughter: Tuberculosis in young adulthood; died before him (cause of death not recorded in the cited source)</li></ul></section>
+    <section><h2>Care-plan goals</h2><table><thead><tr><th>Goal</th><th>Target date</th><th>Status</th><th>Outcome</th></tr></thead><tbody>
+  <tr><td>Bladder drained and kidney function back to normal within two weeks</td><td>2026-03-03</td><td>completed</td><td>Creatinine 1.42 mg/dL at presentation, 1.18 mg/dL after two weeks of drainage; no hydronephrosis</td></tr>
+  <tr><td>No catheter-associated infection, or prompt treatment if one occurs</td><td>2026-03-31</td><td>completed</td><td>One febrile catheter-associated infection at four weeks, treated in clinic for 7 days without admission; resolved</td></tr>
+  <tr><td>A treatment decision that he understands and that fits his values, after a geriatric assessment, by about ten weeks</td><td>2026-04-28</td><td>completed</td><td>Chose to continue the catheter with tamsulosin and finasteride and to try again without the catheter after three to four months, deferring surgery; recorded in his own words</td></tr>
+  <tr><td>Voiding without a catheter, with a post-void residual under 300 mL, by about five months</td><td>2026-07-14</td><td>completed</td><td>Second trial without catheter succeeded: residual 150 mL, IPSS 13</td></tr>
+  <tr><td>Goals of care and a health care agent recorded</td><td>2026-06-09</td><td>completed</td><td>Goals of care discussed at the ten-week visit; health care agent named and his wishes recorded at the wellness visit</td></tr></tbody></table></section>
+    <section><h2>Interventions</h2><table><thead><tr><th>Intervention</th><th>Status</th><th>Guideline</th></tr></thead><tbody>
+  <tr><td>Evaluation: IPSS with the quality-of-life question, bladder scan for post-void residual, urinalysis and urine culture, blood count, creatinine and electrolytes, digital rectal examination, and a kidney and bladder ultrasound for obstruction; a frequency-volume chart once voiding</td><td>completed</td><td>GL-AUA-BPH-2021, GL-AUA-CUR-2017, GL-CMID-2026</td></tr>
+  <tr><td>PSA only after shared decision-making: it helps estimate prostate size and choose treatment; screening for prostate cancer is not recommended at his age, and he would not want treatment for a slow-growing cancer; drawn before the catheter is placed, because retention and catheters raise it</td><td>completed</td><td>GL-AUA-BPH-2021, GL-USPSTF-PROSTATE-2018, GL-CMID-2026</td></tr>
+  <tr><td>Indwelling urethral catheter to drain the bladder, with a closed drainage system, the bag below the bladder, daily washing with soap and water, no routine antibiotics or bladder washouts, no treatment of bacteria in the urine without symptoms, a change every four weeks, and same-day review for fever, pain, blood, or a blocked catheter</td><td>completed</td><td>GL-IDSA-CAUTI-2009, GL-AUA-CUR-2017</td></tr>
+  <tr><td>Tamsulosin 0.4 mg at bedtime for at least three days and usually several weeks before a trial without catheter; fall precautions: take it after the evening meal, rise slowly, sit to pass urine at night, and use a night light</td><td>completed</td><td>GL-AUA-BPH-2021, GL-BEERS-2023</td></tr>
+  <tr><td>Urology consultation for chronic urinary retention with a raised creatinine: confirm the cause, judge the risk, plan the trial without catheter, advise on a 5-alpha-reductase inhibitor, and set out the procedures that suit a frail 79-year-old who wants to avoid an operation</td><td>completed</td><td>GL-AUA-BPH-2021, GL-AUA-BPH-2023, GL-CMID-2026, GL-AUA-CUR-2017</td></tr>
+  <tr><td>Medication review with the AGS Beers Criteria: avoid anticholinergic drugs for bladder symptoms while in retention, first-generation antihistamines, and benzodiazepines; avoid nonselective alpha-blockers; review his herbal preparation with the pharmacist for interactions and unlabeled ingredients</td><td>completed</td><td>GL-BEERS-2023, GL-AYUR-METALS-2008</td></tr>
+  <tr><td>Monitor on the CMID and AUA schedule: IPSS at every visit once voiding; post-void residual with each trial without catheter and after it; creatinine with retention; PSA at baseline and six months after starting finasteride, doubled for interpretation; response to tamsulosin at four to twelve weeks and to finasteride at three to six months</td><td>completed</td><td>GL-AUA-BPH-2021, GL-AUA-BPH-2023, GL-CMID-2026</td></tr>
+  <tr><td>Geriatric assessment before any surgical decision: frailty, gait and falls, orthostatic blood pressure on tamsulosin, cognition, mood, delirium risk, nutrition, and what matters most to him</td><td>completed</td><td>GL-BEERS-2023, GL-AUA-BPH-2021</td></tr>
+  <tr><td>Finasteride 5 mg daily for the 85 mL prostate, with a new PSA baseline after six months (measured value doubled for interpretation); trial without catheter after about six weeks of tamsulosin, once any infection is treated</td><td>completed</td><td>GL-AUA-BPH-2021, GL-AUA-BPH-2023, GL-CMID-2026</td></tr>
+  <tr><td>Surgical options counseled after the failed trial without catheter: laser enucleation (HoLEP) recommended for an 85 mL prostate with refractory retention; transurethral resection and simple prostatectomy as alternatives; prostatic artery embolization under local anesthesia as a less invasive option with less durable results; prostatic urethral lift and water vapor therapy less suitable for this size, median lobe, and retention; each weighed against his frailty, delirium risk, and wishes</td><td>completed</td><td>GL-AUA-BPH-2021, GL-AUA-BPH-2023, GL-CMID-2026, GL-BEERS-2023</td></tr>
+  <tr><td>His decision, in his own terms: defer any operation or procedure; keep the catheter, changed every four weeks, with tamsulosin and finasteride; a second trial without catheter after three to four months of finasteride; reconsider prostatic artery embolization, then laser enucleation, if that fails or if infections recur, bleeding, stones, or kidney harm develop; continue his herbal preparation after the pharmacist&#39;s review</td><td>completed</td><td>GL-AUA-BPH-2021, GL-AUA-BPH-2023, GL-CMID-2026, GL-AUA-CUR-2017</td></tr></tbody></table></section>
+    <section><h2>Planned encounters</h2><ul>
+  <li><strong>2026-02-17</strong> — New-patient visit for a weak stream, straining, and frequent urination at night, with a feeling that the bladder does not empty <span class="muted">(ENC-001)</span></li>
+  <li><strong>2026-03-03</strong> — Two-week review with kidney and bladder ultrasound results and urology consultation <span class="muted">(ENC-002)</span></li>
+  <li><strong>2026-03-17</strong> — Same-day sick visit for fever with a urinary catheter <span class="muted">(ENC-006, unscheduled)</span></li>
+  <li><strong>2026-03-31</strong> — Six-week review with a trial without catheter and a geriatric assessment <span class="muted">(ENC-003)</span></li>
+  <li><strong>2026-04-28</strong> — Ten-week review: shared decision about treatment and goals of care <span class="muted">(ENC-004)</span></li>
+  <li><strong>2026-06-09</strong> — Subsequent annual wellness visit <span class="muted">(ENC-007)</span></li>
+  <li><strong>2026-07-14</strong> — Five-month review with a planned second trial without catheter <span class="muted">(ENC-005)</span></li></ul></section>
+    <section><h2>Supporting documents</h2><ul><li><a href="notes/hp.md">History and physical</a></li><li><a href="notes/progress-01.md">Progress note 01</a></li><li><a href="notes/progress-02.md">Progress note 02 — Focused Visit (Follow-up)</a></li><li><a href="notes/progress-03.md">Progress note 03 — Sick Visit</a></li><li><a href="notes/progress-04.md">Progress note 04 — Focused Visit (Follow-up)</a></li><li><a href="notes/progress-05.md">Progress note 05 — Focused Visit (Follow-up)</a></li><li><a href="notes/progress-06.md">Progress note 06 — Annual Wellness Visit, Subsequent</a></li><li><a href="notes/progress-07.md">Progress note 07 — Focused Visit (Care-plan review)</a></li><li><a href="notes/referral-01.md">Urology referral</a></li><li><a href="notes/consult-01.md">Urology consultation</a></li><li><a href="notes/careplan.md">Patient care plan</a></li><li><a href="notes/teaching-note.md">Teaching note</a></li><li><a href="provenance.csv">Provenance CSV</a></li></ul></section>
+    <section><h2>C-CDA note documents</h2><p class="muted">Each link opens a readable copy; the XML beside it is the exchange file.</p><ul><li><a href="ccda/hp-01.html">History and physical</a> <a href="ccda/hp-01.xml">(XML)</a></li><li><a href="ccda/progress-01.html">Progress note 01</a> <a href="ccda/progress-01.xml">(XML)</a></li><li><a href="ccda/progress-02.html">Progress note 02 — Focused Visit (Follow-up)</a> <a href="ccda/progress-02.xml">(XML)</a></li><li><a href="ccda/progress-03.html">Progress note 03 — Sick Visit</a> <a href="ccda/progress-03.xml">(XML)</a></li><li><a href="ccda/progress-04.html">Progress note 04 — Focused Visit (Follow-up)</a> <a href="ccda/progress-04.xml">(XML)</a></li><li><a href="ccda/progress-05.html">Progress note 05 — Focused Visit (Follow-up)</a> <a href="ccda/progress-05.xml">(XML)</a></li><li><a href="ccda/progress-06.html">Progress note 06 — Annual Wellness Visit, Subsequent</a> <a href="ccda/progress-06.xml">(XML)</a></li><li><a href="ccda/progress-07.html">Progress note 07 — Focused Visit (Care-plan review)</a> <a href="ccda/progress-07.xml">(XML)</a></li><li><a href="ccda/referral-01.html">Urology referral</a> <a href="ccda/referral-01.xml">(XML)</a></li><li><a href="ccda/consult-01.html">Urology consultation</a> <a href="ccda/consult-01.xml">(XML)</a></li></ul></section>
+    <section><h2>Sources</h2><table><thead><tr><th>ID</th><th>Source</th><th>Publisher</th><th>Type</th></tr></thead><tbody>
+  <tr>
+    <td>SRC-0001</td>
+    <td><a href="https://www.nobelprize.org/prizes/literature/1913/tagore/biographical/" target="_blank" rel="noreferrer">Rabindranath Tagore: Biographical. From Nobel Lectures, Literature 1901-1967</a></td>
+    <td>NobelPrize.org (Nobel Prize Outreach)</td>
+    <td>biography</td>
+  </tr>
+  <tr>
+    <td>SRC-0002</td>
+    <td><a href="https://www.nobelprize.org/prizes/literature/1913/summary/" target="_blank" rel="noreferrer">The Nobel Prize in Literature 1913: Summary</a></td>
+    <td>NobelPrize.org (Nobel Prize Outreach)</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0003</td>
+    <td><a href="https://en.wikipedia.org/wiki/Rabindranath_Tagore" target="_blank" rel="noreferrer">Rabindranath Tagore</a></td>
+    <td>Wikipedia</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0004</td>
+    <td><a href="https://visvabharati.ac.in/History.html" target="_blank" rel="noreferrer">History</a></td>
+    <td>Visva-Bharati</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0005</td>
+    <td><a href="https://gitanjaliandbeyond.co.uk/wp-content/uploads/2023/10/55.-GB-9_Shyamasri-Maji.pdf" target="_blank" rel="noreferrer">Maji S. Review of The Last Days of Rabindranath Tagore in Memoirs, translated and edited by Somdatta Mandal (2021). Gitanjali and Beyond, issue 9</a></td>
+    <td>Scottish Centre of Tagore Studies (Gitanjali and Beyond)</td>
+    <td>scholarly</td>
+  </tr>
+  <tr>
+    <td>SRC-0006</td>
+    <td><a href="https://asiatimes.com/2016/08/rare-exhibition-gives-insight-into-the-last-days-of-bard-of-bengal-tagore/" target="_blank" rel="noreferrer">Mukherjee A. Rare exhibition gives insight into the last days of Bard of Bengal, Tagore</a></td>
+    <td>Asia Times</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0007</td>
+    <td><a href="https://gulfnews.com/world/asia/india/india-pays-homage-to-tagore-on-his-75th-death-anniversary-1.1875109" target="_blank" rel="noreferrer">Dinda A. India pays homage to Tagore on his 75th death anniversary</a></td>
+    <td>Gulf News</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0008</td>
+    <td><a href="https://humanrecord.example.org/internal/HISTMED_Master_Roster_v3.xlsx" target="_blank" rel="noreferrer">HISTMED Master Roster v3</a></td>
+    <td>The Human Record project</td>
+    <td>other</td>
+  </tr></tbody></table></section>
+    <section><h2>Review status</h2><table><thead><tr><th>Review</th><th>Status</th><th>Notes</th></tr></thead><tbody>
+  <tr><td>schema validation</td><td>not_started</td><td>Run scripts/build.ps1 -Conformance.</td></tr>
+  <tr><td>clinical review</td><td>not_started</td><td>Awaiting clinician review; check the retention work-up, the PSA decision, catheter care and the infection treatment, the trials without catheter, finasteride, the surgical options for an 85 mL prostate in a frail man, the Beers review, and the recorded deviation.</td></tr>
+  <tr><td>provenance review</td><td>not_started</td><td>Nobel Prize biography and citation, Wikipedia, the Visva-Bharati history page, a journal review of five memoirs by women who nursed him, and two news reports of a 2016 exhibition and a 2018 reconstruction logged. The 1937 and 1940 illnesses, his preference for traditional treatment, his fear of the operation, its date, and his death are D; the enlarged prostate, the nature of the operation, the cause of death, and prostate cancer are R and conflict. No statement, decision, or health fact is attributed to a relative, caregiver, or historical physician in the modern episode.</td></tr>
+  <tr><td>safe messaging review</td><td>not_started</td><td>His death is recorded as a fact without detail. His reluctance about surgery and his trust in traditional medicine are recorded with respect, as documented. PHQ-2 is negative, so no safety assessment is required.</td></tr></tbody></table></section>
+  </main>
+</body>
+</html>

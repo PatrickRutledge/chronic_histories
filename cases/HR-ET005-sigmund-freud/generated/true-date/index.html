@@ -1,0 +1,611 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sigmund Freud — The Human Record</title>
+  <style>
+    :root { --navy:#17365d; --blue:#1f4e78; --pale:#eef5fa; --ink:#1f2933; --muted:#66788a; --amber:#fff2cc; --red:#f8d7da; --green:#d9ead3; }
+    * { box-sizing:border-box; }
+    body { margin:0; font:16px/1.5 Arial, sans-serif; color:var(--ink); background:#f6f8fa; }
+    header { background:var(--navy); color:white; padding:24px max(24px,calc((100vw - 1180px)/2)); }
+    header h1 { margin:4px 0; font-size:30px; }
+    .banner { background:#b42318; color:white; font-weight:700; text-align:center; padding:10px; letter-spacing:.03em; }
+    main { max-width:1180px; margin:24px auto 60px; padding:0 24px; }
+    section { background:white; border:1px solid #d9e1e8; border-radius:8px; margin:18px 0; padding:20px; }
+    h2 { color:var(--navy); margin:0 0 14px; font-size:22px; }
+    h3 { color:var(--blue); }
+    .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:12px; }
+    .card { background:var(--pale); border-left:4px solid var(--blue); padding:12px; }
+    .label { color:var(--muted); font-size:13px; text-transform:uppercase; letter-spacing:.04em; }
+    table { width:100%; border-collapse:collapse; }
+    th { background:var(--blue); color:white; text-align:left; }
+    th,td { padding:9px; border-bottom:1px solid #dfe6ec; vertical-align:top; }
+    .badge { display:inline-block; min-width:28px; text-align:center; font-weight:700; border-radius:12px; padding:2px 8px; }
+    .grade-D { background:var(--green); } .grade-R { background:var(--amber); } .grade-S { background:var(--red); }
+    .muted { color:var(--muted); font-size:14px; }
+    .relationship { color:var(--muted); font-size:12px; }
+    .downloads a { display:inline-block; margin:4px 8px 4px 0; padding:8px 12px; background:var(--blue); color:white; text-decoration:none; border-radius:5px; }
+    @media (max-width:700px) { table { display:block; overflow-x:auto; } }
+  </style>
+</head>
+<body>
+  <div class="banner">SYNTHETIC RECORD, NOT A REAL MEDICAL RECORD</div>
+  <div class="banner">True-date frame: synthetic events are moved into the patient&#39;s historical lifetime. Codes, instruments, and treatments remain modern and are anachronistic.</div>
+  <header>
+    <div>The Human Record</div>
+    <h1>Sigmund Freud</h1>
+    <div>Case HR-ET005-TD · Modern EHR teaching episode · Draft for review</div>
+  </header>
+  <main>
+    <section>
+      <h2>Review summary</h2>
+      <div class="grid">
+        <div class="card"><div class="label">Historical dates</div>May 6, 1856 – September 23, 1939</div>
+        <div class="card"><div class="label">Synthetic DOB</div>1856-05-06</div>
+        <div class="card"><div class="label">Index visit</div>1930-06-01 at age 74</div>
+        <div class="card"><div class="label">Synthetic MRN</div>HR-ET005-SYN-TD</div>
+      </div>
+      <p><strong>Teaching objective:</strong> Treating tobacco dependence in a man who has already had a smoking-related cancer, without judgment: primary care for a 74-year-old physician and writer, seven years after a partial maxillectomy for squamous cell carcinoma of the palate, who still smokes about twenty cigars a day after many failed attempts to stop. The episode covers an assessment of readiness that does not blame him; starting varenicline before he is ready to set a quit date and adding combination nicotine replacement (ATS 1924, USPSTF 1925), with the point that cigars count; behavioral support; the risk of second primary cancers; head and neck cancer survivorship (NCCN, ACS 1920): yearly examination after five years, imaging only for symptoms or as screening supports, and lung cancer screening eligibility when the history is of cigars rather than cigarettes; maxillofacial prosthodontic care of the obturator, with speech, swallowing and dental care; nutrition and weight; and chronic pain managed without long-term opioids (CDC 1926). There is no radiation in the synthetic history, so there is no osteoradionecrosis risk.</p>
+      <div class="downloads">
+        <a href="../case.json">Canonical JSON</a>
+        <a href="fhir-bundle.json">FHIR R4 draft</a>
+        <a href="ccda.html">C-CDA R2.1 summary</a> <a href="ccda.xml">(XML)</a>
+        <a href="../sources.md">Evidence dossier</a>
+      </div>
+    </section>
+    <section><h2>Historical timeline</h2><table><thead><tr><th>Date</th><th>Event</th><th>Claims</th></tr></thead><tbody>
+  <tr><td>May 6, 1856</td><td>Born in Freiberg, Moravia.</td><td>CLM-0001</td></tr>
+  <tr><td>1884</td><td>Published On Coca after experimenting with cocaine himself.</td><td>CLM-0002</td></tr>
+  <tr><td>1894</td><td>Irregular heartbeat attributed to smoking by his physician friend; failed attempts to stop smoking.</td><td>CLM-0005, CLM-0003, CLM-0004</td></tr>
+  <tr><td>1923</td><td>Squamous cell carcinoma of the palate: excision in April and radiation, then a radical operation by Hans Pichler with an obturator; kept smoking.</td><td>CLM-0006, CLM-0007, CLM-0009</td></tr>
+  <tr><td>1929</td><td>At 73, after a heart illness, stopped smoking for 23 days.</td><td>CLM-0010</td></tr>
+  <tr><td>June 6, 1938</td><td>Arrived in London as a refugee after fleeing Vienna.</td><td>CLM-0012</td></tr>
+  <tr><td>September 23, 1939</td><td>Died in London after more than thirty operations and procedures over sixteen years.</td><td>CLM-0013, CLM-0008, CLM-0011</td></tr></tbody></table></section>
+    <section><h2>Evidence claims</h2><p class="muted">D = documented, R = retrospective, S = synthetic.</p><table><thead><tr><th>Grade</th><th>Claim</th><th>Certainty</th><th>Sources</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>Sigmund Freud was born Sigismund Schlomo Freud on May 6, 1856, in Freiberg, Moravia, now in the Czech Republic; in 1860 his family settled in Vienna.</strong></td>
+    <td>confirmed</td>
+    <td><a href="https://www.loc.gov/exhibits/freud/freud01.html" target="_blank" rel="noreferrer">Sigmund Freud: Conflict &amp; Culture. Section One: Formative Years and the Founding of Psychoanalysis</a> <span class="relationship">supports</span><br><a href="https://www.freud.org.uk/about-us/sigmund-freud/" target="_blank" rel="noreferrer">Sigmund Freud</a> <span class="relationship">supports</span><br><a href="https://humanrecord.example.org/internal/HISTMED_Master_Roster_v3.xlsx" target="_blank" rel="noreferrer">HISTMED Master Roster v3</a> <span class="relationship">context</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>In the 1880s he experimented with cocaine himself, praised it in his paper On Coca (1884), and urged others to use it before he realized it could be addictive.</strong><div class="muted">History only; the modern episode records no current drug use.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.loc.gov/exhibits/freud/freud01.html" target="_blank" rel="noreferrer">Sigmund Freud: Conflict &amp; Culture. Section One: Formative Years and the Founding of Psychoanalysis</a> <span class="relationship">supports</span><br><a href="https://www.history.com/articles/10-things-you-may-not-know-about-sigmund-freud" target="_blank" rel="noreferrer">Klein C. 10 Things You May Not Know About Sigmund Freud</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>According to his personal physician&#39;s account, as summarized in a 2019 review, he still used cocaine regularly in the 1890s.</strong><div class="muted">History only, recorded without detail.</div></td>
+    <td>probable</td>
+    <td><a href="https://pubmed.ncbi.nlm.nih.gov/30328499/" target="_blank" rel="noreferrer">Trimarchi M, Bertazzoni G, Bussi M. The disease of Sigmund Freud: oral cancer or cocaine-induced lesion? Eur Arch Otorhinolaryngol 2019;276(1):263-265 (PMID 30328499)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>He began smoking in his twenties, first cigarettes and then cigars, following the example of his father, and often smoked about twenty cigars a day; his biographer described it as an addiction rather than a habit.</strong><div class="muted">The anchor for the synthetic tobacco use disorder; recorded without judgment.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.freud.org.uk/2020/04/22/freud-and-his-cigars/" target="_blank" rel="noreferrer">Davies B. Freud and his Cigars</a> <span class="relationship">supports</span><br><a href="https://www.history.com/articles/10-things-you-may-not-know-about-sigmund-freud" target="_blank" rel="noreferrer">Klein C. 10 Things You May Not Know About Sigmund Freud</a> <span class="relationship">supports</span><br><a href="https://pubmed.ncbi.nlm.nih.gov/15293843/" target="_blank" rel="noreferrer">Adeyemo WL. Sigmund Freud: smoking habit, oral cancer and euthanasia. Niger J Med 2004;13(2):189-195 (PMID 15293843)</a> <span class="relationship">supports</span><br><a href="https://ukcia.org/research/cunion/cu24.htm" target="_blank" rel="noreferrer">Brecher EM and the Editors of Consumer Reports. The Consumers Union Report on Licit and Illicit Drugs, Chapter 24: The case of Dr. Sigmund Freud</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>In 1894, at 38, his friend the physician Wilhelm Fliess attributed his irregular heartbeat to smoking and told him to stop. He tried repeatedly and failed: one attempt ended within seven weeks, and a later one lasted fourteen months before he started again, describing the abstinence as torture.</strong><div class="muted">Anchors the history of cardiac symptoms attributed to nicotine and of failed quit attempts, which the modern episode treats as normal for nicotine dependence.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://ukcia.org/research/cunion/cu24.htm" target="_blank" rel="noreferrer">Brecher EM and the Editors of Consumer Reports. The Consumers Union Report on Licit and Illicit Drugs, Chapter 24: The case of Dr. Sigmund Freud</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>In 1923, at 67, he was diagnosed with cancer of the right upper jaw and palate, a squamous cell carcinoma; a first excision in April 1923 was followed by radiation treatment.</strong><div class="muted">The anchor for the synthetic survivorship episode.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://pubmed.ncbi.nlm.nih.gov/15293843/" target="_blank" rel="noreferrer">Adeyemo WL. Sigmund Freud: smoking habit, oral cancer and euthanasia. Niger J Med 2004;13(2):189-195 (PMID 15293843)</a> <span class="relationship">supports</span><br><a href="https://pubmed.ncbi.nlm.nih.gov/31705580/" target="_blank" rel="noreferrer">Benmoussa N, Charlier P, Rebibo JD. Historical Vignette: Attempted treatment of Sigmund Freud&#39;s oral squamous cell carcinoma by vasectomy (Steinach Operation) in 1923. Andrology 2020;8(3):688-690 (PMID 31705580)</a> <span class="relationship">supports</span><br><a href="https://artsandculture.google.com/asset/freud%E2%80%99s-mouth-prosthesis-made-by-varaztad-kazanjian/GQGVC3Qbh5itXA" target="_blank" rel="noreferrer">Freud&#39;s mouth prosthesis, made by Varaztad Kazanjian (Freud Museum London)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>Later in 1923 the oral surgeon Hans Pichler performed a radical operation that removed part of the upper jaw and soft palate, and made the obturator prosthesis that closed the defect; Freud called it &quot;the monster.&quot; Pichler provided most of his later prosthetic care.</strong><div class="muted">The anchor for the maxillectomy defect and obturator in the modern episode.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://pubmed.ncbi.nlm.nih.gov/1543636/" target="_blank" rel="noreferrer">Davenport JC. The prosthetic care of Sigmund Freud. Br Dent J 1992;172(5):205-207 (PMID 1543636)</a> <span class="relationship">supports</span><br><a href="https://artsandculture.google.com/asset/freud%E2%80%99s-mouth-prosthesis-made-by-varaztad-kazanjian/GQGVC3Qbh5itXA" target="_blank" rel="noreferrer">Freud&#39;s mouth prosthesis, made by Varaztad Kazanjian (Freud Museum London)</a> <span class="relationship">supports</span><br><a href="https://pubmed.ncbi.nlm.nih.gov/17451128/" target="_blank" rel="noreferrer">Tainmont J. Sigmund Freud&#39;s physicians and &quot;the monster&quot;. B-ENT 2007;3(1):49-60 (PMID 17451128)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>Over the sixteen years after the diagnosis he had more than thirty operations and procedures (33 or 34 are reported), radiation treatment, and constant pain from his mouth.</strong><div class="muted">History through his last years.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://pubmed.ncbi.nlm.nih.gov/15293843/" target="_blank" rel="noreferrer">Adeyemo WL. Sigmund Freud: smoking habit, oral cancer and euthanasia. Niger J Med 2004;13(2):189-195 (PMID 15293843)</a> <span class="relationship">supports</span><br><a href="https://www.history.com/articles/10-things-you-may-not-know-about-sigmund-freud" target="_blank" rel="noreferrer">Klein C. 10 Things You May Not Know About Sigmund Freud</a> <span class="relationship">supports</span><br><a href="https://pubmed.ncbi.nlm.nih.gov/30328499/" target="_blank" rel="noreferrer">Trimarchi M, Bertazzoni G, Bussi M. The disease of Sigmund Freud: oral cancer or cocaine-induced lesion? Eur Arch Otorhinolaryngol 2019;276(1):263-265 (PMID 30328499)</a> <span class="relationship">supports</span><br><a href="https://ukcia.org/research/cunion/cu24.htm" target="_blank" rel="noreferrer">Brecher EM and the Editors of Consumer Reports. The Consumers Union Report on Licit and Illicit Drugs, Chapter 24: The case of Dr. Sigmund Freud</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>He kept smoking cigars after the cancer was diagnosed and refused to give them up.</strong><div class="muted">Anchors continued smoking after a smoking-related cancer, treated in the modern episode without blame.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.freud.org.uk/2020/04/22/freud-and-his-cigars/" target="_blank" rel="noreferrer">Davies B. Freud and his Cigars</a> <span class="relationship">supports</span><br><a href="https://pubmed.ncbi.nlm.nih.gov/15293843/" target="_blank" rel="noreferrer">Adeyemo WL. Sigmund Freud: smoking habit, oral cancer and euthanasia. Niger J Med 2004;13(2):189-195 (PMID 15293843)</a> <span class="relationship">supports</span><br><a href="https://www.history.com/articles/10-things-you-may-not-know-about-sigmund-freud" target="_blank" rel="noreferrer">Klein C. 10 Things You May Not Know About Sigmund Freud</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>At 73, after a heart illness, he stopped smoking for 23 days and then gradually started again.</strong><div class="muted">The most recent quit attempt before the index visit.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://ukcia.org/research/cunion/cu24.htm" target="_blank" rel="noreferrer">Brecher EM and the Editors of Consumer Reports. The Consumers Union Report on Licit and Illicit Drugs, Chapter 24: The case of Dr. Sigmund Freud</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-R" title="Retrospective">R</span></td>
+    <td><strong>One retrospective analysis has proposed that his destructive palatal disease might have been a cocaine-induced midline lesion rather than cancer; most accounts and his medical records describe a squamous cell carcinoma caused mainly by smoking.</strong><div class="muted">Not used in the modern episode, which follows the documented diagnosis.</div></td>
+    <td>disputed</td>
+    <td><a href="https://pubmed.ncbi.nlm.nih.gov/30328499/" target="_blank" rel="noreferrer">Trimarchi M, Bertazzoni G, Bussi M. The disease of Sigmund Freud: oral cancer or cocaine-induced lesion? Eur Arch Otorhinolaryngol 2019;276(1):263-265 (PMID 30328499)</a> <span class="relationship">supports</span><br><a href="https://pubmed.ncbi.nlm.nih.gov/15293843/" target="_blank" rel="noreferrer">Adeyemo WL. Sigmund Freud: smoking habit, oral cancer and euthanasia. Niger J Med 2004;13(2):189-195 (PMID 15293843)</a> <span class="relationship">disputes</span><br><a href="https://pubmed.ncbi.nlm.nih.gov/1543636/" target="_blank" rel="noreferrer">Davenport JC. The prosthetic care of Sigmund Freud. Br Dent J 1992;172(5):205-207 (PMID 1543636)</a> <span class="relationship">disputes</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>After the Nazi annexation of Austria in 1938 he was forced to flee Vienna; he arrived in London as a refugee on June 6, 1938, and spent the last year of his life there.</strong><div class="muted">History after the modern episode.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.freud.org.uk/about-us/sigmund-freud/" target="_blank" rel="noreferrer">Sigmund Freud</a> <span class="relationship">supports</span><br><a href="https://www.freud.org.uk/2019/09/10/freuds-death-bed/" target="_blank" rel="noreferrer">Freud&#39;s Death Bed</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>He died in London on September 23, 1939, at 83, after his physician Max Schur, at his request, gave him morphine.</strong><div class="muted">History only, recorded in one plain sentence.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.freud.org.uk/2019/09/10/freuds-death-bed/" target="_blank" rel="noreferrer">Freud&#39;s Death Bed</a> <span class="relationship">supports</span><br><a href="https://www.history.com/articles/10-things-you-may-not-know-about-sigmund-freud" target="_blank" rel="noreferrer">Klein C. 10 Things You May Not Know About Sigmund Freud</a> <span class="relationship">supports</span><br><a href="https://pubmed.ncbi.nlm.nih.gov/10421274/" target="_blank" rel="noreferrer">McCue JD, Cohen LM. Freud&#39;s physician-assisted death. Arch Intern Med 1999;159(14):1521-1525 (PMID 10421274)</a> <span class="relationship">supports</span></td>
+  </tr></tbody></table></section>
+    <section><h2>Modern synthetic problem list</h2><table><thead><tr><th>Grade</th><th>Problem</th><th>Clinical status</th><th>Verification</th><th>Placement</th><th>Historical claims</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Tobacco use disorder, severe: about twenty cigars a day for about fifty years, with many failed attempts to stop; synthetic modern episode linked to his documented cigar smoking</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>both_with_link</td>
+    <td>CLM-0004, CLM-0009</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Squamous cell carcinoma of the right hard and soft palate seven years ago, treated by right partial maxillectomy with clear margins (pT2 N0) and no radiation in this synthetic history, with no recurrence on yearly surveillance</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>both_with_link</td>
+    <td>CLM-0006, CLM-0007</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Acquired defect of the right maxilla and palate after maxillectomy, closed with an obturator prosthesis that is now worn and fits poorly</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td>CLM-0007</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Hypernasal speech and nasal leakage of liquids from a poorly sealing obturator</td>
+    <td>resolved</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td>CLM-0007</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Chronic pain at the maxillectomy site and right cheek, worse where the obturator rubs</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td>CLM-0008</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Raised LDL cholesterol (126 mg/dL) with a high estimated 10-year cardiovascular risk after fifty years of smoking</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Weight loss of 4 kg in six months from painful chewing and leakage, with a low albumin</td>
+    <td>resolved</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Candida stomatitis of the palate and defect under the new obturator; treated with nystatin and prosthesis hygiene; resolved</td>
+    <td>resolved</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td></td>
+  </tr></tbody></table></section>
+    <section><h2>Synthetic outcome measures</h2><table><thead><tr><th>Grade</th><th>Date</th><th>Measure</th><th>Result</th><th>Coding</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1930-06-01</td>
+    <td>Hemoglobin [Mass/volume] in Blood</td>
+    <td>13.2 g/dL (low)<div class="muted">Reference 13.5-17.5 g/dL</div></td>
+    <td>http://loinc.org · 718-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1930-06-01</td>
+    <td>MCV [Entitic mean volume] in Red Blood Cells by Automated count</td>
+    <td>93 fL<div class="muted">Reference 80-100 fL</div></td>
+    <td>http://loinc.org · 787-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1930-06-01</td>
+    <td>Platelets [#/volume] in Blood by Automated count</td>
+    <td>252 10*3/uL<div class="muted">Reference 150-400 10*3/uL</div></td>
+    <td>http://loinc.org · 777-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1930-06-01</td>
+    <td>Sodium [Moles/volume] in Serum or Plasma</td>
+    <td>139 mmol/L<div class="muted">Reference 135-145 mmol/L</div></td>
+    <td>http://loinc.org · 2951-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1930-06-01</td>
+    <td>Potassium [Moles/volume] in Serum or Plasma</td>
+    <td>4.3 mmol/L<div class="muted">Reference 3.5-5.1 mmol/L</div></td>
+    <td>http://loinc.org · 2823-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1930-06-01</td>
+    <td>Creatinine [Mass/volume] in Serum or Plasma</td>
+    <td>0.96 mg/dL<div class="muted">Reference 0.74-1.35 mg/dL</div></td>
+    <td>http://loinc.org · 2160-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1930-06-01</td>
+    <td>Glomerular filtration rate [Volume Rate/Area] in Serum, Plasma or Blood by Creatinine-based formula (CKD-EPI 1925)/1.73 sq M</td>
+    <td>83 mL/min/1.73 m²<div class="muted">Reference &gt;=60 mL/min/1.73 m²</div></td>
+    <td>http://loinc.org · 98979-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1930-06-01</td>
+    <td>Glucose [Mass/volume] in Serum or Plasma</td>
+    <td>91 mg/dL<div class="muted">Reference 70-99 mg/dL</div></td>
+    <td>http://loinc.org · 2345-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1930-06-01</td>
+    <td>Albumin [Mass/volume] in Serum or Plasma</td>
+    <td>3.4 g/dL (low)<div class="muted">Reference 3.5-5 g/dL</div></td>
+    <td>http://loinc.org · 1751-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1930-06-01</td>
+    <td>Alanine aminotransferase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>22 U/L<div class="muted">Reference 7-55 U/L</div></td>
+    <td>http://loinc.org · 1742-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1930-06-01</td>
+    <td>Hemoglobin A1c/Hemoglobin.total in Blood</td>
+    <td>5.5%<div class="muted">Reference 4-5.6%</div></td>
+    <td>http://loinc.org · 4548-4</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1930-06-01</td>
+    <td>Cholesterol [Mass/volume] in Serum or Plasma</td>
+    <td>204 mg/dL (high)<div class="muted">Reference &lt;=199 mg/dL</div></td>
+    <td>http://loinc.org · 2093-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1930-06-01</td>
+    <td>Cholesterol in LDL [Mass/volume] in Serum or Plasma by calculation</td>
+    <td>126 mg/dL<div class="muted">Reference &lt;=129 mg/dL</div></td>
+    <td>http://loinc.org · 13457-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1930-06-01</td>
+    <td>Cholesterol in HDL [Mass/volume] in Serum or Plasma</td>
+    <td>44 mg/dL<div class="muted">Reference &gt;=40 mg/dL</div></td>
+    <td>http://loinc.org · 2085-9</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1930-06-01</td>
+    <td>Triglyceride [Mass/volume] in Serum or Plasma</td>
+    <td>170 mg/dL (high)<div class="muted">Reference &lt;=149 mg/dL</div></td>
+    <td>http://loinc.org · 2571-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1930-06-01</td>
+    <td>Pain severity in the past week - 0-10 numeric rating [Reported]</td>
+    <td>6</td>
+    <td>http://loinc.org · 75893-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1930-06-01</td>
+    <td>Patient Health Questionnaire 2 item (PHQ-2) total score [Reported]</td>
+    <td>1</td>
+    <td>http://loinc.org · 55758-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1930-06-15</td>
+    <td>Pain severity in the past week - 0-10 numeric rating [Reported]</td>
+    <td>6</td>
+    <td>http://loinc.org · 75893-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1930-07-13</td>
+    <td>Pain severity in the past week - 0-10 numeric rating [Reported]</td>
+    <td>4</td>
+    <td>http://loinc.org · 75893-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1930-08-24</td>
+    <td>Albumin [Mass/volume] in Serum or Plasma</td>
+    <td>3.7 g/dL<div class="muted">Reference 3.5-5 g/dL</div></td>
+    <td>http://loinc.org · 1751-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1930-08-24</td>
+    <td>Pain severity in the past week - 0-10 numeric rating [Reported]</td>
+    <td>3</td>
+    <td>http://loinc.org · 75893-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1930-10-26</td>
+    <td>Hemoglobin [Mass/volume] in Blood</td>
+    <td>13.8 g/dL<div class="muted">Reference 13.5-17.5 g/dL</div></td>
+    <td>http://loinc.org · 718-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1930-10-26</td>
+    <td>MCV [Entitic mean volume] in Red Blood Cells by Automated count</td>
+    <td>92 fL<div class="muted">Reference 80-100 fL</div></td>
+    <td>http://loinc.org · 787-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1930-10-26</td>
+    <td>Albumin [Mass/volume] in Serum or Plasma</td>
+    <td>3.9 g/dL<div class="muted">Reference 3.5-5 g/dL</div></td>
+    <td>http://loinc.org · 1751-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1930-10-26</td>
+    <td>Creatinine [Mass/volume] in Serum or Plasma</td>
+    <td>0.98 mg/dL<div class="muted">Reference 0.74-1.35 mg/dL</div></td>
+    <td>http://loinc.org · 2160-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1930-10-26</td>
+    <td>Glomerular filtration rate [Volume Rate/Area] in Serum, Plasma or Blood by Creatinine-based formula (CKD-EPI 1925)/1.73 sq M</td>
+    <td>81 mL/min/1.73 m²<div class="muted">Reference &gt;=60 mL/min/1.73 m²</div></td>
+    <td>http://loinc.org · 98979-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1930-10-26</td>
+    <td>Alanine aminotransferase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>25 U/L<div class="muted">Reference 7-55 U/L</div></td>
+    <td>http://loinc.org · 1742-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1930-10-26</td>
+    <td>Pain severity in the past week - 0-10 numeric rating [Reported]</td>
+    <td>2</td>
+    <td>http://loinc.org · 75893-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1930-09-14</td>
+    <td>Pain severity in the past week - 0-10 numeric rating [Reported]</td>
+    <td>4</td>
+    <td>http://loinc.org · 75893-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1930-09-28</td>
+    <td>Patient Health Questionnaire 2 item (PHQ-2) total score [Reported]</td>
+    <td>0</td>
+    <td>http://loinc.org · 55758-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1930-09-28</td>
+    <td>Total score [Mini-Cog]</td>
+    <td>5</td>
+    <td>http://loinc.org · 72233-0</td>
+  </tr></tbody></table></section>
+    <section><h2>Synthetic vital signs</h2><table><thead><tr><th>Date</th><th>Measure</th><th>Result</th><th>LOINC</th><th>Grade</th></tr></thead><tbody>
+  <tr><td>1930-06-01</td><td>Body height</td><td>172 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1930-06-01</td><td>Body weight</td><td>58.4 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1930-06-01</td><td>Body mass index (BMI) [Ratio]</td><td>19.7 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1930-06-01</td><td>Systolic blood pressure</td><td>138 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1930-06-01</td><td>Diastolic blood pressure</td><td>82 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1930-06-01</td><td>Heart rate</td><td>80 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1930-06-01</td><td>Respiratory rate</td><td>16 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1930-06-01</td><td>Body temperature</td><td>36.7 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1930-06-01</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>95 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1930-06-15</td><td>Body height</td><td>172 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1930-06-15</td><td>Body weight</td><td>58.2 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1930-06-15</td><td>Body mass index (BMI) [Ratio]</td><td>19.7 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1930-06-15</td><td>Systolic blood pressure</td><td>136 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1930-06-15</td><td>Diastolic blood pressure</td><td>80 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1930-06-15</td><td>Heart rate</td><td>78 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1930-06-15</td><td>Respiratory rate</td><td>16 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1930-06-15</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1930-06-15</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>95 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1930-07-13</td><td>Body height</td><td>172 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1930-07-13</td><td>Body weight</td><td>58.9 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1930-07-13</td><td>Body mass index (BMI) [Ratio]</td><td>19.9 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1930-07-13</td><td>Systolic blood pressure</td><td>134 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1930-07-13</td><td>Diastolic blood pressure</td><td>80 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1930-07-13</td><td>Heart rate</td><td>76 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1930-07-13</td><td>Respiratory rate</td><td>16 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1930-07-13</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1930-07-13</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>96 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1930-08-24</td><td>Body height</td><td>172 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1930-08-24</td><td>Body weight</td><td>59.8 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1930-08-24</td><td>Body mass index (BMI) [Ratio]</td><td>20.2 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1930-08-24</td><td>Systolic blood pressure</td><td>132 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1930-08-24</td><td>Diastolic blood pressure</td><td>78 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1930-08-24</td><td>Heart rate</td><td>70 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1930-08-24</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1930-08-24</td><td>Body temperature</td><td>36.7 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1930-08-24</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>97 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1930-10-26</td><td>Body height</td><td>172 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1930-10-26</td><td>Body weight</td><td>60.6 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1930-10-26</td><td>Body mass index (BMI) [Ratio]</td><td>20.5 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1930-10-26</td><td>Systolic blood pressure</td><td>130 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1930-10-26</td><td>Diastolic blood pressure</td><td>78 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1930-10-26</td><td>Heart rate</td><td>68 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1930-10-26</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1930-10-26</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1930-10-26</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>97 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1930-09-14</td><td>Body height</td><td>172 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1930-09-14</td><td>Body weight</td><td>60 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1930-09-14</td><td>Body mass index (BMI) [Ratio]</td><td>20.3 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1930-09-14</td><td>Systolic blood pressure</td><td>132 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1930-09-14</td><td>Diastolic blood pressure</td><td>78 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1930-09-14</td><td>Heart rate</td><td>72 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1930-09-14</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1930-09-14</td><td>Body temperature</td><td>36.7 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1930-09-14</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>97 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1930-09-28</td><td>Body height</td><td>172 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1930-09-28</td><td>Body weight</td><td>60.2 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1930-09-28</td><td>Body mass index (BMI) [Ratio]</td><td>20.3 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1930-09-28</td><td>Systolic blood pressure</td><td>130 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1930-09-28</td><td>Diastolic blood pressure</td><td>78 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1930-09-28</td><td>Heart rate</td><td>70 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1930-09-28</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1930-09-28</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1930-09-28</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>97 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr></tbody></table></section>
+    <section><h2>Social, functional, and mental status</h2><h3>Social history</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Physician who works as a psychotherapist and writer; sees patients in the mornings and writes in the afternoons and evenings</li><li><span class="badge grade-S" title="Synthetic">S</span> Tobacco: started with cigarettes in his twenties, then cigars; about twenty cigars a day for about fifty years, inhaling some of the smoke; first cigar within 30 minutes of waking; many attempts to stop, the longest about fourteen months; says cigars help him work</li><li><span class="badge grade-S" title="Synthetic">S</span> Alcohol: rarely, a glass of wine at dinner; no drug use now; experimented with cocaine as a young doctor and has used none for decades</li><li><span class="badge grade-S" title="Synthetic">S</span> Married; lives with his household in the city; walks daily</li><li><span class="badge grade-S" title="Synthetic">S</span> Eats soft foods because chewing hurts; liquids sometimes leak into his nose; meals take a long time</li><li><span class="badge grade-S" title="Synthetic">S</span> Strengths: his work and writing, a disciplined daily routine, intellectual curiosity, and long experience of living with the prosthesis</li></ul><h3>Functional status</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Independent in all activities; speech is harder to understand when the obturator leaks, which tires him during long working days</li></ul><h3>Mental status</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Alert, precise and ironic; speech hypernasal; mood steady; PHQ-2 1; no cognitive concerns</li></ul></section>
+    
+    <section><h2>Allergies and medications</h2><h3>Allergies</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> No known allergy</li></ul><h3>Medications</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Varenicline 0.5 mg oral tablet: one tablet daily for three days, then one tablet twice daily for four days</li><li><span class="badge grade-S" title="Synthetic">S</span> Varenicline 1 mg oral tablet, one tablet twice daily after food; planned for at least 24 weeks</li><li><span class="badge grade-S" title="Synthetic">S</span> Nicotine 21 mg/24 hours transdermal patch, one patch each morning from the quit date, for six weeks</li><li><span class="badge grade-S" title="Synthetic">S</span> Nicotine 14 mg/24 hours transdermal patch, one patch each morning for four weeks, then stop</li><li><span class="badge grade-S" title="Synthetic">S</span> Nicotine 4 mg oral lozenge, one lozenge as needed for cravings, up to 10 a day, dissolved on the side away from the obturator; gum avoided because it sticks to the prosthesis</li><li><span class="badge grade-S" title="Synthetic">S</span> Acetaminophen 500 mg oral tablet, two tablets three times daily (3,000 mg a day) for pain at the maxillectomy site</li><li><span class="badge grade-S" title="Synthetic">S</span> Nystatin 100,000 units/mL oral suspension, 5 mL swished around the mouth and defect for as long as possible and then swallowed, four times daily with the obturator out, for 14 days</li><li><span class="badge grade-S" title="Synthetic">S</span> Atorvastatin 20 mg oral tablet, one tablet daily</li></ul></section>
+    <section><h2>Procedures and immunizations</h2><h3>Procedures</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Chairside reline of the maxillary obturator with a soft tissue conditioner, and adjustment of the flange over a traumatic ulcer, by the maxillofacial prosthodontist</li><li><span class="badge grade-S" title="Synthetic">S</span> Fitting of a new definitive maxillary obturator prosthesis, made from impressions taken at six weeks</li><li><span class="badge grade-S" title="Synthetic">S</span> Advance care planning conversation, about 20 minutes</li><li><span class="badge grade-S" title="Synthetic">S</span> Low-dose CT of the chest for lung cancer screening, chosen by shared decision: Lung-RADS 2 (a 4 mm solid nodule in the right upper lobe), mild centrilobular emphysema and moderate coronary artery calcification; next screening in 12 months</li><li><span class="badge grade-S" title="Synthetic">S</span> Ultrasound of the abdominal aorta for one-time aneurysm screening: maximum diameter 2.7 cm, normal</li></ul><h3>Immunizations</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> 1930-09-28: Influenza vaccine, high-dose, this season</li><li><span class="badge grade-S" title="Synthetic">S</span> 1930-09-28: Pneumococcal conjugate vaccine (PCV20), one dose</li></ul></section>
+    <section><h2>Past medical history</h2><p class="muted">True biography with historical dates; not part of the synthetic care timeline.</p><ul><li><span class="badge grade-D" title="Documented">D</span> 1884: Experimented with cocaine and wrote about it; later regular use reported in the 1890s <span class="muted">(CLM-0002, CLM-0003)</span></li><li><span class="badge grade-D" title="Documented">D</span> 1894: Irregular heartbeat attributed by his physician to smoking, with failed attempts to stop <span class="muted">(CLM-0005)</span></li><li><span class="badge grade-D" title="Documented">D</span> 1923: Squamous cell carcinoma of the palate: excision and radiation, then a radical operation removing part of the upper jaw and soft palate, with an obturator prosthesis <span class="muted">(CLM-0006, CLM-0007)</span></li><li><span class="badge grade-D" title="Documented">D</span> 1929: Heart illness at 73, followed by 23 days without smoking <span class="muted">(CLM-0010)</span></li></ul><h3>Family history</h3><ul><li><span class="badge grade-D" title="Documented">D</span> father: Smoked until his death at 81; cause of death not recorded in the cited source</li></ul></section>
+    <section><h2>Care-plan goals</h2><table><thead><tr><th>Goal</th><th>Target date</th><th>Status</th><th>Outcome</th></tr></thead><tbody>
+  <tr><td>Stop smoking cigars completely, at a pace he chooses, using varenicline and nicotine replacement</td><td>1930-10-26</td><td>active</td><td>Twenty cigars a day to six by six weeks; no smoking since the quit date apart from one cigar in the second week; about fourteen weeks without smoking at five months</td></tr>
+  <tr><td>An obturator that seals and does not rub, so that speech is clear and liquids do not leak into his nose</td><td>1930-08-24</td><td>completed</td><td>Reline at two weeks; new definitive obturator fitted at twelve weeks; speech clear and no nasal leakage</td></tr>
+  <tr><td>Pain at 3 of 10 or less without opioids</td><td>1930-10-26</td><td>completed</td><td>Pain 6 to 2 of 10 on scheduled acetaminophen with a well-fitting obturator</td></tr>
+  <tr><td>Regain weight to at least 60 kg with a normal albumin</td><td>1930-10-26</td><td>completed</td><td>Weight 58.4 to 60.6 kg; albumin 3.4 to 3.9 g/dL</td></tr></tbody></table></section>
+    <section><h2>Interventions</h2><table><thead><tr><th>Intervention</th><th>Status</th><th>Guideline</th></tr></thead><tbody>
+  <tr><td>Tobacco: a nonjudgmental assessment of readiness and of what cigars do for him; varenicline started now, before a quit date, with a plan to cut down and then stop; combination nicotine replacement (patch and lozenge) added from the quit date; cigars are counted like any other tobacco; weekly behavioral support by phone with the national quitline and in clinic; relapse treated as part of the process</td><td>completed</td><td>GL-ATS-TOB-2020, GL-USPSTF-TOB-2021</td></tr>
+  <tr><td>Maxillofacial prosthodontics consultation for a worn, poorly sealing obturator with pain, hypernasal speech and nasal leakage, and for dental care</td><td>completed</td><td>GL-ACS-HNSURV-2016, GL-NCCN-HN-2026</td></tr>
+  <tr><td>Head and neck cancer survivorship: yearly examination of the mouth, defect and neck by his head and neck surgeon (more than five years after treatment), self-examination of the mouth, prompt review of any sore, lump, bleeding or change that lasts two weeks, imaging only for symptoms, and counseling on the risk of second primary cancers of the mouth, throat, larynx, esophagus and lung, which stopping smoking lowers</td><td>completed</td><td>GL-NCCN-HN-2026, GL-ACS-HNSURV-2016</td></tr>
+  <tr><td>Chronic pain: scheduled acetaminophen up to 3,000 mg a day, a well-fitting obturator, warm saline rinses, and no long-term opioids; the plan is reviewed at each visit with a pain score</td><td>completed</td><td>GL-CDC-OPIOID-2022, GL-ACS-HNSURV-2016</td></tr>
+  <tr><td>Nutrition: dietitian advice on soft high-protein meals, oral nutrition supplements twice daily, weight at each visit and albumin rechecked</td><td>completed</td><td>GL-ACS-HNSURV-2016</td></tr>
+  <tr><td>Prosthodontic care: chairside reline and flange adjustment now, a new definitive obturator, nightly cleaning and an overnight soak, high-fluoride toothpaste, dental cleaning every three months, nicotine lozenge rather than gum, and speech and swallowing therapy sessions with a speech-language pathologist after the reline</td><td>completed</td><td>GL-ACS-HNSURV-2016, GL-NCCN-HN-2026</td></tr>
+  <tr><td>Cardiovascular risk: lipid panel and 10-year risk estimate; a statin discussed with him once the smoking plan is under way</td><td>completed</td><td>GL-USPSTF-STATIN-2022</td></tr></tbody></table></section>
+    <section><h2>Planned encounters</h2><ul>
+  <li><strong>1930-06-01</strong> — Establishing primary care seven years after maxillectomy for palatal cancer: about twenty cigars a day, a worn obturator, pain and weight loss <span class="muted">(ENC-001)</span></li>
+  <li><strong>1930-06-15</strong> — Two-week review with the maxillofacial prosthodontics consultation: obturator reline, speech, swallowing and dental care; varenicline at full dose <span class="muted">(ENC-002)</span></li>
+  <li><strong>1930-07-13</strong> — Six-week review: smoking down by two thirds, setting a quit date, pain and weight <span class="muted">(ENC-003)</span></li>
+  <li><strong>1930-08-24</strong> — Twelve-week review: five weeks without smoking, the new obturator and survivorship surveillance <span class="muted">(ENC-004)</span></li>
+  <li><strong>1930-09-14</strong> — Same-day sick visit for Candida stomatitis under the obturator <span class="muted">(ENC-006, unscheduled)</span></li>
+  <li><strong>1930-09-28</strong> — Subsequent annual wellness visit <span class="muted">(ENC-007)</span></li>
+  <li><strong>1930-10-26</strong> — Five-month review: abstinence, lung and aortic screening results, pain, weight and the survivorship plan <span class="muted">(ENC-005)</span></li></ul></section>
+    <section><h2>Supporting documents</h2><ul><li><a href="notes/hp.md">History and physical</a></li><li><a href="notes/progress-01.md">Progress note 01</a></li><li><a href="notes/progress-02.md">Progress note 02 — Focused Visit (Follow-up)</a></li><li><a href="notes/progress-03.md">Progress note 03 — Focused Visit (Follow-up)</a></li><li><a href="notes/progress-04.md">Progress note 04 — Focused Visit (Follow-up)</a></li><li><a href="notes/progress-05.md">Progress note 05 — Sick Visit</a></li><li><a href="notes/progress-06.md">Progress note 06 — Annual Wellness Visit, Subsequent</a></li><li><a href="notes/progress-07.md">Progress note 07 — Focused Visit (Care-plan review)</a></li><li><a href="notes/referral-01.md">Maxillofacial Prosthodontics referral</a></li><li><a href="notes/consult-01.md">Maxillofacial Prosthodontics consultation</a></li><li><a href="notes/careplan.md">Patient care plan</a></li><li><a href="notes/teaching-note.md">Teaching note</a></li><li><a href="provenance.csv">Provenance CSV</a></li></ul></section>
+    <section><h2>C-CDA note documents</h2><p class="muted">Each link opens a readable copy; the XML beside it is the exchange file.</p><ul><li><a href="ccda/hp-01.html">History and physical</a> <a href="ccda/hp-01.xml">(XML)</a></li><li><a href="ccda/progress-01.html">Progress note 01</a> <a href="ccda/progress-01.xml">(XML)</a></li><li><a href="ccda/progress-02.html">Progress note 02 — Focused Visit (Follow-up)</a> <a href="ccda/progress-02.xml">(XML)</a></li><li><a href="ccda/progress-03.html">Progress note 03 — Focused Visit (Follow-up)</a> <a href="ccda/progress-03.xml">(XML)</a></li><li><a href="ccda/progress-04.html">Progress note 04 — Focused Visit (Follow-up)</a> <a href="ccda/progress-04.xml">(XML)</a></li><li><a href="ccda/progress-05.html">Progress note 05 — Sick Visit</a> <a href="ccda/progress-05.xml">(XML)</a></li><li><a href="ccda/progress-06.html">Progress note 06 — Annual Wellness Visit, Subsequent</a> <a href="ccda/progress-06.xml">(XML)</a></li><li><a href="ccda/progress-07.html">Progress note 07 — Focused Visit (Care-plan review)</a> <a href="ccda/progress-07.xml">(XML)</a></li><li><a href="ccda/referral-01.html">Maxillofacial Prosthodontics referral</a> <a href="ccda/referral-01.xml">(XML)</a></li><li><a href="ccda/consult-01.html">Maxillofacial Prosthodontics consultation</a> <a href="ccda/consult-01.xml">(XML)</a></li></ul></section>
+    <section><h2>Sources</h2><table><thead><tr><th>ID</th><th>Source</th><th>Publisher</th><th>Type</th></tr></thead><tbody>
+  <tr>
+    <td>SRC-0001</td>
+    <td><a href="https://www.loc.gov/exhibits/freud/freud01.html" target="_blank" rel="noreferrer">Sigmund Freud: Conflict &amp; Culture. Section One: Formative Years and the Founding of Psychoanalysis</a></td>
+    <td>Library of Congress</td>
+    <td>government</td>
+  </tr>
+  <tr>
+    <td>SRC-0002</td>
+    <td><a href="https://www.freud.org.uk/about-us/sigmund-freud/" target="_blank" rel="noreferrer">Sigmund Freud</a></td>
+    <td>Freud Museum London</td>
+    <td>biography</td>
+  </tr>
+  <tr>
+    <td>SRC-0003</td>
+    <td><a href="https://www.freud.org.uk/2020/04/22/freud-and-his-cigars/" target="_blank" rel="noreferrer">Davies B. Freud and his Cigars</a></td>
+    <td>Freud Museum London</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0004</td>
+    <td><a href="https://www.history.com/articles/10-things-you-may-not-know-about-sigmund-freud" target="_blank" rel="noreferrer">Klein C. 10 Things You May Not Know About Sigmund Freud</a></td>
+    <td>History.com (A&amp;E Television Networks)</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0005</td>
+    <td><a href="https://ukcia.org/research/cunion/cu24.htm" target="_blank" rel="noreferrer">Brecher EM and the Editors of Consumer Reports. The Consumers Union Report on Licit and Illicit Drugs, Chapter 24: The case of Dr. Sigmund Freud</a></td>
+    <td>Consumers Union (1972), hosted by UKCIA</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0006</td>
+    <td><a href="https://pubmed.ncbi.nlm.nih.gov/15293843/" target="_blank" rel="noreferrer">Adeyemo WL. Sigmund Freud: smoking habit, oral cancer and euthanasia. Niger J Med 2004;13(2):189-195 (PMID 15293843)</a></td>
+    <td>Nigerian Journal of Medicine</td>
+    <td>scholarly</td>
+  </tr>
+  <tr>
+    <td>SRC-0007</td>
+    <td><a href="https://pubmed.ncbi.nlm.nih.gov/30328499/" target="_blank" rel="noreferrer">Trimarchi M, Bertazzoni G, Bussi M. The disease of Sigmund Freud: oral cancer or cocaine-induced lesion? Eur Arch Otorhinolaryngol 2019;276(1):263-265 (PMID 30328499)</a></td>
+    <td>European Archives of Oto-Rhino-Laryngology</td>
+    <td>scholarly</td>
+  </tr>
+  <tr>
+    <td>SRC-0008</td>
+    <td><a href="https://pubmed.ncbi.nlm.nih.gov/31705580/" target="_blank" rel="noreferrer">Benmoussa N, Charlier P, Rebibo JD. Historical Vignette: Attempted treatment of Sigmund Freud&#39;s oral squamous cell carcinoma by vasectomy (Steinach Operation) in 1923. Andrology 2020;8(3):688-690 (PMID 31705580)</a></td>
+    <td>Andrology</td>
+    <td>scholarly</td>
+  </tr>
+  <tr>
+    <td>SRC-0009</td>
+    <td><a href="https://artsandculture.google.com/asset/freud%E2%80%99s-mouth-prosthesis-made-by-varaztad-kazanjian/GQGVC3Qbh5itXA" target="_blank" rel="noreferrer">Freud&#39;s mouth prosthesis, made by Varaztad Kazanjian (Freud Museum London)</a></td>
+    <td>Google Arts &amp; Culture (Freud Museum London)</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0010</td>
+    <td><a href="https://pubmed.ncbi.nlm.nih.gov/1543636/" target="_blank" rel="noreferrer">Davenport JC. The prosthetic care of Sigmund Freud. Br Dent J 1992;172(5):205-207 (PMID 1543636)</a></td>
+    <td>British Dental Journal</td>
+    <td>scholarly</td>
+  </tr>
+  <tr>
+    <td>SRC-0011</td>
+    <td><a href="https://pubmed.ncbi.nlm.nih.gov/17451128/" target="_blank" rel="noreferrer">Tainmont J. Sigmund Freud&#39;s physicians and &quot;the monster&quot;. B-ENT 2007;3(1):49-60 (PMID 17451128)</a></td>
+    <td>B-ENT</td>
+    <td>scholarly</td>
+  </tr>
+  <tr>
+    <td>SRC-0012</td>
+    <td><a href="https://www.freud.org.uk/2019/09/10/freuds-death-bed/" target="_blank" rel="noreferrer">Freud&#39;s Death Bed</a></td>
+    <td>Freud Museum London</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0013</td>
+    <td><a href="https://pubmed.ncbi.nlm.nih.gov/10421274/" target="_blank" rel="noreferrer">McCue JD, Cohen LM. Freud&#39;s physician-assisted death. Arch Intern Med 1999;159(14):1521-1525 (PMID 10421274)</a></td>
+    <td>Archives of Internal Medicine</td>
+    <td>scholarly</td>
+  </tr>
+  <tr>
+    <td>SRC-0014</td>
+    <td><a href="https://humanrecord.example.org/internal/HISTMED_Master_Roster_v3.xlsx" target="_blank" rel="noreferrer">HISTMED Master Roster v3</a></td>
+    <td>The Human Record project</td>
+    <td>other</td>
+  </tr></tbody></table></section>
+    <section><h2>Review status</h2><table><thead><tr><th>Review</th><th>Status</th><th>Notes</th></tr></thead><tbody>
+  <tr><td>schema validation</td><td>not_started</td><td>Run scripts/build.ps1 -Conformance.</td></tr>
+  <tr><td>clinical review</td><td>not_started</td><td>Awaiting clinician review; check varenicline started before a quit date with combination nicotine replacement, the extended course, the lozenge with an obturator, the survivorship schedule more than five years after treatment, lung cancer screening chosen by shared decision for a cigar smoker, the pain plan without opioids, and the statin decision.</td></tr>
+  <tr><td>provenance review</td><td>not_started</td><td>Sources: Library of Congress exhibition, Freud Museum London (three pages), History.com, the Consumers Union report quoting Ernest Jones, and PubMed records of six articles (abstracts only). The biographies by Jones and by Schur were not read. The cocaine-lesion hypothesis is graded R and disputed.</td></tr>
+  <tr><td>safe messaging review</td><td>not_started</td><td>Cocaine use, tobacco dependence and his death are marked sensitive; his death is recorded once in one plain sentence; the modern episode treats continued smoking after cancer without blame. No living relative is named.</td></tr></tbody></table></section>
+  </main>
+</body>
+</html>

@@ -1,0 +1,52 @@
+# Patient Care Plan
+
+> **SYNTHETIC RECORD, NOT A REAL MEDICAL RECORD**
+
+- Patient: Wilma Rudolph (real historical name used in a fictional teaching record)
+- Synthetic MRN: HR-ML036-SYN-TD
+- Date: 1994-06-29
+- Fictional facility: St. Posthumous Health Center
+- Fictional author: Gloria Haynes-Whitaker, MD
+- Calendar frame: true historical dates (modern content is anachronistic)
+
+> True-date frame: synthetic events are moved into the patient's historical lifetime. Codes, instruments, and treatments remain modern and are anachronistic.
+
+## What we are working on
+
+- Headaches on waking for three weeks, now most mornings; words that will not come for ten days; dropping things from the right hand **S**
+- She wants the cause found quickly and explained plainly, without being talked around **S**
+- She worries about falling and about losing her independence: her left leg was the weak one when she was a child, and now her right hand is clumsy **S**
+
+## Your goals
+
+- MRI of the brain within 24 hours and a neuro-oncology and neurosurgery plan within one week of presentation. Target: 1994-07-02. Recorded outcome: MRI the next morning; consultation three days after the first visit. **S**
+- Maximal safe resection within two weeks of the MRI, preserving language and right-hand strength. Target: 1994-07-29. Recorded outcome: Gross total resection of the enhancing tumor nine days after the first visit; speech back to normal within days and right-hand strength nearly normal. **S**
+- Radiotherapy with daily temozolomide started within six weeks of surgery and completed on schedule. Target: 1994-09-14. Recorded outcome: Started 26 days after surgery; 30 fractions and 42 days of temozolomide completed without a break. **S**
+- Dexamethasone tapered off within five weeks of surgery, with glucose back to normal. Target: 1994-09-14. Recorded outcome: Off dexamethasone five weeks after surgery; glucose 96 mg/dL afterwards. **S**
+- No falls, and walking independently, through treatment. Target: 1994-10-09. Recorded outcome: No falls; walks independently, with a cane only on uneven ground; home exercise program continued. **S**
+- Palliative care involved and her wishes recorded before adjuvant treatment begins. Target: 1994-10-09. Recorded outcome: Palliative care consultation and advance directive completed eleven days before adjuvant cycle 1. **S**
+
+## What we agreed to do
+
+- Urgent neuro-oncology consultation within one week, together with neurosurgery, to review the brain MRI with her and plan diagnosis and treatment if it shows a tumor. Guideline: NCCN Clinical Practice Guidelines in Oncology: Central Nervous System Cancers (2026); Weller M, et al. EANO guidelines on the diagnosis and treatment of diffuse gliomas of adulthood. Nat Rev Clin Oncol 2021;18(3):170-186 (PMID 33293629) (2021) **S**
+- New progressive focal neurologic symptoms are imaged promptly: MRI of the brain with and without contrast within 24 hours, with same-day emergency care if she worsens, has a seizure, vomits or becomes drowsy; blood count, chemistry and A1c; no driving until the cause is known. Guideline: NCCN Clinical Practice Guidelines in Oncology: Central Nervous System Cancers (2026); Weller M, et al. EANO guidelines on the diagnosis and treatment of diffuse gliomas of adulthood. Nat Rev Clin Oncol 2021;18(3):170-186 (PMID 33293629) (2021) **S**
+- Dexamethasone only for edema causing symptoms, at the lowest effective dose (4 mg twice a day), with famotidine and glucose checks, and tapered off as soon as possible after surgery. Guideline: NCCN Clinical Practice Guidelines in Oncology: Central Nervous System Cancers (2026); Weller M, et al. EANO guidelines on the diagnosis and treatment of diffuse gliomas of adulthood. Nat Rev Clin Oncol 2021;18(3):170-186 (PMID 33293629) (2021) **S**
+- CT of the chest, abdomen and pelvis to exclude another primary; functional MRI with tractography; awake craniotomy with language and motor mapping for maximal safe resection; MRI within 48 hours; integrated WHO CNS5 diagnosis with IDH1 R132H immunostaining and IDH1 and IDH2 sequencing, ATRX, TERT promoter, EGFR, chromosome 7 and 10, CDKN2A, histone H3, BRAF and MGMT promoter methylation. Guideline: NCCN Clinical Practice Guidelines in Oncology: Central Nervous System Cancers (2026); Weller M, et al. EANO guidelines on the diagnosis and treatment of diffuse gliomas of adulthood. Nat Rev Clin Oncol 2021;18(3):170-186 (PMID 33293629) (2021); Louis DN, et al. The 2021 WHO Classification of Tumors of the Central Nervous System: a summary. Neuro Oncol 2021;23(8):1231-1251 (PMID 34185076) (2021) **S**
+- No antiseizure prophylaxis, because she has had no seizure; seizure first aid taught to her and her household; levetiracetam if a seizure occurs. Guideline: Weller M, et al. EANO guidelines on the diagnosis and treatment of diffuse gliomas of adulthood. Nat Rev Clin Oncol 2021;18(3):170-186 (PMID 33293629) (2021); Walbert T, et al. SNO and EANO practice guideline update: Anticonvulsant prophylaxis in patients with newly diagnosed brain tumors. Neuro Oncol 2021;23(11):1835-1844 (PMID 34174071) (2021) **S**
+- Venous thromboembolism: mechanical and then low-molecular-weight heparin prophylaxis in hospital after surgery; no routine prophylaxis at home; she is taught the signs of leg clot and pulmonary embolism and to report them the same day. Guideline: NCCN Clinical Practice Guidelines in Oncology: Central Nervous System Cancers (2026); Key NS, et al. Venous Thromboembolism Prophylaxis and Treatment in Patients With Cancer: ASCO Guideline Update. J Clin Oncol 2023;41(16):3063-3071 (PMID 37075273) (2023) **S**
+- Radiotherapy 60 Gy in 30 fractions with temozolomide 75 mg/m2 daily, then six cycles of temozolomide 150 to 200 mg/m2 on days 1 to 5 of each 28-day cycle; Pneumocystis prophylaxis during concurrent treatment and while lymphopenia lasts; antiemetic before each dose; blood count weekly during chemoradiation and on day 22 of each adjuvant cycle; liver tests at baseline, mid-cycle 1 and before each cycle; MRI four weeks after radiotherapy and then every two to three months, read by RANO 2.0; clinical trial screening. Guideline: NCCN Clinical Practice Guidelines in Oncology: Central Nervous System Cancers (2026); Weller M, et al. EANO guidelines on the diagnosis and treatment of diffuse gliomas of adulthood. Nat Rev Clin Oncol 2021;18(3):170-186 (PMID 33293629) (2021); Mohile NA, et al. Therapy for Diffuse Astrocytic and Oligodendroglial Tumors in Adults: ASCO-SNO Guideline. J Clin Oncol 2022;40(4):403-426 (PMID 34898238) (2022); Stupp R, et al. Radiotherapy plus concomitant and adjuvant temozolomide for glioblastoma. N Engl J Med 2005;352(10):987-996 (PMID 15758009) (2005); Hegi ME, et al. MGMT gene silencing and benefit from temozolomide in glioblastoma. N Engl J Med 2005;352(10):997-1003 (PMID 15758010) (2005); Wen PY, et al. RANO 2.0: Update to the Response Assessment in Neuro-Oncology Criteria for High- and Low-Grade Gliomas in Adults. J Clin Oncol 2023 (PMID 37774317) (2023); TEMODAR (temozolomide) capsules, prescribing information (2026) **S**
+- Tumor-treating fields with adjuvant temozolomide, worn at least 18 hours a day, with scalp checks and skin care. Guideline: NCCN Clinical Practice Guidelines in Oncology: Central Nervous System Cancers (2026); Weller M, et al. EANO guidelines on the diagnosis and treatment of diffuse gliomas of adulthood. Nat Rev Clin Oncol 2021;18(3):170-186 (PMID 33293629) (2021); Stupp R, et al. Effect of Tumor-Treating Fields Plus Maintenance Temozolomide vs Maintenance Temozolomide Alone on Survival in Patients With Glioblastoma (EF-14). JAMA 2017;318(23):2306-2316 (PMID 29260225) (2017) **S**
+- Falls and mobility from the first visit: home safety review, fall plan, physical therapy assessment once the treatment plan is set, and a check at every visit of strength in both legs, since new right-sided weakness adds to a left leg weakened by polio in childhood; watch for new weakness, fatigue or pain that could signal post-polio syndrome. Guideline: Weller M, et al. EANO guidelines on the diagnosis and treatment of diffuse gliomas of adulthood. Nat Rev Clin Oncol 2021;18(3):170-186 (PMID 33293629) (2021); Farbu E, et al. EFNS guideline on diagnosis and management of post-polio syndrome. Eur J Neurol 2006;13(8):795-801 (PMID 16879288) (2006) **S**
+- Early palliative care alongside cancer treatment: symptoms, coping, goals and advance care planning, and support for the people she chooses. Guideline: NCCN Clinical Practice Guidelines in Oncology: Central Nervous System Cancers (2026); Weller M, et al. EANO guidelines on the diagnosis and treatment of diffuse gliomas of adulthood. Nat Rev Clin Oncol 2021;18(3):170-186 (PMID 33293629) (2021); Sanders JJ, et al. Palliative Care for Patients With Cancer: ASCO Guideline Update. J Clin Oncol 2024;42(19):2336-2357 (PMID 38748941) (2024) **S**
+- Distress and depression screening at each visit, plain explanations with written information, and help to keep working as long as she wishes; she decides who receives information. Guideline: NCCN Clinical Practice Guidelines in Oncology: Central Nervous System Cancers (2026); CMID: Clinical Monitoring Intelligence Database, depression monograph (2026); Depression and Suicide Risk in Adults: Screening (2023) **S**
+
+## Follow-up
+
+- 1994-06-29: New headaches, word-finding pauses and right-hand clumsiness in a woman of 54: neurologic examination, MRI of the brain booked for the next morning, and neuro-oncology review booked **S**
+- 1994-07-02: MRI result: left frontal mass with edema; dexamethasone, CT staging, neuro-oncology consultation with neurosurgery, and preparation for awake craniotomy **S**
+- 1994-07-29: Review three weeks after awake craniotomy: pathology and molecular diagnosis, steroid taper, steroid-related hyperglycemia, falls, and the plan for radiotherapy with temozolomide **S**
+- 1994-09-14: End of six weeks of radiotherapy with daily temozolomide: blood counts, liver tests, Pneumocystis prophylaxis, fatigue, mood, tumor-treating fields and an early palliative care referral **S**
+- 1994-10-09: Post-chemoradiation MRI result, day 1 of adjuvant temozolomide, the start of tumor-treating fields, and the palliative care plan **S**
+- 1994-10-29: Periodic adult preventive visit **S**
+
+This teaching document does not replace care from a qualified clinician.

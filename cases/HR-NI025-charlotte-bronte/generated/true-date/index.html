@@ -1,0 +1,746 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Charlotte Brontë — The Human Record</title>
+  <style>
+    :root { --navy:#17365d; --blue:#1f4e78; --pale:#eef5fa; --ink:#1f2933; --muted:#66788a; --amber:#fff2cc; --red:#f8d7da; --green:#d9ead3; }
+    * { box-sizing:border-box; }
+    body { margin:0; font:16px/1.5 Arial, sans-serif; color:var(--ink); background:#f6f8fa; }
+    header { background:var(--navy); color:white; padding:24px max(24px,calc((100vw - 1180px)/2)); }
+    header h1 { margin:4px 0; font-size:30px; }
+    .banner { background:#b42318; color:white; font-weight:700; text-align:center; padding:10px; letter-spacing:.03em; }
+    main { max-width:1180px; margin:24px auto 60px; padding:0 24px; }
+    section { background:white; border:1px solid #d9e1e8; border-radius:8px; margin:18px 0; padding:20px; }
+    h2 { color:var(--navy); margin:0 0 14px; font-size:22px; }
+    h3 { color:var(--blue); }
+    .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:12px; }
+    .card { background:var(--pale); border-left:4px solid var(--blue); padding:12px; }
+    .label { color:var(--muted); font-size:13px; text-transform:uppercase; letter-spacing:.04em; }
+    table { width:100%; border-collapse:collapse; }
+    th { background:var(--blue); color:white; text-align:left; }
+    th,td { padding:9px; border-bottom:1px solid #dfe6ec; vertical-align:top; }
+    .badge { display:inline-block; min-width:28px; text-align:center; font-weight:700; border-radius:12px; padding:2px 8px; }
+    .grade-D { background:var(--green); } .grade-R { background:var(--amber); } .grade-S { background:var(--red); }
+    .muted { color:var(--muted); font-size:14px; }
+    .relationship { color:var(--muted); font-size:12px; }
+    .downloads a { display:inline-block; margin:4px 8px 4px 0; padding:8px 12px; background:var(--blue); color:white; text-decoration:none; border-radius:5px; }
+    @media (max-width:700px) { table { display:block; overflow-x:auto; } }
+  </style>
+</head>
+<body>
+  <div class="banner">SYNTHETIC RECORD, NOT A REAL MEDICAL RECORD</div>
+  <div class="banner">True-date frame: synthetic events are moved into the patient&#39;s historical lifetime. Codes, instruments, and treatments remain modern and are anachronistic.</div>
+  <header>
+    <div>The Human Record</div>
+    <h1>Charlotte Brontë</h1>
+    <div>Case HR-NI025-TD · Modern EHR teaching episode · Draft for review</div>
+  </header>
+  <main>
+    <section>
+      <h2>Review summary</h2>
+      <div class="grid">
+        <div class="card"><div class="label">Historical dates</div>21 April 1816 – 31 March 1855</div>
+        <div class="card"><div class="label">Synthetic DOB</div>1816-04-21</div>
+        <div class="card"><div class="label">Index visit</div>1855-01-13 at age 38</div>
+        <div class="card"><div class="label">Synthetic MRN</div>HR-NI025-SYN-TD</div>
+      </div>
+      <p><strong>Teaching objective:</strong> Prenatal care of a first pregnancy at 38 complicated by hyperemesis gravidarum, following ACOG Practice Bulletin 189 and RCOG Green-top Guideline 69 (1853): dating ultrasound; severity by the PUQE-24 score, weight, and hydration rather than urine ketones; electrolytes, magnesium, phosphate, liver tests, and thyroid tests with recognition of gestational transient thyrotoxicosis; stepwise antiemetics (doxylamine-pyridoxine, then metoclopramide, then ondansetron after counseling on the very small absolute risk of orofacial clefting); admission with intravenous saline and potassium, thiamine before any dextrose to prevent Wernicke encephalopathy, magnesium replacement, refeeding precautions, and weight-adjusted thromboprophylaxis; mental health screening with the PHQ-9 and EPDS; routine prenatal care at an advanced maternal age, with aneuploidy screening offered (cell-free DNA and nuchal translucency, with diagnostic testing available), low-dose aspirin for two moderate preeclampsia risk factors, and tuberculosis screening with an interferon-gamma release assay because of tuberculosis deaths in her household. The historical cause of her death is disputed and is recorded as conflicting retrospective claims, not decided by the modern episode.</p>
+      <div class="downloads">
+        <a href="../case.json">Canonical JSON</a>
+        <a href="fhir-bundle.json">FHIR R4 draft</a>
+        <a href="ccda.html">C-CDA R2.1 summary</a> <a href="ccda.xml">(XML)</a>
+        <a href="../sources.md">Evidence dossier</a>
+      </div>
+    </section>
+    <section><h2>Historical timeline</h2><table><thead><tr><th>Date</th><th>Event</th><th>Claims</th></tr></thead><tbody>
+  <tr><td>21 April 1816</td><td>Born in Thornton, Yorkshire.</td><td>CLM-0001</td></tr>
+  <tr><td>15 September 1821</td><td>Her mother dies after a long illness.</td><td>CLM-0003, CLM-0004</td></tr>
+  <tr><td>1825</td><td>Her elder sisters Maria and Elizabeth die.</td><td>CLM-0005</td></tr>
+  <tr><td>1847</td><td>Jane Eyre published under the name Currer Bell.</td><td>CLM-0002</td></tr>
+  <tr><td>1848</td><td>Her brother Branwell and her sister Emily die.</td><td>CLM-0006, CLM-0007</td></tr>
+  <tr><td>28 May 1849</td><td>Her sister Anne dies of tuberculosis.</td><td>CLM-0007</td></tr>
+  <tr><td>29 June 1854</td><td>Marries at Haworth.</td><td>CLM-0008</td></tr>
+  <tr><td>November 1854</td><td>Lingering cold and sore throat after a walk in the rain.</td><td>CLM-0009</td></tr>
+  <tr><td>January 1855</td><td>Onset of perpetual nausea and faintness.</td><td>CLM-0010</td></tr>
+  <tr><td>15 February 1855</td><td>Writes that she has been confined to bed for three weeks; the household servant dies about this time.</td><td>CLM-0011, CLM-0012, CLM-0015</td></tr>
+  <tr><td>Third week of March 1855</td><td>Low wandering delirium; she asks for food.</td><td>CLM-0013, CLM-0017</td></tr>
+  <tr><td>31 March 1855</td><td>Dies at Haworth; the death certificate gives phthisis, and other causes are proposed later.</td><td>CLM-0013, CLM-0014, CLM-0016, CLM-0018, CLM-0019, CLM-0020</td></tr></tbody></table></section>
+    <section><h2>Evidence claims</h2><p class="muted">D = documented, R = retrospective, S = synthetic.</p><table><thead><tr><th>Grade</th><th>Claim</th><th>Certainty</th><th>Sources</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>Charlotte Brontë was born on 21 April 1816 in Thornton, Yorkshire, the third of six children of Maria Branwell and her husband, an Anglican clergyman.</strong></td>
+    <td>confirmed</td>
+    <td><a href="https://en.wikipedia.org/wiki/Charlotte_Bront%C3%AB" target="_blank" rel="noreferrer">Charlotte Brontë</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>Jane Eyre was first published in 1847 under the pseudonym Currer Bell.</strong></td>
+    <td>confirmed</td>
+    <td><a href="https://en.wikipedia.org/wiki/Charlotte_Bront%C3%AB" target="_blank" rel="noreferrer">Charlotte Brontë</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>Her mother died on 15 September 1821, in the 39th year of her age, after a long and painful illness.</strong></td>
+    <td>confirmed</td>
+    <td><a href="https://www.gutenberg.org/ebooks/1827" target="_blank" rel="noreferrer">Gaskell EC. The Life of Charlotte Brontë, Volume 1 (1857). Project Gutenberg eBook 1827</a> <span class="relationship">supports</span><br><a href="https://en.wikipedia.org/wiki/Charlotte_Bront%C3%AB" target="_blank" rel="noreferrer">Charlotte Brontë</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-R" title="Retrospective">R</span></td>
+    <td><strong>Her mother&#39;s illness may have been cancer; one reference work says uterine cancer. The cause is a later interpretation.</strong><div class="muted">Recorded as possible only.</div></td>
+    <td>possible</td>
+    <td><a href="https://en.wikipedia.org/wiki/Charlotte_Bront%C3%AB" target="_blank" rel="noreferrer">Charlotte Brontë</a> <span class="relationship">supports</span><br><a href="https://en.wikipedia.org/wiki/Bront%C3%AB_family" target="_blank" rel="noreferrer">Brontë family</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>Her two elder sisters, Maria and Elizabeth, fell ill at the Clergy Daughters&#39; School at Cowan Bridge and died at home in 1825, Maria on 6 May aged 11 and Elizabeth on 15 June aged 10; reference works give tuberculosis.</strong><div class="muted">The causes are as given by the reference works; the school also had an outbreak of typhus.</div></td>
+    <td>probable</td>
+    <td><a href="https://www.gutenberg.org/ebooks/1827" target="_blank" rel="noreferrer">Gaskell EC. The Life of Charlotte Brontë, Volume 1 (1857). Project Gutenberg eBook 1827</a> <span class="relationship">supports</span><br><a href="https://en.wikipedia.org/wiki/Charlotte_Bront%C3%AB" target="_blank" rel="noreferrer">Charlotte Brontë</a> <span class="relationship">supports</span><br><a href="https://en.wikipedia.org/wiki/Bront%C3%AB_family" target="_blank" rel="noreferrer">Brontë family</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>Her brother Branwell died on 24 September 1848, aged 31, of several conditions made worse by heavy drinking; tuberculosis is listed among them.</strong><div class="muted">Family history only.</div></td>
+    <td>probable</td>
+    <td><a href="https://www.gutenberg.org/ebooks/1827" target="_blank" rel="noreferrer">Gaskell EC. The Life of Charlotte Brontë, Volume 1 (1857). Project Gutenberg eBook 1827</a> <span class="relationship">supports</span><br><a href="https://en.wikipedia.org/wiki/Charlotte_Bront%C3%AB" target="_blank" rel="noreferrer">Charlotte Brontë</a> <span class="relationship">supports</span><br><a href="https://en.wikipedia.org/wiki/Bront%C3%AB_family" target="_blank" rel="noreferrer">Brontë family</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>Her sisters Emily and Anne died of tuberculosis, Emily on 19 December 1848 aged 30 and Anne on 28 May 1849 aged 29.</strong><div class="muted">Household tuberculosis deaths; the reason for tuberculosis screening in the synthetic episode.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.gutenberg.org/ebooks/1827" target="_blank" rel="noreferrer">Gaskell EC. The Life of Charlotte Brontë, Volume 1 (1857). Project Gutenberg eBook 1827</a> <span class="relationship">supports</span><br><a href="https://en.wikipedia.org/wiki/Charlotte_Bront%C3%AB" target="_blank" rel="noreferrer">Charlotte Brontë</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>On 29 June 1854 she married Arthur Bell Nicholls, her father&#39;s curate, at Haworth.</strong></td>
+    <td>confirmed</td>
+    <td><a href="https://www.gutenberg.org/ebooks/1700" target="_blank" rel="noreferrer">Gaskell EC. The Life of Charlotte Brontë, Volume 2 (1857). Project Gutenberg eBook 1700</a> <span class="relationship">supports</span><br><a href="https://en.wikipedia.org/wiki/Charlotte_Bront%C3%AB" target="_blank" rel="noreferrer">Charlotte Brontë</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>In late November 1854, after a long walk on the moors to a waterfall that ended in heavy rain, she began to shiver and had a bad lingering sore throat and cold that made her thin and weak.</strong><div class="muted">An intercurrent illness before the final one, in Gaskell&#39;s account.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.gutenberg.org/ebooks/1700" target="_blank" rel="noreferrer">Gaskell EC. The Life of Charlotte Brontë, Volume 2 (1857). Project Gutenberg eBook 1700</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>Early in 1855, after a visit to Gawthorpe and a long walk over damp ground in thin shoes, she was attacked by &quot;new sensations of perpetual nausea, and ever-recurring faintness&quot;; a doctor who was called assigned a natural cause for her indisposition.</strong><div class="muted">The onset of the final illness, in Gaskell&#39;s account.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.gutenberg.org/ebooks/1700" target="_blank" rel="noreferrer">Gaskell EC. The Life of Charlotte Brontë, Volume 2 (1857). Project Gutenberg eBook 1700</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>The sickness increased until the very sight of food caused nausea. On 15 February 1855 she wrote that she had been confined to bed for three weeks, that up to then she had had excellent health since her marriage, and that she was much reduced and very weak.</strong></td>
+    <td>confirmed</td>
+    <td><a href="https://www.gutenberg.org/ebooks/1700" target="_blank" rel="noreferrer">Gaskell EC. The Life of Charlotte Brontë, Volume 2 (1857). Project Gutenberg eBook 1700</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>Tabitha Ackroyd, the family&#39;s elderly servant, died during Charlotte&#39;s illness; a literary historian writes that she died of a digestive infection six weeks before Charlotte.</strong><div class="muted">Context for the infectious explanations in CLM-0018.</div></td>
+    <td>probable</td>
+    <td><a href="https://www.gutenberg.org/ebooks/1700" target="_blank" rel="noreferrer">Gaskell EC. The Life of Charlotte Brontë, Volume 2 (1857). Project Gutenberg eBook 1700</a> <span class="relationship">supports</span><br><a href="https://blog.oup.com/2013/03/death-charlotte-bronte/" target="_blank" rel="noreferrer">Gezari J. The death of Charlotte Brontë</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>About the third week of March 1855 a low wandering delirium came on, in which she begged constantly for food; she died early on Saturday 31 March 1855 at Haworth, in the 39th year of her age.</strong><div class="muted">Record the death as a fact without detail.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.gutenberg.org/ebooks/1700" target="_blank" rel="noreferrer">Gaskell EC. The Life of Charlotte Brontë, Volume 2 (1857). Project Gutenberg eBook 1700</a> <span class="relationship">supports</span><br><a href="https://www.gutenberg.org/ebooks/1827" target="_blank" rel="noreferrer">Gaskell EC. The Life of Charlotte Brontë, Volume 1 (1857). Project Gutenberg eBook 1827</a> <span class="relationship">supports</span><br><a href="https://en.wikipedia.org/wiki/Charlotte_Bront%C3%AB" target="_blank" rel="noreferrer">Charlotte Brontë</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>Her death certificate gave the cause of death as phthisis, a term for pulmonary tuberculosis.</strong></td>
+    <td>confirmed</td>
+    <td><a href="https://en.wikipedia.org/wiki/Charlotte_Bront%C3%AB" target="_blank" rel="noreferrer">Charlotte Brontë</a> <span class="relationship">supports</span><br><a href="https://blog.oup.com/2013/03/death-charlotte-bronte/" target="_blank" rel="noreferrer">Gezari J. The death of Charlotte Brontë</a> <span class="relationship">supports</span><br><a href="https://pubmed.ncbi.nlm.nih.gov/30777294/" target="_blank" rel="noreferrer">Allison SP, Lobo DN. The death of Charlotte Brontë from hyperemesis gravidarum and refeeding syndrome: a new perspective. Clin Nutr. 2020;39(1):304-305</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>She is widely reported to have been in the early stages of pregnancy when she died; Gaskell records that her servant cheered her with the thought of the baby that was coming, and a letter of hers suggests that she was pregnant. The death certificate does not mention pregnancy.</strong><div class="muted">The anchor for the synthetic first pregnancy.</div></td>
+    <td>probable</td>
+    <td><a href="https://www.gutenberg.org/ebooks/1700" target="_blank" rel="noreferrer">Gaskell EC. The Life of Charlotte Brontë, Volume 2 (1857). Project Gutenberg eBook 1700</a> <span class="relationship">supports</span><br><a href="https://en.wikipedia.org/wiki/Charlotte_Bront%C3%AB" target="_blank" rel="noreferrer">Charlotte Brontë</a> <span class="relationship">supports</span><br><a href="https://blog.oup.com/2013/03/death-charlotte-bronte/" target="_blank" rel="noreferrer">Gezari J. The death of Charlotte Brontë</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-R" title="Retrospective">R</span></td>
+    <td><strong>Hyperemesis gravidarum has been proposed as the cause of her final illness and death.</strong><div class="muted">Retrospective diagnosis; the synthetic episode teaches its modern management without asserting it as her diagnosis.</div></td>
+    <td>possible</td>
+    <td><a href="https://en.wikipedia.org/wiki/Charlotte_Bront%C3%AB" target="_blank" rel="noreferrer">Charlotte Brontë</a> <span class="relationship">supports</span><br><a href="https://en.wikipedia.org/wiki/Bront%C3%AB_family" target="_blank" rel="noreferrer">Brontë family</a> <span class="relationship">supports</span><br><a href="https://pubmed.ncbi.nlm.nih.gov/30777294/" target="_blank" rel="noreferrer">Allison SP, Lobo DN. The death of Charlotte Brontë from hyperemesis gravidarum and refeeding syndrome: a new perspective. Clin Nutr. 2020;39(1):304-305</a> <span class="relationship">supports</span><br><a href="https://blog.oup.com/2013/03/death-charlotte-bronte/" target="_blank" rel="noreferrer">Gezari J. The death of Charlotte Brontë</a> <span class="relationship">context</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-R" title="Retrospective">R</span></td>
+    <td><strong>A 2019 clinical nutrition paper agrees that hyperemesis gravidarum is the most likely diagnosis and suggests that the refeeding syndrome, after her appetite returned in the third week of March, caused her death; it argues there is no more than circumstantial evidence for tuberculosis and that Addison&#39;s disease fits poorly.</strong><div class="muted">Retrospective interpretation; abstract read.</div></td>
+    <td>possible</td>
+    <td><a href="https://pubmed.ncbi.nlm.nih.gov/30777294/" target="_blank" rel="noreferrer">Allison SP, Lobo DN. The death of Charlotte Brontë from hyperemesis gravidarum and refeeding syndrome: a new perspective. Clin Nutr. 2020;39(1):304-305</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-R" title="Retrospective">R</span></td>
+    <td><strong>A bacterial infection such as typhoid has also been suggested, possibly caught from the servant who died weeks earlier.</strong><div class="muted">Retrospective interpretation.</div></td>
+    <td>possible</td>
+    <td><a href="https://blog.oup.com/2013/03/death-charlotte-bronte/" target="_blank" rel="noreferrer">Gezari J. The death of Charlotte Brontë</a> <span class="relationship">supports</span><br><a href="https://en.wikipedia.org/wiki/Bront%C3%AB_family" target="_blank" rel="noreferrer">Brontë family</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-R" title="Retrospective">R</span></td>
+    <td><strong>A 1991 obstetrics paper doubts that she was ever pregnant and argues that tuberculosis with secondary Addison disease explains her terminal illness.</strong><div class="muted">Retrospective interpretation; abstract read.</div></td>
+    <td>disputed</td>
+    <td><a href="https://pubmed.ncbi.nlm.nih.gov/1923177/" target="_blank" rel="noreferrer">Weiss G. The death of Charlotte Brontë. Obstet Gynecol. 1991;78(4):705-708</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-R" title="Retrospective">R</span></td>
+    <td><strong>Tuberculosis as the cause of her death, as the death certificate records, is disputed; the diagnosis was made without modern tests, and later writers have proposed hyperemesis gravidarum, refeeding syndrome, typhoid, and Addison disease instead.</strong><div class="muted">The diagnostic conflict is recorded, not resolved.</div></td>
+    <td>disputed</td>
+    <td><a href="https://pubmed.ncbi.nlm.nih.gov/30777294/" target="_blank" rel="noreferrer">Allison SP, Lobo DN. The death of Charlotte Brontë from hyperemesis gravidarum and refeeding syndrome: a new perspective. Clin Nutr. 2020;39(1):304-305</a> <span class="relationship">supports</span><br><a href="https://pubmed.ncbi.nlm.nih.gov/1923177/" target="_blank" rel="noreferrer">Weiss G. The death of Charlotte Brontë. Obstet Gynecol. 1991;78(4):705-708</a> <span class="relationship">supports</span><br><a href="https://en.wikipedia.org/wiki/Charlotte_Bront%C3%AB" target="_blank" rel="noreferrer">Charlotte Brontë</a> <span class="relationship">context</span></td>
+  </tr></tbody></table></section>
+    <section><h2>Modern synthetic problem list</h2><table><thead><tr><th>Grade</th><th>Problem</th><th>Clinical status</th><th>Verification</th><th>Placement</th><th>Historical claims</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>First pregnancy at 38 (elderly primigravida), single live intrauterine pregnancy dated by ultrasound at 7 weeks 1 day</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td>CLM-0015, CLM-0016</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Nausea and vomiting of pregnancy, moderate (PUQE-24 score 10), with early weight loss, under evaluation for hyperemesis gravidarum</td>
+    <td>resolved</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td>CLM-0010, CLM-0011, CLM-0016, CLM-0017</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Hyperemesis gravidarum with metabolic disturbance: unable to keep fluids down, 7.4 percent weight loss, dehydration, hypokalemia, hyponatremia, hypochloremic alkalosis, low magnesium, and raised transaminases; PUQE-24 score 14</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>both_with_link</td>
+    <td>CLM-0010, CLM-0011, CLM-0016, CLM-0017</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Gestational transient thyrotoxicosis: suppressed TSH and mildly raised free T4 with hyperemesis, no goiter, eye signs, or tremor; no treatment needed</td>
+    <td>resolved</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td></td>
+  </tr></tbody></table></section>
+    <section><h2>Synthetic outcome measures</h2><table><thead><tr><th>Grade</th><th>Date</th><th>Measure</th><th>Result</th><th>Coding</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1855-01-13</td>
+    <td>Hemoglobin [Mass/volume] in Blood</td>
+    <td>12.8 g/dL<div class="muted">Reference 11-15.5 g/dL</div></td>
+    <td>http://loinc.org · 718-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1855-01-13</td>
+    <td>Leukocytes [#/volume] in Blood by Automated count</td>
+    <td>8.4 10*3/uL<div class="muted">Reference 4-13 10*3/uL</div></td>
+    <td>http://loinc.org · 6690-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1855-01-13</td>
+    <td>Platelets [#/volume] in Blood by Automated count</td>
+    <td>248 10*3/uL<div class="muted">Reference 150-400 10*3/uL</div></td>
+    <td>http://loinc.org · 777-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1855-01-13</td>
+    <td>Sodium [Moles/volume] in Serum or Plasma</td>
+    <td>137 mmol/L<div class="muted">Reference 135-145 mmol/L</div></td>
+    <td>http://loinc.org · 2951-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1855-01-13</td>
+    <td>Potassium [Moles/volume] in Serum or Plasma</td>
+    <td>3.9 mmol/L<div class="muted">Reference 3.5-5.1 mmol/L</div></td>
+    <td>http://loinc.org · 2823-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1855-01-13</td>
+    <td>Chloride [Moles/volume] in Serum or Plasma</td>
+    <td>102 mmol/L<div class="muted">Reference 98-107 mmol/L</div></td>
+    <td>http://loinc.org · 2075-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1855-01-13</td>
+    <td>Carbon dioxide, total [Moles/volume] in Serum or Plasma</td>
+    <td>24 mmol/L<div class="muted">Reference 22-29 mmol/L</div></td>
+    <td>http://loinc.org · 2028-9</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1855-01-13</td>
+    <td>Urea nitrogen [Mass/volume] in Serum or Plasma</td>
+    <td>8 mg/dL<div class="muted">Reference 6-20 mg/dL</div></td>
+    <td>http://loinc.org · 3094-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1855-01-13</td>
+    <td>Creatinine [Mass/volume] in Serum or Plasma</td>
+    <td>0.52 mg/dL<div class="muted">Reference 0.4-0.9 mg/dL</div></td>
+    <td>http://loinc.org · 2160-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1855-01-13</td>
+    <td>Glucose [Mass/volume] in Serum or Plasma</td>
+    <td>76 mg/dL<div class="muted">Reference 70-99 mg/dL</div></td>
+    <td>http://loinc.org · 2345-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1855-01-13</td>
+    <td>Ketones [Mass/volume] in Urine by Test strip</td>
+    <td>15 mg/dL (high)<div class="muted">Reference &lt;=0 mg/dL</div></td>
+    <td>http://loinc.org · 5797-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1855-01-13</td>
+    <td>Fetal Crown Rump length US</td>
+    <td>11 mm<div class="muted">Reference Consistent with 7 weeks 1 day by the last menstrual period</div></td>
+    <td>http://loinc.org · 11957-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1855-01-13</td>
+    <td>Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]</td>
+    <td>5</td>
+    <td>http://loinc.org · 44261-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1855-01-20</td>
+    <td>Sodium [Moles/volume] in Serum or Plasma</td>
+    <td>136 mmol/L<div class="muted">Reference 135-145 mmol/L</div></td>
+    <td>http://loinc.org · 2951-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1855-01-20</td>
+    <td>Potassium [Moles/volume] in Serum or Plasma</td>
+    <td>3.6 mmol/L<div class="muted">Reference 3.5-5.1 mmol/L</div></td>
+    <td>http://loinc.org · 2823-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1855-01-20</td>
+    <td>Chloride [Moles/volume] in Serum or Plasma</td>
+    <td>99 mmol/L<div class="muted">Reference 98-107 mmol/L</div></td>
+    <td>http://loinc.org · 2075-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1855-01-20</td>
+    <td>Carbon dioxide, total [Moles/volume] in Serum or Plasma</td>
+    <td>26 mmol/L<div class="muted">Reference 22-29 mmol/L</div></td>
+    <td>http://loinc.org · 2028-9</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1855-01-20</td>
+    <td>Urea nitrogen [Mass/volume] in Serum or Plasma</td>
+    <td>11 mg/dL<div class="muted">Reference 6-20 mg/dL</div></td>
+    <td>http://loinc.org · 3094-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1855-01-20</td>
+    <td>Creatinine [Mass/volume] in Serum or Plasma</td>
+    <td>0.58 mg/dL<div class="muted">Reference 0.4-0.9 mg/dL</div></td>
+    <td>http://loinc.org · 2160-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1855-01-20</td>
+    <td>Glucose [Mass/volume] in Serum or Plasma</td>
+    <td>74 mg/dL<div class="muted">Reference 70-99 mg/dL</div></td>
+    <td>http://loinc.org · 2345-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1855-01-20</td>
+    <td>Ketones [Mass/volume] in Urine by Test strip</td>
+    <td>40 mg/dL (high)<div class="muted">Reference &lt;=0 mg/dL</div></td>
+    <td>http://loinc.org · 5797-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1855-01-29</td>
+    <td>Hemoglobin [Mass/volume] in Blood</td>
+    <td>14.1 g/dL<div class="muted">Reference 11-15.5 g/dL</div></td>
+    <td>http://loinc.org · 718-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1855-01-29</td>
+    <td>Sodium [Moles/volume] in Serum or Plasma</td>
+    <td>133 mmol/L (low)<div class="muted">Reference 135-145 mmol/L</div></td>
+    <td>http://loinc.org · 2951-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1855-01-29</td>
+    <td>Potassium [Moles/volume] in Serum or Plasma</td>
+    <td>3.1 mmol/L (low)<div class="muted">Reference 3.5-5.1 mmol/L</div></td>
+    <td>http://loinc.org · 2823-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1855-01-29</td>
+    <td>Chloride [Moles/volume] in Serum or Plasma</td>
+    <td>94 mmol/L (low)<div class="muted">Reference 98-107 mmol/L</div></td>
+    <td>http://loinc.org · 2075-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1855-01-29</td>
+    <td>Carbon dioxide, total [Moles/volume] in Serum or Plasma</td>
+    <td>31 mmol/L (high)<div class="muted">Reference 22-29 mmol/L</div></td>
+    <td>http://loinc.org · 2028-9</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1855-01-29</td>
+    <td>Urea nitrogen [Mass/volume] in Serum or Plasma</td>
+    <td>21 mg/dL (high)<div class="muted">Reference 6-20 mg/dL</div></td>
+    <td>http://loinc.org · 3094-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1855-01-29</td>
+    <td>Creatinine [Mass/volume] in Serum or Plasma</td>
+    <td>0.71 mg/dL<div class="muted">Reference 0.4-0.9 mg/dL</div></td>
+    <td>http://loinc.org · 2160-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1855-01-29</td>
+    <td>Glucose [Mass/volume] in Serum or Plasma</td>
+    <td>68 mg/dL (low)<div class="muted">Reference 70-99 mg/dL</div></td>
+    <td>http://loinc.org · 2345-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1855-01-29</td>
+    <td>Magnesium [Mass/volume] in Serum or Plasma</td>
+    <td>1.6 mg/dL (low)<div class="muted">Reference 1.7-2.2 mg/dL</div></td>
+    <td>http://loinc.org · 19123-9</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1855-01-29</td>
+    <td>Phosphate [Mass/volume] in Serum or Plasma</td>
+    <td>2.6 mg/dL<div class="muted">Reference 2.5-4.5 mg/dL</div></td>
+    <td>http://loinc.org · 2777-1</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1855-01-29</td>
+    <td>Alanine aminotransferase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>66 U/L (high)<div class="muted">Reference 7-35 U/L</div></td>
+    <td>http://loinc.org · 1742-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1855-01-29</td>
+    <td>Aspartate aminotransferase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>49 U/L (high)<div class="muted">Reference 10-35 U/L</div></td>
+    <td>http://loinc.org · 1920-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1855-01-29</td>
+    <td>Thyrotropin [Units/volume] in Serum or Plasma</td>
+    <td>0.03 mIU/L (low)<div class="muted">Reference 0.1-2.5 mIU/L</div></td>
+    <td>http://loinc.org · 3016-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1855-01-29</td>
+    <td>Thyroxine (T4) free [Mass/volume] in Serum or Plasma</td>
+    <td>2.1 ng/dL (high)<div class="muted">Reference 0.8-1.8 ng/dL</div></td>
+    <td>http://loinc.org · 3024-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1855-01-29</td>
+    <td>Ketones [Mass/volume] in Urine by Test strip</td>
+    <td>80 mg/dL (high)<div class="muted">Reference &lt;=0 mg/dL</div></td>
+    <td>http://loinc.org · 5797-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1855-02-10</td>
+    <td>Sodium [Moles/volume] in Serum or Plasma</td>
+    <td>137 mmol/L<div class="muted">Reference 135-145 mmol/L</div></td>
+    <td>http://loinc.org · 2951-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1855-02-10</td>
+    <td>Potassium [Moles/volume] in Serum or Plasma</td>
+    <td>4 mmol/L<div class="muted">Reference 3.5-5.1 mmol/L</div></td>
+    <td>http://loinc.org · 2823-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1855-02-10</td>
+    <td>Chloride [Moles/volume] in Serum or Plasma</td>
+    <td>101 mmol/L<div class="muted">Reference 98-107 mmol/L</div></td>
+    <td>http://loinc.org · 2075-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1855-02-10</td>
+    <td>Carbon dioxide, total [Moles/volume] in Serum or Plasma</td>
+    <td>25 mmol/L<div class="muted">Reference 22-29 mmol/L</div></td>
+    <td>http://loinc.org · 2028-9</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1855-02-10</td>
+    <td>Urea nitrogen [Mass/volume] in Serum or Plasma</td>
+    <td>9 mg/dL<div class="muted">Reference 6-20 mg/dL</div></td>
+    <td>http://loinc.org · 3094-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1855-02-10</td>
+    <td>Creatinine [Mass/volume] in Serum or Plasma</td>
+    <td>0.55 mg/dL<div class="muted">Reference 0.4-0.9 mg/dL</div></td>
+    <td>http://loinc.org · 2160-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1855-02-10</td>
+    <td>Glucose [Mass/volume] in Serum or Plasma</td>
+    <td>82 mg/dL<div class="muted">Reference 70-99 mg/dL</div></td>
+    <td>http://loinc.org · 2345-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1855-02-10</td>
+    <td>Magnesium [Mass/volume] in Serum or Plasma</td>
+    <td>1.9 mg/dL<div class="muted">Reference 1.7-2.2 mg/dL</div></td>
+    <td>http://loinc.org · 19123-9</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1855-02-10</td>
+    <td>Phosphate [Mass/volume] in Serum or Plasma</td>
+    <td>3.4 mg/dL<div class="muted">Reference 2.5-4.5 mg/dL</div></td>
+    <td>http://loinc.org · 2777-1</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1855-02-10</td>
+    <td>Alanine aminotransferase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>31 U/L<div class="muted">Reference 7-35 U/L</div></td>
+    <td>http://loinc.org · 1742-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1855-02-10</td>
+    <td>Aspartate aminotransferase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>24 U/L<div class="muted">Reference 10-35 U/L</div></td>
+    <td>http://loinc.org · 1920-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1855-02-10</td>
+    <td>Total score [EPDS]</td>
+    <td>9</td>
+    <td>http://loinc.org · 99046-5</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1855-02-24</td>
+    <td>Fetal Crown Rump length US</td>
+    <td>70 mm<div class="muted">Reference Consistent with 13 weeks 1 day by the dating scan</div></td>
+    <td>http://loinc.org · 11957-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1855-02-24</td>
+    <td>Fetal nuchal translucency measured by US</td>
+    <td>1.5 mm<div class="muted">Reference &lt;=3.5 mm</div></td>
+    <td>http://loinc.org · 33069-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1855-03-24</td>
+    <td>Hemoglobin [Mass/volume] in Blood</td>
+    <td>11.6 g/dL<div class="muted">Reference 11-15.5 g/dL</div></td>
+    <td>http://loinc.org · 718-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1855-03-24</td>
+    <td>Thyrotropin [Units/volume] in Serum or Plasma</td>
+    <td>0.92 mIU/L<div class="muted">Reference 0.2-3 mIU/L</div></td>
+    <td>http://loinc.org · 3016-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1855-03-24</td>
+    <td>Thyroxine (T4) free [Mass/volume] in Serum or Plasma</td>
+    <td>1.1 ng/dL<div class="muted">Reference 0.8-1.8 ng/dL</div></td>
+    <td>http://loinc.org · 3024-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1855-03-24</td>
+    <td>Total score [EPDS]</td>
+    <td>5</td>
+    <td>http://loinc.org · 99046-5</td>
+  </tr></tbody></table></section>
+    <section><h2>Synthetic vital signs</h2><table><thead><tr><th>Date</th><th>Measure</th><th>Result</th><th>LOINC</th><th>Grade</th></tr></thead><tbody>
+  <tr><td>1855-01-13</td><td>Body height</td><td>152 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1855-01-13</td><td>Body weight</td><td>45.1 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1855-01-13</td><td>Body mass index (BMI) [Ratio]</td><td>19.5 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1855-01-13</td><td>Systolic blood pressure</td><td>104 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1855-01-13</td><td>Diastolic blood pressure</td><td>66 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1855-01-13</td><td>Heart rate</td><td>84 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1855-01-13</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1855-01-13</td><td>Body temperature</td><td>36.7 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1855-01-13</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>99 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1855-01-20</td><td>Body height</td><td>152 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1855-01-20</td><td>Body weight</td><td>44 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1855-01-20</td><td>Body mass index (BMI) [Ratio]</td><td>19 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1855-01-20</td><td>Systolic blood pressure</td><td>102 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1855-01-20</td><td>Diastolic blood pressure</td><td>64 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1855-01-20</td><td>Heart rate</td><td>92 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1855-01-20</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1855-01-20</td><td>Body temperature</td><td>36.8 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1855-01-20</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>99 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1855-01-29</td><td>Body height</td><td>152 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1855-01-29</td><td>Body weight</td><td>42.6 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1855-01-29</td><td>Body mass index (BMI) [Ratio]</td><td>18.4 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1855-01-29</td><td>Systolic blood pressure</td><td>96 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1855-01-29</td><td>Diastolic blood pressure</td><td>60 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1855-01-29</td><td>Heart rate</td><td>108 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1855-01-29</td><td>Respiratory rate</td><td>16 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1855-01-29</td><td>Body temperature</td><td>36.9 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1855-01-29</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>99 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1855-02-10</td><td>Body height</td><td>152 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1855-02-10</td><td>Body weight</td><td>43.6 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1855-02-10</td><td>Body mass index (BMI) [Ratio]</td><td>18.9 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1855-02-10</td><td>Systolic blood pressure</td><td>104 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1855-02-10</td><td>Diastolic blood pressure</td><td>64 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1855-02-10</td><td>Heart rate</td><td>86 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1855-02-10</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1855-02-10</td><td>Body temperature</td><td>36.7 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1855-02-10</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>99 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1855-02-24</td><td>Body height</td><td>152 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1855-02-24</td><td>Body weight</td><td>44.4 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1855-02-24</td><td>Body mass index (BMI) [Ratio]</td><td>19.2 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1855-02-24</td><td>Systolic blood pressure</td><td>106 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1855-02-24</td><td>Diastolic blood pressure</td><td>66 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1855-02-24</td><td>Heart rate</td><td>82 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1855-02-24</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1855-02-24</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1855-02-24</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>99 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1855-03-24</td><td>Body height</td><td>152 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1855-03-24</td><td>Body weight</td><td>46.2 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1855-03-24</td><td>Body mass index (BMI) [Ratio]</td><td>20 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1855-03-24</td><td>Systolic blood pressure</td><td>108 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1855-03-24</td><td>Diastolic blood pressure</td><td>68 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1855-03-24</td><td>Heart rate</td><td>80 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1855-03-24</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1855-03-24</td><td>Body temperature</td><td>36.7 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1855-03-24</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>99 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr></tbody></table></section>
+    <section><h2>Social, functional, and mental status</h2><h3>Social history</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Occupation: novelist who writes at home in the mornings; her most recent novels were widely read</li><li><span class="badge grade-S" title="Synthetic">S</span> Married seven months ago; lives with her husband and her elderly father in a stone house beside the church at the edge of the moors; neither is named in this record; the pregnancy was planned and is wanted</li><li><span class="badge grade-S" title="Synthetic">S</span> Never smoked; no alcohol since before conception; no drug use; one cup of tea a day</li><li><span class="badge grade-S" title="Synthetic">S</span> Walked on the moors most days until the nausea began; feels safe at home, and the screen for intimate partner violence is negative</li><li><span class="badge grade-S" title="Synthetic">S</span> Supports: her husband, a close friend from school days with whom she writes often, and the household&#39;s long-serving help</li></ul><h3>Functional status</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Until a week ago she ran the household and wrote each morning; now she lies down most afternoons and has stopped writing; she keeps down small sips and dry crackers</li></ul><h3>Mental status</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Small and slight, neatly dressed, quietly spoken and articulate; tired; mood &quot;worn out, but glad&quot;; anxious about carrying a first pregnancy at her age after losing her mother and sisters young; no thoughts of self-harm; PHQ-9 score 5</li></ul></section>
+    
+    <section><h2>Allergies and medications</h2><h3>Allergies</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> No known allergy</li></ul><h3>Medications</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Folic acid 0.4 mg oral tablet, one tablet by mouth daily (replacing an iron-containing prenatal vitamin while nausea is severe)</li><li><span class="badge grade-S" title="Synthetic">S</span> Doxylamine 10 mg and pyridoxine 10 mg delayed-release tablet, two tablets by mouth at bedtime</li><li><span class="badge grade-S" title="Synthetic">S</span> Doxylamine 10 mg and pyridoxine 10 mg delayed-release tablet, one tablet in the morning, one mid-afternoon, and two at bedtime (four a day)</li><li><span class="badge grade-S" title="Synthetic">S</span> Metoclopramide 10 mg oral tablet, one tablet by mouth three times a day before meals</li><li><span class="badge grade-S" title="Synthetic">S</span> Sodium chloride 0.9% with potassium chloride 20 mmol per liter, 1000 mL intravenously over 8 hours</li><li><span class="badge grade-S" title="Synthetic">S</span> Thiamine 100 mg intravenously daily, the first dose before any dextrose</li><li><span class="badge grade-S" title="Synthetic">S</span> Ondansetron 4 mg intravenously every 8 hours</li><li><span class="badge grade-S" title="Synthetic">S</span> Enoxaparin 20 mg subcutaneously once daily during the admission (weight under 50 kg)</li><li><span class="badge grade-S" title="Synthetic">S</span> Magnesium sulfate 2 g in 50 mL intravenously over 1 hour, once</li><li><span class="badge grade-S" title="Synthetic">S</span> Ondansetron 4 mg orally disintegrating tablet, one tablet every 8 hours</li><li><span class="badge grade-S" title="Synthetic">S</span> Ondansetron 4 mg orally disintegrating tablet, one tablet every 8 hours as needed for nausea</li><li><span class="badge grade-S" title="Synthetic">S</span> Thiamine 100 mg oral tablet, one tablet by mouth three times a day</li><li><span class="badge grade-S" title="Synthetic">S</span> Aspirin 81 mg delayed-release tablet, one tablet by mouth at bedtime</li></ul></section>
+    <section><h2>Procedures and immunizations</h2><h3>Procedures</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Transvaginal dating ultrasound: single live intrauterine pregnancy, crown-rump length 11 mm (7 weeks 1 day), cardiac activity present, no subchorionic hemorrhage, ovaries normal</li><li><span class="badge grade-S" title="Synthetic">S</span> 12-lead electrocardiogram before intravenous ondansetron with hypokalemia: sinus tachycardia 106 per minute, QTc 438 ms, no other abnormality</li><li><span class="badge grade-S" title="Synthetic">S</span> First-trimester ultrasound for nuchal translucency: single live fetus, crown-rump length 70 mm (13 weeks 1 day), nuchal translucency 1.5 mm, nasal bone present, no structural abnormality seen</li></ul><h3>Immunizations</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> 1855-01-13: Influenza vaccine, 1854-1855 season, given in pregnancy</li><li><span class="badge grade-S" title="Synthetic">S</span> 1848-05-14: Tdap vaccine</li></ul></section>
+    <section><h2>Past medical history</h2><p class="muted">True biography with historical dates; not part of the synthetic care timeline.</p><ul><li><span class="badge grade-D" title="Documented">D</span> November 1854: A bad lingering sore throat and cold after a long walk in heavy rain on the moors, which made her thin and weak <span class="muted">(CLM-0009)</span></li></ul><h3>Family history</h3><ul><li><span class="badge grade-R" title="Retrospective">R</span> mother: Died in 1821 in her 39th year after a long and painful illness, possibly cancer</li><li><span class="badge grade-D" title="Documented">D</span> sister: Eldest sister: tuberculosis after illness at boarding school; died in 1825 aged 11</li><li><span class="badge grade-D" title="Documented">D</span> sister: Second sister: tuberculosis after illness at boarding school; died in 1825 aged 10</li><li><span class="badge grade-D" title="Documented">D</span> brother: Died in 1848 aged 31 of several conditions made worse by heavy drinking, with tuberculosis among them</li><li><span class="badge grade-D" title="Documented">D</span> sister: Tuberculosis; died in 1848 aged 30</li><li><span class="badge grade-D" title="Documented">D</span> sister: Tuberculosis; died in 1849 aged 29</li></ul></section>
+    <section><h2>Care-plan goals</h2><table><thead><tr><th>Goal</th><th>Target date</th><th>Status</th><th>Outcome</th></tr></thead><tbody>
+  <tr><td>Nausea and vomiting mild (PUQE-24 score 6 or less) and weight back to her pre-pregnancy 46.0 kg by about 17 weeks</td><td>1855-03-24</td><td>completed</td><td>PUQE-24 score 4 and weight 46.2 kg at 17 weeks 1 day</td></tr>
+  <tr><td>Hydration and electrolytes normal within two weeks of any admission</td><td>1855-02-10</td><td>completed</td><td>Sodium, potassium, chloride, bicarbonate, magnesium, phosphate, and transaminases all normal nine days after discharge</td></tr>
+  <tr><td>An informed choice about aneuploidy screening and diagnostic testing by 13 weeks</td><td>1855-02-24</td><td>completed</td><td>Chose cell-free DNA screening (low risk) and the nuchal translucency scan (1.5 mm); declined diagnostic testing</td></tr>
+  <tr><td>Low-dose aspirin started between 12 and 16 weeks if indicated</td><td>1855-02-24</td><td>completed</td><td>Started at 13 weeks 1 day for two moderate risk factors</td></tr>
+  <tr><td>Tuberculosis screening completed and explained by the second visit</td><td>1855-01-20</td><td>completed</td><td>Interferon-gamma release assay negative; no latent infection; no chest radiograph needed</td></tr>
+  <tr><td>Mood screened in each trimester, with support offered</td><td>1855-03-24</td><td>completed</td><td>PHQ-9 5 at intake, EPDS 9 after the admission and 5 at 17 weeks; item 10 scored 0 each time</td></tr></tbody></table></section>
+    <section><h2>Interventions</h2><table><thead><tr><th>Intervention</th><th>Status</th><th>Guideline</th></tr></thead><tbody>
+  <tr><td>First prenatal visit: dating ultrasound; blood count, blood group and antibody screen, rubella immunity, hepatitis B surface antigen, HIV, syphilis, and hepatitis C tests; urine culture; metabolic panel and urinalysis because of vomiting; influenza vaccine; folic acid 0.4 mg daily in place of the iron-containing prenatal vitamin while nausea lasts</td><td>completed</td><td>GL-USPSTF-AB, GL-CDC-PREGVAX</td></tr>
+  <tr><td>Nausea and vomiting, step by step: small frequent dry meals, fluids between meals, ginger if she wishes, and avoiding smells that trigger nausea; doxylamine-pyridoxine from today, raised to four tablets a day if needed; then a second drug (metoclopramide, promethazine, or ondansetron after counseling); PUQE-24 score, weight, pulse, blood pressure, and electrolytes at each visit; same-day review if she cannot keep fluids down for 24 hours or loses more than 5 percent of her pre-pregnancy weight</td><td>completed</td><td>GL-ACOG-NVP-2018, GL-RCOG-HG-2024</td></tr>
+  <tr><td>Maternal-fetal medicine consultation for a first pregnancy at 38 with moderate nausea and vomiting and early weight loss: escalation thresholds, aneuploidy screening and diagnostic options, preeclampsia prevention, tuberculosis risk, and the plan for the rest of the pregnancy</td><td>completed</td><td>GL-ACOG-NVP-2018, GL-RCOG-HG-2024, GL-ACOG-ANEU-2020, GL-USPSTF-ASA-2021</td></tr>
+  <tr><td>Aneuploidy screening offered to all, with diagnostic testing available: cell-free DNA from 10 weeks, a nuchal translucency scan at 11 to 14 weeks, or chorionic villus sampling or amniocentesis; a detailed anatomy scan at 18 to 22 weeks</td><td>completed</td><td>GL-ACOG-ANEU-2020</td></tr>
+  <tr><td>Tuberculosis screening with an interferon-gamma release assay because of tuberculosis deaths in her household; a shielded chest radiograph and treatment decisions only if it is positive</td><td>completed</td><td>GL-USPSTF-LTBI-2023</td></tr>
+  <tr><td>Mental health: PHQ-9 at intake and the EPDS in each trimester and after any admission, with support for the strain of severe vomiting and for anxiety rooted in family loss</td><td>completed</td><td>GL-ACOG-MH-2023, GL-USPSTF-PND-2019</td></tr>
+  <tr><td>Preeclampsia prevention: low-dose aspirin 81 mg at bedtime from 12 to 16 weeks until delivery if she has one high-risk or more than one moderate-risk factor (she has two: first pregnancy and age 35 or older); blood pressure at every visit</td><td>completed</td><td>GL-USPSTF-ASA-2021</td></tr>
+  <tr><td>Admission for hyperemesis gravidarum: 0.9% saline with potassium chloride guided by daily electrolytes; thiamine 100 mg intravenously before any dextrose, then orally; magnesium replacement; ondansetron after counseling and an electrocardiogram; stop metoclopramide; refeeding precautions with phosphate and magnesium checks as eating resumes; weight-adjusted enoxaparin while admitted; discharge when she keeps fluids and food down</td><td>completed</td><td>GL-ACOG-NVP-2018, GL-RCOG-HG-2024, GL-RCOG-VTE-2015</td></tr>
+  <tr><td>Thyroid: suppressed TSH with a mildly raised free T4 during hyperemesis is gestational transient thyrotoxicosis; no antithyroid drug; repeat TSH and free T4 at 16 to 18 weeks, and test for TSH-receptor antibodies only if it persists or signs of Graves disease appear</td><td>completed</td><td>GL-ATA-PREG-2017, GL-ACOG-NVP-2018</td></tr>
+  <tr><td>Monitoring while nausea and vomiting last: PUQE-24, weight, pulse, and blood pressure at every visit; electrolytes until stable on oral intake; liver tests if abnormal; mood each trimester; antiemetic side effects (drowsiness, restlessness or abnormal movements, constipation, palpitations)</td><td>completed</td><td>GL-ACOG-NVP-2018, GL-RCOG-HG-2024</td></tr></tbody></table></section>
+    <section><h2>Planned encounters</h2><ul>
+  <li><strong>1855-01-13</strong> — First prenatal visit at 7 weeks with nausea and vomiting for a week and early weight loss: dating ultrasound, prenatal tests, and a plan for the nausea <span class="muted">(ENC-001)</span></li>
+  <li><strong>1855-01-20</strong> — One-week review of nausea and vomiting, intake results, and maternal-fetal medicine consultation <span class="muted">(ENC-002)</span></li>
+  <li><strong>1855-01-29</strong> — Same-day sick visit for vomiting with dehydration at 9 weeks, with direct admission <span class="muted">(ENC-006, unscheduled)</span></li>
+  <li><strong>1855-02-10</strong> — Prenatal visit at 11 weeks: nausea and vomiting review and cell-free DNA screening <span class="muted">(ENC-003)</span></li>
+  <li><strong>1855-02-24</strong> — Prenatal visit at 13 weeks with the nuchal translucency scan and the low-dose aspirin decision <span class="muted">(ENC-004)</span></li>
+  <li><strong>1855-03-24</strong> — Prenatal visit at 17 weeks: nausea and vomiting review and thyroid recheck <span class="muted">(ENC-005)</span></li></ul></section>
+    <section><h2>Supporting documents</h2><ul><li><a href="notes/hp.md">History and physical</a></li><li><a href="notes/progress-01.md">Progress note 01</a></li><li><a href="notes/progress-02.md">Progress note 02 — Focused Visit (Follow-up)</a></li><li><a href="notes/progress-03.md">Progress note 03 — Sick Visit</a></li><li><a href="notes/progress-04.md">Progress note 04 — Focused Visit (Follow-up)</a></li><li><a href="notes/progress-05.md">Progress note 05 — Focused Visit (Follow-up)</a></li><li><a href="notes/progress-06.md">Progress note 06 — Focused Visit (Care-plan review)</a></li><li><a href="notes/referral-01.md">Maternal-Fetal Medicine referral</a></li><li><a href="notes/consult-01.md">Maternal-Fetal Medicine consultation</a></li><li><a href="notes/careplan.md">Patient care plan</a></li><li><a href="notes/teaching-note.md">Teaching note</a></li><li><a href="provenance.csv">Provenance CSV</a></li></ul></section>
+    <section><h2>C-CDA note documents</h2><p class="muted">Each link opens a readable copy; the XML beside it is the exchange file.</p><ul><li><a href="ccda/hp-01.html">History and physical</a> <a href="ccda/hp-01.xml">(XML)</a></li><li><a href="ccda/progress-01.html">Progress note 01</a> <a href="ccda/progress-01.xml">(XML)</a></li><li><a href="ccda/progress-02.html">Progress note 02 — Focused Visit (Follow-up)</a> <a href="ccda/progress-02.xml">(XML)</a></li><li><a href="ccda/progress-03.html">Progress note 03 — Sick Visit</a> <a href="ccda/progress-03.xml">(XML)</a></li><li><a href="ccda/progress-04.html">Progress note 04 — Focused Visit (Follow-up)</a> <a href="ccda/progress-04.xml">(XML)</a></li><li><a href="ccda/progress-05.html">Progress note 05 — Focused Visit (Follow-up)</a> <a href="ccda/progress-05.xml">(XML)</a></li><li><a href="ccda/progress-06.html">Progress note 06 — Focused Visit (Care-plan review)</a> <a href="ccda/progress-06.xml">(XML)</a></li><li><a href="ccda/referral-01.html">Maternal-Fetal Medicine referral</a> <a href="ccda/referral-01.xml">(XML)</a></li><li><a href="ccda/consult-01.html">Maternal-Fetal Medicine consultation</a> <a href="ccda/consult-01.xml">(XML)</a></li></ul></section>
+    <section><h2>Sources</h2><table><thead><tr><th>ID</th><th>Source</th><th>Publisher</th><th>Type</th></tr></thead><tbody>
+  <tr>
+    <td>SRC-0001</td>
+    <td><a href="https://www.gutenberg.org/ebooks/1827" target="_blank" rel="noreferrer">Gaskell EC. The Life of Charlotte Brontë, Volume 1 (1857). Project Gutenberg eBook 1827</a></td>
+    <td>Project Gutenberg</td>
+    <td>primary</td>
+  </tr>
+  <tr>
+    <td>SRC-0002</td>
+    <td><a href="https://www.gutenberg.org/ebooks/1700" target="_blank" rel="noreferrer">Gaskell EC. The Life of Charlotte Brontë, Volume 2 (1857). Project Gutenberg eBook 1700</a></td>
+    <td>Project Gutenberg</td>
+    <td>primary</td>
+  </tr>
+  <tr>
+    <td>SRC-0003</td>
+    <td><a href="https://en.wikipedia.org/wiki/Charlotte_Bront%C3%AB" target="_blank" rel="noreferrer">Charlotte Brontë</a></td>
+    <td>Wikipedia</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0004</td>
+    <td><a href="https://en.wikipedia.org/wiki/Bront%C3%AB_family" target="_blank" rel="noreferrer">Brontë family</a></td>
+    <td>Wikipedia</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0005</td>
+    <td><a href="https://pubmed.ncbi.nlm.nih.gov/30777294/" target="_blank" rel="noreferrer">Allison SP, Lobo DN. The death of Charlotte Brontë from hyperemesis gravidarum and refeeding syndrome: a new perspective. Clin Nutr. 2020;39(1):304-305</a></td>
+    <td>PubMed (PMID 30777294)</td>
+    <td>scholarly</td>
+  </tr>
+  <tr>
+    <td>SRC-0006</td>
+    <td><a href="https://pubmed.ncbi.nlm.nih.gov/1923177/" target="_blank" rel="noreferrer">Weiss G. The death of Charlotte Brontë. Obstet Gynecol. 1991;78(4):705-708</a></td>
+    <td>PubMed (PMID 1923177)</td>
+    <td>scholarly</td>
+  </tr>
+  <tr>
+    <td>SRC-0007</td>
+    <td><a href="https://blog.oup.com/2013/03/death-charlotte-bronte/" target="_blank" rel="noreferrer">Gezari J. The death of Charlotte Brontë</a></td>
+    <td>OUPblog (Oxford University Press)</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0008</td>
+    <td><a href="https://humanrecord.example.org/internal/HISTMED_Master_Roster_v3.xlsx" target="_blank" rel="noreferrer">HISTMED Master Roster v3</a></td>
+    <td>The Human Record project</td>
+    <td>other</td>
+  </tr></tbody></table></section>
+    <section><h2>Review status</h2><table><thead><tr><th>Review</th><th>Status</th><th>Notes</th></tr></thead><tbody>
+  <tr><td>schema validation</td><td>not_started</td><td>Run scripts/build.ps1 -Conformance.</td></tr>
+  <tr><td>clinical review</td><td>not_started</td><td>Awaiting clinician review; check the PUQE-based severity grading, the antiemetic steps and ondansetron counseling, thiamine before dextrose, weight-adjusted thromboprophylaxis, the thyroid interpretation, aneuploidy counseling, aspirin, tuberculosis screening, and the recorded deviation.</td></tr>
+  <tr><td>provenance review</td><td>not_started</td><td>Gaskell&#39;s Life (both volumes, public domain), two encyclopedia articles, two PubMed abstracts, and a publisher blog essay logged. The final illness, the death certificate, and the reported pregnancy are D; hyperemesis gravidarum, refeeding syndrome, typhoid, tuberculosis with Addison disease, and doubt about the pregnancy are R and conflict. No statement, decision, or health fact is attributed to her husband or father.</td></tr>
+  <tr><td>safe messaging review</td><td>not_started</td><td>Her death in pregnancy is recorded as a fact without detail. PHQ-9 and EPDS scores are below thresholds with item 9 and item 10 scored 0, so no safety assessment is required.</td></tr></tbody></table></section>
+  </main>
+</body>
+</html>

@@ -1,0 +1,556 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Thomas Jefferson — The Human Record</title>
+  <style>
+    :root { --navy:#17365d; --blue:#1f4e78; --pale:#eef5fa; --ink:#1f2933; --muted:#66788a; --amber:#fff2cc; --red:#f8d7da; --green:#d9ead3; }
+    * { box-sizing:border-box; }
+    body { margin:0; font:16px/1.5 Arial, sans-serif; color:var(--ink); background:#f6f8fa; }
+    header { background:var(--navy); color:white; padding:24px max(24px,calc((100vw - 1180px)/2)); }
+    header h1 { margin:4px 0; font-size:30px; }
+    .banner { background:#b42318; color:white; font-weight:700; text-align:center; padding:10px; letter-spacing:.03em; }
+    main { max-width:1180px; margin:24px auto 60px; padding:0 24px; }
+    section { background:white; border:1px solid #d9e1e8; border-radius:8px; margin:18px 0; padding:20px; }
+    h2 { color:var(--navy); margin:0 0 14px; font-size:22px; }
+    h3 { color:var(--blue); }
+    .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:12px; }
+    .card { background:var(--pale); border-left:4px solid var(--blue); padding:12px; }
+    .label { color:var(--muted); font-size:13px; text-transform:uppercase; letter-spacing:.04em; }
+    table { width:100%; border-collapse:collapse; }
+    th { background:var(--blue); color:white; text-align:left; }
+    th,td { padding:9px; border-bottom:1px solid #dfe6ec; vertical-align:top; }
+    .badge { display:inline-block; min-width:28px; text-align:center; font-weight:700; border-radius:12px; padding:2px 8px; }
+    .grade-D { background:var(--green); } .grade-R { background:var(--amber); } .grade-S { background:var(--red); }
+    .muted { color:var(--muted); font-size:14px; }
+    .relationship { color:var(--muted); font-size:12px; }
+    .downloads a { display:inline-block; margin:4px 8px 4px 0; padding:8px 12px; background:var(--blue); color:white; text-decoration:none; border-radius:5px; }
+    @media (max-width:700px) { table { display:block; overflow-x:auto; } }
+  </style>
+</head>
+<body>
+  <div class="banner">SYNTHETIC RECORD, NOT A REAL MEDICAL RECORD</div>
+  <div class="banner">True-date frame: synthetic events are moved into the patient&#39;s historical lifetime. Codes, instruments, and treatments remain modern and are anachronistic.</div>
+  <header>
+    <div>The Human Record</div>
+    <h1>Thomas Jefferson</h1>
+    <div>Case HR-EN005-TD · Modern EHR teaching episode · Draft for review</div>
+  </header>
+  <main>
+    <section>
+      <h2>Review summary</h2>
+      <div class="grid">
+        <div class="card"><div class="label">Historical dates</div>April 13, 1743 – July 4, 1826</div>
+        <div class="card"><div class="label">Synthetic DOB</div>1743-04-13</div>
+        <div class="card"><div class="label">Index visit</div>1790-05-07 at age 47</div>
+        <div class="card"><div class="label">Synthetic MRN</div>HR-EN005-SYN-TD</div>
+      </div>
+      <p><strong>Teaching objective:</strong> Recurrent disabling headache in a working statesman: a 47-year-old cabinet secretary, seven weeks into a demanding new post, comes in a week into a bout of the headaches he has had since his twenties. The episode covers a structured headache history with a red-flag screen and no neuroimaging when none is indicated, a headache diary that confirms ICHD-3 migraine without aura, disability measured with the MIDAS, acute treatment with an NSAID and a triptan and the place of gepants and lasmiditan, why opioids and butalbital are avoided, counting acute-medicine days to prevent medication overuse headache, the criteria for preventive treatment and the choice among propranolol, topiramate, amitriptyline and a CGRP monoclonal antibody under the 1785 American Headache Society consensus, its 1788 position statement and the 1789 ACP guidelines, sleep, meals, caffeine and work stress as triggers, and an old badly healed wrist injury that makes writing slow and painful.</p>
+      <div class="downloads">
+        <a href="../case.json">Canonical JSON</a>
+        <a href="fhir-bundle.json">FHIR R4 draft</a>
+        <a href="ccda.html">C-CDA R2.1 summary</a> <a href="ccda.xml">(XML)</a>
+        <a href="../sources.md">Evidence dossier</a>
+      </div>
+    </section>
+    <section><h2>Historical timeline</h2><table><thead><tr><th>Date</th><th>Event</th><th>Claims</th></tr></thead><tbody>
+  <tr><td>April 13, 1743</td><td>Born at Shadwell, Virginia (April 2, 1743, Old Style).</td><td>CLM-0001</td></tr>
+  <tr><td>March 20, 1764</td><td>Writes of a violent headache of two days.</td><td>CLM-0002</td></tr>
+  <tr><td>1776</td><td>Kept at home for weeks by an illness described as an inveterate headache.</td><td>CLM-0003</td></tr>
+  <tr><td>September 6, 1782</td><td>Death of his wife; months of grief he later called a stupor of mind.</td><td>CLM-0005</td></tr>
+  <tr><td>March 1, 1784</td><td>First letter naming his periodical headache.</td><td>CLM-0004</td></tr>
+  <tr><td>September 1786</td><td>Dislocates his right wrist in Paris; it heals badly.</td><td>CLM-0006</td></tr>
+  <tr><td>March 21, 1790</td><td>Takes office as Secretary of State in New York City.</td><td>CLM-0007</td></tr>
+  <tr><td>May 1, 1790</td><td>A periodical headache begins in New York; the first week is violent.</td><td>CLM-0008</td></tr>
+  <tr><td>June 13, 1790</td><td>Recovered after about six weeks; cinchona bark had failed for the first time; an opium remedy offered by a physician is no longer needed.</td><td>CLM-0019, CLM-0009</td></tr>
+  <tr><td>June 23, 1791</td><td>Writes that the headache of the past winter and spring came from the drudgery of business.</td><td>CLM-0010</td></tr>
+  <tr><td>March 1807</td><td>Daily headache fits in a dark room as President; last recorded attack in March and April 1808.</td><td>CLM-0011</td></tr>
+  <tr><td>March 21, 1819</td><td>Summarizes his headaches and his stiff wrist in a letter about his health; later interpretations of the headaches differ.</td><td>CLM-0012, CLM-0013, CLM-0014</td></tr>
+  <tr><td>July 1825</td><td>Rheumatism, chronic diarrhea and difficulty passing urine in his last years; laudanum prescribed.</td><td>CLM-0015, CLM-0016</td></tr>
+  <tr><td>July 4, 1826</td><td>Dies at Monticello at 83; the exact cause was never determined. Over his lifetime he enslaved more than 600 people.</td><td>CLM-0020, CLM-0017, CLM-0018</td></tr></tbody></table></section>
+    <section><h2>Evidence claims</h2><p class="muted">D = documented, R = retrospective, S = synthetic.</p><table><thead><tr><th>Grade</th><th>Claim</th><th>Certainty</th><th>Sources</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>Thomas Jefferson was born at Shadwell, in what was then Goochland County, Virginia, on April 13, 1743 (April 2, 1743, in the Old Style calendar then in use).</strong></td>
+    <td>confirmed</td>
+    <td><a href="https://encyclopediavirginia.org/entries/jefferson-thomas-1743-1826/" target="_blank" rel="noreferrer">Looney JJ. Thomas Jefferson (1743-1826). Encyclopedia Virginia (Dictionary of Virginia Biography)</a> <span class="relationship">supports</span><br><a href="https://www.monticello.org/jefferson-timeline" target="_blank" rel="noreferrer">Timeline of Jefferson&#39;s Life</a> <span class="relationship">supports</span><br><a href="https://humanrecord.example.org/internal/HISTMED_Master_Roster_v3.xlsx" target="_blank" rel="noreferrer">HISTMED Master Roster v3</a> <span class="relationship">context</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>He died at Monticello on July 4, 1826, at 83.</strong><div class="muted">History only.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://encyclopediavirginia.org/entries/jefferson-thomas-1743-1826/" target="_blank" rel="noreferrer">Looney JJ. Thomas Jefferson (1743-1826). Encyclopedia Virginia (Dictionary of Virginia Biography)</a> <span class="relationship">supports</span><br><a href="https://www.monticello.org/jefferson-timeline" target="_blank" rel="noreferrer">Timeline of Jefferson&#39;s Life</a> <span class="relationship">supports</span><br><a href="https://humanrecord.example.org/internal/HISTMED_Master_Roster_v3.xlsx" target="_blank" rel="noreferrer">HISTMED Master Roster v3</a> <span class="relationship">context</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>At 20, in a letter of March 20, 1764, written at Williamsburg late at night, he wrote of &quot;a violent head ach, with which I have been afflicted these two days.&quot;</strong><div class="muted">The earliest headache in his letters; anchors the long history in the modern episode.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://founders.archives.gov/documents/Jefferson/01-01-02-0009" target="_blank" rel="noreferrer">Thomas Jefferson to William Fleming, 20 March 1764</a> <span class="relationship">supports</span><br><a href="https://www.monticello.org/encyclopedia/headaches" target="_blank" rel="noreferrer">Headaches (Thomas Jefferson Encyclopedia)</a> <span class="relationship">supports</span><br><a href="https://www.ccjm.org/content/51/3/531" target="_blank" rel="noreferrer">Battle JD Jr. The &quot;periodical head-achs&quot; of Thomas Jefferson. Cleveland Clinic Quarterly 1984;51(3):531-539</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>In 1776 an illness kept him at home in Virginia for about six weeks longer than he intended; a correspondent wrote that his time at home had been interrupted by &quot;an inveterate head ach.&quot;</strong><div class="muted">History only.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.monticello.org/encyclopedia/headaches" target="_blank" rel="noreferrer">Headaches (Thomas Jefferson Encyclopedia)</a> <span class="relationship">supports</span><br><a href="https://www.ccjm.org/content/51/3/531" target="_blank" rel="noreferrer">Battle JD Jr. The &quot;periodical head-achs&quot; of Thomas Jefferson. Cleveland Clinic Quarterly 1984;51(3):531-539</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>His wife died on September 6, 1782, of complications after childbirth. In November 1782 he wrote that he was only &quot;a little emerging from that stupor of mind which had rendered me as dead to the world as she was whose loss occasioned it.&quot;</strong><div class="muted">Documented grief, recorded as history; the modern episode records him as a widower and screens his mood without assigning a diagnosis.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://founders.archives.gov/documents/Jefferson/01-06-02-0192" target="_blank" rel="noreferrer">Thomas Jefferson to Chastellux, 26 November 1782</a> <span class="relationship">supports</span><br><a href="https://encyclopediavirginia.org/entries/jefferson-thomas-1743-1826/" target="_blank" rel="noreferrer">Looney JJ. Thomas Jefferson (1743-1826). Encyclopedia Virginia (Dictionary of Virginia Biography)</a> <span class="relationship">supports</span><br><a href="https://www.ccjm.org/content/51/3/531" target="_blank" rel="noreferrer">Battle JD Jr. The &quot;periodical head-achs&quot; of Thomas Jefferson. Cleveland Clinic Quarterly 1984;51(3):531-539</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>In March 1784, at Annapolis as a delegate to Congress, he wrote that he had &quot;lately added an attack of my periodical headach&quot; to his habitual ill health and had to avoid reading, writing and almost thinking; his letters thereafter call the attacks his &quot;periodical head-ach.&quot;</strong><div class="muted">The term he used for the recurring headaches; the anchor of the modern presenting problem.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.monticello.org/encyclopedia/headaches" target="_blank" rel="noreferrer">Headaches (Thomas Jefferson Encyclopedia)</a> <span class="relationship">supports</span><br><a href="https://www.ccjm.org/content/51/3/531" target="_blank" rel="noreferrer">Battle JD Jr. The &quot;periodical head-achs&quot; of Thomas Jefferson. Cleveland Clinic Quarterly 1984;51(3):531-539</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>In September 1786, in Paris, he dislocated his right wrist in a fall; the bones were set, but not well. He wrote with his left hand for a time, and in December 1788 wrote that the joint &quot;had never been replaced,&quot; that he had lost the use of the hand &quot;except that I can write,&quot; and that &quot;a withered hand and swelled and crooked fingers&quot; remained.</strong><div class="muted">Anchors the synthetic stiff right wrist and the slow, painful writing in the modern episode.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.monticello.org/encyclopedia/wrist-injury-1786" target="_blank" rel="noreferrer">Wrist Injury (1786) (Thomas Jefferson Encyclopedia)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>After five years in France as a diplomat, he took office as the first Secretary of State in New York City on March 21, 1790.</strong><div class="muted">Anchors the setting, work and timing of the modern episode.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.monticello.org/encyclopedia/new-york-city/" target="_blank" rel="noreferrer">New York City (Thomas Jefferson Encyclopedia)</a> <span class="relationship">supports</span><br><a href="https://encyclopediavirginia.org/entries/jefferson-thomas-1743-1826/" target="_blank" rel="noreferrer">Looney JJ. Thomas Jefferson (1743-1826). Encyclopedia Virginia (Dictionary of Virginia Biography)</a> <span class="relationship">supports</span><br><a href="https://www.monticello.org/jefferson-timeline" target="_blank" rel="noreferrer">Timeline of Jefferson&#39;s Life</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>In New York, a periodical headache &quot;came on me the 1st. of May&quot; 1790, and the first week was violent; his account books record purchases of Peruvian bark (cinchona) on May 1 and May 3.</strong><div class="muted">The documented attack at the index date; the modern episode begins seven days into it.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://founders.archives.gov/documents/Jefferson/01-16-02-0287" target="_blank" rel="noreferrer">Thomas Jefferson to Peter Carr, 13 June 1790</a> <span class="relationship">supports</span><br><a href="https://www.monticello.org/encyclopedia/headaches" target="_blank" rel="noreferrer">Headaches (Thomas Jefferson Encyclopedia)</a> <span class="relationship">supports</span><br><a href="https://www.ccjm.org/content/51/3/531" target="_blank" rel="noreferrer">Battle JD Jr. The &quot;periodical head-achs&quot; of Thomas Jefferson. Cleveland Clinic Quarterly 1984;51(3):531-539</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>The 1790 attack eased after the first week but lingered: on May 23 &quot;a lingering head-ach&quot; still kept him from business, and on June 13 he wrote that he had been able to do business for the past ten days and that it was &quot;the first time the bark had ever failed to remove my complaint very speedily.&quot;</strong><div class="muted">History after the index visit; the synthetic bout settles over the same weeks.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.monticello.org/encyclopedia/headaches" target="_blank" rel="noreferrer">Headaches (Thomas Jefferson Encyclopedia)</a> <span class="relationship">supports</span><br><a href="https://founders.archives.gov/documents/Jefferson/01-16-02-0287" target="_blank" rel="noreferrer">Thomas Jefferson to Peter Carr, 13 June 1790</a> <span class="relationship">supports</span><br><a href="https://www.ccjm.org/content/51/3/531" target="_blank" rel="noreferrer">Battle JD Jr. The &quot;periodical head-achs&quot; of Thomas Jefferson. Cleveland Clinic Quarterly 1984;51(3):531-539</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>During the 1790 attack a Baltimore physician wrote to him recommending a remedy containing opium for use when the bark failed; on June 13 he replied that the letter found him &quot;so far recovered as to have no further occasion for medecine.&quot;</strong><div class="muted">Anchors the teaching point that opioids are not used for migraine; no opioid use in 1790 is documented.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.ccjm.org/content/51/3/531" target="_blank" rel="noreferrer">Battle JD Jr. The &quot;periodical head-achs&quot; of Thomas Jefferson. Cleveland Clinic Quarterly 1984;51(3):531-539</a> <span class="relationship">supports</span><br><a href="https://www.monticello.org/encyclopedia/headaches" target="_blank" rel="noreferrer">Headaches (Thomas Jefferson Encyclopedia)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>In June 1791 he wrote that a journey had freed him &quot;from the almost constant headach with which I had been persecuted thro the whole winter and spring,&quot; and that being clear of it while travelling proved it had been &quot;occasioned by the drudgery of business.&quot;</strong><div class="muted">History after the modern episode; his own view of work stress as the cause.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.monticello.org/encyclopedia/headaches" target="_blank" rel="noreferrer">Headaches (Thomas Jefferson Encyclopedia)</a> <span class="relationship">supports</span><br><a href="https://www.ccjm.org/content/51/3/531" target="_blank" rel="noreferrer">Battle JD Jr. The &quot;periodical head-achs&quot; of Thomas Jefferson. Cleveland Clinic Quarterly 1984;51(3):531-539</a> <span class="relationship">supports</span><br><a href="https://www.monticello.org/encyclopedia/medicine" target="_blank" rel="noreferrer">Medicine (Thomas Jefferson Encyclopedia)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>In March 1807, as President, he described daily &quot;fits&quot; of periodical headache lasting from about nine or ten in the morning until dark, shortening from nine hours to five, during which he was &quot;shut up in a dark room&quot;; the last attack recorded in his letters was in March and April 1808.</strong><div class="muted">History after the modern episode; shows the daytime pattern and the dark room.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.monticello.org/encyclopedia/headaches" target="_blank" rel="noreferrer">Headaches (Thomas Jefferson Encyclopedia)</a> <span class="relationship">supports</span><br><a href="https://www.ccjm.org/content/51/3/531" target="_blank" rel="noreferrer">Battle JD Jr. The &quot;periodical head-achs&quot; of Thomas Jefferson. Cleveland Clinic Quarterly 1984;51(3):531-539</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>In 1819 he wrote that &quot;a periodical head ach has afflicted me occasionally, once perhaps in 6. or 8. years, for 2 or 3 weeks at a time, which seems now to have left me,&quot; and that &quot;a stiff wrist, the consequence of an early dislocation, makes writing both slow and painful.&quot;</strong><div class="muted">His own summary of the pattern, written after the modern episode.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://founders.archives.gov/documents/Jefferson/03-14-02-0144" target="_blank" rel="noreferrer">Thomas Jefferson to Vine Utley, 21 March 1819</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-R" title="Retrospective">R</span></td>
+    <td><strong>The nature of the headaches is disputed. Biographers since about 1930 have usually called them migraine, and his principal biographer called them &quot;probably migraine&quot;; a 1984 review argued for tension-type headaches; a 2006 review in Headache concluded that they probably were migraines, although not all current diagnostic criteria can be met; cluster headache has also been proposed.</strong><div class="muted">Migraine is a later interpretation, not a diagnosis made in his lifetime; the modern migraine diagnosis is synthetic.</div></td>
+    <td>disputed</td>
+    <td><a href="https://pubmed.ncbi.nlm.nih.gov/16618268/" target="_blank" rel="noreferrer">Cohen GL, Rolak LA. Thomas Jefferson&#39;s headaches: were they migraines? Headache 2006;46(3):492-497 (PMID 16618268)</a> <span class="relationship">supports</span><br><a href="https://www.ccjm.org/content/51/3/531" target="_blank" rel="noreferrer">Battle JD Jr. The &quot;periodical head-achs&quot; of Thomas Jefferson. Cleveland Clinic Quarterly 1984;51(3):531-539</a> <span class="relationship">disputes</span><br><a href="https://www.ccjm.org/content/51/3/531" target="_blank" rel="noreferrer">Battle JD Jr. The &quot;periodical head-achs&quot; of Thomas Jefferson. Cleveland Clinic Quarterly 1984;51(3):531-539</a> <span class="relationship">context</span><br><a href="https://www.monticello.org/encyclopedia/headaches" target="_blank" rel="noreferrer">Headaches (Thomas Jefferson Encyclopedia)</a> <span class="relationship">context</span><br><a href="https://humanrecord.example.org/internal/HISTMED_Master_Roster_v3.xlsx" target="_blank" rel="noreferrer">HISTMED Master Roster v3</a> <span class="relationship">context</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-R" title="Retrospective">R</span></td>
+    <td><strong>A 2008 medical biography states that he intermittently experienced anxiety, depression and insomnia.</strong><div class="muted">Retrospective interpretation; not used as a diagnosis in the modern episode, which screens his mood.</div></td>
+    <td>possible</td>
+    <td><a href="https://pubmed.ncbi.nlm.nih.gov/18463085/" target="_blank" rel="noreferrer">Schneeberg NG. The medical history of Thomas Jefferson (1743-1826). J Med Biogr 2008;16(2):118-125 (PMID 18463085)</a> <span class="relationship">supports</span><br><a href="https://humanrecord.example.org/internal/HISTMED_Master_Roster_v3.xlsx" target="_blank" rel="noreferrer">HISTMED Master Roster v3</a> <span class="relationship">context</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>In retirement he was increasingly troubled by rheumatism, and diarrhea troubled him through the last 25 years of his life; in 1825 he had &quot;a difficulty of making water,&quot; which his physician attributed to an enlarged prostate obstructing the flow of urine.</strong><div class="muted">History after the modern episode.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.monticello.org/encyclopedia/medicine" target="_blank" rel="noreferrer">Medicine (Thomas Jefferson Encyclopedia)</a> <span class="relationship">supports</span><br><a href="https://www.monticello.org/encyclopedia/jeffersons-cause-death/" target="_blank" rel="noreferrer">Cause of Thomas Jefferson&#39;s Death (Thomas Jefferson Encyclopedia)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>In his final years his physician prescribed laudanum, a tincture of opium, for diarrhea, and he accepted its regular use because it allowed him to resume his activities.</strong><div class="muted">History after the modern episode; recorded plainly as prescribed treatment of his time.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.monticello.org/encyclopedia/medicine" target="_blank" rel="noreferrer">Medicine (Thomas Jefferson Encyclopedia)</a> <span class="relationship">supports</span><br><a href="https://humanrecord.example.org/internal/HISTMED_Master_Roster_v3.xlsx" target="_blank" rel="noreferrer">HISTMED Master Roster v3</a> <span class="relationship">context</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-R" title="Retrospective">R</span></td>
+    <td><strong>His exact cause of death was never conclusively determined; a Monticello account suggests a combination of exhaustion from severe diarrhea, kidney infection and damage, and pneumonia.</strong><div class="muted">History only.</div></td>
+    <td>probable</td>
+    <td><a href="https://www.monticello.org/encyclopedia/jeffersons-cause-death/" target="_blank" rel="noreferrer">Cause of Thomas Jefferson&#39;s Death (Thomas Jefferson Encyclopedia)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>He enslaved more than 600 people over the course of his life; Monticello gives the number as more than 610, of whom about 400 lived in bondage at Monticello.</strong><div class="muted">A documented social and historical fact about his life, recorded plainly. It has no clinical role in the modern episode, and no health fact about any enslaved person is recorded.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.monticello.org/slavery/introduction" target="_blank" rel="noreferrer">Slavery at Monticello: Introduction</a> <span class="relationship">supports</span><br><a href="https://encyclopediavirginia.org/entries/jefferson-thomas-1743-1826/" target="_blank" rel="noreferrer">Looney JJ. Thomas Jefferson (1743-1826). Encyclopedia Virginia (Dictionary of Virginia Biography)</a> <span class="relationship">supports</span></td>
+  </tr></tbody></table></section>
+    <section><h2>Modern synthetic problem list</h2><table><thead><tr><th>Grade</th><th>Problem</th><th>Clinical status</th><th>Verification</th><th>Placement</th><th>Historical claims</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Recurrent disabling headaches since early adulthood, in bouts lasting days to weeks, now in the seventh day of a bout; under evaluation, with a two-week headache diary and a headache medicine consultation; no red flags</td>
+    <td>resolved</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td>CLM-0002, CLM-0004, CLM-0008</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Migraine without aura, episodic, with bouts of near-daily attacks lasting two to three weeks; ICHD-3 criteria met in a two-week diary; synthetic modern diagnosis linked to his documented periodical headaches, which historians have usually but not unanimously called migraine</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>both_with_link</td>
+    <td>CLM-0002, CLM-0004, CLM-0008, CLM-0013</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Stiffness and weakness of the right wrist and hand after a dislocation that healed out of place in early middle age; writing is slow and painful after about an hour</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>both_with_link</td>
+    <td>CLM-0006</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Common cold with nasal congestion and facial pressure, without bacterial sinusitis, early in propranolol prevention; resolved</td>
+    <td>resolved</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td></td>
+  </tr></tbody></table></section>
+    <section><h2>Synthetic outcome measures</h2><table><thead><tr><th>Grade</th><th>Date</th><th>Measure</th><th>Result</th><th>Coding</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1790-05-07</td>
+    <td>Because of your headaches on how many days in the last 3 months did you miss work or school [PhenX]</td>
+    <td>8 d</td>
+    <td>http://loinc.org · 65381-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1790-05-07</td>
+    <td>Because of your headaches on how many days in the last 3 months was your productivity at work or school reduced by half or more [PhenX]</td>
+    <td>14 d</td>
+    <td>http://loinc.org · 65382-4</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1790-05-07</td>
+    <td>Because of your headaches on how many days in the last 3 months did you not do household work [PhenX]</td>
+    <td>4 d</td>
+    <td>http://loinc.org · 65383-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1790-05-07</td>
+    <td>Because of your headaches on how many days in the last 3 months was your productivity in house-hold work reduced by half or more [PhenX]</td>
+    <td>6 d</td>
+    <td>http://loinc.org · 65384-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1790-05-07</td>
+    <td>Because of your headaches on how many days in the last 3 months did you miss family, social, or leisure activities [PhenX]</td>
+    <td>7 d</td>
+    <td>http://loinc.org · 65385-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1790-05-07</td>
+    <td>Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]</td>
+    <td>6</td>
+    <td>http://loinc.org · 44261-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1790-05-07</td>
+    <td>Generalized anxiety disorder 7 item (GAD-7) total score [Reported.PHQ]</td>
+    <td>7</td>
+    <td>http://loinc.org · 70274-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1790-05-07</td>
+    <td>Total score [AUDIT-C]</td>
+    <td>3</td>
+    <td>http://loinc.org · 75626-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1790-07-16</td>
+    <td>Patient Health Questionnaire 2 item (PHQ-2) total score [Reported]</td>
+    <td>0</td>
+    <td>http://loinc.org · 55758-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1790-07-16</td>
+    <td>Cholesterol [Mass/volume] in Serum or Plasma</td>
+    <td>182 mg/dL<div class="muted">Reference &lt;=199 mg/dL</div></td>
+    <td>http://loinc.org · 2093-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1790-07-16</td>
+    <td>Cholesterol in HDL [Mass/volume] in Serum or Plasma</td>
+    <td>64 mg/dL<div class="muted">Reference &gt;=40 mg/dL</div></td>
+    <td>http://loinc.org · 2085-9</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1790-07-16</td>
+    <td>Cholesterol in LDL [Mass/volume] in Serum or Plasma by calculation</td>
+    <td>102 mg/dL (high)<div class="muted">Reference &lt;=99 mg/dL</div></td>
+    <td>http://loinc.org · 13457-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1790-07-16</td>
+    <td>Triglyceride [Mass/volume] in Serum or Plasma</td>
+    <td>80 mg/dL<div class="muted">Reference &lt;=149 mg/dL</div></td>
+    <td>http://loinc.org · 2571-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1790-08-13</td>
+    <td>Because of your headaches on how many days in the last 3 months did you miss work or school [PhenX]</td>
+    <td>3 d</td>
+    <td>http://loinc.org · 65381-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1790-08-13</td>
+    <td>Because of your headaches on how many days in the last 3 months was your productivity at work or school reduced by half or more [PhenX]</td>
+    <td>5 d</td>
+    <td>http://loinc.org · 65382-4</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1790-08-13</td>
+    <td>Because of your headaches on how many days in the last 3 months did you not do household work [PhenX]</td>
+    <td>1 d</td>
+    <td>http://loinc.org · 65383-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1790-08-13</td>
+    <td>Because of your headaches on how many days in the last 3 months was your productivity in house-hold work reduced by half or more [PhenX]</td>
+    <td>2 d</td>
+    <td>http://loinc.org · 65384-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1790-08-13</td>
+    <td>Because of your headaches on how many days in the last 3 months did you miss family, social, or leisure activities [PhenX]</td>
+    <td>2 d</td>
+    <td>http://loinc.org · 65385-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1790-08-13</td>
+    <td>Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]</td>
+    <td>3</td>
+    <td>http://loinc.org · 44261-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1790-08-13</td>
+    <td>Generalized anxiety disorder 7 item (GAD-7) total score [Reported.PHQ]</td>
+    <td>4</td>
+    <td>http://loinc.org · 70274-6</td>
+  </tr></tbody></table></section>
+    <section><h2>Synthetic vital signs</h2><table><thead><tr><th>Date</th><th>Measure</th><th>Result</th><th>LOINC</th><th>Grade</th></tr></thead><tbody>
+  <tr><td>1790-05-07</td><td>Body height</td><td>189 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1790-05-07</td><td>Body weight</td><td>76 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1790-05-07</td><td>Body mass index (BMI) [Ratio]</td><td>21.3 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1790-05-07</td><td>Systolic blood pressure</td><td>126 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1790-05-07</td><td>Diastolic blood pressure</td><td>80 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1790-05-07</td><td>Heart rate</td><td>74 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1790-05-07</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1790-05-07</td><td>Body temperature</td><td>36.7 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1790-05-07</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>98 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1790-05-21</td><td>Body height</td><td>189 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1790-05-21</td><td>Body weight</td><td>76.2 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1790-05-21</td><td>Body mass index (BMI) [Ratio]</td><td>21.3 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1790-05-21</td><td>Systolic blood pressure</td><td>122 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1790-05-21</td><td>Diastolic blood pressure</td><td>78 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1790-05-21</td><td>Heart rate</td><td>70 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1790-05-21</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1790-05-21</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1790-05-21</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>98 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1790-06-18</td><td>Body height</td><td>189 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1790-06-18</td><td>Body weight</td><td>76 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1790-06-18</td><td>Body mass index (BMI) [Ratio]</td><td>21.3 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1790-06-18</td><td>Systolic blood pressure</td><td>116 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1790-06-18</td><td>Diastolic blood pressure</td><td>74 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1790-06-18</td><td>Heart rate</td><td>60 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1790-06-18</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1790-06-18</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1790-06-18</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>98 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1790-08-13</td><td>Body height</td><td>189 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1790-08-13</td><td>Body weight</td><td>76.6 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1790-08-13</td><td>Body mass index (BMI) [Ratio]</td><td>21.4 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1790-08-13</td><td>Systolic blood pressure</td><td>112 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1790-08-13</td><td>Diastolic blood pressure</td><td>72 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1790-08-13</td><td>Heart rate</td><td>58 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1790-08-13</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1790-08-13</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1790-08-13</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>98 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1790-07-16</td><td>Body height</td><td>189 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1790-07-16</td><td>Body weight</td><td>76.4 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1790-07-16</td><td>Body mass index (BMI) [Ratio]</td><td>21.4 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1790-07-16</td><td>Systolic blood pressure</td><td>114 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1790-07-16</td><td>Diastolic blood pressure</td><td>72 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1790-07-16</td><td>Heart rate</td><td>58 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1790-07-16</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1790-07-16</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1790-07-16</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>98 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1790-06-08</td><td>Body height</td><td>189 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1790-06-08</td><td>Body weight</td><td>75.8 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1790-06-08</td><td>Body mass index (BMI) [Ratio]</td><td>21.2 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1790-06-08</td><td>Systolic blood pressure</td><td>118 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1790-06-08</td><td>Diastolic blood pressure</td><td>74 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1790-06-08</td><td>Heart rate</td><td>64 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1790-06-08</td><td>Respiratory rate</td><td>16 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1790-06-08</td><td>Body temperature</td><td>37.4 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1790-06-08</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>98 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr></tbody></table></section>
+    <section><h2>Social, functional, and mental status</h2><h3>Social history</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Cabinet secretary for foreign affairs who took up the post seven weeks ago in New York after five years abroad as a diplomat; long days of reading, correspondence and reports, often finished late in the evening</li><li><span class="badge grade-S" title="Synthetic">S</span> Widower for nearly eight years; two daughters, one of them married, who live in Virginia; lives alone in a rented house and hopes to find a better one</li><li><span class="badge grade-S" title="Synthetic">S</span> Keeps careful daily account books and notebooks, and agreed at once to keep a headache diary</li><li><span class="badge grade-S" title="Synthetic">S</span> Alcohol: a glass of wine with dinner two or three times a week (AUDIT-C 3); never drinks spirits</li><li><span class="badge grade-S" title="Synthetic">S</span> Never used tobacco; two cups of coffee each morning, more on long days</li><li><span class="badge grade-S" title="Synthetic">S</span> Sleeps six to seven hours, rising at first light; meals often skipped on busy days; walks most days, though not during a bout</li><li><span class="badge grade-S" title="Synthetic">S</span> Strengths: curiosity about how his body works, a methodical habit of record-keeping, close friends, and work he cares about</li></ul><h3>Functional status</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Independent in all activities; during a bout he can read or write for only about an hour in the morning before the pain sets in and must stop work by midday; writing by hand is slow and painful after about an hour because of the right wrist. Headache disability: MIDAS 39 (grade IV, severe) over the past three months; HIT-6 66 (severe impact)</li></ul><h3>Mental status</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Alert, courteous and precise; reserved at first; speech normal; mood tired and frustrated; PHQ-9 6 with item 9 scored 0, GAD-7 7; no thoughts of self-harm</li></ul></section>
+    
+    <section><h2>Allergies and medications</h2><h3>Allergies</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> No known allergy</li></ul><h3>Medications</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Naproxen 500 mg oral tablet, one tablet with food at the start of a headache, may repeat once after 12 hours; no more than two days a week</li><li><span class="badge grade-S" title="Synthetic">S</span> Metoclopramide 10 mg oral tablet, one tablet with the naproxen when a headache brings nausea; no more than two days a week</li><li><span class="badge grade-S" title="Synthetic">S</span> Sumatriptan 100 mg oral tablet, one tablet with naproxen early in a migraine attack, may repeat once after 2 hours; no more than two tablets a day and no more than nine days a month</li><li><span class="badge grade-S" title="Synthetic">S</span> Propranolol extended-release 80 mg oral capsule, one capsule each evening, for migraine prevention</li><li><span class="badge grade-S" title="Synthetic">S</span> Propranolol extended-release 120 mg oral capsule, one capsule each evening, for migraine prevention</li></ul></section>
+    <section><h2>Procedures and immunizations</h2><h3>Procedures</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Advance care planning conversation, about 18 minutes</li></ul><h3>Immunizations</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> 1790-07-16: Tdap vaccine; last tetanus booster more than ten years ago</li><li><span class="badge grade-S" title="Synthetic">S</span> 1790-07-16: Hepatitis B vaccine (HepB-CpG), first of two doses</li><li><span class="badge grade-S" title="Synthetic">S</span> 1790-08-13: Hepatitis B vaccine (HepB-CpG), second of two doses</li></ul></section>
+    <section><h2>Past medical history</h2><p class="muted">True biography with historical dates; not part of the synthetic care timeline.</p><ul><li><span class="badge grade-D" title="Documented">D</span> from March 1764: Recurrent severe headaches in his letters from early adulthood, lasting from two days to several weeks, which he called his periodical headache <span class="muted">(CLM-0002, CLM-0003, CLM-0004)</span></li><li><span class="badge grade-D" title="Documented">D</span> September 1782: Profound grief after his wife&#39;s death, which he later described as a stupor of mind; recorded without diagnosis <span class="muted">(CLM-0005)</span></li><li><span class="badge grade-D" title="Documented">D</span> September 1786: Dislocation of the right wrist in a fall, set badly; lasting stiffness, swelling and crooked fingers, though he can write <span class="muted">(CLM-0006)</span></li></ul><h3>Family history</h3><p class="muted">No family medical history is documented in the logged sources. Family history of real relatives is never synthesized.</p></section>
+    <section><h2>Care-plan goals</h2><table><thead><tr><th>Goal</th><th>Target date</th><th>Status</th><th>Outcome</th></tr></thead><tbody>
+  <tr><td>A two-week headache diary that allows a firm diagnosis</td><td>1790-05-21</td><td>completed</td><td>Diary of 14 days kept; ICHD-3 criteria for migraine without aura met; no red flags</td></tr>
+  <tr><td>Monthly migraine days reduced by at least half within three months of starting prevention</td><td>1790-08-13</td><td>completed</td><td>From 13 migraine days in the four weeks before prevention to 3 in the last four weeks</td></tr>
+  <tr><td>Acute medicine on no more than two days a week, so that medication overuse headache does not develop</td><td>1790-08-13</td><td>completed</td><td>Acute medicine on 3 days in the last four weeks; no combination analgesic or caffeine pill since intake</td></tr>
+  <tr><td>Pain-free within two hours of acute treatment in most attacks</td><td>1790-08-13</td><td>completed</td><td>Pain-free at two hours in 6 of 8 attacks treated with sumatriptan and naproxen since the consultation</td></tr>
+  <tr><td>Lower headache-related disability</td><td>1790-08-13</td><td>completed</td><td>MIDAS 39 (grade IV) to 13 (grade III); the three-month recall still includes the end of the May bout</td></tr>
+  <tr><td>Write for longer without wrist pain</td><td>1790-08-13</td><td>active</td><td>Dictation and a wrist splint for long writing; about two hours with breaks</td></tr></tbody></table></section>
+    <section><h2>Interventions</h2><table><thead><tr><th>Intervention</th><th>Status</th><th>Guideline</th></tr></thead><tbody>
+  <tr><td>Diagnosis: a structured headache history, a red-flag screen (SNNOOP10) at every visit, a 14-day headache diary of attacks, features, triggers and medicine days, and ICHD-3 criteria; no neuroimaging for a stable long-standing pattern without red flags, with clear reasons that would change that</td><td>completed</td><td>GL-ICHD3-2018, GL-AHS-CW-2013, GL-AHS-2021</td></tr>
+  <tr><td>Neurology (headache medicine) consultation to confirm the diagnosis and advise on acute and preventive treatment</td><td>completed</td><td>GL-AHS-2021, GL-AHS-CGRP-2024</td></tr>
+  <tr><td>Acute treatment at intake: naproxen early in an attack, with metoclopramide for nausea, no more than two days a week; stop the over-the-counter combination analgesic with caffeine; no opioids or butalbital</td><td>completed</td><td>GL-AHS-2019, GL-ACP-ACUTE-2025, GL-AHS-CW-2013</td></tr>
+  <tr><td>Acute treatment after the diagnosis: sumatriptan 100 mg with naproxen early in a migraine attack, a second sumatriptan dose after two hours if needed; a gepant or lasmiditan if a triptan fails or becomes unsuitable</td><td>completed</td><td>GL-AHS-2019, GL-ACP-ACUTE-2025, GL-AHS-2021</td></tr>
+  <tr><td>Medication overuse headache prevention: acute-medicine days counted in the diary, with limits of fewer than 10 days a month for a triptan or combination analgesic and fewer than 15 for an NSAID; never caffeine pills or combination products</td><td>completed</td><td>GL-ICHD3-2018, GL-AHS-2021</td></tr>
+  <tr><td>Preventive treatment, since bouts bring six or more migraine days a month with severe disability: propranolol extended-release, starting at 80 mg and raised to 120 mg if tolerated, with pulse, blood pressure, energy and mood checked; efficacy judged at two to three months (at least half as many migraine days); a CGRP monoclonal antibody as the next option, or sooner if propranolol is not tolerated; topiramate and amitriptyline not chosen because of their effects on concentration and morning alertness</td><td>completed</td><td>GL-AHS-2021, GL-AHS-CGRP-2024, GL-ACP-PREV-2025, GL-AAN-PREV-2012</td></tr>
+  <tr><td>Lifestyle and triggers: a fixed wake and sleep time, regular meals on working days, a steady modest amount of caffeine, fluids, daily walks, and a stress plan for long working days with breaks from reading; relaxation training and biofeedback offered</td><td>completed</td><td>GL-AHS-2021</td></tr>
+  <tr><td>Wrist and writing: an occupational therapy visit for hand function, a wrist splint for long writing sessions, dictation software, and a desk set up to spare the wrist and neck</td><td>completed</td><td>GL-AHS-2021</td></tr></tbody></table></section>
+    <section><h2>Planned encounters</h2><ul>
+  <li><strong>1790-05-07</strong> — Establishing primary care for recurrent disabling headaches, seven days into a bout: headache history and red-flag screen, a headache diary, disability and mood screening, acute treatment, avoiding medication overuse, and an old right wrist injury that slows his writing <span class="muted">(ENC-001)</span></li>
+  <li><strong>1790-05-21</strong> — Two-week review of the headache diary, seen the same day by headache medicine: diagnosis, acute treatment and the decision on preventive treatment <span class="muted">(ENC-002)</span></li>
+  <li><strong>1790-06-08</strong> — Same-day sick visit for a head cold <span class="muted">(ENC-006, unscheduled)</span></li>
+  <li><strong>1790-06-18</strong> — Six-week review, four weeks after starting propranolol: tolerability, attacks, acute medicine days and the wrist <span class="muted">(ENC-003)</span></li>
+  <li><strong>1790-07-16</strong> — Periodic adult preventive visit <span class="muted">(ENC-005)</span></li>
+  <li><strong>1790-08-13</strong> — Three-month review: response to prevention, disability, acute medicine use and the plan ahead <span class="muted">(ENC-004)</span></li></ul></section>
+    <section><h2>Supporting documents</h2><ul><li><a href="notes/hp.md">History and physical</a></li><li><a href="notes/progress-01.md">Progress note 01</a></li><li><a href="notes/progress-02.md">Progress note 02 — Focused Visit (Follow-up)</a></li><li><a href="notes/progress-03.md">Progress note 03 — Sick Visit</a></li><li><a href="notes/progress-04.md">Progress note 04 — Focused Visit (Follow-up)</a></li><li><a href="notes/progress-05.md">Progress note 05 — Preventive Visit</a></li><li><a href="notes/progress-06.md">Progress note 06 — Focused Visit (Care-plan review)</a></li><li><a href="notes/referral-01.md">Neurology (headache medicine) referral</a></li><li><a href="notes/consult-01.md">Neurology (headache medicine) consultation</a></li><li><a href="notes/careplan.md">Patient care plan</a></li><li><a href="notes/teaching-note.md">Teaching note</a></li><li><a href="provenance.csv">Provenance CSV</a></li></ul></section>
+    <section><h2>C-CDA note documents</h2><p class="muted">Each link opens a readable copy; the XML beside it is the exchange file.</p><ul><li><a href="ccda/hp-01.html">History and physical</a> <a href="ccda/hp-01.xml">(XML)</a></li><li><a href="ccda/progress-01.html">Progress note 01</a> <a href="ccda/progress-01.xml">(XML)</a></li><li><a href="ccda/progress-02.html">Progress note 02 — Focused Visit (Follow-up)</a> <a href="ccda/progress-02.xml">(XML)</a></li><li><a href="ccda/progress-03.html">Progress note 03 — Sick Visit</a> <a href="ccda/progress-03.xml">(XML)</a></li><li><a href="ccda/progress-04.html">Progress note 04 — Focused Visit (Follow-up)</a> <a href="ccda/progress-04.xml">(XML)</a></li><li><a href="ccda/progress-05.html">Progress note 05 — Preventive Visit</a> <a href="ccda/progress-05.xml">(XML)</a></li><li><a href="ccda/progress-06.html">Progress note 06 — Focused Visit (Care-plan review)</a> <a href="ccda/progress-06.xml">(XML)</a></li><li><a href="ccda/referral-01.html">Neurology (headache medicine) referral</a> <a href="ccda/referral-01.xml">(XML)</a></li><li><a href="ccda/consult-01.html">Neurology (headache medicine) consultation</a> <a href="ccda/consult-01.xml">(XML)</a></li></ul></section>
+    <section><h2>Sources</h2><table><thead><tr><th>ID</th><th>Source</th><th>Publisher</th><th>Type</th></tr></thead><tbody>
+  <tr>
+    <td>SRC-0001</td>
+    <td><a href="https://www.monticello.org/encyclopedia/headaches" target="_blank" rel="noreferrer">Headaches (Thomas Jefferson Encyclopedia)</a></td>
+    <td>Thomas Jefferson Foundation, Monticello</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0002</td>
+    <td><a href="https://www.ccjm.org/content/51/3/531" target="_blank" rel="noreferrer">Battle JD Jr. The &quot;periodical head-achs&quot; of Thomas Jefferson. Cleveland Clinic Quarterly 1984;51(3):531-539</a></td>
+    <td>Cleveland Clinic Journal of Medicine</td>
+    <td>scholarly</td>
+  </tr>
+  <tr>
+    <td>SRC-0003</td>
+    <td><a href="https://founders.archives.gov/documents/Jefferson/01-01-02-0009" target="_blank" rel="noreferrer">Thomas Jefferson to William Fleming, 20 March 1764</a></td>
+    <td>Founders Online, National Archives</td>
+    <td>primary</td>
+  </tr>
+  <tr>
+    <td>SRC-0004</td>
+    <td><a href="https://founders.archives.gov/documents/Jefferson/01-16-02-0287" target="_blank" rel="noreferrer">Thomas Jefferson to Peter Carr, 13 June 1790</a></td>
+    <td>Founders Online, National Archives</td>
+    <td>primary</td>
+  </tr>
+  <tr>
+    <td>SRC-0005</td>
+    <td><a href="https://founders.archives.gov/documents/Jefferson/01-06-02-0192" target="_blank" rel="noreferrer">Thomas Jefferson to Chastellux, 26 November 1782</a></td>
+    <td>Founders Online, National Archives</td>
+    <td>primary</td>
+  </tr>
+  <tr>
+    <td>SRC-0006</td>
+    <td><a href="https://founders.archives.gov/documents/Jefferson/03-14-02-0144" target="_blank" rel="noreferrer">Thomas Jefferson to Vine Utley, 21 March 1819</a></td>
+    <td>Founders Online, National Archives</td>
+    <td>primary</td>
+  </tr>
+  <tr>
+    <td>SRC-0007</td>
+    <td><a href="https://www.monticello.org/encyclopedia/wrist-injury-1786" target="_blank" rel="noreferrer">Wrist Injury (1786) (Thomas Jefferson Encyclopedia)</a></td>
+    <td>Thomas Jefferson Foundation, Monticello</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0008</td>
+    <td><a href="https://www.monticello.org/encyclopedia/new-york-city/" target="_blank" rel="noreferrer">New York City (Thomas Jefferson Encyclopedia)</a></td>
+    <td>Thomas Jefferson Foundation, Monticello</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0009</td>
+    <td><a href="https://www.monticello.org/encyclopedia/medicine" target="_blank" rel="noreferrer">Medicine (Thomas Jefferson Encyclopedia)</a></td>
+    <td>Thomas Jefferson Foundation, Monticello</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0010</td>
+    <td><a href="https://www.monticello.org/encyclopedia/jeffersons-cause-death/" target="_blank" rel="noreferrer">Cause of Thomas Jefferson&#39;s Death (Thomas Jefferson Encyclopedia)</a></td>
+    <td>Thomas Jefferson Foundation, Monticello</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0011</td>
+    <td><a href="https://www.monticello.org/slavery/introduction" target="_blank" rel="noreferrer">Slavery at Monticello: Introduction</a></td>
+    <td>Thomas Jefferson Foundation, Monticello</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0012</td>
+    <td><a href="https://encyclopediavirginia.org/entries/jefferson-thomas-1743-1826/" target="_blank" rel="noreferrer">Looney JJ. Thomas Jefferson (1743-1826). Encyclopedia Virginia (Dictionary of Virginia Biography)</a></td>
+    <td>Virginia Humanities</td>
+    <td>biography</td>
+  </tr>
+  <tr>
+    <td>SRC-0013</td>
+    <td><a href="https://www.monticello.org/jefferson-timeline" target="_blank" rel="noreferrer">Timeline of Jefferson&#39;s Life</a></td>
+    <td>Thomas Jefferson Foundation, Monticello</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0014</td>
+    <td><a href="https://pubmed.ncbi.nlm.nih.gov/16618268/" target="_blank" rel="noreferrer">Cohen GL, Rolak LA. Thomas Jefferson&#39;s headaches: were they migraines? Headache 2006;46(3):492-497 (PMID 16618268)</a></td>
+    <td>Headache (American Headache Society)</td>
+    <td>scholarly</td>
+  </tr>
+  <tr>
+    <td>SRC-0015</td>
+    <td><a href="https://pubmed.ncbi.nlm.nih.gov/18463085/" target="_blank" rel="noreferrer">Schneeberg NG. The medical history of Thomas Jefferson (1743-1826). J Med Biogr 2008;16(2):118-125 (PMID 18463085)</a></td>
+    <td>Journal of Medical Biography</td>
+    <td>scholarly</td>
+  </tr>
+  <tr>
+    <td>SRC-0016</td>
+    <td><a href="https://humanrecord.example.org/internal/HISTMED_Master_Roster_v3.xlsx" target="_blank" rel="noreferrer">HISTMED Master Roster v3</a></td>
+    <td>The Human Record project</td>
+    <td>other</td>
+  </tr></tbody></table></section>
+    <section><h2>Review status</h2><table><thead><tr><th>Review</th><th>Status</th><th>Notes</th></tr></thead><tbody>
+  <tr><td>schema validation</td><td>not_started</td><td>Run scripts/build.ps1 -Conformance.</td></tr>
+  <tr><td>clinical review</td><td>not_started</td><td>Awaiting clinician review; check the ICHD-3 criteria in the diary, the red-flag screen and the decision not to image, the acute plan (naproxen and metoclopramide at intake, sumatriptan with naproxen after the diagnosis), the medication-overuse limits, the preventive indication and the choice of propranolol over a CGRP monoclonal antibody, topiramate and amitriptyline, and the MIDAS recorded as its five items.</td></tr>
+  <tr><td>provenance review</td><td>not_started</td><td>Sources: Founders Online (four letters), five Thomas Jefferson Foundation (Monticello) encyclopedia and slavery pages and its timeline, Encyclopedia Virginia, Battle (Cleveland Clinic Quarterly 1984, full text), and the PubMed abstracts of Cohen and Rolak (Headache 2006) and Schneeberg (J Med Biogr 2008). Migraine is graded R and disputed; the roster&#39;s depression lead is R and possible; the roster&#39;s diabetes, dental disease and financial-ruin leads are not used.</td></tr>
+  <tr><td>safe messaging review</td><td>not_started</td><td>Grief, the depression interpretation, the opium remedy offered in 1790 and the laudanum of his last years are marked sensitive and recorded plainly; no mood diagnosis is made. The number of people he enslaved is recorded as a documented historical fact, without euphemism, and has no clinical role; no enslaved person is named and no health fact about any enslaved person is recorded. No relative is named or given a role in the modern episode.</td></tr></tbody></table></section>
+  </main>
+</body>
+</html>

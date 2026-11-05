@@ -388,6 +388,10 @@ function Test-NpiChecksum([string]$Digits) {
     }
     return ((10 - ($sum % 10)) % 10) -eq [int][string]$Digits[9]
 }
+# Ten-digit SNOMED CT codes can pass the NPI check digit by chance; numbers the record uses as a coded
+# "code" value are terminology, not identifiers, so the NPI scan skips them.
+$codedValues = @{}
+foreach ($match in [regex]::Matches($scanText[$casePath], '"code"\s*:\s*"(\d{10})"')) { $codedValues[$match.Groups[1].Value] = $true }
 foreach ($file in $scanFiles) {
     $name = Split-Path -Leaf $file
     foreach ($match in [regex]::Matches($scanText[$file], '(?<![\w-])(?!000-)\d{3}-\d{2}-\d{4}(?![\w-])')) { $errors.Add("Possible Social Security number in ${name}: $($match.Value)") }
@@ -395,7 +399,7 @@ foreach ($file in $scanFiles) {
         if ($match.Value -notmatch '555[-. ]01\d\d$') { $errors.Add("Phone number outside the fictional 555-0100 to 555-0199 range in ${name}: $($match.Value)") }
     }
     foreach ($match in [regex]::Matches($scanText[$file], '(?<![\w.-])[12]\d{9}(?![\w.-])')) {
-        if (Test-NpiChecksum $match.Value) { $errors.Add("Valid-format NPI in ${name}: $($match.Value)") }
+        if (-not $codedValues.ContainsKey($match.Value) -and (Test-NpiChecksum $match.Value)) { $errors.Add("Valid-format NPI in ${name}: $($match.Value)") }
     }
 }
 
