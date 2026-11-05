@@ -1,0 +1,582 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Elizabeth I — The Human Record</title>
+  <style>
+    :root { --navy:#17365d; --blue:#1f4e78; --pale:#eef5fa; --ink:#1f2933; --muted:#66788a; --amber:#fff2cc; --red:#f8d7da; --green:#d9ead3; }
+    * { box-sizing:border-box; }
+    body { margin:0; font:16px/1.5 Arial, sans-serif; color:var(--ink); background:#f6f8fa; }
+    header { background:var(--navy); color:white; padding:24px max(24px,calc((100vw - 1180px)/2)); }
+    header h1 { margin:4px 0; font-size:30px; }
+    .banner { background:#b42318; color:white; font-weight:700; text-align:center; padding:10px; letter-spacing:.03em; }
+    main { max-width:1180px; margin:24px auto 60px; padding:0 24px; }
+    section { background:white; border:1px solid #d9e1e8; border-radius:8px; margin:18px 0; padding:20px; }
+    h2 { color:var(--navy); margin:0 0 14px; font-size:22px; }
+    h3 { color:var(--blue); }
+    .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:12px; }
+    .card { background:var(--pale); border-left:4px solid var(--blue); padding:12px; }
+    .label { color:var(--muted); font-size:13px; text-transform:uppercase; letter-spacing:.04em; }
+    table { width:100%; border-collapse:collapse; }
+    th { background:var(--blue); color:white; text-align:left; }
+    th,td { padding:9px; border-bottom:1px solid #dfe6ec; vertical-align:top; }
+    .badge { display:inline-block; min-width:28px; text-align:center; font-weight:700; border-radius:12px; padding:2px 8px; }
+    .grade-D { background:var(--green); } .grade-R { background:var(--amber); } .grade-S { background:var(--red); }
+    .muted { color:var(--muted); font-size:14px; }
+    .relationship { color:var(--muted); font-size:12px; }
+    .downloads a { display:inline-block; margin:4px 8px 4px 0; padding:8px 12px; background:var(--blue); color:white; text-decoration:none; border-radius:5px; }
+    @media (max-width:700px) { table { display:block; overflow-x:auto; } }
+  </style>
+</head>
+<body>
+  <div class="banner">SYNTHETIC RECORD, NOT A REAL MEDICAL RECORD</div>
+  <div class="banner">True-date frame: synthetic events are moved into the patient&#39;s historical lifetime. Codes, instruments, and treatments remain modern and are anachronistic.</div>
+  <header>
+    <div>The Human Record</div>
+    <h1>Elizabeth I</h1>
+    <div>Case HR-RE003-TD · Modern EHR teaching episode · Draft for review</div>
+  </header>
+  <main>
+    <section>
+      <h2>Review summary</h2>
+      <div class="grid">
+        <div class="card"><div class="label">Historical dates</div>17 September 1533 (proleptic Gregorian) – 3 April 1603 (Gregorian)</div>
+        <div class="card"><div class="label">Synthetic DOB</div>1533-09-17</div>
+        <div class="card"><div class="label">Index visit</div>1603-01-12 at age 69</div>
+        <div class="card"><div class="label">Synthetic MRN</div>HR-RE003-SYN-TD</div>
+      </div>
+      <p><strong>Teaching objective:</strong> Evaluate and treat major depression in a 69-year-old woman who holds a demanding lifelong public office, after several bereavements, following the 1596 APA depression guideline (combined second-generation antidepressant and interpersonal psychotherapy for older adults), the 1599 VA/DoD MDD guideline, the CMID depression monograph, and the 1600 AGS Beers Criteria: a presenting problem of low mood, poor sleep, poor intake, and weight loss worked up for medical causes (blood count, metabolic panel, calcium, albumin, thyroid, vitamin B12, folate, a cognitive screen, and a medication review that stops an anticholinergic sleep aid); PHQ-9 and GDS-15 for measurement-based care; suicide-risk assessment with a passive death wish, a safety plan, and the 988 Lifeline, reviewed at every visit; sertraline started low and raised slowly, with a sodium check for SSRI-related hyponatremia; CBT for insomnia rather than hypnotics; nutrition, dental care, and weight; falls prevention while starting an SSRI; grief distinguished from depression; and the privacy of a public figure.</p>
+      <div class="downloads">
+        <a href="../case.json">Canonical JSON</a>
+        <a href="fhir-bundle.json">FHIR R4 draft</a>
+        <a href="ccda.html">C-CDA R2.1 summary</a> <a href="ccda.xml">(XML)</a>
+        <a href="../sources.md">Evidence dossier</a>
+      </div>
+    </section>
+    <section><h2>Historical timeline</h2><table><thead><tr><th>Date</th><th>Event</th><th>Claims</th></tr></thead><tbody>
+  <tr><td>17 September 1533 (7 September 1533, Julian)</td><td>Born at Greenwich.</td><td>CLM-0001</td></tr>
+  <tr><td>1536</td><td>Her mother is executed.</td><td>CLM-0002</td></tr>
+  <tr><td>November 1558</td><td>Succeeds her half-sister as Queen.</td><td>CLM-0003</td></tr>
+  <tr><td>October 1562 (Julian; late October to early November, Gregorian)</td><td>Smallpox at Hampton Court, with recovery.</td><td>CLM-0004, CLM-0005</td></tr>
+  <tr><td>August 1598 (Julian)</td><td>A visitor describes her teeth as black.</td><td>CLM-0006</td></tr>
+  <tr><td>7 March 1601 (25 February 1601, Julian)</td><td>The Earl of Essex is executed.</td><td>CLM-0008</td></tr>
+  <tr><td>1602</td><td>An ache in her arm, side, and hip; otherwise in good health through the summer.</td><td>CLM-0009</td></tr>
+  <tr><td>December 1602 (Julian)</td><td>Strains her foot and falls entering her barge; low spirits and little appetite in her godson&#39;s letter.</td><td>CLM-0010, CLM-0011</td></tr>
+  <tr><td>21 January to 6 February 1603 (Julian)</td><td>A cold before the move to Richmond; well amended there.</td><td>CLM-0012</td></tr>
+  <tr><td>7 March 1603 (25 February 1603, Julian)</td><td>Her cousin and lady of the Privy Chamber, the Countess of Nottingham, dies; the Queen grieves.</td><td>CLM-0013, CLM-0020</td></tr>
+  <tr><td>March 1603 (Julian)</td><td>Sleeplessness, poor appetite, deep melancholy, refusal of food, rest, and physic; her chaplain dates her melancholy by fits to the previous three or four months.</td><td>CLM-0014, CLM-0015, CLM-0016, CLM-0017, CLM-0018</td></tr>
+  <tr><td>3 April 1603 (24 March 1603, Julian; written 1602 by the English legal year)</td><td>Dies at Richmond Palace, aged 69; causes proposed later are disputed.</td><td>CLM-0019, CLM-0007, CLM-0021</td></tr></tbody></table></section>
+    <section><h2>Evidence claims</h2><p class="muted">D = documented, R = retrospective, S = synthetic.</p><table><thead><tr><th>Grade</th><th>Claim</th><th>Certainty</th><th>Sources</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>Elizabeth was born at Greenwich on 7 September 1533 (Julian calendar; 17 September 1533 in the proleptic Gregorian calendar), the daughter of Henry VIII and his second wife, Anne Boleyn.</strong></td>
+    <td>confirmed</td>
+    <td><a href="https://www.westminster-abbey.org/abbey-commemorations/royals/elizabeth-i" target="_blank" rel="noreferrer">Elizabeth I</a> <span class="relationship">supports</span><br><a href="https://www.royal.uk/elizabeth-i" target="_blank" rel="noreferrer">Elizabeth I (r.1558-1603); Henry VIII (r.1509-1547)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>Her mother, Anne Boleyn, was executed in 1536, when Elizabeth was two; her father, Henry VIII, reigned until 1547.</strong><div class="muted">Family history; the cause of her father&#39;s death is not recorded in the cited source.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.royal.uk/elizabeth-i" target="_blank" rel="noreferrer">Elizabeth I (r.1558-1603); Henry VIII (r.1509-1547)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>She succeeded her half-sister Mary I on Mary&#39;s death in November 1558 and never married.</strong></td>
+    <td>confirmed</td>
+    <td><a href="https://www.royal.uk/elizabeth-i" target="_blank" rel="noreferrer">Elizabeth I (r.1558-1603); Henry VIII (r.1509-1547)</a> <span class="relationship">supports</span><br><a href="https://www.westminster-abbey.org/abbey-commemorations/royals/elizabeth-i" target="_blank" rel="noreferrer">Elizabeth I</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>In October 1562, aged 29, she fell ill at Hampton Court with a fever that turned to smallpox. On 15 October she wrote that a hot fever prevented her writing more; the Spanish ambassador reported that she lost her speech and was thought lost, that the eruption appeared in the night, and that she then improved. The court feared for the succession, and she recovered.</strong><div class="muted">Dates in the source are Julian; the illness ran in the second half of October 1562.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://folgerpedia.folger.edu/mediawiki/media/images_pedia_folgerpedia_mw/d/d9/ECDbD_1562.pdf" target="_blank" rel="noreferrer">Colthorpe ME. The Elizabethan Court Day by Day: 1562</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>Lady Sidney, who nursed her through the smallpox, caught it and was scarred for life; the court chronology states that, unlike the Queen, she was scarred. A medal struck for the Queen&#39;s recovery shows her face unblemished.</strong><div class="muted">The roster&#39;s lead of facial scarring from smallpox is not supported by this source.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://folgerpedia.folger.edu/mediawiki/media/images_pedia_folgerpedia_mw/d/d9/ECDbD_1562.pdf" target="_blank" rel="noreferrer">Colthorpe ME. The Elizabethan Court Day by Day: 1562</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>A German visitor who saw her at Greenwich in August 1598, in her 65th year, described her face as fair but wrinkled and her teeth as black, a defect he attributed to the English use of sugar.</strong><div class="muted">An eyewitness description; it says nothing of the cause.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://folgerpedia.folger.edu/images/b/b3/ECDbD_1598.pdf" target="_blank" rel="noreferrer">Colthorpe ME. The Elizabethan Court Day by Day: 1598</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>A museum account of her death states that she had lost most of her teeth and her hair by the end of her life.</strong><div class="muted">A summary statement by a national museum; no contemporary witness is quoted for it.</div></td>
+    <td>probable</td>
+    <td><a href="https://www.rmg.co.uk/discover/explore/little-known-or-unknown-facts-regarding-queen-elizabeth-is-death" target="_blank" rel="noreferrer">When did Elizabeth I die? Little-known facts about Queen Elizabeth I&#39;s death</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>On 25 February 1601 (Julian) the Earl of Essex, once her favourite, was executed at the Tower after his rising.</strong></td>
+    <td>confirmed</td>
+    <td><a href="https://folgerpedia.folger.edu/images/3/39/ECDbD_1601.pdf" target="_blank" rel="noreferrer">Colthorpe ME. The Elizabethan Court Day by Day: 1601</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>Through 1602 court letters describe an ache in her arm that later spread to her side and hip; in September observers wrote that her health was very good and that she hunted and rode often.</strong></td>
+    <td>confirmed</td>
+    <td><a href="https://folgerpedia.folger.edu/images/e/ea/ECDbD_1602.pdf" target="_blank" rel="noreferrer">Colthorpe ME. The Elizabethan Court Day by Day: 1602</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>In December 1602 (Julian) she strained her foot leaving a dinner at her secretary&#39;s new house and, refusing help, stumbled and fell entering her barge, bruising her shins, which soon healed.</strong></td>
+    <td>confirmed</td>
+    <td><a href="https://folgerpedia.folger.edu/images/e/ea/ECDbD_1602.pdf" target="_blank" rel="noreferrer">Colthorpe ME. The Elizabethan Court Day by Day: 1602</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>On 27 December 1602 (Julian), her godson Sir John Harington wrote that she now bore show of human infirmity: he had found her in a most pitiable state, she wept at the memory of the Irish war in which he had served with the Earl of Essex, she said she was past her relish for his verses, and she told him that her bodily meat did not suit her and that she had eaten only one ill-tasted cake since the night before.</strong><div class="muted">A contemporary letter; it records low spirits and poor appetite but no diagnosis.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://folgerpedia.folger.edu/images/e/ea/ECDbD_1602.pdf" target="_blank" rel="noreferrer">Colthorpe ME. The Elizabethan Court Day by Day: 1602</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>In January 1603 (Julian) she caught a cold shortly before the court moved from Whitehall to Richmond on 21 January, and was reported well amended of it at Richmond. On 6 February she received the Venetian envoy in state and spoke at length.</strong></td>
+    <td>confirmed</td>
+    <td><a href="https://folgerpedia.folger.edu/images/0/01/ECDbD_1603.pdf" target="_blank" rel="noreferrer">Colthorpe ME. The Elizabethan Court Day by Day: 1603</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>The Countess of Nottingham, her cousin and a lady of her Privy Chamber since 1559, died on 25 February 1603 (Julian). The French ambassador wrote that the Queen asked to be excused audiences while she got over her grief and had shed many tears for her.</strong></td>
+    <td>confirmed</td>
+    <td><a href="https://folgerpedia.folger.edu/images/0/01/ECDbD_1603.pdf" target="_blank" rel="noreferrer">Colthorpe ME. The Elizabethan Court Day by Day: 1603</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>In March 1603 (Julian) her secretary wrote that for eight or nine days she had been much deprived of sleep, which decayed her appetite; another observer wrote that she rested ill at night and abstained more than usual from her meat; and a third that for some twenty days she had slept very little and her sleep and stomach had left her.</strong><div class="muted">Contemporary letters; sleeplessness and poor appetite are recorded, not diagnosed.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://folgerpedia.folger.edu/images/0/01/ECDbD_1603.pdf" target="_blank" rel="noreferrer">Colthorpe ME. The Elizabethan Court Day by Day: 1603</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>Her cousin Robert Carey, who reached Richmond in March 1603, wrote that she told him her heart had been sad and heavy for ten or twelve days, sighed forty or fifty times as they spoke, and that her melancholy was too deep-rooted to be removed; she then sat on cushions for at least four days and nights and could not be persuaded to eat or to go to bed, and refused all remedies.</strong><div class="muted">An eyewitness memoir written in the 1620s.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://archive.org/details/memoirsofrobertc00monmiala" target="_blank" rel="noreferrer">Powell GH, editor. Memoirs of Robert Cary, Earl of Monmouth (The King&#39;s Classics). London: De La More Press; 1905</a> <span class="relationship">supports</span><br><a href="https://folgerpedia.folger.edu/images/0/01/ECDbD_1603.pdf" target="_blank" rel="noreferrer">Colthorpe ME. The Elizabethan Court Day by Day: 1603</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>The French ambassador reported in March 1603 that she had said she wished not to live any longer but desired to die, that she took no medicine, and that everyone agreed melancholy was the true cause of her illness.</strong><div class="muted">A diplomat&#39;s report of her words; it is recorded here without interpretation.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://folgerpedia.folger.edu/images/0/01/ECDbD_1603.pdf" target="_blank" rel="noreferrer">Colthorpe ME. The Elizabethan Court Day by Day: 1603</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>On 23 March 1603 (Julian) a royal chaplain told the diarist John Manningham that she had been troubled with melancholy by fits for some three or four months and for the last fortnight had been extremely oppressed by it, refusing to eat, to take physic, or to rest in bed; that she had always kept her senses and memory; and that her physicians thought she had a firm constitution likely to have lived many years.</strong><div class="muted">The chaplain&#39;s account dates the onset of her low spirits to late 1602.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://folgerpedia.folger.edu/images/0/01/ECDbD_1603.pdf" target="_blank" rel="noreferrer">Colthorpe ME. The Elizabethan Court Day by Day: 1603</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>Another letter of March 1603 reported that she complained of an imposthumation in her head, aches in her bones, and continual cold in her legs, with a notable decay of judgement and memory; William Camden wrote of her sleepless indisposition joined with an inflammation from the breast upward.</strong><div class="muted">The report of failing memory conflicts with the chaplain&#39;s statement that she kept her senses and memory (CLM-0017).</div></td>
+    <td>confirmed</td>
+    <td><a href="https://folgerpedia.folger.edu/images/0/01/ECDbD_1603.pdf" target="_blank" rel="noreferrer">Colthorpe ME. The Elizabethan Court Day by Day: 1603</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>She died at Richmond Palace between one and two in the morning of 24 March 1603 (Julian; 3 April 1603 Gregorian), aged 69, after growing speechless the day before; by English legal reckoning, in which the year began on 25 March, the date was written as 1602.</strong></td>
+    <td>confirmed</td>
+    <td><a href="https://archive.org/details/memoirsofrobertc00monmiala" target="_blank" rel="noreferrer">Powell GH, editor. Memoirs of Robert Cary, Earl of Monmouth (The King&#39;s Classics). London: De La More Press; 1905</a> <span class="relationship">supports</span><br><a href="https://folgerpedia.folger.edu/images/0/01/ECDbD_1603.pdf" target="_blank" rel="noreferrer">Colthorpe ME. The Elizabethan Court Day by Day: 1603</a> <span class="relationship">supports</span><br><a href="https://www.westminster-abbey.org/abbey-commemorations/royals/elizabeth-i" target="_blank" rel="noreferrer">Elizabeth I</a> <span class="relationship">supports</span><br><a href="https://www.rmg.co.uk/sites/default/files/Calendars-from-around-the-world.pdf" target="_blank" rel="noreferrer">Longstaff A. Calendars from around the world</a> <span class="relationship">context</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-R" title="Retrospective">R</span></td>
+    <td><strong>A museum account links her late bouts of melancholy to the deaths of her long-serving lady-in-waiting and of the Earl of Essex.</strong><div class="muted">A later interpretation of her grief.</div></td>
+    <td>possible</td>
+    <td><a href="https://www.rmg.co.uk/discover/explore/little-known-or-unknown-facts-regarding-queen-elizabeth-is-death" target="_blank" rel="noreferrer">When did Elizabeth I die? Little-known facts about Queen Elizabeth I&#39;s death</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-R" title="Retrospective">R</span></td>
+    <td><strong>Proposed causes of her death include blood poisoning from a lead-based white face paint (Venetian ceruse), pneumonia, a streptococcal infection of the tonsils, and cancer; no post-mortem was allowed.</strong><div class="muted">Retrospective suggestions only; none is established, and lead poisoning is not used in the modern episode.</div></td>
+    <td>disputed</td>
+    <td><a href="https://www.rmg.co.uk/discover/explore/little-known-or-unknown-facts-regarding-queen-elizabeth-is-death" target="_blank" rel="noreferrer">When did Elizabeth I die? Little-known facts about Queen Elizabeth I&#39;s death</a> <span class="relationship">supports</span></td>
+  </tr></tbody></table></section>
+    <section><h2>Modern synthetic problem list</h2><table><thead><tr><th>Grade</th><th>Problem</th><th>Clinical status</th><th>Verification</th><th>Placement</th><th>Historical claims</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Low mood, sleeplessness (about four hours a night), poor appetite, and unintended loss of 3.5 kg (6 percent) over three months, after bereavements and in a demanding public role; under evaluation for depression and medical causes</td>
+    <td>resolved</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td>CLM-0011</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Major depressive disorder, single episode, moderate (PHQ-9 17 and GDS-15 10 at intake), in an older woman after bereavements; medical causes excluded</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>both_with_link</td>
+    <td>CLM-0011, CLM-0017, CLM-0014, CLM-0015, CLM-0016</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Chronic insomnia comorbid with depression: sleep-maintenance and early-morning waking for three months, Insomnia Severity Index 19</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td>CLM-0014</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Partial loss of teeth with an ill-fitting upper partial denture and painful chewing, contributing to poor intake</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td>CLM-0006, CLM-0007</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>One fall in the past year (a stumble boarding a boat, with bruised shins) and low body weight; fall risk</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td>CLM-0010</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Acute viral pharyngitis with a low-grade fever, cough, and runny nose; no features of streptococcal infection or a peritonsillar abscess; resolved</td>
+    <td>resolved</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td>CLM-0012</td>
+  </tr></tbody></table></section>
+    <section><h2>Synthetic outcome measures</h2><table><thead><tr><th>Grade</th><th>Date</th><th>Measure</th><th>Result</th><th>Coding</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1603-01-12</td>
+    <td>Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]</td>
+    <td>17</td>
+    <td>http://loinc.org · 44261-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1603-01-12</td>
+    <td>Geriatric depression scale (GDS) short version total</td>
+    <td>10</td>
+    <td>http://loinc.org · 48545-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1603-01-12</td>
+    <td>Total score [MoCA]</td>
+    <td>27</td>
+    <td>http://loinc.org · 72172-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1603-01-12</td>
+    <td>Hemoglobin [Mass/volume] in Blood</td>
+    <td>12.6 g/dL<div class="muted">Reference 12-15.5 g/dL</div></td>
+    <td>http://loinc.org · 718-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1603-01-12</td>
+    <td>MCV [Entitic mean volume] in Red Blood Cells by Automated count</td>
+    <td>92 fL<div class="muted">Reference 80-100 fL</div></td>
+    <td>http://loinc.org · 787-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1603-01-12</td>
+    <td>Leukocytes [#/volume] in Blood by Automated count</td>
+    <td>5.8 10*3/uL<div class="muted">Reference 3.4-9.6 10*3/uL</div></td>
+    <td>http://loinc.org · 6690-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1603-01-12</td>
+    <td>Platelets [#/volume] in Blood by Automated count</td>
+    <td>236 10*3/uL<div class="muted">Reference 150-400 10*3/uL</div></td>
+    <td>http://loinc.org · 777-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1603-01-12</td>
+    <td>Sodium [Moles/volume] in Serum or Plasma</td>
+    <td>139 mmol/L<div class="muted">Reference 135-145 mmol/L</div></td>
+    <td>http://loinc.org · 2951-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1603-01-12</td>
+    <td>Potassium [Moles/volume] in Serum or Plasma</td>
+    <td>4.1 mmol/L<div class="muted">Reference 3.5-5.1 mmol/L</div></td>
+    <td>http://loinc.org · 2823-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1603-01-12</td>
+    <td>Urea nitrogen [Mass/volume] in Serum or Plasma</td>
+    <td>18 mg/dL<div class="muted">Reference 8-23 mg/dL</div></td>
+    <td>http://loinc.org · 3094-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1603-01-12</td>
+    <td>Creatinine [Mass/volume] in Serum or Plasma</td>
+    <td>0.74 mg/dL<div class="muted">Reference 0.59-1.04 mg/dL</div></td>
+    <td>http://loinc.org · 2160-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1603-01-12</td>
+    <td>Glomerular filtration rate [Volume Rate/Area] in Serum, Plasma or Blood by Creatinine-based formula (CKD-EPI 1598)/1.73 sq M</td>
+    <td>88 mL/min/1.73 m²<div class="muted">Reference &gt;=60 mL/min/1.73 m²</div></td>
+    <td>http://loinc.org · 98979-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1603-01-12</td>
+    <td>Glucose [Mass/volume] in Serum or Plasma</td>
+    <td>88 mg/dL<div class="muted">Reference 70-99 mg/dL</div></td>
+    <td>http://loinc.org · 2345-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1603-01-12</td>
+    <td>Calcium [Mass/volume] in Serum or Plasma</td>
+    <td>9.4 mg/dL<div class="muted">Reference 8.6-10.3 mg/dL</div></td>
+    <td>http://loinc.org · 17861-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1603-01-12</td>
+    <td>Albumin [Mass/volume] in Serum or Plasma</td>
+    <td>3.8 g/dL<div class="muted">Reference 3.5-5 g/dL</div></td>
+    <td>http://loinc.org · 1751-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1603-01-12</td>
+    <td>Thyrotropin [Units/volume] in Serum or Plasma</td>
+    <td>2.1 mIU/L<div class="muted">Reference 0.4-4 mIU/L</div></td>
+    <td>http://loinc.org · 3016-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1603-01-12</td>
+    <td>Cobalamin (Vitamin B12) [Mass/volume] in Serum or Plasma</td>
+    <td>410 pg/mL<div class="muted">Reference 232-1245 pg/mL</div></td>
+    <td>http://loinc.org · 2132-9</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1603-01-12</td>
+    <td>Folate [Mass/volume] in Serum or Plasma</td>
+    <td>9.8 ng/mL<div class="muted">Reference &gt;=4 ng/mL</div></td>
+    <td>http://loinc.org · 2284-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1603-01-26</td>
+    <td>Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]</td>
+    <td>16</td>
+    <td>http://loinc.org · 44261-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1603-02-23</td>
+    <td>Sodium [Moles/volume] in Serum or Plasma</td>
+    <td>136 mmol/L<div class="muted">Reference 135-145 mmol/L</div></td>
+    <td>http://loinc.org · 2951-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1603-02-23</td>
+    <td>Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]</td>
+    <td>13</td>
+    <td>http://loinc.org · 44261-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1603-02-23</td>
+    <td>Geriatric depression scale (GDS) short version total</td>
+    <td>8</td>
+    <td>http://loinc.org · 48545-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1603-03-02</td>
+    <td>Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]</td>
+    <td>11</td>
+    <td>http://loinc.org · 44261-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1603-03-16</td>
+    <td>Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]</td>
+    <td>8</td>
+    <td>http://loinc.org · 44261-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1603-03-16</td>
+    <td>Geriatric depression scale (GDS) short version total</td>
+    <td>4</td>
+    <td>http://loinc.org · 48545-8</td>
+  </tr></tbody></table></section>
+    <section><h2>Synthetic vital signs</h2><table><thead><tr><th>Date</th><th>Measure</th><th>Result</th><th>LOINC</th><th>Grade</th></tr></thead><tbody>
+  <tr><td>1603-01-12</td><td>Body height</td><td>163 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1603-01-12</td><td>Body weight</td><td>52.4 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1603-01-12</td><td>Body mass index (BMI) [Ratio]</td><td>19.7 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1603-01-12</td><td>Systolic blood pressure</td><td>128 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1603-01-12</td><td>Diastolic blood pressure</td><td>76 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1603-01-12</td><td>Heart rate</td><td>78 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1603-01-12</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1603-01-12</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1603-01-12</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>98 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1603-01-26</td><td>Body height</td><td>163 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1603-01-26</td><td>Body weight</td><td>52.1 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1603-01-26</td><td>Body mass index (BMI) [Ratio]</td><td>19.6 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1603-01-26</td><td>Systolic blood pressure</td><td>126 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1603-01-26</td><td>Diastolic blood pressure</td><td>74 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1603-01-26</td><td>Heart rate</td><td>76 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1603-01-26</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1603-01-26</td><td>Body temperature</td><td>36.5 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1603-01-26</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>98 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1603-02-02</td><td>Body height</td><td>163 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1603-02-02</td><td>Body weight</td><td>51.8 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1603-02-02</td><td>Body mass index (BMI) [Ratio]</td><td>19.5 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1603-02-02</td><td>Systolic blood pressure</td><td>122 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1603-02-02</td><td>Diastolic blood pressure</td><td>72 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1603-02-02</td><td>Heart rate</td><td>92 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1603-02-02</td><td>Respiratory rate</td><td>16 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1603-02-02</td><td>Body temperature</td><td>37.9 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1603-02-02</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>97 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1603-02-23</td><td>Body height</td><td>163 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1603-02-23</td><td>Body weight</td><td>52.3 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1603-02-23</td><td>Body mass index (BMI) [Ratio]</td><td>19.7 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1603-02-23</td><td>Systolic blood pressure</td><td>124 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1603-02-23</td><td>Diastolic blood pressure</td><td>74 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1603-02-23</td><td>Heart rate</td><td>74 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1603-02-23</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1603-02-23</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1603-02-23</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>98 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1603-03-02</td><td>Body height</td><td>163 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1603-03-02</td><td>Body weight</td><td>52.8 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1603-03-02</td><td>Body mass index (BMI) [Ratio]</td><td>19.9 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1603-03-02</td><td>Systolic blood pressure</td><td>126 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1603-03-02</td><td>Diastolic blood pressure</td><td>74 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1603-03-02</td><td>Heart rate</td><td>72 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1603-03-02</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1603-03-02</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1603-03-02</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>98 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1603-03-16</td><td>Body height</td><td>163 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1603-03-16</td><td>Body weight</td><td>53.4 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1603-03-16</td><td>Body mass index (BMI) [Ratio]</td><td>20.1 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1603-03-16</td><td>Systolic blood pressure</td><td>124 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1603-03-16</td><td>Diastolic blood pressure</td><td>72 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1603-03-16</td><td>Heart rate</td><td>70 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1603-03-16</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1603-03-16</td><td>Body temperature</td><td>36.5 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1603-03-16</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>98 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr></tbody></table></section>
+    <section><h2>Social, functional, and mental status</h2><h3>Social history</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Occupation: has held a lifelong senior public office as head of state for more than forty years; long days of audiences, papers, and ceremonies; her health is a matter of public interest, and she asks that her care be kept strictly private</li><li><span class="badge grade-S" title="Synthetic">S</span> Never married; no children; lives in an official residence with long-serving household staff; no firearms in the residence, and her medicines are kept by her own maid</li><li><span class="badge grade-S" title="Synthetic">S</span> Never smoker; a small glass of wine with dinner on some days; no other substance use; AUDIT-C 1</li><li><span class="badge grade-S" title="Synthetic">S</span> Bereavement: over the past two years several of the people closest to her have died, including a former protégé and confidant after a bitter breach, whose death she still cannot speak of without distress, and two friends of her own generation; she calls herself the last of her circle</li><li><span class="badge grade-S" title="Synthetic">S</span> Supports: a few women of her household who have served her for decades, her chaplain, and daily prayer; she walks in the gardens most days</li></ul><h3>Functional status</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Independent in all activities of daily living; still carrying out her duties, but she postpones audiences, reads papers without taking them in, and has given up music and riding</li></ul><h3>Mental status</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Thin, upright, carefully dressed and made up; formal and guarded at first, then candid; speech slow and quiet; frequent sighs; good eye contact</li><li><span class="badge grade-S" title="Synthetic">S</span> Mood &quot;heavy at heart&quot;; affect constricted and tearful when she speaks of those who have died; thought process linear; a passive wish not to wake up on some mornings, with no intent, plan, or preparatory behavior; no psychotic features; MoCA 27; insight and judgment good</li></ul></section>
+    <section><h2>Structured safety assessment</h2><div class="grid"><div class="card"><div class="label">Current ideation</div>present</div><div class="card"><div class="label">Intent</div>absent</div><div class="card"><div class="label">Plan</div>absent</div><div class="card"><div class="label">Disposition</div>Passive death wish only (C-SSRS screen: wish to be dead, no active thoughts, intent, plan, or behavior; no past attempt). Outpatient care with a collaborative safety plan, the 988 Suicide &amp; Crisis Lifeline and the clinic number, medicines kept by her maid, and review in two weeks</div></div><p class="muted">This assessment is synthetic and does not convert historical behavior into a present-day fact.</p></section>
+    <section><h2>Allergies and medications</h2><h3>Allergies</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> No known allergy</li></ul><h3>Medications</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Diphenhydramine 25 mg oral capsule (over the counter), one or two capsules at bedtime for sleep</li><li><span class="badge grade-S" title="Synthetic">S</span> Sertraline 25 mg oral tablet, one tablet by mouth each morning</li><li><span class="badge grade-S" title="Synthetic">S</span> Sertraline 50 mg oral tablet, one tablet by mouth each morning</li><li><span class="badge grade-S" title="Synthetic">S</span> Acetaminophen 500 mg oral tablet, two tablets by mouth every 6 hours as needed for throat pain or fever, no more than 3 g a day</li></ul></section>
+    <section><h2>Procedures and immunizations</h2><h3>Procedures</h3><ul></ul><h3>Immunizations</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> 1602-10-06: High-dose influenza vaccine, 1602-1603 season</li><li><span class="badge grade-S" title="Synthetic">S</span> 1599-10-17: Pneumococcal conjugate vaccine PCV20</li><li><span class="badge grade-S" title="Synthetic">S</span> 1598-05-10: Recombinant zoster vaccine, two-dose series completed</li><li><span class="badge grade-S" title="Synthetic">S</span> 1596-03-11: Tdap vaccine</li><li><span class="badge grade-S" title="Synthetic">S</span> 1603-03-02: COVID-19 vaccine, 1602-1603 formula</li></ul></section>
+    <section><h2>Past medical history</h2><p class="muted">True biography with historical dates; not part of the synthetic care timeline.</p><ul><li><span class="badge grade-D" title="Documented">D</span> October 1562 (Julian): Smallpox at 29, with high fever and a period of lost speech, from which she recovered; the source records that the nurse who attended her was scarred and she was not <span class="muted">(CLM-0004, CLM-0005)</span></li><li><span class="badge grade-D" title="Documented">D</span> August 1598 (Julian): Teeth described by an eyewitness as black <span class="muted">(CLM-0006)</span></li><li><span class="badge grade-D" title="Documented">D</span> 1602: A persistent ache in the arm, later in the side and hip; otherwise in good health and riding often <span class="muted">(CLM-0009)</span></li><li><span class="badge grade-D" title="Documented">D</span> December 1602 (Julian): A strained foot, and a stumble and fall boarding a barge with bruised shins, which healed <span class="muted">(CLM-0010)</span></li></ul><h3>Family history</h3><ul><li><span class="badge grade-D" title="Documented">D</span> mother: Executed in 1536, when the patient was two; not a medical cause of death</li><li><span class="badge grade-D" title="Documented">D</span> father: Died in 1547; cause not recorded in the cited source</li><li><span class="badge grade-D" title="Documented">D</span> half-sister: Died in November 1558; cause not recorded in the cited source</li></ul></section>
+    <section><h2>Care-plan goals</h2><table><thead><tr><th>Goal</th><th>Target date</th><th>Status</th><th>Outcome</th></tr></thead><tbody>
+  <tr><td>Medical causes of low mood and weight loss excluded by the second visit</td><td>1603-01-26</td><td>completed</td><td>Blood count, metabolic panel, calcium, albumin, TSH, vitamin B12, folate, and MoCA normal; diphenhydramine stopped</td></tr>
+  <tr><td>Response (PHQ-9 down by at least 50 percent) by twelve weeks of treatment, then remission (PHQ-9 below 5)</td><td>1603-04-20</td><td>active</td><td>PHQ-9 8 at seven weeks of sertraline, 53 percent below baseline; remission not yet reached</td></tr>
+  <tr><td>No passive or active suicidal thoughts</td><td>1603-01-26</td><td>completed</td><td>Passive death wish at intake only; PHQ-9 item 9 scored 0 from the second visit</td></tr>
+  <tr><td>Sleep at least six hours most nights without hypnotics</td><td>1603-04-20</td><td>active</td><td>About five and a half hours by seven weeks with CBT for insomnia</td></tr>
+  <tr><td>Weight back to at least 55 kg, with a comfortable denture</td><td>1603-06-15</td><td>active</td><td>53.4 kg at seven weeks; new denture being made</td></tr></tbody></table></section>
+    <section><h2>Interventions</h2><table><thead><tr><th>Intervention</th><th>Status</th><th>Guideline</th></tr></thead><tbody>
+  <tr><td>Workup for medical causes of low mood and weight loss: blood count, metabolic panel, calcium, albumin, TSH, vitamin B12, and folate; MoCA cognitive screen; medication review (stop the over-the-counter diphenhydramine sleep aid); dental examination; age-appropriate cancer screening confirmed up to date</td><td>completed</td><td>GL-APA-DEP-2019, GL-MDD-2022, GL-CMID-2026, GL-BEERS-2023</td></tr>
+  <tr><td>Suicide-risk assessment and collaborative safety plan: warning signs, coping steps, people to contact, the clinic number, and the 988 Suicide &amp; Crisis Lifeline; medicines kept by her maid; safety reviewed at every visit</td><td>completed</td><td>GL-SUICIDE-2024, GL-CMID-2026</td></tr>
+  <tr><td>Geriatric psychiatry consultation to confirm the diagnosis, review grief, cognition, and safety, and advise on antidepressant choice and psychotherapy for an older adult</td><td>completed</td><td>GL-APA-DEP-2019, GL-MDD-2022, GL-CMID-2026</td></tr>
+  <tr><td>Shared decision on treatment: combined interpersonal psychotherapy, focused on grief, and a second-generation antidepressant; she chose sertraline, starting at 25 mg for a week, then 50 mg, with a review every two to four weeks and a dose increase if she is not in remission by about twelve weeks; no tricyclics, paroxetine, or other strongly anticholinergic drugs</td><td>completed</td><td>GL-APA-DEP-2019, GL-MDD-2022, GL-CMID-2026, GL-BEERS-2023</td></tr>
+  <tr><td>Weekly individual interpersonal psychotherapy with the clinic psychologist, in private sessions at the end of the day, for about 16 sessions</td><td>completed</td><td>GL-APA-DEP-2019</td></tr>
+  <tr><td>Sleep: stop diphenhydramine; cognitive behavioral therapy for insomnia (sleep window, stimulus control, a fixed rising time, no long naps, and worry time early in the evening); no benzodiazepines, Z-drugs, or sedating antihistamines</td><td>completed</td><td>GL-ACP-INSOMNIA-2016, GL-BEERS-2023</td></tr>
+  <tr><td>Nutrition: three small meals and two snacks a day, an oral nutrition supplement twice a day, weight at every visit, and a dental review for the painful partial denture</td><td>completed</td><td>GL-APA-DEP-2019, GL-MDD-2022, GL-CMID-2026</td></tr>
+  <tr><td>Falls: Timed Up and Go and orthostatic blood pressure now and again if an antidepressant is started, since SSRIs raise fall risk in older adults; home safety review with her staff; an exercise class for balance and strength</td><td>completed</td><td>GL-USPSTF-FALLS-2024, GL-BEERS-2023</td></tr>
+  <tr><td>Measurement-based care: PHQ-9 at every visit and at least monthly and GDS-15 monthly; if an SSRI is started, a sodium check two to four weeks later; continue any treatment that works for at least six to twelve months after remission</td><td>completed</td><td>GL-APA-DEP-2019, GL-MDD-2022, GL-CMID-2026, GL-BEERS-2023</td></tr>
+  <tr><td>Privacy: chart access restricted to her care team, appointments at the end of the clinic day, results given in person, and nothing released without her written consent</td><td>completed</td><td>GL-APA-DEP-2019, GL-MDD-2022, GL-CMID-2026</td></tr></tbody></table></section>
+    <section><h2>Planned encounters</h2><ul>
+  <li><strong>1603-01-12</strong> — Primary care visit for low mood, poor sleep, poor appetite, and weight loss over three months after several bereavements <span class="muted">(ENC-001)</span></li>
+  <li><strong>1603-01-26</strong> — Two-week review of results, diagnosis of major depression, start of treatment, and geriatric psychiatry consultation <span class="muted">(ENC-002)</span></li>
+  <li><strong>1603-02-02</strong> — Same-day sick visit for a sore throat and low-grade fever <span class="muted">(ENC-005, unscheduled)</span></li>
+  <li><strong>1603-02-23</strong> — Four-week depression treatment review with a sodium check <span class="muted">(ENC-003)</span></li>
+  <li><strong>1603-03-02</strong> — Subsequent annual wellness visit <span class="muted">(ENC-006)</span></li>
+  <li><strong>1603-03-16</strong> — Seven-week depression treatment review <span class="muted">(ENC-004)</span></li></ul></section>
+    <section><h2>Supporting documents</h2><ul><li><a href="notes/hp.md">History and physical</a></li><li><a href="notes/progress-01.md">Progress note 01</a></li><li><a href="notes/progress-02.md">Progress note 02 — Focused Visit (Follow-up)</a></li><li><a href="notes/progress-03.md">Progress note 03 — Sick Visit</a></li><li><a href="notes/progress-04.md">Progress note 04 — Focused Visit (Follow-up)</a></li><li><a href="notes/progress-05.md">Progress note 05 — Annual Wellness Visit, Subsequent</a></li><li><a href="notes/progress-06.md">Progress note 06 — Focused Visit (Care-plan review)</a></li><li><a href="notes/referral-01.md">Geriatric Psychiatry referral</a></li><li><a href="notes/consult-01.md">Geriatric Psychiatry consultation</a></li><li><a href="notes/careplan.md">Patient care plan</a></li><li><a href="notes/teaching-note.md">Teaching note</a></li><li><a href="provenance.csv">Provenance CSV</a></li></ul></section>
+    <section><h2>C-CDA note documents</h2><p class="muted">Each link opens a readable copy; the XML beside it is the exchange file.</p><ul><li><a href="ccda/hp-01.html">History and physical</a> <a href="ccda/hp-01.xml">(XML)</a></li><li><a href="ccda/progress-01.html">Progress note 01</a> <a href="ccda/progress-01.xml">(XML)</a></li><li><a href="ccda/progress-02.html">Progress note 02 — Focused Visit (Follow-up)</a> <a href="ccda/progress-02.xml">(XML)</a></li><li><a href="ccda/progress-03.html">Progress note 03 — Sick Visit</a> <a href="ccda/progress-03.xml">(XML)</a></li><li><a href="ccda/progress-04.html">Progress note 04 — Focused Visit (Follow-up)</a> <a href="ccda/progress-04.xml">(XML)</a></li><li><a href="ccda/progress-05.html">Progress note 05 — Annual Wellness Visit, Subsequent</a> <a href="ccda/progress-05.xml">(XML)</a></li><li><a href="ccda/progress-06.html">Progress note 06 — Focused Visit (Care-plan review)</a> <a href="ccda/progress-06.xml">(XML)</a></li><li><a href="ccda/referral-01.html">Geriatric Psychiatry referral</a> <a href="ccda/referral-01.xml">(XML)</a></li><li><a href="ccda/consult-01.html">Geriatric Psychiatry consultation</a> <a href="ccda/consult-01.xml">(XML)</a></li></ul></section>
+    <section><h2>Sources</h2><table><thead><tr><th>ID</th><th>Source</th><th>Publisher</th><th>Type</th></tr></thead><tbody>
+  <tr>
+    <td>SRC-0001</td>
+    <td><a href="https://www.westminster-abbey.org/abbey-commemorations/royals/elizabeth-i" target="_blank" rel="noreferrer">Elizabeth I</a></td>
+    <td>Westminster Abbey</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0002</td>
+    <td><a href="https://www.royal.uk/elizabeth-i" target="_blank" rel="noreferrer">Elizabeth I (r.1558-1603); Henry VIII (r.1509-1547)</a></td>
+    <td>The Royal Family (royal.uk)</td>
+    <td>government</td>
+  </tr>
+  <tr>
+    <td>SRC-0003</td>
+    <td><a href="https://archive.org/details/memoirsofrobertc00monmiala" target="_blank" rel="noreferrer">Powell GH, editor. Memoirs of Robert Cary, Earl of Monmouth (The King&#39;s Classics). London: De La More Press; 1905</a></td>
+    <td>Internet Archive (memoirsofrobertc00monmiala)</td>
+    <td>primary</td>
+  </tr>
+  <tr>
+    <td>SRC-0004</td>
+    <td><a href="https://folgerpedia.folger.edu/mediawiki/media/images_pedia_folgerpedia_mw/d/d9/ECDbD_1562.pdf" target="_blank" rel="noreferrer">Colthorpe ME. The Elizabethan Court Day by Day: 1562</a></td>
+    <td>Folger Shakespeare Library (Folgerpedia)</td>
+    <td>scholarly</td>
+  </tr>
+  <tr>
+    <td>SRC-0005</td>
+    <td><a href="https://folgerpedia.folger.edu/images/b/b3/ECDbD_1598.pdf" target="_blank" rel="noreferrer">Colthorpe ME. The Elizabethan Court Day by Day: 1598</a></td>
+    <td>Folger Shakespeare Library (Folgerpedia)</td>
+    <td>scholarly</td>
+  </tr>
+  <tr>
+    <td>SRC-0006</td>
+    <td><a href="https://folgerpedia.folger.edu/images/3/39/ECDbD_1601.pdf" target="_blank" rel="noreferrer">Colthorpe ME. The Elizabethan Court Day by Day: 1601</a></td>
+    <td>Folger Shakespeare Library (Folgerpedia)</td>
+    <td>scholarly</td>
+  </tr>
+  <tr>
+    <td>SRC-0007</td>
+    <td><a href="https://folgerpedia.folger.edu/images/e/ea/ECDbD_1602.pdf" target="_blank" rel="noreferrer">Colthorpe ME. The Elizabethan Court Day by Day: 1602</a></td>
+    <td>Folger Shakespeare Library (Folgerpedia)</td>
+    <td>scholarly</td>
+  </tr>
+  <tr>
+    <td>SRC-0008</td>
+    <td><a href="https://folgerpedia.folger.edu/images/0/01/ECDbD_1603.pdf" target="_blank" rel="noreferrer">Colthorpe ME. The Elizabethan Court Day by Day: 1603</a></td>
+    <td>Folger Shakespeare Library (Folgerpedia)</td>
+    <td>scholarly</td>
+  </tr>
+  <tr>
+    <td>SRC-0009</td>
+    <td><a href="https://www.rmg.co.uk/discover/explore/little-known-or-unknown-facts-regarding-queen-elizabeth-is-death" target="_blank" rel="noreferrer">When did Elizabeth I die? Little-known facts about Queen Elizabeth I&#39;s death</a></td>
+    <td>Royal Museums Greenwich</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0010</td>
+    <td><a href="https://www.rmg.co.uk/sites/default/files/Calendars-from-around-the-world.pdf" target="_blank" rel="noreferrer">Longstaff A. Calendars from around the world</a></td>
+    <td>Royal Museums Greenwich</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0011</td>
+    <td><a href="https://humanrecord.example.org/internal/HISTMED_Master_Roster_v3.xlsx" target="_blank" rel="noreferrer">HISTMED Master Roster v3</a></td>
+    <td>The Human Record project</td>
+    <td>other</td>
+  </tr></tbody></table></section>
+    <section><h2>Review status</h2><table><thead><tr><th>Review</th><th>Status</th><th>Notes</th></tr></thead><tbody>
+  <tr><td>schema validation</td><td>not_started</td><td>Run scripts/build.ps1 -Conformance.</td></tr>
+  <tr><td>clinical review</td><td>not_started</td><td>Awaiting clinician review; check the workup for medical causes, the passive death wish and safety plan, sertraline dosing and the sodium check, CBT for insomnia, the dental and nutrition plan, falls, and the privacy measures.</td></tr>
+  <tr><td>provenance review</td><td>not_started</td><td>The Folger Shakespeare Library court chronology (1562, 1598, 1601, 1602, 1603 volumes), Robert Carey&#39;s memoir (1905 edition), Westminster Abbey, royal.uk, and two Royal Museums Greenwich pages logged. Her late melancholy, sleeplessness, and refusal of food are D; the depression reading is a modern interpretation; lead poisoning and other proposed causes of death are R, disputed. Historic Royal Palaces pages returned HTTP 403 and were not read.</td></tr>
+  <tr><td>safe messaging review</td><td>not_started</td><td>A passive death wish is recorded in the synthetic intake, with a safety plan and the 988 Lifeline; the documented remark that she wished to die is recorded as a diplomat&#39;s report, without interpretation, and marked sensitive.</td></tr></tbody></table></section>
+  </main>
+</body>
+</html>

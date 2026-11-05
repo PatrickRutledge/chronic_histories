@@ -1,0 +1,543 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sugar Ray Robinson — The Human Record</title>
+  <style>
+    :root { --navy:#17365d; --blue:#1f4e78; --pale:#eef5fa; --ink:#1f2933; --muted:#66788a; --amber:#fff2cc; --red:#f8d7da; --green:#d9ead3; }
+    * { box-sizing:border-box; }
+    body { margin:0; font:16px/1.5 Arial, sans-serif; color:var(--ink); background:#f6f8fa; }
+    header { background:var(--navy); color:white; padding:24px max(24px,calc((100vw - 1180px)/2)); }
+    header h1 { margin:4px 0; font-size:30px; }
+    .banner { background:#b42318; color:white; font-weight:700; text-align:center; padding:10px; letter-spacing:.03em; }
+    main { max-width:1180px; margin:24px auto 60px; padding:0 24px; }
+    section { background:white; border:1px solid #d9e1e8; border-radius:8px; margin:18px 0; padding:20px; }
+    h2 { color:var(--navy); margin:0 0 14px; font-size:22px; }
+    h3 { color:var(--blue); }
+    .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:12px; }
+    .card { background:var(--pale); border-left:4px solid var(--blue); padding:12px; }
+    .label { color:var(--muted); font-size:13px; text-transform:uppercase; letter-spacing:.04em; }
+    table { width:100%; border-collapse:collapse; }
+    th { background:var(--blue); color:white; text-align:left; }
+    th,td { padding:9px; border-bottom:1px solid #dfe6ec; vertical-align:top; }
+    .badge { display:inline-block; min-width:28px; text-align:center; font-weight:700; border-radius:12px; padding:2px 8px; }
+    .grade-D { background:var(--green); } .grade-R { background:var(--amber); } .grade-S { background:var(--red); }
+    .muted { color:var(--muted); font-size:14px; }
+    .relationship { color:var(--muted); font-size:12px; }
+    .downloads a { display:inline-block; margin:4px 8px 4px 0; padding:8px 12px; background:var(--blue); color:white; text-decoration:none; border-radius:5px; }
+    @media (max-width:700px) { table { display:block; overflow-x:auto; } }
+  </style>
+</head>
+<body>
+  <div class="banner">SYNTHETIC RECORD, NOT A REAL MEDICAL RECORD</div>
+  <div class="banner">True-date frame: synthetic events are moved into the patient&#39;s historical lifetime. Codes, instruments, and treatments remain modern and are anachronistic.</div>
+  <header>
+    <div>The Human Record</div>
+    <h1>Sugar Ray Robinson</h1>
+    <div>Case HR-BX003-TD · Modern EHR teaching episode · Draft for review</div>
+  </header>
+  <main>
+    <section>
+      <h2>Review summary</h2>
+      <div class="grid">
+        <div class="card"><div class="label">Historical dates</div>May 3, 1921 – April 12, 1989</div>
+        <div class="card"><div class="label">Synthetic DOB</div>1921-05-03</div>
+        <div class="card"><div class="label">Index visit</div>1984-07-07 at age 63</div>
+        <div class="card"><div class="label">Synthetic MRN</div>HR-BX003-SYN-TD</div>
+      </div>
+      <p><strong>Teaching objective:</strong> Mild dementia due to early-onset Alzheimer&#39;s disease in a 63-year-old retired boxer with type 2 diabetes and hypertension, seen in Los Angeles with his care partner. The episode follows the 1982 Alzheimer&#39;s Association DETeCD-ADRD guideline: a structured history from him and an informant, the MoCA, MMSE and CDR, function, reversible causes (B12, TSH, depression, anticholinergic medicines, sleep apnea and hearing), brain MRI, and amyloid PET to confirm the cause; how Alzheimer&#39;s disease differs from traumatic encephalopathy syndrome, a research diagnosis for people with long exposure to repetitive head impacts; why he is not a candidate for lecanemab or donanemab under the appropriate use recommendations (more than four cerebral microbleeds), and why APOE genotyping was not needed for that decision; donepezil, its pulse and stomach side effects, and a dose step back; deintensifying diabetes treatment under the ADA Standards for older adults (stopping the sulfonylurea; a goal under 8.0%) with sick-day rules for metformin; blood pressure; driving and firearm safety; hearing aids; caregiver support, respite and the Medicare GUIDE model he may join once on Medicare; and advance care planning while he can take part.</p>
+      <div class="downloads">
+        <a href="../case.json">Canonical JSON</a>
+        <a href="fhir-bundle.json">FHIR R4 draft</a>
+        <a href="ccda.html">C-CDA R2.1 summary</a> <a href="ccda.xml">(XML)</a>
+        <a href="../sources.md">Evidence dossier</a>
+      </div>
+    </section>
+    <section><h2>Historical timeline</h2><table><thead><tr><th>Date</th><th>Event</th><th>Claims</th></tr></thead><tbody>
+  <tr><td>May 3, 1921</td><td>Born Walker Smith Jr. (Ailey, Georgia, or Detroit, by different sources).</td><td>CLM-0001</td></tr>
+  <tr><td>1939</td><td>Wins the Golden Gloves featherweight title after moving to Harlem.</td><td>CLM-0002</td></tr>
+  <tr><td>1940 to 1965</td><td>Boxes professionally for 25 years, about 200 bouts.</td><td>CLM-0004</td></tr>
+  <tr><td>1946</td><td>Wins the world welterweight title; later holds the middleweight title five times, first in 1951.</td><td>CLM-0003</td></tr>
+  <tr><td>1969</td><td>Founds the Sugar Ray Robinson Youth Foundation in Los Angeles.</td><td>CLM-0005</td></tr>
+  <tr><td>July 1987</td><td>Reported to have Alzheimer&#39;s disease, diabetes and hypertension.</td><td>CLM-0006, CLM-0008, CLM-0009</td></tr>
+  <tr><td>April 12, 1989</td><td>Dies at 67 at Brotman Medical Center in Culver City.</td><td>CLM-0007</td></tr></tbody></table></section>
+    <section><h2>Evidence claims</h2><p class="muted">D = documented, R = retrospective, S = synthetic.</p><table><thead><tr><th>Grade</th><th>Claim</th><th>Certainty</th><th>Sources</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>He was born Walker Smith Jr. on May 3, 1921. The Michigan Sports Hall of Fame gives his birthplace as Ailey, Georgia, with the family later moving to Detroit; the 1989 UPI obituary says he was born in Detroit.</strong><div class="muted">The date is consistent across the sources read; the birthplace is disputed. The case uses the date and records both places.</div></td>
+    <td>probable</td>
+    <td><a href="https://www.upi.com/Archives/1989/04/12/Sugar-Ray-Robinson-dead-at-67/7942608356800/" target="_blank" rel="noreferrer">Sugar Ray Robinson dead at 67. United Press International, April 12, 1989</a> <span class="relationship">supports</span><br><a href="https://michigansportshof.org/inductee/sugar-ray-robinson/" target="_blank" rel="noreferrer">Sugar Ray Robinson. Inductee biography</a> <span class="relationship">supports</span><br><a href="https://humanrecord.example.org/internal/HISTMED_Master_Roster_v3.xlsx" target="_blank" rel="noreferrer">HISTMED Master Roster v3</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>As a boy he moved with his family to Harlem in New York, and he won the Golden Gloves featherweight title in 1939.</strong><div class="muted">History only; anchors the start of his exposure to boxing.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.upi.com/Archives/1989/04/12/Sugar-Ray-Robinson-dead-at-67/7942608356800/" target="_blank" rel="noreferrer">Sugar Ray Robinson dead at 67. United Press International, April 12, 1989</a> <span class="relationship">supports</span><br><a href="https://www.upi.com/Archives/1987/07/09/Former-boxing-great-Sugar-Ray-Robinson-is-suffering-from/5962552801600/" target="_blank" rel="noreferrer">Former boxing great Sugar Ray Robinson is suffering from Alzheimer&#39;s disease. United Press International, July 9, 1987</a> <span class="relationship">supports</span><br><a href="https://michigansportshof.org/inductee/sugar-ray-robinson/" target="_blank" rel="noreferrer">Sugar Ray Robinson. Inductee biography</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>He held the world welterweight championship, won in 1946, and the world middleweight title five times, first in 1951.</strong><div class="muted">History only.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.upi.com/Archives/1989/04/12/Sugar-Ray-Robinson-dead-at-67/7942608356800/" target="_blank" rel="noreferrer">Sugar Ray Robinson dead at 67. United Press International, April 12, 1989</a> <span class="relationship">supports</span><br><a href="https://www.upi.com/Archives/1987/07/09/Former-boxing-great-Sugar-Ray-Robinson-is-suffering-from/5962552801600/" target="_blank" rel="noreferrer">Former boxing great Sugar Ray Robinson is suffering from Alzheimer&#39;s disease. United Press International, July 9, 1987</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>He boxed professionally from 1940 to 1965, about 200 bouts in all: the 1989 UPI obituary counts 201 fights, 109 won by knockout and 65 by decision; the 1987 UPI report gives a record of 174-19-6 and the Michigan Sports Hall of Fame 173-19-6.</strong><div class="muted">Anchors the synthetic history of repetitive head impacts over 25 years; the exact count differs by source.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.upi.com/Archives/1989/04/12/Sugar-Ray-Robinson-dead-at-67/7942608356800/" target="_blank" rel="noreferrer">Sugar Ray Robinson dead at 67. United Press International, April 12, 1989</a> <span class="relationship">supports</span><br><a href="https://www.upi.com/Archives/1987/07/09/Former-boxing-great-Sugar-Ray-Robinson-is-suffering-from/5962552801600/" target="_blank" rel="noreferrer">Former boxing great Sugar Ray Robinson is suffering from Alzheimer&#39;s disease. United Press International, July 9, 1987</a> <span class="relationship">supports</span><br><a href="https://michigansportshof.org/inductee/sugar-ray-robinson/" target="_blank" rel="noreferrer">Sugar Ray Robinson. Inductee biography</a> <span class="relationship">supports</span><br><a href="https://boxingnewsonline.net/features/on-this-day-sugar-ray-robinson-the-most-complete-fighter-to-set-foot-in-a-ring-dies" target="_blank" rel="noreferrer">On this day: Sugar Ray Robinson, the most complete fighter to set foot in a ring, dies. Boxing News</a> <span class="relationship">supports</span><br><a href="https://humanrecord.example.org/internal/HISTMED_Master_Roster_v3.xlsx" target="_blank" rel="noreferrer">HISTMED Master Roster v3</a> <span class="relationship">context</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>After boxing he settled in Los Angeles, living modestly in the top story of a duplex on West Adams Boulevard, and in 1969 founded the Sugar Ray Robinson Youth Foundation for inner-city children in the Los Angeles area.</strong><div class="muted">Anchors the modern home in Los Angeles and his work with young people.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://westadamsheritage.org/read/457" target="_blank" rel="noreferrer">Evans L, comp. Sugar Ray Robinson</a> <span class="relationship">supports</span><br><a href="https://www.upi.com/Archives/1987/07/09/Former-boxing-great-Sugar-Ray-Robinson-is-suffering-from/5962552801600/" target="_blank" rel="noreferrer">Former boxing great Sugar Ray Robinson is suffering from Alzheimer&#39;s disease. United Press International, July 9, 1987</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>In July 1987, at 65, he was reported (in a Sports Illustrated article summarized by UPI) to have Alzheimer&#39;s disease, diabetes and hypertension, to depend on his wife for daily care, and to be virtually incapable of speech.</strong><div class="muted">A press report of his health, not a medical record; the date of diagnosis is not given. Anchors the synthetic modern episode three years earlier, at the stage of mild dementia.</div></td>
+    <td>probable</td>
+    <td><a href="https://www.upi.com/Archives/1987/07/09/Former-boxing-great-Sugar-Ray-Robinson-is-suffering-from/5962552801600/" target="_blank" rel="noreferrer">Former boxing great Sugar Ray Robinson is suffering from Alzheimer&#39;s disease. United Press International, July 9, 1987</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>He died on April 12, 1989, at 67, after paramedics brought him to Brotman Medical Center in Culver City, California, in full arrest; his wife told reporters he had suffered from Alzheimer&#39;s disease and diabetes for years and that his blood sugar had been very high that morning.</strong><div class="muted">History after the modern episode, recorded in plain sentences.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.upi.com/Archives/1989/04/12/Sugar-Ray-Robinson-dead-at-67/7942608356800/" target="_blank" rel="noreferrer">Sugar Ray Robinson dead at 67. United Press International, April 12, 1989</a> <span class="relationship">supports</span><br><a href="https://westadamsheritage.org/read/457" target="_blank" rel="noreferrer">Evans L, comp. Sugar Ray Robinson</a> <span class="relationship">supports</span><br><a href="https://michigansportshof.org/inductee/sugar-ray-robinson/" target="_blank" rel="noreferrer">Sugar Ray Robinson. Inductee biography</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>His Alzheimer&#39;s disease and diabetes are documented in the press reports of his last years; when either was diagnosed is not stated in the sources read.</strong><div class="muted">Anchors the synthetic diagnoses of Alzheimer&#39;s disease and diabetes in the modern episode.</div></td>
+    <td>probable</td>
+    <td><a href="https://www.upi.com/Archives/1989/04/12/Sugar-Ray-Robinson-dead-at-67/7942608356800/" target="_blank" rel="noreferrer">Sugar Ray Robinson dead at 67. United Press International, April 12, 1989</a> <span class="relationship">supports</span><br><a href="https://www.upi.com/Archives/1987/07/09/Former-boxing-great-Sugar-Ray-Robinson-is-suffering-from/5962552801600/" target="_blank" rel="noreferrer">Former boxing great Sugar Ray Robinson is suffering from Alzheimer&#39;s disease. United Press International, July 9, 1987</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>Hypertension is documented only in the 1987 press report.</strong><div class="muted">Anchors the synthetic hypertension; a single press report.</div></td>
+    <td>possible</td>
+    <td><a href="https://www.upi.com/Archives/1987/07/09/Former-boxing-great-Sugar-Ray-Robinson-is-suffering-from/5962552801600/" target="_blank" rel="noreferrer">Former boxing great Sugar Ray Robinson is suffering from Alzheimer&#39;s disease. United Press International, July 9, 1987</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-R" title="Retrospective">R</span></td>
+    <td><strong>The project roster describes his dementia as probable boxing-related dementia pugilistica; no source read records that diagnosis, chronic traumatic encephalopathy, or an autopsy finding.</strong><div class="muted">A retrospective interpretation from an unsourced roster, kept off the problem list. The modern episode weighs Alzheimer&#39;s disease against traumatic encephalopathy syndrome, a research diagnosis, synthetically.</div></td>
+    <td>possible</td>
+    <td><a href="https://humanrecord.example.org/internal/HISTMED_Master_Roster_v3.xlsx" target="_blank" rel="noreferrer">HISTMED Master Roster v3</a> <span class="relationship">supports</span></td>
+  </tr></tbody></table></section>
+    <section><h2>Modern synthetic problem list</h2><table><thead><tr><th>Grade</th><th>Problem</th><th>Clinical status</th><th>Verification</th><th>Placement</th><th>Historical claims</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Memory loss over about two years, worse in the past six months, with repeated questions, missed appointments and bills, and getting lost twice while driving in familiar streets, reported by him and his care partner; cause to be found</td>
+    <td>resolved</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td>CLM-0008, CLM-0009</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Alzheimer&#39;s disease with early onset, confirmed by a positive amyloid PET, with an amnestic presentation; traumatic encephalopathy syndrome, a research diagnosis, considered</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>both_with_link</td>
+    <td>CLM-0008, CLM-0009, CLM-0004</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Mild dementia due to Alzheimer&#39;s disease (CDR 1, MMSE 22, MoCA 18), without behavioral or psychological symptoms</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td>CLM-0008, CLM-0009</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Type 2 diabetes for about ten years on metformin and glipizide; hemoglobin A1c 6.4%, below his goal, with hypoglycemia risk from the sulfonylurea</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>both_with_link</td>
+    <td>CLM-0008</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Hypertension, controlled on lisinopril</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td>CLM-0009</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Bilateral sensorineural hearing loss, mild to moderate, high frequencies, on audiometry</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Nausea, loose stools, dizziness on standing and a slow pulse (56) nine days after donepezil was raised to 10 mg, with mild dehydration (creatinine 1.2 mg/dL); resolved after returning to 5 mg in the morning and two days of sick-day rules</td>
+    <td>resolved</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td></td>
+  </tr></tbody></table></section>
+    <section><h2>Synthetic outcome measures</h2><table><thead><tr><th>Grade</th><th>Date</th><th>Measure</th><th>Result</th><th>Coding</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1984-07-07</td>
+    <td>Leukocytes [#/volume] in Blood by Automated count</td>
+    <td>6.4 10*3/uL<div class="muted">Reference 4-11 10*3/uL</div></td>
+    <td>http://loinc.org · 6690-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1984-07-07</td>
+    <td>Hemoglobin [Mass/volume] in Blood</td>
+    <td>14.1 g/dL<div class="muted">Reference 13.5-17.5 g/dL</div></td>
+    <td>http://loinc.org · 718-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1984-07-07</td>
+    <td>Platelets [#/volume] in Blood by Automated count</td>
+    <td>231 10*3/uL<div class="muted">Reference 150-400 10*3/uL</div></td>
+    <td>http://loinc.org · 777-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1984-07-07</td>
+    <td>Sodium [Moles/volume] in Serum or Plasma</td>
+    <td>140 mmol/L<div class="muted">Reference 135-145 mmol/L</div></td>
+    <td>http://loinc.org · 2951-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1984-07-07</td>
+    <td>Potassium [Moles/volume] in Serum or Plasma</td>
+    <td>4.4 mmol/L<div class="muted">Reference 3.5-5.1 mmol/L</div></td>
+    <td>http://loinc.org · 2823-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1984-07-07</td>
+    <td>Creatinine [Mass/volume] in Serum or Plasma</td>
+    <td>1 mg/dL<div class="muted">Reference 0.74-1.35 mg/dL</div></td>
+    <td>http://loinc.org · 2160-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1984-07-07</td>
+    <td>Glomerular filtration rate [Volume Rate/Area] in Serum, Plasma or Blood by Creatinine-based formula (CKD-EPI 1979)/1.73 sq M</td>
+    <td>85 mL/min/1.73 m²<div class="muted">Reference &gt;=60 mL/min/1.73 m²</div></td>
+    <td>http://loinc.org · 98979-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1984-07-07</td>
+    <td>Glucose [Mass/volume] in Serum or Plasma</td>
+    <td>126 mg/dL<div class="muted">Reference 70-140 mg/dL</div></td>
+    <td>http://loinc.org · 2345-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1984-07-07</td>
+    <td>Hemoglobin A1c/Hemoglobin.total in Blood</td>
+    <td>6.4% (high)<div class="muted">Reference &lt;=5.6%</div></td>
+    <td>http://loinc.org · 4548-4</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1984-07-07</td>
+    <td>Cobalamin (Vitamin B12) [Mass/volume] in Serum or Plasma</td>
+    <td>352 pg/mL<div class="muted">Reference 232-1245 pg/mL</div></td>
+    <td>http://loinc.org · 2132-9</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1984-07-07</td>
+    <td>Thyrotropin [Units/volume] in Serum or Plasma</td>
+    <td>1.9 mIU/L<div class="muted">Reference 0.45-4.5 mIU/L</div></td>
+    <td>http://loinc.org · 3016-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1984-07-07</td>
+    <td>Albumin/Creatinine [Mass Ratio] in Urine</td>
+    <td>14 mg/g<div class="muted">Reference &lt;=29 mg/g</div></td>
+    <td>http://loinc.org · 9318-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1984-07-07</td>
+    <td>Total score [MoCA]</td>
+    <td>18</td>
+    <td>http://loinc.org · 72172-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1984-07-07</td>
+    <td>Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]</td>
+    <td>4</td>
+    <td>http://loinc.org · 44261-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1984-07-21</td>
+    <td>Mini-Mental State Examination [MMSE]</td>
+    <td>22</td>
+    <td>http://loinc.org · 72107-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1984-07-21</td>
+    <td>Clinical Dementia Rating scale [CDR]</td>
+    <td>1</td>
+    <td>http://loinc.org · 72088-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1984-09-22</td>
+    <td>Hemoglobin A1c/Hemoglobin.total in Blood</td>
+    <td>6.9% (high)<div class="muted">Reference &lt;=5.6%</div></td>
+    <td>http://loinc.org · 4548-4</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1984-10-01</td>
+    <td>Sodium [Moles/volume] in Serum or Plasma</td>
+    <td>138 mmol/L<div class="muted">Reference 135-145 mmol/L</div></td>
+    <td>http://loinc.org · 2951-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1984-10-01</td>
+    <td>Potassium [Moles/volume] in Serum or Plasma</td>
+    <td>4.6 mmol/L<div class="muted">Reference 3.5-5.1 mmol/L</div></td>
+    <td>http://loinc.org · 2823-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1984-10-01</td>
+    <td>Creatinine [Mass/volume] in Serum or Plasma</td>
+    <td>1.2 mg/dL<div class="muted">Reference 0.74-1.35 mg/dL</div></td>
+    <td>http://loinc.org · 2160-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1984-10-01</td>
+    <td>Glomerular filtration rate [Volume Rate/Area] in Serum, Plasma or Blood by Creatinine-based formula (CKD-EPI 1979)/1.73 sq M</td>
+    <td>68 mL/min/1.73 m²<div class="muted">Reference &gt;=60 mL/min/1.73 m²</div></td>
+    <td>http://loinc.org · 98979-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1984-10-01</td>
+    <td>Glucose [Mass/volume] in Serum or Plasma</td>
+    <td>112 mg/dL<div class="muted">Reference 70-140 mg/dL</div></td>
+    <td>http://loinc.org · 2345-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1984-10-27</td>
+    <td>Potassium [Moles/volume] in Serum or Plasma</td>
+    <td>4.4 mmol/L<div class="muted">Reference 3.5-5.1 mmol/L</div></td>
+    <td>http://loinc.org · 2823-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1984-10-27</td>
+    <td>Creatinine [Mass/volume] in Serum or Plasma</td>
+    <td>1 mg/dL<div class="muted">Reference 0.74-1.35 mg/dL</div></td>
+    <td>http://loinc.org · 2160-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1984-10-27</td>
+    <td>Glomerular filtration rate [Volume Rate/Area] in Serum, Plasma or Blood by Creatinine-based formula (CKD-EPI 1979)/1.73 sq M</td>
+    <td>85 mL/min/1.73 m²<div class="muted">Reference &gt;=60 mL/min/1.73 m²</div></td>
+    <td>http://loinc.org · 98979-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1984-10-27</td>
+    <td>Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]</td>
+    <td>3</td>
+    <td>http://loinc.org · 44261-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1984-09-08</td>
+    <td>Cholesterol [Mass/volume] in Serum or Plasma</td>
+    <td>154 mg/dL<div class="muted">Reference &lt;=199 mg/dL</div></td>
+    <td>http://loinc.org · 2093-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1984-09-08</td>
+    <td>Cholesterol in HDL [Mass/volume] in Serum or Plasma</td>
+    <td>49 mg/dL<div class="muted">Reference &gt;=40 mg/dL</div></td>
+    <td>http://loinc.org · 2085-9</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1984-09-08</td>
+    <td>Cholesterol in LDL [Mass/volume] in Serum or Plasma by calculation</td>
+    <td>79 mg/dL<div class="muted">Reference &lt;=99 mg/dL</div></td>
+    <td>http://loinc.org · 13457-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1984-09-08</td>
+    <td>Triglyceride [Mass/volume] in Serum or Plasma</td>
+    <td>128 mg/dL<div class="muted">Reference &lt;=149 mg/dL</div></td>
+    <td>http://loinc.org · 2571-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1984-09-08</td>
+    <td>Patient Health Questionnaire 2 item (PHQ-2) total score [Reported]</td>
+    <td>0</td>
+    <td>http://loinc.org · 55758-7</td>
+  </tr></tbody></table></section>
+    <section><h2>Synthetic vital signs</h2><table><thead><tr><th>Date</th><th>Measure</th><th>Result</th><th>LOINC</th><th>Grade</th></tr></thead><tbody>
+  <tr><td>1984-07-07</td><td>Body height</td><td>180 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1984-07-07</td><td>Body weight</td><td>77 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1984-07-07</td><td>Body mass index (BMI) [Ratio]</td><td>23.8 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1984-07-07</td><td>Systolic blood pressure</td><td>132 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1984-07-07</td><td>Diastolic blood pressure</td><td>80 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1984-07-07</td><td>Heart rate</td><td>72 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1984-07-07</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1984-07-07</td><td>Body temperature</td><td>36.7 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1984-07-07</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>98 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1984-07-21</td><td>Body height</td><td>180 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1984-07-21</td><td>Body weight</td><td>76.8 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1984-07-21</td><td>Body mass index (BMI) [Ratio]</td><td>23.7 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1984-07-21</td><td>Systolic blood pressure</td><td>128 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1984-07-21</td><td>Diastolic blood pressure</td><td>78 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1984-07-21</td><td>Heart rate</td><td>70 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1984-07-21</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1984-07-21</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1984-07-21</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>98 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1984-08-18</td><td>Body height</td><td>180 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1984-08-18</td><td>Body weight</td><td>76.6 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1984-08-18</td><td>Body mass index (BMI) [Ratio]</td><td>23.6 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1984-08-18</td><td>Systolic blood pressure</td><td>126 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1984-08-18</td><td>Diastolic blood pressure</td><td>78 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1984-08-18</td><td>Heart rate</td><td>70 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1984-08-18</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1984-08-18</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1984-08-18</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>98 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1984-09-22</td><td>Body height</td><td>180 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1984-09-22</td><td>Body weight</td><td>76.2 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1984-09-22</td><td>Body mass index (BMI) [Ratio]</td><td>23.5 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1984-09-22</td><td>Systolic blood pressure</td><td>128 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1984-09-22</td><td>Diastolic blood pressure</td><td>76 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1984-09-22</td><td>Heart rate</td><td>64 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1984-09-22</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1984-09-22</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1984-09-22</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>98 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1984-10-27</td><td>Body height</td><td>180 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1984-10-27</td><td>Body weight</td><td>75.8 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1984-10-27</td><td>Body mass index (BMI) [Ratio]</td><td>23.4 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1984-10-27</td><td>Systolic blood pressure</td><td>126 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1984-10-27</td><td>Diastolic blood pressure</td><td>76 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1984-10-27</td><td>Heart rate</td><td>66 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1984-10-27</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1984-10-27</td><td>Body temperature</td><td>36.5 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1984-10-27</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>98 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1984-09-08</td><td>Body height</td><td>180 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1984-09-08</td><td>Body weight</td><td>76.4 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1984-09-08</td><td>Body mass index (BMI) [Ratio]</td><td>23.6 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1984-09-08</td><td>Systolic blood pressure</td><td>126 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1984-09-08</td><td>Diastolic blood pressure</td><td>76 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1984-09-08</td><td>Heart rate</td><td>68 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1984-09-08</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1984-09-08</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1984-09-08</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>98 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1984-10-01</td><td>Body height</td><td>180 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1984-10-01</td><td>Body weight</td><td>74.6 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1984-10-01</td><td>Body mass index (BMI) [Ratio]</td><td>23 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1984-10-01</td><td>Systolic blood pressure</td><td>118 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1984-10-01</td><td>Diastolic blood pressure</td><td>70 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1984-10-01</td><td>Heart rate</td><td>56 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1984-10-01</td><td>Respiratory rate</td><td>16 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1984-10-01</td><td>Body temperature</td><td>36.8 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1984-10-01</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>98 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr></tbody></table></section>
+    <section><h2>Social, functional, and mental status</h2><h3>Social history</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Retired world champion boxer; lives in Los Angeles in the upper floor of a duplex with his care partner, who comes to visits with him; still visits the gym of the youth foundation he started</li><li><span class="badge grade-S" title="Synthetic">S</span> Finished school to about the tenth grade; spent his working life in boxing and in business around it</li><li><span class="badge grade-S" title="Synthetic">S</span> Drives a car; got lost twice in familiar streets this year; no crashes</li><li><span class="badge grade-S" title="Synthetic">S</span> A handgun in the home, kept unloaded in a locked box</li><li><span class="badge grade-S" title="Synthetic">S</span> Does not smoke; a glass of wine on special occasions; no other drugs</li><li><span class="badge grade-S" title="Synthetic">S</span> Exercises daily: long walks and skipping rope; eats two large meals a day</li><li><span class="badge grade-S" title="Synthetic">S</span> Strengths and supports: discipline and daily exercise, pride in his career, a warm and sociable manner, his care partner, friends from boxing, and the young people at the foundation</li></ul><h3>Functional status</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Independent in bathing, dressing, eating and walking; needs help with bills, medicines and appointments (Functional Activities Questionnaire 11, narrative); Timed Up and Go 9 seconds</li></ul><h3>Mental status</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Alert, cheerful and courteous; repeats a question twice in ten minutes; looks to his care partner for dates; speech fluent; mood good; no hallucinations or delusions; insight partial: he notices forgetting but feels it is normal for his age</li></ul></section>
+    
+    <section><h2>Allergies and medications</h2><h3>Allergies</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> No known allergy</li></ul><h3>Medications</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Metformin 1,000 mg oral tablet, one tablet twice daily with meals</li><li><span class="badge grade-S" title="Synthetic">S</span> Glipizide 5 mg oral tablet, one tablet before breakfast</li><li><span class="badge grade-S" title="Synthetic">S</span> Lisinopril 20 mg oral tablet, one tablet daily</li><li><span class="badge grade-S" title="Synthetic">S</span> Atorvastatin 20 mg oral tablet, one tablet daily</li><li><span class="badge grade-S" title="Synthetic">S</span> Diphenhydramine 25 mg oral capsule, one at bedtime for sleep, bought over the counter</li><li><span class="badge grade-S" title="Synthetic">S</span> Donepezil 5 mg oral tablet, one tablet at bedtime</li><li><span class="badge grade-S" title="Synthetic">S</span> Donepezil 10 mg oral tablet, one tablet at bedtime</li><li><span class="badge grade-S" title="Synthetic">S</span> Donepezil 5 mg oral tablet, one tablet each morning with breakfast</li></ul></section>
+    <section><h2>Procedures and immunizations</h2><h3>Procedures</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> MRI of the brain without contrast, with susceptibility-weighted imaging: moderate atrophy of both hippocampi, left more than right (medial temporal atrophy score 2 on each side), mild generalized atrophy, a few small white matter hyperintensities (Fazekas 1), six microbleeds at the gray-white junction of both frontal lobes and the right temporal lobe in a pattern seen after traumatic brain injury, no cortical superficial siderosis, no infarct, mass or hydrocephalus, and a cavum septi pellucidi, a finding common in boxers</li><li><span class="badge grade-S" title="Synthetic">S</span> Pure tone audiometry: mild to moderate bilateral high-frequency sensorineural hearing loss, symmetric; speech understanding good in quiet, reduced in noise</li><li><span class="badge grade-S" title="Synthetic">S</span> Amyloid PET with florbetapir: positive, with widespread cortical tracer uptake (about 90 Centiloids), confirming Alzheimer&#39;s disease pathology</li><li><span class="badge grade-S" title="Synthetic">S</span> Twelve-lead ECG before donepezil: sinus rhythm at 70 per minute, PR interval 172 ms, QTc 414 ms, no conduction block</li><li><span class="badge grade-S" title="Synthetic">S</span> Fitting of hearing aids for both ears by the audiologist, with teaching for him and his care partner</li><li><span class="badge grade-S" title="Synthetic">S</span> Advance care planning conversation, about 30 minutes, with him and his care partner; his capacity to name a health care agent and state his values was assessed and present</li><li><span class="badge grade-S" title="Synthetic">S</span> Twelve-lead ECG: sinus bradycardia at 56 per minute, PR interval 180 ms, QTc 420 ms, no heart block</li></ul><h3>Immunizations</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> 1984-09-08: Influenza vaccine for the coming season</li><li><span class="badge grade-S" title="Synthetic">S</span> 1984-09-08: Pneumococcal conjugate vaccine (PCV20), recommended for all adults aged 50 and older</li><li><span class="badge grade-S" title="Synthetic">S</span> 1984-09-08: Recombinant zoster vaccine, first of two doses</li><li><span class="badge grade-S" title="Synthetic">S</span> 1984-09-22: Tdap vaccine, deferred from the preventive visit at his request</li></ul></section>
+    <section><h2>Past medical history</h2><p class="muted">True biography with historical dates; not part of the synthetic care timeline.</p><ul><li><span class="badge grade-D" title="Documented">D</span> 1940 to 1965: About 200 professional bouts over 25 years of boxing, after an amateur career: long exposure to repetitive head impacts; no source read records a knockout count with loss of consciousness or a brain injury diagnosis <span class="muted">(CLM-0002, CLM-0004)</span></li></ul><h3>Family history</h3><p class="muted">No family medical history is documented in the logged sources. Family history of real relatives is never synthesized.</p></section>
+    <section><h2>Care-plan goals</h2><table><thead><tr><th>Goal</th><th>Target date</th><th>Status</th><th>Outcome</th></tr></thead><tbody>
+  <tr><td>Find the cause of the memory loss and explain it to him in a way he can take in</td><td>1984-08-18</td><td>completed</td><td>Alzheimer&#39;s disease confirmed by amyloid PET; disclosed with his care partner present, at his request, with written notes</td></tr>
+  <tr><td>No hypoglycemia, with hemoglobin A1c under 8.0%</td><td>1984-10-27</td><td>completed</td><td>Glipizide stopped after one reading of 68 mg/dL; no low readings since; A1c 6.4 to 6.9%</td></tr>
+  <tr><td>Stay safe: no driving and no firearm in the home</td><td>1984-08-18</td><td>completed</td><td>He stopped driving and the handgun was removed from the home</td></tr>
+  <tr><td>Keep his days full and give his care partner regular breaks</td><td>1984-10-27</td><td>completed</td><td>Adult day program two days a week; walks and the foundation gym on other days; Alzheimer&#39;s Association helpline</td></tr></tbody></table></section>
+    <section><h2>Interventions</h2><table><thead><tr><th>Intervention</th><th>Status</th><th>Guideline</th></tr></thead><tbody>
+  <tr><td>Dementia work-up under the Alzheimer&#39;s Association guideline: history from him and his care partner, MoCA, function, depression screening, first-tier blood tests (blood count, metabolic panel, B12, TSH), a review of medicines for anticholinergic and sedating drugs, a sleep apnea screen, and brain MRI</td><td>completed</td><td>GL-ALZ-2024, GL-ALZ-PC-2024, GL-CMID-2026</td></tr>
+  <tr><td>Cognitive neurology consultation at the memory clinic to stage the dementia, weigh Alzheimer&#39;s disease against traumatic encephalopathy syndrome and vascular disease, choose biomarker testing, and decide anti-amyloid eligibility</td><td>completed</td><td>GL-ALZ-2024, GL-TES-2021, GL-AUR-LEC-2023, GL-AUR-DON-2025</td></tr>
+  <tr><td>Stop diphenhydramine, a strongly anticholinergic sleep aid; sleep habits and morning light instead</td><td>completed</td><td>GL-BEERS-2023</td></tr>
+  <tr><td>Driving: no driving until the evaluation is complete, with his care partner driving; firearm: unloaded and locked, with the key held by his care partner, until a decision with him</td><td>completed</td><td>GL-AAN-DRIVING-2010, GL-ALZ-2024</td></tr>
+  <tr><td>Amyloid PET to confirm Alzheimer&#39;s disease pathology; APOE genotyping not needed because he is not a candidate for anti-amyloid therapy, and offered only with counseling</td><td>completed</td><td>GL-ALZ-2024, GL-AUR-LEC-2023, GL-AUR-DON-2025</td></tr>
+  <tr><td>Donepezil 5 mg at bedtime with a baseline ECG and pulse checks, raised to 10 mg after four to six weeks if tolerated; taken in the morning if dreams are vivid</td><td>completed</td><td>GL-ALZ-2024, GL-CMID-2026</td></tr>
+  <tr><td>Diabetes deintensified under the ADA Standards for older adults: stop glipizide, continue metformin, hemoglobin A1c goal under 8.0%, sick-day rules (hold metformin when not eating or drinking), and B12 checked periodically</td><td>completed</td><td>GL-ADA-OLDER-2026, GL-CMID-2026</td></tr>
+  <tr><td>Blood pressure under 130/80 mmHg on lisinopril, with potassium and creatinine checks</td><td>completed</td><td>GL-ADA-OLDER-2026, GL-CMID-2026</td></tr>
+  <tr><td>Hearing aids for both ears, fitted by the audiologist</td><td>completed</td><td>GL-ALZ-2024</td></tr>
+  <tr><td>Stop driving after the diagnosis (CDR 1 and getting lost), with transport planned; the handgun removed from the home</td><td>completed</td><td>GL-AAN-DRIVING-2010, GL-ALZ-2024</td></tr>
+  <tr><td>Caregiver support: education, the Alzheimer&#39;s Association 24/7 Helpline, an adult day program for respite, a caregiver burden check, and the Medicare GUIDE dementia care model once he has Medicare</td><td>completed</td><td>GL-GUIDE, GL-ALZ-2024</td></tr>
+  <tr><td>Advance care planning while he can take part fully: a health care agent and his values, at the preventive visit</td><td>completed</td><td>GL-ALZ-2024</td></tr>
+  <tr><td>Exercise, social activity and diabetes and blood pressure control as the brain-health measures with the most support</td><td>completed</td><td>GL-ALZ-2024, GL-ADA-OLDER-2026</td></tr></tbody></table></section>
+    <section><h2>Planned encounters</h2><ul>
+  <li><strong>1984-07-07</strong> — Establishing care for memory loss and getting lost, with his care partner: cognitive testing, reversible causes, medicines, diabetes and blood pressure, driving and firearm safety <span class="muted">(ENC-001)</span></li>
+  <li><strong>1984-07-21</strong> — Two-week review, seen the same day by cognitive neurology: brain MRI, hearing test, staging, Alzheimer&#39;s disease against traumatic encephalopathy syndrome, and anti-amyloid eligibility <span class="muted">(ENC-002)</span></li>
+  <li><strong>1984-08-18</strong> — Six-week review: amyloid PET result, the diagnosis and the plan, with diabetes, driving, firearm and caregiver support <span class="muted">(ENC-003)</span></li>
+  <li><strong>1984-09-08</strong> — Periodic adult preventive visit <span class="muted">(ENC-006)</span></li>
+  <li><strong>1984-09-22</strong> — Eleven-week review: donepezil dose, diabetes, hearing aids and day program <span class="muted">(ENC-004)</span></li>
+  <li><strong>1984-10-01</strong> — Same-day sick visit for nausea and dizziness on donepezil <span class="muted">(ENC-007, unscheduled)</span></li>
+  <li><strong>1984-10-27</strong> — Sixteen-week review: medicines, kidneys, mood, caregiver strain and the plan <span class="muted">(ENC-005)</span></li></ul></section>
+    <section><h2>Supporting documents</h2><ul><li><a href="notes/hp.md">History and physical</a></li><li><a href="notes/progress-01.md">Progress note 01</a></li><li><a href="notes/progress-02.md">Progress note 02 — Focused Visit (Follow-up)</a></li><li><a href="notes/progress-03.md">Progress note 03 — Focused Visit (Follow-up)</a></li><li><a href="notes/progress-04.md">Progress note 04 — Preventive Visit</a></li><li><a href="notes/progress-05.md">Progress note 05 — Focused Visit (Follow-up)</a></li><li><a href="notes/progress-06.md">Progress note 06 — Sick Visit</a></li><li><a href="notes/progress-07.md">Progress note 07 — Focused Visit (Care-plan review)</a></li><li><a href="notes/referral-01.md">Cognitive Neurology referral</a></li><li><a href="notes/consult-01.md">Cognitive Neurology consultation</a></li><li><a href="notes/careplan.md">Patient care plan</a></li><li><a href="notes/teaching-note.md">Teaching note</a></li><li><a href="provenance.csv">Provenance CSV</a></li></ul></section>
+    <section><h2>C-CDA note documents</h2><p class="muted">Each link opens a readable copy; the XML beside it is the exchange file.</p><ul><li><a href="ccda/hp-01.html">History and physical</a> <a href="ccda/hp-01.xml">(XML)</a></li><li><a href="ccda/progress-01.html">Progress note 01</a> <a href="ccda/progress-01.xml">(XML)</a></li><li><a href="ccda/progress-02.html">Progress note 02 — Focused Visit (Follow-up)</a> <a href="ccda/progress-02.xml">(XML)</a></li><li><a href="ccda/progress-03.html">Progress note 03 — Focused Visit (Follow-up)</a> <a href="ccda/progress-03.xml">(XML)</a></li><li><a href="ccda/progress-04.html">Progress note 04 — Preventive Visit</a> <a href="ccda/progress-04.xml">(XML)</a></li><li><a href="ccda/progress-05.html">Progress note 05 — Focused Visit (Follow-up)</a> <a href="ccda/progress-05.xml">(XML)</a></li><li><a href="ccda/progress-06.html">Progress note 06 — Sick Visit</a> <a href="ccda/progress-06.xml">(XML)</a></li><li><a href="ccda/progress-07.html">Progress note 07 — Focused Visit (Care-plan review)</a> <a href="ccda/progress-07.xml">(XML)</a></li><li><a href="ccda/referral-01.html">Cognitive Neurology referral</a> <a href="ccda/referral-01.xml">(XML)</a></li><li><a href="ccda/consult-01.html">Cognitive Neurology consultation</a> <a href="ccda/consult-01.xml">(XML)</a></li></ul></section>
+    <section><h2>Sources</h2><table><thead><tr><th>ID</th><th>Source</th><th>Publisher</th><th>Type</th></tr></thead><tbody>
+  <tr>
+    <td>SRC-0001</td>
+    <td><a href="https://www.upi.com/Archives/1989/04/12/Sugar-Ray-Robinson-dead-at-67/7942608356800/" target="_blank" rel="noreferrer">Sugar Ray Robinson dead at 67. United Press International, April 12, 1989</a></td>
+    <td>United Press International</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0002</td>
+    <td><a href="https://www.upi.com/Archives/1987/07/09/Former-boxing-great-Sugar-Ray-Robinson-is-suffering-from/5962552801600/" target="_blank" rel="noreferrer">Former boxing great Sugar Ray Robinson is suffering from Alzheimer&#39;s disease. United Press International, July 9, 1987</a></td>
+    <td>United Press International</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0003</td>
+    <td><a href="https://michigansportshof.org/inductee/sugar-ray-robinson/" target="_blank" rel="noreferrer">Sugar Ray Robinson. Inductee biography</a></td>
+    <td>Michigan Sports Hall of Fame</td>
+    <td>biography</td>
+  </tr>
+  <tr>
+    <td>SRC-0004</td>
+    <td><a href="https://westadamsheritage.org/read/457" target="_blank" rel="noreferrer">Evans L, comp. Sugar Ray Robinson</a></td>
+    <td>West Adams Heritage Association</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0005</td>
+    <td><a href="https://boxingnewsonline.net/features/on-this-day-sugar-ray-robinson-the-most-complete-fighter-to-set-foot-in-a-ring-dies" target="_blank" rel="noreferrer">On this day: Sugar Ray Robinson, the most complete fighter to set foot in a ring, dies. Boxing News</a></td>
+    <td>Boxing News</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0006</td>
+    <td><a href="https://humanrecord.example.org/internal/HISTMED_Master_Roster_v3.xlsx" target="_blank" rel="noreferrer">HISTMED Master Roster v3</a></td>
+    <td>The Human Record project</td>
+    <td>other</td>
+  </tr></tbody></table></section>
+    <section><h2>Review status</h2><table><thead><tr><th>Review</th><th>Status</th><th>Notes</th></tr></thead><tbody>
+  <tr><td>schema validation</td><td>not_started</td><td>Run scripts/build.ps1 -Conformance.</td></tr>
+  <tr><td>clinical review</td><td>not_started</td><td>Awaiting clinician review; check the exclusion from lecanemab and donanemab on six microbleeds, amyloid PET in a man who is not a treatment candidate, APOE genotyping not done, the handling of traumatic encephalopathy syndrome as a research diagnosis, donepezil 10 mg reduced to 5 mg after gastrointestinal side effects, stopping glipizide at hemoglobin A1c 6.4%, and the driving and firearm decisions.</td></tr>
+  <tr><td>provenance review</td><td>not_started</td><td>Sources: UPI obituary (1989), UPI report of a Sports Illustrated article (1987), the Michigan Sports Hall of Fame, the West Adams Heritage Association and Boxing News. The International Boxing Hall of Fame site refused connection; the New York Times and Los Angeles Times obituaries could not be fetched; Wil Haygood&#39;s Sweet Thunder was not read. The birthplace is disputed (Ailey, Georgia, or Detroit), and record counts differ by source. No source dates his Alzheimer&#39;s diagnosis.</td></tr>
+  <tr><td>safe messaging review</td><td>not_started</td><td>Dementia claims use only the documented press reports (Alzheimer&#39;s disease, diabetes, hypertension in 1987; Alzheimer&#39;s disease and diabetes at his death) and are marked sensitive. Dementia pugilistica and chronic traumatic encephalopathy are recorded only as an R roster claim. No relative is named in the modern episode; the care partner is synthetic, unnamed and not modeled on any relative, and family disputes in the 1987 report are not used.</td></tr></tbody></table></section>
+  </main>
+</body>
+</html>

@@ -1,0 +1,686 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mark Twain — The Human Record</title>
+  <style>
+    :root { --navy:#17365d; --blue:#1f4e78; --pale:#eef5fa; --ink:#1f2933; --muted:#66788a; --amber:#fff2cc; --red:#f8d7da; --green:#d9ead3; }
+    * { box-sizing:border-box; }
+    body { margin:0; font:16px/1.5 Arial, sans-serif; color:var(--ink); background:#f6f8fa; }
+    header { background:var(--navy); color:white; padding:24px max(24px,calc((100vw - 1180px)/2)); }
+    header h1 { margin:4px 0; font-size:30px; }
+    .banner { background:#b42318; color:white; font-weight:700; text-align:center; padding:10px; letter-spacing:.03em; }
+    main { max-width:1180px; margin:24px auto 60px; padding:0 24px; }
+    section { background:white; border:1px solid #d9e1e8; border-radius:8px; margin:18px 0; padding:20px; }
+    h2 { color:var(--navy); margin:0 0 14px; font-size:22px; }
+    h3 { color:var(--blue); }
+    .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:12px; }
+    .card { background:var(--pale); border-left:4px solid var(--blue); padding:12px; }
+    .label { color:var(--muted); font-size:13px; text-transform:uppercase; letter-spacing:.04em; }
+    table { width:100%; border-collapse:collapse; }
+    th { background:var(--blue); color:white; text-align:left; }
+    th,td { padding:9px; border-bottom:1px solid #dfe6ec; vertical-align:top; }
+    .badge { display:inline-block; min-width:28px; text-align:center; font-weight:700; border-radius:12px; padding:2px 8px; }
+    .grade-D { background:var(--green); } .grade-R { background:var(--amber); } .grade-S { background:var(--red); }
+    .muted { color:var(--muted); font-size:14px; }
+    .relationship { color:var(--muted); font-size:12px; }
+    .downloads a { display:inline-block; margin:4px 8px 4px 0; padding:8px 12px; background:var(--blue); color:white; text-decoration:none; border-radius:5px; }
+    @media (max-width:700px) { table { display:block; overflow-x:auto; } }
+  </style>
+</head>
+<body>
+  <div class="banner">SYNTHETIC RECORD, NOT A REAL MEDICAL RECORD</div>
+  <div class="banner">True-date frame: synthetic events are moved into the patient&#39;s historical lifetime. Codes, instruments, and treatments remain modern and are anachronistic.</div>
+  <header>
+    <div>The Human Record</div>
+    <h1>Mark Twain</h1>
+    <div>Case HR-NI013-TD · Modern EHR teaching episode · Draft for review</div>
+  </header>
+  <main>
+    <section>
+      <h2>Review summary</h2>
+      <div class="grid">
+        <div class="card"><div class="label">Historical dates</div>November 30, 1835 – April 21, 1910</div>
+        <div class="card"><div class="label">Synthetic DOB</div>1835-11-30</div>
+        <div class="card"><div class="label">Index visit</div>1905-06-12 at age 69</div>
+        <div class="card"><div class="label">Synthetic MRN</div>HR-NI013-SYN-TD</div>
+      </div>
+      <p><strong>Teaching objective:</strong> Prolonged grief disorder in a 69-year-old writer and humorist a year after his wife&#39;s death, after the earlier deaths of a son and a daughter. The episode covers the DSM-5-TR criteria and the PG-13-R; telling prolonged grief from normal grief and from major depression with the PHQ-9 and a clinical interview, and the decision not to start an antidepressant when major depression is absent; a structured safety assessment for passive thoughts of death in an older bereaved man, who is at high risk of suicide, with means safety and the 988 Suicide &amp; Crisis Lifeline; prolonged grief disorder therapy (Shear) in sixteen weekly sessions; sleep without sedative-hypnotics; tobacco use disorder in a cigar smoker since boyhood, with counseling and varenicline under the USPSTF recommendation; exertional chest tightness evaluated with an ECG and CT coronary angiography under the 1900 chest pain guideline, and nonobstructive coronary disease treated with a high-intensity statin and aspirin; gout with allopurinol started low and raised to a urate below 6 mg/dL, with colchicine prophylaxis and a flare treated without stopping allopurinol, under the ACR 1899 guideline; and social connection and his writing as part of recovery.</p>
+      <div class="downloads">
+        <a href="../case.json">Canonical JSON</a>
+        <a href="fhir-bundle.json">FHIR R4 draft</a>
+        <a href="ccda.html">C-CDA R2.1 summary</a> <a href="ccda.xml">(XML)</a>
+        <a href="../sources.md">Evidence dossier</a>
+      </div>
+    </section>
+    <section><h2>Historical timeline</h2><table><thead><tr><th>Date</th><th>Event</th><th>Claims</th></tr></thead><tbody>
+  <tr><td>November 30, 1835</td><td>Born Samuel Langhorne Clemens in Florida, Missouri.</td><td>CLM-0001</td></tr>
+  <tr><td>February 2, 1870</td><td>Marries Olivia Langdon.</td><td>CLM-0003</td></tr>
+  <tr><td>June 1872</td><td>Death of his son Langdon from diphtheria.</td><td>CLM-0004</td></tr>
+  <tr><td>1894</td><td>His publishing company fails; first attack of gout, in Paris, about this time.</td><td>CLM-0005, CLM-0010</td></tr>
+  <tr><td>July 14, 1895</td><td>Leaves on a worldwide lecture tour to repay his debts.</td><td>CLM-0005</td></tr>
+  <tr><td>August 1896</td><td>Death of his daughter Susy from meningitis.</td><td>CLM-0006</td></tr>
+  <tr><td>October 1897</td><td>Laid up with gout in Vienna.</td><td>CLM-0010</td></tr>
+  <tr><td>June 5, 1904</td><td>Death of his wife near Florence.</td><td>CLM-0007</td></tr>
+  <tr><td>May 18, 1905</td><td>Arrives for the summer at Dublin, New Hampshire.</td><td>CLM-0011</td></tr>
+  <tr><td>August 1905</td><td>A severe attack of gout in Norfolk, Connecticut.</td><td>CLM-0012</td></tr>
+  <tr><td>April to May 1906</td><td>Bronchitis in New York.</td><td>CLM-0013</td></tr>
+  <tr><td>June to July 1909</td><td>First attacks of chest pain; told he has a &quot;tobacco heart.&quot;</td><td>CLM-0014, CLM-0009</td></tr>
+  <tr><td>December 24, 1909</td><td>Death of his daughter Jean.</td><td>CLM-0015</td></tr>
+  <tr><td>April 21, 1910</td><td>Dies at Stormfield of angina pectoris; his obituary says his losses had preyed upon his mind.</td><td>CLM-0016, CLM-0008</td></tr></tbody></table></section>
+    <section><h2>Evidence claims</h2><p class="muted">D = documented, R = retrospective, S = synthetic.</p><table><thead><tr><th>Grade</th><th>Claim</th><th>Certainty</th><th>Sources</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>Samuel Langhorne Clemens was born on November 30, 1835, in Florida, Missouri, the sixth of seven children; at four he moved with his family to Hannibal, Missouri, on the Mississippi River.</strong><div class="muted">Anchors the synthetic date of birth (November 30 kept).</div></td>
+    <td>confirmed</td>
+    <td><a href="https://marktwainhouse.org/about/mark-twain/biography/" target="_blank" rel="noreferrer">Mark Twain: A Life Lived in a Rapidly Changing World (biography)</a> <span class="relationship">supports</span><br><a href="https://twainquotes.com/19100422a.html" target="_blank" rel="noreferrer">Mark Twain Is Dead at 74. The New York Times, April 22, 1910 (transcription)</a> <span class="relationship">supports</span><br><a href="https://humanrecord.example.org/internal/HISTMED_Master_Roster_v3.xlsx" target="_blank" rel="noreferrer">HISTMED Master Roster v3</a> <span class="relationship">context</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>Writing for a Virginia City, Nevada, newspaper, he first used the pen name Mark Twain; he became a celebrated writer, humorist and lecturer, author of The Adventures of Tom Sawyer and Adventures of Huckleberry Finn.</strong><div class="muted">Anchors his work as a writer and lecturer in the modern social history.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://marktwainhouse.org/about/mark-twain/biography/" target="_blank" rel="noreferrer">Mark Twain: A Life Lived in a Rapidly Changing World (biography)</a> <span class="relationship">supports</span><br><a href="https://twainquotes.com/19100422a.html" target="_blank" rel="noreferrer">Mark Twain Is Dead at 74. The New York Times, April 22, 1910 (transcription)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>He married Olivia (Livy) Langdon in 1870; they had a son and three daughters.</strong><div class="muted">Family history as context; no relative is given a role in the modern episode.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://marktwainhouse.org/about/mark-twain/biography/" target="_blank" rel="noreferrer">Mark Twain: A Life Lived in a Rapidly Changing World (biography)</a> <span class="relationship">supports</span><br><a href="https://marktwainstudies.com/timeline/" target="_blank" rel="noreferrer">Twain in Elmira: timeline</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>Their first child, Langdon, died of diphtheria in 1872, at about two years old.</strong><div class="muted">The first of the documented bereavements.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://marktwainhouse.org/about/mark-twain/biography/" target="_blank" rel="noreferrer">Mark Twain: A Life Lived in a Rapidly Changing World (biography)</a> <span class="relationship">supports</span><br><a href="https://marktwainstudies.com/timeline/" target="_blank" rel="noreferrer">Twain in Elmira: timeline</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>Bad investments brought him to bankruptcy: his publishing company failed in 1894, and from July 1895 to July 1896 he made a worldwide lecture tour to earn money; he repaid his creditors.</strong><div class="muted">Anchors the documented financial ruin and recovery in the modern social history.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://marktwainhouse.org/about/mark-twain/biography/" target="_blank" rel="noreferrer">Mark Twain: A Life Lived in a Rapidly Changing World (biography)</a> <span class="relationship">supports</span><br><a href="https://marktwainstudies.com/timeline/" target="_blank" rel="noreferrer">Twain in Elmira: timeline</a> <span class="relationship">supports</span><br><a href="https://twainquotes.com/19100422a.html" target="_blank" rel="noreferrer">Mark Twain Is Dead at 74. The New York Times, April 22, 1910 (transcription)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>His eldest daughter, Susy, died of meningitis in August 1896, at 24, while staying at the family&#39;s former home in Hartford; the family never returned to live in Hartford.</strong><div class="muted">The second documented bereavement.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://marktwainhouse.org/about/mark-twain/biography/" target="_blank" rel="noreferrer">Mark Twain: A Life Lived in a Rapidly Changing World (biography)</a> <span class="relationship">supports</span><br><a href="https://marktwainstudies.com/timeline/" target="_blank" rel="noreferrer">Twain in Elmira: timeline</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>His wife, Olivia, died of heart failure at the Villa di Quarto near Florence, Italy, on the evening of June 5, 1904, after 22 months of illness; in his notebook that night he wrote that &quot;she that was the life of my life&quot; had died.</strong><div class="muted">The anchor for the synthetic prolonged grief disorder a year later.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://twainsgeography.com/DBD/june-5-1904-sunday" target="_blank" rel="noreferrer">Fears D. Mark Twain Day by Day: June 5, 1904; July 15, 1909; December 24, 1909</a> <span class="relationship">supports</span><br><a href="https://marktwainhouse.org/about/mark-twain/biography/" target="_blank" rel="noreferrer">Mark Twain: A Life Lived in a Rapidly Changing World (biography)</a> <span class="relationship">supports</span><br><a href="https://marktwainstudies.com/timeline/" target="_blank" rel="noreferrer">Twain in Elmira: timeline</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-R" title="Retrospective">R</span></td>
+    <td><strong>His obituary in The New York Times said that the loss of his son, two daughters and his wife had preyed upon his mind; whether he had a depressive illness at any point cannot be determined from the sources read, and the roster&#39;s suggestion of bipolar disorder is not supported by them.</strong><div class="muted">Retrospective interpretation; no historical psychiatric diagnosis is assigned. The modern diagnosis of prolonged grief disorder is synthetic.</div></td>
+    <td>possible</td>
+    <td><a href="https://twainquotes.com/19100422a.html" target="_blank" rel="noreferrer">Mark Twain Is Dead at 74. The New York Times, April 22, 1910 (transcription)</a> <span class="relationship">supports</span><br><a href="https://humanrecord.example.org/internal/HISTMED_Master_Roster_v3.xlsx" target="_blank" rel="noreferrer">HISTMED Master Roster v3</a> <span class="relationship">disputes</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>He smoked heavily from boyhood: in 1882 he wrote that he had begun to smoke immoderately at eight, starting with one hundred cigars a month and rising to three hundred a month by his thirties, and that cigar smoking did no harm to his health.</strong><div class="muted">The anchor for the synthetic tobacco use disorder.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://marktwainproject.org/letters/uccl02173/" target="_blank" rel="noreferrer">Clemens SL. Letter to A. Arthur Reade, 14 March 1882 (UCCL 02173)</a> <span class="relationship">supports</span><br><a href="https://twainquotes.com/19100422a.html" target="_blank" rel="noreferrer">Mark Twain Is Dead at 74. The New York Times, April 22, 1910 (transcription)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>He had his first attack of gout in Paris in about 1894 and was laid up with gout again in Vienna in October 1897.</strong><div class="muted">The anchor for the synthetic gout in the modern episode.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://twainsgeography.com/node/3857" target="_blank" rel="noreferrer">Fears D. Mark Twain Day by Day: October 2, 1897 (his letter to Eduard Pötzl)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>On May 18, 1905, he arrived for the summer at a rented house at Dublin, New Hampshire, in the hills below Mount Monadnock.</strong><div class="muted">Anchors his whereabouts during the modern episode.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://twainsgeography.com/chapter/dublin-nh-summer-1905" target="_blank" rel="noreferrer">Dublin, NH: Summer of 1905</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>In August 1905 he was confined to bed with a severe attack of gout while visiting Norfolk, Connecticut.</strong><div class="muted">History after the index visit.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://twainquotes.com/19050820.html" target="_blank" rel="noreferrer">Mark Twain Ill of Gout. The New York Times, August 20, 1905 (transcription)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>He was confined to his New York home with bronchitis from late April to early May 1906.</strong><div class="muted">History after the modern episode.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://twainquotes.com/19060507.html" target="_blank" rel="noreferrer">Mark Twain Out Again. The New York Times, May 7, 1906 (transcription)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>In June 1909, in a Baltimore hotel, he had his first attack of chest pain; in July 1909 he wrote that it had been &quot;decided that I have what is technically termed a &#39;tobacco&#39; heart,&quot; that he must smoke four times a day instead of forty, and that the pains came about twice a day.</strong><div class="muted">History after the modern episode; anchors nothing in the modern frame except the attention to tobacco and the heart.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://twainsgeography.com/DBD/june-5-1904-sunday" target="_blank" rel="noreferrer">Fears D. Mark Twain Day by Day: June 5, 1904; July 15, 1909; December 24, 1909</a> <span class="relationship">supports</span><br><a href="https://twainquotes.com/19100422a.html" target="_blank" rel="noreferrer">Mark Twain Is Dead at 74. The New York Times, April 22, 1910 (transcription)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>His youngest daughter, Jean, who had epilepsy, drowned in her bath at Stormfield on December 24, 1909, during an apparent seizure.</strong><div class="muted">History after the modern episode, recorded once without detail.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://twainsgeography.com/DBD/june-5-1904-sunday" target="_blank" rel="noreferrer">Fears D. Mark Twain Day by Day: June 5, 1904; July 15, 1909; December 24, 1909</a> <span class="relationship">supports</span><br><a href="https://marktwainhouse.org/about/mark-twain/biography/" target="_blank" rel="noreferrer">Mark Twain: A Life Lived in a Rapidly Changing World (biography)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>He died at Stormfield, his house in Redding, Connecticut, on April 21, 1910, at 74, of angina pectoris; his doctors had cut his twenty cigars a day to four, and his physician said he could not show that the angina followed from tobacco.</strong><div class="muted">History only, recorded in one plain sentence.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://twain.lib.virginia.edu/sc_as_mt/obitap.html" target="_blank" rel="noreferrer">Associated Press report of Mark Twain&#39;s death, April 22, 1910</a> <span class="relationship">supports</span><br><a href="https://twainquotes.com/19100422a.html" target="_blank" rel="noreferrer">Mark Twain Is Dead at 74. The New York Times, April 22, 1910 (transcription)</a> <span class="relationship">supports</span><br><a href="https://marktwainhouse.org/about/mark-twain/biography/" target="_blank" rel="noreferrer">Mark Twain: A Life Lived in a Rapidly Changing World (biography)</a> <span class="relationship">supports</span></td>
+  </tr></tbody></table></section>
+    <section><h2>Modern synthetic problem list</h2><table><thead><tr><th>Grade</th><th>Problem</th><th>Clinical status</th><th>Verification</th><th>Placement</th><th>Historical claims</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Persistent yearning for his wife, broken sleep, low mood and withdrawal from friends and work, a year after her death; cause under evaluation</td>
+    <td>resolved</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td>CLM-0007</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Prolonged grief disorder (DSM-5-TR): more than 12 months after his wife&#39;s death, daily yearning and preoccupation with her, with intense emotional pain, a sense that part of himself has died, avoidance of reminders, loneliness, difficulty taking up his work and life again, and a feeling that life is meaningless; PG-13-R 41; major depression not present</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>both_with_link</td>
+    <td>CLM-0004, CLM-0006, CLM-0007</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Tobacco use disorder, cigars: about fifteen cigars a day, smoking since boyhood, some smoke inhaled; first cigar within thirty minutes of waking</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td>CLM-0009</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Chest tightness on climbing steep hills, twice in the past month, easing within five minutes of rest; none at rest; cause under evaluation</td>
+    <td>resolved</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Coronary artery disease, nonobstructive (CAD-RADS 2: 25 to 49 percent narrowing of the proximal left anterior descending artery; coronary calcium score 410), with exertional chest tightness that has not recurred on treatment; treated with a statin, aspirin and stopping smoking</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Gout, recurrent flares of the big toe since his late fifties, two in the past year; serum urate 8.6 mg/dL; no tophi</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td>CLM-0010</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Acute bronchitis, likely viral, for six days in a cigar smoker; no pneumonia on examination; resolved within three weeks without antibiotics</td>
+    <td>resolved</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td></td>
+  </tr></tbody></table></section>
+    <section><h2>Synthetic outcome measures</h2><table><thead><tr><th>Grade</th><th>Date</th><th>Measure</th><th>Result</th><th>Coding</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1905-06-12</td>
+    <td>Leukocytes [#/volume] in Blood by Automated count</td>
+    <td>8.1 10*3/uL<div class="muted">Reference 4-11 10*3/uL</div></td>
+    <td>http://loinc.org · 6690-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1905-06-12</td>
+    <td>Hemoglobin [Mass/volume] in Blood</td>
+    <td>15.6 g/dL<div class="muted">Reference 13.5-17.5 g/dL</div></td>
+    <td>http://loinc.org · 718-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1905-06-12</td>
+    <td>Platelets [#/volume] in Blood by Automated count</td>
+    <td>232 10*3/uL<div class="muted">Reference 150-400 10*3/uL</div></td>
+    <td>http://loinc.org · 777-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1905-06-12</td>
+    <td>Sodium [Moles/volume] in Serum or Plasma</td>
+    <td>140 mmol/L<div class="muted">Reference 135-145 mmol/L</div></td>
+    <td>http://loinc.org · 2951-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1905-06-12</td>
+    <td>Potassium [Moles/volume] in Serum or Plasma</td>
+    <td>4.4 mmol/L<div class="muted">Reference 3.5-5.1 mmol/L</div></td>
+    <td>http://loinc.org · 2823-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1905-06-12</td>
+    <td>Creatinine [Mass/volume] in Serum or Plasma</td>
+    <td>1.08 mg/dL<div class="muted">Reference 0.74-1.35 mg/dL</div></td>
+    <td>http://loinc.org · 2160-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1905-06-12</td>
+    <td>Glomerular filtration rate [Volume Rate/Area] in Serum, Plasma or Blood by Creatinine-based formula (CKD-EPI 1900)/1.73 sq M</td>
+    <td>74 mL/min/1.73 m²<div class="muted">Reference &gt;=60 mL/min/1.73 m²</div></td>
+    <td>http://loinc.org · 98979-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1905-06-12</td>
+    <td>Glucose [Mass/volume] in Serum or Plasma</td>
+    <td>101 mg/dL (high)<div class="muted">Reference 70-99 mg/dL</div></td>
+    <td>http://loinc.org · 2345-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1905-06-12</td>
+    <td>Alanine aminotransferase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>24 U/L<div class="muted">Reference 7-56 U/L</div></td>
+    <td>http://loinc.org · 1742-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1905-06-12</td>
+    <td>Urate [Mass/volume] in Serum or Plasma</td>
+    <td>8.6 mg/dL (high)<div class="muted">Reference 3.5-7.2 mg/dL</div></td>
+    <td>http://loinc.org · 3084-1</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1905-06-12</td>
+    <td>Hemoglobin A1c/Hemoglobin.total in Blood</td>
+    <td>5.8% (high)<div class="muted">Reference &lt;=5.6%</div></td>
+    <td>http://loinc.org · 4548-4</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1905-06-12</td>
+    <td>Cholesterol [Mass/volume] in Serum or Plasma</td>
+    <td>228 mg/dL (high)<div class="muted">Reference &lt;=199 mg/dL</div></td>
+    <td>http://loinc.org · 2093-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1905-06-12</td>
+    <td>Cholesterol in HDL [Mass/volume] in Serum or Plasma</td>
+    <td>44 mg/dL<div class="muted">Reference &gt;=40 mg/dL</div></td>
+    <td>http://loinc.org · 2085-9</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1905-06-12</td>
+    <td>Cholesterol in LDL [Mass/volume] in Serum or Plasma by calculation</td>
+    <td>150 mg/dL (high)<div class="muted">Reference &lt;=99 mg/dL</div></td>
+    <td>http://loinc.org · 13457-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1905-06-12</td>
+    <td>Triglyceride [Mass/volume] in Serum or Plasma</td>
+    <td>170 mg/dL (high)<div class="muted">Reference &lt;=149 mg/dL</div></td>
+    <td>http://loinc.org · 2571-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1905-06-12</td>
+    <td>Thyrotropin [Units/volume] in Serum or Plasma</td>
+    <td>2.2 mIU/L<div class="muted">Reference 0.4-4.5 mIU/L</div></td>
+    <td>http://loinc.org · 3016-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1905-06-12</td>
+    <td>Cobalamin (Vitamin B12) [Mass/volume] in Serum or Plasma</td>
+    <td>410 pg/mL<div class="muted">Reference 200-900 pg/mL</div></td>
+    <td>http://loinc.org · 2132-9</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1905-06-12</td>
+    <td>Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]</td>
+    <td>11</td>
+    <td>http://loinc.org · 44261-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1905-06-12</td>
+    <td>Total score [AUDIT-C]</td>
+    <td>3</td>
+    <td>http://loinc.org · 75626-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1905-07-17</td>
+    <td>Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]</td>
+    <td>9</td>
+    <td>http://loinc.org · 44261-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1905-09-11</td>
+    <td>Cholesterol [Mass/volume] in Serum or Plasma</td>
+    <td>156 mg/dL<div class="muted">Reference &lt;=199 mg/dL</div></td>
+    <td>http://loinc.org · 2093-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1905-09-11</td>
+    <td>Cholesterol in HDL [Mass/volume] in Serum or Plasma</td>
+    <td>46 mg/dL<div class="muted">Reference &gt;=40 mg/dL</div></td>
+    <td>http://loinc.org · 2085-9</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1905-09-11</td>
+    <td>Cholesterol in LDL [Mass/volume] in Serum or Plasma by calculation</td>
+    <td>74 mg/dL<div class="muted">Reference &lt;=99 mg/dL</div></td>
+    <td>http://loinc.org · 13457-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1905-09-11</td>
+    <td>Triglyceride [Mass/volume] in Serum or Plasma</td>
+    <td>180 mg/dL (high)<div class="muted">Reference &lt;=149 mg/dL</div></td>
+    <td>http://loinc.org · 2571-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1905-09-11</td>
+    <td>Alanine aminotransferase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>28 U/L<div class="muted">Reference 7-56 U/L</div></td>
+    <td>http://loinc.org · 1742-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1905-09-11</td>
+    <td>Urate [Mass/volume] in Serum or Plasma</td>
+    <td>7.4 mg/dL (high)<div class="muted">Reference 3.5-7.2 mg/dL</div></td>
+    <td>http://loinc.org · 3084-1</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1905-09-11</td>
+    <td>Sodium [Moles/volume] in Serum or Plasma</td>
+    <td>139 mmol/L<div class="muted">Reference 135-145 mmol/L</div></td>
+    <td>http://loinc.org · 2951-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1905-09-11</td>
+    <td>Potassium [Moles/volume] in Serum or Plasma</td>
+    <td>4.5 mmol/L<div class="muted">Reference 3.5-5.1 mmol/L</div></td>
+    <td>http://loinc.org · 2823-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1905-09-11</td>
+    <td>Creatinine [Mass/volume] in Serum or Plasma</td>
+    <td>1.1 mg/dL<div class="muted">Reference 0.74-1.35 mg/dL</div></td>
+    <td>http://loinc.org · 2160-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1905-09-11</td>
+    <td>Glomerular filtration rate [Volume Rate/Area] in Serum, Plasma or Blood by Creatinine-based formula (CKD-EPI 1900)/1.73 sq M</td>
+    <td>73 mL/min/1.73 m²<div class="muted">Reference &gt;=60 mL/min/1.73 m²</div></td>
+    <td>http://loinc.org · 98979-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1905-09-11</td>
+    <td>Glucose [Mass/volume] in Serum or Plasma</td>
+    <td>98 mg/dL<div class="muted">Reference 70-99 mg/dL</div></td>
+    <td>http://loinc.org · 2345-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1905-09-11</td>
+    <td>Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]</td>
+    <td>7</td>
+    <td>http://loinc.org · 44261-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1905-10-16</td>
+    <td>Urate [Mass/volume] in Serum or Plasma</td>
+    <td>6.4 mg/dL<div class="muted">Reference 3.5-7.2 mg/dL</div></td>
+    <td>http://loinc.org · 3084-1</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1905-10-16</td>
+    <td>Sodium [Moles/volume] in Serum or Plasma</td>
+    <td>140 mmol/L<div class="muted">Reference 135-145 mmol/L</div></td>
+    <td>http://loinc.org · 2951-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1905-10-16</td>
+    <td>Potassium [Moles/volume] in Serum or Plasma</td>
+    <td>4.4 mmol/L<div class="muted">Reference 3.5-5.1 mmol/L</div></td>
+    <td>http://loinc.org · 2823-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1905-10-16</td>
+    <td>Creatinine [Mass/volume] in Serum or Plasma</td>
+    <td>1.09 mg/dL<div class="muted">Reference 0.74-1.35 mg/dL</div></td>
+    <td>http://loinc.org · 2160-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1905-10-16</td>
+    <td>Glomerular filtration rate [Volume Rate/Area] in Serum, Plasma or Blood by Creatinine-based formula (CKD-EPI 1900)/1.73 sq M</td>
+    <td>73 mL/min/1.73 m²<div class="muted">Reference &gt;=60 mL/min/1.73 m²</div></td>
+    <td>http://loinc.org · 98979-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1905-10-16</td>
+    <td>Glucose [Mass/volume] in Serum or Plasma</td>
+    <td>96 mg/dL<div class="muted">Reference 70-99 mg/dL</div></td>
+    <td>http://loinc.org · 2345-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1905-10-16</td>
+    <td>Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]</td>
+    <td>5</td>
+    <td>http://loinc.org · 44261-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1905-09-25</td>
+    <td>Patient Health Questionnaire 2 item (PHQ-2) total score [Reported]</td>
+    <td>1</td>
+    <td>http://loinc.org · 55758-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1905-09-25</td>
+    <td>Total score [Mini-Cog]</td>
+    <td>5</td>
+    <td>http://loinc.org · 72233-0</td>
+  </tr></tbody></table></section>
+    <section><h2>Synthetic vital signs</h2><table><thead><tr><th>Date</th><th>Measure</th><th>Result</th><th>LOINC</th><th>Grade</th></tr></thead><tbody>
+  <tr><td>1905-06-12</td><td>Body height</td><td>173 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1905-06-12</td><td>Body weight</td><td>64 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1905-06-12</td><td>Body mass index (BMI) [Ratio]</td><td>21.4 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1905-06-12</td><td>Systolic blood pressure</td><td>142 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1905-06-12</td><td>Diastolic blood pressure</td><td>84 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1905-06-12</td><td>Heart rate</td><td>82 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1905-06-12</td><td>Respiratory rate</td><td>16 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1905-06-12</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1905-06-12</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>95 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1905-06-19</td><td>Body height</td><td>173 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1905-06-19</td><td>Body weight</td><td>63.8 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1905-06-19</td><td>Body mass index (BMI) [Ratio]</td><td>21.3 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1905-06-19</td><td>Systolic blood pressure</td><td>138 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1905-06-19</td><td>Diastolic blood pressure</td><td>82 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1905-06-19</td><td>Heart rate</td><td>80 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1905-06-19</td><td>Respiratory rate</td><td>16 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1905-06-19</td><td>Body temperature</td><td>36.7 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1905-06-19</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>95 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1905-07-17</td><td>Body height</td><td>173 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1905-07-17</td><td>Body weight</td><td>64.1 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1905-07-17</td><td>Body mass index (BMI) [Ratio]</td><td>21.4 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1905-07-17</td><td>Systolic blood pressure</td><td>136 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1905-07-17</td><td>Diastolic blood pressure</td><td>80 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1905-07-17</td><td>Heart rate</td><td>78 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1905-07-17</td><td>Respiratory rate</td><td>16 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1905-07-17</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1905-07-17</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>96 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1905-09-11</td><td>Body height</td><td>173 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1905-09-11</td><td>Body weight</td><td>64.9 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1905-09-11</td><td>Body mass index (BMI) [Ratio]</td><td>21.7 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1905-09-11</td><td>Systolic blood pressure</td><td>130 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1905-09-11</td><td>Diastolic blood pressure</td><td>78 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1905-09-11</td><td>Heart rate</td><td>72 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1905-09-11</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1905-09-11</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1905-09-11</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>97 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1905-10-16</td><td>Body height</td><td>173 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1905-10-16</td><td>Body weight</td><td>65.4 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1905-10-16</td><td>Body mass index (BMI) [Ratio]</td><td>21.9 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1905-10-16</td><td>Systolic blood pressure</td><td>128 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1905-10-16</td><td>Diastolic blood pressure</td><td>76 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1905-10-16</td><td>Heart rate</td><td>70 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1905-10-16</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1905-10-16</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1905-10-16</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>97 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1905-09-25</td><td>Body height</td><td>173 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1905-09-25</td><td>Body weight</td><td>65.1 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1905-09-25</td><td>Body mass index (BMI) [Ratio]</td><td>21.8 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1905-09-25</td><td>Systolic blood pressure</td><td>128 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1905-09-25</td><td>Diastolic blood pressure</td><td>76 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1905-09-25</td><td>Heart rate</td><td>70 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1905-09-25</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1905-09-25</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1905-09-25</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>97 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1905-07-31</td><td>Body height</td><td>173 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1905-07-31</td><td>Body weight</td><td>63.9 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1905-07-31</td><td>Body mass index (BMI) [Ratio]</td><td>21.4 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1905-07-31</td><td>Systolic blood pressure</td><td>134 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1905-07-31</td><td>Diastolic blood pressure</td><td>80 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1905-07-31</td><td>Heart rate</td><td>86 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1905-07-31</td><td>Respiratory rate</td><td>18 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1905-07-31</td><td>Body temperature</td><td>37.5 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1905-07-31</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>95 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr></tbody></table></section>
+    <section><h2>Social, functional, and mental status</h2><h3>Social history</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Writer, humorist and lecturer for more than forty years; known by his pen name; writing most mornings but unable to finish anything since his wife died</li><li><span class="badge grade-S" title="Synthetic">S</span> Widowed a year ago after 34 years of marriage; has lost a son in early childhood and a daughter as a young woman; lives in a rented house in the hills for the summer with a family member, a secretary and household staff; no relative is named or given a role in this record</li><li><span class="badge grade-S" title="Synthetic">S</span> Tobacco: cigars since boyhood, now about fifteen a day and a pipe in the evening, with some smoke inhaled; has stopped for months at a time before and always started again; says cigars help him write</li><li><span class="badge grade-S" title="Synthetic">S</span> Alcohol: a glass of whisky most evenings (AUDIT-C 3); no other drugs</li><li><span class="badge grade-S" title="Synthetic">S</span> Finances: lost everything in a business failure about ten years ago and repaid his creditors by lecturing; secure now; still anxious about money at night</li><li><span class="badge grade-S" title="Synthetic">S</span> No firearms in the house; walks the hill roads most days</li><li><span class="badge grade-S" title="Synthetic">S</span> Strengths: humor, a lifetime of writing, many friends and admirers, neighbors in the summer colony who visit, a daily routine of work, and his own decision to come in</li></ul><h3>Functional status</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Independent in all activities and instrumental activities; has stopped seeing friends and turned down every invitation since the winter</li></ul><h3>Mental status</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Alert and oriented; courteous, dryly funny even while tearful; speech normal; mood &quot;hollow&quot;; talks of his wife in the present tense and keeps her room as it was; yearning and preoccupation every day; some days wishes he could join her, without any intent or plan; no hallucinations apart from sometimes hearing her voice as he falls asleep, which he knows is not real; thinking clear</li></ul></section>
+    <section><h2>Structured safety assessment</h2><div class="grid"><div class="card"><div class="label">Current ideation</div>present</div><div class="card"><div class="label">Intent</div>absent</div><div class="card"><div class="label">Plan</div>absent</div><div class="card"><div class="label">Disposition</div>Outpatient care with weekly visits and a telephone call in three days. Passive thoughts of death (wishing he could join his wife) without intent, plan or preparation; no past suicide attempt. Older widowed men are at high risk of suicide in the years after a loss (a Danish register study found the highest rise in suicide risk in the oldest bereaved men), and he has several further risk factors: repeated bereavement, living through the anniversary of her death, insomnia, alcohol each evening, chronic illness and social withdrawal. Means safety: no firearms in the house; medicines kept in small supplies; he agreed to keep whisky to one glass and none on bad nights. A written safety plan was made with him, and the 988 Suicide &amp; Crisis Lifeline (call or text 988) was saved in his phone. Safety is reviewed at every visit</div></div><p class="muted">This assessment is synthetic and does not convert historical behavior into a present-day fact.</p></section>
+    <section><h2>Allergies and medications</h2><h3>Allergies</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> No known allergy</li></ul><h3>Medications</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Varenicline 0.5 mg oral tablet: one tablet daily for three days, then one tablet twice daily for four days</li><li><span class="badge grade-S" title="Synthetic">S</span> Varenicline 1 mg oral tablet, one tablet twice daily with food for twelve weeks, with a quit date in the second week</li><li><span class="badge grade-S" title="Synthetic">S</span> Atorvastatin 40 mg oral tablet, one tablet daily</li><li><span class="badge grade-S" title="Synthetic">S</span> Aspirin 81 mg delayed-release oral tablet, one tablet daily</li><li><span class="badge grade-S" title="Synthetic">S</span> Allopurinol 100 mg oral tablet, one tablet daily</li><li><span class="badge grade-S" title="Synthetic">S</span> Allopurinol 100 mg oral tablet, two tablets daily (200 mg)</li><li><span class="badge grade-S" title="Synthetic">S</span> Allopurinol 300 mg oral tablet, one tablet daily</li><li><span class="badge grade-S" title="Synthetic">S</span> Colchicine 0.6 mg oral tablet, one tablet daily for flare prevention while allopurinol is started, for three to six months</li><li><span class="badge grade-S" title="Synthetic">S</span> Prednisone 20 mg oral tablet, two tablets (40 mg) each morning for five days, for a gout flare, prescribed by a doctor where he was staying</li></ul></section>
+    <section><h2>Procedures and immunizations</h2><h3>Procedures</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Resting 12-lead electrocardiogram: sinus rhythm at 80 per minute, normal axis and intervals, no Q waves or ST-segment changes</li><li><span class="badge grade-S" title="Synthetic">S</span> CT coronary angiography with calcium scoring: coronary calcium score 410; 25 to 49 percent narrowing of the proximal left anterior descending artery from mixed plaque (CAD-RADS 2); no obstructive disease</li><li><span class="badge grade-S" title="Synthetic">S</span> Advance care planning conversation, about 20 minutes</li></ul><h3>Immunizations</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> 1905-09-25: High-dose influenza vaccine for the coming season</li><li><span class="badge grade-S" title="Synthetic">S</span> 1905-09-25: Pneumococcal conjugate vaccine (PCV20); no earlier pneumococcal vaccine</li><li><span class="badge grade-S" title="Synthetic">S</span> 1905-10-16: RSV vaccine, single dose, for an adult aged 60 to 74 with coronary disease</li><li><span class="badge grade-S" title="Synthetic">S</span> 1905-10-16: Recombinant zoster vaccine, first of two doses</li></ul></section>
+    <section><h2>Past medical history</h2><p class="muted">True biography with historical dates; not part of the synthetic care timeline.</p><ul><li><span class="badge grade-D" title="Documented">D</span> June 1872: Death of his son at about two, from diphtheria <span class="muted">(CLM-0004)</span></li><li><span class="badge grade-D" title="Documented">D</span> 1894 to 1896: Bankruptcy after the failure of his publishing company, followed by a worldwide lecture tour to repay his debts <span class="muted">(CLM-0005)</span></li><li><span class="badge grade-D" title="Documented">D</span> about 1894 and 1897: Gout: a first attack in Paris and a further attack in Vienna three years later <span class="muted">(CLM-0010)</span></li><li><span class="badge grade-D" title="Documented">D</span> August 1896: Death of his eldest daughter at 24, from meningitis <span class="muted">(CLM-0006)</span></li><li><span class="badge grade-D" title="Documented">D</span> June 5, 1904: Death of his wife after 22 months of illness, a year before the index visit <span class="muted">(CLM-0007)</span></li></ul><h3>Family history</h3><p class="muted">No family medical history is documented in the logged sources. Family history of real relatives is never synthesized.</p></section>
+    <section><h2>Care-plan goals</h2><table><thead><tr><th>Goal</th><th>Target date</th><th>Status</th><th>Outcome</th></tr></thead><tbody>
+  <tr><td>PG-13-R below 30 and back to writing and seeing friends</td><td>1905-10-16</td><td>completed</td><td>PG-13-R 41 at intake to 26 at eighteen weeks; finishing a long essay; dinner with friends weekly</td></tr>
+  <tr><td>No thoughts of death and a safety plan he would use</td><td>1905-09-11</td><td>completed</td><td>Passive thoughts of death at intake; none since the five-week visit; safety plan kept</td></tr>
+  <tr><td>Stop smoking cigars</td><td>1905-10-16</td><td>active</td><td>Fifteen cigars a day at intake; quit in the first week of August with varenicline; one lapse of two cigars while away; none for eight weeks</td></tr>
+  <tr><td>LDL cholesterol at least 50 percent lower on a high-intensity statin</td><td>1905-09-11</td><td>completed</td><td>LDL 150 to 74 mg/dL (51 percent lower) at eight weeks</td></tr>
+  <tr><td>Serum urate below 6 mg/dL and no gout flares</td><td>1905-10-16</td><td>active</td><td>Urate 8.6, 7.4 and 6.4 mg/dL; one flare in August, treated while away; allopurinol raised to 300 mg</td></tr>
+  <tr><td>Six or more hours of sleep on most nights without a sleeping pill</td><td>1905-10-16</td><td>completed</td><td>About four to five hours at intake; six hours on most nights by eighteen weeks</td></tr></tbody></table></section>
+    <section><h2>Interventions</h2><table><thead><tr><th>Intervention</th><th>Status</th><th>Guideline</th></tr></thead><tbody>
+  <tr><td>Geriatric psychiatry consultation to confirm the diagnosis, separate prolonged grief disorder from major depression, advise on grief therapy, medicine and sleep, and review suicide risk</td><td>completed</td><td>GL-APA-PGD, GL-PG13R-2021, GL-SUICIDE-2024</td></tr>
+  <tr><td>Safety: a structured safety assessment, a written safety plan, the 988 Suicide &amp; Crisis Lifeline in his phone, means safety, a telephone call in three days, and safety review at every visit</td><td>completed</td><td>GL-SUICIDE-2024, GL-BEREAVED-MEN-2004, GL-CMID-2026</td></tr>
+  <tr><td>Prolonged grief disorder therapy (Shear): sixteen weekly sessions with a trained psychologist, covering the story of the death, imaginal conversations with his wife, memories and pictures, revisiting avoided places and things, and personal goals; PG-13-R and PHQ-9 every four weeks; no antidepressant unless major depression develops</td><td>completed</td><td>GL-PGDT-2005, GL-PGDT-2016, GL-APA-PGD, GL-PG13R-2021</td></tr>
+  <tr><td>Sleep: a fixed rising time, no naps after noon, no cigar or whisky in the last hours before bed, and getting up if awake more than twenty minutes; no benzodiazepine, zolpidem or sedating antihistamine</td><td>completed</td><td>GL-PGDT-2016, GL-CMID-2026</td></tr>
+  <tr><td>Tobacco: his readiness asked at every visit; brief advice linked to his own concern about his heart; counseling at each visit and the state quitline; varenicline offered as the most effective single medicine, with combination nicotine replacement as the alternative</td><td>completed</td><td>GL-USPSTF-TOB-2021</td></tr>
+  <tr><td>Chest tightness on exertion: resting ECG today and CT coronary angiography, chosen over stress testing for a man over 65 with stable symptoms and no known coronary disease; call 911 for chest pain at rest or lasting more than fifteen minutes</td><td>completed</td><td>GL-CHESTPAIN-2021</td></tr>
+  <tr><td>Nonobstructive coronary disease: atorvastatin 40 mg with a lipid panel 4 to 12 weeks later and a goal of at least a 50 percent fall in LDL, aspirin 81 mg, blood pressure below 130/80 mmHg, stopping smoking, and walking most days</td><td>completed</td><td>GL-CCD-2023, GL-CMID-2026</td></tr>
+  <tr><td>Gout: allopurinol from 100 mg daily, raised by 100 mg every two to five weeks to a serum urate below 6 mg/dL, with colchicine 0.6 mg daily for three to six months to prevent flares; flares treated without stopping allopurinol; HLA-B*58:01 testing not indicated by ancestry; less alcohol</td><td>completed</td><td>GL-ACR-GOUT-2020</td></tr>
+  <tr><td>Social connection and his writing: one planned social contact a week, a return to morning writing on a set project, and the clinic social worker&#39;s list of local groups; meaning and goals to be part of any grief treatment</td><td>completed</td><td>GL-PGDT-2005</td></tr>
+  <tr><td>Gout: urate measured at intake; urate-lowering therapy explained, since two flares in a year make it strongly recommended; he chose to decide after the chest evaluation; call at the first sign of a flare</td><td>completed</td><td>GL-ACR-GOUT-2020</td></tr>
+  <tr><td>Cardiovascular risk: blood pressure at each visit and lipids, hemoglobin A1c and kidney function at baseline; prediabetes (hemoglobin A1c 5.8 percent) managed with walking and diet</td><td>completed</td><td>GL-CMID-2026, GL-CHESTPAIN-2021</td></tr></tbody></table></section>
+    <section><h2>Planned encounters</h2><ul>
+  <li><strong>1905-06-12</strong> — Establishing primary care a year after his wife&#39;s death: yearning, poor sleep, low mood and withdrawal, suicide risk, heavy cigar smoking, chest tightness on hills, gout and cardiovascular risk <span class="muted">(ENC-001)</span></li>
+  <li><strong>1905-06-19</strong> — One-week review, seen the same day by geriatric psychiatry: the diagnosis of prolonged grief disorder, grief therapy, sleep and safety <span class="muted">(ENC-002)</span></li>
+  <li><strong>1905-07-17</strong> — Five-week review: CT coronary angiography result, a statin and aspirin, a plan to quit smoking, and starting allopurinol <span class="muted">(ENC-003)</span></li>
+  <li><strong>1905-07-31</strong> — Same-day sick visit for a cough <span class="muted">(ENC-007, unscheduled)</span></li>
+  <li><strong>1905-09-11</strong> — Thirteen-week review: grief therapy, smoking, a gout flare while away, the urate and lipid results <span class="muted">(ENC-004)</span></li>
+  <li><strong>1905-09-25</strong> — Subsequent annual wellness visit <span class="muted">(ENC-006)</span></li>
+  <li><strong>1905-10-16</strong> — Eighteen-week review: grief, no smoking, urate toward target and his writing <span class="muted">(ENC-005)</span></li></ul></section>
+    <section><h2>Supporting documents</h2><ul><li><a href="notes/hp.md">History and physical</a></li><li><a href="notes/progress-01.md">Progress note 01</a></li><li><a href="notes/progress-02.md">Progress note 02 — Focused Visit (Follow-up)</a></li><li><a href="notes/progress-03.md">Progress note 03 — Focused Visit (Follow-up)</a></li><li><a href="notes/progress-04.md">Progress note 04 — Sick Visit</a></li><li><a href="notes/progress-05.md">Progress note 05 — Focused Visit (Follow-up)</a></li><li><a href="notes/progress-06.md">Progress note 06 — Annual Wellness Visit, Subsequent</a></li><li><a href="notes/progress-07.md">Progress note 07 — Focused Visit (Care-plan review)</a></li><li><a href="notes/referral-01.md">Geriatric Psychiatry referral</a></li><li><a href="notes/consult-01.md">Geriatric Psychiatry consultation</a></li><li><a href="notes/careplan.md">Patient care plan</a></li><li><a href="notes/teaching-note.md">Teaching note</a></li><li><a href="provenance.csv">Provenance CSV</a></li></ul></section>
+    <section><h2>C-CDA note documents</h2><p class="muted">Each link opens a readable copy; the XML beside it is the exchange file.</p><ul><li><a href="ccda/hp-01.html">History and physical</a> <a href="ccda/hp-01.xml">(XML)</a></li><li><a href="ccda/progress-01.html">Progress note 01</a> <a href="ccda/progress-01.xml">(XML)</a></li><li><a href="ccda/progress-02.html">Progress note 02 — Focused Visit (Follow-up)</a> <a href="ccda/progress-02.xml">(XML)</a></li><li><a href="ccda/progress-03.html">Progress note 03 — Focused Visit (Follow-up)</a> <a href="ccda/progress-03.xml">(XML)</a></li><li><a href="ccda/progress-04.html">Progress note 04 — Sick Visit</a> <a href="ccda/progress-04.xml">(XML)</a></li><li><a href="ccda/progress-05.html">Progress note 05 — Focused Visit (Follow-up)</a> <a href="ccda/progress-05.xml">(XML)</a></li><li><a href="ccda/progress-06.html">Progress note 06 — Annual Wellness Visit, Subsequent</a> <a href="ccda/progress-06.xml">(XML)</a></li><li><a href="ccda/progress-07.html">Progress note 07 — Focused Visit (Care-plan review)</a> <a href="ccda/progress-07.xml">(XML)</a></li><li><a href="ccda/referral-01.html">Geriatric Psychiatry referral</a> <a href="ccda/referral-01.xml">(XML)</a></li><li><a href="ccda/consult-01.html">Geriatric Psychiatry consultation</a> <a href="ccda/consult-01.xml">(XML)</a></li></ul></section>
+    <section><h2>Sources</h2><table><thead><tr><th>ID</th><th>Source</th><th>Publisher</th><th>Type</th></tr></thead><tbody>
+  <tr>
+    <td>SRC-0001</td>
+    <td><a href="https://marktwainhouse.org/about/mark-twain/biography/" target="_blank" rel="noreferrer">Mark Twain: A Life Lived in a Rapidly Changing World (biography)</a></td>
+    <td>The Mark Twain House &amp; Museum</td>
+    <td>biography</td>
+  </tr>
+  <tr>
+    <td>SRC-0002</td>
+    <td><a href="https://marktwainstudies.com/timeline/" target="_blank" rel="noreferrer">Twain in Elmira: timeline</a></td>
+    <td>Center for Mark Twain Studies, Elmira College</td>
+    <td>biography</td>
+  </tr>
+  <tr>
+    <td>SRC-0003</td>
+    <td><a href="https://marktwainproject.org/letters/uccl02173/" target="_blank" rel="noreferrer">Clemens SL. Letter to A. Arthur Reade, 14 March 1882 (UCCL 02173)</a></td>
+    <td>Mark Twain Project Online, University of California, Berkeley</td>
+    <td>primary</td>
+  </tr>
+  <tr>
+    <td>SRC-0004</td>
+    <td><a href="https://twainquotes.com/19100422a.html" target="_blank" rel="noreferrer">Mark Twain Is Dead at 74. The New York Times, April 22, 1910 (transcription)</a></td>
+    <td>TwainQuotes.com (transcription of The New York Times)</td>
+    <td>primary</td>
+  </tr>
+  <tr>
+    <td>SRC-0005</td>
+    <td><a href="https://twainsgeography.com/DBD/june-5-1904-sunday" target="_blank" rel="noreferrer">Fears D. Mark Twain Day by Day: June 5, 1904; July 15, 1909; December 24, 1909</a></td>
+    <td>Twain&#39;s Geography (digital edition of Mark Twain Day by Day, via the Center for Mark Twain Studies)</td>
+    <td>biography</td>
+  </tr>
+  <tr>
+    <td>SRC-0006</td>
+    <td><a href="https://twainsgeography.com/node/3857" target="_blank" rel="noreferrer">Fears D. Mark Twain Day by Day: October 2, 1897 (his letter to Eduard Pötzl)</a></td>
+    <td>Twain&#39;s Geography (digital edition of Mark Twain Day by Day)</td>
+    <td>biography</td>
+  </tr>
+  <tr>
+    <td>SRC-0007</td>
+    <td><a href="https://twainsgeography.com/chapter/dublin-nh-summer-1905" target="_blank" rel="noreferrer">Dublin, NH: Summer of 1905</a></td>
+    <td>Twain&#39;s Geography (digital edition of Mark Twain Day by Day)</td>
+    <td>biography</td>
+  </tr>
+  <tr>
+    <td>SRC-0008</td>
+    <td><a href="https://twainquotes.com/19050820.html" target="_blank" rel="noreferrer">Mark Twain Ill of Gout. The New York Times, August 20, 1905 (transcription)</a></td>
+    <td>TwainQuotes.com (transcription of The New York Times)</td>
+    <td>primary</td>
+  </tr>
+  <tr>
+    <td>SRC-0009</td>
+    <td><a href="https://twainquotes.com/19060507.html" target="_blank" rel="noreferrer">Mark Twain Out Again. The New York Times, May 7, 1906 (transcription)</a></td>
+    <td>TwainQuotes.com (transcription of The New York Times)</td>
+    <td>primary</td>
+  </tr>
+  <tr>
+    <td>SRC-0010</td>
+    <td><a href="https://humanrecord.example.org/internal/HISTMED_Master_Roster_v3.xlsx" target="_blank" rel="noreferrer">HISTMED Master Roster v3</a></td>
+    <td>The Human Record project</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0011</td>
+    <td><a href="https://twain.lib.virginia.edu/sc_as_mt/obitap.html" target="_blank" rel="noreferrer">Associated Press report of Mark Twain&#39;s death, April 22, 1910</a></td>
+    <td>Mark Twain in His Times, University of Virginia Library</td>
+    <td>primary</td>
+  </tr></tbody></table></section>
+    <section><h2>Review status</h2><table><thead><tr><th>Review</th><th>Status</th><th>Notes</th></tr></thead><tbody>
+  <tr><td>schema validation</td><td>not_started</td><td>Run scripts/build.ps1 -Conformance.</td></tr>
+  <tr><td>clinical review</td><td>not_started</td><td>Awaiting clinician review; check the DSM-5-TR prolonged grief disorder diagnosis and the decision that major depression is absent and no antidepressant is needed, the outpatient safety plan for passive thoughts of death in an older bereaved man, prolonged grief disorder therapy, varenicline for a cigar smoker with coronary disease, CT coronary angiography for exertional chest tightness, the statin and aspirin for nonobstructive disease, and allopurinol titration with colchicine prophylaxis and a prednisone-treated flare.</td></tr>
+  <tr><td>provenance review</td><td>not_started</td><td>Sources: the Mark Twain House &amp; Museum biography, the Center for Mark Twain Studies timeline, a Mark Twain Project letter (1882), Mark Twain Day by Day (Twain&#39;s Geography), transcriptions of The New York Times (1905, 1906 and the 1910 obituary) and the University of Virginia&#39;s copy of the 1910 Associated Press report. The Library of Congress pages, the autobiography and any peer-reviewed article on his health were not read. The roster&#39;s bipolar lead is not used.</td></tr>
+  <tr><td>safe messaging review</td><td>not_started</td><td>Bereavement and mental health claims are marked sensitive and recorded plainly; his daughter&#39;s death is recorded once without detail; no psychiatric diagnosis is assigned to the historical person; the safety assessment gives the 988 Suicide &amp; Crisis Lifeline and addresses means safety. His family members are documented history only; nothing in the modern episode is attributed to them.</td></tr></tbody></table></section>
+  </main>
+</body>
+</html>

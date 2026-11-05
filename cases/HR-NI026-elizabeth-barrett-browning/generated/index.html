@@ -1,0 +1,688 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Elizabeth Barrett Browning — The Human Record</title>
+  <style>
+    :root { --navy:#17365d; --blue:#1f4e78; --pale:#eef5fa; --ink:#1f2933; --muted:#66788a; --amber:#fff2cc; --red:#f8d7da; --green:#d9ead3; }
+    * { box-sizing:border-box; }
+    body { margin:0; font:16px/1.5 Arial, sans-serif; color:var(--ink); background:#f6f8fa; }
+    header { background:var(--navy); color:white; padding:24px max(24px,calc((100vw - 1180px)/2)); }
+    header h1 { margin:4px 0; font-size:30px; }
+    .banner { background:#b42318; color:white; font-weight:700; text-align:center; padding:10px; letter-spacing:.03em; }
+    main { max-width:1180px; margin:24px auto 60px; padding:0 24px; }
+    section { background:white; border:1px solid #d9e1e8; border-radius:8px; margin:18px 0; padding:20px; }
+    h2 { color:var(--navy); margin:0 0 14px; font-size:22px; }
+    h3 { color:var(--blue); }
+    .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:12px; }
+    .card { background:var(--pale); border-left:4px solid var(--blue); padding:12px; }
+    .label { color:var(--muted); font-size:13px; text-transform:uppercase; letter-spacing:.04em; }
+    table { width:100%; border-collapse:collapse; }
+    th { background:var(--blue); color:white; text-align:left; }
+    th,td { padding:9px; border-bottom:1px solid #dfe6ec; vertical-align:top; }
+    .badge { display:inline-block; min-width:28px; text-align:center; font-weight:700; border-radius:12px; padding:2px 8px; }
+    .grade-D { background:var(--green); } .grade-R { background:var(--amber); } .grade-S { background:var(--red); }
+    .muted { color:var(--muted); font-size:14px; }
+    .relationship { color:var(--muted); font-size:12px; }
+    .downloads a { display:inline-block; margin:4px 8px 4px 0; padding:8px 12px; background:var(--blue); color:white; text-decoration:none; border-radius:5px; }
+    @media (max-width:700px) { table { display:block; overflow-x:auto; } }
+  </style>
+</head>
+<body>
+  <div class="banner">SYNTHETIC RECORD, NOT A REAL MEDICAL RECORD</div>
+  <header>
+    <div>The Human Record</div>
+    <h1>Elizabeth Barrett Browning</h1>
+    <div>Case HR-NI026 · Modern EHR teaching episode · Draft for review</div>
+  </header>
+  <main>
+    <section>
+      <h2>Review summary</h2>
+      <div class="grid">
+        <div class="card"><div class="label">Historical dates</div>March 6, 1806 – June 29, 1861</div>
+        <div class="card"><div class="label">Synthetic DOB</div>1987-03-06</div>
+        <div class="card"><div class="label">Index visit</div>2026-03-16 at age 39</div>
+        <div class="card"><div class="label">Synthetic MRN</div>HR-NI026-SYN</div>
+      </div>
+      <p><strong>Teaching objective:</strong> Evaluate chronic productive cough with blood-streaked sputum in a 39-year-old poet who has been an invalid for years and has taken a prescribed opioid since adolescence: test for tuberculosis first (three sputum samples for acid-fast smear, nucleic acid amplification and culture, an interferon-gamma release assay, and masking until the smears are negative), then confirm bronchiectasis by CT and work up its cause on the BTS 2019 guideline (blood count, immunoglobulins, Aspergillus serology, sputum bacterial and mycobacterial cultures including nontuberculous mycobacteria), with spirometry, airway clearance, vaccines, an exacerbation plan with a 14-day antibiotic, and clear rules for when hemoptysis needs emergency care; review long-term opioid therapy respectfully on the CDC 2022 guideline (benefits and harms, no forced taper, naloxone, the prescription monitoring program, urine drug testing, and DSM-5-TR criteria, under which tolerance and withdrawal from prescribed use do not count, so physiological dependence is not opioid use disorder; buprenorphine would be offered if it were present), and support the slow reduction she chooses; recognize and treat prolonged grief disorder with grief-focused psychotherapy, measurement-based follow-up and a safety assessment with safety planning; check bone health (vitamin D, DXA) and weight; and protect her writing. Her real illness remains undiagnosed; this record shows one modern possibility, not an answer.</p>
+      <div class="downloads">
+        <a href="../case.json">Canonical JSON</a>
+        <a href="fhir-bundle.json">FHIR R4 draft</a>
+        <a href="ccda.html">C-CDA R2.1 summary</a> <a href="ccda.xml">(XML)</a> <a href="review.html">Review checklist</a>
+        <a href="../sources.md">Evidence dossier</a>
+      </div>
+    </section>
+    <section><h2>Historical timeline</h2><table><thead><tr><th>Date</th><th>Event</th><th>Claims</th></tr></thead><tbody>
+  <tr><td>March 6, 1806</td><td>Born at Coxhoe Hall, County Durham.</td><td>CLM-0001</td></tr>
+  <tr><td>1821</td><td>Serious illness at about fifteen; Gloucester spa from June; opium by prescription; spinal injury later attributed to a strain.</td><td>CLM-0002, CLM-0003, CLM-0004</td></tr>
+  <tr><td>October 1, 1828</td><td>Death of her mother.</td><td>CLM-0010</td></tr>
+  <tr><td>1838</td><td>A blood-vessel breaks; invalid life at 50 Wimpole Street; to Torquay in August.</td><td>CLM-0005, CLM-0006</td></tr>
+  <tr><td>February 1840</td><td>Death of her brother Sam in Jamaica.</td><td>CLM-0009</td></tr>
+  <tr><td>July 11, 1840</td><td>Her brother Edward drowns off Torquay; her health suffers.</td><td>CLM-0007, CLM-0008</td></tr>
+  <tr><td>October 2, 1841</td><td>Back in London; letter on her lungs and her physicians&#39; opinion.</td><td>CLM-0011</td></tr>
+  <tr><td>January 1845</td><td>Correspondence with Robert Browning begins.</td><td>CLM-0012</td></tr>
+  <tr><td>October 1845</td><td>Letter on forty drops of laudanum a day; the Pisa plan given up.</td><td>CLM-0013, CLM-0016</td></tr>
+  <tr><td>November 15, 1845</td><td>Letter on why she takes opium.</td><td>CLM-0014</td></tr>
+  <tr><td>February 5, 1846</td><td>Letter on morphine, the prescribed quantity, and reducing slowly.</td><td>CLM-0015</td></tr>
+  <tr><td>September 12, 1846</td><td>Marriage; to Italy; Florence from April 1847.</td><td>CLM-0017</td></tr>
+  <tr><td>March 9, 1849</td><td>Birth of her son, between miscarriages in 1847, 1848, 1849 and 1850.</td><td>CLM-0018</td></tr>
+  <tr><td>June 29, 1861</td><td>Died in Florence.</td><td>CLM-0019</td></tr>
+  <tr><td>2011</td><td>Buchanan and Weiss propose hypokalemic periodic paralysis; earlier conjectures listed.</td><td>CLM-0020, CLM-0021</td></tr>
+  <tr><td>July 17, 2024</td><td>Quirarte-Ruvalcaba proposes pulmonary sequestration.</td><td>CLM-0022</td></tr></tbody></table></section>
+    <section><h2>Evidence claims</h2><p class="muted">D = documented, R = retrospective, S = synthetic.</p><table><thead><tr><th>Grade</th><th>Claim</th><th>Certainty</th><th>Sources</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>Elizabeth Barrett was born on 6 March 1806 at Coxhoe Hall, about five miles south of Durham, the eldest child of Edward and Mary Moulton Barrett, and the eldest of twelve children; her father had added the surname Barrett as heir to his maternal grandfather&#39;s Jamaican estates.</strong></td>
+    <td>confirmed</td>
+    <td><a href="https://ebbarchive.org/contexts/chronology.php" target="_blank" rel="noreferrer">EBB Contexts: A Brief Chronology</a> <span class="relationship">supports</span><br><a href="https://www.gutenberg.org/ebooks/13018" target="_blank" rel="noreferrer">Kenyon FG (ed.). The Letters of Elizabeth Barrett Browning, Volume 1 (1897), Project Gutenberg eBook 13018</a> <span class="relationship">supports</span><br><a href="https://humanrecord.example.org/internal/HISTMED_Master_Roster_v3.xlsx" target="_blank" rel="noreferrer">HISTMED Master Roster v3</a> <span class="relationship">context</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>In 1821, while the family lived at Hope End in Herefordshire, she was seriously ill and went to the spa at Gloucester for treatment in June, returning to Hope End in May 1822; she later wrote, &#39;At fifteen I nearly died.&#39;</strong><div class="muted">Past history; anchors the adolescent illness in the modern history.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://ebbarchive.org/contexts/chronology.php" target="_blank" rel="noreferrer">EBB Contexts: A Brief Chronology</a> <span class="relationship">supports</span><br><a href="https://www.gutenberg.org/ebooks/13018" target="_blank" rel="noreferrer">Kenyon FG (ed.). The Letters of Elizabeth Barrett Browning, Volume 1 (1897), Project Gutenberg eBook 13018</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>Her first editor reported that at about fifteen she injured her spine, by one account in a fall while saddling her pony, and by her son&#39;s statement through a strain while tightening the pony&#39;s girths, the injury not being discovered for some time; the editor judged that it contributed to the general weakness of health to which she was always subject.</strong><div class="muted">Past history; the mechanism of the spinal injury is not established.</div></td>
+    <td>probable</td>
+    <td><a href="https://www.gutenberg.org/ebooks/13018" target="_blank" rel="noreferrer">Kenyon FG (ed.). The Letters of Elizabeth Barrett Browning, Volume 1 (1897), Project Gutenberg eBook 13018</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>After the illness of 1821 she took opium by medical prescription, developing a lifelong habit.</strong><div class="muted">The anchor for the modern long-term prescribed opioid therapy; the timeline does not establish a diagnosis of addiction.</div></td>
+    <td>probable</td>
+    <td><a href="https://victorianweb.org/authors/ebb/ebtl.html" target="_blank" rel="noreferrer">Elizabeth Barrett Browning: A Timeline</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>In 1838, after the family settled at 50 Wimpole Street, her health was in a very serious condition owing to the breaking of a blood-vessel; from then until her marriage she lived the life of an invalid.</strong><div class="muted">The anchor for the modern chronic chest illness with blood in the sputum.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.gutenberg.org/ebooks/13018" target="_blank" rel="noreferrer">Kenyon FG (ed.). The Letters of Elizabeth Barrett Browning, Volume 1 (1897), Project Gutenberg eBook 13018</a> <span class="relationship">supports</span><br><a href="https://victorianweb.org/authors/ebb/ebtl.html" target="_blank" rel="noreferrer">Elizabeth Barrett Browning: A Timeline</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>In August 1838 she moved to Torquay for her health, where her favourite brother Edward (&#39;Bro&#39;) was her chief companion.</strong><div class="muted">History only.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://ebbarchive.org/contexts/chronology.php" target="_blank" rel="noreferrer">EBB Contexts: A Brief Chronology</a> <span class="relationship">supports</span><br><a href="https://victorianweb.org/authors/ebb/ebtl.html" target="_blank" rel="noreferrer">Elizabeth Barrett Browning: A Timeline</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>On 11 July 1840 her brother Edward and two friends went sailing and did not return; the bodies were found three days later after a boat foundered in Babbacombe Bay. Her first editor wrote that she had the misery of thinking it was to attend on her that he had come to Torquay, that the place became a memory from which she shrank, and that even the sound of the sea became a horror to her.</strong><div class="muted">The anchor for the modern grief history; no modern diagnosis is asserted about her.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.gutenberg.org/ebooks/13018" target="_blank" rel="noreferrer">Kenyon FG (ed.). The Letters of Elizabeth Barrett Browning, Volume 1 (1897), Project Gutenberg eBook 13018</a> <span class="relationship">supports</span><br><a href="https://ebbarchive.org/contexts/chronology.php" target="_blank" rel="noreferrer">EBB Contexts: A Brief Chronology</a> <span class="relationship">supports</span><br><a href="https://victorianweb.org/authors/ebb/ebtl.html" target="_blank" rel="noreferrer">Elizabeth Barrett Browning: A Timeline</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>Her health suffered after the drowning; in the autumn of 1840 Mary Russell Mitford did not dare expect more than a few months of life for her, but she slowly gathered strength through the winter and returned to London in September 1841.</strong><div class="muted">History only.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.gutenberg.org/ebooks/13018" target="_blank" rel="noreferrer">Kenyon FG (ed.). The Letters of Elizabeth Barrett Browning, Volume 1 (1897), Project Gutenberg eBook 13018</a> <span class="relationship">supports</span><br><a href="https://ebbarchive.org/contexts/chronology.php" target="_blank" rel="noreferrer">EBB Contexts: A Brief Chronology</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>Her brother Sam died in Jamaica in February 1840.</strong><div class="muted">Family history; the cause is not recorded in the cited source.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://ebbarchive.org/contexts/chronology.php" target="_blank" rel="noreferrer">EBB Contexts: A Brief Chronology</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>Her mother died on 1 October 1828 after a last illness.</strong><div class="muted">Family history; the cause is not recorded in the cited source.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.gutenberg.org/ebooks/13018" target="_blank" rel="noreferrer">Kenyon FG (ed.). The Letters of Elizabeth Barrett Browning, Volume 1 (1897), Project Gutenberg eBook 13018</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>On 2 October 1841 she wrote to H. S. Boyd that her case was &#39;not tubercular consumption, not what is called a decline, but an affection of the lungs which leans towards it&#39;, that a blood-vessel had broken three years before, and that four physicians, two experienced in diseases of the chest, agreed in that opinion.</strong><div class="muted">Her own account of her physicians&#39; opinion; it shows that the nature of her chest illness was uncertain in her lifetime.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.gutenberg.org/ebooks/13018" target="_blank" rel="noreferrer">Kenyon FG (ed.). The Letters of Elizabeth Barrett Browning, Volume 1 (1897), Project Gutenberg eBook 13018</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>Her correspondence with the poet Robert Browning began in January 1845.</strong><div class="muted">History only; no modern statement or decision is attributed to him.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://ebbarchive.org/contexts/chronology.php" target="_blank" rel="noreferrer">EBB Contexts: A Brief Chronology</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>In October 1845 she wrote to Mrs. Martin that she had been told one lung was very slightly affected but her nervous system &#39;absolutely shattered&#39;, that she was in the habit of taking forty drops of laudanum a day and, as the medical man told her, could not do with less, and that two physicians, Dr. Chambers among them, advised a winter in Pisa.</strong><div class="muted">After the index date; her own account of her prescribed opiate dose.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.gutenberg.org/ebooks/13018" target="_blank" rel="noreferrer">Kenyon FG (ed.). The Letters of Elizabeth Barrett Browning, Volume 1 (1897), Project Gutenberg eBook 13018</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>In a letter postmarked 15 November 1845 she told Robert Browning that her opium kept &#39;the pulse from fluttering and fainting&#39;, that she did not take it for her spirits, and that she suffered none of the usual effects, not even an opium headache.</strong><div class="muted">After the index date.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.gutenberg.org/ebooks/16182" target="_blank" rel="noreferrer">The Letters of Robert Browning and Elizabeth Barrett Barrett, 1845-1846, Volume 1 (1899), Project Gutenberg eBook 16182</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>In a letter postmarked 5 February 1846 she wrote that, for restlessness, loss of sleep, weakness and palpitation, &#39;the medical people gave me opium—a preparation of it, called morphine, and ether&#39;; that she had never increased upon the prescribed quantity; that Mr. Jago said it would be dangerous to leave it off except very slowly and gradually; and that she would try to do with less.</strong><div class="muted">After the index date; her own account supports long-term prescribed use with physiological dependence, not misuse (see sources.md).</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.gutenberg.org/ebooks/16182" target="_blank" rel="noreferrer">The Letters of Robert Browning and Elizabeth Barrett Barrett, 1845-1846, Volume 1 (1899), Project Gutenberg eBook 16182</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>In the summer of 1845 the physicians advised a warm climate for the winter; she wished to go to Pisa, but the plan was given up after her father&#39;s opposition, which she called one of the most painful griefs of her life.</strong><div class="muted">After the index date; history only.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.gutenberg.org/ebooks/13018" target="_blank" rel="noreferrer">Kenyon FG (ed.). The Letters of Elizabeth Barrett Browning, Volume 1 (1897), Project Gutenberg eBook 13018</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>She married Robert Browning on 12 September 1846; they left for Italy on 19 September, reached Pisa on 14 October, and moved to Florence in April 1847.</strong><div class="muted">After the index date.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://ebbarchive.org/contexts/chronology.php" target="_blank" rel="noreferrer">EBB Contexts: A Brief Chronology</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>She had miscarriages in March 1847, March 1848, late 1849 and July 1850, and her son, known as Pen, was born on 9 March 1849, three days after her forty-third birthday.</strong><div class="muted">After the index date; history only.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://ebbarchive.org/contexts/chronology.php" target="_blank" rel="noreferrer">EBB Contexts: A Brief Chronology</a> <span class="relationship">supports</span><br><a href="https://victorianweb.org/authors/ebb/ebtl.html" target="_blank" rel="noreferrer">Elizabeth Barrett Browning: A Timeline</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>She died in Florence on 29 June 1861, in her husband&#39;s arms, after a short illness that she called &#39;merely the old attack&#39;, and was buried in the Protestant cemetery there on 1 July.</strong><div class="muted">History only; the cause of death is not recorded in the cited sources.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://ebbarchive.org/contexts/chronology.php" target="_blank" rel="noreferrer">EBB Contexts: A Brief Chronology</a> <span class="relationship">supports</span><br><a href="https://www.gutenberg.org/ebooks/16646" target="_blank" rel="noreferrer">Kenyon FG (ed.). The Letters of Elizabeth Barrett Browning, Volume 2 (1897), Project Gutenberg eBook 16646</a> <span class="relationship">supports</span><br><a href="https://www.psu.edu/news/research/story/mystery-victorian-era-poets-illness-deciphered-after-150-years" target="_blank" rel="noreferrer">Mystery of Victorian-era poet&#39;s illness deciphered after 150 years</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-R" title="Retrospective">R</span></td>
+    <td><strong>Buchanan and Weiss argued in 2011 that her lifelong illness, with weakness, palpitations and sensitivity to heat and cold from adolescence, strongly suggests hypokalemic periodic paralysis.</strong><div class="muted">Retrospective interpretation; not used as a modern diagnosis.</div></td>
+    <td>possible</td>
+    <td><a href="https://pubmed.ncbi.nlm.nih.gov/22019536/" target="_blank" rel="noreferrer">Buchanan A, Weiss EB. Of sad and wished-for years: Elizabeth Barrett Browning&#39;s lifelong illness. Perspect Biol Med. 2011;54(4):479-503 (PMID 22019536)</a> <span class="relationship">supports</span><br><a href="https://www.psu.edu/news/research/story/mystery-victorian-era-poets-illness-deciphered-after-150-years" target="_blank" rel="noreferrer">Mystery of Victorian-era poet&#39;s illness deciphered after 150 years</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-R" title="Retrospective">R</span></td>
+    <td><strong>Conjectures by modern biographers about her illness have included anorexia nervosa, neurasthenia, tuberculosis, scoliosis, opium addiction and mental illness.</strong><div class="muted">Retrospective interpretations, none established.</div></td>
+    <td>disputed</td>
+    <td><a href="https://www.psu.edu/news/research/story/mystery-victorian-era-poets-illness-deciphered-after-150-years" target="_blank" rel="noreferrer">Mystery of Victorian-era poet&#39;s illness deciphered after 150 years</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-R" title="Retrospective">R</span></td>
+    <td><strong>Quirarte-Ruvalcaba argued in 2024 that her illness was probably a congenital malformation of the lung (pulmonary sequestration) undiagnosed in her time, reassessed the possibility of morphine dependence, and suggested that an accidental morphine overdose may have contributed to her death.</strong><div class="muted">Retrospective interpretation; the reason the modern CT looks for a sequestration.</div></td>
+    <td>possible</td>
+    <td><a href="https://doi.org/10.3390/h13040094" target="_blank" rel="noreferrer">Quirarte-Ruvalcaba I. The Lady on the Sofa: Revisiting Elizabeth Barrett Browning&#39;s Illness. Humanities. 2024;13(4):94 (doi:10.3390/h13040094)</a> <span class="relationship">supports</span></td>
+  </tr></tbody></table></section>
+    <section><h2>Modern synthetic problem list</h2><table><thead><tr><th>Grade</th><th>Problem</th><th>Clinical status</th><th>Verification</th><th>Placement</th><th>Historical claims</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Chronic cough with daily yellow sputum, occasional streaks of blood, and breathlessness on stairs, worse in winter, for several years after an illness with blood in the sputum about eight years ago; tuberculosis, nontuberculous mycobacteria and bronchiectasis to be distinguished</td>
+    <td>resolved</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td>CLM-0005, CLM-0011</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Non-cystic fibrosis bronchiectasis of the left lower lobe and lingula with chronic Haemophilus influenzae infection and mild airflow obstruction (Bronchiectasis Severity Index 3, mild); tuberculosis and nontuberculous mycobacterial disease excluded; synthetic modern diagnosis chosen for a historical chest illness whose cause is disputed</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>both_with_link</td>
+    <td>CLM-0005, CLM-0011, CLM-0022</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Long-term prescribed opioid therapy (oral morphine 20 mg a day for many years, for cough, sleeplessness and palpitations), with expected physiological dependence; no opioid use disorder on DSM-5-TR assessment</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td>CLM-0004</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Prolonged grief disorder after the drowning of her closest brother five years ago, with yearning, self-blame, avoidance of reminders of the sea, and depressive symptoms (PHQ-9 12); no suicidal ideation</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td>CLM-0007</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Vitamin D deficiency (25-hydroxyvitamin D 15 ng/mL) in a woman who rarely goes outdoors</td>
+    <td>resolved</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Underweight (BMI 16.8) with a small appetite</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Exacerbation of bronchiectasis (more sputum, purulent sputum, more cough and breathlessness for three days, with low-grade fever), treated with amoxicillin for 14 days and more frequent airway clearance; resolved</td>
+    <td>resolved</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td></td>
+  </tr></tbody></table></section>
+    <section><h2>Synthetic outcome measures</h2><table><thead><tr><th>Grade</th><th>Date</th><th>Measure</th><th>Result</th><th>Coding</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-16</td>
+    <td>Hemoglobin [Mass/volume] in Blood</td>
+    <td>12.3 g/dL<div class="muted">Reference 12-15.5 g/dL</div></td>
+    <td>http://loinc.org · 718-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-16</td>
+    <td>MCV [Entitic mean volume] in Red Blood Cells by Automated count</td>
+    <td>88 fL<div class="muted">Reference 80-100 fL</div></td>
+    <td>http://loinc.org · 787-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-16</td>
+    <td>Leukocytes [#/volume] in Blood by Automated count</td>
+    <td>8.6 10*3/uL<div class="muted">Reference 4-11 10*3/uL</div></td>
+    <td>http://loinc.org · 6690-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-16</td>
+    <td>Eosinophils [#/volume] in Blood</td>
+    <td>0.21 10*3/uL<div class="muted">Reference 0-0.5 10*3/uL</div></td>
+    <td>http://loinc.org · 26449-9</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-16</td>
+    <td>Platelets [#/volume] in Blood by Automated count</td>
+    <td>352 10*3/uL<div class="muted">Reference 150-400 10*3/uL</div></td>
+    <td>http://loinc.org · 777-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-16</td>
+    <td>C reactive protein [Mass/volume] in Serum or Plasma</td>
+    <td>8.4 mg/L (high)<div class="muted">Reference &lt;=5 mg/L</div></td>
+    <td>http://loinc.org · 1988-5</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-16</td>
+    <td>Sodium [Moles/volume] in Serum or Plasma</td>
+    <td>139 mmol/L<div class="muted">Reference 135-145 mmol/L</div></td>
+    <td>http://loinc.org · 2951-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-16</td>
+    <td>Potassium [Moles/volume] in Serum or Plasma</td>
+    <td>4.1 mmol/L<div class="muted">Reference 3.5-5.1 mmol/L</div></td>
+    <td>http://loinc.org · 2823-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-16</td>
+    <td>Creatinine [Mass/volume] in Serum or Plasma</td>
+    <td>0.66 mg/dL<div class="muted">Reference 0.57-1 mg/dL</div></td>
+    <td>http://loinc.org · 2160-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-16</td>
+    <td>Glomerular filtration rate [Volume Rate/Area] in Serum, Plasma or Blood by Creatinine-based formula (CKD-EPI 2021)/1.73 sq M</td>
+    <td>114 mL/min/1.73 m²<div class="muted">Reference &gt;=60 mL/min/1.73 m²</div></td>
+    <td>http://loinc.org · 98979-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-16</td>
+    <td>Glucose [Mass/volume] in Serum or Plasma</td>
+    <td>84 mg/dL<div class="muted">Reference 70-139 mg/dL</div></td>
+    <td>http://loinc.org · 2345-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-16</td>
+    <td>Calcium [Mass/volume] in Serum or Plasma</td>
+    <td>9.2 mg/dL<div class="muted">Reference 8.6-10.3 mg/dL</div></td>
+    <td>http://loinc.org · 17861-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-16</td>
+    <td>25-Hydroxyvitamin D3+25-Hydroxyvitamin D2 [Mass/volume] in Serum or Plasma</td>
+    <td>15 ng/mL (low)<div class="muted">Reference 30 to 100 ng/mL sufficient; below 20 ng/mL deficient</div></td>
+    <td>http://loinc.org · 62292-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-16</td>
+    <td>Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]</td>
+    <td>12</td>
+    <td>http://loinc.org · 44261-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-16</td>
+    <td>Generalized anxiety disorder 7 item (GAD-7) total score [Reported.PHQ]</td>
+    <td>9</td>
+    <td>http://loinc.org · 70274-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-23</td>
+    <td>FEV1 --post bronchodilation</td>
+    <td>2.02 L (low)<div class="muted">Reference Lower limit of normal for her age, sex and height</div></td>
+    <td>http://loinc.org · 20155-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-23</td>
+    <td>FEV1 measured/predicted</td>
+    <td>74% (low)<div class="muted">Reference &gt;=80%</div></td>
+    <td>http://loinc.org · 20152-5</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-23</td>
+    <td>Forced vital capacity [Volume] Respiratory system --post bronchodilation</td>
+    <td>2.93 L<div class="muted">Reference Lower limit of normal for her age, sex and height</div></td>
+    <td>http://loinc.org · 19875-4</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-23</td>
+    <td>FEV1/FVC --post bronchodilation</td>
+    <td>0.69 (low)<div class="muted">Reference Lower limit of normal for her age about 0.72</div></td>
+    <td>http://loinc.org · 69970-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-23</td>
+    <td>IgG [Mass/volume] in Serum or Plasma</td>
+    <td>1180 mg/dL<div class="muted">Reference 700-1600 mg/dL</div></td>
+    <td>http://loinc.org · 2465-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-23</td>
+    <td>IgA [Mass/volume] in Serum or Plasma</td>
+    <td>236 mg/dL<div class="muted">Reference 70-400 mg/dL</div></td>
+    <td>http://loinc.org · 2458-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-23</td>
+    <td>IgM [Mass/volume] in Serum or Plasma</td>
+    <td>142 mg/dL<div class="muted">Reference 40-230 mg/dL</div></td>
+    <td>http://loinc.org · 2472-9</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-23</td>
+    <td>IgE [Units/volume] in Serum or Plasma</td>
+    <td>38 [IU]/mL<div class="muted">Reference &lt;=100 [IU]/mL</div></td>
+    <td>http://loinc.org · 19113-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-23</td>
+    <td>Aspergillus fumigatus IgE Ab [Units/volume] in Serum</td>
+    <td>0.08 k[IU]/L<div class="muted">Reference Below 0.35 kU/L: negative</div></td>
+    <td>http://loinc.org · 6025-1</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-04-20</td>
+    <td>DXA Lumbar spine [Z-score] Bone density</td>
+    <td>-1.4<div class="muted">Reference Above -2.0 is within the expected range for age</div></td>
+    <td>http://loinc.org · 85394-5</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-04-20</td>
+    <td>DXA Femur [Z-score] Bone density</td>
+    <td>-1.1<div class="muted">Reference Above -2.0 is within the expected range for age</div></td>
+    <td>http://loinc.org · 80934-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-04-20</td>
+    <td>C reactive protein [Mass/volume] in Serum or Plasma</td>
+    <td>4.1 mg/L<div class="muted">Reference &lt;=5 mg/L</div></td>
+    <td>http://loinc.org · 1988-5</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-04-20</td>
+    <td>Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]</td>
+    <td>10</td>
+    <td>http://loinc.org · 44261-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-06-15</td>
+    <td>25-Hydroxyvitamin D3+25-Hydroxyvitamin D2 [Mass/volume] in Serum or Plasma</td>
+    <td>34 ng/mL<div class="muted">Reference 30 to 100 ng/mL sufficient; below 20 ng/mL deficient</div></td>
+    <td>http://loinc.org · 62292-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-06-15</td>
+    <td>Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]</td>
+    <td>7</td>
+    <td>http://loinc.org · 44261-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-06-15</td>
+    <td>Generalized anxiety disorder 7 item (GAD-7) total score [Reported.PHQ]</td>
+    <td>5</td>
+    <td>http://loinc.org · 70274-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-10-19</td>
+    <td>C reactive protein [Mass/volume] in Serum or Plasma</td>
+    <td>3.2 mg/L<div class="muted">Reference &lt;=5 mg/L</div></td>
+    <td>http://loinc.org · 1988-5</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-10-19</td>
+    <td>Leukocytes [#/volume] in Blood by Automated count</td>
+    <td>7.4 10*3/uL<div class="muted">Reference 4-11 10*3/uL</div></td>
+    <td>http://loinc.org · 6690-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-10-19</td>
+    <td>Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]</td>
+    <td>5</td>
+    <td>http://loinc.org · 44261-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-08-10</td>
+    <td>C reactive protein [Mass/volume] in Serum or Plasma</td>
+    <td>38 mg/L (high)<div class="muted">Reference &lt;=5 mg/L</div></td>
+    <td>http://loinc.org · 1988-5</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-08-10</td>
+    <td>Leukocytes [#/volume] in Blood by Automated count</td>
+    <td>11.8 10*3/uL (high)<div class="muted">Reference 4-11 10*3/uL</div></td>
+    <td>http://loinc.org · 6690-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-07-13</td>
+    <td>Patient Health Questionnaire 2 item (PHQ-2) total score [Reported]</td>
+    <td>1</td>
+    <td>http://loinc.org · 55758-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-07-13</td>
+    <td>Total score [AUDIT-C]</td>
+    <td>0</td>
+    <td>http://loinc.org · 75626-2</td>
+  </tr></tbody></table></section>
+    <section><h2>Synthetic vital signs</h2><table><thead><tr><th>Date</th><th>Measure</th><th>Result</th><th>LOINC</th><th>Grade</th></tr></thead><tbody>
+  <tr><td>2026-03-16</td><td>Body height</td><td>157 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-16</td><td>Body weight</td><td>41.5 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-16</td><td>Body mass index (BMI) [Ratio]</td><td>16.8 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-16</td><td>Systolic blood pressure</td><td>102 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-16</td><td>Diastolic blood pressure</td><td>64 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-16</td><td>Heart rate</td><td>96 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-16</td><td>Respiratory rate</td><td>18 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-16</td><td>Body temperature</td><td>36.9 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-16</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>96 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-23</td><td>Body height</td><td>157 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-23</td><td>Body weight</td><td>41.6 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-23</td><td>Body mass index (BMI) [Ratio]</td><td>16.9 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-23</td><td>Systolic blood pressure</td><td>100 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-23</td><td>Diastolic blood pressure</td><td>64 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-23</td><td>Heart rate</td><td>92 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-23</td><td>Respiratory rate</td><td>18 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-23</td><td>Body temperature</td><td>36.8 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-23</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>96 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-20</td><td>Body height</td><td>157 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-20</td><td>Body weight</td><td>42.4 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-20</td><td>Body mass index (BMI) [Ratio]</td><td>17.2 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-20</td><td>Systolic blood pressure</td><td>104 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-20</td><td>Diastolic blood pressure</td><td>66 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-20</td><td>Heart rate</td><td>88 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-20</td><td>Respiratory rate</td><td>16 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-20</td><td>Body temperature</td><td>36.7 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-20</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>97 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-15</td><td>Body height</td><td>157 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-15</td><td>Body weight</td><td>43.3 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-15</td><td>Body mass index (BMI) [Ratio]</td><td>17.6 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-15</td><td>Systolic blood pressure</td><td>106 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-15</td><td>Diastolic blood pressure</td><td>66 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-15</td><td>Heart rate</td><td>84 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-15</td><td>Respiratory rate</td><td>16 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-15</td><td>Body temperature</td><td>36.7 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-15</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>97 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-19</td><td>Body height</td><td>157 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-19</td><td>Body weight</td><td>44.2 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-19</td><td>Body mass index (BMI) [Ratio]</td><td>17.9 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-19</td><td>Systolic blood pressure</td><td>106 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-19</td><td>Diastolic blood pressure</td><td>68 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-19</td><td>Heart rate</td><td>82 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-19</td><td>Respiratory rate</td><td>16 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-19</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-19</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>97 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-08-10</td><td>Body height</td><td>157 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-08-10</td><td>Body weight</td><td>43.4 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-08-10</td><td>Body mass index (BMI) [Ratio]</td><td>17.6 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-08-10</td><td>Systolic blood pressure</td><td>104 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-08-10</td><td>Diastolic blood pressure</td><td>64 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-08-10</td><td>Heart rate</td><td>102 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-08-10</td><td>Respiratory rate</td><td>20 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-08-10</td><td>Body temperature</td><td>37.9 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-08-10</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>95 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-07-13</td><td>Body height</td><td>157 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-07-13</td><td>Body weight</td><td>43.8 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-07-13</td><td>Body mass index (BMI) [Ratio]</td><td>17.8 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-07-13</td><td>Systolic blood pressure</td><td>106 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-07-13</td><td>Diastolic blood pressure</td><td>66 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-07-13</td><td>Heart rate</td><td>82 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-07-13</td><td>Respiratory rate</td><td>16 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-07-13</td><td>Body temperature</td><td>36.7 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-07-13</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>97 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr></tbody></table></section>
+    <section><h2>Social, functional, and mental status</h2><h3>Social history</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Poet and translator; writes most days, lying on a sofa in her room with her papers on her knee; publishes widely and keeps up a large correspondence with other writers</li><li><span class="badge grade-S" title="Synthetic">S</span> Never married; no children; lives on an upper floor of her father&#39;s house in the city with several of her siblings; a small dog is her constant companion</li><li><span class="badge grade-S" title="Synthetic">S</span> Tobacco: never. Alcohol: none. No other drugs. Takes her prescribed morphine solution as directed and keeps it in her room</li><li><span class="badge grade-S" title="Synthetic">S</span> Activity: rarely goes outdoors, and in winter stays in a warmed room for months; walks within the house</li><li><span class="badge grade-S" title="Synthetic">S</span> Bereavement: her closest brother drowned in a sailing accident five years ago at the seaside town where she had gone for her health; she has not spoken of it with anyone since</li><li><span class="badge grade-S" title="Synthetic">S</span> Supports: her writing, her correspondents, her sisters&#39; company, and a strong sense of humour; financially independent through a legacy</li></ul><h3>Functional status</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Independent in personal care; breathless after one flight of stairs; spends most of the day on a sofa; writes for several hours a day</li></ul><h3>Mental status</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Alert, articulate and warm; mood &#39;heavy&#39;; tearful when her brother is mentioned; thought content without suicidal ideation, intent or plan; PHQ-9 score 12</li></ul></section>
+    <section><h2>Structured safety assessment</h2><div class="grid"><div class="card"><div class="label">Current ideation</div>absent</div><div class="card"><div class="label">Intent</div>absent</div><div class="card"><div class="label">Plan</div>absent</div><div class="card"><div class="label">Disposition</div>Outpatient care with a collaborative safety plan, the 988 Suicide &amp; Crisis Lifeline, her morphine kept in a locked box with only the current bottle out, naloxone at home, and review at every visit</div></div><p class="muted">This assessment is synthetic and does not convert historical behavior into a present-day fact.</p></section>
+    <section><h2>Allergies and medications</h2><h3>Allergies</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> No known allergy</li></ul><h3>Medications</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Morphine sulfate 2 mg/mL oral solution, 5 mL (10 mg) by mouth twice daily, morning and bedtime (20 mg a day; long-standing prescription, continued)</li><li><span class="badge grade-S" title="Synthetic">S</span> Naloxone 4 mg nasal spray, one spray into one nostril for suspected opioid overdose, repeat in 2 to 3 minutes in the other nostril if no response; call 911</li><li><span class="badge grade-S" title="Synthetic">S</span> Cholecalciferol (vitamin D3) 1000 unit (25 mcg) oral tablet, two tablets (2000 units) by mouth daily</li><li><span class="badge grade-S" title="Synthetic">S</span> Amoxicillin 500 mg oral capsule, one capsule by mouth three times daily for 14 days</li><li><span class="badge grade-S" title="Synthetic">S</span> Morphine sulfate 2 mg/mL oral solution, 4.5 mL (9 mg) by mouth twice daily, morning and bedtime (18 mg a day)</li><li><span class="badge grade-S" title="Synthetic">S</span> Morphine sulfate 2 mg/mL oral solution, 4 mL (8 mg) by mouth twice daily, morning and bedtime (16 mg a day)</li><li><span class="badge grade-S" title="Synthetic">S</span> Morphine sulfate 2 mg/mL oral solution, 3.5 mL (7 mg) by mouth twice daily, morning and bedtime (14 mg a day)</li></ul></section>
+    <section><h2>Procedures and immunizations</h2><h3>Procedures</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> CT of the chest with intravenous contrast and thin-section reconstructions</li><li><span class="badge grade-S" title="Synthetic">S</span> Spirometry before and after bronchodilator</li><li><span class="badge grade-S" title="Synthetic">S</span> Bone density scan (DXA) of the lumbar spine and hip</li><li><span class="badge grade-S" title="Synthetic">S</span> Advance care planning conversation, about 20 minutes</li></ul><h3>Immunizations</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> 2026-07-13: Tetanus, diphtheria, and acellular pertussis vaccine (Tdap)</li><li><span class="badge grade-S" title="Synthetic">S</span> 2026-07-13: Pneumococcal conjugate vaccine, 20-valent (PCV20)</li><li><span class="badge grade-S" title="Synthetic">S</span> 2026-07-13: Hepatitis B vaccine (HepB-CpG), dose 1 of 2</li><li><span class="badge grade-S" title="Synthetic">S</span> 2026-10-19: Hepatitis B vaccine (HepB-CpG), dose 2 of 2</li><li><span class="badge grade-S" title="Synthetic">S</span> 2026-10-19: Influenza vaccine, inactivated, this season</li></ul></section>
+    <section><h2>Past medical history</h2><p class="muted">True biography with historical dates; not part of the synthetic care timeline.</p><ul><li><span class="badge grade-D" title="Documented">D</span> 1821: Serious illness at about fifteen, from which she nearly died, treated at a spa for most of a year; a spinal injury, later attributed to a strain, contributed to lasting weakness; a prescribed opiate from then on <span class="muted">(CLM-0002, CLM-0003, CLM-0004)</span></li><li><span class="badge grade-D" title="Documented">D</span> 1838: Chest illness with blood in the sputum (described as a broken blood vessel), judged by her physicians to be an affection of the lungs but not tubercular consumption; largely confined indoors since <span class="muted">(CLM-0005, CLM-0011)</span></li><li><span class="badge grade-D" title="Documented">D</span> 1840: Severe decline in health after the drowning of her brother, with slow recovery over the following winter <span class="muted">(CLM-0007, CLM-0008)</span></li></ul><h3>Family history</h3><ul><li><span class="badge grade-D" title="Documented">D</span> mother: Died after a last illness when the patient was in her early twenties; cause not recorded in the cited source</li><li><span class="badge grade-D" title="Documented">D</span> brother: Died by accidental drowning in a sailing accident five years ago</li><li><span class="badge grade-D" title="Documented">D</span> brother: Died abroad earlier in the same year; cause not recorded in the cited source</li></ul></section>
+    <section><h2>Care-plan goals</h2><table><thead><tr><th>Goal</th><th>Target date</th><th>Status</th><th>Outcome</th></tr></thead><tbody>
+  <tr><td>Tuberculosis excluded and a diagnosis for the cough within two weeks</td><td>2026-03-23</td><td>completed</td><td>Smears, NAAT and IGRA negative within a week; bronchiectasis diagnosed by CT at one week</td></tr>
+  <tr><td>Airway clearance twice daily, with less sputum and no blood in it, by three months</td><td>2026-06-15</td><td>completed</td><td>Airway clearance twice daily; sputum down from about four to one tablespoon a day; no blood since the first month</td></tr>
+  <tr><td>Safe opioid therapy: naloxone at home, no overdose or sedation, and any dose change only by her choice</td><td>2026-10-19</td><td>completed</td><td>Naloxone at home; no sedation; she chose to reduce from 20 to 14 mg a day over seven months without troublesome withdrawal</td></tr>
+  <tr><td>Response of grief and depressive symptoms (PHQ-9 down by at least half) by six months</td><td>2026-10-19</td><td>completed</td><td>PHQ-9 5 from 12 after sixteen sessions of grief therapy; she can speak of her brother</td></tr>
+  <tr><td>Weight up toward a BMI of 18.5 (45.6 kg) by seven months</td><td>2026-10-19</td><td>active</td><td>44.2 kg from 41.5 kg (BMI 17.9); still gaining</td></tr>
+  <tr><td>Vitamin D above 30 ng/mL by twelve weeks</td><td>2026-06-15</td><td>completed</td><td>34 ng/mL</td></tr></tbody></table></section>
+    <section><h2>Interventions</h2><table><thead><tr><th>Intervention</th><th>Status</th><th>Guideline</th></tr></thead><tbody>
+  <tr><td>Evaluation of chronic cough with blood-streaked sputum: three sputum samples at least eight hours apart, one early morning, for acid-fast smear, nucleic acid amplification and mycobacterial culture (including nontuberculous mycobacteria) and routine bacterial culture; interferon-gamma release assay and HIV test; blood count, CRP and metabolic panel; CT of the chest within a week; a mask in shared spaces until the smears are negative; call 911 or go to the emergency department for more than a few teaspoons of blood, blood with breathlessness, or chest pain</td><td>completed</td><td>GL-ATS-TB-2017, GL-NTM-2020, GL-BTS-BE-2019</td></tr>
+  <tr><td>Urgent pulmonology consultation within one week for chronic productive cough with blood-streaked sputum: exclude tuberculosis, confirm or exclude bronchiectasis and plan its care, and advise on opioids and the lungs</td><td>completed</td><td>GL-BTS-BE-2019, GL-ATS-TB-2017</td></tr>
+  <tr><td>Long-term opioid therapy review: prescription monitoring program checked (one prescriber, one pharmacy), urine drug test consistent with morphine only, naloxone prescribed and taught, no benzodiazepines or other sedatives, DSM-5-TR assessment (no opioid use disorder), dose continued unchanged with no forced taper, benefits and harms reviewed at every visit and at least every three months, the monitoring program checked with every prescription, and buprenorphine offered if opioid use disorder ever develops</td><td>completed</td><td>GL-CDC-OPIOID-2022, GL-DSM5TR-2022</td></tr>
+  <tr><td>Prolonged grief disorder therapy with the clinic psychologist, weekly for sixteen sessions, by video at first so she need not travel; PHQ-9 at every visit</td><td>completed</td><td>GL-PGD-2016, GL-DSM5TR-2022, GL-CMID-2026</td></tr>
+  <tr><td>Collaborative safety plan with warning signs, coping steps, people to contact, the clinic number and the 988 Suicide &amp; Crisis Lifeline; morphine kept in a locked box with only the current bottle out; safety reviewed at every visit</td><td>completed</td><td>GL-SUICIDE-2024, GL-CDC-OPIOID-2022</td></tr>
+  <tr><td>Bone and nutrition: vitamin D3 2000 units daily with a recheck at twelve weeks; DXA for low weight, vitamin D deficiency, limited weight-bearing and long-term opioid therapy; calcium-rich foods, small frequent meals and an oral supplement drink with the clinic dietitian; weight at every visit</td><td>completed</td><td>GL-CMID-2026</td></tr>
+  <tr><td>Bronchiectasis care: active cycle of breathing with an oscillating positive expiratory pressure device twice daily, taught by the respiratory physiotherapist; a home exercise program; influenza, pneumococcal and COVID-19 vaccines; a written exacerbation plan with a sputum sample and amoxicillin 500 mg three times daily for 14 days; sputum culture at each review and spirometry, Bronchiectasis Severity Index and mycobacterial culture yearly; no long-term macrolide while exacerbations are fewer than three a year</td><td>completed</td><td>GL-BTS-BE-2019, GL-ERS-BE-2017</td></tr>
+  <tr><td>Opioid dose reduction at her request: morphine lowered by about 10 percent at a time (to 18 mg a day now), with each step held at least four weeks, paused at any time she wishes, and never forced; withdrawal symptoms and sleep reviewed at each visit</td><td>completed</td><td>GL-CDC-OPIOID-2022</td></tr>
+  <tr><td>Exacerbation of bronchiectasis: sputum culture before the first dose; amoxicillin 500 mg three times daily for 14 days; airway clearance three to four times a day; fluids; the morphine dose unchanged and no added cough suppressant; nurse phone check in two days; call 911 for more than a few teaspoons of blood, worsening breathlessness or confusion</td><td>completed</td><td>GL-BTS-BE-2019, GL-CDC-OPIOID-2022</td></tr></tbody></table></section>
+    <section><h2>Planned encounters</h2><ul>
+  <li><strong>2026-03-16</strong> — New patient visit for chronic cough with blood-streaked sputum, a long-term opioid prescription, and grief, with tuberculosis testing and urgent pulmonology referral <span class="muted">(ENC-001)</span></li>
+  <li><strong>2026-03-23</strong> — Pulmonology consultation with CT of the chest and spirometry, diagnosis of bronchiectasis, and the start of airway clearance <span class="muted">(ENC-002)</span></li>
+  <li><strong>2026-04-20</strong> — Four-week review: mycobacterial cultures, airway clearance, bone density, grief therapy, and her choice about the opioid dose <span class="muted">(ENC-003)</span></li>
+  <li><strong>2026-06-15</strong> — Three-month review: final mycobacterial cultures, vitamin D, mood, safety, and the opioid dose <span class="muted">(ENC-004)</span></li>
+  <li><strong>2026-07-13</strong> — Periodic adult preventive visit <span class="muted">(ENC-007)</span></li>
+  <li><strong>2026-08-10</strong> — Same-day sick visit for an exacerbation of bronchiectasis <span class="muted">(ENC-006, unscheduled)</span></li>
+  <li><strong>2026-10-19</strong> — Seven-month review after an exacerbation: lungs, opioid therapy, mood, safety, weight, and vaccines <span class="muted">(ENC-005)</span></li></ul></section>
+    <section><h2>Supporting documents</h2><ul><li><a href="notes/hp.md">History and physical</a></li><li><a href="notes/progress-01.md">Progress note 01</a></li><li><a href="notes/progress-02.md">Progress note 02 — Focused Visit (Follow-up)</a></li><li><a href="notes/progress-03.md">Progress note 03 — Focused Visit (Follow-up)</a></li><li><a href="notes/progress-04.md">Progress note 04 — Focused Visit (Follow-up)</a></li><li><a href="notes/progress-05.md">Progress note 05 — Preventive Visit</a></li><li><a href="notes/progress-06.md">Progress note 06 — Sick Visit</a></li><li><a href="notes/progress-07.md">Progress note 07 — Focused Visit (Care-plan review)</a></li><li><a href="notes/referral-01.md">Pulmonology referral</a></li><li><a href="notes/consult-01.md">Pulmonology consultation</a></li><li><a href="notes/careplan.md">Patient care plan</a></li><li><a href="notes/teaching-note.md">Teaching note</a></li><li><a href="provenance.csv">Provenance CSV</a></li></ul></section>
+    <section><h2>C-CDA note documents</h2><p class="muted">Each link opens a readable copy; the XML beside it is the exchange file.</p><ul><li><a href="ccda/hp-01.html">History and physical</a> <a href="ccda/hp-01.xml">(XML)</a></li><li><a href="ccda/progress-01.html">Progress note 01</a> <a href="ccda/progress-01.xml">(XML)</a></li><li><a href="ccda/progress-02.html">Progress note 02 — Focused Visit (Follow-up)</a> <a href="ccda/progress-02.xml">(XML)</a></li><li><a href="ccda/progress-03.html">Progress note 03 — Focused Visit (Follow-up)</a> <a href="ccda/progress-03.xml">(XML)</a></li><li><a href="ccda/progress-04.html">Progress note 04 — Focused Visit (Follow-up)</a> <a href="ccda/progress-04.xml">(XML)</a></li><li><a href="ccda/progress-05.html">Progress note 05 — Preventive Visit</a> <a href="ccda/progress-05.xml">(XML)</a></li><li><a href="ccda/progress-06.html">Progress note 06 — Sick Visit</a> <a href="ccda/progress-06.xml">(XML)</a></li><li><a href="ccda/progress-07.html">Progress note 07 — Focused Visit (Care-plan review)</a> <a href="ccda/progress-07.xml">(XML)</a></li><li><a href="ccda/referral-01.html">Pulmonology referral</a> <a href="ccda/referral-01.xml">(XML)</a></li><li><a href="ccda/consult-01.html">Pulmonology consultation</a> <a href="ccda/consult-01.xml">(XML)</a></li></ul></section>
+    <section><h2>Sources</h2><table><thead><tr><th>ID</th><th>Source</th><th>Publisher</th><th>Type</th></tr></thead><tbody>
+  <tr>
+    <td>SRC-0001</td>
+    <td><a href="https://ebbarchive.org/contexts/chronology.php" target="_blank" rel="noreferrer">EBB Contexts: A Brief Chronology</a></td>
+    <td>The EBB Archive (Marjorie Stone and Keith Lawson; Electronic Text Centre, Dalhousie University)</td>
+    <td>biography</td>
+  </tr>
+  <tr>
+    <td>SRC-0002</td>
+    <td><a href="https://www.gutenberg.org/ebooks/13018" target="_blank" rel="noreferrer">Kenyon FG (ed.). The Letters of Elizabeth Barrett Browning, Volume 1 (1897), Project Gutenberg eBook 13018</a></td>
+    <td>Project Gutenberg</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0003</td>
+    <td><a href="https://victorianweb.org/authors/ebb/ebtl.html" target="_blank" rel="noreferrer">Elizabeth Barrett Browning: A Timeline</a></td>
+    <td>The Victorian Web</td>
+    <td>biography</td>
+  </tr>
+  <tr>
+    <td>SRC-0004</td>
+    <td><a href="https://www.gutenberg.org/ebooks/16182" target="_blank" rel="noreferrer">The Letters of Robert Browning and Elizabeth Barrett Barrett, 1845-1846, Volume 1 (1899), Project Gutenberg eBook 16182</a></td>
+    <td>Project Gutenberg</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0005</td>
+    <td><a href="https://www.psu.edu/news/research/story/mystery-victorian-era-poets-illness-deciphered-after-150-years" target="_blank" rel="noreferrer">Mystery of Victorian-era poet&#39;s illness deciphered after 150 years</a></td>
+    <td>Penn State News (The Pennsylvania State University)</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0006</td>
+    <td><a href="https://pubmed.ncbi.nlm.nih.gov/22019536/" target="_blank" rel="noreferrer">Buchanan A, Weiss EB. Of sad and wished-for years: Elizabeth Barrett Browning&#39;s lifelong illness. Perspect Biol Med. 2011;54(4):479-503 (PMID 22019536)</a></td>
+    <td>Perspectives in Biology and Medicine (Johns Hopkins University Press)</td>
+    <td>scholarly</td>
+  </tr>
+  <tr>
+    <td>SRC-0007</td>
+    <td><a href="https://doi.org/10.3390/h13040094" target="_blank" rel="noreferrer">Quirarte-Ruvalcaba I. The Lady on the Sofa: Revisiting Elizabeth Barrett Browning&#39;s Illness. Humanities. 2024;13(4):94 (doi:10.3390/h13040094)</a></td>
+    <td>Humanities (MDPI)</td>
+    <td>scholarly</td>
+  </tr>
+  <tr>
+    <td>SRC-0009</td>
+    <td><a href="https://www.gutenberg.org/ebooks/16646" target="_blank" rel="noreferrer">Kenyon FG (ed.). The Letters of Elizabeth Barrett Browning, Volume 2 (1897), Project Gutenberg eBook 16646</a></td>
+    <td>Project Gutenberg</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0008</td>
+    <td><a href="https://humanrecord.example.org/internal/HISTMED_Master_Roster_v3.xlsx" target="_blank" rel="noreferrer">HISTMED Master Roster v3</a></td>
+    <td>The Human Record project</td>
+    <td>other</td>
+  </tr></tbody></table></section>
+    <section><h2>Review status</h2><table><thead><tr><th>Review</th><th>Status</th><th>Notes</th></tr></thead><tbody>
+  <tr><td>schema validation</td><td>not_started</td><td>Run scripts/build.ps1 -Conformance.</td></tr>
+  <tr><td>clinical review</td><td>not_started</td><td>Awaiting clinician review; check the tuberculosis work-up before the bronchiectasis diagnosis, the decision that long-term prescribed morphine with physiological dependence is not opioid use disorder, the voluntary taper, the prolonged grief disorder diagnosis and the safety plan, and DXA in a premenopausal woman.</td></tr>
+  <tr><td>provenance review</td><td>not_started</td><td>The EBB Archive chronology, the Victorian Web timeline, Kenyon&#39;s 1897 edition of the letters and the 1899 courtship letters (Project Gutenberg), a Penn State news release, and two peer-reviewed abstracts logged. The British Library, the Poetry Foundation, Britannica and the Browning Guide refused automated access or could not be found; Young&#39;s 1989 BMJ paper and Dally&#39;s 1993 paper were not read.</td></tr>
+  <tr><td>safe messaging review</td><td>not_started</td><td>Claims about opium, grief and proposed psychiatric explanations are marked sensitive. The record states that the evidence shows long-term prescribed use with physiological dependence and does not support a diagnosis of addiction. No self-harm is inferred. Her death is recorded in one sentence.</td></tr></tbody></table></section>
+  </main>
+</body>
+</html>

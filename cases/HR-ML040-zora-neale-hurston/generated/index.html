@@ -1,0 +1,788 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Zora Neale Hurston — The Human Record</title>
+  <style>
+    :root { --navy:#17365d; --blue:#1f4e78; --pale:#eef5fa; --ink:#1f2933; --muted:#66788a; --amber:#fff2cc; --red:#f8d7da; --green:#d9ead3; }
+    * { box-sizing:border-box; }
+    body { margin:0; font:16px/1.5 Arial, sans-serif; color:var(--ink); background:#f6f8fa; }
+    header { background:var(--navy); color:white; padding:24px max(24px,calc((100vw - 1180px)/2)); }
+    header h1 { margin:4px 0; font-size:30px; }
+    .banner { background:#b42318; color:white; font-weight:700; text-align:center; padding:10px; letter-spacing:.03em; }
+    main { max-width:1180px; margin:24px auto 60px; padding:0 24px; }
+    section { background:white; border:1px solid #d9e1e8; border-radius:8px; margin:18px 0; padding:20px; }
+    h2 { color:var(--navy); margin:0 0 14px; font-size:22px; }
+    h3 { color:var(--blue); }
+    .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:12px; }
+    .card { background:var(--pale); border-left:4px solid var(--blue); padding:12px; }
+    .label { color:var(--muted); font-size:13px; text-transform:uppercase; letter-spacing:.04em; }
+    table { width:100%; border-collapse:collapse; }
+    th { background:var(--blue); color:white; text-align:left; }
+    th,td { padding:9px; border-bottom:1px solid #dfe6ec; vertical-align:top; }
+    .badge { display:inline-block; min-width:28px; text-align:center; font-weight:700; border-radius:12px; padding:2px 8px; }
+    .grade-D { background:var(--green); } .grade-R { background:var(--amber); } .grade-S { background:var(--red); }
+    .muted { color:var(--muted); font-size:14px; }
+    .relationship { color:var(--muted); font-size:12px; }
+    .downloads a { display:inline-block; margin:4px 8px 4px 0; padding:8px 12px; background:var(--blue); color:white; text-decoration:none; border-radius:5px; }
+    @media (max-width:700px) { table { display:block; overflow-x:auto; } }
+  </style>
+</head>
+<body>
+  <div class="banner">SYNTHETIC RECORD, NOT A REAL MEDICAL RECORD</div>
+  <header>
+    <div>The Human Record</div>
+    <h1>Zora Neale Hurston</h1>
+    <div>Case HR-ML040 · Modern EHR teaching episode · Draft for review</div>
+  </header>
+  <main>
+    <section>
+      <h2>Review summary</h2>
+      <div class="grid">
+        <div class="card"><div class="label">Historical dates</div>January 7, 1891 – January 28, 1960</div>
+        <div class="card"><div class="label">Synthetic DOB</div>1959-01-07</div>
+        <div class="card"><div class="label">Index visit</div>2026-03-09 at age 67</div>
+        <div class="card"><div class="label">Synthetic MRN</div>HR-ML040-SYN</div>
+      </div>
+      <p><strong>Teaching objective:</strong> Hypertensive heart disease with heart failure with preserved ejection fraction in a 67-year-old Black woman, a writer, anthropologist and substitute teacher with a low and irregular income, in Fort Pierce, Florida. The episode covers very high blood pressure found at a visit for headaches and breathlessness, with no hypertensive emergency; confirmation by 24-hour ambulatory monitoring; ECG, echocardiogram, NT-proBNP, kidney function and urine albumin; an initial two-drug combination of a thiazide-type diuretic and a calcium channel blocker under the 2025 AHA/ACC high blood pressure guideline; an SGLT2 inhibitor and low-dose spironolactone for HFpEF under the 2022 AHA/ACC/HFSA heart failure guideline; potassium and kidney monitoring on the CMID schedule, with one missed check recorded honestly; summer heat, volume depletion and sick-day rules; the stroke she is at risk of and the BE FAST warning signs; and equity in care: generic medicines in 90-day fills, patient assistance, Medicare Extra Help and the Medicare Savings Program with a SHINE counselor, SNAP, energy assistance for cooling, and respect for her expertise and her own account of her life.</p>
+      <div class="downloads">
+        <a href="../case.json">Canonical JSON</a>
+        <a href="fhir-bundle.json">FHIR R4 draft</a>
+        <a href="ccda.html">C-CDA R2.1 summary</a> <a href="ccda.xml">(XML)</a> <a href="review.html">Review checklist</a>
+        <a href="../sources.md">Evidence dossier</a>
+      </div>
+    </section>
+    <section><h2>Historical timeline</h2><table><thead><tr><th>Date</th><th>Event</th><th>Claims</th></tr></thead><tbody>
+  <tr><td>January 7, 1891</td><td>Born in Notasulga, Alabama.</td><td>CLM-0001, CLM-0002</td></tr>
+  <tr><td>About 1894</td><td>Family moves to Eatonville, Florida.</td><td>CLM-0003</td></tr>
+  <tr><td>1904</td><td>Her mother dies; Zora is 13.</td><td>CLM-0004</td></tr>
+  <tr><td>1917</td><td>In Baltimore, gives her birth year as 1901 to attend free public school.</td><td>CLM-0005</td></tr>
+  <tr><td>1928</td><td>Bachelor of arts from Barnard College after studying anthropology with Franz Boas.</td><td>CLM-0006</td></tr>
+  <tr><td>1937</td><td>Their Eyes Were Watching God published.</td><td>CLM-0007, CLM-0008</td></tr>
+  <tr><td>1950</td><td>Works as a maid in Florida while publishing in national magazines.</td><td>CLM-0009</td></tr>
+  <tr><td>June 1956</td><td>Librarian at Patrick Air Force Base.</td><td>CLM-0010</td></tr>
+  <tr><td>1957</td><td>Moves to Fort Pierce; writes a newspaper column for the Fort Pierce Chronicle.</td><td>CLM-0010, CLM-0012</td></tr>
+  <tr><td>1958</td><td>Substitute teacher at Lincoln Park Academy, Fort Pierce.</td><td>CLM-0011</td></tr>
+  <tr><td>Early 1959</td><td>Has a stroke; in October enters the St. Lucie County Welfare Home.</td><td>CLM-0013</td></tr>
+  <tr><td>January 28, 1960</td><td>Dies at the St. Lucie County Welfare Home of hypertensive heart disease.</td><td>CLM-0014</td></tr>
+  <tr><td>August 1973</td><td>Her unmarked grave in the Garden of Heavenly Rest is found and marked.</td><td>CLM-0015</td></tr></tbody></table></section>
+    <section><h2>Evidence claims</h2><p class="muted">D = documented, R = retrospective, S = synthetic.</p><table><thead><tr><th>Grade</th><th>Claim</th><th>Certainty</th><th>Sources</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>Zora Neale Hurston was born on January 7, 1891, in Notasulga, Alabama, the fifth of eight children of John Hurston, a carpenter and Baptist preacher, and Lucy Potts Hurston, a former schoolteacher.</strong><div class="muted">Anchors the true birth date. Eatonville, Florida, has also been claimed as her birthplace (she named it in her autobiography); Notasulga is accepted by most scholars.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.zoranealehurston.com/about/" target="_blank" rel="noreferrer">Boyd V. About Zora Neale Hurston, with a chronology</a> <span class="relationship">supports</span><br><a href="https://www.pbs.org/wnet/americanmasters/zora-neale-hurston/1155" target="_blank" rel="noreferrer">Zora Neale Hurston&#39;s life and career timeline. American Masters: Zora Neale Hurston, Jump at the Sun (April 9, 2008)</a> <span class="relationship">supports</span><br><a href="https://encyclopediaofalabama.org/article/zora-neale-hurston/" target="_blank" rel="noreferrer">Carpenter CD. Zora Neale Hurston. Encyclopedia of Alabama (2008, updated 2023)</a> <span class="relationship">supports</span><br><a href="https://humanrecord.example.org/internal/HISTMED_Master_Roster_v3.xlsx" target="_blank" rel="noreferrer">HISTMED Master Roster v3</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>She was born as Zora Lee Hurston, according to the Florida Artists Hall of Fame.</strong><div class="muted">Single source; used only for the alias.</div></td>
+    <td>probable</td>
+    <td><a href="https://dos.fl.gov/cultural/programs/florida-artists-hall-of-fame/zora-neale-hurston/" target="_blank" rel="noreferrer">Zora Neale Hurston, Folklorist, 1891-1960. Florida Artists Hall of Fame (inducted 1990)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>Her family moved to Eatonville, Florida, the nation&#39;s first incorporated Black township, when she was a toddler (at about three, in 1894), and her father later became its mayor; for her, Eatonville was always home.</strong><div class="muted">Anchors her sense of home and community in the social history.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.zoranealehurston.com/about/" target="_blank" rel="noreferrer">Boyd V. About Zora Neale Hurston, with a chronology</a> <span class="relationship">supports</span><br><a href="https://www.pbs.org/wnet/americanmasters/zora-neale-hurston/1155" target="_blank" rel="noreferrer">Zora Neale Hurston&#39;s life and career timeline. American Masters: Zora Neale Hurston, Jump at the Sun (April 9, 2008)</a> <span class="relationship">supports</span><br><a href="https://dos.fl.gov/cultural/programs/florida-artists-hall-of-fame/zora-neale-hurston/" target="_blank" rel="noreferrer">Zora Neale Hurston, Folklorist, 1891-1960. Florida Artists Hall of Fame (inducted 1990)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>Her mother died in 1904, when Zora was 13.</strong><div class="muted">Family history; the cause of death is not recorded in the cited sources.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.zoranealehurston.com/about/" target="_blank" rel="noreferrer">Boyd V. About Zora Neale Hurston, with a chronology</a> <span class="relationship">supports</span><br><a href="https://www.pbs.org/wnet/americanmasters/zora-neale-hurston/1155" target="_blank" rel="noreferrer">Zora Neale Hurston&#39;s life and career timeline. American Masters: Zora Neale Hurston, Jump at the Sun (April 9, 2008)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>In 1917, aged 26 and needing to present herself as a teenager to qualify for free public schooling in Baltimore, she gave her age as 16 and her birth year as 1901; from then on she presented herself as at least ten years younger than she was. The headstone placed on her grave in 1973 reads 1901.</strong><div class="muted">Records the conflict between her true birth year (1891) and the years she gave (1901 and others); the record uses 1891.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.zoranealehurston.com/about/" target="_blank" rel="noreferrer">Boyd V. About Zora Neale Hurston, with a chronology</a> <span class="relationship">supports</span><br><a href="https://www.library.ufl.edu/spec/AAexhibit/manuscripts.htm" target="_blank" rel="noreferrer">Selections from Archives and Manuscripts: Zora Neale Hurston</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>She attended Howard University and Barnard College, where she studied anthropology with Franz Boas and received a bachelor of arts degree in 1928; she did folklore field work in the South and became a writer and anthropologist of the Harlem Renaissance.</strong><div class="muted">Anchors her occupation and strengths in the modern social history.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.zoranealehurston.com/about/" target="_blank" rel="noreferrer">Boyd V. About Zora Neale Hurston, with a chronology</a> <span class="relationship">supports</span><br><a href="https://guides.loc.gov/chronicling-america-zora-neale-hurston" target="_blank" rel="noreferrer">Zora Neale Hurston: Topics in Chronicling America (research guide)</a> <span class="relationship">supports</span><br><a href="https://encyclopediaofalabama.org/article/zora-neale-hurston/" target="_blank" rel="noreferrer">Carpenter CD. Zora Neale Hurston. Encyclopedia of Alabama (2008, updated 2023)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>Over more than 30 years she published four novels, including Their Eyes Were Watching God (1937), two books of folklore, an autobiography, and many stories, essays, articles and plays.</strong><div class="muted">History only.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.zoranealehurston.com/about/" target="_blank" rel="noreferrer">Boyd V. About Zora Neale Hurston, with a chronology</a> <span class="relationship">supports</span><br><a href="https://encyclopediaofalabama.org/article/zora-neale-hurston/" target="_blank" rel="noreferrer">Carpenter CD. Zora Neale Hurston. Encyclopedia of Alabama (2008, updated 2023)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>She never received the financial rewards her work deserved; the largest royalty she earned from any of her books was $943.75.</strong><div class="muted">Anchors the low income in the modern social history.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.zoranealehurston.com/about/" target="_blank" rel="noreferrer">Boyd V. About Zora Neale Hurston, with a chronology</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>In 1950 she worked as a maid in Florida while still publishing in national magazines, and she struggled to find work throughout the 1950s.</strong><div class="muted">Anchors the low and irregular income in the modern social history.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.zoranealehurston.com/about/" target="_blank" rel="noreferrer">Boyd V. About Zora Neale Hurston, with a chronology</a> <span class="relationship">supports</span><br><a href="https://encyclopediaofalabama.org/article/zora-neale-hurston/" target="_blank" rel="noreferrer">Carpenter CD. Zora Neale Hurston. Encyclopedia of Alabama (2008, updated 2023)</a> <span class="relationship">supports</span><br><a href="https://www.pbs.org/wnet/americanmasters/zora-neale-hurston/1155" target="_blank" rel="noreferrer">Zora Neale Hurston&#39;s life and career timeline. American Masters: Zora Neale Hurston, Jump at the Sun (April 9, 2008)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>She worked as a librarian at Patrick Air Force Base in Florida (from June 1956 by one account, for about a year by another) and then moved to Fort Pierce, where she wrote a column on &quot;Hoodoo and Black Magic&quot; for the Fort Pierce Chronicle from 1957 to 1959; a family friend from Eatonville invited her to live in a small house in Fort Pierce rent-free.</strong><div class="muted">Anchors her modern home in Fort Pierce, her work as a writer and her low income.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.zoranealehurston.com/about/" target="_blank" rel="noreferrer">Boyd V. About Zora Neale Hurston, with a chronology</a> <span class="relationship">supports</span><br><a href="https://www.pbs.org/wnet/americanmasters/zora-neale-hurston/1155" target="_blank" rel="noreferrer">Zora Neale Hurston&#39;s life and career timeline. American Masters: Zora Neale Hurston, Jump at the Sun (April 9, 2008)</a> <span class="relationship">supports</span><br><a href="https://dos.fl.gov/cultural/programs/florida-artists-hall-of-fame/zora-neale-hurston/" target="_blank" rel="noreferrer">Zora Neale Hurston, Folklorist, 1891-1960. Florida Artists Hall of Fame (inducted 1990)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>In 1958 she worked as a substitute teacher at Lincoln Park Academy in Fort Pierce.</strong><div class="muted">Anchors the modern occupation at the index date.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.zoranealehurston.com/about/" target="_blank" rel="noreferrer">Boyd V. About Zora Neale Hurston, with a chronology</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>Rarely a drinker, she was remembered by friends for her humor and storytelling and for the gift of walking into hearts.</strong><div class="muted">Anchors the alcohol history and her strengths in the modern social history.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.zoranealehurston.com/about/" target="_blank" rel="noreferrer">Boyd V. About Zora Neale Hurston, with a chronology</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>She had a stroke in early 1959 and in October 1959 was forced by her health and finances to enter the St. Lucie County Welfare Home in Fort Pierce. The Florida Artists Hall of Fame dates the stroke to 1960.</strong><div class="muted">The anchor for the stroke risk taught in the modern episode. The year is given as early 1959 by the Zora Neale Hurston Trust and as 1959 by PBS; the 1960 date is recorded as a conflict.</div></td>
+    <td>probable</td>
+    <td><a href="https://www.zoranealehurston.com/about/" target="_blank" rel="noreferrer">Boyd V. About Zora Neale Hurston, with a chronology</a> <span class="relationship">supports</span><br><a href="https://www.pbs.org/wnet/americanmasters/zora-neale-hurston/1155" target="_blank" rel="noreferrer">Zora Neale Hurston&#39;s life and career timeline. American Masters: Zora Neale Hurston, Jump at the Sun (April 9, 2008)</a> <span class="relationship">supports</span><br><a href="https://www.library.ufl.edu/spec/AAexhibit/manuscripts.htm" target="_blank" rel="noreferrer">Selections from Archives and Manuscripts: Zora Neale Hurston</a> <span class="relationship">supports</span><br><a href="https://dos.fl.gov/cultural/programs/florida-artists-hall-of-fame/zora-neale-hurston/" target="_blank" rel="noreferrer">Zora Neale Hurston, Folklorist, 1891-1960. Florida Artists Hall of Fame (inducted 1990)</a> <span class="relationship">disputes</span><br><a href="https://encyclopediaofalabama.org/article/zora-neale-hurston/" target="_blank" rel="noreferrer">Carpenter CD. Zora Neale Hurston. Encyclopedia of Alabama (2008, updated 2023)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>She died on January 28, 1960, at the St. Lucie County Welfare Home in Fort Pierce, of hypertensive heart disease, aged 69.</strong><div class="muted">The documented anchor for the synthetic hypertensive heart disease. The Trust timeline quotes the cause as &quot;hypertensive heart disease&quot;, and PBS agrees; the Encyclopedia of Alabama says she died of a heart attack. Recorded as a fact, without detail.</div></td>
+    <td>probable</td>
+    <td><a href="https://www.zoranealehurston.com/about/" target="_blank" rel="noreferrer">Boyd V. About Zora Neale Hurston, with a chronology</a> <span class="relationship">supports</span><br><a href="https://www.pbs.org/wnet/americanmasters/zora-neale-hurston/1155" target="_blank" rel="noreferrer">Zora Neale Hurston&#39;s life and career timeline. American Masters: Zora Neale Hurston, Jump at the Sun (April 9, 2008)</a> <span class="relationship">supports</span><br><a href="https://encyclopediaofalabama.org/article/zora-neale-hurston/" target="_blank" rel="noreferrer">Carpenter CD. Zora Neale Hurston. Encyclopedia of Alabama (2008, updated 2023)</a> <span class="relationship">disputes</span><br><a href="https://www.library.ufl.edu/spec/AAexhibit/manuscripts.htm" target="_blank" rel="noreferrer">Selections from Archives and Manuscripts: Zora Neale Hurston</a> <span class="relationship">supports</span><br><a href="https://humanrecord.example.org/internal/HISTMED_Master_Roster_v3.xlsx" target="_blank" rel="noreferrer">HISTMED Master Roster v3</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>Her neighbors took up a collection for her funeral, which did not cover a headstone; she was buried in an unmarked grave in the Garden of Heavenly Rest, a segregated cemetery in Fort Pierce, and the grave stayed unmarked until 1973, when a younger writer found it and placed a headstone reading &quot;A Genius of the South&quot;.</strong><div class="muted">History after the modern episode. The writer who marked the grave is living and is not named in this record.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.zoranealehurston.com/about/" target="_blank" rel="noreferrer">Boyd V. About Zora Neale Hurston, with a chronology</a> <span class="relationship">supports</span><br><a href="https://www.pbs.org/wnet/americanmasters/zora-neale-hurston/1155" target="_blank" rel="noreferrer">Zora Neale Hurston&#39;s life and career timeline. American Masters: Zora Neale Hurston, Jump at the Sun (April 9, 2008)</a> <span class="relationship">supports</span><br><a href="https://dos.fl.gov/cultural/programs/florida-artists-hall-of-fame/zora-neale-hurston/" target="_blank" rel="noreferrer">Zora Neale Hurston, Folklorist, 1891-1960. Florida Artists Hall of Fame (inducted 1990)</a> <span class="relationship">supports</span></td>
+  </tr></tbody></table></section>
+    <section><h2>Modern synthetic problem list</h2><table><thead><tr><th>Grade</th><th>Problem</th><th>Clinical status</th><th>Verification</th><th>Placement</th><th>Historical claims</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Very high blood pressure at intake (178/104 and 174/102 mmHg) with morning headaches for two months, without signs of a hypertensive emergency; not previously diagnosed; ambulatory monitoring to confirm</td>
+    <td>resolved</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Breathlessness on exertion for three months (walking to the school, carrying groceries) with mild ankle swelling by evening; cause to be determined</td>
+    <td>resolved</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Hypertensive heart disease with heart failure: stage 2 hypertension confirmed by 24-hour ambulatory monitoring (mean 158/96 mmHg, non-dipping at night), with concentric left ventricular hypertrophy on ECG and echocardiogram; synthetic modern episode linked to the hypertensive heart disease recorded as her cause of death</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>both_with_link</td>
+    <td>CLM-0013, CLM-0014</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Heart failure with preserved ejection fraction (ejection fraction 62%), NYHA class II, with grade II diastolic dysfunction and an enlarged left atrium</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td>CLM-0014</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Food insecurity: food runs short at the end of most months (Hunger Vital Sign positive)</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td>CLM-0008, CLM-0009</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Low and irregular income from substitute teaching and newspaper writing, with Original Medicare but no drug coverage; medicine costs a barrier</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td>CLM-0008, CLM-0009, CLM-0011</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Orthostatic hypotension with lightheadedness on standing, from volume depletion in early summer heat on a diuretic, spironolactone and an SGLT2 inhibitor; no fall or faint; resolved after two days off those medicines and more fluid</td>
+    <td>resolved</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td></td>
+  </tr></tbody></table></section>
+    <section><h2>Synthetic outcome measures</h2><table><thead><tr><th>Grade</th><th>Date</th><th>Measure</th><th>Result</th><th>Coding</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-09</td>
+    <td>Natriuretic peptide.B prohormone N-Terminal [Mass/volume] in Serum or Plasma</td>
+    <td>480 pg/mL (high)<div class="muted">Reference Below 125 pg/mL makes heart failure unlikely outside the hospital</div></td>
+    <td>http://loinc.org · 33762-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-09</td>
+    <td>Sodium [Moles/volume] in Serum or Plasma</td>
+    <td>140 mmol/L<div class="muted">Reference 135-145 mmol/L</div></td>
+    <td>http://loinc.org · 2951-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-09</td>
+    <td>Potassium [Moles/volume] in Serum or Plasma</td>
+    <td>3.9 mmol/L<div class="muted">Reference 3.5-5.1 mmol/L</div></td>
+    <td>http://loinc.org · 2823-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-09</td>
+    <td>Creatinine [Mass/volume] in Serum or Plasma</td>
+    <td>0.88 mg/dL<div class="muted">Reference 0.59-1.04 mg/dL</div></td>
+    <td>http://loinc.org · 2160-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-09</td>
+    <td>Glomerular filtration rate [Volume Rate/Area] in Serum, Plasma or Blood by Creatinine-based formula (CKD-EPI 2021)/1.73 sq M</td>
+    <td>72 mL/min/1.73 m²<div class="muted">Reference &gt;=60 mL/min/1.73 m²</div></td>
+    <td>http://loinc.org · 98979-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-09</td>
+    <td>Glucose [Mass/volume] in Serum or Plasma</td>
+    <td>96 mg/dL<div class="muted">Reference 70-99 mg/dL</div></td>
+    <td>http://loinc.org · 2345-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-09</td>
+    <td>Magnesium [Mass/volume] in Serum or Plasma</td>
+    <td>2 mg/dL<div class="muted">Reference 1.6-2.6 mg/dL</div></td>
+    <td>http://loinc.org · 19123-9</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-09</td>
+    <td>Hemoglobin [Mass/volume] in Blood</td>
+    <td>12.4 g/dL<div class="muted">Reference 11.6-15 g/dL</div></td>
+    <td>http://loinc.org · 718-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-09</td>
+    <td>Thyrotropin [Units/volume] in Serum or Plasma</td>
+    <td>1.9 mIU/L<div class="muted">Reference 0.45-4.5 mIU/L</div></td>
+    <td>http://loinc.org · 3016-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-09</td>
+    <td>Hemoglobin A1c/Hemoglobin.total in Blood</td>
+    <td>5.6%<div class="muted">Reference &lt;=5.6%</div></td>
+    <td>http://loinc.org · 4548-4</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-09</td>
+    <td>Cholesterol [Mass/volume] in Serum or Plasma</td>
+    <td>212 mg/dL (high)<div class="muted">Reference &lt;=199 mg/dL</div></td>
+    <td>http://loinc.org · 2093-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-09</td>
+    <td>Cholesterol in LDL [Mass/volume] in Serum or Plasma by calculation</td>
+    <td>132 mg/dL (high)<div class="muted">Reference &lt;=99 mg/dL</div></td>
+    <td>http://loinc.org · 13457-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-09</td>
+    <td>Cholesterol in HDL [Mass/volume] in Serum or Plasma</td>
+    <td>54 mg/dL<div class="muted">Reference &gt;=50 mg/dL</div></td>
+    <td>http://loinc.org · 2085-9</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-09</td>
+    <td>Triglyceride [Mass/volume] in Serum or Plasma</td>
+    <td>130 mg/dL<div class="muted">Reference &lt;=149 mg/dL</div></td>
+    <td>http://loinc.org · 2571-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-09</td>
+    <td>Alanine aminotransferase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>18 U/L<div class="muted">Reference 7-35 U/L</div></td>
+    <td>http://loinc.org · 1742-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-09</td>
+    <td>Albumin/Creatinine [Mass Ratio] in Urine</td>
+    <td>22 mg/g<div class="muted">Reference Below 30 mg/g is normal</div></td>
+    <td>http://loinc.org · 9318-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-09</td>
+    <td>Patient Health Questionnaire 2 item (PHQ-2) total score [Reported]</td>
+    <td>1</td>
+    <td>http://loinc.org · 55758-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-23</td>
+    <td>Sodium [Moles/volume] in Serum or Plasma</td>
+    <td>138 mmol/L<div class="muted">Reference 135-145 mmol/L</div></td>
+    <td>http://loinc.org · 2951-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-23</td>
+    <td>Potassium [Moles/volume] in Serum or Plasma</td>
+    <td>3.6 mmol/L<div class="muted">Reference 3.5-5.1 mmol/L</div></td>
+    <td>http://loinc.org · 2823-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-23</td>
+    <td>Creatinine [Mass/volume] in Serum or Plasma</td>
+    <td>0.94 mg/dL<div class="muted">Reference 0.59-1.04 mg/dL</div></td>
+    <td>http://loinc.org · 2160-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-23</td>
+    <td>Glomerular filtration rate [Volume Rate/Area] in Serum, Plasma or Blood by Creatinine-based formula (CKD-EPI 2021)/1.73 sq M</td>
+    <td>67 mL/min/1.73 m²<div class="muted">Reference &gt;=60 mL/min/1.73 m²</div></td>
+    <td>http://loinc.org · 98979-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-23</td>
+    <td>Glucose [Mass/volume] in Serum or Plasma</td>
+    <td>98 mg/dL<div class="muted">Reference 70-99 mg/dL</div></td>
+    <td>http://loinc.org · 2345-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-23</td>
+    <td>Magnesium [Mass/volume] in Serum or Plasma</td>
+    <td>1.9 mg/dL<div class="muted">Reference 1.6-2.6 mg/dL</div></td>
+    <td>http://loinc.org · 19123-9</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-23</td>
+    <td>Left ventricular Ejection fraction</td>
+    <td>62%<div class="muted">Reference 50-70%</div></td>
+    <td>http://loinc.org · 10230-1</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-23</td>
+    <td>Left atrial End-systolic volume (by US.2D+Calculated by biplane method of disks)/Body surface area</td>
+    <td>38 mL/m² (high)<div class="muted">Reference &lt;=34 mL/m²</div></td>
+    <td>http://loinc.org · 79984-1</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-23</td>
+    <td>Heart valve E velocity/Annulus E wave by US</td>
+    <td>15 (high)<div class="muted">Reference &lt;=14</div></td>
+    <td>http://loinc.org · 59111-5</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-23</td>
+    <td>Overall summary score [KCCQ-12]</td>
+    <td>54</td>
+    <td>http://loinc.org · 86924-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-04-06</td>
+    <td>Sodium [Moles/volume] in Serum or Plasma</td>
+    <td>137 mmol/L<div class="muted">Reference 135-145 mmol/L</div></td>
+    <td>http://loinc.org · 2951-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-04-06</td>
+    <td>Potassium [Moles/volume] in Serum or Plasma</td>
+    <td>3.4 mmol/L (low)<div class="muted">Reference 3.5-5.1 mmol/L</div></td>
+    <td>http://loinc.org · 2823-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-04-06</td>
+    <td>Creatinine [Mass/volume] in Serum or Plasma</td>
+    <td>0.98 mg/dL<div class="muted">Reference 0.59-1.04 mg/dL</div></td>
+    <td>http://loinc.org · 2160-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-04-06</td>
+    <td>Glomerular filtration rate [Volume Rate/Area] in Serum, Plasma or Blood by Creatinine-based formula (CKD-EPI 2021)/1.73 sq M</td>
+    <td>63 mL/min/1.73 m²<div class="muted">Reference &gt;=60 mL/min/1.73 m²</div></td>
+    <td>http://loinc.org · 98979-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-04-06</td>
+    <td>Glucose [Mass/volume] in Serum or Plasma</td>
+    <td>94 mg/dL<div class="muted">Reference 70-99 mg/dL</div></td>
+    <td>http://loinc.org · 2345-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-04-06</td>
+    <td>Magnesium [Mass/volume] in Serum or Plasma</td>
+    <td>1.8 mg/dL<div class="muted">Reference 1.6-2.6 mg/dL</div></td>
+    <td>http://loinc.org · 19123-9</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-06-01</td>
+    <td>Sodium [Moles/volume] in Serum or Plasma</td>
+    <td>138 mmol/L<div class="muted">Reference 135-145 mmol/L</div></td>
+    <td>http://loinc.org · 2951-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-06-01</td>
+    <td>Potassium [Moles/volume] in Serum or Plasma</td>
+    <td>4.2 mmol/L<div class="muted">Reference 3.5-5.1 mmol/L</div></td>
+    <td>http://loinc.org · 2823-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-06-01</td>
+    <td>Creatinine [Mass/volume] in Serum or Plasma</td>
+    <td>0.96 mg/dL<div class="muted">Reference 0.59-1.04 mg/dL</div></td>
+    <td>http://loinc.org · 2160-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-06-01</td>
+    <td>Glomerular filtration rate [Volume Rate/Area] in Serum, Plasma or Blood by Creatinine-based formula (CKD-EPI 2021)/1.73 sq M</td>
+    <td>65 mL/min/1.73 m²<div class="muted">Reference &gt;=60 mL/min/1.73 m²</div></td>
+    <td>http://loinc.org · 98979-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-06-01</td>
+    <td>Glucose [Mass/volume] in Serum or Plasma</td>
+    <td>95 mg/dL<div class="muted">Reference 70-99 mg/dL</div></td>
+    <td>http://loinc.org · 2345-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-06-01</td>
+    <td>Magnesium [Mass/volume] in Serum or Plasma</td>
+    <td>2 mg/dL<div class="muted">Reference 1.6-2.6 mg/dL</div></td>
+    <td>http://loinc.org · 19123-9</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-06-01</td>
+    <td>Cholesterol [Mass/volume] in Serum or Plasma</td>
+    <td>152 mg/dL<div class="muted">Reference &lt;=199 mg/dL</div></td>
+    <td>http://loinc.org · 2093-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-06-01</td>
+    <td>Cholesterol in LDL [Mass/volume] in Serum or Plasma by calculation</td>
+    <td>76 mg/dL<div class="muted">Reference &lt;=99 mg/dL</div></td>
+    <td>http://loinc.org · 13457-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-06-01</td>
+    <td>Cholesterol in HDL [Mass/volume] in Serum or Plasma</td>
+    <td>53 mg/dL<div class="muted">Reference &gt;=50 mg/dL</div></td>
+    <td>http://loinc.org · 2085-9</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-06-01</td>
+    <td>Triglyceride [Mass/volume] in Serum or Plasma</td>
+    <td>115 mg/dL<div class="muted">Reference &lt;=149 mg/dL</div></td>
+    <td>http://loinc.org · 2571-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-06-01</td>
+    <td>Alanine aminotransferase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>19 U/L<div class="muted">Reference 7-35 U/L</div></td>
+    <td>http://loinc.org · 1742-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-06-01</td>
+    <td>Overall summary score [KCCQ-12]</td>
+    <td>72</td>
+    <td>http://loinc.org · 86924-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-05-18</td>
+    <td>Sodium [Moles/volume] in Serum or Plasma</td>
+    <td>136 mmol/L<div class="muted">Reference 135-145 mmol/L</div></td>
+    <td>http://loinc.org · 2951-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-05-18</td>
+    <td>Potassium [Moles/volume] in Serum or Plasma</td>
+    <td>4.4 mmol/L<div class="muted">Reference 3.5-5.1 mmol/L</div></td>
+    <td>http://loinc.org · 2823-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-05-18</td>
+    <td>Creatinine [Mass/volume] in Serum or Plasma</td>
+    <td>1.1 mg/dL (high)<div class="muted">Reference 0.59-1.04 mg/dL</div></td>
+    <td>http://loinc.org · 2160-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-05-18</td>
+    <td>Glomerular filtration rate [Volume Rate/Area] in Serum, Plasma or Blood by Creatinine-based formula (CKD-EPI 2021)/1.73 sq M</td>
+    <td>55 mL/min/1.73 m² (low)<div class="muted">Reference &gt;=60 mL/min/1.73 m²</div></td>
+    <td>http://loinc.org · 98979-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-05-18</td>
+    <td>Glucose [Mass/volume] in Serum or Plasma</td>
+    <td>92 mg/dL<div class="muted">Reference 70-99 mg/dL</div></td>
+    <td>http://loinc.org · 2345-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-09-14</td>
+    <td>Patient Health Questionnaire 2 item (PHQ-2) total score [Reported]</td>
+    <td>0</td>
+    <td>http://loinc.org · 55758-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-10-19</td>
+    <td>Sodium [Moles/volume] in Serum or Plasma</td>
+    <td>139 mmol/L<div class="muted">Reference 135-145 mmol/L</div></td>
+    <td>http://loinc.org · 2951-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-10-19</td>
+    <td>Potassium [Moles/volume] in Serum or Plasma</td>
+    <td>4.3 mmol/L<div class="muted">Reference 3.5-5.1 mmol/L</div></td>
+    <td>http://loinc.org · 2823-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-10-19</td>
+    <td>Creatinine [Mass/volume] in Serum or Plasma</td>
+    <td>0.92 mg/dL<div class="muted">Reference 0.59-1.04 mg/dL</div></td>
+    <td>http://loinc.org · 2160-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-10-19</td>
+    <td>Glomerular filtration rate [Volume Rate/Area] in Serum, Plasma or Blood by Creatinine-based formula (CKD-EPI 2021)/1.73 sq M</td>
+    <td>68 mL/min/1.73 m²<div class="muted">Reference &gt;=60 mL/min/1.73 m²</div></td>
+    <td>http://loinc.org · 98979-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-10-19</td>
+    <td>Glucose [Mass/volume] in Serum or Plasma</td>
+    <td>96 mg/dL<div class="muted">Reference 70-99 mg/dL</div></td>
+    <td>http://loinc.org · 2345-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-10-19</td>
+    <td>Magnesium [Mass/volume] in Serum or Plasma</td>
+    <td>2 mg/dL<div class="muted">Reference 1.6-2.6 mg/dL</div></td>
+    <td>http://loinc.org · 19123-9</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-10-19</td>
+    <td>Overall summary score [KCCQ-12]</td>
+    <td>78</td>
+    <td>http://loinc.org · 86924-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-09-14</td>
+    <td>Total score [Mini-Cog]</td>
+    <td>5</td>
+    <td>http://loinc.org · 72233-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-09-14</td>
+    <td>Total score [AUDIT-C]</td>
+    <td>1</td>
+    <td>http://loinc.org · 75626-2</td>
+  </tr></tbody></table></section>
+    <section><h2>Synthetic vital signs</h2><table><thead><tr><th>Date</th><th>Measure</th><th>Result</th><th>LOINC</th><th>Grade</th></tr></thead><tbody>
+  <tr><td>2026-03-09</td><td>Body height</td><td>165 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-09</td><td>Body weight</td><td>84.2 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-09</td><td>Body mass index (BMI) [Ratio]</td><td>30.9 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-09</td><td>Systolic blood pressure</td><td>176 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-09</td><td>Diastolic blood pressure</td><td>103 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-09</td><td>Heart rate</td><td>82 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-09</td><td>Respiratory rate</td><td>18 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-09</td><td>Body temperature</td><td>36.7 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-09</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>96 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-23</td><td>Body height</td><td>165 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-23</td><td>Body weight</td><td>83.4 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-23</td><td>Body mass index (BMI) [Ratio]</td><td>30.6 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-23</td><td>Systolic blood pressure</td><td>150 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-23</td><td>Diastolic blood pressure</td><td>90 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-23</td><td>Heart rate</td><td>78 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-23</td><td>Respiratory rate</td><td>16 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-23</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-23</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>97 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-06</td><td>Body height</td><td>165 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-06</td><td>Body weight</td><td>82.6 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-06</td><td>Body mass index (BMI) [Ratio]</td><td>30.3 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-06</td><td>Systolic blood pressure</td><td>134 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-06</td><td>Diastolic blood pressure</td><td>82 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-06</td><td>Heart rate</td><td>76 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-06</td><td>Respiratory rate</td><td>16 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-06</td><td>Body temperature</td><td>36.7 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-06</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>97 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-01</td><td>Body height</td><td>165 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-01</td><td>Body weight</td><td>81.8 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-01</td><td>Body mass index (BMI) [Ratio]</td><td>30 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-01</td><td>Systolic blood pressure</td><td>126 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-01</td><td>Diastolic blood pressure</td><td>76 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-01</td><td>Heart rate</td><td>72 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-01</td><td>Respiratory rate</td><td>16 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-01</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-01</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>98 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-19</td><td>Body height</td><td>165 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-19</td><td>Body weight</td><td>81.2 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-19</td><td>Body mass index (BMI) [Ratio]</td><td>29.8 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-19</td><td>Systolic blood pressure</td><td>124 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-19</td><td>Diastolic blood pressure</td><td>74 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-19</td><td>Heart rate</td><td>70 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-19</td><td>Respiratory rate</td><td>16 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-19</td><td>Body temperature</td><td>36.5 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-19</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>98 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-05-18</td><td>Body height</td><td>165 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-05-18</td><td>Body weight</td><td>80.6 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-05-18</td><td>Body mass index (BMI) [Ratio]</td><td>29.6 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-05-18</td><td>Systolic blood pressure</td><td>112 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-05-18</td><td>Diastolic blood pressure</td><td>68 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-05-18</td><td>Heart rate</td><td>94 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-05-18</td><td>Respiratory rate</td><td>16 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-05-18</td><td>Body temperature</td><td>36.9 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-05-18</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>97 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-09-14</td><td>Body height</td><td>165 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-09-14</td><td>Body weight</td><td>81.6 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-09-14</td><td>Body mass index (BMI) [Ratio]</td><td>30 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-09-14</td><td>Systolic blood pressure</td><td>124 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-09-14</td><td>Diastolic blood pressure</td><td>74 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-09-14</td><td>Heart rate</td><td>70 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-09-14</td><td>Respiratory rate</td><td>16 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-09-14</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-09-14</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>98 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr></tbody></table></section>
+    <section><h2>Social, functional, and mental status</h2><h3>Social history</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Writer, folklorist and anthropologist trained at Barnard; now works as a substitute teacher at the local high school and writes a weekly newspaper column; working on a new book</li><li><span class="badge grade-S" title="Synthetic">S</span> Lives alone in a small house in Fort Pierce that a friend from her hometown lets her live in without rent; keeps a garden and a dog; no car, walks or takes the bus; no air conditioning, only fans</li><li><span class="badge grade-S" title="Synthetic">S</span> Income: daily substitute-teaching pay when called and small payments for her column, plus a small Social Security benefit; book royalties have been small; Original Medicare (Part A and Part B) with no drug plan and no supplemental coverage, because she could not afford the premiums</li><li><span class="badge grade-S" title="Synthetic">S</span> Diet: home cooking with salt pork, greens, rice, fish and cornbread; canned foods at the end of the month when money runs short; adds salt at the table</li><li><span class="badge grade-S" title="Synthetic">S</span> Tobacco: never. Alcohol: rarely, a glass at a celebration. No drug use</li><li><span class="badge grade-S" title="Synthetic">S</span> Strengths and supports: raised in Eatonville, an all-Black town she calls home; a lifelong collector of stories; describes a wide circle of friends, students and neighbors, and a sense of humor she relies on</li><li><span class="badge grade-S" title="Synthetic">S</span> Says she has often had to insist on being taken seriously, and asks that her account of her own body be believed and that every choice be explained to her as to a colleague</li></ul><h3>Functional status</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Independent in all daily activities; breathless after one flight of stairs or a block carrying groceries; stands for long school days with swollen ankles by evening; NYHA class II</li></ul><h3>Mental status</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Alert, witty and exact in her history; frustrated that tiredness is slowing her writing; mood steady; PHQ-2 score 1</li></ul></section>
+    
+    <section><h2>Allergies and medications</h2><h3>Allergies</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> No known allergy</li></ul><h3>Medications</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Amlodipine 5 mg oral tablet, one tablet every morning</li><li><span class="badge grade-S" title="Synthetic">S</span> Chlorthalidone 25 mg oral tablet, one-half tablet (12.5 mg) every morning</li><li><span class="badge grade-S" title="Synthetic">S</span> Dapagliflozin 10 mg oral tablet, one tablet daily; pause on days of vomiting, diarrhea or not eating or drinking</li><li><span class="badge grade-S" title="Synthetic">S</span> Atorvastatin 20 mg oral tablet, one tablet daily</li><li><span class="badge grade-S" title="Synthetic">S</span> Spironolactone 25 mg oral tablet, one-half tablet (12.5 mg) daily</li></ul></section>
+    <section><h2>Procedures and immunizations</h2><h3>Procedures</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Twelve-lead electrocardiogram: sinus rhythm at 80 per minute, left ventricular hypertrophy by voltage criteria with repolarization changes, no atrial fibrillation, no Q waves</li><li><span class="badge grade-S" title="Synthetic">S</span> 24-hour ambulatory blood pressure monitoring, fitted at the visit and returned the next morning, before the first doses of blood pressure medicine</li><li><span class="badge grade-S" title="Synthetic">S</span> Transthoracic echocardiography: ejection fraction 62%, concentric left ventricular hypertrophy (septum 13 mm, posterior wall 12 mm), grade II diastolic dysfunction with average E/e&#39; 15, left atrial volume index 38 mL/m2, tricuspid regurgitation velocity 2.8 m/s, no significant valve disease, no pericardial effusion</li><li><span class="badge grade-S" title="Synthetic">S</span> Twelve-lead electrocardiogram at the sick visit: sinus rhythm at 96 per minute, left ventricular hypertrophy unchanged from intake, no arrhythmia</li><li><span class="badge grade-S" title="Synthetic">S</span> Advance care planning conversation, about 20 minutes, with her consent</li></ul><h3>Immunizations</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> 2026-03-23: Pneumococcal conjugate vaccine PCV20</li><li><span class="badge grade-S" title="Synthetic">S</span> 2026-09-14: High-dose influenza vaccine, this season</li><li><span class="badge grade-S" title="Synthetic">S</span> 2026-09-14: Respiratory syncytial virus vaccine, single dose</li><li><span class="badge grade-S" title="Synthetic">S</span> 2026-09-14: COVID-19 vaccine, mRNA, this season</li><li><span class="badge grade-S" title="Synthetic">S</span> 2026-10-19: Recombinant zoster vaccine, dose 1 of 2</li><li><span class="badge grade-S" title="Synthetic">S</span> 2026-10-19: Tetanus, diphtheria, and acellular pertussis vaccine (Tdap)</li></ul></section>
+    <section><h2>Past medical history</h2><p class="muted">True biography with historical dates; not part of the synthetic care timeline.</p><ul></ul><h3>Family history</h3><ul><li><span class="badge grade-D" title="Documented">D</span> mother: Died in 1904, when the patient was 13; cause not recorded in the cited source</li></ul></section>
+    <section><h2>Care-plan goals</h2><table><thead><tr><th>Goal</th><th>Target date</th><th>Status</th><th>Outcome</th></tr></thead><tbody>
+  <tr><td>Blood pressure below 130/80 mmHg in the clinic and at home within six months</td><td>2026-06-01</td><td>completed</td><td>126/76 in the clinic; home average 124/74</td></tr>
+  <tr><td>Breathlessness only on heavy exertion and a KCCQ-12 score at least 15 points higher within six months</td><td>2026-10-19</td><td>completed</td><td>KCCQ-12 54 to 78; NYHA class I to II; ankles no longer swell</td></tr>
+  <tr><td>Every medicine affordable: generic 90-day fills, patient assistance until drug coverage begins, Extra Help and the Medicare Savings Program</td><td>2026-06-01</td><td>completed</td><td>Extra Help and the Medicare Savings Program approved; enrolled in a drug plan; dapagliflozin by patient assistance until then</td></tr>
+  <tr><td>Enough food through the month</td><td>2026-06-01</td><td>completed</td><td>SNAP approved and the food pantry at her church; food lasts the month</td></tr>
+  <tr><td>Know the BE FAST signs of stroke and call 911 at once if any appear</td><td>2026-04-06</td><td>completed</td><td>She teaches back the signs and keeps the card by the telephone</td></tr></tbody></table></section>
+    <section><h2>Interventions</h2><table><thead><tr><th>Intervention</th><th>Status</th><th>Guideline</th></tr></thead><tbody>
+  <tr><td>Respectful, shared decision-making: take her history as given, explain each test and medicine with its reasons and alternatives, write the plan down, and check costs with her before prescribing</td><td>completed</td><td>GL-AHA-HTN-2025</td></tr>
+  <tr><td>Cardiology consultation on the day of the two-week visit, with the echocardiogram, to confirm the cause of breathlessness, look for hypertensive heart disease and HFpEF and their mimics, and advise on treatment</td><td>completed</td><td>GL-HF-2022, GL-HFPEF-2023, GL-CMID-2026</td></tr>
+  <tr><td>Confirm the diagnosis with 24-hour ambulatory blood pressure monitoring today, before the first dose; then home readings twice daily with a validated upper-arm monitor and a large cuff lent by the clinic</td><td>completed</td><td>GL-AHA-HTN-2025, GL-CMID-2026</td></tr>
+  <tr><td>Start a two-drug combination for stage 2 hypertension: chlorthalidone 12.5 mg and amlodipine 5 mg every morning, from the morning after the ambulatory monitor is removed, as low-cost generics; target below 130/80 mmHg; less salt, using foods she already eats</td><td>completed</td><td>GL-AHA-HTN-2025, GL-CMID-2026</td></tr>
+  <tr><td>Baseline tests: ECG, NT-proBNP, metabolic panel and magnesium, hemoglobin, TSH, hemoglobin A1c, lipids, ALT and urine albumin-to-creatinine ratio; echocardiogram because of raised NT-proBNP, breathlessness and suspected left ventricular hypertrophy</td><td>completed</td><td>GL-AHA-HTN-2025, GL-HF-2022, GL-CMID-2026</td></tr>
+  <tr><td>Stroke and emergency warning signs: BE FAST (balance, eyes, face, arm, speech, time to call 911), and call 911 for chest pain, severe headache with confusion or vision loss, or breathlessness at rest</td><td>completed</td><td>GL-CDC-BEFAST, GL-AHA-HTN-2025</td></tr>
+  <tr><td>Costs and coverage, with the clinic&#39;s community health worker: a SHINE counselor for Extra Help and the Medicare Savings Program; generic medicines in 90-day fills; patient assistance for any brand-only medicine until coverage begins</td><td>completed</td><td>GL-EXTRAHELP, GL-MSP, GL-SHINE</td></tr>
+  <tr><td>Food: the Hunger Vital Sign at intake; help applying for SNAP through ACCESS Florida; the food pantry list</td><td>completed</td><td>GL-HVS, GL-SNAP, GL-FL-ACCESS</td></tr>
+  <tr><td>Heart failure treatment: dapagliflozin 10 mg daily with sick-day rules; daily weights with a written plan; metabolic panel one to two weeks after each start or dose change, then every three to six months; KCCQ-12 every three to six months</td><td>completed</td><td>GL-HF-2022, GL-HFPEF-2023, GL-CMID-2026</td></tr>
+  <tr><td>Atorvastatin 20 mg daily for primary prevention, with a lipid panel at four to twelve weeks</td><td>completed</td><td>GL-AHA-HTN-2025, GL-CMID-2026</td></tr>
+  <tr><td>Add spironolactone 12.5 mg daily for blood pressure above target and low potassium on chlorthalidone; potassium and creatinine one to two weeks later</td><td>completed</td><td>GL-HF-2022, GL-AHA-HTN-2025</td></tr>
+  <tr><td>Laboratory checks on the day of clinic visits where possible, and rides through the county&#39;s transportation program for people without a car when a separate trip is needed</td><td>completed</td><td>GL-CMID-2026</td></tr>
+  <tr><td>Heat plan for the Florida summer: fans and cooling places, water through the day, sick-day rules for chlorthalidone, spironolactone and dapagliflozin, and the energy assistance program&#39;s cooling help</td><td>completed</td><td>GL-HF-2022, GL-LIHEAP</td></tr></tbody></table></section>
+    <section><h2>Planned encounters</h2><ul>
+  <li><strong>2026-03-09</strong> — Establishing care for morning headaches, breathlessness on exertion and ankle swelling, with very high blood pressure: examination, ECG, laboratory tests, 24-hour ambulatory blood pressure monitoring, a two-drug combination, food and medicine-cost screening, and stroke warning signs <span class="muted">(ENC-001)</span></li>
+  <li><strong>2026-03-23</strong> — Two-week review: ambulatory blood pressure result, echocardiogram, metabolic panel, cardiology consultation the same day, and the diagnosis <span class="muted">(ENC-002)</span></li>
+  <li><strong>2026-04-06</strong> — Two-week review after dapagliflozin: metabolic panel, blood pressure and potassium, and benefits applications <span class="muted">(ENC-003)</span></li>
+  <li><strong>2026-05-18</strong> — Same-day sick visit for lightheadedness on standing in the heat <span class="muted">(ENC-006, unscheduled)</span></li>
+  <li><strong>2026-06-01</strong> — Eight-week review: blood pressure at home and in the clinic, potassium and kidney function, lipids, KCCQ-12 and drug coverage <span class="muted">(ENC-004)</span></li>
+  <li><strong>2026-09-14</strong> — Subsequent annual wellness visit <span class="muted">(ENC-007)</span></li>
+  <li><strong>2026-10-19</strong> — Seven-month review: blood pressure, heart failure status, metabolic panel, stroke prevention and plans for the year <span class="muted">(ENC-005)</span></li></ul></section>
+    <section><h2>Supporting documents</h2><ul><li><a href="notes/hp.md">History and physical</a></li><li><a href="notes/progress-01.md">Progress note 01</a></li><li><a href="notes/progress-02.md">Progress note 02 — Focused Visit (Follow-up)</a></li><li><a href="notes/progress-03.md">Progress note 03 — Focused Visit (Follow-up)</a></li><li><a href="notes/progress-04.md">Progress note 04 — Sick Visit</a></li><li><a href="notes/progress-05.md">Progress note 05 — Focused Visit (Follow-up)</a></li><li><a href="notes/progress-06.md">Progress note 06 — Annual Wellness Visit, Subsequent</a></li><li><a href="notes/progress-07.md">Progress note 07 — Focused Visit (Care-plan review)</a></li><li><a href="notes/referral-01.md">Cardiology referral</a></li><li><a href="notes/consult-01.md">Cardiology consultation</a></li><li><a href="notes/careplan.md">Patient care plan</a></li><li><a href="notes/teaching-note.md">Teaching note</a></li><li><a href="provenance.csv">Provenance CSV</a></li></ul></section>
+    <section><h2>C-CDA note documents</h2><p class="muted">Each link opens a readable copy; the XML beside it is the exchange file.</p><ul><li><a href="ccda/hp-01.html">History and physical</a> <a href="ccda/hp-01.xml">(XML)</a></li><li><a href="ccda/progress-01.html">Progress note 01</a> <a href="ccda/progress-01.xml">(XML)</a></li><li><a href="ccda/progress-02.html">Progress note 02 — Focused Visit (Follow-up)</a> <a href="ccda/progress-02.xml">(XML)</a></li><li><a href="ccda/progress-03.html">Progress note 03 — Focused Visit (Follow-up)</a> <a href="ccda/progress-03.xml">(XML)</a></li><li><a href="ccda/progress-04.html">Progress note 04 — Sick Visit</a> <a href="ccda/progress-04.xml">(XML)</a></li><li><a href="ccda/progress-05.html">Progress note 05 — Focused Visit (Follow-up)</a> <a href="ccda/progress-05.xml">(XML)</a></li><li><a href="ccda/progress-06.html">Progress note 06 — Annual Wellness Visit, Subsequent</a> <a href="ccda/progress-06.xml">(XML)</a></li><li><a href="ccda/progress-07.html">Progress note 07 — Focused Visit (Care-plan review)</a> <a href="ccda/progress-07.xml">(XML)</a></li><li><a href="ccda/referral-01.html">Cardiology referral</a> <a href="ccda/referral-01.xml">(XML)</a></li><li><a href="ccda/consult-01.html">Cardiology consultation</a> <a href="ccda/consult-01.xml">(XML)</a></li></ul></section>
+    <section><h2>Sources</h2><table><thead><tr><th>ID</th><th>Source</th><th>Publisher</th><th>Type</th></tr></thead><tbody>
+  <tr>
+    <td>SRC-0001</td>
+    <td><a href="https://www.pbs.org/wnet/americanmasters/zora-neale-hurston/1155" target="_blank" rel="noreferrer">Zora Neale Hurston&#39;s life and career timeline. American Masters: Zora Neale Hurston, Jump at the Sun (April 9, 2008)</a></td>
+    <td>PBS (WNET)</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0002</td>
+    <td><a href="https://www.zoranealehurston.com/about/" target="_blank" rel="noreferrer">Boyd V. About Zora Neale Hurston, with a chronology</a></td>
+    <td>Zora Neale Hurston Trust (official website)</td>
+    <td>biography</td>
+  </tr>
+  <tr>
+    <td>SRC-0003</td>
+    <td><a href="https://www.library.ufl.edu/spec/AAexhibit/manuscripts.htm" target="_blank" rel="noreferrer">Selections from Archives and Manuscripts: Zora Neale Hurston</a></td>
+    <td>University of Florida George A. Smathers Libraries, Department of Special and Area Studies Collections</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0004</td>
+    <td><a href="https://encyclopediaofalabama.org/article/zora-neale-hurston/" target="_blank" rel="noreferrer">Carpenter CD. Zora Neale Hurston. Encyclopedia of Alabama (2008, updated 2023)</a></td>
+    <td>Alabama Humanities Alliance (Encyclopedia of Alabama)</td>
+    <td>biography</td>
+  </tr>
+  <tr>
+    <td>SRC-0005</td>
+    <td><a href="https://dos.fl.gov/cultural/programs/florida-artists-hall-of-fame/zora-neale-hurston/" target="_blank" rel="noreferrer">Zora Neale Hurston, Folklorist, 1891-1960. Florida Artists Hall of Fame (inducted 1990)</a></td>
+    <td>Florida Department of State, Division of Arts and Culture</td>
+    <td>government</td>
+  </tr>
+  <tr>
+    <td>SRC-0006</td>
+    <td><a href="https://guides.loc.gov/chronicling-america-zora-neale-hurston" target="_blank" rel="noreferrer">Zora Neale Hurston: Topics in Chronicling America (research guide)</a></td>
+    <td>Library of Congress</td>
+    <td>government</td>
+  </tr>
+  <tr>
+    <td>SRC-0007</td>
+    <td><a href="https://humanrecord.example.org/internal/HISTMED_Master_Roster_v3.xlsx" target="_blank" rel="noreferrer">HISTMED Master Roster v3</a></td>
+    <td>The Human Record project</td>
+    <td>other</td>
+  </tr></tbody></table></section>
+    <section><h2>Review status</h2><table><thead><tr><th>Review</th><th>Status</th><th>Notes</th></tr></thead><tbody>
+  <tr><td>schema validation</td><td>not_started</td><td>Run scripts/build.ps1 -Conformance.</td></tr>
+  <tr><td>clinical review</td><td>not_started</td><td>Awaiting clinician review; check treating stage 2 blood pressure the morning after a 24-hour ambulatory recording, chlorthalidone with amlodipine as the initial combination, the HFpEF diagnosis (NT-proBNP 480, ejection fraction 62%, E/e&#39; 15, left atrial volume index 38), dapagliflozin, spironolactone for low potassium and blood pressure above target, the missed one- to two-week potassium check, the orthostatic episode in the heat, and moderate-intensity atorvastatin.</td></tr>
+  <tr><td>provenance review</td><td>not_started</td><td>Sources: PBS American Masters, the Zora Neale Hurston Trust (Valerie Boyd&#39;s essay and chronology), the University of Florida Smathers Libraries, the Encyclopedia of Alabama, the Florida Department of State and a Library of Congress research guide. The Library of Congress collection pages, Florida Memory, the Smithsonian NMAAHC and the New York Times could not be fetched; Robert Hemenway&#39;s and Valerie Boyd&#39;s biographies were not read directly.</td></tr>
+  <tr><td>safe messaging review</td><td>not_started</td><td>Poverty, the welfare home and the unmarked grave are recorded plainly as history, without pity or graphic detail. No mental health claim is made; mood screening is synthetic and negative. No relative or other real person is given a modern statement, decision or health fact; the writer who marked the grave is living and is not named.</td></tr></tbody></table></section>
+  </main>
+</body>
+</html>
