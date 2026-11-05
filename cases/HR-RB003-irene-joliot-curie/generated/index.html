@@ -1,0 +1,955 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Irène Joliot-Curie — The Human Record</title>
+  <style>
+    :root { --navy:#17365d; --blue:#1f4e78; --pale:#eef5fa; --ink:#1f2933; --muted:#66788a; --amber:#fff2cc; --red:#f8d7da; --green:#d9ead3; }
+    * { box-sizing:border-box; }
+    body { margin:0; font:16px/1.5 Arial, sans-serif; color:var(--ink); background:#f6f8fa; }
+    header { background:var(--navy); color:white; padding:24px max(24px,calc((100vw - 1180px)/2)); }
+    header h1 { margin:4px 0; font-size:30px; }
+    .banner { background:#b42318; color:white; font-weight:700; text-align:center; padding:10px; letter-spacing:.03em; }
+    main { max-width:1180px; margin:24px auto 60px; padding:0 24px; }
+    section { background:white; border:1px solid #d9e1e8; border-radius:8px; margin:18px 0; padding:20px; }
+    h2 { color:var(--navy); margin:0 0 14px; font-size:22px; }
+    h3 { color:var(--blue); }
+    .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:12px; }
+    .card { background:var(--pale); border-left:4px solid var(--blue); padding:12px; }
+    .label { color:var(--muted); font-size:13px; text-transform:uppercase; letter-spacing:.04em; }
+    table { width:100%; border-collapse:collapse; }
+    th { background:var(--blue); color:white; text-align:left; }
+    th,td { padding:9px; border-bottom:1px solid #dfe6ec; vertical-align:top; }
+    .badge { display:inline-block; min-width:28px; text-align:center; font-weight:700; border-radius:12px; padding:2px 8px; }
+    .grade-D { background:var(--green); } .grade-R { background:var(--amber); } .grade-S { background:var(--red); }
+    .muted { color:var(--muted); font-size:14px; }
+    .relationship { color:var(--muted); font-size:12px; }
+    .downloads a { display:inline-block; margin:4px 8px 4px 0; padding:8px 12px; background:var(--blue); color:white; text-decoration:none; border-radius:5px; }
+    @media (max-width:700px) { table { display:block; overflow-x:auto; } }
+  </style>
+</head>
+<body>
+  <div class="banner">SYNTHETIC RECORD, NOT A REAL MEDICAL RECORD</div>
+  <header>
+    <div>The Human Record</div>
+    <h1>Irène Joliot-Curie</h1>
+    <div>Case HR-RB003 · Modern EHR teaching episode · Draft for review</div>
+  </header>
+  <main>
+    <section>
+      <h2>Review summary</h2>
+      <div class="grid">
+        <div class="card"><div class="label">Historical dates</div>September 12, 1897 – March 17, 1956</div>
+        <div class="card"><div class="label">Synthetic DOB</div>1968-09-12</div>
+        <div class="card"><div class="label">Index visit</div>2026-09-14 at age 58</div>
+        <div class="card"><div class="label">Synthetic MRN</div>HR-RB003-SYN</div>
+      </div>
+      <p><strong>Teaching objective:</strong> Recognize acute myeloid leukemia in a 58-year-old physicist whose tiredness, bruising and bleeding gums come with pancytopenia and blasts on the smear, and care for it on the NCCN AML guideline and the ELN 2022 recommendations: same-week hematology review with coagulation tests to exclude acute promyelocytic leukemia; bone marrow biopsy with flow cytometry, cytogenetics and molecular testing; classification by both the WHO 2022 and ICC 2022 systems and ELN 2022 genetic risk, deciding how to describe leukemia after occupational rather than therapeutic radiation; a fitness assessment (performance status, comorbidity, lung function after old tuberculosis); azacitidine with venetoclax for a patient unfit for intensive induction, with the dose reduced for posaconazole and tumor lysis precautions; transfusion support with irradiated products; antifungal, antiviral and antibacterial prophylaxis and a febrile neutropenia plan; response assessment at the day-22 marrow and count recovery; early evaluation for allogeneic stem cell transplant; specialist palliative care from the start; and an occupational health history that asks for her dose records, records the employer&#39;s duty to keep and release them, and documents a laboratory accident with a polonium source.</p>
+      <div class="downloads">
+        <a href="../case.json">Canonical JSON</a>
+        <a href="fhir-bundle.json">FHIR R4 draft</a>
+        <a href="ccda.html">C-CDA R2.1 summary</a> <a href="ccda.xml">(XML)</a> <a href="review.html">Review checklist</a>
+        <a href="../sources.md">Evidence dossier</a>
+      </div>
+    </section>
+    <section><h2>Historical timeline</h2><table><thead><tr><th>Date</th><th>Event</th><th>Claims</th></tr></thead><tbody>
+  <tr><td>September 12, 1897</td><td>Born in Paris.</td><td>CLM-0001</td></tr>
+  <tr><td>1914</td><td>Nurse radiographer with mobile X-ray units in the First World War.</td><td>CLM-0002</td></tr>
+  <tr><td>1925</td><td>Doctorate on the alpha rays of polonium; married Frédéric Joliot the next year.</td><td>CLM-0003, CLM-0006</td></tr>
+  <tr><td>July 4, 1934</td><td>Death of her mother from aplastic anemia attributed to radiation.</td><td>CLM-0016</td></tr>
+  <tr><td>1935</td><td>Nobel Prize in Chemistry with Frédéric Joliot.</td><td>CLM-0004, CLM-0007</td></tr>
+  <tr><td>1936</td><td>Undersecretary of State for Scientific Research; professor from 1937.</td><td>CLM-0005</td></tr>
+  <tr><td>1944</td><td>Recovering from tuberculosis in Switzerland during the war.</td><td>CLM-0008</td></tr>
+  <tr><td>1946</td><td>Director of the Radium Institute; a polonium capsule exploded on her bench.</td><td>CLM-0009, CLM-0010</td></tr>
+  <tr><td>1950</td><td>Visible decline in her health from shortly after this year.</td><td>CLM-0013</td></tr>
+  <tr><td>1956</td><td>Mountain stay without improvement.</td><td>CLM-0014</td></tr>
+  <tr><td>March 17, 1956</td><td>Died of leukemia in Paris; her leukemia is attributed to occupational radiation.</td><td>CLM-0011, CLM-0012, CLM-0015</td></tr></tbody></table></section>
+    <section><h2>Evidence claims</h2><p class="muted">D = documented, R = retrospective, S = synthetic.</p><table><thead><tr><th>Grade</th><th>Claim</th><th>Certainty</th><th>Sources</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>Irène Curie was born in Paris on 12 September 1897, the elder daughter of the physicist Pierre Curie and his wife, a physicist who also worked with radioactive materials.</strong></td>
+    <td>confirmed</td>
+    <td><a href="https://www.nobelprize.org/prizes/chemistry/1935/joliot-curie/biographical/" target="_blank" rel="noreferrer">Irène Joliot-Curie – Biographical (from Nobel Lectures, Chemistry 1922-1941)</a> <span class="relationship">supports</span><br><a href="https://atomicarchive.com/resources/biographies/irene-curie.html" target="_blank" rel="noreferrer">Irène Joliot-Curie (1897-1956)</a> <span class="relationship">supports</span><br><a href="https://humanrecord.example.org/internal/HISTMED_Master_Roster_v3.xlsx" target="_blank" rel="noreferrer">HISTMED Master Roster v3</a> <span class="relationship">context</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>During the First World War she served as a nurse radiographer, operating X-ray machines in mobile field hospitals alongside her mother.</strong><div class="muted">Start of her occupational exposure to ionizing radiation; anchors the modern occupational history.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.nobelprize.org/prizes/chemistry/1935/joliot-curie/biographical/" target="_blank" rel="noreferrer">Irène Joliot-Curie – Biographical (from Nobel Lectures, Chemistry 1922-1941)</a> <span class="relationship">supports</span><br><a href="https://ahf.nuclearmuseum.org/ahf/profile/irene-joliot-curie/" target="_blank" rel="noreferrer">Irene Joliot-Curie (profile)</a> <span class="relationship">supports</span><br><a href="https://www.lindahall.org/about/news/scientist-of-the-day/irene-joliot-curie" target="_blank" rel="noreferrer">Scientist of the Day: Irène Joliot-Curie</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>She became a Doctor of Science in 1925 with a thesis on the alpha rays of polonium, and in 1926 married Frédéric Joliot; the couple joined their surnames and worked together on natural and artificial radioactivity and nuclear physics.</strong><div class="muted">Anchors decades of laboratory work with polonium and other radioactive sources.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.nobelprize.org/prizes/chemistry/1935/joliot-curie/biographical/" target="_blank" rel="noreferrer">Irène Joliot-Curie – Biographical (from Nobel Lectures, Chemistry 1922-1941)</a> <span class="relationship">supports</span><br><a href="https://atomicarchive.com/resources/biographies/irene-curie.html" target="_blank" rel="noreferrer">Irène Joliot-Curie (1897-1956)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>In 1935 she and Frédéric Joliot shared the Nobel Prize in Chemistry for their synthesis of new radioactive elements, after showing that bombarding aluminum foil with alpha particles produced artificial radioactivity.</strong><div class="muted">Anchors the modern work history.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.nobelprize.org/prizes/chemistry/1935/joliot-curie/biographical/" target="_blank" rel="noreferrer">Irène Joliot-Curie – Biographical (from Nobel Lectures, Chemistry 1922-1941)</a> <span class="relationship">supports</span><br><a href="https://atomicarchive.com/resources/biographies/irene-curie.html" target="_blank" rel="noreferrer">Irène Joliot-Curie (1897-1956)</a> <span class="relationship">supports</span><br><a href="https://ahf.nuclearmuseum.org/ahf/profile/irene-joliot-curie/" target="_blank" rel="noreferrer">Irene Joliot-Curie (profile)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>In 1936 she was appointed Undersecretary of State for Scientific Research; she became a professor in the Faculty of Science in Paris in 1937, and her research on the action of neutrons on heavy elements in 1938 was an important step toward the discovery of nuclear fission.</strong><div class="muted">Background only.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.nobelprize.org/prizes/chemistry/1935/joliot-curie/biographical/" target="_blank" rel="noreferrer">Irène Joliot-Curie – Biographical (from Nobel Lectures, Chemistry 1922-1941)</a> <span class="relationship">supports</span><br><a href="https://atomicarchive.com/resources/biographies/irene-curie.html" target="_blank" rel="noreferrer">Irène Joliot-Curie (1897-1956)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>She and Frédéric Joliot had a daughter and a son.</strong><div class="muted">Documented history only; the children are not named and play no part in the modern episode.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.nobelprize.org/prizes/chemistry/1935/joliot-curie/biographical/" target="_blank" rel="noreferrer">Irène Joliot-Curie – Biographical (from Nobel Lectures, Chemistry 1922-1941)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>She had always been of unstable health, and the couple took regular trips to the countryside to help her condition.</strong><div class="muted">Background for the modern history.</div></td>
+    <td>probable</td>
+    <td><a href="https://incois.gov.in/Tutor/science+society/lectures/illustrations/lecture29/icurie.html" target="_blank" rel="noreferrer">Irène Joliot-Curie (Science, civilization and society, lecture 29 illustrations)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>During the Second World War she spent time in Switzerland recovering from tuberculosis, and in 1944 brought her children with her to Switzerland.</strong><div class="muted">Anchors the modern history of treated pulmonary tuberculosis and the reduced lung gas transfer found on testing.</div></td>
+    <td>probable</td>
+    <td><a href="https://ahf.nuclearmuseum.org/ahf/profile/irene-joliot-curie/" target="_blank" rel="noreferrer">Irene Joliot-Curie (profile)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>In 1946 she became director of the Radium Institute; as a commissioner for atomic energy for six years she took part in building the first French atomic pile in 1948, and she drew up the plans for the large nuclear physics center at Orsay.</strong><div class="muted">Anchors the modern work history as a laboratory director.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://atomicarchive.com/resources/biographies/irene-curie.html" target="_blank" rel="noreferrer">Irène Joliot-Curie (1897-1956)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>In 1946 a capsule of polonium exploded on her laboratory bench.</strong><div class="muted">Anchors the modern history of a sealed-source accident in her laboratory; no dose estimate from the incident is documented.</div></td>
+    <td>probable</td>
+    <td><a href="https://www.smithsonianmag.com/science-nature/six-secrets-of-polonium-94821613/" target="_blank" rel="noreferrer">Zielinski S. Six Secrets of Polonium</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-R" title="Retrospective">R</span></td>
+    <td><strong>Smithsonian magazine reported that the 1946 polonium accident is thought to have possibly been responsible for her death from leukemia ten years later, and that she may have been the first person to die of polonium poisoning.</strong><div class="muted">Retrospective interpretation; the modern episode records the accident as part of an occupational history and does not attribute the leukemia to one event.</div></td>
+    <td>possible</td>
+    <td><a href="https://www.smithsonianmag.com/science-nature/six-secrets-of-polonium-94821613/" target="_blank" rel="noreferrer">Zielinski S. Six Secrets of Polonium</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-R" title="Retrospective">R</span></td>
+    <td><strong>Her leukemia is usually attributed to over-exposure to X-rays during the First World War and to radioactive materials during her life of research.</strong><div class="muted">Retrospective interpretation, widely repeated; why the modern episode takes an occupational radiation history and treats the leukemia as exposure-related.</div></td>
+    <td>probable</td>
+    <td><a href="https://www.lindahall.org/about/news/scientist-of-the-day/irene-joliot-curie" target="_blank" rel="noreferrer">Scientist of the Day: Irène Joliot-Curie</a> <span class="relationship">supports</span><br><a href="https://atomicarchive.com/resources/biographies/irene-curie.html" target="_blank" rel="noreferrer">Irène Joliot-Curie (1897-1956)</a> <span class="relationship">supports</span><br><a href="https://ahf.nuclearmuseum.org/ahf/profile/irene-joliot-curie/" target="_blank" rel="noreferrer">Irene Joliot-Curie (profile)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>Shortly after 1950 her health declined visibly.</strong><div class="muted">Anchors the timing of the index visit and the synthetic presenting illness.</div></td>
+    <td>probable</td>
+    <td><a href="https://incois.gov.in/Tutor/science+society/lectures/illustrations/lecture29/icurie.html" target="_blank" rel="noreferrer">Irène Joliot-Curie (Science, civilization and society, lecture 29 illustrations)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>A stay in the mountains in 1956 brought no improvement, and she died of leukemia shortly after.</strong><div class="muted">After the index date; recorded as history. No modern visit is placed in 1956 in the true frame.</div></td>
+    <td>probable</td>
+    <td><a href="https://incois.gov.in/Tutor/science+society/lectures/illustrations/lecture29/icurie.html" target="_blank" rel="noreferrer">Irène Joliot-Curie (Science, civilization and society, lecture 29 illustrations)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>She died of leukemia in Paris on 17 March 1956, at the age of 58.</strong><div class="muted">History only; the type of leukemia is not stated in the cited sources, and the modern subtype is synthetic.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.nobelprize.org/prizes/chemistry/1935/joliot-curie/biographical/" target="_blank" rel="noreferrer">Irène Joliot-Curie – Biographical (from Nobel Lectures, Chemistry 1922-1941)</a> <span class="relationship">supports</span><br><a href="https://atomicarchive.com/resources/biographies/irene-curie.html" target="_blank" rel="noreferrer">Irène Joliot-Curie (1897-1956)</a> <span class="relationship">supports</span><br><a href="https://www.lindahall.org/about/news/scientist-of-the-day/irene-joliot-curie" target="_blank" rel="noreferrer">Scientist of the Day: Irène Joliot-Curie</a> <span class="relationship">supports</span><br><a href="https://ahf.nuclearmuseum.org/ahf/profile/irene-joliot-curie/" target="_blank" rel="noreferrer">Irene Joliot-Curie (profile)</a> <span class="relationship">context</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>Her mother died on 4 July 1934; the director of the sanatorium where she died reported an aplastic pernicious anemia of rapid, feverish development, in which the bone marrow did not react, probably because it had been injured by a long accumulation of radiations.</strong><div class="muted">Family history: bone marrow failure attributed to radiation in a parent who worked with radioactive materials.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://history.aip.org/exhibits/curie/radinst3_text.htm" target="_blank" rel="noreferrer">The Radium Institute (1919-1934), online exhibit</a> <span class="relationship">supports</span></td>
+  </tr></tbody></table></section>
+    <section><h2>Modern synthetic problem list</h2><table><thead><tr><th>Grade</th><th>Problem</th><th>Clinical status</th><th>Verification</th><th>Placement</th><th>Historical claims</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Two months of tiredness, easy bruising and bleeding gums, with pancytopenia and 12 percent blasts on the blood smear; acute leukemia suspected and urgent hematology review booked</td>
+    <td>resolved</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td>CLM-0013</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Acute myeloid leukemia diagnosed on bone marrow biopsy (34 percent myeloblasts), in a physicist with decades of occupational exposure to ionizing radiation; synthetic modern diagnosis linked to her documented leukemia</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>both_with_link</td>
+    <td>CLM-0011, CLM-0012, CLM-0015</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Occupational exposure to ionizing radiation over about four decades: X-ray work early in her career, laboratory work with polonium and other radioactive sources, and a laboratory accident in which a sealed polonium source ruptured on her bench about ten years ago</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>both_with_link</td>
+    <td>CLM-0002, CLM-0003, CLM-0010</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Pulmonary tuberculosis in her forties, treated to completion; no symptoms of active disease</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>both_with_link</td>
+    <td>CLM-0008</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Moderately reduced lung gas transfer (DLCO 58 percent of predicted, FEV1 76 percent) from old tuberculous scarring of the right upper lobe; with performance status 2, it makes her unfit for intensive induction</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td>CLM-0008</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Nausea with vomiting and constipation on day 11 of cycle 1 of azacitidine with venetoclax, without fever, with mild low potassium; managed as an outpatient; resolved</td>
+    <td>resolved</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td></td>
+  </tr></tbody></table></section>
+    <section><h2>Synthetic outcome measures</h2><table><thead><tr><th>Grade</th><th>Date</th><th>Measure</th><th>Result</th><th>Coding</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-09-14</td>
+    <td>Leukocytes [#/volume] in Blood by Automated count</td>
+    <td>2.1 10*3/uL (low)<div class="muted">Reference 4-11 10*3/uL</div></td>
+    <td>http://loinc.org · 6690-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-09-14</td>
+    <td>Neutrophils [#/volume] in Blood by Automated count</td>
+    <td>0.6 10*3/uL (low)<div class="muted">Reference 1.5-7.5 10*3/uL</div></td>
+    <td>http://loinc.org · 751-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-09-14</td>
+    <td>Hemoglobin [Mass/volume] in Blood</td>
+    <td>8.4 g/dL (low)<div class="muted">Reference 12-15.5 g/dL</div></td>
+    <td>http://loinc.org · 718-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-09-14</td>
+    <td>MCV [Entitic mean volume] in Red Blood Cells by Automated count</td>
+    <td>104 fL (high)<div class="muted">Reference 80-100 fL</div></td>
+    <td>http://loinc.org · 787-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-09-14</td>
+    <td>Platelets [#/volume] in Blood by Automated count</td>
+    <td>38 10*3/uL (low)<div class="muted">Reference 150-400 10*3/uL</div></td>
+    <td>http://loinc.org · 777-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-09-14</td>
+    <td>Blasts/Leukocytes in Blood by Manual count</td>
+    <td>12% (high)<div class="muted">Reference None seen normally</div></td>
+    <td>http://loinc.org · 709-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-09-14</td>
+    <td>Sodium [Moles/volume] in Serum or Plasma</td>
+    <td>139 mmol/L<div class="muted">Reference 135-145 mmol/L</div></td>
+    <td>http://loinc.org · 2951-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-09-14</td>
+    <td>Potassium [Moles/volume] in Serum or Plasma</td>
+    <td>4 mmol/L<div class="muted">Reference 3.5-5.1 mmol/L</div></td>
+    <td>http://loinc.org · 2823-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-09-14</td>
+    <td>Creatinine [Mass/volume] in Serum or Plasma</td>
+    <td>0.78 mg/dL<div class="muted">Reference 0.57-1 mg/dL</div></td>
+    <td>http://loinc.org · 2160-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-09-14</td>
+    <td>Glomerular filtration rate [Volume Rate/Area] in Serum, Plasma or Blood by Creatinine-based formula (CKD-EPI 2021)/1.73 sq M</td>
+    <td>88 mL/min/1.73 m²<div class="muted">Reference &gt;=60 mL/min/1.73 m²</div></td>
+    <td>http://loinc.org · 98979-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-09-14</td>
+    <td>Calcium [Mass/volume] in Serum or Plasma</td>
+    <td>9.2 mg/dL<div class="muted">Reference 8.6-10.3 mg/dL</div></td>
+    <td>http://loinc.org · 17861-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-09-14</td>
+    <td>Alanine aminotransferase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>22 U/L<div class="muted">Reference 7-35 U/L</div></td>
+    <td>http://loinc.org · 1742-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-09-14</td>
+    <td>Bilirubin.total [Mass/volume] in Serum or Plasma</td>
+    <td>0.6 mg/dL<div class="muted">Reference 0.1-1.2 mg/dL</div></td>
+    <td>http://loinc.org · 1975-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-09-14</td>
+    <td>Albumin [Mass/volume] in Serum or Plasma</td>
+    <td>3.9 g/dL<div class="muted">Reference 3.5-5 g/dL</div></td>
+    <td>http://loinc.org · 1751-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-09-14</td>
+    <td>Lactate dehydrogenase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>412 U/L (high)<div class="muted">Reference 140-280 U/L</div></td>
+    <td>http://loinc.org · 2532-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-09-14</td>
+    <td>Urate [Mass/volume] in Serum or Plasma</td>
+    <td>6.4 mg/dL (high)<div class="muted">Reference 2.6-6 mg/dL</div></td>
+    <td>http://loinc.org · 3084-1</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-09-14</td>
+    <td>ECOG Performance Status score</td>
+    <td>1</td>
+    <td>http://loinc.org · 89247-1</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-09-14</td>
+    <td>Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]</td>
+    <td>5</td>
+    <td>http://loinc.org · 44261-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-09-16</td>
+    <td>Leukocytes [#/volume] in Blood by Automated count</td>
+    <td>1.9 10*3/uL (low)<div class="muted">Reference 4-11 10*3/uL</div></td>
+    <td>http://loinc.org · 6690-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-09-16</td>
+    <td>Neutrophils [#/volume] in Blood by Automated count</td>
+    <td>0.5 10*3/uL (low)<div class="muted">Reference 1.5-7.5 10*3/uL</div></td>
+    <td>http://loinc.org · 751-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-09-16</td>
+    <td>Hemoglobin [Mass/volume] in Blood</td>
+    <td>7.1 g/dL (low)<div class="muted">Reference 12-15.5 g/dL</div></td>
+    <td>http://loinc.org · 718-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-09-16</td>
+    <td>Platelets [#/volume] in Blood by Automated count</td>
+    <td>22 10*3/uL (low)<div class="muted">Reference 150-400 10*3/uL</div></td>
+    <td>http://loinc.org · 777-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-09-16</td>
+    <td>Blasts/Leukocytes in Blood by Manual count</td>
+    <td>14% (high)<div class="muted">Reference None seen normally</div></td>
+    <td>http://loinc.org · 709-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-09-16</td>
+    <td>Blasts/cells in Bone marrow</td>
+    <td>34% (high)<div class="muted">Reference Below 5% normally; 20% or more defines AML</div></td>
+    <td>http://loinc.org · 11150-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-09-16</td>
+    <td>INR in Platelet poor plasma by Coagulation assay</td>
+    <td>1.1<div class="muted">Reference 0.8-1.2</div></td>
+    <td>http://loinc.org · 6301-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-09-16</td>
+    <td>Fibrinogen [Mass/volume] in Platelet poor plasma by Coagulation assay</td>
+    <td>310 mg/dL<div class="muted">Reference 200-400 mg/dL</div></td>
+    <td>http://loinc.org · 3255-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-09-28</td>
+    <td>Leukocytes [#/volume] in Blood by Automated count</td>
+    <td>1.6 10*3/uL (low)<div class="muted">Reference 4-11 10*3/uL</div></td>
+    <td>http://loinc.org · 6690-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-09-28</td>
+    <td>Neutrophils [#/volume] in Blood by Automated count</td>
+    <td>0.4 10*3/uL (low)<div class="muted">Reference 1.5-7.5 10*3/uL</div></td>
+    <td>http://loinc.org · 751-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-09-28</td>
+    <td>Hemoglobin [Mass/volume] in Blood</td>
+    <td>8.6 g/dL (low)<div class="muted">Reference 12-15.5 g/dL</div></td>
+    <td>http://loinc.org · 718-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-09-28</td>
+    <td>Platelets [#/volume] in Blood by Automated count</td>
+    <td>18 10*3/uL (low)<div class="muted">Reference 150-400 10*3/uL</div></td>
+    <td>http://loinc.org · 777-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-09-28</td>
+    <td>Blasts/Leukocytes in Blood by Manual count</td>
+    <td>16% (high)<div class="muted">Reference None seen normally</div></td>
+    <td>http://loinc.org · 709-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-09-28</td>
+    <td>Sodium [Moles/volume] in Serum or Plasma</td>
+    <td>140 mmol/L<div class="muted">Reference 135-145 mmol/L</div></td>
+    <td>http://loinc.org · 2951-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-09-28</td>
+    <td>Potassium [Moles/volume] in Serum or Plasma</td>
+    <td>4.1 mmol/L<div class="muted">Reference 3.5-5.1 mmol/L</div></td>
+    <td>http://loinc.org · 2823-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-09-28</td>
+    <td>Creatinine [Mass/volume] in Serum or Plasma</td>
+    <td>0.8 mg/dL<div class="muted">Reference 0.57-1 mg/dL</div></td>
+    <td>http://loinc.org · 2160-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-09-28</td>
+    <td>Glomerular filtration rate [Volume Rate/Area] in Serum, Plasma or Blood by Creatinine-based formula (CKD-EPI 2021)/1.73 sq M</td>
+    <td>85 mL/min/1.73 m²<div class="muted">Reference &gt;=60 mL/min/1.73 m²</div></td>
+    <td>http://loinc.org · 98979-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-09-28</td>
+    <td>Calcium [Mass/volume] in Serum or Plasma</td>
+    <td>9.1 mg/dL<div class="muted">Reference 8.6-10.3 mg/dL</div></td>
+    <td>http://loinc.org · 17861-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-09-28</td>
+    <td>Phosphate [Mass/volume] in Serum or Plasma</td>
+    <td>3.6 mg/dL<div class="muted">Reference 2.5-4.5 mg/dL</div></td>
+    <td>http://loinc.org · 2777-1</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-09-28</td>
+    <td>Urate [Mass/volume] in Serum or Plasma</td>
+    <td>5.8 mg/dL<div class="muted">Reference 2.6-6 mg/dL</div></td>
+    <td>http://loinc.org · 3084-1</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-09-28</td>
+    <td>Lactate dehydrogenase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>448 U/L (high)<div class="muted">Reference 140-280 U/L</div></td>
+    <td>http://loinc.org · 2532-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-09-28</td>
+    <td>Alanine aminotransferase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>24 U/L<div class="muted">Reference 7-35 U/L</div></td>
+    <td>http://loinc.org · 1742-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-09-28</td>
+    <td>Bilirubin.total [Mass/volume] in Serum or Plasma</td>
+    <td>0.7 mg/dL<div class="muted">Reference 0.1-1.2 mg/dL</div></td>
+    <td>http://loinc.org · 1975-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-09-28</td>
+    <td>Diffusion capacity.carbon monoxide/Predicted</td>
+    <td>58% (low)<div class="muted">Reference 80% of predicted or more</div></td>
+    <td>http://loinc.org · 98130-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-09-28</td>
+    <td>FEV1 measured/predicted</td>
+    <td>76% (low)<div class="muted">Reference &gt;=80%</div></td>
+    <td>http://loinc.org · 20152-5</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-09-28</td>
+    <td>Left ventricular Ejection fraction</td>
+    <td>62%<div class="muted">Reference 55-70%</div></td>
+    <td>http://loinc.org · 10230-1</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-09-28</td>
+    <td>Q-T interval corrected</td>
+    <td>428 ms<div class="muted">Reference Above 460 ms is prolonged in women</div></td>
+    <td>http://loinc.org · 8636-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-09-28</td>
+    <td>ECOG Performance Status score</td>
+    <td>2</td>
+    <td>http://loinc.org · 89247-1</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-09-28</td>
+    <td>Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]</td>
+    <td>8</td>
+    <td>http://loinc.org · 44261-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-09-28</td>
+    <td>Generalized anxiety disorder 7 item (GAD-7) total score [Reported.PHQ]</td>
+    <td>8</td>
+    <td>http://loinc.org · 70274-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-10-19</td>
+    <td>Leukocytes [#/volume] in Blood by Automated count</td>
+    <td>0.6 10*3/uL (low)<div class="muted">Reference 4-11 10*3/uL</div></td>
+    <td>http://loinc.org · 6690-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-10-19</td>
+    <td>Neutrophils [#/volume] in Blood by Automated count</td>
+    <td>0.2 10*3/uL (low)<div class="muted">Reference 1.5-7.5 10*3/uL</div></td>
+    <td>http://loinc.org · 751-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-10-19</td>
+    <td>Hemoglobin [Mass/volume] in Blood</td>
+    <td>8.9 g/dL (low)<div class="muted">Reference 12-15.5 g/dL</div></td>
+    <td>http://loinc.org · 718-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-10-19</td>
+    <td>Platelets [#/volume] in Blood by Automated count</td>
+    <td>31 10*3/uL (low)<div class="muted">Reference 150-400 10*3/uL</div></td>
+    <td>http://loinc.org · 777-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-10-19</td>
+    <td>Blasts/Leukocytes in Blood by Manual count</td>
+    <td>0%<div class="muted">Reference None seen normally</div></td>
+    <td>http://loinc.org · 709-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-10-19</td>
+    <td>Blasts/cells in Bone marrow</td>
+    <td>3%<div class="muted">Reference Below 5% normally; 20% or more defines AML</div></td>
+    <td>http://loinc.org · 11150-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-10-19</td>
+    <td>Sodium [Moles/volume] in Serum or Plasma</td>
+    <td>138 mmol/L<div class="muted">Reference 135-145 mmol/L</div></td>
+    <td>http://loinc.org · 2951-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-10-19</td>
+    <td>Potassium [Moles/volume] in Serum or Plasma</td>
+    <td>3.9 mmol/L<div class="muted">Reference 3.5-5.1 mmol/L</div></td>
+    <td>http://loinc.org · 2823-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-10-19</td>
+    <td>Creatinine [Mass/volume] in Serum or Plasma</td>
+    <td>0.79 mg/dL<div class="muted">Reference 0.57-1 mg/dL</div></td>
+    <td>http://loinc.org · 2160-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-10-19</td>
+    <td>Glomerular filtration rate [Volume Rate/Area] in Serum, Plasma or Blood by Creatinine-based formula (CKD-EPI 2021)/1.73 sq M</td>
+    <td>87 mL/min/1.73 m²<div class="muted">Reference &gt;=60 mL/min/1.73 m²</div></td>
+    <td>http://loinc.org · 98979-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-10-19</td>
+    <td>Lactate dehydrogenase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>196 U/L<div class="muted">Reference 140-280 U/L</div></td>
+    <td>http://loinc.org · 2532-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-10-19</td>
+    <td>Alanine aminotransferase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>31 U/L<div class="muted">Reference 7-35 U/L</div></td>
+    <td>http://loinc.org · 1742-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-10-30</td>
+    <td>Leukocytes [#/volume] in Blood by Automated count</td>
+    <td>2.2 10*3/uL (low)<div class="muted">Reference 4-11 10*3/uL</div></td>
+    <td>http://loinc.org · 6690-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-10-30</td>
+    <td>Neutrophils [#/volume] in Blood by Automated count</td>
+    <td>0.9 10*3/uL (low)<div class="muted">Reference 1.5-7.5 10*3/uL</div></td>
+    <td>http://loinc.org · 751-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-10-30</td>
+    <td>Hemoglobin [Mass/volume] in Blood</td>
+    <td>9.6 g/dL (low)<div class="muted">Reference 12-15.5 g/dL</div></td>
+    <td>http://loinc.org · 718-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-10-30</td>
+    <td>Platelets [#/volume] in Blood by Automated count</td>
+    <td>88 10*3/uL (low)<div class="muted">Reference 150-400 10*3/uL</div></td>
+    <td>http://loinc.org · 777-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-10-30</td>
+    <td>Blasts/Leukocytes in Blood by Manual count</td>
+    <td>0%<div class="muted">Reference None seen normally</div></td>
+    <td>http://loinc.org · 709-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-10-30</td>
+    <td>Sodium [Moles/volume] in Serum or Plasma</td>
+    <td>139 mmol/L<div class="muted">Reference 135-145 mmol/L</div></td>
+    <td>http://loinc.org · 2951-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-10-30</td>
+    <td>Potassium [Moles/volume] in Serum or Plasma</td>
+    <td>4.2 mmol/L<div class="muted">Reference 3.5-5.1 mmol/L</div></td>
+    <td>http://loinc.org · 2823-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-10-30</td>
+    <td>Creatinine [Mass/volume] in Serum or Plasma</td>
+    <td>0.81 mg/dL<div class="muted">Reference 0.57-1 mg/dL</div></td>
+    <td>http://loinc.org · 2160-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-10-30</td>
+    <td>Glomerular filtration rate [Volume Rate/Area] in Serum, Plasma or Blood by Creatinine-based formula (CKD-EPI 2021)/1.73 sq M</td>
+    <td>84 mL/min/1.73 m²<div class="muted">Reference &gt;=60 mL/min/1.73 m²</div></td>
+    <td>http://loinc.org · 98979-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-10-30</td>
+    <td>Alanine aminotransferase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>28 U/L<div class="muted">Reference 7-35 U/L</div></td>
+    <td>http://loinc.org · 1742-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-10-30</td>
+    <td>ECOG Performance Status score</td>
+    <td>1</td>
+    <td>http://loinc.org · 89247-1</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-10-30</td>
+    <td>Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]</td>
+    <td>6</td>
+    <td>http://loinc.org · 44261-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-10-08</td>
+    <td>Leukocytes [#/volume] in Blood by Automated count</td>
+    <td>0.7 10*3/uL (low)<div class="muted">Reference 4-11 10*3/uL</div></td>
+    <td>http://loinc.org · 6690-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-10-08</td>
+    <td>Neutrophils [#/volume] in Blood by Automated count</td>
+    <td>0.1 10*3/uL (low)<div class="muted">Reference 1.5-7.5 10*3/uL</div></td>
+    <td>http://loinc.org · 751-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-10-08</td>
+    <td>Hemoglobin [Mass/volume] in Blood</td>
+    <td>7.4 g/dL (low)<div class="muted">Reference 12-15.5 g/dL</div></td>
+    <td>http://loinc.org · 718-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-10-08</td>
+    <td>Platelets [#/volume] in Blood by Automated count</td>
+    <td>9 10*3/uL (low)<div class="muted">Reference 150-400 10*3/uL</div></td>
+    <td>http://loinc.org · 777-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-10-08</td>
+    <td>Sodium [Moles/volume] in Serum or Plasma</td>
+    <td>137 mmol/L<div class="muted">Reference 135-145 mmol/L</div></td>
+    <td>http://loinc.org · 2951-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-10-08</td>
+    <td>Potassium [Moles/volume] in Serum or Plasma</td>
+    <td>3.3 mmol/L (low)<div class="muted">Reference 3.5-5.1 mmol/L</div></td>
+    <td>http://loinc.org · 2823-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-10-08</td>
+    <td>Creatinine [Mass/volume] in Serum or Plasma</td>
+    <td>0.84 mg/dL<div class="muted">Reference 0.57-1 mg/dL</div></td>
+    <td>http://loinc.org · 2160-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-10-08</td>
+    <td>Magnesium [Mass/volume] in Serum or Plasma</td>
+    <td>1.8 mg/dL<div class="muted">Reference 1.7-2.2 mg/dL</div></td>
+    <td>http://loinc.org · 19123-9</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-10-08</td>
+    <td>Q-T interval corrected</td>
+    <td>446 ms<div class="muted">Reference Above 460 ms is prolonged in women</div></td>
+    <td>http://loinc.org · 8636-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-10-26</td>
+    <td>Patient Health Questionnaire 2 item (PHQ-2) total score [Reported]</td>
+    <td>1</td>
+    <td>http://loinc.org · 55758-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-10-26</td>
+    <td>Generalized anxiety disorder 7 item (GAD-7) total score [Reported.PHQ]</td>
+    <td>5</td>
+    <td>http://loinc.org · 70274-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-10-26</td>
+    <td>Total score [AUDIT-C]</td>
+    <td>1</td>
+    <td>http://loinc.org · 75626-2</td>
+  </tr></tbody></table></section>
+    <section><h2>Synthetic vital signs</h2><table><thead><tr><th>Date</th><th>Measure</th><th>Result</th><th>LOINC</th><th>Grade</th></tr></thead><tbody>
+  <tr><td>2026-09-14</td><td>Body height</td><td>163 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-09-14</td><td>Body weight</td><td>54 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-09-14</td><td>Body mass index (BMI) [Ratio]</td><td>20.3 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-09-14</td><td>Systolic blood pressure</td><td>118 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-09-14</td><td>Diastolic blood pressure</td><td>70 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-09-14</td><td>Heart rate</td><td>96 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-09-14</td><td>Respiratory rate</td><td>16 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-09-14</td><td>Body temperature</td><td>37.2 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-09-14</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>98 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-09-16</td><td>Body height</td><td>163 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-09-16</td><td>Body weight</td><td>53.8 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-09-16</td><td>Body mass index (BMI) [Ratio]</td><td>20.2 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-09-16</td><td>Systolic blood pressure</td><td>114 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-09-16</td><td>Diastolic blood pressure</td><td>68 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-09-16</td><td>Heart rate</td><td>100 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-09-16</td><td>Respiratory rate</td><td>18 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-09-16</td><td>Body temperature</td><td>37.3 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-09-16</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>97 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-09-28</td><td>Body height</td><td>163 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-09-28</td><td>Body weight</td><td>53.5 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-09-28</td><td>Body mass index (BMI) [Ratio]</td><td>20.1 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-09-28</td><td>Systolic blood pressure</td><td>116 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-09-28</td><td>Diastolic blood pressure</td><td>70 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-09-28</td><td>Heart rate</td><td>92 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-09-28</td><td>Respiratory rate</td><td>16 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-09-28</td><td>Body temperature</td><td>36.9 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-09-28</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>97 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-19</td><td>Body height</td><td>163 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-19</td><td>Body weight</td><td>52.8 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-19</td><td>Body mass index (BMI) [Ratio]</td><td>19.9 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-19</td><td>Systolic blood pressure</td><td>110 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-19</td><td>Diastolic blood pressure</td><td>66 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-19</td><td>Heart rate</td><td>90 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-19</td><td>Respiratory rate</td><td>16 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-19</td><td>Body temperature</td><td>37 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-19</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>97 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-30</td><td>Body height</td><td>163 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-30</td><td>Body weight</td><td>53.6 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-30</td><td>Body mass index (BMI) [Ratio]</td><td>20.2 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-30</td><td>Systolic blood pressure</td><td>118 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-30</td><td>Diastolic blood pressure</td><td>72 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-30</td><td>Heart rate</td><td>84 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-30</td><td>Respiratory rate</td><td>16 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-30</td><td>Body temperature</td><td>36.8 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-30</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>98 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-08</td><td>Body height</td><td>163 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-08</td><td>Body weight</td><td>52.4 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-08</td><td>Body mass index (BMI) [Ratio]</td><td>19.7 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-08</td><td>Systolic blood pressure</td><td>106 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-08</td><td>Diastolic blood pressure</td><td>64 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-08</td><td>Heart rate</td><td>98 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-08</td><td>Respiratory rate</td><td>16 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-08</td><td>Body temperature</td><td>37.2 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-08</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>97 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-26</td><td>Body height</td><td>163 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-26</td><td>Body weight</td><td>53.2 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-26</td><td>Body mass index (BMI) [Ratio]</td><td>20 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-26</td><td>Systolic blood pressure</td><td>116 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-26</td><td>Diastolic blood pressure</td><td>70 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-26</td><td>Heart rate</td><td>86 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-26</td><td>Respiratory rate</td><td>16 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-26</td><td>Body temperature</td><td>36.8 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-26</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>98 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr></tbody></table></section>
+    <section><h2>Social, functional, and mental status</h2><h3>Social history</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Nuclear physicist and director of a university radioactivity laboratory; works with sealed and unsealed radioactive sources, wears a dosimetry badge, and teaches a course on radioactivity</li><li><span class="badge grade-S" title="Synthetic">S</span> Married; two adult children; lives in a city apartment and spends weekends in the country when she can</li><li><span class="badge grade-S" title="Synthetic">S</span> Tobacco: never. Alcohol: a glass of wine with dinner on weekends. No drug use</li><li><span class="badge grade-S" title="Synthetic">S</span> Activity: walked and hiked in the mountains for years; now tires on stairs</li><li><span class="badge grade-S" title="Synthetic">S</span> Wants plain facts and numbers about her illness and prefers to read the evidence herself; values continuing her work for as long as she can</li><li><span class="badge grade-S" title="Synthetic">S</span> Supports: a close family, long-standing colleagues, and work she believes in</li></ul><h3>Functional status</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Independent in all activities; tires on one flight of stairs; still works part days in the laboratory</li></ul><h3>Mental status</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Alert, precise and composed; asks for the numbers; mood steady; PHQ-9 score 5, mainly tiredness</li></ul></section>
+    
+    <section><h2>Allergies and medications</h2><h3>Allergies</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> No known allergy</li></ul><h3>Medications</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Azacitidine 115 mg (75 mg/m2) under the skin once daily on days 1 to 7 of each 28-day cycle</li><li><span class="badge grade-S" title="Synthetic">S</span> Venetoclax 10 mg oral tablet, cycle 1: 10 mg on day 1 and 20 mg on day 2, then two tablets (20 mg) daily with the 50 mg tablet from day 4 (70 mg a day, reduced for posaconazole)</li><li><span class="badge grade-S" title="Synthetic">S</span> Venetoclax 50 mg oral tablet, cycle 1: one tablet alone on day 3 (50 mg), then one tablet daily with two 10 mg tablets from day 4 (70 mg a day)</li><li><span class="badge grade-S" title="Synthetic">S</span> Posaconazole 100 mg delayed-release tablet, three tablets (300 mg) twice on day 1, then three tablets once daily, as antifungal prophylaxis while neutropenic</li><li><span class="badge grade-S" title="Synthetic">S</span> Acyclovir 400 mg oral tablet, one tablet twice daily as herpes simplex and zoster prophylaxis</li><li><span class="badge grade-S" title="Synthetic">S</span> Levofloxacin 500 mg oral tablet, one tablet daily while the neutrophil count is below 0.5</li><li><span class="badge grade-S" title="Synthetic">S</span> Allopurinol 300 mg oral tablet, one tablet daily for tumor lysis prophylaxis during cycle 1</li><li><span class="badge grade-S" title="Synthetic">S</span> Ondansetron 4 mg orally disintegrating tablet, one tablet every 8 hours as needed for nausea</li><li><span class="badge grade-S" title="Synthetic">S</span> Polyethylene glycol 3350, 17 g powder in a glass of water once daily</li><li><span class="badge grade-S" title="Synthetic">S</span> Sennosides 8.6 mg oral tablet, two tablets at bedtime</li><li><span class="badge grade-S" title="Synthetic">S</span> Potassium chloride 20 mEq extended-release tablet, one tablet twice daily for three days</li><li><span class="badge grade-S" title="Synthetic">S</span> Venetoclax 10 mg oral tablet, cycle 2: two tablets daily with the 50 mg tablet (70 mg a day, the dose with posaconazole) on days 1 to 21</li><li><span class="badge grade-S" title="Synthetic">S</span> Venetoclax 50 mg oral tablet, cycle 2: one tablet daily with two 10 mg tablets (70 mg a day) on days 1 to 21</li></ul></section>
+    <section><h2>Procedures and immunizations</h2><h3>Procedures</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Bone marrow aspiration and trephine biopsy, posterior iliac crest, with flow cytometry, cytogenetics and molecular testing</li><li><span class="badge grade-S" title="Synthetic">S</span> Transfusion of one unit of irradiated, leukoreduced red cells for symptomatic anemia (hemoglobin 7.1 g/dL)</li><li><span class="badge grade-S" title="Synthetic">S</span> Chest X-ray, posteroanterior and lateral</li><li><span class="badge grade-S" title="Synthetic">S</span> Pulmonary function tests with diffusing capacity</li><li><span class="badge grade-S" title="Synthetic">S</span> Transthoracic echocardiogram</li><li><span class="badge grade-S" title="Synthetic">S</span> Twelve-lead ECG before posaconazole</li><li><span class="badge grade-S" title="Synthetic">S</span> Bone marrow aspiration and biopsy on day 22 of cycle 1, with flow cytometry for measurable residual disease</li><li><span class="badge grade-S" title="Synthetic">S</span> Transfusion of one unit of irradiated, leukoreduced red cells (hemoglobin 7.4 g/dL with tiredness)</li><li><span class="badge grade-S" title="Synthetic">S</span> Transfusion of one dose of irradiated platelets (count 9 x10^3/uL)</li><li><span class="badge grade-S" title="Synthetic">S</span> Twelve-lead ECG before an antiemetic</li><li><span class="badge grade-S" title="Synthetic">S</span> Advance care planning conversation, about 30 minutes</li></ul><h3>Immunizations</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> 2026-10-26: Influenza vaccine, inactivated, this season</li></ul></section>
+    <section><h2>Past medical history</h2><p class="muted">True biography with historical dates; not part of the synthetic care timeline.</p><ul><li><span class="badge grade-D" title="Documented">D</span> 1914: Worked as a nurse radiographer with X-ray machines in field hospitals in the First World War, the start of her occupational radiation exposure <span class="muted">(CLM-0002)</span></li><li><span class="badge grade-D" title="Documented">D</span> 1944: Tuberculosis, with a long recovery in Switzerland during the Second World War <span class="muted">(CLM-0008)</span></li><li><span class="badge grade-D" title="Documented">D</span> 1946: A capsule of polonium exploded on her laboratory bench <span class="muted">(CLM-0010)</span></li><li><span class="badge grade-D" title="Documented">D</span> 1950: Health visibly declining from shortly after this year <span class="muted">(CLM-0013)</span></li></ul><h3>Family history</h3><ul><li><span class="badge grade-D" title="Documented">D</span> mother: A physicist who also worked with radioactive materials; died of aplastic anemia that her physician attributed to bone marrow injury from long exposure to radiation</li></ul></section>
+    <section><h2>Care-plan goals</h2><table><thead><tr><th>Goal</th><th>Target date</th><th>Status</th><th>Outcome</th></tr></thead><tbody>
+  <tr><td>Diagnosis, classification and a treatment decision within two weeks of the first visit</td><td>2026-09-28</td><td>completed</td><td>Marrow two days after the first visit; genetics back and treatment started on day 14</td></tr>
+  <tr><td>Complete cycle 1 without tumor lysis, invasive fungal infection, or bleeding</td><td>2026-10-30</td><td>completed</td><td>No tumor lysis; no fever or fungal infection; no bleeding beyond bruising; one outpatient visit for nausea</td></tr>
+  <tr><td>Remission on the response assessment after cycle 1 (ELN 2022 complete remission, or complete remission with partial hematologic recovery)</td><td>2026-10-30</td><td>completed</td><td>Day-22 marrow blasts 3%; at day 33 neutrophils 0.9 and platelets 88: complete remission with partial hematologic recovery, measurable residual disease positive</td></tr>
+  <tr><td>Her own goals and values recorded and her symptoms controlled with the palliative care team from the first cycle</td><td>2026-09-28</td><td>completed</td><td>Seen by the palliative care team on day 1; goals recorded; symptoms reviewed at every visit</td></tr>
+  <tr><td>Her occupational dose records obtained and the exposure history documented</td><td>2026-10-30</td><td>active</td><td>Records requested in writing from the employer&#39;s radiation safety office; history documented</td></tr></tbody></table></section>
+    <section><h2>Interventions</h2><table><thead><tr><th>Intervention</th><th>Status</th><th>Guideline</th></tr></thead><tbody>
+  <tr><td>Urgent evaluation of pancytopenia with blasts on the smear: peripheral smear review, comprehensive metabolic panel, LDH and uric acid today; coagulation tests at the hematology visit; no aspirin or anti-inflammatory drugs; go to the emergency department at once for a temperature of 38.0 °C or more, bleeding that does not stop, or new confusion or headache</td><td>completed</td><td>GL-NCCN-AML-2026</td></tr>
+  <tr><td>Urgent hematology/oncology consultation within two days for suspected acute leukemia: bone marrow biopsy, classification and treatment plan</td><td>completed</td><td>GL-NCCN-AML-2026</td></tr>
+  <tr><td>Occupational health history: her work with X-rays, polonium and other sources over about four decades, and the sealed-source accident in her laboratory, documented; written request to the employer&#39;s radiation safety office for her dosimetry and bioassay records, which the employer must keep and must furnish on request</td><td>completed</td><td>GL-NRC-19-13, GL-OSHA-1910-1096</td></tr>
+  <tr><td>Transfusion support: irradiated, leukoreduced products; red cells one unit at a time for hemoglobin below 7 to 8 g/dL or symptoms; platelets for a count below 10 x10^3/uL, for bleeding, or before procedures that need them</td><td>completed</td><td>GL-AABB-RBC-2023, GL-AABB-PLT-2015, GL-NCCN-AML-2026</td></tr>
+  <tr><td>Pre-treatment work-up: HLA typing for a future transplant, hepatitis B, hepatitis C and HIV testing, chest X-ray because of past tuberculosis, echocardiogram, lung function tests with diffusing capacity, and a dental check</td><td>completed</td><td>GL-NCCN-AML-2026, GL-ASCO-HBV-2020</td></tr>
+  <tr><td>Induction with azacitidine 75 mg/m2 on days 1 to 7 and venetoclax ramped up to 70 mg daily (the dose for use with posaconazole), in 28-day cycles; admitted for the ramp-up with tumor lysis monitoring, allopurinol and fluids; bone marrow at day 21 to 28, holding venetoclax if blasts are below 5% until counts recover; later cycles with 21 days of venetoclax</td><td>completed</td><td>GL-NCCN-AML-2026, GL-ELN-AML-2022, GL-VIALE-A-2020</td></tr>
+  <tr><td>Infection prevention: posaconazole, acyclovir, and levofloxacin while neutrophils are below 0.5; a written fever plan (temperature of 38.0 °C or more: go to the emergency department for antibiotics within one hour); hand hygiene and food safety</td><td>completed</td><td>GL-NCCN-INFX-2026, GL-ASCO-IDSA-FN-2018</td></tr>
+  <tr><td>Specialist palliative care alongside treatment from the first cycle: symptoms, prognosis in plain numbers, her goals and values, and advance care planning, reviewed at every visit</td><td>completed</td><td>GL-ASCO-PALL-2024, GL-NCCN-AML-2026</td></tr>
+  <tr><td>Allogeneic stem cell transplant evaluation by the transplant center from the first cycle: an unrelated donor search from her HLA typing, reduced-intensity conditioning if she reaches remission, and measurable residual disease monitoring</td><td>completed</td><td>GL-NCCN-AML-2026, GL-ELN-AML-2022</td></tr>
+  <tr><td>Nausea and constipation during cycle 1: ondansetron as needed after a normal QTc, with no other QT-prolonging antiemetic; polyethylene glycol and senna by mouth, no rectal medicines while neutropenic; potassium replaced; red cells and platelets given; venetoclax continued with food</td><td>completed</td><td>GL-ASCO-ANTIEMETIC-2020, GL-NCCN-AML-2026, GL-AABB-PLT-2015</td></tr></tbody></table></section>
+    <section><h2>Planned encounters</h2><ul>
+  <li><strong>2026-09-14</strong> — New patient visit for two months of tiredness, bruising and bleeding gums: blood count with blasts on the smear, and urgent hematology referral <span class="muted">(ENC-001)</span></li>
+  <li><strong>2026-09-16</strong> — Hematology consultation and bone marrow biopsy: diagnosis of acute myeloid leukemia, transfusion, and pre-treatment work-up <span class="muted">(ENC-002)</span></li>
+  <li><strong>2026-09-28</strong> — Genetic results, classification and risk, fitness for treatment, early palliative care, and day 1 of azacitidine with venetoclax <span class="muted">(ENC-003)</span></li>
+  <li><strong>2026-10-08</strong> — Same-day sick visit for nausea, vomiting and constipation during cycle 1 <span class="muted">(ENC-006, unscheduled)</span></li>
+  <li><strong>2026-10-19</strong> — Day 22 of cycle 1: bone marrow response, transfusion and infection review, and stopping venetoclax for count recovery <span class="muted">(ENC-004)</span></li>
+  <li><strong>2026-10-26</strong> — Periodic adult preventive visit during AML therapy <span class="muted">(ENC-007)</span></li>
+  <li><strong>2026-10-30</strong> — Count recovery and response assessment; cycle 2; transplant evaluation; occupational dose records <span class="muted">(ENC-005)</span></li></ul></section>
+    <section><h2>Supporting documents</h2><ul><li><a href="notes/hp.md">History and physical</a></li><li><a href="notes/progress-01.md">Progress note 01</a></li><li><a href="notes/progress-02.md">Progress note 02 — Focused Visit (Follow-up)</a></li><li><a href="notes/progress-03.md">Progress note 03 — Focused Visit (Follow-up)</a></li><li><a href="notes/progress-04.md">Progress note 04 — Sick Visit</a></li><li><a href="notes/progress-05.md">Progress note 05 — Focused Visit (Follow-up)</a></li><li><a href="notes/progress-06.md">Progress note 06 — Preventive Visit</a></li><li><a href="notes/progress-07.md">Progress note 07 — Focused Visit (Care-plan review)</a></li><li><a href="notes/referral-01.md">Hematology/Oncology referral</a></li><li><a href="notes/consult-01.md">Hematology/Oncology consultation</a></li><li><a href="notes/careplan.md">Patient care plan</a></li><li><a href="notes/teaching-note.md">Teaching note</a></li><li><a href="provenance.csv">Provenance CSV</a></li></ul></section>
+    <section><h2>C-CDA note documents</h2><p class="muted">Each link opens a readable copy; the XML beside it is the exchange file.</p><ul><li><a href="ccda/hp-01.html">History and physical</a> <a href="ccda/hp-01.xml">(XML)</a></li><li><a href="ccda/progress-01.html">Progress note 01</a> <a href="ccda/progress-01.xml">(XML)</a></li><li><a href="ccda/progress-02.html">Progress note 02 — Focused Visit (Follow-up)</a> <a href="ccda/progress-02.xml">(XML)</a></li><li><a href="ccda/progress-03.html">Progress note 03 — Focused Visit (Follow-up)</a> <a href="ccda/progress-03.xml">(XML)</a></li><li><a href="ccda/progress-04.html">Progress note 04 — Sick Visit</a> <a href="ccda/progress-04.xml">(XML)</a></li><li><a href="ccda/progress-05.html">Progress note 05 — Focused Visit (Follow-up)</a> <a href="ccda/progress-05.xml">(XML)</a></li><li><a href="ccda/progress-06.html">Progress note 06 — Preventive Visit</a> <a href="ccda/progress-06.xml">(XML)</a></li><li><a href="ccda/progress-07.html">Progress note 07 — Focused Visit (Care-plan review)</a> <a href="ccda/progress-07.xml">(XML)</a></li><li><a href="ccda/referral-01.html">Hematology/Oncology referral</a> <a href="ccda/referral-01.xml">(XML)</a></li><li><a href="ccda/consult-01.html">Hematology/Oncology consultation</a> <a href="ccda/consult-01.xml">(XML)</a></li></ul></section>
+    <section><h2>Sources</h2><table><thead><tr><th>ID</th><th>Source</th><th>Publisher</th><th>Type</th></tr></thead><tbody>
+  <tr>
+    <td>SRC-0001</td>
+    <td><a href="https://www.nobelprize.org/prizes/chemistry/1935/joliot-curie/biographical/" target="_blank" rel="noreferrer">Irène Joliot-Curie – Biographical (from Nobel Lectures, Chemistry 1922-1941)</a></td>
+    <td>NobelPrize.org (Nobel Prize Outreach)</td>
+    <td>biography</td>
+  </tr>
+  <tr>
+    <td>SRC-0002</td>
+    <td><a href="https://atomicarchive.com/resources/biographies/irene-curie.html" target="_blank" rel="noreferrer">Irène Joliot-Curie (1897-1956)</a></td>
+    <td>AtomicArchive.com</td>
+    <td>biography</td>
+  </tr>
+  <tr>
+    <td>SRC-0003</td>
+    <td><a href="https://ahf.nuclearmuseum.org/ahf/profile/irene-joliot-curie/" target="_blank" rel="noreferrer">Irene Joliot-Curie (profile)</a></td>
+    <td>Atomic Heritage Foundation, National Museum of Nuclear Science and History</td>
+    <td>biography</td>
+  </tr>
+  <tr>
+    <td>SRC-0004</td>
+    <td><a href="https://www.lindahall.org/about/news/scientist-of-the-day/irene-joliot-curie" target="_blank" rel="noreferrer">Scientist of the Day: Irène Joliot-Curie</a></td>
+    <td>Linda Hall Library</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0005</td>
+    <td><a href="https://www.smithsonianmag.com/science-nature/six-secrets-of-polonium-94821613/" target="_blank" rel="noreferrer">Zielinski S. Six Secrets of Polonium</a></td>
+    <td>Smithsonian Magazine</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0006</td>
+    <td><a href="https://incois.gov.in/Tutor/science+society/lectures/illustrations/lecture29/icurie.html" target="_blank" rel="noreferrer">Irène Joliot-Curie (Science, civilization and society, lecture 29 illustrations)</a></td>
+    <td>Indian National Centre for Ocean Information Services (course pages)</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0007</td>
+    <td><a href="https://history.aip.org/exhibits/curie/radinst3_text.htm" target="_blank" rel="noreferrer">The Radium Institute (1919-1934), online exhibit</a></td>
+    <td>American Institute of Physics, Center for History of Physics</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0008</td>
+    <td><a href="https://humanrecord.example.org/internal/HISTMED_Master_Roster_v3.xlsx" target="_blank" rel="noreferrer">HISTMED Master Roster v3</a></td>
+    <td>The Human Record project</td>
+    <td>other</td>
+  </tr></tbody></table></section>
+    <section><h2>Review status</h2><table><thead><tr><th>Review</th><th>Status</th><th>Notes</th></tr></thead><tbody>
+  <tr><td>schema validation</td><td>not_started</td><td>Run scripts/build.ps1 -Conformance.</td></tr>
+  <tr><td>clinical review</td><td>not_started</td><td>Awaiting clinician review; check the classification of leukemia after occupational radiation (not &#39;post cytotoxic therapy&#39; under WHO 2022), the choice of azacitidine with venetoclax over intensive induction, the venetoclax dose with posaconazole, the transfusion thresholds, and the transplant and palliative care plans.</td></tr>
+  <tr><td>provenance review</td><td>not_started</td><td>Nobel biography, AtomicArchive, the Atomic Heritage Foundation profile, the Linda Hall Library, Smithsonian, an INCOIS course page, and the AIP exhibit logged. Britannica and Wikipedia were not used. The year her tuberculosis began and the dates of her 1956 mountain stay are not documented in the fetched sources.</td></tr>
+  <tr><td>safe messaging review</td><td>not_started</td><td>Her mother is never named in this record. Her children are not named. No sensitive claims. Her death is recorded as history in one sentence. Prognosis is discussed in the modern episode in plain terms.</td></tr></tbody></table></section>
+  </main>
+</body>
+</html>

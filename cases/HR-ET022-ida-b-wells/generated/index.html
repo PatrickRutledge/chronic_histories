@@ -1,0 +1,572 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ida B. Wells — The Human Record</title>
+  <style>
+    :root { --navy:#17365d; --blue:#1f4e78; --pale:#eef5fa; --ink:#1f2933; --muted:#66788a; --amber:#fff2cc; --red:#f8d7da; --green:#d9ead3; }
+    * { box-sizing:border-box; }
+    body { margin:0; font:16px/1.5 Arial, sans-serif; color:var(--ink); background:#f6f8fa; }
+    header { background:var(--navy); color:white; padding:24px max(24px,calc((100vw - 1180px)/2)); }
+    header h1 { margin:4px 0; font-size:30px; }
+    .banner { background:#b42318; color:white; font-weight:700; text-align:center; padding:10px; letter-spacing:.03em; }
+    main { max-width:1180px; margin:24px auto 60px; padding:0 24px; }
+    section { background:white; border:1px solid #d9e1e8; border-radius:8px; margin:18px 0; padding:20px; }
+    h2 { color:var(--navy); margin:0 0 14px; font-size:22px; }
+    h3 { color:var(--blue); }
+    .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:12px; }
+    .card { background:var(--pale); border-left:4px solid var(--blue); padding:12px; }
+    .label { color:var(--muted); font-size:13px; text-transform:uppercase; letter-spacing:.04em; }
+    table { width:100%; border-collapse:collapse; }
+    th { background:var(--blue); color:white; text-align:left; }
+    th,td { padding:9px; border-bottom:1px solid #dfe6ec; vertical-align:top; }
+    .badge { display:inline-block; min-width:28px; text-align:center; font-weight:700; border-radius:12px; padding:2px 8px; }
+    .grade-D { background:var(--green); } .grade-R { background:var(--amber); } .grade-S { background:var(--red); }
+    .muted { color:var(--muted); font-size:14px; }
+    .relationship { color:var(--muted); font-size:12px; }
+    .downloads a { display:inline-block; margin:4px 8px 4px 0; padding:8px 12px; background:var(--blue); color:white; text-decoration:none; border-radius:5px; }
+    @media (max-width:700px) { table { display:block; overflow-x:auto; } }
+  </style>
+</head>
+<body>
+  <div class="banner">SYNTHETIC RECORD, NOT A REAL MEDICAL RECORD</div>
+  <header>
+    <div>The Human Record</div>
+    <h1>Ida B. Wells</h1>
+    <div>Case HR-ET022 · Modern EHR teaching episode · Draft for review</div>
+  </header>
+  <main>
+    <section>
+      <h2>Review summary</h2>
+      <div class="grid">
+        <div class="card"><div class="label">Historical dates</div>July 16, 1862 – March 25, 1931</div>
+        <div class="card"><div class="label">Synthetic DOB</div>1957-07-16</div>
+        <div class="card"><div class="label">Index visit</div>2026-01-05 at age 68</div>
+        <div class="card"><div class="label">Synthetic MRN</div>HR-ET022-SYN</div>
+      </div>
+      <p><strong>Teaching objective:</strong> Chronic kidney disease found in time in a 68-year-old Black woman, a journalist and civic leader in Chicago, who comes in tired with swollen ankles. The teaching contrast is her documented death from kidney failure after a brief illness: here the disease is found, staged and treated years before kidney failure. The episode covers the race-free CKD-EPI 2021 equations (creatinine, then creatinine with cystatin C) and the history of race-based eGFR delaying the recognition and referral of Black patients, as the NKF-ASN Task Force described; staging on the KDIGO 2024 heat map with the urine albumin-to-creatinine ratio and the kidney failure risk equation; finding the cause (home blood pressure, diabetes screening, urinalysis, kidney ultrasound, and a monoclonal protein screen); APOL1 genetic testing offered with counseling and left to her choice; an ARB and an SGLT2 inhibitor with potassium and creatinine checks; blood pressure control; a statin; stopping naproxen; anemia and mineral and bone checks; vaccinations; a nephrology consultation; and shared decisions about kidney replacement options should the disease progress, under the KDIGO 2024 guideline, the 2025 AHA/ACC blood pressure guideline and the CMID chronic kidney disease monograph.</p>
+      <div class="downloads">
+        <a href="../case.json">Canonical JSON</a>
+        <a href="fhir-bundle.json">FHIR R4 draft</a>
+        <a href="ccda.html">C-CDA R2.1 summary</a> <a href="ccda.xml">(XML)</a> <a href="review.html">Review checklist</a>
+        <a href="../sources.md">Evidence dossier</a>
+      </div>
+    </section>
+    <section><h2>Historical timeline</h2><table><thead><tr><th>Date</th><th>Event</th><th>Claims</th></tr></thead><tbody>
+  <tr><td>July 16, 1862</td><td>Born enslaved in Holly Springs, Mississippi.</td><td>CLM-0001</td></tr>
+  <tr><td>autumn 1878</td><td>Both parents and an infant brother died in the yellow fever epidemic; at 16 she took charge of her siblings.</td><td>CLM-0002</td></tr>
+  <tr><td>1895</td><td>A Red Record published.</td><td>CLM-0003</td></tr>
+  <tr><td>June 27, 1895</td><td>Married Ferdinand L. Barnett in Chicago.</td><td>CLM-0004</td></tr>
+  <tr><td>1909</td><td>Signed the call for the conference that led to the NAACP.</td><td>CLM-0005</td></tr>
+  <tr><td>1927</td><td>Began writing her autobiography.</td><td>CLM-0007</td></tr>
+  <tr><td>1930</td><td>Ran for the Illinois State Senate.</td><td>CLM-0006</td></tr>
+  <tr><td>March 25, 1931</td><td>Died in Chicago after a brief illness, of kidney disease (uremia), at 68.</td><td>CLM-0008, CLM-0009</td></tr></tbody></table></section>
+    <section><h2>Evidence claims</h2><p class="muted">D = documented, R = retrospective, S = synthetic.</p><table><thead><tr><th>Grade</th><th>Claim</th><th>Certainty</th><th>Sources</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>Ida B. Wells was born enslaved on July 16, 1862, in Holly Springs, Mississippi, during the Civil War.</strong></td>
+    <td>confirmed</td>
+    <td><a href="https://www.nps.gov/people/idabwells.htm" target="_blank" rel="noreferrer">Ida B. Wells</a> <span class="relationship">supports</span><br><a href="https://www.womenshistory.org/education-resources/biographies/ida-b-wells-barnett" target="_blank" rel="noreferrer">Ida B. Wells-Barnett (biography)</a> <span class="relationship">supports</span><br><a href="https://tennesseeencyclopedia.net/entries/ida-b-wells-barnett/" target="_blank" rel="noreferrer">DeCosta-Willis M. Wells-Barnett, Ida B.</a> <span class="relationship">supports</span><br><a href="https://humanrecord.example.org/internal/HISTMED_Master_Roster_v3.xlsx" target="_blank" rel="noreferrer">HISTMED Master Roster v3</a> <span class="relationship">context</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>In the yellow fever epidemic of 1878, when she was 16, both her parents and an infant brother died; she left school and took on the care of her surviving younger siblings, teaching to support them.</strong><div class="muted">Anchors the family history and the early loss and responsibility in her social history. The causes of death are as the sources give them.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.nps.gov/people/idabwells.htm" target="_blank" rel="noreferrer">Ida B. Wells</a> <span class="relationship">supports</span><br><a href="https://www.womenshistory.org/education-resources/biographies/ida-b-wells-barnett" target="_blank" rel="noreferrer">Ida B. Wells-Barnett (biography)</a> <span class="relationship">supports</span><br><a href="https://encyclopedia.com/women/encyclopedias-almanacs-transcripts-and-maps/wells-barnett-ida-1862-1931" target="_blank" rel="noreferrer">Wells-Barnett, Ida (1862-1931), Women in World History: A Biographical Encyclopedia</a> <span class="relationship">supports</span><br><a href="https://www.lib.uchicago.edu/e/scrc/findingaids/view.php?eadid=ICU.SPCL.IBWELLS" target="_blank" rel="noreferrer">Guide to the Ida B. Wells Papers 1884-1976 (biographical note)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>She was an investigative journalist and editor who documented lynching in the United States, notably in A Red Record (1895), and campaigned against it for the rest of her life; she was also a suffragist and civil rights leader.</strong><div class="muted">Anchors her occupation and her habit of checking every figure for herself in the modern social history.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.womenshistory.org/education-resources/biographies/ida-b-wells-barnett" target="_blank" rel="noreferrer">Ida B. Wells-Barnett (biography)</a> <span class="relationship">supports</span><br><a href="https://www.nps.gov/people/idabwells.htm" target="_blank" rel="noreferrer">Ida B. Wells</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>On June 27, 1895, she married the Chicago attorney Ferdinand L. Barnett, kept her own name alongside his, and settled in Chicago; they had four children.</strong></td>
+    <td>confirmed</td>
+    <td><a href="https://tennesseeencyclopedia.net/entries/ida-b-wells-barnett/" target="_blank" rel="noreferrer">DeCosta-Willis M. Wells-Barnett, Ida B.</a> <span class="relationship">supports</span><br><a href="https://www.nps.gov/people/idabwells.htm" target="_blank" rel="noreferrer">Ida B. Wells</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>She signed the call for the 1909 conference that led to the National Association for the Advancement of Colored People and is considered one of its founders, though she was left off the list of its founding committee and later drew away from it.</strong></td>
+    <td>confirmed</td>
+    <td><a href="https://tennesseeencyclopedia.net/entries/ida-b-wells-barnett/" target="_blank" rel="noreferrer">DeCosta-Willis M. Wells-Barnett, Ida B.</a> <span class="relationship">supports</span><br><a href="https://www.nps.gov/people/idabwells.htm" target="_blank" rel="noreferrer">Ida B. Wells</a> <span class="relationship">supports</span><br><a href="https://www.womenshistory.org/education-resources/biographies/ida-b-wells-barnett" target="_blank" rel="noreferrer">Ida B. Wells-Barnett (biography)</a> <span class="relationship">supports</span><br><a href="https://www.lib.uchicago.edu/e/scrc/findingaids/view.php?eadid=ICU.SPCL.IBWELLS" target="_blank" rel="noreferrer">Guide to the Ida B. Wells Papers 1884-1976 (biographical note)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>In 1930 she ran, unsuccessfully, for the Illinois State Senate.</strong><div class="muted">Anchors her continued public work in the year before the modern episode&#39;s true-frame dates.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.womenshistory.org/education-resources/biographies/ida-b-wells-barnett" target="_blank" rel="noreferrer">Ida B. Wells-Barnett (biography)</a> <span class="relationship">supports</span><br><a href="https://www.lib.uchicago.edu/e/scrc/findingaids/view.php?eadid=ICU.SPCL.IBWELLS" target="_blank" rel="noreferrer">Guide to the Ida B. Wells Papers 1884-1976 (biographical note)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>She began writing her autobiography in her last years; it was published after her death as Crusade for Justice: The Autobiography of Ida B. Wells, edited by her youngest daughter, Alfreda M. Duster.</strong><div class="muted">Anchors the memoir she is writing in the modern social history.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.lib.uchicago.edu/e/scrc/findingaids/view.php?eadid=ICU.SPCL.IBWELLS" target="_blank" rel="noreferrer">Guide to the Ida B. Wells Papers 1884-1976 (biographical note)</a> <span class="relationship">supports</span><br><a href="https://encyclopedia.com/women/encyclopedias-almanacs-transcripts-and-maps/wells-barnett-ida-1862-1931" target="_blank" rel="noreferrer">Wells-Barnett, Ida (1862-1931), Women in World History: A Biographical Encyclopedia</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>She died in Chicago on March 25, 1931, at 68, after a brief illness; the cause is given as kidney disease or uremia (uremic poisoning).</strong><div class="muted">History after the modern episode. The anchor for the modern kidney episode: uremia means kidney failure. Sources differ on the day of death (see the editorial resolutions).</div></td>
+    <td>confirmed</td>
+    <td><a href="https://tennesseeencyclopedia.net/entries/ida-b-wells-barnett/" target="_blank" rel="noreferrer">DeCosta-Willis M. Wells-Barnett, Ida B.</a> <span class="relationship">supports</span><br><a href="https://www.nps.gov/people/idabwells.htm" target="_blank" rel="noreferrer">Ida B. Wells</a> <span class="relationship">supports</span><br><a href="https://encyclopedia.com/women/encyclopedias-almanacs-transcripts-and-maps/wells-barnett-ida-1862-1931" target="_blank" rel="noreferrer">Wells-Barnett, Ida (1862-1931), Women in World History: A Biographical Encyclopedia</a> <span class="relationship">supports</span><br><a href="https://www.womenshistory.org/education-resources/biographies/ida-b-wells-barnett" target="_blank" rel="noreferrer">Ida B. Wells-Barnett (biography)</a> <span class="relationship">context</span><br><a href="https://www.lib.uchicago.edu/e/scrc/findingaids/view.php?eadid=ICU.SPCL.IBWELLS" target="_blank" rel="noreferrer">Guide to the Ida B. Wells Papers 1884-1976 (biographical note)</a> <span class="relationship">context</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-R" title="Retrospective">R</span></td>
+    <td><strong>Whether she had chronic kidney disease before her final illness, and what caused her kidney failure, is not recorded in any source consulted; a short final illness ending in uremia is compatible with acute kidney failure, with chronic kidney disease made worse by an acute illness, or with long-standing kidney disease that had not been recognized.</strong><div class="muted">Retrospective interpretation only. The chronic kidney disease, high blood pressure and every finding in the modern episode are synthetic; the modern episode shows kidney disease found in time, not a claim about her real kidneys.</div></td>
+    <td>possible</td>
+    <td><a href="https://www.nps.gov/people/idabwells.htm" target="_blank" rel="noreferrer">Ida B. Wells</a> <span class="relationship">derived_from</span><br><a href="https://encyclopedia.com/women/encyclopedias-almanacs-transcripts-and-maps/wells-barnett-ida-1862-1931" target="_blank" rel="noreferrer">Wells-Barnett, Ida (1862-1931), Women in World History: A Biographical Encyclopedia</a> <span class="relationship">derived_from</span><br><a href="https://tennesseeencyclopedia.net/entries/ida-b-wells-barnett/" target="_blank" rel="noreferrer">DeCosta-Willis M. Wells-Barnett, Ida B.</a> <span class="relationship">derived_from</span></td>
+  </tr></tbody></table></section>
+    <section><h2>Modern synthetic problem list</h2><table><thead><tr><th>Grade</th><th>Problem</th><th>Clinical status</th><th>Verification</th><th>Placement</th><th>Historical claims</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Tiredness for some months and ankle swelling by evening, with a raised creatinine (1.42 mg/dL, race-free eGFR 40, confirmed at 38 with cystatin C) and albumin in the urine (240 mg/g) found today; cause and chronicity to be established</td>
+    <td>resolved</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td>CLM-0008, CLM-0009</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Elevated blood pressure at intake (164/94 mmHg, average of two readings), without a diagnosis of hypertension; home readings for one week to confirm</td>
+    <td>resolved</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Hypertension, stage 2, confirmed by home readings (average 150/88 mmHg), with chronic kidney disease</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td>CLM-0008, CLM-0009</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Chronic kidney disease G3b A2 (eGFR 38 by creatinine and cystatin C, urine albumin-to-creatinine ratio 240 and 228 mg/g), present at least two years; small, echogenic kidneys without obstruction; most likely hypertensive kidney disease, with APOL1-associated disease possible; 5-year kidney failure risk about 7%</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>both_with_link</td>
+    <td>CLM-0008, CLM-0009</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Anemia of chronic kidney disease, mild (hemoglobin 11.2 g/dL) with adequate iron stores; a likely part of her tiredness</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Vitamin D deficiency (25-hydroxyvitamin D 17 ng/mL) with a mildly raised PTH (84 pg/mL); calcium and phosphate normal</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td></td>
+  </tr></tbody></table></section>
+    <section><h2>Synthetic outcome measures</h2><table><thead><tr><th>Grade</th><th>Date</th><th>Measure</th><th>Result</th><th>Coding</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-01-05</td>
+    <td>Sodium [Moles/volume] in Serum or Plasma</td>
+    <td>139 mmol/L<div class="muted">Reference 135-145 mmol/L</div></td>
+    <td>http://loinc.org · 2951-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-01-05</td>
+    <td>Potassium [Moles/volume] in Serum or Plasma</td>
+    <td>4.6 mmol/L<div class="muted">Reference 3.5-5.1 mmol/L</div></td>
+    <td>http://loinc.org · 2823-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-01-05</td>
+    <td>Carbon dioxide, total [Moles/volume] in Serum or Plasma</td>
+    <td>22 mmol/L<div class="muted">Reference Keep at 22 or above in kidney disease</div></td>
+    <td>http://loinc.org · 2028-9</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-01-05</td>
+    <td>Urea nitrogen [Mass/volume] in Serum or Plasma</td>
+    <td>28 mg/dL (high)<div class="muted">Reference 8-23 mg/dL</div></td>
+    <td>http://loinc.org · 3094-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-01-05</td>
+    <td>Glucose [Mass/volume] in Serum or Plasma</td>
+    <td>94 mg/dL<div class="muted">Reference 70-99 mg/dL</div></td>
+    <td>http://loinc.org · 2345-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-01-05</td>
+    <td>Creatinine [Mass/volume] in Serum or Plasma</td>
+    <td>1.42 mg/dL (high)<div class="muted">Reference 0.59-1.04 mg/dL</div></td>
+    <td>http://loinc.org · 2160-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-01-05</td>
+    <td>Glomerular filtration rate [Volume Rate/Area] in Serum, Plasma or Blood by Creatinine-based formula (CKD-EPI 2021)/1.73 sq M</td>
+    <td>40 mL/min/1.73 m² (low)<div class="muted">Reference 60 or higher without other kidney damage markers; 45 to 59 is G3a, 30 to 44 is G3b, 15 to 29 is G4</div></td>
+    <td>http://loinc.org · 98979-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-01-05</td>
+    <td>Cystatin C [Mass/volume] in Serum or Plasma</td>
+    <td>1.68 mg/L (high)<div class="muted">Reference 0.53-0.95 mg/L</div></td>
+    <td>http://loinc.org · 33863-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-01-05</td>
+    <td>Glomerular filtration rate [Volume Rate/Area] in Serum, Plasma or Blood by Creatinine and Cystatin C-based formula (CKD-EPI 2021)/1.73 sq M</td>
+    <td>38 mL/min/1.73 m² (low)<div class="muted">Reference The confirmatory estimate KDIGO prefers when decisions depend on accuracy; 30 to 44 is G3b</div></td>
+    <td>http://loinc.org · 98980-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-01-05</td>
+    <td>Albumin/Creatinine [Mass Ratio] in Urine</td>
+    <td>240 mg/g (high)<div class="muted">Reference Below 30 mg/g normal (A1); 30 to 300 moderately increased (A2); above 300 severely increased (A3)</div></td>
+    <td>http://loinc.org · 9318-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-01-05</td>
+    <td>Hemoglobin A1c/Hemoglobin.total in Blood</td>
+    <td>5.6%<div class="muted">Reference Below 5.7% is normal; 6.5% or higher is diabetes</div></td>
+    <td>http://loinc.org · 4548-4</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-01-05</td>
+    <td>Hemoglobin [Mass/volume] in Blood</td>
+    <td>11.2 g/dL (low)<div class="muted">Reference Anemia in women is below 12.0 g/dL</div></td>
+    <td>http://loinc.org · 718-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-01-05</td>
+    <td>Ferritin [Mass/volume] in Serum or Plasma</td>
+    <td>168 ng/mL<div class="muted">Reference 30-300 ng/mL</div></td>
+    <td>http://loinc.org · 2276-4</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-01-05</td>
+    <td>Iron saturation [Mass Fraction] in Serum or Plasma</td>
+    <td>24%<div class="muted">Reference 20-50%</div></td>
+    <td>http://loinc.org · 2502-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-01-05</td>
+    <td>Calcium [Mass/volume] in Serum or Plasma</td>
+    <td>9.2 mg/dL<div class="muted">Reference 8.6-10.3 mg/dL</div></td>
+    <td>http://loinc.org · 17861-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-01-05</td>
+    <td>Phosphate [Mass/volume] in Serum or Plasma</td>
+    <td>3.8 mg/dL<div class="muted">Reference 2.5-4.5 mg/dL</div></td>
+    <td>http://loinc.org · 2777-1</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-01-05</td>
+    <td>Parathyrin.intact [Mass/volume] in Serum or Plasma</td>
+    <td>84 pg/mL (high)<div class="muted">Reference 15-65 pg/mL</div></td>
+    <td>http://loinc.org · 2731-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-01-05</td>
+    <td>25-Hydroxyvitamin D3+25-Hydroxyvitamin D2 [Mass/volume] in Serum or Plasma</td>
+    <td>17 ng/mL (low)<div class="muted">Reference Below 20 ng/mL deficient; 20 to 29 insufficient</div></td>
+    <td>http://loinc.org · 62292-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-01-05</td>
+    <td>Cholesterol [Mass/volume] in Serum or Plasma</td>
+    <td>214 mg/dL (high)<div class="muted">Reference &lt;=199 mg/dL</div></td>
+    <td>http://loinc.org · 2093-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-01-05</td>
+    <td>Cholesterol in LDL [Mass/volume] in Serum or Plasma by calculation</td>
+    <td>136 mg/dL (high)<div class="muted">Reference &lt;=99 mg/dL</div></td>
+    <td>http://loinc.org · 13457-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-01-05</td>
+    <td>Cholesterol in HDL [Mass/volume] in Serum or Plasma</td>
+    <td>52 mg/dL<div class="muted">Reference &gt;=50 mg/dL</div></td>
+    <td>http://loinc.org · 2085-9</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-01-05</td>
+    <td>Triglyceride [Mass/volume] in Serum or Plasma</td>
+    <td>128 mg/dL<div class="muted">Reference &lt;=149 mg/dL</div></td>
+    <td>http://loinc.org · 2571-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-01-05</td>
+    <td>Thyrotropin [Units/volume] in Serum or Plasma</td>
+    <td>1.9 mIU/L<div class="muted">Reference 0.4-4.5 mIU/L</div></td>
+    <td>http://loinc.org · 3016-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-01-05</td>
+    <td>Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]</td>
+    <td>4</td>
+    <td>http://loinc.org · 44261-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-01-20</td>
+    <td>Albumin/Creatinine [Mass Ratio] in Urine</td>
+    <td>228 mg/g (high)<div class="muted">Reference Below 30 mg/g normal (A1); 30 to 300 moderately increased (A2); above 300 severely increased (A3)</div></td>
+    <td>http://loinc.org · 9318-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-02-03</td>
+    <td>Sodium [Moles/volume] in Serum or Plasma</td>
+    <td>138 mmol/L<div class="muted">Reference 135-145 mmol/L</div></td>
+    <td>http://loinc.org · 2951-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-02-03</td>
+    <td>Potassium [Moles/volume] in Serum or Plasma</td>
+    <td>4.9 mmol/L<div class="muted">Reference 3.5-5.1 mmol/L</div></td>
+    <td>http://loinc.org · 2823-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-02-03</td>
+    <td>Carbon dioxide, total [Moles/volume] in Serum or Plasma</td>
+    <td>22 mmol/L<div class="muted">Reference Keep at 22 or above in kidney disease</div></td>
+    <td>http://loinc.org · 2028-9</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-02-03</td>
+    <td>Urea nitrogen [Mass/volume] in Serum or Plasma</td>
+    <td>30 mg/dL (high)<div class="muted">Reference 8-23 mg/dL</div></td>
+    <td>http://loinc.org · 3094-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-02-03</td>
+    <td>Creatinine [Mass/volume] in Serum or Plasma</td>
+    <td>1.5 mg/dL (high)<div class="muted">Reference 0.59-1.04 mg/dL</div></td>
+    <td>http://loinc.org · 2160-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-02-03</td>
+    <td>Glomerular filtration rate [Volume Rate/Area] in Serum, Plasma or Blood by Creatinine-based formula (CKD-EPI 2021)/1.73 sq M</td>
+    <td>38 mL/min/1.73 m² (low)<div class="muted">Reference 60 or higher without other kidney damage markers; 45 to 59 is G3a, 30 to 44 is G3b, 15 to 29 is G4</div></td>
+    <td>http://loinc.org · 98979-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-03</td>
+    <td>Sodium [Moles/volume] in Serum or Plasma</td>
+    <td>139 mmol/L<div class="muted">Reference 135-145 mmol/L</div></td>
+    <td>http://loinc.org · 2951-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-03</td>
+    <td>Potassium [Moles/volume] in Serum or Plasma</td>
+    <td>4.8 mmol/L<div class="muted">Reference 3.5-5.1 mmol/L</div></td>
+    <td>http://loinc.org · 2823-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-03</td>
+    <td>Carbon dioxide, total [Moles/volume] in Serum or Plasma</td>
+    <td>23 mmol/L<div class="muted">Reference Keep at 22 or above in kidney disease</div></td>
+    <td>http://loinc.org · 2028-9</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-03</td>
+    <td>Urea nitrogen [Mass/volume] in Serum or Plasma</td>
+    <td>31 mg/dL (high)<div class="muted">Reference 8-23 mg/dL</div></td>
+    <td>http://loinc.org · 3094-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-03</td>
+    <td>Creatinine [Mass/volume] in Serum or Plasma</td>
+    <td>1.56 mg/dL (high)<div class="muted">Reference 0.59-1.04 mg/dL</div></td>
+    <td>http://loinc.org · 2160-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-03</td>
+    <td>Glomerular filtration rate [Volume Rate/Area] in Serum, Plasma or Blood by Creatinine-based formula (CKD-EPI 2021)/1.73 sq M</td>
+    <td>36 mL/min/1.73 m² (low)<div class="muted">Reference 60 or higher without other kidney damage markers; 45 to 59 is G3a, 30 to 44 is G3b, 15 to 29 is G4</div></td>
+    <td>http://loinc.org · 98979-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-02-17</td>
+    <td>Patient Health Questionnaire 2 item (PHQ-2) total score [Reported]</td>
+    <td>0</td>
+    <td>http://loinc.org · 55758-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-02-17</td>
+    <td>Total score [Mini-Cog]</td>
+    <td>5</td>
+    <td>http://loinc.org · 72233-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-02-17</td>
+    <td>Total score [AUDIT-C]</td>
+    <td>1</td>
+    <td>http://loinc.org · 75626-2</td>
+  </tr></tbody></table></section>
+    <section><h2>Synthetic vital signs</h2><table><thead><tr><th>Date</th><th>Measure</th><th>Result</th><th>LOINC</th><th>Grade</th></tr></thead><tbody>
+  <tr><td>2026-01-05</td><td>Body height</td><td>157 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-01-05</td><td>Body weight</td><td>70.4 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-01-05</td><td>Body mass index (BMI) [Ratio]</td><td>28.6 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-01-05</td><td>Systolic blood pressure</td><td>164 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-01-05</td><td>Diastolic blood pressure</td><td>94 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-01-05</td><td>Heart rate</td><td>78 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-01-05</td><td>Respiratory rate</td><td>16 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-01-05</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-01-05</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>97 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-01-20</td><td>Body height</td><td>157 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-01-20</td><td>Body weight</td><td>70 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-01-20</td><td>Body mass index (BMI) [Ratio]</td><td>28.4 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-01-20</td><td>Systolic blood pressure</td><td>154 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-01-20</td><td>Diastolic blood pressure</td><td>90 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-01-20</td><td>Heart rate</td><td>76 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-01-20</td><td>Respiratory rate</td><td>16 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-01-20</td><td>Body temperature</td><td>36.7 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-01-20</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>97 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-02-03</td><td>Body height</td><td>157 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-02-03</td><td>Body weight</td><td>69.6 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-02-03</td><td>Body mass index (BMI) [Ratio]</td><td>28.2 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-02-03</td><td>Systolic blood pressure</td><td>142 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-02-03</td><td>Diastolic blood pressure</td><td>84 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-02-03</td><td>Heart rate</td><td>74 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-02-03</td><td>Respiratory rate</td><td>16 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-02-03</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-02-03</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>97 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-02-17</td><td>Body height</td><td>157 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-02-17</td><td>Body weight</td><td>69.2 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-02-17</td><td>Body mass index (BMI) [Ratio]</td><td>28.1 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-02-17</td><td>Systolic blood pressure</td><td>136 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-02-17</td><td>Diastolic blood pressure</td><td>82 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-02-17</td><td>Heart rate</td><td>72 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-02-17</td><td>Respiratory rate</td><td>16 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-02-17</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-02-17</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>97 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-03</td><td>Body height</td><td>157 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-03</td><td>Body weight</td><td>68.9 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-03</td><td>Body mass index (BMI) [Ratio]</td><td>28 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-03</td><td>Systolic blood pressure</td><td>132 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-03</td><td>Diastolic blood pressure</td><td>80 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-03</td><td>Heart rate</td><td>72 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-03</td><td>Respiratory rate</td><td>16 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-03</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-03</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>98 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr></tbody></table></section>
+    <section><h2>Social, functional, and mental status</h2><h3>Social history</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Lives in Chicago with her husband; a journalist, lecturer and civic leader; ran for the state senate last year; now writing her memoir</li><li><span class="badge grade-S" title="Synthetic">S</span> Lost both parents and a baby brother at 16 and raised her younger siblings; says she has been looking after other people since then and has put her own health last</li><li><span class="badge grade-S" title="Synthetic">S</span> Tobacco: never. Alcohol: a glass of wine on occasions, under one drink a week. No drug use</li><li><span class="badge grade-S" title="Synthetic">S</span> Medicare with a supplemental plan; medicines affordable on her plan</li><li><span class="badge grade-S" title="Synthetic">S</span> Wants to see her own results and the evidence behind each recommendation, and to decide for herself; reads her laboratory reports line by line</li></ul><h3>Functional status</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Independent in all activities and instrumental activities of daily living; walks to meetings and the newspaper office, slowed by knee aching and by tiredness this winter</li></ul><h3>Mental status</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Alert, precise and questioning; asked for copies of every result; mood steady; PHQ-9 score 4</li></ul></section>
+    
+    <section><h2>Allergies and medications</h2><h3>Allergies</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> No known allergy</li></ul><h3>Medications</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Acetaminophen 500 mg oral tablet, one or two tablets up to three times a day as needed for knee aching (no more than 3,000 mg a day), in place of naproxen</li><li><span class="badge grade-S" title="Synthetic">S</span> Losartan 50 mg oral tablet, one tablet daily; hold on days of vomiting, diarrhea or not eating</li><li><span class="badge grade-S" title="Synthetic">S</span> Atorvastatin 20 mg oral tablet, one tablet daily</li><li><span class="badge grade-S" title="Synthetic">S</span> Cholecalciferol (vitamin D3) 25 mcg (1,000 units) oral tablet, one tablet daily</li><li><span class="badge grade-S" title="Synthetic">S</span> Dapagliflozin 10 mg oral tablet, one tablet daily; hold on days of vomiting, diarrhea or not eating, and before surgery</li><li><span class="badge grade-S" title="Synthetic">S</span> Losartan 100 mg oral tablet, one tablet daily; hold on days of vomiting, diarrhea or not eating</li></ul></section>
+    <section><h2>Procedures and immunizations</h2><h3>Procedures</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Twelve-lead electrocardiogram</li><li><span class="badge grade-S" title="Synthetic">S</span> Ultrasound of both kidneys and the bladder</li><li><span class="badge grade-S" title="Synthetic">S</span> Kidney diet session with the dietitian: sodium below 2 g a day, protein about 0.8 g per kg, plant-rich meals, no potassium restriction at present</li><li><span class="badge grade-S" title="Synthetic">S</span> Advance care planning conversation, about 25 minutes, including kidney treatment options</li></ul><h3>Immunizations</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> 2026-01-20: High-dose influenza vaccine, this season</li><li><span class="badge grade-S" title="Synthetic">S</span> 2026-01-20: Pneumococcal conjugate vaccine PCV20</li><li><span class="badge grade-S" title="Synthetic">S</span> 2026-01-20: Hepatitis B vaccine (HepB-CpG), dose 1 of 2</li><li><span class="badge grade-S" title="Synthetic">S</span> 2026-02-17: Hepatitis B vaccine (HepB-CpG), dose 2 of 2</li><li><span class="badge grade-S" title="Synthetic">S</span> 2026-02-17: Respiratory syncytial virus vaccine, adjuvanted (RSVPreF3), single dose</li><li><span class="badge grade-S" title="Synthetic">S</span> 2026-02-17: Recombinant zoster vaccine, dose 1 of 2</li><li><span class="badge grade-S" title="Synthetic">S</span> 2026-03-03: COVID-19 vaccine, mRNA, this season</li></ul></section>
+    <section><h2>Past medical history</h2><p class="muted">True biography with historical dates; not part of the synthetic care timeline.</p><ul></ul><h3>Family history</h3><ul><li><span class="badge grade-D" title="Documented">D</span> father: Died in the yellow fever epidemic when she was 16</li><li><span class="badge grade-D" title="Documented">D</span> mother: Died in the yellow fever epidemic when she was 16</li><li><span class="badge grade-D" title="Documented">D</span> brother: An infant brother died in the same yellow fever epidemic</li></ul></section>
+    <section><h2>Care-plan goals</h2><table><thead><tr><th>Goal</th><th>Target date</th><th>Status</th><th>Outcome</th></tr></thead><tbody>
+  <tr><td>Blood pressure below 130/80 mmHg in the clinic and at home within two months of starting treatment, and lower if tolerated</td><td>2026-03-03</td><td>active</td><td>132/80 in the clinic and 130/78 at home on losartan 50 mg and dapagliflozin; losartan increased to 100 mg</td></tr>
+  <tr><td>Urine albumin-to-creatinine ratio lower by at least 30% at the three-month check on treatment</td><td>2026-03-03</td><td>active</td><td>240 and 228 mg/g at baseline; repeat due at three months on treatment</td></tr>
+  <tr><td>No NSAIDs or other avoidable kidney harms; every medicine checked against her kidney function</td><td>2026-03-03</td><td>completed</td><td>Naproxen stopped at intake; acetaminophen used instead; medicines checked at every visit</td></tr>
+  <tr><td>An informed decision about APOL1 genetic testing, made by her after counseling</td><td>2026-01-20</td><td>completed</td><td>Counseled at the consultation; she chose to defer the test and may ask for it at any time</td></tr>
+  <tr><td>She understands her stage, her risk and the kidney replacement options, and her wishes are recorded, long before any decision is needed</td><td>2026-02-17</td><td>completed</td><td>Kidney education session completed; wishes recorded at the annual wellness visit</td></tr></tbody></table></section>
+    <section><h2>Interventions</h2><table><thead><tr><th>Intervention</th><th>Status</th><th>Guideline</th></tr></thead><tbody>
+  <tr><td>Nephrology consultation for reduced kidney function (race-free eGFR 38) with albuminuria of uncertain cause, a 5-year kidney failure risk above 5% if the disease proves chronic, and APOL1 genetic counseling</td><td>completed</td><td>GL-KDIGO-CKD-2024, GL-CMID-2026</td></tr>
+  <tr><td>Confirm and stage the kidney disease: race-free eGFR from creatinine with cystatin C, repeat urine albumin-to-creatinine ratio, urinalysis with microscopy, kidney ultrasound, a monoclonal protein screen (serum protein electrophoresis and free light chains), hepatitis B, hepatitis C and HIV tests, and any earlier results she can obtain</td><td>completed</td><td>GL-KDIGO-CKD-2024, GL-NKF-ASN-2021, GL-CKDEPI-2021</td></tr>
+  <tr><td>Blood pressure: a validated home monitor with readings twice a day for seven days to confirm the diagnosis; sodium below 2 g a day; recheck in two weeks</td><td>completed</td><td>GL-AHA-HTN-2025, GL-KDIGO-BP-2021, GL-CMID-2026</td></tr>
+  <tr><td>Stop over-the-counter naproxen and use acetaminophen for knee aching; avoid all NSAIDs; tell every clinician and pharmacist about her kidneys before new medicines or contrast dye</td><td>completed</td><td>GL-KDIGO-CKD-2024, GL-CMID-2026</td></tr>
+  <tr><td>Anemia and mineral and bone checks: hemoglobin with iron studies, calcium, phosphate, intact PTH and 25-hydroxyvitamin D at baseline</td><td>completed</td><td>GL-KDIGO-CKD-2024, GL-KDIGO-MBD-2017, GL-CMID-2026</td></tr>
+  <tr><td>Baseline ECG, TSH for tiredness, a lipid panel once at diagnosis, A1c to screen for diabetes, and a PHQ-9</td><td>completed</td><td>GL-CMID-2026, GL-AHA-HTN-2025, GL-USPSTF-DEP-2023</td></tr>
+  <tr><td>On the nephrologist&#39;s advice: losartan 50 mg daily with potassium and creatinine in two weeks, then dapagliflozin 10 mg daily with a further check at two to four weeks, then losartan increased to the highest dose tolerated; sick-day rules for both; atorvastatin 20 mg; vitamin D3 1,000 units daily with PTH and vitamin D again at three months; blood pressure goal below 130/80 and a systolic below 120 if tolerated</td><td>completed</td><td>GL-KDIGO-CKD-2024, GL-KDIGO-BP-2021, GL-KDIGO-MBD-2017, GL-CMID-2026</td></tr>
+  <tr><td>APOL1 genetic testing offered after counseling on what a result would and would not change, on privacy, and on what it could mean for relatives; her decision to defer recorded, with the offer left open</td><td>completed</td><td>GL-KDIGO-CKD-2024</td></tr>
+  <tr><td>Kidney education session on the kidneys and the treatment options if they fail (transplant, home and center dialysis, and conservative kidney management), long before any decision is needed; kidney diet session with the dietitian</td><td>completed</td><td>GL-KDIGO-CKD-2024, GL-CMID-2026</td></tr>
+  <tr><td>Vaccines for chronic kidney disease: high-dose influenza, PCV20 and two doses of HepB-CpG (she was not immune), then RSV, recombinant zoster and COVID-19, spaced at her request</td><td>completed</td><td>GL-CDC-IMZ-2026</td></tr>
+  <tr><td>Dapagliflozin 10 mg daily started now that potassium and creatinine are stable on losartan</td><td>completed</td><td>GL-KDIGO-CKD-2024, GL-CMID-2026</td></tr>
+  <tr><td>Losartan increased to 100 mg; potassium and creatinine in two to four weeks; urine albumin-to-creatinine ratio, hemoglobin, PTH and vitamin D at three months on treatment; nephrology review at three months</td><td>completed</td><td>GL-KDIGO-CKD-2024, GL-KDIGO-BP-2021, GL-CMID-2026</td></tr></tbody></table></section>
+    <section><h2>Planned encounters</h2><ul>
+  <li><strong>2026-01-05</strong> — New patient visit for tiredness and ankle swelling, with kidney function, urine albumin, blood count, and mineral and bone tests <span class="muted">(ENC-001)</span></li>
+  <li><strong>2026-01-20</strong> — Two-week review of home blood pressure readings, the repeat urine test and the kidney ultrasound, with the nephrology consultation <span class="muted">(ENC-002)</span></li>
+  <li><strong>2026-02-03</strong> — Two weeks after starting losartan: potassium, creatinine and blood pressure, and the decision about dapagliflozin <span class="muted">(ENC-003)</span></li>
+  <li><strong>2026-02-17</strong> — Subsequent annual wellness visit, with advance care planning about kidney treatment options <span class="muted">(ENC-004)</span></li>
+  <li><strong>2026-03-03</strong> — Four weeks after starting dapagliflozin: potassium, creatinine and blood pressure, the losartan dose, and the plan for the months ahead <span class="muted">(ENC-005)</span></li></ul></section>
+    <section><h2>Supporting documents</h2><ul><li><a href="notes/hp.md">History and physical</a></li><li><a href="notes/progress-01.md">Progress note 01</a></li><li><a href="notes/progress-02.md">Progress note 02 — Focused Visit (Follow-up)</a></li><li><a href="notes/progress-03.md">Progress note 03 — Focused Visit (Follow-up)</a></li><li><a href="notes/progress-04.md">Progress note 04 — Annual Wellness Visit, Subsequent</a></li><li><a href="notes/progress-05.md">Progress note 05 — Focused Visit (Care-plan review)</a></li><li><a href="notes/referral-01.md">Nephrology referral</a></li><li><a href="notes/consult-01.md">Nephrology consultation</a></li><li><a href="notes/careplan.md">Patient care plan</a></li><li><a href="notes/teaching-note.md">Teaching note</a></li><li><a href="provenance.csv">Provenance CSV</a></li></ul></section>
+    <section><h2>C-CDA note documents</h2><p class="muted">Each link opens a readable copy; the XML beside it is the exchange file.</p><ul><li><a href="ccda/hp-01.html">History and physical</a> <a href="ccda/hp-01.xml">(XML)</a></li><li><a href="ccda/progress-01.html">Progress note 01</a> <a href="ccda/progress-01.xml">(XML)</a></li><li><a href="ccda/progress-02.html">Progress note 02 — Focused Visit (Follow-up)</a> <a href="ccda/progress-02.xml">(XML)</a></li><li><a href="ccda/progress-03.html">Progress note 03 — Focused Visit (Follow-up)</a> <a href="ccda/progress-03.xml">(XML)</a></li><li><a href="ccda/progress-04.html">Progress note 04 — Annual Wellness Visit, Subsequent</a> <a href="ccda/progress-04.xml">(XML)</a></li><li><a href="ccda/progress-05.html">Progress note 05 — Focused Visit (Care-plan review)</a> <a href="ccda/progress-05.xml">(XML)</a></li><li><a href="ccda/referral-01.html">Nephrology referral</a> <a href="ccda/referral-01.xml">(XML)</a></li><li><a href="ccda/consult-01.html">Nephrology consultation</a> <a href="ccda/consult-01.xml">(XML)</a></li></ul></section>
+    <section><h2>Sources</h2><table><thead><tr><th>ID</th><th>Source</th><th>Publisher</th><th>Type</th></tr></thead><tbody>
+  <tr>
+    <td>SRC-0001</td>
+    <td><a href="https://www.nps.gov/people/idabwells.htm" target="_blank" rel="noreferrer">Ida B. Wells</a></td>
+    <td>National Park Service</td>
+    <td>government</td>
+  </tr>
+  <tr>
+    <td>SRC-0002</td>
+    <td><a href="https://www.womenshistory.org/education-resources/biographies/ida-b-wells-barnett" target="_blank" rel="noreferrer">Ida B. Wells-Barnett (biography)</a></td>
+    <td>National Women&#39;s History Museum</td>
+    <td>biography</td>
+  </tr>
+  <tr>
+    <td>SRC-0003</td>
+    <td><a href="https://encyclopedia.com/women/encyclopedias-almanacs-transcripts-and-maps/wells-barnett-ida-1862-1931" target="_blank" rel="noreferrer">Wells-Barnett, Ida (1862-1931), Women in World History: A Biographical Encyclopedia</a></td>
+    <td>Encyclopedia.com (Gale)</td>
+    <td>biography</td>
+  </tr>
+  <tr>
+    <td>SRC-0004</td>
+    <td><a href="https://tennesseeencyclopedia.net/entries/ida-b-wells-barnett/" target="_blank" rel="noreferrer">DeCosta-Willis M. Wells-Barnett, Ida B.</a></td>
+    <td>Tennessee Encyclopedia (Tennessee Historical Society)</td>
+    <td>biography</td>
+  </tr>
+  <tr>
+    <td>SRC-0005</td>
+    <td><a href="https://www.lib.uchicago.edu/e/scrc/findingaids/view.php?eadid=ICU.SPCL.IBWELLS" target="_blank" rel="noreferrer">Guide to the Ida B. Wells Papers 1884-1976 (biographical note)</a></td>
+    <td>University of Chicago Library, Hanna Holborn Gray Special Collections Research Center</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0006</td>
+    <td><a href="https://humanrecord.example.org/internal/HISTMED_Master_Roster_v3.xlsx" target="_blank" rel="noreferrer">HISTMED Master Roster v3</a></td>
+    <td>The Human Record project</td>
+    <td>other</td>
+  </tr></tbody></table></section>
+    <section><h2>Review status</h2><table><thead><tr><th>Review</th><th>Status</th><th>Notes</th></tr></thead><tbody>
+  <tr><td>schema validation</td><td>not_started</td><td>Run scripts/build.ps1 -Conformance.</td></tr>
+  <tr><td>clinical review</td><td>not_started</td><td>Awaiting clinician review; check the race-free eGFR values (creatinine 40, creatinine with cystatin C 38) and the race-based value for comparison, the G3b A2 staging, the kidney failure risk estimate, the sequencing of losartan and dapagliflozin with potassium and creatinine checks, the statin for an adult over 50 with eGFR below 60, vitamin D replacement, and the APOL1 counseling.</td></tr>
+  <tr><td>provenance review</td><td>not_started</td><td>Sources: the National Park Service, the National Women&#39;s History Museum, Women in World History (Encyclopedia.com), the Tennessee Encyclopedia and the University of Chicago Library finding aid. The Library of Congress, the Chicago Defender, Paula Giddings&#39;s biography and Crusade for Justice could not be read directly.</td></tr>
+  <tr><td>safe messaging review</td><td>not_started</td><td>No mental health claim is made; mood screening is synthetic and below the threshold for a safety assessment. Her death is stated once, without speculation about its cause beyond kidney disease or uremia as the sources give it.</td></tr></tbody></table></section>
+  </main>
+</body>
+</html>

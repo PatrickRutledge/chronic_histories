@@ -1,0 +1,626 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Joe Louis — The Human Record</title>
+  <style>
+    :root { --navy:#17365d; --blue:#1f4e78; --pale:#eef5fa; --ink:#1f2933; --muted:#66788a; --amber:#fff2cc; --red:#f8d7da; --green:#d9ead3; }
+    * { box-sizing:border-box; }
+    body { margin:0; font:16px/1.5 Arial, sans-serif; color:var(--ink); background:#f6f8fa; }
+    header { background:var(--navy); color:white; padding:24px max(24px,calc((100vw - 1180px)/2)); }
+    header h1 { margin:4px 0; font-size:30px; }
+    .banner { background:#b42318; color:white; font-weight:700; text-align:center; padding:10px; letter-spacing:.03em; }
+    main { max-width:1180px; margin:24px auto 60px; padding:0 24px; }
+    section { background:white; border:1px solid #d9e1e8; border-radius:8px; margin:18px 0; padding:20px; }
+    h2 { color:var(--navy); margin:0 0 14px; font-size:22px; }
+    h3 { color:var(--blue); }
+    .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:12px; }
+    .card { background:var(--pale); border-left:4px solid var(--blue); padding:12px; }
+    .label { color:var(--muted); font-size:13px; text-transform:uppercase; letter-spacing:.04em; }
+    table { width:100%; border-collapse:collapse; }
+    th { background:var(--blue); color:white; text-align:left; }
+    th,td { padding:9px; border-bottom:1px solid #dfe6ec; vertical-align:top; }
+    .badge { display:inline-block; min-width:28px; text-align:center; font-weight:700; border-radius:12px; padding:2px 8px; }
+    .grade-D { background:var(--green); } .grade-R { background:var(--amber); } .grade-S { background:var(--red); }
+    .muted { color:var(--muted); font-size:14px; }
+    .relationship { color:var(--muted); font-size:12px; }
+    .downloads a { display:inline-block; margin:4px 8px 4px 0; padding:8px 12px; background:var(--blue); color:white; text-decoration:none; border-radius:5px; }
+    @media (max-width:700px) { table { display:block; overflow-x:auto; } }
+  </style>
+</head>
+<body>
+  <div class="banner">SYNTHETIC RECORD, NOT A REAL MEDICAL RECORD</div>
+  <div class="banner">True-date frame: synthetic events are moved into the patient&#39;s historical lifetime. Codes, instruments, and treatments remain modern and are anachronistic.</div>
+  <header>
+    <div>The Human Record</div>
+    <h1>Joe Louis</h1>
+    <div>Case HR-BX002-TD · Modern EHR teaching episode · Draft for review</div>
+  </header>
+  <main>
+    <section>
+      <h2>Review summary</h2>
+      <div class="grid">
+        <div class="card"><div class="label">Historical dates</div>May 13, 1914 – April 12, 1981</div>
+        <div class="card"><div class="label">Synthetic DOB</div>1914-05-13</div>
+        <div class="card"><div class="label">Index visit</div>1969-07-13 at age 55</div>
+        <div class="card"><div class="label">Synthetic MRN</div>HR-BX002-SYN-TD</div>
+      </div>
+      <p><strong>Teaching objective:</strong> Cocaine use disorder with a cocaine-induced psychotic disorder in a 55-year-old Black man, a retired heavyweight champion and Army veteran, who comes in two weeks after collapsing in the street, with persecutory fears and little sleep. The episode covers a nonjudgmental assessment with DSM-5-TR criteria, the DAST-10 and urine drug testing with consent; the differential between a substance-induced psychosis, a primary psychotic disorder and a neurocognitive disorder after a long boxing career, using the time course after the last use, the MoCA, laboratory tests and brain MRI, and the plain fact that traumatic encephalopathy syndrome is a research diagnosis; a structured assessment that guards against the documented bias toward diagnosing schizophrenia in Black men; a structured safety assessment with the 988 Suicide &amp; Crisis Lifeline; aripiprazole when psychosis persists, with metabolic and movement monitoring under the APA guideline and a taper after remission; contingency management and cognitive behavioral therapy as the ASAM/AAAP guideline advises, since no medicine is approved by the FDA for cocaine use disorder; fentanyl in the stimulant supply, naloxone and fentanyl test strips; the cardiovascular risks of cocaine with an ECG, creatine kinase, home blood pressure, a diagnosis of hypertension and an echocardiogram that measures the aortic root; a one-day return to use met without blame; involving family only with his consent; and help with financial stress through social work and free taxpayer services.</p>
+      <div class="downloads">
+        <a href="../case.json">Canonical JSON</a>
+        <a href="fhir-bundle.json">FHIR R4 draft</a>
+        <a href="ccda.html">C-CDA R2.1 summary</a> <a href="ccda.xml">(XML)</a>
+        <a href="../sources.md">Evidence dossier</a>
+      </div>
+    </section>
+    <section><h2>Historical timeline</h2><table><thead><tr><th>Date</th><th>Event</th><th>Claims</th></tr></thead><tbody>
+  <tr><td>May 13, 1914</td><td>Born Joseph Louis Barrow near LaFayette, Alabama.</td><td>CLM-0001</td></tr>
+  <tr><td>Summer 1926</td><td>Family moves to Detroit; he later takes up boxing.</td><td>CLM-0002</td></tr>
+  <tr><td>June 22, 1937</td><td>Wins the heavyweight championship; holds it until he retires as champion in 1949.</td><td>CLM-0003, CLM-0013</td></tr>
+  <tr><td>January 1942</td><td>Enlists in the U.S. Army; serves through the war, boxing exhibitions for the troops.</td><td>CLM-0004</td></tr>
+  <tr><td>By 1956</td><td>Owes more than $1 million in federal back taxes, penalties and interest.</td><td>CLM-0005</td></tr>
+  <tr><td>Late June 1969</td><td>Collapses on a Manhattan street; later attributes it to cocaine; troubled by fears of a plot against his life.</td><td>CLM-0006, CLM-0007</td></tr>
+  <tr><td>1970</td><td>Hospitalized for about five months in Denver for paranoid delusions.</td><td>CLM-0008, CLM-0009</td></tr>
+  <tr><td>1977</td><td>Arterial graft surgery for an aortic aneurysm; afterwards uses a wheelchair; later strokes and a pacemaker.</td><td>CLM-0011</td></tr>
+  <tr><td>Final years</td><td>Works as an official greeter at Caesars Palace in Las Vegas.</td><td>CLM-0010</td></tr>
+  <tr><td>April 12, 1981</td><td>Dies of cardiac arrest in the Las Vegas area; buried at Arlington National Cemetery.</td><td>CLM-0012</td></tr></tbody></table></section>
+    <section><h2>Evidence claims</h2><p class="muted">D = documented, R = retrospective, S = synthetic.</p><table><thead><tr><th>Grade</th><th>Claim</th><th>Certainty</th><th>Sources</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>Joe Louis was born Joseph Louis Barrow on May 13, 1914, near LaFayette in Chambers County, Alabama, to Munroe and Lillie Barrow, Alabama sharecroppers; he was one of eleven children.</strong><div class="muted">Anchors the synthetic date of birth (May 13 kept).</div></td>
+    <td>confirmed</td>
+    <td><a href="https://encyclopediaofalabama.org/article/joe-louis/" target="_blank" rel="noreferrer">Lewis HJ. Joe Louis. Encyclopedia of Alabama</a> <span class="relationship">supports</span><br><a href="https://www.upi.com/Archives/1981/04/12/Joe-Louis-dead-at-66/5775355899600/" target="_blank" rel="noreferrer">Joe Louis dead at 66 (United Press International, April 12, 1981)</a> <span class="relationship">supports</span><br><a href="https://www.encyclopedia.com/people/sports-and-games/sports-biographies/joe-louis" target="_blank" rel="noreferrer">Decker E. Louis, Joe. Contemporary Black Biography (Gale), as reproduced by Encyclopedia.com</a> <span class="relationship">context</span><br><a href="https://humanrecord.example.org/internal/HISTMED_Master_Roster_v3.xlsx" target="_blank" rel="noreferrer">HISTMED Master Roster v3</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>His family moved to Detroit in the summer of 1926, when he was about twelve, and he took up boxing at a local gym there.</strong><div class="muted">History only.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://encyclopediaofalabama.org/article/joe-louis/" target="_blank" rel="noreferrer">Lewis HJ. Joe Louis. Encyclopedia of Alabama</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>He won the world heavyweight championship on June 22, 1937, by knocking out James J. Braddock, defended it about two dozen times (24 or 25 defenses in different sources), and retired as champion in 1949.</strong><div class="muted">Anchors the long professional career in the modern history.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.upi.com/Archives/1981/04/12/Joe-Louis-dead-at-66/5775355899600/" target="_blank" rel="noreferrer">Joe Louis dead at 66 (United Press International, April 12, 1981)</a> <span class="relationship">supports</span><br><a href="https://encyclopediaofalabama.org/article/joe-louis/" target="_blank" rel="noreferrer">Lewis HJ. Joe Louis. Encyclopedia of Alabama</a> <span class="relationship">supports</span><br><a href="https://www.encyclopedia.com/people/sports-and-games/sports-biographies/joe-louis" target="_blank" rel="noreferrer">Decker E. Louis, Joe. Contemporary Black Biography (Gale), as reproduced by Encyclopedia.com</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>He enlisted in the U.S. Army in January 1942 and served through the Second World War, staging 96 exhibition bouts for the troops and donating the purses of two 1942 fights, nearly $100,000, to the Army and Navy relief societies.</strong><div class="muted">Anchors his strengths and the veteran status in the modern social history.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.upi.com/Archives/1981/04/12/Joe-Louis-dead-at-66/5775355899600/" target="_blank" rel="noreferrer">Joe Louis dead at 66 (United Press International, April 12, 1981)</a> <span class="relationship">supports</span><br><a href="https://www.army.mil/article/121005/soldier_champ_joe_louis_sacrificed_much_for_his_country" target="_blank" rel="noreferrer">Bell TA. Soldier-Champ: Joe Louis sacrificed much for his country. U.S. Army, February 28, 2014</a> <span class="relationship">supports</span><br><a href="https://encyclopediaofalabama.org/article/joe-louis/" target="_blank" rel="noreferrer">Lewis HJ. Joe Louis. Encyclopedia of Alabama</a> <span class="relationship">supports</span><br><a href="https://www.encyclopedia.com/people/sports-and-games/sports-biographies/joe-louis" target="_blank" rel="noreferrer">Decker E. Louis, Joe. Contemporary Black Biography (Gale), as reproduced by Encyclopedia.com</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>Despite large career earnings, he faced a federal tax debt that by 1956 exceeded $1 million in back income tax, penalties and interest; the debt shaped his finances for many years, and the sources describe its resolution differently.</strong><div class="muted">Anchors the synthetic financial stress; no current debt is claimed.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.upi.com/Archives/1981/04/12/Joe-Louis-dead-at-66/5775355899600/" target="_blank" rel="noreferrer">Joe Louis dead at 66 (United Press International, April 12, 1981)</a> <span class="relationship">supports</span><br><a href="https://www.encyclopedia.com/people/sports-and-games/sports-biographies/joe-louis" target="_blank" rel="noreferrer">Decker E. Louis, Joe. Contemporary Black Biography (Gale), as reproduced by Encyclopedia.com</a> <span class="relationship">supports</span><br><a href="https://encyclopediaofalabama.org/article/joe-louis/" target="_blank" rel="noreferrer">Lewis HJ. Joe Louis. Encyclopedia of Alabama</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>In 1969 he collapsed on a Manhattan street, shortly after a television interview in New York in late June, and was hospitalized for what was described as a physical breakdown; he later said that the collapse resulted from cocaine use.</strong><div class="muted">The anchor for the synthetic cocaine use disorder; recorded without blame.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.encyclopedia.com/people/sports-and-games/sports-biographies/joe-louis" target="_blank" rel="noreferrer">Decker E. Louis, Joe. Contemporary Black Biography (Gale), as reproduced by Encyclopedia.com</a> <span class="relationship">supports</span><br><a href="https://www.detroithistorical.org/learn/online-research/collection/photo/negative-film-931" target="_blank" rel="noreferrer">Negative of a print showing Billy Conn, Joe Louis and Joe Franklin, with AP wire caption (1969)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>In the same period he was troubled by fears of a plot against his life, which a reference biography calls paranoid delusions.</strong><div class="muted">The anchor for the synthetic presenting persecutory thoughts; the specific content reported in popular accounts is not used.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.encyclopedia.com/people/sports-and-games/sports-biographies/joe-louis" target="_blank" rel="noreferrer">Joe Louis. UXL Encyclopedia of World Biography (Gale), as reproduced by Encyclopedia.com</a> <span class="relationship">supports</span><br><a href="https://www.encyclopedia.com/people/sports-and-games/sports-biographies/joe-louis" target="_blank" rel="noreferrer">Decker E. Louis, Joe. Contemporary Black Biography (Gale), as reproduced by Encyclopedia.com</a> <span class="relationship">supports</span><br><a href="https://humanrecord.example.org/internal/HISTMED_Master_Roster_v3.xlsx" target="_blank" rel="noreferrer">HISTMED Master Roster v3</a> <span class="relationship">context</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>In 1970 he was hospitalized for about five months in Denver, Colorado, for paranoid delusions, described in his wire-service obituary as treatment of an emotional disorder at the Veterans Administration Hospital in Denver.</strong><div class="muted">History after the modern episode; the facility is named differently in different sources.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.encyclopedia.com/people/sports-and-games/sports-biographies/joe-louis" target="_blank" rel="noreferrer">Decker E. Louis, Joe. Contemporary Black Biography (Gale), as reproduced by Encyclopedia.com</a> <span class="relationship">supports</span><br><a href="https://www.upi.com/Archives/1981/04/12/Joe-Louis-dead-at-66/5775355899600/" target="_blank" rel="noreferrer">Joe Louis dead at 66 (United Press International, April 12, 1981)</a> <span class="relationship">supports</span><br><a href="https://www.encyclopedia.com/people/sports-and-games/sports-biographies/joe-louis" target="_blank" rel="noreferrer">Joe Louis. UXL Encyclopedia of World Biography (Gale), as reproduced by Encyclopedia.com</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-R" title="Retrospective">R</span></td>
+    <td><strong>Whether his symptoms in 1969 and 1970 amounted to a stimulant-induced psychosis, another psychotic illness, or a neurocognitive disorder after a long boxing career cannot be determined from the historical record.</strong><div class="muted">Retrospective interpretation; the modern diagnosis is synthetic and no historical diagnosis is assigned.</div></td>
+    <td>possible</td>
+    <td><a href="https://www.encyclopedia.com/people/sports-and-games/sports-biographies/joe-louis" target="_blank" rel="noreferrer">Decker E. Louis, Joe. Contemporary Black Biography (Gale), as reproduced by Encyclopedia.com</a> <span class="relationship">context</span><br><a href="https://humanrecord.example.org/internal/HISTMED_Master_Roster_v3.xlsx" target="_blank" rel="noreferrer">HISTMED Master Roster v3</a> <span class="relationship">context</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>In his later years he worked as an official greeter at Caesars Palace in Las Vegas.</strong><div class="muted">History after the modern episode.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.upi.com/Archives/1981/04/12/Joe-Louis-dead-at-66/5775355899600/" target="_blank" rel="noreferrer">Joe Louis dead at 66 (United Press International, April 12, 1981)</a> <span class="relationship">supports</span><br><a href="https://encyclopediaofalabama.org/article/joe-louis/" target="_blank" rel="noreferrer">Lewis HJ. Joe Louis. Encyclopedia of Alabama</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>In 1977 he had surgery with an arterial graft to correct an aortic aneurysm and afterwards used a wheelchair; he had strokes and heart problems in his last years and had a pacemaker implanted in Houston about five months before his death.</strong><div class="muted">History after the modern episode; it is not used to shape the modern findings.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.upi.com/Archives/1981/04/12/Joe-Louis-dead-at-66/5775355899600/" target="_blank" rel="noreferrer">Joe Louis dead at 66 (United Press International, April 12, 1981)</a> <span class="relationship">supports</span><br><a href="https://www.encyclopedia.com/people/sports-and-games/sports-biographies/joe-louis" target="_blank" rel="noreferrer">Decker E. Louis, Joe. Contemporary Black Biography (Gale), as reproduced by Encyclopedia.com</a> <span class="relationship">supports</span><br><a href="https://encyclopediaofalabama.org/article/joe-louis/" target="_blank" rel="noreferrer">Lewis HJ. Joe Louis. Encyclopedia of Alabama</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>He died of cardiac arrest on April 12, 1981, at 66, after collapsing at his home in the Las Vegas area, and was buried with full military honors at Arlington National Cemetery.</strong><div class="muted">History only, recorded in one plain sentence; one source gives a heart attack.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.upi.com/Archives/1981/04/12/Joe-Louis-dead-at-66/5775355899600/" target="_blank" rel="noreferrer">Joe Louis dead at 66 (United Press International, April 12, 1981)</a> <span class="relationship">supports</span><br><a href="https://www.encyclopedia.com/people/sports-and-games/sports-biographies/joe-louis" target="_blank" rel="noreferrer">Decker E. Louis, Joe. Contemporary Black Biography (Gale), as reproduced by Encyclopedia.com</a> <span class="relationship">supports</span><br><a href="https://encyclopediaofalabama.org/article/joe-louis/" target="_blank" rel="noreferrer">Lewis HJ. Joe Louis. Encyclopedia of Alabama</a> <span class="relationship">supports</span><br><a href="https://www.army.mil/article/121005/soldier_champ_joe_louis_sacrificed_much_for_his_country" target="_blank" rel="noreferrer">Bell TA. Soldier-Champ: Joe Louis sacrificed much for his country. U.S. Army, February 28, 2014</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>He won 68 of his 71 professional bouts, 54 by knockout.</strong><div class="muted">Anchors the long exposure to head impacts weighed in the modern cognitive assessment; no brain injury is claimed.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.upi.com/Archives/1981/04/12/Joe-Louis-dead-at-66/5775355899600/" target="_blank" rel="noreferrer">Joe Louis dead at 66 (United Press International, April 12, 1981)</a> <span class="relationship">supports</span></td>
+  </tr></tbody></table></section>
+    <section><h2>Modern synthetic problem list</h2><table><thead><tr><th>Grade</th><th>Problem</th><th>Clinical status</th><th>Verification</th><th>Placement</th><th>Historical claims</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Persecutory thoughts and poor sleep for about two months: a fixed belief that people are following him and plan to harm him, three to four hours of sleep a night, partial insight; cause under evaluation</td>
+    <td>resolved</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td>CLM-0006, CLM-0007</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Cocaine use disorder, severe (seven of eleven DSM-5-TR criteria): intranasal cocaine most days for about a year, last use three days before intake</td>
+    <td>resolved</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td>CLM-0006, CLM-0007</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Cocaine use disorder, severe, with cocaine-induced psychotic disorder (persecutory delusions during heavy use, persisting ten days after the last use, with no history of psychosis off cocaine, a normal examination and no evidence of a neurocognitive disorder); psychotic symptoms resolved within four weeks on aripiprazole</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>both_with_link</td>
+    <td>CLM-0006, CLM-0007</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Raised blood pressure at intake (154/98 mmHg) three days after cocaine use, without a diagnosis of hypertension; home readings planned</td>
+    <td>resolved</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Hypertension, stage 2, confirmed four weeks after the last cocaine use (clinic 146/92, home average 144/90 mmHg), with mild concentric left ventricular hypertrophy and a normal aortic root on echocardiography; treated with amlodipine</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Financial insecurity: years of tax debt from his time as a well-paid athlete, now settled, left him with no savings; irregular income from paid appearances; worry about money keeps him awake</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td>CLM-0005</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Acute viral upper respiratory infection (common cold) for three days; rapid tests negative for influenza and COVID-19; resolved within ten days without antibiotics</td>
+    <td>resolved</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td></td>
+  </tr></tbody></table></section>
+    <section><h2>Synthetic outcome measures</h2><table><thead><tr><th>Grade</th><th>Date</th><th>Measure</th><th>Result</th><th>Coding</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1969-07-13</td>
+    <td>Leukocytes [#/volume] in Blood by Automated count</td>
+    <td>7.6 10*3/uL<div class="muted">Reference 4-11 10*3/uL</div></td>
+    <td>http://loinc.org · 6690-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1969-07-13</td>
+    <td>Hemoglobin [Mass/volume] in Blood</td>
+    <td>14.8 g/dL<div class="muted">Reference 13.5-17.5 g/dL</div></td>
+    <td>http://loinc.org · 718-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1969-07-13</td>
+    <td>MCV [Entitic mean volume] in Red Blood Cells by Automated count</td>
+    <td>90 fL<div class="muted">Reference 80-100 fL</div></td>
+    <td>http://loinc.org · 787-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1969-07-13</td>
+    <td>Platelets [#/volume] in Blood by Automated count</td>
+    <td>236 10*3/uL<div class="muted">Reference 150-400 10*3/uL</div></td>
+    <td>http://loinc.org · 777-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1969-07-13</td>
+    <td>Sodium [Moles/volume] in Serum or Plasma</td>
+    <td>139 mmol/L<div class="muted">Reference 135-145 mmol/L</div></td>
+    <td>http://loinc.org · 2951-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1969-07-13</td>
+    <td>Potassium [Moles/volume] in Serum or Plasma</td>
+    <td>4.1 mmol/L<div class="muted">Reference 3.5-5.1 mmol/L</div></td>
+    <td>http://loinc.org · 2823-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1969-07-13</td>
+    <td>Creatinine [Mass/volume] in Serum or Plasma</td>
+    <td>1.16 mg/dL<div class="muted">Reference 0.74-1.35 mg/dL</div></td>
+    <td>http://loinc.org · 2160-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1969-07-13</td>
+    <td>Glomerular filtration rate [Volume Rate/Area] in Serum, Plasma or Blood by Creatinine-based formula (CKD-EPI 1964)/1.73 sq M</td>
+    <td>74 mL/min/1.73 m²<div class="muted">Reference &gt;=60 mL/min/1.73 m²</div></td>
+    <td>http://loinc.org · 98979-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1969-07-13</td>
+    <td>Glucose [Mass/volume] in Serum or Plasma</td>
+    <td>94 mg/dL<div class="muted">Reference 70-99 mg/dL</div></td>
+    <td>http://loinc.org · 2345-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1969-07-13</td>
+    <td>Aspartate aminotransferase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>29 U/L<div class="muted">Reference 10-40 U/L</div></td>
+    <td>http://loinc.org · 1920-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1969-07-13</td>
+    <td>Alanine aminotransferase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>33 U/L<div class="muted">Reference 7-56 U/L</div></td>
+    <td>http://loinc.org · 1742-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1969-07-13</td>
+    <td>Creatine kinase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>262 U/L<div class="muted">Reference 39-308 U/L</div></td>
+    <td>http://loinc.org · 2157-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1969-07-13</td>
+    <td>Thyrotropin [Units/volume] in Serum or Plasma</td>
+    <td>1.9 mIU/L<div class="muted">Reference 0.4-4.5 mIU/L</div></td>
+    <td>http://loinc.org · 3016-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1969-07-13</td>
+    <td>Cobalamin (Vitamin B12) [Mass/volume] in Serum or Plasma</td>
+    <td>486 pg/mL<div class="muted">Reference 200-900 pg/mL</div></td>
+    <td>http://loinc.org · 2132-9</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1969-07-13</td>
+    <td>Hemoglobin A1c/Hemoglobin.total in Blood</td>
+    <td>5.5%<div class="muted">Reference &lt;=5.6%</div></td>
+    <td>http://loinc.org · 4548-4</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1969-07-13</td>
+    <td>Total score [DAST-10]</td>
+    <td>7</td>
+    <td>http://loinc.org · 82667-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1969-07-13</td>
+    <td>Total score [AUDIT-C]</td>
+    <td>3</td>
+    <td>http://loinc.org · 75626-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1969-07-13</td>
+    <td>Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]</td>
+    <td>8</td>
+    <td>http://loinc.org · 44261-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1969-07-13</td>
+    <td>Generalized anxiety disorder 7 item (GAD-7) total score [Reported.PHQ]</td>
+    <td>9</td>
+    <td>http://loinc.org · 70274-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1969-07-13</td>
+    <td>Total score [MoCA]</td>
+    <td>25</td>
+    <td>http://loinc.org · 72172-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1969-07-20</td>
+    <td>Cholesterol [Mass/volume] in Serum or Plasma</td>
+    <td>204 mg/dL (high)<div class="muted">Reference &lt;=199 mg/dL</div></td>
+    <td>http://loinc.org · 2093-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1969-07-20</td>
+    <td>Cholesterol in HDL [Mass/volume] in Serum or Plasma</td>
+    <td>44 mg/dL<div class="muted">Reference &gt;=40 mg/dL</div></td>
+    <td>http://loinc.org · 2085-9</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1969-07-20</td>
+    <td>Cholesterol in LDL [Mass/volume] in Serum or Plasma by calculation</td>
+    <td>128 mg/dL (high)<div class="muted">Reference &lt;=99 mg/dL</div></td>
+    <td>http://loinc.org · 13457-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1969-07-20</td>
+    <td>Triglyceride [Mass/volume] in Serum or Plasma</td>
+    <td>160 mg/dL (high)<div class="muted">Reference &lt;=149 mg/dL</div></td>
+    <td>http://loinc.org · 2571-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1969-08-10</td>
+    <td>Albumin/Creatinine [Mass Ratio] in Urine</td>
+    <td>14 mg/g{creat}<div class="muted">Reference &lt;=29 mg/g{creat}</div></td>
+    <td>http://loinc.org · 9318-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1969-08-10</td>
+    <td>Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]</td>
+    <td>4</td>
+    <td>http://loinc.org · 44261-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1969-08-10</td>
+    <td>Generalized anxiety disorder 7 item (GAD-7) total score [Reported.PHQ]</td>
+    <td>5</td>
+    <td>http://loinc.org · 70274-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1969-09-21</td>
+    <td>Left ventricular Ejection fraction</td>
+    <td>60%<div class="muted">Reference 52-72%</div></td>
+    <td>http://loinc.org · 10230-1</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1969-09-21</td>
+    <td>Total score [MoCA]</td>
+    <td>27</td>
+    <td>http://loinc.org · 72172-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1969-09-21</td>
+    <td>Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]</td>
+    <td>3</td>
+    <td>http://loinc.org · 44261-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1969-10-26</td>
+    <td>Sodium [Moles/volume] in Serum or Plasma</td>
+    <td>140 mmol/L<div class="muted">Reference 135-145 mmol/L</div></td>
+    <td>http://loinc.org · 2951-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1969-10-26</td>
+    <td>Potassium [Moles/volume] in Serum or Plasma</td>
+    <td>4.3 mmol/L<div class="muted">Reference 3.5-5.1 mmol/L</div></td>
+    <td>http://loinc.org · 2823-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1969-10-26</td>
+    <td>Creatinine [Mass/volume] in Serum or Plasma</td>
+    <td>1.12 mg/dL<div class="muted">Reference 0.74-1.35 mg/dL</div></td>
+    <td>http://loinc.org · 2160-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1969-10-26</td>
+    <td>Glomerular filtration rate [Volume Rate/Area] in Serum, Plasma or Blood by Creatinine-based formula (CKD-EPI 1964)/1.73 sq M</td>
+    <td>78 mL/min/1.73 m²<div class="muted">Reference &gt;=60 mL/min/1.73 m²</div></td>
+    <td>http://loinc.org · 98979-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1969-10-26</td>
+    <td>Glucose [Mass/volume] in Serum or Plasma</td>
+    <td>92 mg/dL<div class="muted">Reference 70-99 mg/dL</div></td>
+    <td>http://loinc.org · 2345-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1969-10-26</td>
+    <td>Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]</td>
+    <td>3</td>
+    <td>http://loinc.org · 44261-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1969-10-26</td>
+    <td>Generalized anxiety disorder 7 item (GAD-7) total score [Reported.PHQ]</td>
+    <td>4</td>
+    <td>http://loinc.org · 70274-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1969-09-14</td>
+    <td>Prostate specific Ag [Mass/volume] in Serum or Plasma</td>
+    <td>1.3 ng/mL<div class="muted">Reference &lt;=4 ng/mL</div></td>
+    <td>http://loinc.org · 2857-1</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1969-09-14</td>
+    <td>Patient Health Questionnaire 2 item (PHQ-2) total score [Reported]</td>
+    <td>0</td>
+    <td>http://loinc.org · 55758-7</td>
+  </tr></tbody></table></section>
+    <section><h2>Synthetic vital signs</h2><table><thead><tr><th>Date</th><th>Measure</th><th>Result</th><th>LOINC</th><th>Grade</th></tr></thead><tbody>
+  <tr><td>1969-07-13</td><td>Body height</td><td>187 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1969-07-13</td><td>Body weight</td><td>101.2 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1969-07-13</td><td>Body mass index (BMI) [Ratio]</td><td>28.9 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1969-07-13</td><td>Systolic blood pressure</td><td>154 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1969-07-13</td><td>Diastolic blood pressure</td><td>98 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1969-07-13</td><td>Heart rate</td><td>102 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1969-07-13</td><td>Respiratory rate</td><td>16 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1969-07-13</td><td>Body temperature</td><td>36.9 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1969-07-13</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>98 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1969-07-20</td><td>Body height</td><td>187 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1969-07-20</td><td>Body weight</td><td>101 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1969-07-20</td><td>Body mass index (BMI) [Ratio]</td><td>28.9 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1969-07-20</td><td>Systolic blood pressure</td><td>148 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1969-07-20</td><td>Diastolic blood pressure</td><td>94 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1969-07-20</td><td>Heart rate</td><td>90 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1969-07-20</td><td>Respiratory rate</td><td>16 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1969-07-20</td><td>Body temperature</td><td>36.8 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1969-07-20</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>98 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1969-08-10</td><td>Body height</td><td>187 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1969-08-10</td><td>Body weight</td><td>101.8 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1969-08-10</td><td>Body mass index (BMI) [Ratio]</td><td>29.1 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1969-08-10</td><td>Systolic blood pressure</td><td>146 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1969-08-10</td><td>Diastolic blood pressure</td><td>92 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1969-08-10</td><td>Heart rate</td><td>82 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1969-08-10</td><td>Respiratory rate</td><td>16 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1969-08-10</td><td>Body temperature</td><td>36.7 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1969-08-10</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>98 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1969-09-21</td><td>Body height</td><td>187 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1969-09-21</td><td>Body weight</td><td>102.1 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1969-09-21</td><td>Body mass index (BMI) [Ratio]</td><td>29.2 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1969-09-21</td><td>Systolic blood pressure</td><td>130 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1969-09-21</td><td>Diastolic blood pressure</td><td>82 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1969-09-21</td><td>Heart rate</td><td>74 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1969-09-21</td><td>Respiratory rate</td><td>16 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1969-09-21</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1969-09-21</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>98 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1969-10-26</td><td>Body height</td><td>187 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1969-10-26</td><td>Body weight</td><td>101.6 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1969-10-26</td><td>Body mass index (BMI) [Ratio]</td><td>29.1 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1969-10-26</td><td>Systolic blood pressure</td><td>126 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1969-10-26</td><td>Diastolic blood pressure</td><td>78 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1969-10-26</td><td>Heart rate</td><td>72 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1969-10-26</td><td>Respiratory rate</td><td>16 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1969-10-26</td><td>Body temperature</td><td>36.7 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1969-10-26</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>98 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1969-09-14</td><td>Body height</td><td>187 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1969-09-14</td><td>Body weight</td><td>102 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1969-09-14</td><td>Body mass index (BMI) [Ratio]</td><td>29.2 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1969-09-14</td><td>Systolic blood pressure</td><td>132 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1969-09-14</td><td>Diastolic blood pressure</td><td>84 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1969-09-14</td><td>Heart rate</td><td>76 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1969-09-14</td><td>Respiratory rate</td><td>16 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1969-09-14</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1969-09-14</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>98 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1969-08-03</td><td>Body height</td><td>187 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1969-08-03</td><td>Body weight</td><td>101.4 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1969-08-03</td><td>Body mass index (BMI) [Ratio]</td><td>29 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1969-08-03</td><td>Systolic blood pressure</td><td>146 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1969-08-03</td><td>Diastolic blood pressure</td><td>92 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1969-08-03</td><td>Heart rate</td><td>90 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1969-08-03</td><td>Respiratory rate</td><td>16 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1969-08-03</td><td>Body temperature</td><td>37.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1969-08-03</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>98 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr></tbody></table></section>
+    <section><h2>Social, functional, and mental status</h2><h3>Social history</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Retired professional heavyweight boxer and former world champion; Army veteran of the Second World War; now earns an irregular income from paid public appearances</li><li><span class="badge grade-S" title="Synthetic">S</span> Married; lives with his wife in a rented apartment; asked at first that family not be contacted; no one else is named or given a role in this record</li><li><span class="badge grade-S" title="Synthetic">S</span> Cocaine: intranasal, most days for about a year, more when traveling for appearances, bought from different sellers; never injected; last use three days before intake. No opioids, no other drugs. Alcohol: a few drinks a week (AUDIT-C 3). Never smoked tobacco</li><li><span class="badge grade-S" title="Synthetic">S</span> Finances: a federal tax debt from his years as a champion followed him for many years and is now settled, but he has no savings, his income is irregular, and money worries keep him awake</li><li><span class="badge grade-S" title="Synthetic">S</span> No firearms in the home; drives himself</li><li><span class="badge grade-S" title="Synthetic">S</span> Strengths and supports: the discipline of a long athletic career, generosity toward others, pride in his Army service and in what his career meant to many people, a quiet dignity and humor, friends from boxing and the Army, and his own decision to come in after the collapse</li></ul><h3>Functional status</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Independent in all activities; has cancelled several appearances in the past month because of fear and fatigue</li></ul><h3>Mental status</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Alert and oriented; courteous and watchful, sitting where he can see the door; speech normal in rate; mood worried and tired; a fixed belief that people are following him and plan to harm him, with partial insight (he wonders aloud whether the cocaine is part of it); no hallucinations; no thoughts of harming himself or anyone else; no confusion; MoCA 25 with points lost on attention and delayed recall after three hours of sleep</li></ul></section>
+    <section><h2>Structured safety assessment</h2><div class="grid"><div class="card"><div class="label">Current ideation</div>absent</div><div class="card"><div class="label">Intent</div>absent</div><div class="card"><div class="label">Plan</div>absent</div><div class="card"><div class="label">Disposition</div>Outpatient care with weekly visits and a phone check in three days. He has persecutory beliefs but no thoughts of suicide or of harming anyone, no command hallucinations, no plan to act against the people he fears, and he is caring for himself, so he does not need hospital care now; criteria for urgent care were written down with him (thoughts of harming himself or anyone else, acting on the fears, hallucinations, confusion, chest pain or not sleeping at all for two nights). Risk factors reviewed: cocaine use, persecutory beliefs, poor sleep, money worries and a recent collapse. No firearms in the home. A written safety plan was made with him, and the 988 Suicide &amp; Crisis Lifeline (call or text 988) was saved in his phone. Safety is reviewed at every visit</div></div><p class="muted">This assessment is synthetic and does not convert historical behavior into a present-day fact.</p></section>
+    <section><h2>Allergies and medications</h2><h3>Allergies</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> No known allergy</li></ul><h3>Medications</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Naloxone 4 mg nasal spray, one spray into one nostril for a suspected opioid overdose, repeated every two to three minutes in the other nostril if needed; two-pack dispensed, with fentanyl test strips and instruction for him and anyone he lives with</li><li><span class="badge grade-S" title="Synthetic">S</span> Aripiprazole 5 mg oral tablet, one tablet each morning</li><li><span class="badge grade-S" title="Synthetic">S</span> Aripiprazole 2 mg oral tablet, one tablet each morning for two weeks, then stop</li><li><span class="badge grade-S" title="Synthetic">S</span> Amlodipine 5 mg oral tablet, one tablet daily</li><li><span class="badge grade-S" title="Synthetic">S</span> Sodium chloride 0.65% nasal spray, two sprays in each nostril as needed for congestion</li><li><span class="badge grade-S" title="Synthetic">S</span> Acetaminophen 500 mg oral tablet, one or two tablets every 6 hours as needed for sore throat or aches, no more than 3,000 mg a day</li></ul></section>
+    <section><h2>Procedures and immunizations</h2><h3>Procedures</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Resting 12-lead electrocardiogram: sinus tachycardia at 102 per minute, left ventricular hypertrophy by voltage criteria, no ischemic changes, QTc 436 ms</li><li><span class="badge grade-S" title="Synthetic">S</span> MRI of the brain without contrast: no contusion, microbleeds or mass; brain volume normal for age</li><li><span class="badge grade-S" title="Synthetic">S</span> Transthoracic echocardiogram: ejection fraction 60%, mild concentric left ventricular hypertrophy, normal valves, aortic root 3.6 cm and ascending aorta 3.5 cm</li><li><span class="badge grade-S" title="Synthetic">S</span> Advance care planning conversation, about 18 minutes</li></ul><h3>Immunizations</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> 1969-09-14: Influenza vaccine, standard dose, for the coming season</li><li><span class="badge grade-S" title="Synthetic">S</span> 1969-09-14: Tdap vaccine; last tetanus booster more than ten years ago</li><li><span class="badge grade-S" title="Synthetic">S</span> 1969-09-14: Pneumococcal conjugate vaccine (PCV20), recommended for all adults aged 50 and older</li><li><span class="badge grade-S" title="Synthetic">S</span> 1969-09-14: Hepatitis B vaccine (HepB-CpG), first of two doses; not immune at intake</li><li><span class="badge grade-S" title="Synthetic">S</span> 1969-09-14: Hepatitis A vaccine, adult, first of two doses, recommended for people who use drugs</li><li><span class="badge grade-S" title="Synthetic">S</span> 1969-10-26: Hepatitis B vaccine (HepB-CpG), second of two doses</li><li><span class="badge grade-S" title="Synthetic">S</span> 1969-10-26: Recombinant zoster vaccine, first of two doses</li></ul></section>
+    <section><h2>Past medical history</h2><p class="muted">True biography with historical dates; not part of the synthetic care timeline.</p><ul><li><span class="badge grade-D" title="Documented">D</span> 1930s to 1940s: Professional boxing career of 71 bouts, 68 won and 54 by knockout, with the heavyweight championship held from 1937 until he retired as champion in 1949 <span class="muted">(CLM-0003, CLM-0013)</span></li><li><span class="badge grade-D" title="Documented">D</span> 1942 to 1945: U.S. Army service in the Second World War <span class="muted">(CLM-0004)</span></li><li><span class="badge grade-D" title="Documented">D</span> late June 1969: Collapse on a street in New York, hospitalized for what was described as a physical breakdown; he later attributed it to cocaine use <span class="muted">(CLM-0006)</span></li></ul><h3>Family history</h3><p class="muted">No family medical history is documented in the logged sources. Family history of real relatives is never synthesized.</p></section>
+    <section><h2>Care-plan goals</h2><table><thead><tr><th>Goal</th><th>Target date</th><th>Status</th><th>Outcome</th></tr></thead><tbody>
+  <tr><td>Persecutory fears gone and six or more hours of sleep</td><td>1969-08-10</td><td>completed</td><td>No persecutory beliefs by four weeks; sleeping six to seven hours</td></tr>
+  <tr><td>No cocaine use, his goal, with contingency management and cognitive behavioral therapy</td><td>1969-10-26</td><td>active</td><td>No use for six weeks, one day of use at week seven reported by him, none since; 22 of 24 scheduled urine tests done, 21 negative</td></tr>
+  <tr><td>Blood pressure below 130/80 mmHg</td><td>1969-10-26</td><td>completed</td><td>154/98 at intake, 146/92 at diagnosis, 126/78 on amlodipine</td></tr>
+  <tr><td>A clear answer about his memory and thinking once he is well</td><td>1969-09-21</td><td>completed</td><td>MoCA 25 during symptoms, 27 after ten weeks; brain MRI normal; no neurocognitive disorder</td></tr>
+  <tr><td>A plan for money that lets him sleep</td><td>1969-10-26</td><td>completed</td><td>Budget made with the social worker; a free tax clinic review confirmed no money owed; benefits checked</td></tr></tbody></table></section>
+    <section><h2>Interventions</h2><table><thead><tr><th>Intervention</th><th>Status</th><th>Guideline</th></tr></thead><tbody>
+  <tr><td>A nonjudgmental assessment: DSM-5-TR criteria, the DAST-10 and AUDIT-C, and a urine drug test (with fentanyl) done only with his consent and explained as part of care; person-first language; his own goals first</td><td>completed</td><td>GL-ASAM-STUD-2023, GL-SAMHSA-TIP33-2021, GL-USPSTF-DRUG-2020</td></tr>
+  <tr><td>Addiction psychiatry consultation to settle the diagnosis, advise on an antipsychotic and plan treatment for cocaine use disorder</td><td>completed</td><td>GL-ASAM-STUD-2023, GL-APA-SCZ-2020</td></tr>
+  <tr><td>Differential diagnosis of the psychotic symptoms: follow their course after the last cocaine use; MoCA now and again when he is well; TSH, vitamin B12, HIV and syphilis tests; brain MRI because the symptoms are new after age 50 in a man with years of head impacts; traumatic encephalopathy syndrome is a research diagnosis with no clinical test, and no such label is given; a structured assessment that guards against the documented bias toward diagnosing schizophrenia in Black men</td><td>completed</td><td>GL-APA-SCZ-2020, GL-TES-2021, GL-DISPARITY-2014</td></tr>
+  <tr><td>Safety: a structured safety assessment, a written safety plan, the 988 Suicide &amp; Crisis Lifeline saved in his phone, written criteria for urgent care, and safety review at every visit</td><td>completed</td><td>GL-SUICIDE-2024, GL-CMID-2026</td></tr>
+  <tr><td>Harm reduction: fentanyl can be in cocaine; naloxone nasal spray and fentanyl test strips, never using alone, and the clinic&#39;s open door after any use</td><td>completed</td><td>GL-ASAM-STUD-2023, GL-SAMHSA-NALOXONE</td></tr>
+  <tr><td>Aripiprazole 5 mg daily for persecutory beliefs that persist after ten days without cocaine; weight, blood pressure, glucose and lipids, akathisia and movement checks under the APA guideline; a gradual taper after a period of remission</td><td>completed</td><td>GL-APA-SCZ-2020, GL-ASAM-STUD-2023</td></tr>
+  <tr><td>Contingency management with twice-weekly urine tests for twelve weeks and prize draws for negative results, with weekly cognitive behavioral therapy; no medicine is approved by the FDA for cocaine use disorder, and off-label medicines are held back while he does well, since the stimulant-based ones are unsafe after psychosis and with high blood pressure</td><td>completed</td><td>GL-ASAM-STUD-2023, GL-SAMHSA-TIP33-2021</td></tr>
+  <tr><td>Cardiovascular risk from cocaine: ECG and creatine kinase today; blood pressure at every visit and a home monitor with twice-daily readings for a week before the four-week visit; call 911 for chest pain, shortness of breath, weakness or tearing pain in the chest or back; beta-blockers avoided while he may still use cocaine</td><td>completed</td><td>GL-ASAM-STUD-2023, GL-AHA-HTN-2025</td></tr>
+  <tr><td>Hypertension: amlodipine 5 mg daily with a target below 130/80 mmHg; urine albumin; an echocardiogram for left ventricular hypertrophy that also measures the aortic root and ascending aorta; abdominal aortic ultrasound not indicated before 65 in a man who has never smoked</td><td>completed</td><td>GL-AHA-HTN-2025, GL-CMID-2026, GL-USPSTF-AAA-2019</td></tr>
+  <tr><td>Money worries: the clinic social worker helps with a budget, benefits he may qualify for as a veteran, and a free review of his tax records by a Low Income Taxpayer Clinic, with the Taxpayer Advocate Service if any federal tax problem is found</td><td>completed</td><td>GL-LITC, GL-TAS</td></tr>
+  <tr><td>Family involvement only with his consent: he chooses whom, if anyone, to involve and what may be shared; the clinic contacts no one without his permission unless his life is in danger</td><td>completed</td><td>GL-APA-SCZ-2020</td></tr>
+  <tr><td>Sleep: regular hours, no cocaine and little alcohol, light in the morning and a dark room at night; no sleeping pill while he may use cocaine or alcohol</td><td>completed</td><td>GL-ASAM-STUD-2023</td></tr></tbody></table></section>
+    <section><h2>Planned encounters</h2><ul>
+  <li><strong>1969-07-13</strong> — Establishing primary care for persecutory thoughts and poor sleep two weeks after a collapse in the street: a nonjudgmental assessment of cocaine use, the differential of psychosis, a cognitive screen, safety, cardiovascular risk, harm reduction and money worries <span class="muted">(ENC-001)</span></li>
+  <li><strong>1969-07-20</strong> — One-week review, seen the same day by addiction psychiatry: the diagnosis, an antipsychotic, contingency management and cognitive behavioral therapy <span class="muted">(ENC-002)</span></li>
+  <li><strong>1969-08-03</strong> — Same-day sick visit for a cold <span class="muted">(ENC-007, unscheduled)</span></li>
+  <li><strong>1969-08-10</strong> — Four-week review: psychotic symptoms, urine tests, blood pressure and a diagnosis of hypertension <span class="muted">(ENC-003)</span></li>
+  <li><strong>1969-09-14</strong> — Periodic adult preventive visit <span class="muted">(ENC-006)</span></li>
+  <li><strong>1969-09-21</strong> — Ten-week review: remission, the antipsychotic taper, cognition off cocaine, the echocardiogram and a one-day return to use <span class="muted">(ENC-004)</span></li>
+  <li><strong>1969-10-26</strong> — Fifteen-week review off the antipsychotic: recovery, blood pressure and finances <span class="muted">(ENC-005)</span></li></ul></section>
+    <section><h2>Supporting documents</h2><ul><li><a href="notes/hp.md">History and physical</a></li><li><a href="notes/progress-01.md">Progress note 01</a></li><li><a href="notes/progress-02.md">Progress note 02 — Focused Visit (Follow-up)</a></li><li><a href="notes/progress-03.md">Progress note 03 — Sick Visit</a></li><li><a href="notes/progress-04.md">Progress note 04 — Focused Visit (Follow-up)</a></li><li><a href="notes/progress-05.md">Progress note 05 — Preventive Visit</a></li><li><a href="notes/progress-06.md">Progress note 06 — Focused Visit (Follow-up)</a></li><li><a href="notes/progress-07.md">Progress note 07 — Focused Visit (Care-plan review)</a></li><li><a href="notes/referral-01.md">Addiction Psychiatry referral</a></li><li><a href="notes/consult-01.md">Addiction Psychiatry consultation</a></li><li><a href="notes/careplan.md">Patient care plan</a></li><li><a href="notes/teaching-note.md">Teaching note</a></li><li><a href="provenance.csv">Provenance CSV</a></li></ul></section>
+    <section><h2>C-CDA note documents</h2><p class="muted">Each link opens a readable copy; the XML beside it is the exchange file.</p><ul><li><a href="ccda/hp-01.html">History and physical</a> <a href="ccda/hp-01.xml">(XML)</a></li><li><a href="ccda/progress-01.html">Progress note 01</a> <a href="ccda/progress-01.xml">(XML)</a></li><li><a href="ccda/progress-02.html">Progress note 02 — Focused Visit (Follow-up)</a> <a href="ccda/progress-02.xml">(XML)</a></li><li><a href="ccda/progress-03.html">Progress note 03 — Sick Visit</a> <a href="ccda/progress-03.xml">(XML)</a></li><li><a href="ccda/progress-04.html">Progress note 04 — Focused Visit (Follow-up)</a> <a href="ccda/progress-04.xml">(XML)</a></li><li><a href="ccda/progress-05.html">Progress note 05 — Preventive Visit</a> <a href="ccda/progress-05.xml">(XML)</a></li><li><a href="ccda/progress-06.html">Progress note 06 — Focused Visit (Follow-up)</a> <a href="ccda/progress-06.xml">(XML)</a></li><li><a href="ccda/progress-07.html">Progress note 07 — Focused Visit (Care-plan review)</a> <a href="ccda/progress-07.xml">(XML)</a></li><li><a href="ccda/referral-01.html">Addiction Psychiatry referral</a> <a href="ccda/referral-01.xml">(XML)</a></li><li><a href="ccda/consult-01.html">Addiction Psychiatry consultation</a> <a href="ccda/consult-01.xml">(XML)</a></li></ul></section>
+    <section><h2>Sources</h2><table><thead><tr><th>ID</th><th>Source</th><th>Publisher</th><th>Type</th></tr></thead><tbody>
+  <tr>
+    <td>SRC-0001</td>
+    <td><a href="https://www.upi.com/Archives/1981/04/12/Joe-Louis-dead-at-66/5775355899600/" target="_blank" rel="noreferrer">Joe Louis dead at 66 (United Press International, April 12, 1981)</a></td>
+    <td>United Press International</td>
+    <td>primary</td>
+  </tr>
+  <tr>
+    <td>SRC-0002</td>
+    <td><a href="https://encyclopediaofalabama.org/article/joe-louis/" target="_blank" rel="noreferrer">Lewis HJ. Joe Louis. Encyclopedia of Alabama</a></td>
+    <td>Alabama Humanities Alliance and Auburn University (Encyclopedia of Alabama)</td>
+    <td>biography</td>
+  </tr>
+  <tr>
+    <td>SRC-0003</td>
+    <td><a href="https://www.encyclopedia.com/people/sports-and-games/sports-biographies/joe-louis" target="_blank" rel="noreferrer">Decker E. Louis, Joe. Contemporary Black Biography (Gale), as reproduced by Encyclopedia.com</a></td>
+    <td>Gale; Encyclopedia.com</td>
+    <td>biography</td>
+  </tr>
+  <tr>
+    <td>SRC-0004</td>
+    <td><a href="https://www.encyclopedia.com/people/sports-and-games/sports-biographies/joe-louis" target="_blank" rel="noreferrer">Joe Louis. UXL Encyclopedia of World Biography (Gale), as reproduced by Encyclopedia.com</a></td>
+    <td>Gale; Encyclopedia.com</td>
+    <td>biography</td>
+  </tr>
+  <tr>
+    <td>SRC-0005</td>
+    <td><a href="https://www.army.mil/article/121005/soldier_champ_joe_louis_sacrificed_much_for_his_country" target="_blank" rel="noreferrer">Bell TA. Soldier-Champ: Joe Louis sacrificed much for his country. U.S. Army, February 28, 2014</a></td>
+    <td>United States Army</td>
+    <td>government</td>
+  </tr>
+  <tr>
+    <td>SRC-0006</td>
+    <td><a href="https://www.detroithistorical.org/learn/online-research/collection/photo/negative-film-931" target="_blank" rel="noreferrer">Negative of a print showing Billy Conn, Joe Louis and Joe Franklin, with AP wire caption (1969)</a></td>
+    <td>Detroit Historical Society</td>
+    <td>primary</td>
+  </tr>
+  <tr>
+    <td>SRC-0007</td>
+    <td><a href="https://humanrecord.example.org/internal/HISTMED_Master_Roster_v3.xlsx" target="_blank" rel="noreferrer">HISTMED Master Roster v3</a></td>
+    <td>The Human Record project</td>
+    <td>other</td>
+  </tr></tbody></table></section>
+    <section><h2>Review status</h2><table><thead><tr><th>Review</th><th>Status</th><th>Notes</th></tr></thead><tbody>
+  <tr><td>schema validation</td><td>not_started</td><td>Run scripts/build.ps1 -Conformance.</td></tr>
+  <tr><td>clinical review</td><td>not_started</td><td>Awaiting clinician review; check outpatient care for persecutory beliefs without suicidal or homicidal ideation, the timing of aripiprazole at ten days after the last use and its taper after six weeks of remission, the differential with a brain MRI and the MoCA, contingency management without medicine, naloxone for a person who uses cocaine, amlodipine for stage 2 hypertension after cocaine use, the echocardiogram measuring the aortic root, and the decongestant advice at the sick visit.</td></tr>
+  <tr><td>provenance review</td><td>not_started</td><td>Sources: the UPI obituary (1981), the Encyclopedia of Alabama, Contemporary Black Biography and the UXL Encyclopedia of World Biography as reproduced by Encyclopedia.com, a U.S. Army article (2014) and a Detroit Historical Society photo record. The New York Times obituary, the International Boxing Hall of Fame and the Smithsonian NMAAHC pages could not be fetched; Randy Roberts&#39;s biography was not read. The roster&#39;s specific persecutory content and its cognitive decline lead are not used.</td></tr>
+  <tr><td>safe messaging review</td><td>not_started</td><td>Substance use and psychiatric claims are marked sensitive and recorded plainly, once each, without sensational detail; person-first language; cocaine use is described without blame. No relative is named in the modern episode, and family is involved only with his consent. The safety assessment gives the 988 Suicide &amp; Crisis Lifeline.</td></tr></tbody></table></section>
+  </main>
+</body>
+</html>

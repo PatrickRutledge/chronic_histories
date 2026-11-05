@@ -1,0 +1,695 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Jackie Robinson — The Human Record</title>
+  <style>
+    :root { --navy:#17365d; --blue:#1f4e78; --pale:#eef5fa; --ink:#1f2933; --muted:#66788a; --amber:#fff2cc; --red:#f8d7da; --green:#d9ead3; }
+    * { box-sizing:border-box; }
+    body { margin:0; font:16px/1.5 Arial, sans-serif; color:var(--ink); background:#f6f8fa; }
+    header { background:var(--navy); color:white; padding:24px max(24px,calc((100vw - 1180px)/2)); }
+    header h1 { margin:4px 0; font-size:30px; }
+    .banner { background:#b42318; color:white; font-weight:700; text-align:center; padding:10px; letter-spacing:.03em; }
+    main { max-width:1180px; margin:24px auto 60px; padding:0 24px; }
+    section { background:white; border:1px solid #d9e1e8; border-radius:8px; margin:18px 0; padding:20px; }
+    h2 { color:var(--navy); margin:0 0 14px; font-size:22px; }
+    h3 { color:var(--blue); }
+    .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:12px; }
+    .card { background:var(--pale); border-left:4px solid var(--blue); padding:12px; }
+    .label { color:var(--muted); font-size:13px; text-transform:uppercase; letter-spacing:.04em; }
+    table { width:100%; border-collapse:collapse; }
+    th { background:var(--blue); color:white; text-align:left; }
+    th,td { padding:9px; border-bottom:1px solid #dfe6ec; vertical-align:top; }
+    .badge { display:inline-block; min-width:28px; text-align:center; font-weight:700; border-radius:12px; padding:2px 8px; }
+    .grade-D { background:var(--green); } .grade-R { background:var(--amber); } .grade-S { background:var(--red); }
+    .muted { color:var(--muted); font-size:14px; }
+    .relationship { color:var(--muted); font-size:12px; }
+    .downloads a { display:inline-block; margin:4px 8px 4px 0; padding:8px 12px; background:var(--blue); color:white; text-decoration:none; border-radius:5px; }
+    @media (max-width:700px) { table { display:block; overflow-x:auto; } }
+  </style>
+</head>
+<body>
+  <div class="banner">SYNTHETIC RECORD, NOT A REAL MEDICAL RECORD</div>
+  <div class="banner">True-date frame: synthetic events are moved into the patient&#39;s historical lifetime. Codes, instruments, and treatments remain modern and are anachronistic.</div>
+  <header>
+    <div>The Human Record</div>
+    <h1>Jackie Robinson</h1>
+    <div>Case HR-ML037-TD · Modern EHR teaching episode · Draft for review</div>
+  </header>
+  <main>
+    <section>
+      <h2>Review summary</h2>
+      <div class="grid">
+        <div class="card"><div class="label">Historical dates</div>January 31, 1919 – October 24, 1972</div>
+        <div class="card"><div class="label">Synthetic DOB</div>1919-01-31</div>
+        <div class="card"><div class="label">Index visit</div>1971-07-27 at age 52</div>
+        <div class="card"><div class="label">Synthetic MRN</div>HR-ML037-SYN-TD</div>
+      </div>
+      <p><strong>Teaching objective:</strong> Sight-, heart-, limb- and kidney-protecting care for a 52-year-old Black man with long-standing type 2 diabetes who comes in with blurred vision six weeks after the death of his son. The episode covers urgent retina care for proliferative diabetic retinopathy with macular edema and a vitreous hemorrhage (dilated examination, OCT, intravitreal anti-VEGF injections and panretinal photocoagulation, as the AAO Preferred Practice Pattern describes); lowering glucose steadily rather than quickly, with the early worsening of retinopathy after rapid A1c falls and after semaglutide explained and a GLP-1 receptor agonist started only after the retina is stable; an SGLT2 inhibitor for heart and kidney protection; a high-intensity statin with ezetimibe; blood pressure and kidney care; coronary disease found through exertional chest tightness; the ankle-brachial index, foot examination and wound care for a neuropathic heel blister; low-vision services and diabetes tools he can use with poor sight; depression screening and grief support; and the equity of care for a Black man with diabetes complications, under the ADA Standards of Care 1971, the AAO Diabetic Retinopathy Preferred Practice Pattern 1970, the 1969 ACC/AHA PAD and 1968 chronic coronary disease guidelines, and the CMID monographs.</p>
+      <div class="downloads">
+        <a href="../case.json">Canonical JSON</a>
+        <a href="fhir-bundle.json">FHIR R4 draft</a>
+        <a href="ccda.html">C-CDA R2.1 summary</a> <a href="ccda.xml">(XML)</a>
+        <a href="../sources.md">Evidence dossier</a>
+      </div>
+    </section>
+    <section><h2>Historical timeline</h2><table><thead><tr><th>Date</th><th>Event</th><th>Claims</th></tr></thead><tbody>
+  <tr><td>January 31, 1919</td><td>Born in Cairo, Georgia.</td><td>CLM-0001</td></tr>
+  <tr><td>April 15, 1947</td><td>First major league game, for the Brooklyn Dodgers.</td><td>CLM-0002</td></tr>
+  <tr><td>1957</td><td>Retirement from baseball announced; diabetes diagnosed at about this time.</td><td>CLM-0003, CLM-0005</td></tr>
+  <tr><td>1969</td><td>Nerve and artery damage in his legs by this year.</td><td>CLM-0006</td></tr>
+  <tr><td>1970</td><td>Two mild strokes.</td><td>CLM-0007</td></tr>
+  <tr><td>June 17, 1971</td><td>His eldest son killed in an automobile accident.</td><td>CLM-0011</td></tr>
+  <tr><td>1972</td><td>Nearly blind, walking with a cane, grieving the deaths of his mentor, mother and son.</td><td>CLM-0008, CLM-0009, CLM-0012</td></tr>
+  <tr><td>October 24, 1972</td><td>Died of a heart attack at his home in Stamford, Connecticut, at 53.</td><td>CLM-0013, CLM-0010, CLM-0004</td></tr></tbody></table></section>
+    <section><h2>Evidence claims</h2><p class="muted">D = documented, R = retrospective, S = synthetic.</p><table><thead><tr><th>Grade</th><th>Claim</th><th>Certainty</th><th>Sources</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>Jackie Robinson was born on January 31, 1919, in Cairo, Georgia, to a family of sharecroppers.</strong></td>
+    <td>confirmed</td>
+    <td><a href="https://sabr.org/bioproj/person/jackie-robinson/" target="_blank" rel="noreferrer">Swaine R. Jackie Robinson (SABR BioProject)</a> <span class="relationship">supports</span><br><a href="https://www.leginfo.ca.gov/pub/15-16/bill/asm/ab_0151-0200/acr_197_bill_20160901_chaptered.htm" target="_blank" rel="noreferrer">Assembly Concurrent Resolution No. 197, relative to Jackie Robinson Day (chaptered)</a> <span class="relationship">supports</span><br><a href="https://humanrecord.example.org/internal/HISTMED_Master_Roster_v3.xlsx" target="_blank" rel="noreferrer">HISTMED Master Roster v3</a> <span class="relationship">context</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>On April 15, 1947, he played his first major league game for the Brooklyn Dodgers, ending more than sixty years of segregation in major league baseball.</strong><div class="muted">Anchors his identity and his long experience of public pressure in the modern social history.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://sabr.org/bioproj/person/jackie-robinson/" target="_blank" rel="noreferrer">Swaine R. Jackie Robinson (SABR BioProject)</a> <span class="relationship">supports</span><br><a href="https://www.leginfo.ca.gov/pub/15-16/bill/asm/ab_0151-0200/acr_197_bill_20160901_chaptered.htm" target="_blank" rel="noreferrer">Assembly Concurrent Resolution No. 197, relative to Jackie Robinson Day (chaptered)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>His retirement from baseball was announced in January 1957; he then worked in business and as a spokesman and fundraiser for civil rights causes, including the NAACP.</strong><div class="muted">Anchors his later working life in the modern social history.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://sabr.org/bioproj/person/jackie-robinson/" target="_blank" rel="noreferrer">Swaine R. Jackie Robinson (SABR BioProject)</a> <span class="relationship">supports</span><br><a href="https://www.mlb.com/dodgers/history/jackie-robinson/timeline-1950" target="_blank" rel="noreferrer">Jackie Robinson Timeline 1950-1979</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>He had diabetes and high blood pressure; his death is attributed to heart problems and complications of diabetes.</strong><div class="muted">The anchor for the modern diabetes, hypertension and cardiovascular risk. The type and treatment of his diabetes are not given in the sources consulted.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.archives.gov/education/lessons/jackie-robinson/letter-1972.html" target="_blank" rel="noreferrer">Teaching With Documents: Letter from Jackie Robinson to Roland L. Elliott, April 20, 1972</a> <span class="relationship">supports</span><br><a href="https://www.universityofcalifornia.edu/news/did-racism-kill-jackie-robinson" target="_blank" rel="noreferrer">Loeb TB, Morehead-Gee A, Novacek D. Did racism kill Jackie Robinson? (UCLA, republished from The Conversation)</a> <span class="relationship">supports</span><br><a href="https://www.leginfo.ca.gov/pub/15-16/bill/asm/ab_0151-0200/acr_197_bill_20160901_chaptered.htm" target="_blank" rel="noreferrer">Assembly Concurrent Resolution No. 197, relative to Jackie Robinson Day (chaptered)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>He was diagnosed with diabetes at about 37, around the time he retired from baseball, and at first kept it private; two of his brothers also had diabetes.</strong><div class="muted">Anchors the long duration of diabetes and the family history. Other accounts give other years, and one source says he acknowledged it only a few years after retiring.</div></td>
+    <td>probable</td>
+    <td><a href="https://www.universityofcalifornia.edu/news/did-racism-kill-jackie-robinson" target="_blank" rel="noreferrer">Loeb TB, Morehead-Gee A, Novacek D. Did racism kill Jackie Robinson? (UCLA, republished from The Conversation)</a> <span class="relationship">supports</span><br><a href="https://sabr.org/bioproj/person/jackie-robinson/" target="_blank" rel="noreferrer">Swaine R. Jackie Robinson (SABR BioProject)</a> <span class="relationship">context</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>By 1969, at 50, he had nerve and artery damage in his legs.</strong><div class="muted">Anchors the modern peripheral artery disease and neuropathy. Single source.</div></td>
+    <td>probable</td>
+    <td><a href="https://www.universityofcalifornia.edu/news/did-racism-kill-jackie-robinson" target="_blank" rel="noreferrer">Loeb TB, Morehead-Gee A, Novacek D. Did racism kill Jackie Robinson? (UCLA, republished from The Conversation)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>In 1970 he had two mild strokes.</strong><div class="muted">Anchors the history of stroke in the modern record. Single source.</div></td>
+    <td>probable</td>
+    <td><a href="https://www.universityofcalifornia.edu/news/did-racism-kill-jackie-robinson" target="_blank" rel="noreferrer">Loeb TB, Morehead-Gee A, Novacek D. Did racism kill Jackie Robinson? (UCLA, republished from The Conversation)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>He lost the sight of one eye and had limited vision in the other; by 1972 he had nearly lost his sight and needed a cane to walk.</strong><div class="muted">The anchor for the modern vision-threatening retinopathy. The sources do not date the loss of each eye.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.universityofcalifornia.edu/news/did-racism-kill-jackie-robinson" target="_blank" rel="noreferrer">Loeb TB, Morehead-Gee A, Novacek D. Did racism kill Jackie Robinson? (UCLA, republished from The Conversation)</a> <span class="relationship">supports</span><br><a href="https://www.archives.gov/education/lessons/jackie-robinson/letter-1972.html" target="_blank" rel="noreferrer">Teaching With Documents: Letter from Jackie Robinson to Roland L. Elliott, April 20, 1972</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-R" title="Retrospective">R</span></td>
+    <td><strong>His loss of vision was most likely caused by diabetic retinopathy; the sources attribute his near-blindness to diabetes and its complications without naming the eye disease.</strong><div class="muted">Retrospective interpretation. The grade of retinopathy, macular edema and the hemorrhage in the modern episode are synthetic.</div></td>
+    <td>probable</td>
+    <td><a href="https://www.universityofcalifornia.edu/news/did-racism-kill-jackie-robinson" target="_blank" rel="noreferrer">Loeb TB, Morehead-Gee A, Novacek D. Did racism kill Jackie Robinson? (UCLA, republished from The Conversation)</a> <span class="relationship">derived_from</span><br><a href="https://www.archives.gov/education/lessons/jackie-robinson/letter-1972.html" target="_blank" rel="noreferrer">Teaching With Documents: Letter from Jackie Robinson to Roland L. Elliott, April 20, 1972</a> <span class="relationship">derived_from</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>He had several heart attacks; one account counts three, the third of which was fatal. The dates of the earlier ones are not given.</strong><div class="muted">Anchors the modern coronary artery disease. Because the earlier heart attacks are not dated, the modern episode records no prior heart attack.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.universityofcalifornia.edu/news/did-racism-kill-jackie-robinson" target="_blank" rel="noreferrer">Loeb TB, Morehead-Gee A, Novacek D. Did racism kill Jackie Robinson? (UCLA, republished from The Conversation)</a> <span class="relationship">supports</span><br><a href="https://www.archives.gov/education/lessons/jackie-robinson/letter-1972.html" target="_blank" rel="noreferrer">Teaching With Documents: Letter from Jackie Robinson to Roland L. Elliott, April 20, 1972</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>His eldest son, Jackie Robinson Jr., was killed in an automobile accident on June 17, 1971, at 24.</strong><div class="muted">Anchors the bereavement in the modern episode, which begins six weeks later. Circumstances beyond the accident are not used.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.mlb.com/dodgers/history/jackie-robinson/timeline-1950" target="_blank" rel="noreferrer">Jackie Robinson Timeline 1950-1979</a> <span class="relationship">supports</span><br><a href="https://www.leginfo.ca.gov/pub/15-16/bill/asm/ab_0151-0200/acr_197_bill_20160901_chaptered.htm" target="_blank" rel="noreferrer">Assembly Concurrent Resolution No. 197, relative to Jackie Robinson Day (chaptered)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>In his last year he grieved the deaths of his mentor, his mother and his first son.</strong><div class="muted">History after the modern episode; supports the weight of grief he carried.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.archives.gov/education/lessons/jackie-robinson/letter-1972.html" target="_blank" rel="noreferrer">Teaching With Documents: Letter from Jackie Robinson to Roland L. Elliott, April 20, 1972</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>He died of a heart attack at his home in Stamford, Connecticut, on October 24, 1972, at 53.</strong><div class="muted">History after the modern episode. Anchors his home in Stamford and the cardiovascular teaching objective.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://sabr.org/bioproj/person/jackie-robinson/" target="_blank" rel="noreferrer">Swaine R. Jackie Robinson (SABR BioProject)</a> <span class="relationship">supports</span><br><a href="https://www.leginfo.ca.gov/pub/15-16/bill/asm/ab_0151-0200/acr_197_bill_20160901_chaptered.htm" target="_blank" rel="noreferrer">Assembly Concurrent Resolution No. 197, relative to Jackie Robinson Day (chaptered)</a> <span class="relationship">supports</span><br><a href="https://www.universityofcalifornia.edu/news/did-racism-kill-jackie-robinson" target="_blank" rel="noreferrer">Loeb TB, Morehead-Gee A, Novacek D. Did racism kill Jackie Robinson? (UCLA, republished from The Conversation)</a> <span class="relationship">supports</span><br><a href="https://www.mlb.com/dodgers/history/jackie-robinson/timeline-1950" target="_blank" rel="noreferrer">Jackie Robinson Timeline 1950-1979</a> <span class="relationship">context</span></td>
+  </tr></tbody></table></section>
+    <section><h2>Modern synthetic problem list</h2><table><thead><tr><th>Grade</th><th>Problem</th><th>Clinical status</th><th>Verification</th><th>Placement</th><th>Historical claims</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Blurred vision in both eyes, worse over two months, with new floaters in the right eye for four days; acuity by Snellen chart 20/200 right and 20/80 left; undilated view poor on the right; urgent retina examination arranged</td>
+    <td>resolved</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td>CLM-0008, CLM-0009</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Tightness in the chest on climbing stairs for two months, easing with rest; ECG without acute change; cardiology evaluation with a stress test arranged</td>
+    <td>resolved</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td>CLM-0010</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Type 2 diabetes for about fifteen years, on metformin and basal insulin, with hyperglycemia (A1c 10.4%)</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>both_with_link</td>
+    <td>CLM-0004, CLM-0005</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Proliferative diabetic retinopathy in both eyes with center-involving diabetic macular edema (central subfield 412 microns right, 468 left); best-corrected acuity 35 letters right and 56 letters left</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>both_with_link</td>
+    <td>CLM-0008, CLM-0009</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Vitreous hemorrhage in the right eye from proliferative retinopathy; retina attached on ultrasound</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td>CLM-0008, CLM-0009</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Hypertension with chronic kidney disease, above goal on lisinopril 20 mg (152/92 mmHg)</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td>CLM-0004, CLM-0005</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Diabetic kidney disease with albuminuria (urine albumin-to-creatinine ratio 86 mg/g, also raised last year) and eGFR 79</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td>CLM-0004, CLM-0005</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Chronic kidney disease G2 A2</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td>CLM-0004, CLM-0005</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Peripheral artery disease of both legs with calf pain after about one block of walking; faint foot pulses</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>both_with_link</td>
+    <td>CLM-0006</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Diabetic peripheral neuropathy: loss of protective sensation in both feet on monofilament testing</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>both_with_link</td>
+    <td>CLM-0006</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>History of two mild strokes a year ago, without lasting weakness</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td>CLM-0007</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Hyperlipidemia: LDL 142 mg/dL on atorvastatin 40 mg, far above the goal below 55 mg/dL</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Bereavement: his eldest son died in a car crash six weeks ago</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td>CLM-0011</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Coronary artery disease with stable angina on climbing stairs: a small reversible inferior perfusion defect on regadenoson stress imaging, ejection fraction 56%; medical therapy chosen with cardiology</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>both_with_link</td>
+    <td>CLM-0010</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Friction blister of the right heel from new shoes, unroofed, 2.5 by 2 cm, clean base, without infection, in a neuropathic foot with peripheral artery disease</td>
+    <td>resolved</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td>CLM-0006</td>
+  </tr></tbody></table></section>
+    <section><h2>Synthetic outcome measures</h2><table><thead><tr><th>Grade</th><th>Date</th><th>Measure</th><th>Result</th><th>Coding</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1971-07-27</td>
+    <td>Hemoglobin A1c/Hemoglobin.total in Blood</td>
+    <td>10.4% (high)<div class="muted">Reference Below 5.7% is normal; his first goal below 8%, then below 7%, lowered gradually</div></td>
+    <td>http://loinc.org · 4548-4</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1971-07-27</td>
+    <td>Glucose [Mass/volume] in Serum or Plasma</td>
+    <td>248 mg/dL (high)<div class="muted">Reference 70-139 mg/dL</div></td>
+    <td>http://loinc.org · 2345-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1971-07-27</td>
+    <td>Sodium [Moles/volume] in Serum or Plasma</td>
+    <td>137 mmol/L<div class="muted">Reference 135-145 mmol/L</div></td>
+    <td>http://loinc.org · 2951-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1971-07-27</td>
+    <td>Potassium [Moles/volume] in Serum or Plasma</td>
+    <td>4.6 mmol/L<div class="muted">Reference 3.5-5.1 mmol/L</div></td>
+    <td>http://loinc.org · 2823-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1971-07-27</td>
+    <td>Creatinine [Mass/volume] in Serum or Plasma</td>
+    <td>1.12 mg/dL<div class="muted">Reference 0.74-1.35 mg/dL</div></td>
+    <td>http://loinc.org · 2160-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1971-07-27</td>
+    <td>Glomerular filtration rate [Volume Rate/Area] in Serum, Plasma or Blood by Creatinine-based formula (CKD-EPI 1966)/1.73 sq M</td>
+    <td>79 mL/min/1.73 m² (low)<div class="muted">Reference 90 or higher is normal; 60 to 89 is mildly decreased (G2)</div></td>
+    <td>http://loinc.org · 98979-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1971-07-27</td>
+    <td>Albumin/Creatinine [Mass Ratio] in Urine</td>
+    <td>86 mg/g (high)<div class="muted">Reference Below 30 mg/g normal (A1); 30 to 300 moderately increased (A2)</div></td>
+    <td>http://loinc.org · 9318-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1971-07-27</td>
+    <td>Cholesterol [Mass/volume] in Serum or Plasma</td>
+    <td>226 mg/dL (high)<div class="muted">Reference &lt;=199 mg/dL</div></td>
+    <td>http://loinc.org · 2093-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1971-07-27</td>
+    <td>Cholesterol in LDL [Mass/volume] in Serum or Plasma by calculation</td>
+    <td>142 mg/dL (high)<div class="muted">Reference Goal below 55 mg/dL with atherosclerotic disease</div></td>
+    <td>http://loinc.org · 13457-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1971-07-27</td>
+    <td>Cholesterol in HDL [Mass/volume] in Serum or Plasma</td>
+    <td>38 mg/dL (low)<div class="muted">Reference &gt;=40 mg/dL</div></td>
+    <td>http://loinc.org · 2085-9</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1971-07-27</td>
+    <td>Triglyceride [Mass/volume] in Serum or Plasma</td>
+    <td>230 mg/dL (high)<div class="muted">Reference &lt;=149 mg/dL</div></td>
+    <td>http://loinc.org · 2571-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1971-07-27</td>
+    <td>Alanine aminotransferase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>28 U/L<div class="muted">Reference 7-55 U/L</div></td>
+    <td>http://loinc.org · 1742-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1971-07-27</td>
+    <td>Aspartate aminotransferase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>24 U/L<div class="muted">Reference 8-48 U/L</div></td>
+    <td>http://loinc.org · 1920-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1971-07-27</td>
+    <td>Hemoglobin [Mass/volume] in Blood</td>
+    <td>13.9 g/dL<div class="muted">Reference 13.5-17.5 g/dL</div></td>
+    <td>http://loinc.org · 718-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1971-07-27</td>
+    <td>Platelets [#/volume] in Blood by Automated count</td>
+    <td>250 10*3/uL<div class="muted">Reference 150-400 10*3/uL</div></td>
+    <td>http://loinc.org · 777-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1971-07-27</td>
+    <td>Cobalamin (Vitamin B12) [Mass/volume] in Serum or Plasma</td>
+    <td>380 pg/mL<div class="muted">Reference 232-1245 pg/mL</div></td>
+    <td>http://loinc.org · 2132-9</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1971-07-27</td>
+    <td>Thyrotropin [Units/volume] in Serum or Plasma</td>
+    <td>1.8 mIU/L<div class="muted">Reference 0.4-4.5 mIU/L</div></td>
+    <td>http://loinc.org · 3016-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1971-07-27</td>
+    <td>Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]</td>
+    <td>9</td>
+    <td>http://loinc.org · 44261-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1971-07-29</td>
+    <td>Visual acuity best corrected Right eye by ETDRS eye chart</td>
+    <td>35 (low)<div class="muted">Reference 85 letters is about 20/20; 35 letters is about 20/200</div></td>
+    <td>http://loinc.org · 79876-9</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1971-07-29</td>
+    <td>Visual acuity best corrected Left eye by ETDRS eye chart</td>
+    <td>56 (low)<div class="muted">Reference 85 letters is about 20/20; 55 letters is about 20/80</div></td>
+    <td>http://loinc.org · 79877-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1971-07-29</td>
+    <td>Macular grid.center subfield thickness by OCT</td>
+    <td>412 um (high)<div class="muted">Reference 200-300 um</div></td>
+    <td>http://loinc.org · 57109-1</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1971-07-29</td>
+    <td>Macular grid.center subfield thickness by OCT</td>
+    <td>468 um (high)<div class="muted">Reference 200-300 um</div></td>
+    <td>http://loinc.org · 57109-1</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1971-09-21</td>
+    <td>Patient Health Questionnaire 2 item (PHQ-2) total score [Reported]</td>
+    <td>2</td>
+    <td>http://loinc.org · 55758-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1971-09-21</td>
+    <td>Total score [AUDIT-C]</td>
+    <td>0</td>
+    <td>http://loinc.org · 75626-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1971-08-26</td>
+    <td>Sodium [Moles/volume] in Serum or Plasma</td>
+    <td>138 mmol/L<div class="muted">Reference 135-145 mmol/L</div></td>
+    <td>http://loinc.org · 2951-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1971-08-26</td>
+    <td>Potassium [Moles/volume] in Serum or Plasma</td>
+    <td>4.8 mmol/L<div class="muted">Reference 3.5-5.1 mmol/L</div></td>
+    <td>http://loinc.org · 2823-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1971-08-26</td>
+    <td>Creatinine [Mass/volume] in Serum or Plasma</td>
+    <td>1.22 mg/dL<div class="muted">Reference 0.74-1.35 mg/dL</div></td>
+    <td>http://loinc.org · 2160-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1971-08-26</td>
+    <td>Glomerular filtration rate [Volume Rate/Area] in Serum, Plasma or Blood by Creatinine-based formula (CKD-EPI 1966)/1.73 sq M</td>
+    <td>71 mL/min/1.73 m² (low)<div class="muted">Reference 90 or higher is normal; 60 to 89 is mildly decreased (G2)</div></td>
+    <td>http://loinc.org · 98979-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1971-08-26</td>
+    <td>Ankle-brachial index</td>
+    <td>0.68 (low)<div class="muted">Reference 1.00 to 1.40 normal; 0.91 to 0.99 borderline; 0.90 or below abnormal</div></td>
+    <td>http://loinc.org · 77194-9</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1971-08-26</td>
+    <td>Ankle-brachial index</td>
+    <td>0.74 (low)<div class="muted">Reference 1.00 to 1.40 normal; 0.91 to 0.99 borderline; 0.90 or below abnormal</div></td>
+    <td>http://loinc.org · 77194-9</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1971-10-26</td>
+    <td>Hemoglobin A1c/Hemoglobin.total in Blood</td>
+    <td>9.2% (high)<div class="muted">Reference Below 5.7% is normal; his first goal below 8%, then below 7%, lowered gradually</div></td>
+    <td>http://loinc.org · 4548-4</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1971-10-26</td>
+    <td>Albumin/Creatinine [Mass Ratio] in Urine</td>
+    <td>54 mg/g (high)<div class="muted">Reference Below 30 mg/g normal (A1); 30 to 300 moderately increased (A2)</div></td>
+    <td>http://loinc.org · 9318-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1971-10-26</td>
+    <td>Sodium [Moles/volume] in Serum or Plasma</td>
+    <td>139 mmol/L<div class="muted">Reference 135-145 mmol/L</div></td>
+    <td>http://loinc.org · 2951-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1971-10-26</td>
+    <td>Potassium [Moles/volume] in Serum or Plasma</td>
+    <td>4.7 mmol/L<div class="muted">Reference 3.5-5.1 mmol/L</div></td>
+    <td>http://loinc.org · 2823-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1971-10-26</td>
+    <td>Creatinine [Mass/volume] in Serum or Plasma</td>
+    <td>1.18 mg/dL<div class="muted">Reference 0.74-1.35 mg/dL</div></td>
+    <td>http://loinc.org · 2160-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1971-10-26</td>
+    <td>Glomerular filtration rate [Volume Rate/Area] in Serum, Plasma or Blood by Creatinine-based formula (CKD-EPI 1966)/1.73 sq M</td>
+    <td>74 mL/min/1.73 m² (low)<div class="muted">Reference 90 or higher is normal; 60 to 89 is mildly decreased (G2)</div></td>
+    <td>http://loinc.org · 98979-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1971-10-26</td>
+    <td>Cholesterol [Mass/volume] in Serum or Plasma</td>
+    <td>150 mg/dL<div class="muted">Reference &lt;=199 mg/dL</div></td>
+    <td>http://loinc.org · 2093-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1971-10-26</td>
+    <td>Cholesterol in LDL [Mass/volume] in Serum or Plasma by calculation</td>
+    <td>74 mg/dL<div class="muted">Reference Goal below 55 mg/dL with atherosclerotic disease</div></td>
+    <td>http://loinc.org · 13457-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1971-10-26</td>
+    <td>Cholesterol in HDL [Mass/volume] in Serum or Plasma</td>
+    <td>40 mg/dL<div class="muted">Reference &gt;=40 mg/dL</div></td>
+    <td>http://loinc.org · 2085-9</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1971-10-26</td>
+    <td>Triglyceride [Mass/volume] in Serum or Plasma</td>
+    <td>180 mg/dL (high)<div class="muted">Reference &lt;=149 mg/dL</div></td>
+    <td>http://loinc.org · 2571-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1971-10-26</td>
+    <td>Alanine aminotransferase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>30 U/L<div class="muted">Reference 7-55 U/L</div></td>
+    <td>http://loinc.org · 1742-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1971-10-26</td>
+    <td>Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]</td>
+    <td>6</td>
+    <td>http://loinc.org · 44261-6</td>
+  </tr></tbody></table></section>
+    <section><h2>Synthetic vital signs</h2><table><thead><tr><th>Date</th><th>Measure</th><th>Result</th><th>LOINC</th><th>Grade</th></tr></thead><tbody>
+  <tr><td>1971-07-27</td><td>Body height</td><td>180 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1971-07-27</td><td>Body weight</td><td>104 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1971-07-27</td><td>Body mass index (BMI) [Ratio]</td><td>32.1 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1971-07-27</td><td>Systolic blood pressure</td><td>152 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1971-07-27</td><td>Diastolic blood pressure</td><td>92 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1971-07-27</td><td>Heart rate</td><td>84 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1971-07-27</td><td>Respiratory rate</td><td>16 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1971-07-27</td><td>Body temperature</td><td>36.7 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1971-07-27</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>97 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1971-07-29</td><td>Body height</td><td>180 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1971-07-29</td><td>Body weight</td><td>103.8 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1971-07-29</td><td>Body mass index (BMI) [Ratio]</td><td>32 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1971-07-29</td><td>Systolic blood pressure</td><td>148 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1971-07-29</td><td>Diastolic blood pressure</td><td>90 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1971-07-29</td><td>Heart rate</td><td>82 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1971-07-29</td><td>Respiratory rate</td><td>16 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1971-07-29</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1971-07-29</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>97 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1971-08-17</td><td>Body height</td><td>180 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1971-08-17</td><td>Body weight</td><td>103.2 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1971-08-17</td><td>Body mass index (BMI) [Ratio]</td><td>31.9 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1971-08-17</td><td>Systolic blood pressure</td><td>136 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1971-08-17</td><td>Diastolic blood pressure</td><td>84 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1971-08-17</td><td>Heart rate</td><td>64 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1971-08-17</td><td>Respiratory rate</td><td>16 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1971-08-17</td><td>Body temperature</td><td>36.7 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1971-08-17</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>97 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1971-08-26</td><td>Body height</td><td>180 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1971-08-26</td><td>Body weight</td><td>102.8 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1971-08-26</td><td>Body mass index (BMI) [Ratio]</td><td>31.7 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1971-08-26</td><td>Systolic blood pressure</td><td>134 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1971-08-26</td><td>Diastolic blood pressure</td><td>80 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1971-08-26</td><td>Heart rate</td><td>60 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1971-08-26</td><td>Respiratory rate</td><td>16 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1971-08-26</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1971-08-26</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>98 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1971-09-21</td><td>Body height</td><td>180 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1971-09-21</td><td>Body weight</td><td>102.2 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1971-09-21</td><td>Body mass index (BMI) [Ratio]</td><td>31.5 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1971-09-21</td><td>Systolic blood pressure</td><td>128 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1971-09-21</td><td>Diastolic blood pressure</td><td>78 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1971-09-21</td><td>Heart rate</td><td>62 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1971-09-21</td><td>Respiratory rate</td><td>16 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1971-09-21</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1971-09-21</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>98 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1971-10-26</td><td>Body height</td><td>180 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1971-10-26</td><td>Body weight</td><td>101.4 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1971-10-26</td><td>Body mass index (BMI) [Ratio]</td><td>31.3 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1971-10-26</td><td>Systolic blood pressure</td><td>126 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1971-10-26</td><td>Diastolic blood pressure</td><td>76 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1971-10-26</td><td>Heart rate</td><td>60 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1971-10-26</td><td>Respiratory rate</td><td>16 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1971-10-26</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1971-10-26</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>98 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr></tbody></table></section>
+    <section><h2>Social, functional, and mental status</h2><h3>Social history</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Lives in Stamford, Connecticut, with his wife; works in business and in civil rights causes in the region; a former major league ballplayer who broke the color line</li><li><span class="badge grade-S" title="Synthetic">S</span> His eldest son died in a car crash six weeks ago; he says he is carrying it, keeps working, and does not sleep well</li><li><span class="badge grade-S" title="Synthetic">S</span> Tobacco: never. Alcohol: none. No drug use</li><li><span class="badge grade-S" title="Synthetic">S</span> Employer health insurance; medicines affordable with copay assistance for the newer ones</li><li><span class="badge grade-S" title="Synthetic">S</span> Strengths: discipline, a long habit of facing pressure in public, his faith, his work for civil rights, and a household that supports him</li></ul><h3>Functional status</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Independent in daily activities; cannot read print or drive safely with his present vision; walks about one block before calf pain stops him</li></ul><h3>Mental status</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Alert, direct and composed; grief evident when speaking of his son; no thoughts of self-harm; PHQ-9 score 9</li></ul></section>
+    
+    <section><h2>Allergies and medications</h2><h3>Allergies</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> No known allergy</li></ul><h3>Medications</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Metformin 1,000 mg oral tablet, one tablet twice daily with meals</li><li><span class="badge grade-S" title="Synthetic">S</span> Insulin glargine 100 units/mL pen, 30 units at bedtime, adjusted by the written plan: 2 units each week while fasting glucose is above 160 mg/dL, and 4 units less for any reading below 70</li><li><span class="badge grade-S" title="Synthetic">S</span> Lisinopril 20 mg oral tablet, one tablet daily</li><li><span class="badge grade-S" title="Synthetic">S</span> Atorvastatin 80 mg oral tablet, one tablet daily (increased from 40 mg at intake)</li><li><span class="badge grade-S" title="Synthetic">S</span> Aspirin 81 mg delayed-release oral tablet, one tablet daily</li><li><span class="badge grade-S" title="Synthetic">S</span> Glucagon 3 mg nasal powder, one spray into the nose for severe low blood sugar; may repeat once after 15 minutes</li><li><span class="badge grade-S" title="Synthetic">S</span> Metoprolol succinate extended-release 25 mg oral tablet, one tablet daily</li><li><span class="badge grade-S" title="Synthetic">S</span> Nitroglycerin 0.4 mg sublingual tablet, one under the tongue for chest pain, repeated every five minutes up to three; call 911 if pain is not better five minutes after the first</li><li><span class="badge grade-S" title="Synthetic">S</span> Lisinopril 40 mg oral tablet, one tablet daily; hold on days of vomiting, diarrhea or not eating</li><li><span class="badge grade-S" title="Synthetic">S</span> Empagliflozin 10 mg oral tablet, one tablet daily; hold on days of vomiting, diarrhea or not eating, and before surgery or a colonoscopy preparation</li><li><span class="badge grade-S" title="Synthetic">S</span> Ezetimibe 10 mg oral tablet, one tablet daily</li><li><span class="badge grade-S" title="Synthetic">S</span> Dulaglutide 0.75 mg/0.5 mL pen, one injection under the skin once a week; dose to rise to 1.5 mg after at least four weeks only if the retina remains stable</li></ul></section>
+    <section><h2>Procedures and immunizations</h2><h3>Procedures</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Twelve-lead electrocardiogram</li><li><span class="badge grade-S" title="Synthetic">S</span> Comprehensive diabetic foot examination with a 10-g monofilament, vibration and pulses</li><li><span class="badge grade-S" title="Synthetic">S</span> Dilated fundus examination of both eyes with B-scan ultrasound of the right eye, at the retina clinic</li><li><span class="badge grade-S" title="Synthetic">S</span> Optical coherence tomography of the macula, both eyes</li><li><span class="badge grade-S" title="Synthetic">S</span> Intravitreal injection of aflibercept 2 mg, both eyes (injection 1)</li><li><span class="badge grade-S" title="Synthetic">S</span> Regadenoson myocardial perfusion stress study, at the cardiology clinic</li><li><span class="badge grade-S" title="Synthetic">S</span> Wound care of the right heel blister by the clinic nurse: cleansing, non-adherent dressing and a heel offloading shoe</li><li><span class="badge grade-S" title="Synthetic">S</span> Intravitreal injection of aflibercept 2 mg, both eyes (injection 2), at the retina clinic</li><li><span class="badge grade-S" title="Synthetic">S</span> Advance care planning conversation, about 20 minutes</li><li><span class="badge grade-S" title="Synthetic">S</span> Optical coherence tomography of the macula, both eyes, at the retina clinic</li><li><span class="badge grade-S" title="Synthetic">S</span> Intravitreal injection of aflibercept 2 mg, both eyes (injection 3), at the retina clinic</li><li><span class="badge grade-S" title="Synthetic">S</span> Panretinal photocoagulation, right eye (first session), at the retina clinic</li></ul><h3>Immunizations</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> 1971-09-21: Influenza vaccine, inactivated, this season</li><li><span class="badge grade-S" title="Synthetic">S</span> 1971-09-21: Pneumococcal conjugate vaccine PCV20</li><li><span class="badge grade-S" title="Synthetic">S</span> 1971-09-21: Recombinant zoster vaccine, dose 1 of 2</li><li><span class="badge grade-S" title="Synthetic">S</span> 1971-10-26: COVID-19 vaccine, mRNA, this season</li><li><span class="badge grade-S" title="Synthetic">S</span> 1971-10-26: Hepatitis B vaccine (HepB-CpG), dose 1 of 2</li></ul></section>
+    <section><h2>Past medical history</h2><p class="muted">True biography with historical dates; not part of the synthetic care timeline.</p><ul><li><span class="badge grade-D" title="Documented">D</span> about 1957: Diabetes diagnosed at about 37, around his retirement from baseball <span class="muted">(CLM-0005)</span></li><li><span class="badge grade-D" title="Documented">D</span> by 1969: Nerve and artery damage in both legs <span class="muted">(CLM-0006)</span></li><li><span class="badge grade-D" title="Documented">D</span> 1970: Two mild strokes <span class="muted">(CLM-0007)</span></li></ul><h3>Family history</h3><ul><li><span class="badge grade-D" title="Documented">D</span> brother: Two of his brothers had diabetes</li><li><span class="badge grade-D" title="Documented">D</span> natural son: His eldest son died in an automobile accident at 24</li></ul></section>
+    <section><h2>Care-plan goals</h2><table><thead><tr><th>Goal</th><th>Target date</th><th>Status</th><th>Outcome</th></tr></thead><tbody>
+  <tr><td>Vision kept or improved: proliferative disease regressed and macular edema reduced on anti-VEGF injections and laser</td><td>1971-10-26</td><td>active</td><td>Hemorrhage clearing, new vessels regressing after three injections and laser to the right eye; macular thickness down in both eyes; acuity improved</td></tr>
+  <tr><td>A1c falling by about one point every three months without low blood sugar, to below 8% within six months and then below 7%</td><td>1971-10-26</td><td>active</td><td>10.4% to 9.2% at three months; no low blood sugar</td></tr>
+  <tr><td>Blood pressure below 130/80 mmHg</td><td>1971-10-26</td><td>completed</td><td>126/76 in the clinic</td></tr>
+  <tr><td>LDL cholesterol below 55 mg/dL</td><td>1971-10-26</td><td>active</td><td>142 to 74 mg/dL on atorvastatin 80 mg; ezetimibe added</td></tr>
+  <tr><td>Walk at least three blocks without stopping, through supervised exercise</td><td>1971-10-26</td><td>active</td><td>From one block to two and a half blocks</td></tr>
+  <tr><td>Feet kept intact: daily foot checks he can do with low vision, protective footwear, and prompt care for any skin break</td><td>1971-10-26</td><td>active</td><td>A heel blister found early, healed in five weeks; footwear provided</td></tr>
+  <tr><td>Grief acknowledged and supported, with depression screening repeated</td><td>1971-10-26</td><td>active</td><td>Meeting the health center&#39;s grief counselor; PHQ-9 9 to 6</td></tr></tbody></table></section>
+    <section><h2>Interventions</h2><table><thead><tr><th>Intervention</th><th>Status</th><th>Guideline</th></tr></thead><tbody>
+  <tr><td>Urgent retina consultation within 48 hours for blurred vision with new floaters in a man with long-standing diabetes: dilated examination, OCT, and treatment of any proliferative retinopathy or macular edema; same-day attendance for a curtain over the vision or flashes</td><td>completed</td><td>GL-AAO-DR-2025, GL-ADA-RETFOOT-2026</td></tr>
+  <tr><td>Glucose: continue metformin and basal insulin, titrated slowly by a written plan so that the A1c falls gradually; rescue glucagon; diabetes self-management education adapted for low vision (a talking glucose meter, an insulin pen with audible dose clicks, large-print plans)</td><td>completed</td><td>GL-ADA-GLY-2026, GL-ADA-PHARM-2026, GL-CMID-2026</td></tr>
+  <tr><td>Cardiovascular risk: atorvastatin increased to 80 mg, aspirin continued, baseline ECG; cardiology evaluation of exertional chest tightness with a pharmacologic stress test, since calf pain limits walking</td><td>completed</td><td>GL-ADA-CVD-2026, GL-AHA-CCD-2023, GL-AHA-STROKE-2021, GL-CMID-2026</td></tr>
+  <tr><td>Legs and feet: comprehensive foot examination today; ankle-brachial index; daily foot checks with a magnifying mirror and a bright lamp, protective shoes; podiatry</td><td>completed</td><td>GL-ADA-RETFOOT-2026, GL-ACC-PAD-2024</td></tr>
+  <tr><td>Kidneys: repeat urine albumin and kidney function after any change in kidney medicines; no NSAIDs</td><td>completed</td><td>GL-ADA-CKD-2026, GL-KDIGO-CKD-2024</td></tr>
+  <tr><td>Grief and mood: acknowledge the loss, PHQ-9 now and at three months, and an offer of the health center&#39;s grief counselor, which he accepted; call or text 988 if thoughts of self-harm ever arise</td><td>completed</td><td>GL-USPSTF-DEP-2023, GL-ADA-BEH-2026, GL-CMID-2026</td></tr>
+  <tr><td>Coronary disease, with cardiology: metoprolol succinate 25 mg daily and nitroglycerin as needed; continue high-intensity statin and aspirin; no revascularization now for a small area of ischemia with stable symptoms; review with cardiology in three months or sooner for worse or more frequent chest pain</td><td>completed</td><td>GL-AHA-CCD-2023, GL-ADA-CVD-2026, GL-CMID-2026</td></tr>
+  <tr><td>Heel blister: daily dressing by the visiting nurse three times a week and by him on other days with a large-print guide; heel offloading shoe; podiatry within two days; review weekly; a vascular surgery opinion if it is not healing within four weeks or the ankle-brachial index is very low</td><td>completed</td><td>GL-IWGDF-2023, GL-ACC-PAD-2024, GL-ADA-RETFOOT-2026</td></tr>
+  <tr><td>On the retina specialist&#39;s advice: aflibercept injections in both eyes monthly for three doses, then treat-and-extend; panretinal photocoagulation to the right eye once the hemorrhage clears, and to the left if new vessels persist; vitrectomy if the hemorrhage does not clear within one to three months; low-vision evaluation; aspirin continued; glucose lowered gradually, and a GLP-1 receptor agonist only after the retina is stable, with retina review monthly</td><td>completed</td><td>GL-AAO-DR-2025, GL-ADA-RETFOOT-2026, GL-SUSTAIN6-2016</td></tr>
+  <tr><td>Lisinopril increased to 40 mg and empagliflozin 10 mg started, with written sick-day rules; potassium and creatinine in four weeks; urine albumin at three months</td><td>completed</td><td>GL-ADA-CKD-2026, GL-ADA-CVD-2026, GL-KDIGO-CKD-2024, GL-CMID-2026</td></tr>
+  <tr><td>Peripheral artery disease: supervised exercise therapy three times a week for twelve weeks once the heel has healed; podiatry every two to three months; vascular review if walking does not improve or any wound fails to heal</td><td>completed</td><td>GL-ACC-PAD-2024, GL-IWGDF-2023, GL-CMID-2026</td></tr>
+  <tr><td>Dulaglutide 0.75 mg weekly started with the retina specialist&#39;s agreement, rising only if the retina stays stable at monthly review; ezetimibe 10 mg added; lipids four to eight weeks after the change, booked before he leaves the clinic</td><td>completed</td><td>GL-ADA-PHARM-2026, GL-ADA-CVD-2026, GL-SUSTAIN6-2016, GL-AAO-DR-2025, GL-CMID-2026</td></tr></tbody></table></section>
+    <section><h2>Planned encounters</h2><ul>
+  <li><strong>1971-07-27</strong> — Visit for blurred vision and new floaters, chest tightness on stairs, calf pain on walking and numb feet, in a man with long-standing diabetes six weeks after the death of his son <span class="muted">(ENC-001)</span></li>
+  <li><strong>1971-07-29</strong> — Review after the retina consultation and first eye injections: retinal diagnosis, glucose, blood pressure and kidney medicines <span class="muted">(ENC-002)</span></li>
+  <li><strong>1971-08-17</strong> — Same-day sick visit for a blister on the right heel, and review of the stress test result <span class="muted">(ENC-003, unscheduled)</span></li>
+  <li><strong>1971-08-26</strong> — Four weeks after the new medicines: potassium and creatinine, blood pressure, ankle-brachial index, feet, mood, and the second eye injections <span class="muted">(ENC-004)</span></li>
+  <li><strong>1971-09-21</strong> — Periodic adult preventive visit <span class="muted">(ENC-005)</span></li>
+  <li><strong>1971-10-26</strong> — Three-month review: A1c, urine albumin, lipids, eyes after laser treatment, heart, legs, grief, and a GLP-1 receptor agonist <span class="muted">(ENC-006)</span></li></ul></section>
+    <section><h2>Supporting documents</h2><ul><li><a href="notes/hp.md">History and physical</a></li><li><a href="notes/progress-01.md">Progress note 01</a></li><li><a href="notes/progress-02.md">Progress note 02 — Focused Visit (Follow-up)</a></li><li><a href="notes/progress-03.md">Progress note 03 — Sick Visit</a></li><li><a href="notes/progress-04.md">Progress note 04 — Focused Visit (Follow-up)</a></li><li><a href="notes/progress-05.md">Progress note 05 — Preventive Visit</a></li><li><a href="notes/progress-06.md">Progress note 06 — Focused Visit (Care-plan review)</a></li><li><a href="notes/referral-01.md">Ophthalmology (retina) referral</a></li><li><a href="notes/consult-01.md">Ophthalmology (retina) consultation</a></li><li><a href="notes/careplan.md">Patient care plan</a></li><li><a href="notes/teaching-note.md">Teaching note</a></li><li><a href="provenance.csv">Provenance CSV</a></li></ul></section>
+    <section><h2>C-CDA note documents</h2><p class="muted">Each link opens a readable copy; the XML beside it is the exchange file.</p><ul><li><a href="ccda/hp-01.html">History and physical</a> <a href="ccda/hp-01.xml">(XML)</a></li><li><a href="ccda/progress-01.html">Progress note 01</a> <a href="ccda/progress-01.xml">(XML)</a></li><li><a href="ccda/progress-02.html">Progress note 02 — Focused Visit (Follow-up)</a> <a href="ccda/progress-02.xml">(XML)</a></li><li><a href="ccda/progress-03.html">Progress note 03 — Sick Visit</a> <a href="ccda/progress-03.xml">(XML)</a></li><li><a href="ccda/progress-04.html">Progress note 04 — Focused Visit (Follow-up)</a> <a href="ccda/progress-04.xml">(XML)</a></li><li><a href="ccda/progress-05.html">Progress note 05 — Preventive Visit</a> <a href="ccda/progress-05.xml">(XML)</a></li><li><a href="ccda/progress-06.html">Progress note 06 — Focused Visit (Care-plan review)</a> <a href="ccda/progress-06.xml">(XML)</a></li><li><a href="ccda/referral-01.html">Ophthalmology (retina) referral</a> <a href="ccda/referral-01.xml">(XML)</a></li><li><a href="ccda/consult-01.html">Ophthalmology (retina) consultation</a> <a href="ccda/consult-01.xml">(XML)</a></li></ul></section>
+    <section><h2>Sources</h2><table><thead><tr><th>ID</th><th>Source</th><th>Publisher</th><th>Type</th></tr></thead><tbody>
+  <tr>
+    <td>SRC-0001</td>
+    <td><a href="https://sabr.org/bioproj/person/jackie-robinson/" target="_blank" rel="noreferrer">Swaine R. Jackie Robinson (SABR BioProject)</a></td>
+    <td>Society for American Baseball Research</td>
+    <td>biography</td>
+  </tr>
+  <tr>
+    <td>SRC-0002</td>
+    <td><a href="https://www.leginfo.ca.gov/pub/15-16/bill/asm/ab_0151-0200/acr_197_bill_20160901_chaptered.htm" target="_blank" rel="noreferrer">Assembly Concurrent Resolution No. 197, relative to Jackie Robinson Day (chaptered)</a></td>
+    <td>California State Legislature</td>
+    <td>government</td>
+  </tr>
+  <tr>
+    <td>SRC-0003</td>
+    <td><a href="https://www.archives.gov/education/lessons/jackie-robinson/letter-1972.html" target="_blank" rel="noreferrer">Teaching With Documents: Letter from Jackie Robinson to Roland L. Elliott, April 20, 1972</a></td>
+    <td>U.S. National Archives and Records Administration</td>
+    <td>government</td>
+  </tr>
+  <tr>
+    <td>SRC-0004</td>
+    <td><a href="https://www.universityofcalifornia.edu/news/did-racism-kill-jackie-robinson" target="_blank" rel="noreferrer">Loeb TB, Morehead-Gee A, Novacek D. Did racism kill Jackie Robinson? (UCLA, republished from The Conversation)</a></td>
+    <td>University of California</td>
+    <td>scholarly</td>
+  </tr>
+  <tr>
+    <td>SRC-0005</td>
+    <td><a href="https://www.mlb.com/dodgers/history/jackie-robinson/timeline-1950" target="_blank" rel="noreferrer">Jackie Robinson Timeline 1950-1979</a></td>
+    <td>Los Angeles Dodgers (MLB.com)</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0006</td>
+    <td><a href="https://humanrecord.example.org/internal/HISTMED_Master_Roster_v3.xlsx" target="_blank" rel="noreferrer">HISTMED Master Roster v3</a></td>
+    <td>The Human Record project</td>
+    <td>other</td>
+  </tr></tbody></table></section>
+    <section><h2>Review status</h2><table><thead><tr><th>Review</th><th>Status</th><th>Notes</th></tr></thead><tbody>
+  <tr><td>schema validation</td><td>not_started</td><td>Run scripts/build.ps1 -Conformance.</td></tr>
+  <tr><td>clinical review</td><td>not_started</td><td>Awaiting clinician review; check the urgency of the retina visit, the anti-VEGF and laser sequence, the gradual glucose plan and the timing of dulaglutide after the retina was stable, empagliflozin with lisinopril and the potassium check, the coronary work-up through a pharmacologic stress test, the ankle-brachial index and wound care, and the grief support.</td></tr>
+  <tr><td>provenance review</td><td>not_started</td><td>Sources: SABR, the California legislature, the National Archives, a University of California article, and the Dodgers timeline. The Library of Congress, the National Baseball Hall of Fame, the Jackie Robinson Foundation, the New York Times obituary and Arnold Rampersad&#39;s biography could not be read directly.</td></tr>
+  <tr><td>safe messaging review</td><td>not_started</td><td>His son&#39;s death is stated once, without its circumstances. Grief is supported as grief; depression screening is synthetic and below the threshold for a safety assessment, and the 988 line is named in the plan. No mental health diagnosis is made.</td></tr></tbody></table></section>
+  </main>
+</body>
+</html>

@@ -234,7 +234,7 @@ const fhirEntries = [{
       { system: "http://hl7.org/fhir/sid/us-ssn", value: data.identity.synthetic_identity.ssn }
     ],
     active: true,
-    name: [{ use: "official", text: data.identity.display_name, family: humanName.family, given: humanName.given }],
+    name: [{ use: "official", text: data.identity.display_name, family: humanName.family, given: humanName.given.length ? humanName.given : undefined }],
     gender: data.identity.sex,
     birthDate: data.identity.synthetic_identity.date_of_birth
   }

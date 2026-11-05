@@ -296,10 +296,10 @@ $nameParts = if ($case.identity.PSObject.Properties['name_parts']) { $case.ident
 $expectedName = if (-not $nameParts) { $case.identity.display_name } elseif ($nameParts.PSObject.Properties['family_first'] -and $nameParts.family_first) { (@($nameParts.family) + @($nameParts.given)) -join ' ' } else { (@($nameParts.given) + $nameParts.family) -join ' ' }
 $expectedFhirName = if ($nameParts) { (@($nameParts.given) + $nameParts.family) -join ' ' } else { $case.identity.display_name }
 $cdaName = $ccda.SelectSingleNode('//cda:recordTarget/cda:patientRole/cda:patient/cda:name', $ns)
-$cdaFull = (@($cdaName.SelectNodes('cda:given|cda:family', $ns) | ForEach-Object InnerText) -join ' ')
+$cdaFull = (@($cdaName.SelectNodes('cda:given|cda:family', $ns) | ForEach-Object InnerText | Where-Object { $_ }) -join ' ')
 if ($cdaFull -ne $expectedName) { $errors.Add("C-CDA patient name '$cdaFull' differs from '$expectedName'") }
 $fhirName = ($fhir.entry | Where-Object { $_.resource.resourceType -eq 'Patient' }).resource.name[0]
-if (((@($fhirName.given) + $fhirName.family) -join ' ') -ne $expectedFhirName -or $fhirName.text -ne $case.identity.display_name) { $errors.Add('FHIR patient name differs from canonical display name') }
+if (((@($fhirName.given) + $fhirName.family | Where-Object { $_ }) -join ' ') -ne $expectedFhirName -or $fhirName.text -ne $case.identity.display_name) { $errors.Add('FHIR patient name differs from canonical display name') }
 
 # Every C-CDA note document identifies the same patient: name, birth date, and MRN. A receiving
 # system matches documents to a patient on these fields.
@@ -311,7 +311,7 @@ foreach ($noteFile in $noteDocuments) {
     [xml]$note = Get-Content -Raw -LiteralPath $noteFile.FullName
     $role = $note.SelectSingleNode('/cda:ClinicalDocument/cda:recordTarget/cda:patientRole', $ns)
     $noteName = $role.SelectSingleNode('cda:patient/cda:name', $ns)
-    $noteFull = (@($noteName.SelectNodes('cda:given|cda:family', $ns) | ForEach-Object InnerText) -join ' ')
+    $noteFull = (@($noteName.SelectNodes('cda:given|cda:family', $ns) | ForEach-Object InnerText | Where-Object { $_ }) -join ' ')
     if ($noteFull -ne $expectedName) { $errors.Add("$($noteFile.Name): patient name '$noteFull' differs from '$expectedName'") }
     if ($role.SelectSingleNode('cda:patient/cda:birthTime', $ns).value -ne $expectedBirth) { $errors.Add("$($noteFile.Name): birth date differs from the case") }
     if ($role.SelectSingleNode('cda:id', $ns).extension -ne $case.identity.synthetic_identity.mrn) { $errors.Add("$($noteFile.Name): MRN differs from the case") }

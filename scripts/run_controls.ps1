@@ -90,6 +90,12 @@ try {
     $run = Invoke-Script $build @('-CaseDirectory', $dir)
     $results.Add([pscustomobject]@{ Control = 'ten-digit SNOMED code that passes the NPI check digit'; Result = $(if ($run.Output -notmatch 'Valid-format NPI') { 'PASS' } else { 'FAIL' }); Detail = $(if ($run.Output -notmatch 'Valid-format NPI') { 'not flagged' } else { 'flagged as an NPI' }) })
 
+    $dir = New-ControlCase 'single-name' { param($c) $c.identity | Add-Member -Force -NotePropertyName name_parts -NotePropertyValue ([pscustomobject]@{ given = @(); family = $c.identity.display_name }) }
+    $run = Invoke-Script $build @('-CaseDirectory', $dir)
+    $cdaName = if ($run.Exit -eq 0) { [regex]::Match((Get-Content -Raw -LiteralPath (Join-Path $dir 'generated/ccda.xml')), '<patient>\s*<name[^>]*>(.*?)</name>').Groups[1].Value } else { '' }
+    $singleOk = $run.Exit -eq 0 -and $cdaName -match '^<given nullFlavor="NA"/><family>[^<]+</family>$'
+    $results.Add([pscustomobject]@{ Control = 'single name with no given name'; Result = $(if ($singleOk) { 'PASS' } else { 'FAIL' }); Detail = $(if ($singleOk) { 'built; C-CDA given name is a null flavor' } elseif ($run.Exit -ne 0) { 'build failed' } else { "C-CDA name: $cdaName" }) })
+
     $dir = New-ControlCase 'grade' { param($c) $c.clinical.past_medical_history[2].provenance.evidence_grade = 'D' }
     Assert-Control 'history graded above its claims' (Invoke-Script $build @('-CaseDirectory', $dir)) 'graded D but its claims support R'
 

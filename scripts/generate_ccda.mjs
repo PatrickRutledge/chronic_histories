@@ -30,9 +30,9 @@ const authorUuid = deterministicUuid(`${facility}|${data.identity.synthetic_iden
 const custodianUuid = deterministicUuid(`${facility}|synthetic`);
 const { family, given, family_first: familyFirst } = patientName(data.identity);
 // In a CDA name the parts display in document order, so a family-name-first name lists <family> first.
-const patientNameXml = familyFirst
-  ? `<family>${x(family)}</family>${given.map(part => `<given>${x(part)}</given>`).join("")}`
-  : `${given.map(part => `<given>${x(part)}</given>`).join("")}<family>${x(family)}</family>`;
+// A single name with no given part keeps the US Realm Patient Name's required <given> as a null flavor.
+const givenXml = given.length ? given.map(part => `<given>${x(part)}</given>`).join("") : `<given nullFlavor="NA"/>`;
+const patientNameXml = familyFirst ? `<family>${x(family)}</family>${givenXml}` : `${givenXml}<family>${x(family)}</family>`;
 const gender = ADMINISTRATIVE_GENDER[data.identity.sex];
 const genderCode = gender
   ? `<administrativeGenderCode code="${gender.code}" codeSystem="2.16.840.1.113883.5.1" displayName="${gender.display}"/>`

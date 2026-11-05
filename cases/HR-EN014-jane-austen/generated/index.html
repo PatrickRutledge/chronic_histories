@@ -1,0 +1,840 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Jane Austen — The Human Record</title>
+  <style>
+    :root { --navy:#17365d; --blue:#1f4e78; --pale:#eef5fa; --ink:#1f2933; --muted:#66788a; --amber:#fff2cc; --red:#f8d7da; --green:#d9ead3; }
+    * { box-sizing:border-box; }
+    body { margin:0; font:16px/1.5 Arial, sans-serif; color:var(--ink); background:#f6f8fa; }
+    header { background:var(--navy); color:white; padding:24px max(24px,calc((100vw - 1180px)/2)); }
+    header h1 { margin:4px 0; font-size:30px; }
+    .banner { background:#b42318; color:white; font-weight:700; text-align:center; padding:10px; letter-spacing:.03em; }
+    main { max-width:1180px; margin:24px auto 60px; padding:0 24px; }
+    section { background:white; border:1px solid #d9e1e8; border-radius:8px; margin:18px 0; padding:20px; }
+    h2 { color:var(--navy); margin:0 0 14px; font-size:22px; }
+    h3 { color:var(--blue); }
+    .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:12px; }
+    .card { background:var(--pale); border-left:4px solid var(--blue); padding:12px; }
+    .label { color:var(--muted); font-size:13px; text-transform:uppercase; letter-spacing:.04em; }
+    table { width:100%; border-collapse:collapse; }
+    th { background:var(--blue); color:white; text-align:left; }
+    th,td { padding:9px; border-bottom:1px solid #dfe6ec; vertical-align:top; }
+    .badge { display:inline-block; min-width:28px; text-align:center; font-weight:700; border-radius:12px; padding:2px 8px; }
+    .grade-D { background:var(--green); } .grade-R { background:var(--amber); } .grade-S { background:var(--red); }
+    .muted { color:var(--muted); font-size:14px; }
+    .relationship { color:var(--muted); font-size:12px; }
+    .downloads a { display:inline-block; margin:4px 8px 4px 0; padding:8px 12px; background:var(--blue); color:white; text-decoration:none; border-radius:5px; }
+    @media (max-width:700px) { table { display:block; overflow-x:auto; } }
+  </style>
+</head>
+<body>
+  <div class="banner">SYNTHETIC RECORD, NOT A REAL MEDICAL RECORD</div>
+  <header>
+    <div>The Human Record</div>
+    <h1>Jane Austen</h1>
+    <div>Case HR-EN014 · Modern EHR teaching episode · Draft for review</div>
+  </header>
+  <main>
+    <section>
+      <h2>Review summary</h2>
+      <div class="grid">
+        <div class="card"><div class="label">Historical dates</div>December 16, 1775 – July 18, 1817</div>
+        <div class="card"><div class="label">Synthetic DOB</div>1985-12-16</div>
+        <div class="card"><div class="label">Index visit</div>2026-03-16 at age 40</div>
+        <div class="card"><div class="label">Synthetic MRN</div>HR-EN014-SYN</div>
+      </div>
+      <p><strong>Teaching objective:</strong> Recognize primary adrenal insufficiency in a 40-year-old writer whose tiredness, weight loss, nausea, back ache and darkening skin could be put down to overwork or low mood, and care for it on the Endocrine Society 2016 guideline: low sodium, high potassium and raised eosinophils as clues; urgent testing with an 8 am cortisol and ACTH and a cosyntropin stimulation test, without delaying treatment if she becomes unstable; renin and aldosterone for mineralocorticoid deficiency; 21-hydroxylase antibodies for the cause, with adrenal imaging and tuberculosis testing only if they are negative; lymphoma kept in the differential (examination for nodes and spleen, LDH, chest X-ray, and weight and symptoms on treatment) because a retrospective diagnosis of her real illness proposes it; hydrocortisone in two daily doses and fludrocortisone adjusted by blood pressure lying and standing, electrolytes and renin; written sick-day rules, an emergency injection kit, a steroid card and a medical ID, then used in a febrile illness; screening for associated autoimmune disease; anemia work-up (CMID anemia monograph); and listening to the patient&#39;s own written account of her illness. Her real illness remains undiagnosed; this record shows one modern possibility, not an answer.</p>
+      <div class="downloads">
+        <a href="../case.json">Canonical JSON</a>
+        <a href="fhir-bundle.json">FHIR R4 draft</a>
+        <a href="ccda.html">C-CDA R2.1 summary</a> <a href="ccda.xml">(XML)</a> <a href="review.html">Review checklist</a>
+        <a href="../sources.md">Evidence dossier</a>
+      </div>
+    </section>
+    <section><h2>Historical timeline</h2><table><thead><tr><th>Date</th><th>Event</th><th>Claims</th></tr></thead><tbody>
+  <tr><td>December 16, 1775</td><td>Born at Steventon Rectory, Hampshire.</td><td>CLM-0001</td></tr>
+  <tr><td>1783</td><td>Putrid fever at school in Southampton; nearly died.</td><td>CLM-0004</td></tr>
+  <tr><td>January 21, 1805</td><td>Death of her father after an illness of forty-eight hours.</td><td>CLM-0020</td></tr>
+  <tr><td>1809</td><td>Moved to Chawton with her mother and sister; neither sister married.</td><td>CLM-0002, CLM-0003</td></tr>
+  <tr><td>March 1816</td><td>Her health began to break.</td><td>CLM-0005</td></tr>
+  <tr><td>May 1816</td><td>Three weeks at Cheltenham; visibly out of health.</td><td>CLM-0006</td></tr>
+  <tr><td>July 18, 1816</td><td>First draft of Persuasion finished.</td><td>CLM-0007</td></tr>
+  <tr><td>September 8, 1816</td><td>Letter on back pain, agitation and fatigue.</td><td>CLM-0008</td></tr>
+  <tr><td>February 20, 1817</td><td>Letter on rheumatism.</td><td>CLM-0009</td></tr>
+  <tr><td>March 23, 1817</td><td>Letter on fever and her colour.</td><td>CLM-0010</td></tr>
+  <tr><td>April 6, 1817</td><td>Letter on a bilious attack with fever; confined upstairs; seen pale and weak by her niece.</td><td>CLM-0011, CLM-0012</td></tr>
+  <tr><td>July 18, 1817</td><td>Died at Winchester; buried in Winchester Cathedral.</td><td>CLM-0013</td></tr>
+  <tr><td>1964</td><td>Cope proposes Addison&#39;s disease.</td><td>CLM-0015</td></tr>
+  <tr><td>2005</td><td>Upfal proposes Hodgkin&#39;s disease.</td><td>CLM-0016</td></tr>
+  <tr><td>2009</td><td>White proposes disseminated bovine tuberculosis.</td><td>CLM-0017</td></tr>
+  <tr><td>2017</td><td>British Library post on cataracts and the arsenic theory.</td><td>CLM-0019</td></tr>
+  <tr><td>2021</td><td>Sanders and Graham propose systemic lupus erythematosus; the society biography gives Addison&#39;s disease as possible.</td><td>CLM-0014, CLM-0018</td></tr></tbody></table></section>
+    <section><h2>Evidence claims</h2><p class="muted">D = documented, R = retrospective, S = synthetic.</p><table><thead><tr><th>Grade</th><th>Claim</th><th>Certainty</th><th>Sources</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>Jane Austen was born at the Rectory in Steventon, a village in north-east Hampshire, on 16 December 1775, the seventh child and second daughter of the rector, the Revd George Austen, and his wife Cassandra (née Leigh).</strong></td>
+    <td>confirmed</td>
+    <td><a href="https://janeaustensociety.org.uk/jane-austen/" target="_blank" rel="noreferrer">Jane Austen: A brief biography</a> <span class="relationship">supports</span><br><a href="https://humanrecord.example.org/internal/HISTMED_Master_Roster_v3.xlsx" target="_blank" rel="noreferrer">HISTMED Master Roster v3</a> <span class="relationship">context</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>Steventon Rectory was her home for the first 25 years of her life; after some years in Bath and Southampton she moved in 1809 with her mother and sister to a cottage at Chawton, on one of her brother Edward&#39;s Hampshire estates, where she revised her early novels and wrote Mansfield Park, Emma and Persuasion.</strong><div class="muted">Anchors the modern home and work history.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://janeaustensociety.org.uk/jane-austen/" target="_blank" rel="noreferrer">Jane Austen: A brief biography</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>Her only sister, Cassandra, like Jane herself, never married.</strong><div class="muted">Anchors the modern social history; she has no children.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://janeaustensociety.org.uk/jane-austen/" target="_blank" rel="noreferrer">Jane Austen: A brief biography</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>In 1783, as a young child at school in Southampton with her sister, she caught a putrid fever and was very ill and nearly died.</strong><div class="muted">Past history only; not used as a modern diagnosis.</div></td>
+    <td>probable</td>
+    <td><a href="https://www.gutenberg.org/ebooks/22536" target="_blank" rel="noreferrer">Austen-Leigh W, Austen-Leigh RA. Jane Austen, Her Life and Letters: A Family Record (1913), Project Gutenberg eBook 22536</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>The chronology in the 1913 family biography dates the first break in her health to about March 1816.</strong><div class="muted">The anchor for the index visit and the synthetic presenting illness.</div></td>
+    <td>probable</td>
+    <td><a href="https://www.gutenberg.org/ebooks/22536" target="_blank" rel="noreferrer">Austen-Leigh W, Austen-Leigh RA. Jane Austen, Her Life and Letters: A Family Record (1913), Project Gutenberg eBook 22536</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>In May 1816 she and Cassandra spent three weeks at Cheltenham, stopping at Steventon and at Kintbury on the way; the family biographers judged that she &#39;must have been decidedly out of health, for the change in her did not escape the notice of her friends.&#39;</strong><div class="muted">After the index date. No modern visit is placed in May or June.</div></td>
+    <td>probable</td>
+    <td><a href="https://www.gutenberg.org/ebooks/22536" target="_blank" rel="noreferrer">Austen-Leigh W, Austen-Leigh RA. Jane Austen, Her Life and Letters: A Family Record (1913), Project Gutenberg eBook 22536</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>She wrote &#39;Finis&#39; at the end of the first draft of Persuasion on 18 July 1816; the family memoir quoted in the 1913 biography speaks of the weak state of her health at the time.</strong><div class="muted">After the index date; recorded as history.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.gutenberg.org/ebooks/22536" target="_blank" rel="noreferrer">Austen-Leigh W, Austen-Leigh RA. Jane Austen, Her Life and Letters: A Family Record (1913), Project Gutenberg eBook 22536</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>In a letter to Cassandra on 8 September 1816 she wrote: &#39;Thank you, my back has given me scarcely any pain for many days. I have an idea that agitation does it as much harm as fatigue, and that I was ill at the time of your going from the very circumstance of your going.&#39;</strong><div class="muted">After the index date; her own account of back pain and fatigue, echoed in the synthetic presenting symptoms.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.gutenberg.org/ebooks/22536" target="_blank" rel="noreferrer">Austen-Leigh W, Austen-Leigh RA. Jane Austen, Her Life and Letters: A Family Record (1913), Project Gutenberg eBook 22536</a> <span class="relationship">supports</span><br><a href="https://www.gutenberg.org/ebooks/42078" target="_blank" rel="noreferrer">Coolidge S (ed.). The Letters of Jane Austen, selected from the Brabourne edition (1892), Project Gutenberg eBook 42078</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>On 20 February 1817 she wrote to her niece Fanny Knight that she was &#39;almost entirely cured of my rheumatism—just a little pain in my knee, now and then&#39;.</strong><div class="muted">After the index date; recorded as history.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.gutenberg.org/ebooks/22536" target="_blank" rel="noreferrer">Austen-Leigh W, Austen-Leigh RA. Jane Austen, Her Life and Letters: A Family Record (1913), Project Gutenberg eBook 22536</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>On 23 March 1817 she wrote to Fanny Knight: &#39;I certainly have not been well for many weeks, and about a week ago I was very poorly. I have had a good deal of fever at times, and indifferent nights; but I am considerably better now and am recovering my looks a little, which have been bad enough—black and white and every wrong colour.&#39;</strong><div class="muted">After the index date; her own description of her colour, on which the Addison&#39;s disease interpretation rests.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.gutenberg.org/ebooks/22536" target="_blank" rel="noreferrer">Austen-Leigh W, Austen-Leigh RA. Jane Austen, Her Life and Letters: A Family Record (1913), Project Gutenberg eBook 22536</a> <span class="relationship">supports</span><br><a href="https://www.gutenberg.org/ebooks/42078" target="_blank" rel="noreferrer">Coolidge S (ed.). The Letters of Jane Austen, selected from the Brabourne edition (1892), Project Gutenberg eBook 42078</a> <span class="relationship">supports</span><br><a href="https://pubmed.ncbi.nlm.nih.gov/33596714/" target="_blank" rel="noreferrer">Sanders MD, Graham EM. &#39;Black and white and every wrong colour&#39;: the medical history of Jane Austen and the possibility of systemic lupus erythematosus. Lupus. 2021;30(6) (PMID 33596714)</a> <span class="relationship">context</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>On 6 April 1817 she wrote to her brother Charles that she had been &#39;suffering from a bilious attack attended with a good deal of fever&#39;, that she lived upstairs for the present, and that she was not strong enough to travel except in a closed carriage.</strong><div class="muted">After the index date; recorded as history.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.gutenberg.org/ebooks/22536" target="_blank" rel="noreferrer">Austen-Leigh W, Austen-Leigh RA. Jane Austen, Her Life and Letters: A Family Record (1913), Project Gutenberg eBook 22536</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>Her niece Caroline, who saw her in the spring of 1817, recalled that she was very pale, her voice weak and low, with &#39;a general appearance of debility and suffering&#39;, and had been told that she never had much acute pain.</strong><div class="muted">After the index date; recorded as history.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.gutenberg.org/ebooks/22536" target="_blank" rel="noreferrer">Austen-Leigh W, Austen-Leigh RA. Jane Austen, Her Life and Letters: A Family Record (1913), Project Gutenberg eBook 22536</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>On 24 May 1817 she moved to Winchester to be under the care of Mr. Lyford; she died there on 18 July 1817 at lodgings at No. 8 College Street, and was buried a few days later in the north aisle of Winchester Cathedral.</strong><div class="muted">History only; not used in the modern episode.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://janeaustensociety.org.uk/jane-austen/" target="_blank" rel="noreferrer">Jane Austen: A brief biography</a> <span class="relationship">supports</span><br><a href="https://www.gutenberg.org/ebooks/22536" target="_blank" rel="noreferrer">Austen-Leigh W, Austen-Leigh RA. Jane Austen, Her Life and Letters: A Family Record (1913), Project Gutenberg eBook 22536</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-R" title="Retrospective">R</span></td>
+    <td><strong>The Jane Austen Society&#39;s biography says she fell ill in 1816, possibly with Addison&#39;s disease.</strong><div class="muted">Retrospective interpretation; the modern episode makes this diagnosis as synthetic content, not as a claim about her.</div></td>
+    <td>possible</td>
+    <td><a href="https://janeaustensociety.org.uk/jane-austen/" target="_blank" rel="noreferrer">Jane Austen: A brief biography</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-R" title="Retrospective">R</span></td>
+    <td><strong>In 1964 the surgeon Sir Zachary Cope proposed in the British Medical Journal that her final illness was Addison&#39;s disease, which in his time was usually tuberculous; he relied heavily on her description of her colouring.</strong><div class="muted">Retrospective interpretation, disputed by later authors.</div></td>
+    <td>disputed</td>
+    <td><a href="https://europepmc.org/article/MED/14150900" target="_blank" rel="noreferrer">Cope Z. Jane Austen&#39;s last illness. Br Med J. 1964;2(5402):182-183 (PMID 14150900, PMC1816080)</a> <span class="relationship">supports</span><br><a href="https://pubmed.ncbi.nlm.nih.gov/23674643/" target="_blank" rel="noreferrer">Upfal A. Jane Austen&#39;s lifelong health problems and final illness: new evidence points to a fatal Hodgkin&#39;s disease and excludes the widely accepted Addison&#39;s. Med Humanit. 2005;31(1):3-11 (PMID 23674643)</a> <span class="relationship">supports</span><br><a href="https://pubmed.ncbi.nlm.nih.gov/23674705/" target="_blank" rel="noreferrer">White KG. Jane Austen and Addison&#39;s disease: an unconvincing diagnosis. Med Humanit. 2009;35(2) (PMID 23674705)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-R" title="Retrospective">R</span></td>
+    <td><strong>Annette Upfal argued in 2005 that the evidence tends to exclude Addison&#39;s disease and that her fatal illness was quite possibly Hodgkin&#39;s disease, a lymphoma, with an immune deficiency perhaps present by January 1813; she also noted that Cassandra destroyed letters containing medical detail and that the cause cannot now be established conclusively.</strong><div class="muted">Retrospective interpretation; the reason the modern consultant keeps lymphoma in the differential until it is excluded.</div></td>
+    <td>disputed</td>
+    <td><a href="https://pubmed.ncbi.nlm.nih.gov/23674643/" target="_blank" rel="noreferrer">Upfal A. Jane Austen&#39;s lifelong health problems and final illness: new evidence points to a fatal Hodgkin&#39;s disease and excludes the widely accepted Addison&#39;s. Med Humanit. 2005;31(1):3-11 (PMID 23674643)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-R" title="Retrospective">R</span></td>
+    <td><strong>Katherine White argued in 2009 that symptoms reported by Addison&#39;s patients of the period (mental confusion, generalised pain, weight loss and anorexia) are absent from her letters, so Addison&#39;s disease is unlikely, and that disseminated bovine tuberculosis would explain her symptoms coherently.</strong><div class="muted">Retrospective interpretation; the reason tuberculosis is considered as a cause until the antibody result is known.</div></td>
+    <td>disputed</td>
+    <td><a href="https://pubmed.ncbi.nlm.nih.gov/23674705/" target="_blank" rel="noreferrer">White KG. Jane Austen and Addison&#39;s disease: an unconvincing diagnosis. Med Humanit. 2009;35(2) (PMID 23674705)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-R" title="Retrospective">R</span></td>
+    <td><strong>Sanders and Graham argued in 2021 that the rheumatism, facial skin changes, fever and fluctuating symptoms in her letters fulfil current classification criteria for systemic lupus erythematosus.</strong><div class="muted">Retrospective interpretation; not used in the modern episode.</div></td>
+    <td>possible</td>
+    <td><a href="https://pubmed.ncbi.nlm.nih.gov/33596714/" target="_blank" rel="noreferrer">Sanders MD, Graham EM. &#39;Black and white and every wrong colour&#39;: the medical history of Jane Austen and the possibility of systemic lupus erythematosus. Lupus. 2021;30(6) (PMID 33596714)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-R" title="Retrospective">R</span></td>
+    <td><strong>A British Library curator noted in 2017 that her early death has been attributed to Addison&#39;s disease, cancer and tuberculosis, and that in 2011 a crime writer suggested arsenic poisoning on the basis of her facial pigmentation; the curator presented cataracts, possibly from arsenic, only as a theory raised by her spectacles.</strong><div class="muted">Retrospective speculation; not used in the modern episode.</div></td>
+    <td>disputed</td>
+    <td><a href="https://www.bl.uk/stories/blogs/posts/did-jane-austen-develop-cataracts-from-arsenic-poisoning" target="_blank" rel="noreferrer">Tuppen S. Did Jane Austen develop cataracts from arsenic poisoning?</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>Her father died on 21 January 1805 after an illness of only forty-eight hours.</strong><div class="muted">Family history; the cause is not recorded in the cited source.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.gutenberg.org/ebooks/22536" target="_blank" rel="noreferrer">Austen-Leigh W, Austen-Leigh RA. Jane Austen, Her Life and Letters: A Family Record (1913), Project Gutenberg eBook 22536</a> <span class="relationship">supports</span></td>
+  </tr></tbody></table></section>
+    <section><h2>Modern synthetic problem list</h2><table><thead><tr><th>Grade</th><th>Problem</th><th>Clinical status</th><th>Verification</th><th>Placement</th><th>Historical claims</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>About three months of increasing tiredness, loss of 5 kg, darkening of the skin, nausea with bouts of vomiting, low back ache, salt craving and lightheadedness on standing, with low sodium, high potassium and raised eosinophils; adrenal insufficiency suspected and urgent endocrinology testing booked</td>
+    <td>resolved</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td>CLM-0005</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Primary adrenal insufficiency (Addison&#39;s disease): no cortisol response to cosyntropin with a markedly raised ACTH, and mineralocorticoid deficiency with raised renin and low aldosterone; on hydrocortisone and fludrocortisone; synthetic modern diagnosis chosen for a historical illness whose cause is disputed</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>both_with_link</td>
+    <td>CLM-0014, CLM-0015</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Mild normocytic anemia (hemoglobin 11.4 g/dL) with normal ferritin, vitamin B12 and folate</td>
+    <td>resolved</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Group A streptococcal pharyngitis with fever, treated with amoxicillin and doubled hydrocortisone under the sick-day rules; resolved</td>
+    <td>resolved</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td></td>
+  </tr></tbody></table></section>
+    <section><h2>Synthetic outcome measures</h2><table><thead><tr><th>Grade</th><th>Date</th><th>Measure</th><th>Result</th><th>Coding</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-16</td>
+    <td>Hemoglobin [Mass/volume] in Blood</td>
+    <td>11.4 g/dL (low)<div class="muted">Reference 12-15.5 g/dL</div></td>
+    <td>http://loinc.org · 718-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-16</td>
+    <td>MCV [Entitic mean volume] in Red Blood Cells by Automated count</td>
+    <td>89 fL<div class="muted">Reference 80-100 fL</div></td>
+    <td>http://loinc.org · 787-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-16</td>
+    <td>Leukocytes [#/volume] in Blood by Automated count</td>
+    <td>5.8 10*3/uL<div class="muted">Reference 4-11 10*3/uL</div></td>
+    <td>http://loinc.org · 6690-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-16</td>
+    <td>Eosinophils [#/volume] in Blood</td>
+    <td>0.74 10*3/uL (high)<div class="muted">Reference 0-0.5 10*3/uL</div></td>
+    <td>http://loinc.org · 26449-9</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-16</td>
+    <td>Platelets [#/volume] in Blood by Automated count</td>
+    <td>262 10*3/uL<div class="muted">Reference 150-400 10*3/uL</div></td>
+    <td>http://loinc.org · 777-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-16</td>
+    <td>Sodium [Moles/volume] in Serum or Plasma</td>
+    <td>131 mmol/L (low)<div class="muted">Reference 135-145 mmol/L</div></td>
+    <td>http://loinc.org · 2951-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-16</td>
+    <td>Potassium [Moles/volume] in Serum or Plasma</td>
+    <td>5.4 mmol/L (high)<div class="muted">Reference 3.5-5.1 mmol/L</div></td>
+    <td>http://loinc.org · 2823-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-16</td>
+    <td>Chloride [Moles/volume] in Serum or Plasma</td>
+    <td>99 mmol/L<div class="muted">Reference 98-107 mmol/L</div></td>
+    <td>http://loinc.org · 2075-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-16</td>
+    <td>Carbon dioxide, total [Moles/volume] in Serum or Plasma</td>
+    <td>21 mmol/L (low)<div class="muted">Reference 22-29 mmol/L</div></td>
+    <td>http://loinc.org · 2028-9</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-16</td>
+    <td>Urea nitrogen [Mass/volume] in Serum or Plasma</td>
+    <td>23 mg/dL (high)<div class="muted">Reference 7-20 mg/dL</div></td>
+    <td>http://loinc.org · 3094-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-16</td>
+    <td>Creatinine [Mass/volume] in Serum or Plasma</td>
+    <td>0.94 mg/dL<div class="muted">Reference 0.57-1 mg/dL</div></td>
+    <td>http://loinc.org · 2160-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-16</td>
+    <td>Glomerular filtration rate [Volume Rate/Area] in Serum, Plasma or Blood by Creatinine-based formula (CKD-EPI 2021)/1.73 sq M</td>
+    <td>79 mL/min/1.73 m²<div class="muted">Reference &gt;=60 mL/min/1.73 m²</div></td>
+    <td>http://loinc.org · 98979-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-16</td>
+    <td>Glucose [Mass/volume] in Serum or Plasma</td>
+    <td>72 mg/dL<div class="muted">Reference 70-139 mg/dL</div></td>
+    <td>http://loinc.org · 2345-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-16</td>
+    <td>Calcium [Mass/volume] in Serum or Plasma</td>
+    <td>10.1 mg/dL<div class="muted">Reference 8.6-10.3 mg/dL</div></td>
+    <td>http://loinc.org · 17861-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-16</td>
+    <td>Thyrotropin [Units/volume] in Serum or Plasma</td>
+    <td>3.6 mIU/L<div class="muted">Reference 0.45-4.5 mIU/L</div></td>
+    <td>http://loinc.org · 3016-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-16</td>
+    <td>Thyroxine (T4) free [Mass/volume] in Serum or Plasma</td>
+    <td>1.1 ng/dL<div class="muted">Reference 0.8-1.8 ng/dL</div></td>
+    <td>http://loinc.org · 3024-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-16</td>
+    <td>Ferritin [Mass/volume] in Serum or Plasma</td>
+    <td>64 ng/mL<div class="muted">Reference 15-150 ng/mL</div></td>
+    <td>http://loinc.org · 2276-4</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-16</td>
+    <td>Cobalamin (Vitamin B12) [Mass/volume] in Serum or Plasma</td>
+    <td>486 pg/mL<div class="muted">Reference 232-1245 pg/mL</div></td>
+    <td>http://loinc.org · 2132-9</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-16</td>
+    <td>Folate [Mass/volume] in Serum or Plasma</td>
+    <td>11.2 ng/mL<div class="muted">Reference Above 5.9 ng/mL: normal</div></td>
+    <td>http://loinc.org · 2284-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-16</td>
+    <td>Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]</td>
+    <td>6</td>
+    <td>http://loinc.org · 44261-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-19</td>
+    <td>Cortisol [Mass/volume] in Serum or Plasma</td>
+    <td>2.6 ug/dL (low)<div class="muted">Reference 8 am: 5 to 23 ug/dL</div></td>
+    <td>http://loinc.org · 2143-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-19</td>
+    <td>Corticotropin [Mass/volume] in Plasma</td>
+    <td>548 pg/mL (high)<div class="muted">Reference 7.2-63 pg/mL</div></td>
+    <td>http://loinc.org · 2141-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-19</td>
+    <td>Cortisol [Mass/volume] in Serum or Plasma --30 minutes post 250 ug corticotropin IV rapid</td>
+    <td>3.4 ug/dL (low)<div class="muted">Reference Peak of 18 ug/dL or more excludes adrenal insufficiency (about 14 to 15 ug/dL on newer assays)</div></td>
+    <td>http://loinc.org · 1417-5</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-19</td>
+    <td>Cortisol [Mass/volume] in Serum or Plasma --1 hour post 250 ug corticotropin IV rapid</td>
+    <td>3.9 ug/dL (low)<div class="muted">Reference Peak of 18 ug/dL or more excludes adrenal insufficiency (about 14 to 15 ug/dL on newer assays)</div></td>
+    <td>http://loinc.org · 1402-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-19</td>
+    <td>Renin [Enzymatic activity/volume] in Plasma</td>
+    <td>16.2 ng/mL/h (high)<div class="muted">Reference Upright, mid-morning: 0.6 to 4.3 ng/mL/h</div></td>
+    <td>http://loinc.org · 2915-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-19</td>
+    <td>Aldosterone [Mass/volume] in Serum or Plasma</td>
+    <td>1.8 ng/dL (low)<div class="muted">Reference Upright, mid-morning: 4 to 31 ng/dL</div></td>
+    <td>http://loinc.org · 1763-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-19</td>
+    <td>Lactate dehydrogenase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>172 U/L<div class="muted">Reference 140-280 U/L</div></td>
+    <td>http://loinc.org · 2532-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-19</td>
+    <td>Sodium [Moles/volume] in Serum or Plasma</td>
+    <td>132 mmol/L (low)<div class="muted">Reference 135-145 mmol/L</div></td>
+    <td>http://loinc.org · 2951-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-19</td>
+    <td>Potassium [Moles/volume] in Serum or Plasma</td>
+    <td>5.3 mmol/L (high)<div class="muted">Reference 3.5-5.1 mmol/L</div></td>
+    <td>http://loinc.org · 2823-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-04-02</td>
+    <td>Sodium [Moles/volume] in Serum or Plasma</td>
+    <td>137 mmol/L<div class="muted">Reference 135-145 mmol/L</div></td>
+    <td>http://loinc.org · 2951-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-04-02</td>
+    <td>Potassium [Moles/volume] in Serum or Plasma</td>
+    <td>4.6 mmol/L<div class="muted">Reference 3.5-5.1 mmol/L</div></td>
+    <td>http://loinc.org · 2823-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-04-02</td>
+    <td>Creatinine [Mass/volume] in Serum or Plasma</td>
+    <td>0.86 mg/dL<div class="muted">Reference 0.57-1 mg/dL</div></td>
+    <td>http://loinc.org · 2160-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-04-02</td>
+    <td>Glomerular filtration rate [Volume Rate/Area] in Serum, Plasma or Blood by Creatinine-based formula (CKD-EPI 2021)/1.73 sq M</td>
+    <td>88 mL/min/1.73 m²<div class="muted">Reference &gt;=60 mL/min/1.73 m²</div></td>
+    <td>http://loinc.org · 98979-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-04-02</td>
+    <td>Glucose [Mass/volume] in Serum or Plasma</td>
+    <td>88 mg/dL<div class="muted">Reference 70-139 mg/dL</div></td>
+    <td>http://loinc.org · 2345-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-04-02</td>
+    <td>Hemoglobin [Mass/volume] in Blood</td>
+    <td>11.9 g/dL (low)<div class="muted">Reference 12-15.5 g/dL</div></td>
+    <td>http://loinc.org · 718-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-04-02</td>
+    <td>Eosinophils [#/volume] in Blood</td>
+    <td>0.38 10*3/uL<div class="muted">Reference 0-0.5 10*3/uL</div></td>
+    <td>http://loinc.org · 26449-9</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-04-30</td>
+    <td>Sodium [Moles/volume] in Serum or Plasma</td>
+    <td>139 mmol/L<div class="muted">Reference 135-145 mmol/L</div></td>
+    <td>http://loinc.org · 2951-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-04-30</td>
+    <td>Potassium [Moles/volume] in Serum or Plasma</td>
+    <td>4.4 mmol/L<div class="muted">Reference 3.5-5.1 mmol/L</div></td>
+    <td>http://loinc.org · 2823-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-04-30</td>
+    <td>Creatinine [Mass/volume] in Serum or Plasma</td>
+    <td>0.84 mg/dL<div class="muted">Reference 0.57-1 mg/dL</div></td>
+    <td>http://loinc.org · 2160-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-04-30</td>
+    <td>Glomerular filtration rate [Volume Rate/Area] in Serum, Plasma or Blood by Creatinine-based formula (CKD-EPI 2021)/1.73 sq M</td>
+    <td>90 mL/min/1.73 m²<div class="muted">Reference &gt;=60 mL/min/1.73 m²</div></td>
+    <td>http://loinc.org · 98979-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-04-30</td>
+    <td>Renin [Enzymatic activity/volume] in Plasma</td>
+    <td>3.4 ng/mL/h<div class="muted">Reference Upright, mid-morning: 0.6 to 4.3 ng/mL/h</div></td>
+    <td>http://loinc.org · 2915-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-04-30</td>
+    <td>Hemoglobin [Mass/volume] in Blood</td>
+    <td>12.6 g/dL<div class="muted">Reference 12-15.5 g/dL</div></td>
+    <td>http://loinc.org · 718-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-04-30</td>
+    <td>MCV [Entitic mean volume] in Red Blood Cells by Automated count</td>
+    <td>90 fL<div class="muted">Reference 80-100 fL</div></td>
+    <td>http://loinc.org · 787-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-10-12</td>
+    <td>Sodium [Moles/volume] in Serum or Plasma</td>
+    <td>140 mmol/L<div class="muted">Reference 135-145 mmol/L</div></td>
+    <td>http://loinc.org · 2951-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-10-12</td>
+    <td>Potassium [Moles/volume] in Serum or Plasma</td>
+    <td>4.2 mmol/L<div class="muted">Reference 3.5-5.1 mmol/L</div></td>
+    <td>http://loinc.org · 2823-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-10-12</td>
+    <td>Creatinine [Mass/volume] in Serum or Plasma</td>
+    <td>0.85 mg/dL<div class="muted">Reference 0.57-1 mg/dL</div></td>
+    <td>http://loinc.org · 2160-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-10-12</td>
+    <td>Glomerular filtration rate [Volume Rate/Area] in Serum, Plasma or Blood by Creatinine-based formula (CKD-EPI 2021)/1.73 sq M</td>
+    <td>89 mL/min/1.73 m²<div class="muted">Reference &gt;=60 mL/min/1.73 m²</div></td>
+    <td>http://loinc.org · 98979-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-10-12</td>
+    <td>Renin [Enzymatic activity/volume] in Plasma</td>
+    <td>2.8 ng/mL/h<div class="muted">Reference Upright, mid-morning: 0.6 to 4.3 ng/mL/h</div></td>
+    <td>http://loinc.org · 2915-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-10-12</td>
+    <td>Hemoglobin [Mass/volume] in Blood</td>
+    <td>13.2 g/dL<div class="muted">Reference 12-15.5 g/dL</div></td>
+    <td>http://loinc.org · 718-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-10-12</td>
+    <td>Thyrotropin [Units/volume] in Serum or Plasma</td>
+    <td>2.9 mIU/L<div class="muted">Reference 0.45-4.5 mIU/L</div></td>
+    <td>http://loinc.org · 3016-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-10-12</td>
+    <td>Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]</td>
+    <td>2</td>
+    <td>http://loinc.org · 44261-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-04-20</td>
+    <td>Sodium [Moles/volume] in Serum or Plasma</td>
+    <td>136 mmol/L<div class="muted">Reference 135-145 mmol/L</div></td>
+    <td>http://loinc.org · 2951-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-04-20</td>
+    <td>Potassium [Moles/volume] in Serum or Plasma</td>
+    <td>4.7 mmol/L<div class="muted">Reference 3.5-5.1 mmol/L</div></td>
+    <td>http://loinc.org · 2823-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-04-20</td>
+    <td>Glucose [Mass/volume] in Serum or Plasma</td>
+    <td>91 mg/dL<div class="muted">Reference 70-139 mg/dL</div></td>
+    <td>http://loinc.org · 2345-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-07-27</td>
+    <td>Patient Health Questionnaire 2 item (PHQ-2) total score [Reported]</td>
+    <td>0</td>
+    <td>http://loinc.org · 55758-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-07-27</td>
+    <td>Generalized anxiety disorder 7 item (GAD-7) total score [Reported.PHQ]</td>
+    <td>2</td>
+    <td>http://loinc.org · 70274-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-07-27</td>
+    <td>Total score [AUDIT-C]</td>
+    <td>1</td>
+    <td>http://loinc.org · 75626-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-07-27</td>
+    <td>Cholesterol [Mass/volume] in Serum or Plasma</td>
+    <td>182 mg/dL<div class="muted">Reference &lt;=199 mg/dL</div></td>
+    <td>http://loinc.org · 2093-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-07-27</td>
+    <td>Cholesterol in HDL [Mass/volume] in Serum or Plasma</td>
+    <td>68 mg/dL<div class="muted">Reference &gt;=50 mg/dL</div></td>
+    <td>http://loinc.org · 2085-9</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-07-27</td>
+    <td>Triglyceride [Mass/volume] in Serum or Plasma</td>
+    <td>74 mg/dL<div class="muted">Reference &lt;=149 mg/dL</div></td>
+    <td>http://loinc.org · 2571-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-07-27</td>
+    <td>Cholesterol in LDL [Mass/volume] in Serum or Plasma by calculation</td>
+    <td>99 mg/dL<div class="muted">Reference &lt;=99 mg/dL</div></td>
+    <td>http://loinc.org · 13457-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-04-02</td>
+    <td>21-Hydroxylase Ab [Units/volume] in Serum</td>
+    <td>24 U/mL (high)<div class="muted">Reference Below 1 U/mL: negative</div></td>
+    <td>http://loinc.org · 17781-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-04-02</td>
+    <td>Hemoglobin A1c/Hemoglobin.total in Blood</td>
+    <td>5%<div class="muted">Reference Below 5.7% is normal; 5.7 to 6.4% prediabetes</div></td>
+    <td>http://loinc.org · 4548-4</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-04-02</td>
+    <td>Tissue transglutaminase IgA Ab [Units/volume] in Serum</td>
+    <td>0.8 U/mL<div class="muted">Reference Below 4 U/mL: negative</div></td>
+    <td>http://loinc.org · 31017-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-04-02</td>
+    <td>IgA [Mass/volume] in Serum or Plasma</td>
+    <td>188 mg/dL<div class="muted">Reference 70-400 mg/dL</div></td>
+    <td>http://loinc.org · 2458-8</td>
+  </tr></tbody></table></section>
+    <section><h2>Synthetic vital signs</h2><table><thead><tr><th>Date</th><th>Measure</th><th>Result</th><th>LOINC</th><th>Grade</th></tr></thead><tbody>
+  <tr><td>2026-03-16</td><td>Body height</td><td>170 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-16</td><td>Body weight</td><td>52 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-16</td><td>Body mass index (BMI) [Ratio]</td><td>18 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-16</td><td>Systolic blood pressure</td><td>98 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-16</td><td>Diastolic blood pressure</td><td>62 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-16</td><td>Heart rate</td><td>92 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-16</td><td>Respiratory rate</td><td>16 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-16</td><td>Body temperature</td><td>37.4 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-16</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>99 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-19</td><td>Body height</td><td>170 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-19</td><td>Body weight</td><td>51.8 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-19</td><td>Body mass index (BMI) [Ratio]</td><td>17.9 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-19</td><td>Systolic blood pressure</td><td>96 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-19</td><td>Diastolic blood pressure</td><td>60 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-19</td><td>Heart rate</td><td>94 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-19</td><td>Respiratory rate</td><td>16 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-19</td><td>Body temperature</td><td>37.3 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-19</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>99 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-02</td><td>Body height</td><td>170 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-02</td><td>Body weight</td><td>53.4 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-02</td><td>Body mass index (BMI) [Ratio]</td><td>18.5 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-02</td><td>Systolic blood pressure</td><td>108 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-02</td><td>Diastolic blood pressure</td><td>68 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-02</td><td>Heart rate</td><td>80 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-02</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-02</td><td>Body temperature</td><td>36.8 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-02</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>99 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-30</td><td>Body height</td><td>170 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-30</td><td>Body weight</td><td>55.2 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-30</td><td>Body mass index (BMI) [Ratio]</td><td>19.1 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-30</td><td>Systolic blood pressure</td><td>112 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-30</td><td>Diastolic blood pressure</td><td>72 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-30</td><td>Heart rate</td><td>74 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-30</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-30</td><td>Body temperature</td><td>36.7 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-30</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>99 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-12</td><td>Body height</td><td>170 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-12</td><td>Body weight</td><td>57.2 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-12</td><td>Body mass index (BMI) [Ratio]</td><td>19.8 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-12</td><td>Systolic blood pressure</td><td>116 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-12</td><td>Diastolic blood pressure</td><td>74 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-12</td><td>Heart rate</td><td>68 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-12</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-12</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-12</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>99 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-20</td><td>Body height</td><td>170 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-20</td><td>Body weight</td><td>53.6 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-20</td><td>Body mass index (BMI) [Ratio]</td><td>18.5 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-20</td><td>Systolic blood pressure</td><td>104 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-20</td><td>Diastolic blood pressure</td><td>64 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-20</td><td>Heart rate</td><td>98 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-20</td><td>Respiratory rate</td><td>16 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-20</td><td>Body temperature</td><td>38.4 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-20</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>98 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-07-27</td><td>Body height</td><td>170 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-07-27</td><td>Body weight</td><td>56.6 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-07-27</td><td>Body mass index (BMI) [Ratio]</td><td>19.6 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-07-27</td><td>Systolic blood pressure</td><td>114 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-07-27</td><td>Diastolic blood pressure</td><td>72 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-07-27</td><td>Heart rate</td><td>70 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-07-27</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-07-27</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-07-27</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>99 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr></tbody></table></section>
+    <section><h2>Social, functional, and mental status</h2><h3>Social history</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Novelist; writes most mornings at a small table in the family sitting room, and revises a novel under contract; has had four novels published</li><li><span class="badge grade-S" title="Synthetic">S</span> Never married; no children; lives with her mother and her older sister in a village cottage; walks to the nearby market town for errands</li><li><span class="badge grade-S" title="Synthetic">S</span> Tobacco: never. Alcohol: a glass of wine with dinner once or twice a week. No drug use</li><li><span class="badge grade-S" title="Synthetic">S</span> Activity: walked several miles most days until this winter; now walks less because of tiredness</li><li><span class="badge grade-S" title="Synthetic">S</span> Keeps a detailed written account of her symptoms in her letters and a notebook, and brings notes to visits; prefers to make light of illness in company</li><li><span class="badge grade-S" title="Synthetic">S</span> Supports: a close bond with her sister, many nieces and nephews who write often, and work she finds absorbing</li></ul><h3>Functional status</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Independent in all activities; tires after a short walk and needs to rest in the afternoon; has cut her writing time from full mornings to an hour or two</li></ul><h3>Mental status</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Alert, oriented, witty and observant; describes her mood as low only because she is tired of being tired; no loss of interest or hopelessness; PHQ-9 score 6, carried by tiredness, poor appetite and poor sleep</li></ul></section>
+    
+    <section><h2>Allergies and medications</h2><h3>Allergies</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> No known allergy</li></ul><h3>Medications</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Hydrocortisone 10 mg oral tablet, one tablet by mouth on waking</li><li><span class="badge grade-S" title="Synthetic">S</span> Hydrocortisone 5 mg oral tablet, one tablet by mouth at 2 pm</li><li><span class="badge grade-S" title="Synthetic">S</span> Fludrocortisone 0.1 mg oral tablet, one tablet by mouth each morning</li><li><span class="badge grade-S" title="Synthetic">S</span> Hydrocortisone 100 mg injection kit (with diluent), 100 mg into the thigh muscle once for vomiting, collapse or signs of adrenal crisis, then call 911</li><li><span class="badge grade-S" title="Synthetic">S</span> Amoxicillin 500 mg oral capsule, one capsule by mouth twice daily for ten days</li></ul></section>
+    <section><h2>Procedures and immunizations</h2><h3>Procedures</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Cosyntropin (ACTH) stimulation test, 250 mcg intravenously with cortisol at 0, 30 and 60 minutes</li><li><span class="badge grade-S" title="Synthetic">S</span> Chest X-ray, posteroanterior and lateral</li><li><span class="badge grade-S" title="Synthetic">S</span> Advance care planning conversation, about 20 minutes</li></ul><h3>Immunizations</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> 2026-07-27: Tetanus, diphtheria, and acellular pertussis vaccine (Tdap)</li><li><span class="badge grade-S" title="Synthetic">S</span> 2026-07-27: Hepatitis B vaccine (HepB-CpG), dose 1 of 2</li><li><span class="badge grade-S" title="Synthetic">S</span> 2026-10-12: Hepatitis B vaccine (HepB-CpG), dose 2 of 2</li><li><span class="badge grade-S" title="Synthetic">S</span> 2026-10-12: Influenza vaccine, inactivated, this season</li></ul></section>
+    <section><h2>Past medical history</h2><p class="muted">True biography with historical dates; not part of the synthetic care timeline.</p><ul><li><span class="badge grade-D" title="Documented">D</span> 1783: Severe fever (described as putrid fever) as a young child at school, from which she nearly died <span class="muted">(CLM-0004)</span></li></ul><h3>Family history</h3><ul><li><span class="badge grade-D" title="Documented">D</span> father: Died after an illness of only forty-eight hours; cause not recorded in the cited source</li></ul></section>
+    <section><h2>Care-plan goals</h2><table><thead><tr><th>Goal</th><th>Target date</th><th>Status</th><th>Outcome</th></tr></thead><tbody>
+  <tr><td>A diagnosis within one week of the first visit, with treatment started the same day if adrenal insufficiency is confirmed</td><td>2026-03-19</td><td>completed</td><td>Cosyntropin test three days after the first visit; replacement started the same day</td></tr>
+  <tr><td>No adrenal crisis and no emergency admission through the episode</td><td>2026-10-12</td><td>completed</td><td>No crisis or admission; one febrile illness managed at home with stress dosing</td></tr>
+  <tr><td>Sodium and potassium normal, renin in the upper normal range, and no postural drop by the six-week visit</td><td>2026-04-30</td><td>completed</td><td>Sodium 139 and potassium 4.4 mmol/L; renin 3.4 ng/mL/h; no postural drop</td></tr>
+  <tr><td>She can state the sick-day rules and give the emergency injection by the two-week visit</td><td>2026-04-02</td><td>completed</td><td>Stated the rules and gave a practice injection on a trainer</td></tr>
+  <tr><td>Weight back to her usual 57 kg, and energy for full mornings of writing, by six months</td><td>2026-10-12</td><td>completed</td><td>Weight 57.2 kg from 52.0; writing full mornings and walking several miles</td></tr></tbody></table></section>
+    <section><h2>Interventions</h2><table><thead><tr><th>Intervention</th><th>Status</th><th>Guideline</th></tr></thead><tbody>
+  <tr><td>Initial evaluation of tiredness, weight loss, darkening skin, low sodium and high potassium: blood count, metabolic panel, thyroid tests, ferritin, vitamin B12 and folate at the first visit; urgent 8 am cortisol and ACTH with a cosyntropin stimulation test within days; until then, salt freely, and go to the emergency department at once for vomiting, fainting, confusion or severe abdominal pain</td><td>completed</td><td>GL-ES-PAI-2016, GL-CMID-2026</td></tr>
+  <tr><td>Urgent endocrinology consultation within three days to confirm or exclude primary adrenal insufficiency, start replacement if confirmed, and plan the search for the cause</td><td>completed</td><td>GL-ES-PAI-2016</td></tr>
+  <tr><td>Replacement: hydrocortisone 10 mg on waking and 5 mg at 2 pm (15 mg a day) and fludrocortisone 0.1 mg each morning, adjusted by weight, energy, blood pressure lying and standing, salt craving and signs of over- or under-replacement, with sodium, potassium and plasma renin after any fludrocortisone change and at least yearly</td><td>completed</td><td>GL-ES-PAI-2016</td></tr>
+  <tr><td>Written sick-day rules (double the hydrocortisone for fever above 38 °C, triple it above 39 °C, and inject 100 mg and call 911 for vomiting, inability to take tablets, or feeling faint), an emergency hydrocortisone injection kit with training, a steroid emergency card and a medical ID, reviewed at every visit</td><td>completed</td><td>GL-ES-PAI-2016</td></tr>
+  <tr><td>Cause and differential: 21-hydroxylase antibodies at the two-week visit; adrenal CT and tuberculosis testing only if they are negative; examination for lymph nodes and spleen, LDH and a chest X-ray now, with CT of the chest, abdomen and pelvis if weight loss, fevers, night sweats or enlarged nodes persist once replacement is established</td><td>completed</td><td>GL-ES-PAI-2016</td></tr>
+  <tr><td>Screening for associated autoimmune disease: TSH (normal at intake) at least yearly; vitamin B12, A1c, and celiac serology with total IgA; ask about periods at each visit and check FSH if they become irregular or stop</td><td>completed</td><td>GL-ES-PAI-2016, GL-ACG-CD-2023</td></tr>
+  <tr><td>Anemia: ferritin, vitamin B12 and folate at intake; repeat the blood count on treatment and look further only if it does not recover</td><td>completed</td><td>GL-CMID-2026</td></tr>
+  <tr><td>Streptococcal pharyngitis: amoxicillin 500 mg twice daily for ten days; hydrocortisone doubled under the sick-day rules until a day without fever and then back to the usual dose; fluids with salt; the emergency injection with a 911 call if she vomits or cannot take tablets; neck nodes rechecked at the six-week visit</td><td>completed</td><td>GL-ES-PAI-2016, GL-IDSA-GAS-2012</td></tr></tbody></table></section>
+    <section><h2>Planned encounters</h2><ul>
+  <li><strong>2026-03-16</strong> — New patient visit for about three months of tiredness, weight loss, darkening skin, nausea and back ache, with blood tests and urgent endocrinology referral <span class="muted">(ENC-001)</span></li>
+  <li><strong>2026-03-19</strong> — Endocrinology consultation with a cosyntropin stimulation test, diagnosis, and start of replacement <span class="muted">(ENC-002)</span></li>
+  <li><strong>2026-04-02</strong> — Two-week review after starting replacement: electrolytes, cause, and autoimmune screening <span class="muted">(ENC-003)</span></li>
+  <li><strong>2026-04-20</strong> — Same-day sick visit for streptococcal pharyngitis with stress dosing of hydrocortisone <span class="muted">(ENC-006, unscheduled)</span></li>
+  <li><strong>2026-04-30</strong> — Six-week review: electrolytes, renin, blood count, and recovery <span class="muted">(ENC-004)</span></li>
+  <li><strong>2026-07-27</strong> — Periodic adult preventive visit <span class="muted">(ENC-007)</span></li>
+  <li><strong>2026-10-12</strong> — Seven-month review: replacement, renin, thyroid, mood, and the closing of the differential <span class="muted">(ENC-005)</span></li></ul></section>
+    <section><h2>Supporting documents</h2><ul><li><a href="notes/hp.md">History and physical</a></li><li><a href="notes/progress-01.md">Progress note 01</a></li><li><a href="notes/progress-02.md">Progress note 02 — Focused Visit (Follow-up)</a></li><li><a href="notes/progress-03.md">Progress note 03 — Focused Visit (Follow-up)</a></li><li><a href="notes/progress-04.md">Progress note 04 — Sick Visit</a></li><li><a href="notes/progress-05.md">Progress note 05 — Focused Visit (Follow-up)</a></li><li><a href="notes/progress-06.md">Progress note 06 — Preventive Visit</a></li><li><a href="notes/progress-07.md">Progress note 07 — Focused Visit (Care-plan review)</a></li><li><a href="notes/referral-01.md">Endocrinology referral</a></li><li><a href="notes/consult-01.md">Endocrinology consultation</a></li><li><a href="notes/careplan.md">Patient care plan</a></li><li><a href="notes/teaching-note.md">Teaching note</a></li><li><a href="provenance.csv">Provenance CSV</a></li></ul></section>
+    <section><h2>C-CDA note documents</h2><p class="muted">Each link opens a readable copy; the XML beside it is the exchange file.</p><ul><li><a href="ccda/hp-01.html">History and physical</a> <a href="ccda/hp-01.xml">(XML)</a></li><li><a href="ccda/progress-01.html">Progress note 01</a> <a href="ccda/progress-01.xml">(XML)</a></li><li><a href="ccda/progress-02.html">Progress note 02 — Focused Visit (Follow-up)</a> <a href="ccda/progress-02.xml">(XML)</a></li><li><a href="ccda/progress-03.html">Progress note 03 — Focused Visit (Follow-up)</a> <a href="ccda/progress-03.xml">(XML)</a></li><li><a href="ccda/progress-04.html">Progress note 04 — Sick Visit</a> <a href="ccda/progress-04.xml">(XML)</a></li><li><a href="ccda/progress-05.html">Progress note 05 — Focused Visit (Follow-up)</a> <a href="ccda/progress-05.xml">(XML)</a></li><li><a href="ccda/progress-06.html">Progress note 06 — Preventive Visit</a> <a href="ccda/progress-06.xml">(XML)</a></li><li><a href="ccda/progress-07.html">Progress note 07 — Focused Visit (Care-plan review)</a> <a href="ccda/progress-07.xml">(XML)</a></li><li><a href="ccda/referral-01.html">Endocrinology referral</a> <a href="ccda/referral-01.xml">(XML)</a></li><li><a href="ccda/consult-01.html">Endocrinology consultation</a> <a href="ccda/consult-01.xml">(XML)</a></li></ul></section>
+    <section><h2>Sources</h2><table><thead><tr><th>ID</th><th>Source</th><th>Publisher</th><th>Type</th></tr></thead><tbody>
+  <tr>
+    <td>SRC-0001</td>
+    <td><a href="https://janeaustensociety.org.uk/jane-austen/" target="_blank" rel="noreferrer">Jane Austen: A brief biography</a></td>
+    <td>The Jane Austen Society (UK)</td>
+    <td>biography</td>
+  </tr>
+  <tr>
+    <td>SRC-0002</td>
+    <td><a href="https://www.gutenberg.org/ebooks/22536" target="_blank" rel="noreferrer">Austen-Leigh W, Austen-Leigh RA. Jane Austen, Her Life and Letters: A Family Record (1913), Project Gutenberg eBook 22536</a></td>
+    <td>Project Gutenberg</td>
+    <td>biography</td>
+  </tr>
+  <tr>
+    <td>SRC-0003</td>
+    <td><a href="https://europepmc.org/article/MED/14150900" target="_blank" rel="noreferrer">Cope Z. Jane Austen&#39;s last illness. Br Med J. 1964;2(5402):182-183 (PMID 14150900, PMC1816080)</a></td>
+    <td>British Medical Journal</td>
+    <td>scholarly</td>
+  </tr>
+  <tr>
+    <td>SRC-0004</td>
+    <td><a href="https://pubmed.ncbi.nlm.nih.gov/23674643/" target="_blank" rel="noreferrer">Upfal A. Jane Austen&#39;s lifelong health problems and final illness: new evidence points to a fatal Hodgkin&#39;s disease and excludes the widely accepted Addison&#39;s. Med Humanit. 2005;31(1):3-11 (PMID 23674643)</a></td>
+    <td>Medical Humanities (BMJ)</td>
+    <td>scholarly</td>
+  </tr>
+  <tr>
+    <td>SRC-0005</td>
+    <td><a href="https://pubmed.ncbi.nlm.nih.gov/23674705/" target="_blank" rel="noreferrer">White KG. Jane Austen and Addison&#39;s disease: an unconvincing diagnosis. Med Humanit. 2009;35(2) (PMID 23674705)</a></td>
+    <td>Medical Humanities (BMJ)</td>
+    <td>scholarly</td>
+  </tr>
+  <tr>
+    <td>SRC-0006</td>
+    <td><a href="https://pubmed.ncbi.nlm.nih.gov/33596714/" target="_blank" rel="noreferrer">Sanders MD, Graham EM. &#39;Black and white and every wrong colour&#39;: the medical history of Jane Austen and the possibility of systemic lupus erythematosus. Lupus. 2021;30(6) (PMID 33596714)</a></td>
+    <td>Lupus (SAGE)</td>
+    <td>scholarly</td>
+  </tr>
+  <tr>
+    <td>SRC-0007</td>
+    <td><a href="https://www.bl.uk/stories/blogs/posts/did-jane-austen-develop-cataracts-from-arsenic-poisoning" target="_blank" rel="noreferrer">Tuppen S. Did Jane Austen develop cataracts from arsenic poisoning?</a></td>
+    <td>British Library</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0008</td>
+    <td><a href="https://www.gutenberg.org/ebooks/42078" target="_blank" rel="noreferrer">Coolidge S (ed.). The Letters of Jane Austen, selected from the Brabourne edition (1892), Project Gutenberg eBook 42078</a></td>
+    <td>Project Gutenberg</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0009</td>
+    <td><a href="https://humanrecord.example.org/internal/HISTMED_Master_Roster_v3.xlsx" target="_blank" rel="noreferrer">HISTMED Master Roster v3</a></td>
+    <td>The Human Record project</td>
+    <td>other</td>
+  </tr></tbody></table></section>
+    <section><h2>Review status</h2><table><thead><tr><th>Review</th><th>Status</th><th>Notes</th></tr></thead><tbody>
+  <tr><td>schema validation</td><td>not_started</td><td>Run scripts/build.ps1 -Conformance.</td></tr>
+  <tr><td>clinical review</td><td>not_started</td><td>Awaiting clinician review; check the three-day interval to the cosyntropin test in a stable outpatient, the hydrocortisone and fludrocortisone doses, the sick-day rules, and how lymphoma and tuberculosis are kept in and then out of the differential.</td></tr>
+  <tr><td>provenance review</td><td>not_started</td><td>The Jane Austen Society biography, the 1913 Family Record and the 1892 letters (Project Gutenberg), the British Library blog, and four PubMed records (three abstracts read) logged. Cope&#39;s 1964 article could not be read and is described through the Upfal and White abstracts. Le Faye&#39;s edition of the letters was not consulted.</td></tr>
+  <tr><td>safe messaging review</td><td>not_started</td><td>No sensitive claims. Her death is recorded as history in one sentence. The modern diagnosis is presented as one possibility, not as the cause of her real illness.</td></tr></tbody></table></section>
+  </main>
+</body>
+</html>

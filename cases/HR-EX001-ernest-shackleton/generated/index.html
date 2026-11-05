@@ -1,0 +1,574 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ernest Shackleton — The Human Record</title>
+  <style>
+    :root { --navy:#17365d; --blue:#1f4e78; --pale:#eef5fa; --ink:#1f2933; --muted:#66788a; --amber:#fff2cc; --red:#f8d7da; --green:#d9ead3; }
+    * { box-sizing:border-box; }
+    body { margin:0; font:16px/1.5 Arial, sans-serif; color:var(--ink); background:#f6f8fa; }
+    header { background:var(--navy); color:white; padding:24px max(24px,calc((100vw - 1180px)/2)); }
+    header h1 { margin:4px 0; font-size:30px; }
+    .banner { background:#b42318; color:white; font-weight:700; text-align:center; padding:10px; letter-spacing:.03em; }
+    main { max-width:1180px; margin:24px auto 60px; padding:0 24px; }
+    section { background:white; border:1px solid #d9e1e8; border-radius:8px; margin:18px 0; padding:20px; }
+    h2 { color:var(--navy); margin:0 0 14px; font-size:22px; }
+    h3 { color:var(--blue); }
+    .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:12px; }
+    .card { background:var(--pale); border-left:4px solid var(--blue); padding:12px; }
+    .label { color:var(--muted); font-size:13px; text-transform:uppercase; letter-spacing:.04em; }
+    table { width:100%; border-collapse:collapse; }
+    th { background:var(--blue); color:white; text-align:left; }
+    th,td { padding:9px; border-bottom:1px solid #dfe6ec; vertical-align:top; }
+    .badge { display:inline-block; min-width:28px; text-align:center; font-weight:700; border-radius:12px; padding:2px 8px; }
+    .grade-D { background:var(--green); } .grade-R { background:var(--amber); } .grade-S { background:var(--red); }
+    .muted { color:var(--muted); font-size:14px; }
+    .relationship { color:var(--muted); font-size:12px; }
+    .downloads a { display:inline-block; margin:4px 8px 4px 0; padding:8px 12px; background:var(--blue); color:white; text-decoration:none; border-radius:5px; }
+    @media (max-width:700px) { table { display:block; overflow-x:auto; } }
+  </style>
+</head>
+<body>
+  <div class="banner">SYNTHETIC RECORD, NOT A REAL MEDICAL RECORD</div>
+  <header>
+    <div>The Human Record</div>
+    <h1>Ernest Shackleton</h1>
+    <div>Case HR-EX001 · Modern EHR teaching episode · Draft for review</div>
+  </header>
+  <main>
+    <section>
+      <h2>Review summary</h2>
+      <div class="grid">
+        <div class="card"><div class="label">Historical dates</div>February 15, 1874 – January 5, 1922</div>
+        <div class="card"><div class="label">Synthetic DOB</div>1979-02-15</div>
+        <div class="card"><div class="label">Index visit</div>2026-05-12 at age 47</div>
+        <div class="card"><div class="label">Synthetic MRN</div>HR-EX001-SYN</div>
+      </div>
+      <p><strong>Teaching objective:</strong> Primary care and cardiology for a 47-year-old expedition leader and heavy smoker with new exertional chest tightness and breathlessness, four months before leading a ship-based polar expedition: pretest probability and risk assessment, a resting ECG and risk-factor tests, coronary CT angiography with CT-FFR as the first test, an echocardiogram, guideline-directed medical therapy (aspirin, high-intensity statin with ezetimibe to an LDL below 55 mg/dL, a beta-blocker, and sublingual nitroglycerin), revascularization when angina persists despite medical therapy and what it does and does not offer in chronic coronary disease, dual antiplatelet therapy, cardiac rehabilitation, varenicline with counseling, the AUDIT with a brief intervention, prediabetes, and fitness for remote high-latitude travel: a symptom-limited exercise test, an evacuation plan, a defibrillator and medicines on board, and cold stress. His reluctance to be examined, and to let anything stop the expedition, is worked through with shared decision-making. Built on the 2023 AHA/ACC chronic coronary disease guideline, the 2024 ESC chronic coronary syndromes guideline, and the CMID ischemic heart disease and hyperlipidemia monographs.</p>
+      <div class="downloads">
+        <a href="../case.json">Canonical JSON</a>
+        <a href="fhir-bundle.json">FHIR R4 draft</a>
+        <a href="ccda.html">C-CDA R2.1 summary</a> <a href="ccda.xml">(XML)</a> <a href="review.html">Review checklist</a>
+        <a href="../sources.md">Evidence dossier</a>
+      </div>
+    </section>
+    <section><h2>Historical timeline</h2><table><thead><tr><th>Date</th><th>Event</th><th>Claims</th></tr></thead><tbody>
+  <tr><td>February 15, 1874</td><td>Born at Kilkea, County Kildare.</td><td>CLM-0001</td></tr>
+  <tr><td>1903</td><td>Invalided home from the Discovery expedition after breathlessness and weakness on the southern journey.</td><td>CLM-0002</td></tr>
+  <tr><td>January 20, 1908</td><td>On the Nimrod expedition, very unwell after pulling on a rope; a pulmonary systolic murmur heard.</td><td>CLM-0003</td></tr>
+  <tr><td>1914 to 1917</td><td>Endurance expedition; three men of the Ross Sea party died.</td><td>CLM-0004</td></tr>
+  <tr><td>1921</td><td>Organized the Shackleton-Rowett expedition in London.</td><td>CLM-0007</td></tr>
+  <tr><td>September 17, 1921</td><td>The Quest left London.</td><td>CLM-0007</td></tr>
+  <tr><td>December 1921</td><td>Sudden faintness ashore at Rio de Janeiro.</td><td>CLM-0008</td></tr>
+  <tr><td>January 5, 1922</td><td>Died aboard the Quest at Grytviken; Macklin recorded atheroma of the coronary arteries.</td><td>CLM-0009, CLM-0010, CLM-0011</td></tr>
+  <tr><td>March 5, 1922</td><td>Buried at Grytviken.</td><td>CLM-0012</td></tr></tbody></table></section>
+    <section><h2>Evidence claims</h2><p class="muted">D = documented, R = retrospective, S = synthetic.</p><table><thead><tr><th>Grade</th><th>Claim</th><th>Certainty</th><th>Sources</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>Ernest Henry Shackleton was born on February 15, 1874, at Kilkea, County Kildare, Ireland, the son of Dr. Henry Shackleton, of a well-known Quaker family.</strong></td>
+    <td>confirmed</td>
+    <td><a href="https://kildarelibraries.ie/ehistory/?p=4914" target="_blank" rel="noreferrer">Death of Ernest Shackleton (Kildare eHistory Journal)</a> <span class="relationship">supports</span><br><a href="https://id.loc.gov/authorities/names/n50002512.html" target="_blank" rel="noreferrer">Shackleton, Ernest Henry, Sir, 1874-1922 (name authority record n50002512)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>On the southern sledge journey of the Discovery expedition he became unable to pull the sledge because of breathlessness and weakness; the collapse was attributed to scurvy and &quot;a sort of asthma,&quot; and he was invalided home against his will in 1903.</strong><div class="muted">Documented exertional breathlessness in his late twenties. Its cause is disputed (CLM-0010, CLM-0011).</div></td>
+    <td>confirmed</td>
+    <td><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC4794964/" target="_blank" rel="noreferrer">Calder I, Till J. Shackleton&#39;s heart. J R Soc Med 2016;109(3):106-8. PMID 26759361</a> <span class="relationship">supports</span><br><a href="https://pubmed.ncbi.nlm.nih.gov/33896263/" target="_blank" rel="noreferrer">Firth PG, Benavidez OJ, Fiechtner L. The signs and symptoms of Ernest Shackleton. J Med Biogr 2023;31(1):10-15. PMID 33896263</a> <span class="relationship">supports</span><br><a href="https://www.gutenberg.org/ebooks/58973" target="_blank" rel="noreferrer">Wild F, with Macklin AH. Shackleton&#39;s Last Voyage: The Story of the Quest. London, 1923. Project Gutenberg eBook 58973</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>On the Nimrod expedition (1907 to 1909), its medical officer Eric Marshall recorded in his diary on January 20, 1908, that Shackleton was very unwell after pulling on a rope, and twice heard a pulmonary systolic murmur.</strong><div class="muted">Documented exertional illness and a heart murmur in his thirties; the cause is disputed.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC4794964/" target="_blank" rel="noreferrer">Calder I, Till J. Shackleton&#39;s heart. J R Soc Med 2016;109(3):106-8. PMID 26759361</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>On the Imperial Trans-Antarctic (Endurance) expedition of 1914 to 1917, of fifty-six men three died in the Antarctic: Mackintosh, Hayward, and Spencer-Smith of the Ross Sea party. No member of the Endurance&#39;s own party died.</strong><div class="muted">After this, he wrote South, published in 1919; not a clinical claim.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.gutenberg.org/ebooks/5199" target="_blank" rel="noreferrer">Shackleton EH. South: The Story of Shackleton&#39;s Last Expedition, 1914-1917. London, 1919. Project Gutenberg eBook 5199</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>His colleague Dr. James McIlroy later recalled that on one occasion Shackleton would not undress and let him listen to his heart.</strong><div class="muted">A recollection quoted in a later essay; the year is not used. Anchors the modern episode&#39;s reluctance to be examined, which is worked through by shared decision-making.</div></td>
+    <td>probable</td>
+    <td><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC4794964/" target="_blank" rel="noreferrer">Calder I, Till J. Shackleton&#39;s heart. J R Soc Med 2016;109(3):106-8. PMID 26759361</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>He was a heavy cigarette smoker for most of his life.</strong><div class="muted">Stated by the authors of a 2016 essay on his heart; the synthetic smoking history is anchored to it.</div></td>
+    <td>probable</td>
+    <td><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC4794964/" target="_blank" rel="noreferrer">Calder I, Till J. Shackleton&#39;s heart. J R Soc Med 2016;109(3):106-8. PMID 26759361</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>After the war he returned to London. In 1921, with John Quiller Rowett taking on practically the whole financial responsibility, he turned his planned Arctic expedition into the Shackleton-Rowett expedition to the South; it was organized and equipped within three months, its sailing was postponed beyond August 20 by a strike of ships&#39; joiners and other delays, and the Quest left St. Katharine&#39;s Dock in London on September 17, 1921.</strong><div class="muted">Places him in London through the synthetic episode, which ends before the sailing.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.gutenberg.org/ebooks/58973" target="_blank" rel="noreferrer">Wild F, with Macklin AH. Shackleton&#39;s Last Voyage: The Story of the Quest. London, 1923. Project Gutenberg eBook 58973</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>In Rio de Janeiro, on the morning the Quest sailed in December 1921, an urgent message called Dr. Alexander Macklin to Shackleton, who had been taken suddenly ill ashore; Macklin found him fully recovered, saying he had merely felt a slight faintness. Frank Wild wrote that &quot;this attack had a greater significance than was appreciated at the time.&quot; At the end of December, Macklin noticed that he was looking tired and ill.</strong><div class="muted">After the episode.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.gutenberg.org/ebooks/58973" target="_blank" rel="noreferrer">Wild F, with Macklin AH. Shackleton&#39;s Last Voyage: The Story of the Quest. London, 1923. Project Gutenberg eBook 58973</a> <span class="relationship">supports</span><br><a href="https://sgmuseum.gs/chapter/death-of-shackleton/" target="_blank" rel="noreferrer">Death of Shackleton</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>At South Georgia, early on January 5, 1922, aboard the Quest at Grytviken, he called Macklin to his cabin, complaining of severe facial neuralgia for which he had taken aspirin; while Macklin was with him he had an attack and died suddenly, at about 2.50 a.m. Macklin wrote that the cause was &quot;atheroma of the coronary arteries,&quot; a long-standing condition that in his opinion was due to overstrain during a period of debility. At embalming Macklin could see the heart, but no further pathological examination was feasible.</strong><div class="muted">After the episode. Macklin&#39;s wording is documented; the autopsy was not a full pathological examination.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.gutenberg.org/ebooks/58973" target="_blank" rel="noreferrer">Wild F, with Macklin AH. Shackleton&#39;s Last Voyage: The Story of the Quest. London, 1923. Project Gutenberg eBook 58973</a> <span class="relationship">supports</span><br><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC4794964/" target="_blank" rel="noreferrer">Calder I, Till J. Shackleton&#39;s heart. J R Soc Med 2016;109(3):106-8. PMID 26759361</a> <span class="relationship">supports</span><br><a href="https://kildarelibraries.ie/ehistory/?p=4914" target="_blank" rel="noreferrer">Death of Ernest Shackleton (Kildare eHistory Journal)</a> <span class="relationship">supports</span><br><a href="https://sgmuseum.gs/chapter/death-of-shackleton/" target="_blank" rel="noreferrer">Death of Shackleton</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-R" title="Retrospective">R</span></td>
+    <td><strong>Two authors argue that his breakdowns, beginning with the Discovery journey, were caused by a congenital atrial septal defect, citing the pulmonary systolic murmur and his episodes of breathlessness and weakness.</strong><div class="muted">Retrospective interpretation; the modern echocardiogram shows no shunt and the record does not adopt it.</div></td>
+    <td>possible</td>
+    <td><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC4794964/" target="_blank" rel="noreferrer">Calder I, Till J. Shackleton&#39;s heart. J R Soc Med 2016;109(3):106-8. PMID 26759361</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-R" title="Retrospective">R</span></td>
+    <td><strong>Other authors propose that the illness on the Discovery expedition was thiamine-deficiency (beriberi) cardiomyopathy, alone or worsened by scurvy.</strong><div class="muted">Retrospective interpretation; not adopted.</div></td>
+    <td>possible</td>
+    <td><a href="https://pubmed.ncbi.nlm.nih.gov/33896263/" target="_blank" rel="noreferrer">Firth PG, Benavidez OJ, Fiechtner L. The signs and symptoms of Ernest Shackleton. J Med Biogr 2023;31(1):10-15. PMID 33896263</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>At the wish of Lady Shackleton he was buried at Grytviken, South Georgia, on March 5, 1922.</strong><div class="muted">After the episode. His wife appears only in this documented claim.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://sgmuseum.gs/chapter/death-of-shackleton/" target="_blank" rel="noreferrer">Death of Shackleton</a> <span class="relationship">supports</span></td>
+  </tr></tbody></table></section>
+    <section><h2>Modern synthetic problem list</h2><table><thead><tr><th>Grade</th><th>Problem</th><th>Clinical status</th><th>Verification</th><th>Placement</th><th>Historical claims</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Chest tightness and breathlessness on exertion for about three months, brought on by stairs, carrying loads, and walking fast in cold wind and relieved within minutes by rest, never at rest; resting ECG normal; cause not yet established at intake; coronary CT angiography and cardiology consultation requested</td>
+    <td>resolved</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td>CLM-0002, CLM-0003, CLM-0006</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Nicotine dependence, cigarettes: about 25 a day since 16 (about 39 pack-years)</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>both_with_link</td>
+    <td>CLM-0006</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Chronic coronary disease with stable exertional angina: 80% stenosis of the proximal left anterior descending artery with CT-FFR 0.70, mild right coronary artery disease, coronary calcium score 210, and normal left ventricular function; synthetic modern episode linked to his documented exertional illnesses and the coronary atheroma recorded at his death</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>both_with_link</td>
+    <td>CLM-0002, CLM-0003, CLM-0006</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Hyperlipidemia: LDL cholesterol 168 mg/dL and HDL 38 mg/dL at intake</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Prediabetes: HbA1c 5.9% at intake</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Drug-eluting stent in the proximal left anterior descending artery, placed for angina that persisted on medical therapy; dual antiplatelet therapy for six months</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td>CLM-0002, CLM-0003, CLM-0006</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Acute low back strain after lifting crates of stores, without sciatica or red flags; managed without NSAIDs because he takes aspirin and clopidogrel; resolved</td>
+    <td>resolved</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td></td>
+  </tr></tbody></table></section>
+    <section><h2>Synthetic outcome measures</h2><table><thead><tr><th>Grade</th><th>Date</th><th>Measure</th><th>Result</th><th>Coding</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-05-12</td>
+    <td>Cholesterol [Mass/volume] in Serum or Plasma</td>
+    <td>246 mg/dL (high)<div class="muted">Reference &lt;=199 mg/dL</div></td>
+    <td>http://loinc.org · 2093-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-05-12</td>
+    <td>Cholesterol in HDL [Mass/volume] in Serum or Plasma</td>
+    <td>38 mg/dL (low)<div class="muted">Reference &gt;=40 mg/dL</div></td>
+    <td>http://loinc.org · 2085-9</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-05-12</td>
+    <td>Cholesterol in LDL [Mass/volume] in Serum or Plasma by calculation</td>
+    <td>168 mg/dL (high)<div class="muted">Reference Below 100 for the general population; below 55 is his treatment target</div></td>
+    <td>http://loinc.org · 13457-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-05-12</td>
+    <td>Triglyceride [Mass/volume] in Serum or Plasma</td>
+    <td>200 mg/dL (high)<div class="muted">Reference &lt;=149 mg/dL</div></td>
+    <td>http://loinc.org · 2571-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-05-12</td>
+    <td>Hemoglobin A1c/Hemoglobin.total in Blood</td>
+    <td>5.9% (high)<div class="muted">Reference &lt;=5.6%</div></td>
+    <td>http://loinc.org · 4548-4</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-05-12</td>
+    <td>Potassium [Moles/volume] in Serum or Plasma</td>
+    <td>4.4 mmol/L<div class="muted">Reference 3.5-5.1 mmol/L</div></td>
+    <td>http://loinc.org · 2823-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-05-12</td>
+    <td>Creatinine [Mass/volume] in Serum or Plasma</td>
+    <td>0.98 mg/dL<div class="muted">Reference 0.74-1.35 mg/dL</div></td>
+    <td>http://loinc.org · 2160-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-05-12</td>
+    <td>Alanine aminotransferase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>41 U/L<div class="muted">Reference 7-52 U/L</div></td>
+    <td>http://loinc.org · 1742-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-05-12</td>
+    <td>Hemoglobin [Mass/volume] in Blood</td>
+    <td>15.8 g/dL<div class="muted">Reference 13.2-17.1 g/dL</div></td>
+    <td>http://loinc.org · 718-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-05-12</td>
+    <td>Thyrotropin [Units/volume] in Serum or Plasma</td>
+    <td>1.9 mIU/L<div class="muted">Reference 0.45-4.5 mIU/L</div></td>
+    <td>http://loinc.org · 3016-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-05-12</td>
+    <td>Glomerular filtration rate [Volume Rate/Area] in Serum, Plasma or Blood by Creatinine-based formula (CKD-EPI 2021)/1.73 sq M</td>
+    <td>96 mL/min/1.73 m²<div class="muted">Reference 60 or more</div></td>
+    <td>http://loinc.org · 98979-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-05-12</td>
+    <td>Patient Health Questionnaire 2 item (PHQ-2) total score [Reported]</td>
+    <td>1</td>
+    <td>http://loinc.org · 55758-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-05-12</td>
+    <td>Total score [AUDIT]</td>
+    <td>12</td>
+    <td>http://loinc.org · 75624-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-05-26</td>
+    <td>Left ventricular Ejection fraction</td>
+    <td>58%<div class="muted">Reference 52-72%</div></td>
+    <td>http://loinc.org · 10230-1</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-06-23</td>
+    <td>Potassium [Moles/volume] in Serum or Plasma</td>
+    <td>4.3 mmol/L<div class="muted">Reference 3.5-5.1 mmol/L</div></td>
+    <td>http://loinc.org · 2823-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-06-23</td>
+    <td>Creatinine [Mass/volume] in Serum or Plasma</td>
+    <td>0.96 mg/dL<div class="muted">Reference 0.74-1.35 mg/dL</div></td>
+    <td>http://loinc.org · 2160-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-06-23</td>
+    <td>Hemoglobin [Mass/volume] in Blood</td>
+    <td>15.6 g/dL<div class="muted">Reference 13.2-17.1 g/dL</div></td>
+    <td>http://loinc.org · 718-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-06-23</td>
+    <td>Platelets [#/volume] in Blood by Automated count</td>
+    <td>245 10*3/uL<div class="muted">Reference 140-400 10*3/uL</div></td>
+    <td>http://loinc.org · 777-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-06-23</td>
+    <td>Glomerular filtration rate [Volume Rate/Area] in Serum, Plasma or Blood by Creatinine-based formula (CKD-EPI 2021)/1.73 sq M</td>
+    <td>98 mL/min/1.73 m²<div class="muted">Reference 60 or more</div></td>
+    <td>http://loinc.org · 98979-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-07-21</td>
+    <td>Cholesterol [Mass/volume] in Serum or Plasma</td>
+    <td>128 mg/dL<div class="muted">Reference &lt;=199 mg/dL</div></td>
+    <td>http://loinc.org · 2093-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-07-21</td>
+    <td>Cholesterol in HDL [Mass/volume] in Serum or Plasma</td>
+    <td>44 mg/dL<div class="muted">Reference &gt;=40 mg/dL</div></td>
+    <td>http://loinc.org · 2085-9</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-07-21</td>
+    <td>Cholesterol in LDL [Mass/volume] in Serum or Plasma by calculation</td>
+    <td>62 mg/dL<div class="muted">Reference Below 100 for the general population; below 55 is his treatment target</div></td>
+    <td>http://loinc.org · 13457-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-07-21</td>
+    <td>Triglyceride [Mass/volume] in Serum or Plasma</td>
+    <td>110 mg/dL<div class="muted">Reference &lt;=149 mg/dL</div></td>
+    <td>http://loinc.org · 2571-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-07-21</td>
+    <td>Alanine aminotransferase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>31 U/L<div class="muted">Reference 7-52 U/L</div></td>
+    <td>http://loinc.org · 1742-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-07-21</td>
+    <td>Total score [AUDIT-C]</td>
+    <td>4</td>
+    <td>http://loinc.org · 75626-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-09-08</td>
+    <td>Cholesterol [Mass/volume] in Serum or Plasma</td>
+    <td>108 mg/dL<div class="muted">Reference &lt;=199 mg/dL</div></td>
+    <td>http://loinc.org · 2093-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-09-08</td>
+    <td>Cholesterol in HDL [Mass/volume] in Serum or Plasma</td>
+    <td>45 mg/dL<div class="muted">Reference &gt;=40 mg/dL</div></td>
+    <td>http://loinc.org · 2085-9</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-09-08</td>
+    <td>Cholesterol in LDL [Mass/volume] in Serum or Plasma by calculation</td>
+    <td>44 mg/dL<div class="muted">Reference Below 100 for the general population; below 55 is his treatment target</div></td>
+    <td>http://loinc.org · 13457-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-09-08</td>
+    <td>Triglyceride [Mass/volume] in Serum or Plasma</td>
+    <td>95 mg/dL<div class="muted">Reference &lt;=149 mg/dL</div></td>
+    <td>http://loinc.org · 2571-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-09-08</td>
+    <td>Hemoglobin A1c/Hemoglobin.total in Blood</td>
+    <td>5.7% (high)<div class="muted">Reference &lt;=5.6%</div></td>
+    <td>http://loinc.org · 4548-4</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-09-08</td>
+    <td>Total score [AUDIT-C]</td>
+    <td>3</td>
+    <td>http://loinc.org · 75626-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-08-11</td>
+    <td>Patient Health Questionnaire 2 item (PHQ-2) total score [Reported]</td>
+    <td>0</td>
+    <td>http://loinc.org · 55758-7</td>
+  </tr></tbody></table></section>
+    <section><h2>Synthetic vital signs</h2><table><thead><tr><th>Date</th><th>Measure</th><th>Result</th><th>LOINC</th><th>Grade</th></tr></thead><tbody>
+  <tr><td>2026-05-12</td><td>Body height</td><td>175 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-05-12</td><td>Body weight</td><td>86 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-05-12</td><td>Body mass index (BMI) [Ratio]</td><td>28.1 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-05-12</td><td>Systolic blood pressure</td><td>138 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-05-12</td><td>Diastolic blood pressure</td><td>86 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-05-12</td><td>Heart rate</td><td>78 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-05-12</td><td>Respiratory rate</td><td>16 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-05-12</td><td>Body temperature</td><td>36.7 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-05-12</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>97 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-05-26</td><td>Body height</td><td>175 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-05-26</td><td>Body weight</td><td>85.6 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-05-26</td><td>Body mass index (BMI) [Ratio]</td><td>28 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-05-26</td><td>Systolic blood pressure</td><td>134 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-05-26</td><td>Diastolic blood pressure</td><td>84 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-05-26</td><td>Heart rate</td><td>66 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-05-26</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-05-26</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-05-26</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>97 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-23</td><td>Body height</td><td>175 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-23</td><td>Body weight</td><td>85 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-23</td><td>Body mass index (BMI) [Ratio]</td><td>27.8 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-23</td><td>Systolic blood pressure</td><td>128 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-23</td><td>Diastolic blood pressure</td><td>80 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-23</td><td>Heart rate</td><td>60 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-23</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-23</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-23</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>98 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-07-21</td><td>Body height</td><td>175 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-07-21</td><td>Body weight</td><td>84.4 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-07-21</td><td>Body mass index (BMI) [Ratio]</td><td>27.6 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-07-21</td><td>Systolic blood pressure</td><td>124 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-07-21</td><td>Diastolic blood pressure</td><td>78 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-07-21</td><td>Heart rate</td><td>58 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-07-21</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-07-21</td><td>Body temperature</td><td>36.7 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-07-21</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>98 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-09-08</td><td>Body height</td><td>175 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-09-08</td><td>Body weight</td><td>83 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-09-08</td><td>Body mass index (BMI) [Ratio]</td><td>27.1 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-09-08</td><td>Systolic blood pressure</td><td>120 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-09-08</td><td>Diastolic blood pressure</td><td>76 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-09-08</td><td>Heart rate</td><td>58 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-09-08</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-09-08</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-09-08</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>98 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-08-11</td><td>Body height</td><td>175 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-08-11</td><td>Body weight</td><td>83.8 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-08-11</td><td>Body mass index (BMI) [Ratio]</td><td>27.4 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-08-11</td><td>Systolic blood pressure</td><td>122 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-08-11</td><td>Diastolic blood pressure</td><td>76 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-08-11</td><td>Heart rate</td><td>60 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-08-11</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-08-11</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-08-11</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>98 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-08-25</td><td>Body height</td><td>175 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-08-25</td><td>Body weight</td><td>83.5 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-08-25</td><td>Body mass index (BMI) [Ratio]</td><td>27.3 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-08-25</td><td>Systolic blood pressure</td><td>130 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-08-25</td><td>Diastolic blood pressure</td><td>82 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-08-25</td><td>Heart rate</td><td>70 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-08-25</td><td>Respiratory rate</td><td>16 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-08-25</td><td>Body temperature</td><td>36.7 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-08-25</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>98 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr></tbody></table></section>
+    <section><h2>Social, functional, and mental status</h2><h3>Social history</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Polar explorer and expedition leader; organizing a ship-based scientific expedition to the Antarctic and sub-Antarctic islands that sails from London in about four months, with a long sea passage and weeks out of reach of a hospital</li><li><span class="badge grade-S" title="Synthetic">S</span> Married; lives in London while he organizes the expedition, working long days on finance, the ship, stores, and the crew</li><li><span class="badge grade-S" title="Synthetic">S</span> Tobacco: about 25 cigarettes a day since 16 (about 39 pack-years); has never tried to stop; first cigarette within 30 minutes of waking</li><li><span class="badge grade-S" title="Synthetic">S</span> Alcohol: three or four drinks on most evenings at dinners with backers, more at weekends (AUDIT 12, hazardous range); no withdrawal symptoms; no other drugs</li><li><span class="badge grade-S" title="Synthetic">S</span> Exercise: none regular since his last expedition; heavy lifting of stores at the dock; walks fast</li><li><span class="badge grade-S" title="Synthetic">S</span> Does not want anything recorded or done that could stop the expedition; uneasy about being examined, and agreed after his reasons were heard</li></ul><h3>Functional status</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Independent; stops on the second flight of stairs or after carrying a crate a short distance until the tightness passes</li></ul><h3>Mental status</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Alert, warm, and forceful; optimistic and impatient with delay; PHQ-2 score 1</li></ul></section>
+    
+    <section><h2>Allergies and medications</h2><h3>Allergies</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> No known allergy</li></ul><h3>Medications</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Aspirin 81 mg delayed-release tablet, one tablet by mouth daily</li><li><span class="badge grade-S" title="Synthetic">S</span> Atorvastatin 80 mg tablet, one tablet by mouth daily</li><li><span class="badge grade-S" title="Synthetic">S</span> Metoprolol succinate extended-release 50 mg tablet, one tablet by mouth daily</li><li><span class="badge grade-S" title="Synthetic">S</span> Nitroglycerin 0.4 mg sublingual tablet, one tablet under the tongue for chest pain, repeat every 5 minutes up to 3 doses</li><li><span class="badge grade-S" title="Synthetic">S</span> Varenicline 1 mg tablet, one tablet by mouth twice a day after a one-week starter titration</li><li><span class="badge grade-S" title="Synthetic">S</span> Metoprolol succinate extended-release 100 mg tablet, one tablet by mouth daily</li><li><span class="badge grade-S" title="Synthetic">S</span> Clopidogrel 75 mg tablet, one tablet by mouth daily for six months after the stent (600 mg loading dose before the procedure)</li><li><span class="badge grade-S" title="Synthetic">S</span> Ezetimibe 10 mg tablet, one tablet by mouth daily</li></ul></section>
+    <section><h2>Procedures and immunizations</h2><h3>Procedures</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Resting twelve-lead electrocardiogram</li><li><span class="badge grade-S" title="Synthetic">S</span> Coronary CT angiography with coronary calcium score and CT-derived fractional flow reserve</li><li><span class="badge grade-S" title="Synthetic">S</span> Transthoracic echocardiogram with color Doppler and agitated-saline study</li><li><span class="badge grade-S" title="Synthetic">S</span> Invasive coronary angiography with a drug-eluting stent in the proximal left anterior descending artery, by the radial artery</li><li><span class="badge grade-S" title="Synthetic">S</span> Symptom-limited exercise treadmill test (Bruce protocol)</li><li><span class="badge grade-S" title="Synthetic">S</span> Advance care planning conversation, about 20 minutes</li></ul><h3>Immunizations</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> 2026-08-11: Tdap vaccine</li><li><span class="badge grade-S" title="Synthetic">S</span> 2026-08-11: Pneumococcal conjugate vaccine (PCV20)</li><li><span class="badge grade-S" title="Synthetic">S</span> 2026-09-08: Influenza vaccine, 2026-2027 season</li></ul></section>
+    <section><h2>Past medical history</h2><p class="muted">True biography with historical dates; not part of the synthetic care timeline.</p><ul><li><span class="badge grade-D" title="Documented">D</span> 1903: Breathlessness and weakness that stopped him pulling a sledge on a polar journey in his late twenties, attributed at the time to scurvy and asthma; sent home <span class="muted">(CLM-0002)</span></li><li><span class="badge grade-D" title="Documented">D</span> January 20, 1908: Very unwell after heavy hauling on a rope on a polar expedition in his thirties; a pulmonary systolic murmur heard twice by the expedition doctor <span class="muted">(CLM-0003)</span></li></ul><h3>Family history</h3><p class="muted">No family medical history is documented in the logged sources. Family history of real relatives is never synthesized.</p></section>
+    <section><h2>Care-plan goals</h2><table><thead><tr><th>Goal</th><th>Target date</th><th>Status</th><th>Outcome</th></tr></thead><tbody>
+  <tr><td>No cigarettes from the quit date, confirmed at each visit</td><td>2026-09-08</td><td>completed</td><td>Not smoked since the quit date a week after intake; varenicline continued to 24 weeks</td></tr>
+  <tr><td>LDL cholesterol below 55 mg/dL with at least a 50% reduction by four months</td><td>2026-09-08</td><td>completed</td><td>44 mg/dL, from 168</td></tr>
+  <tr><td>Blood pressure below 130/80 mmHg by six weeks</td><td>2026-06-23</td><td>completed</td><td>128/80 at six weeks</td></tr>
+  <tr><td>Free of angina in daily activity, and a symptom-limited exercise test of at least 10 METs without ischemia before departure</td><td>2026-09-08</td><td>completed</td><td>No angina since the stent; about 12.8 METs without angina or ST changes</td></tr>
+  <tr><td>Drinking within the low-risk limit, with an AUDIT-C below 4, by four months</td><td>2026-09-08</td><td>completed</td><td>AUDIT-C 3, from an AUDIT of 12; two drinks at most on four evenings a week</td></tr>
+  <tr><td>At least 15 sessions of cardiac rehabilitation before departure</td><td>2026-09-08</td><td>completed</td><td>18 sessions completed</td></tr></tbody></table></section>
+    <section><h2>Interventions</h2><table><thead><tr><th>Intervention</th><th>Status</th><th>Guideline</th></tr></thead><tbody>
+  <tr><td>Cardiology consultation in two weeks with coronary CT angiography for suspected stable angina, and advice on revascularization and on fitness for the expedition</td><td>completed</td><td>GL-AHA-CCD-2023, GL-ESC-CCS-2024</td></tr>
+  <tr><td>Medical therapy from intake for suspected angina: aspirin 81 mg, atorvastatin 80 mg, metoprolol succinate, and sublingual nitroglycerin with written instructions to call emergency services if pain lasts more than 5 minutes after the first dose</td><td>completed</td><td>GL-AHA-CCD-2023, GL-ESC-CCS-2024, GL-CMID-2026</td></tr>
+  <tr><td>Stop smoking: varenicline for 12 weeks, with the option of 12 more, a quit date in one week, counseling at each visit, and the quitline</td><td>completed</td><td>GL-USPSTF-TOB-2021, GL-AHA-CCD-2023</td></tr>
+  <tr><td>AUDIT with a brief intervention for hazardous drinking: no more than two drinks a day and several alcohol-free days a week, with AUDIT-C at follow-up</td><td>completed</td><td>GL-USPSTF-ALC-2018, GL-AHA-CCD-2023</td></tr>
+  <tr><td>Prediabetes: diet and activity counseling and HbA1c in about four months</td><td>completed</td><td>GL-USPSTF-DM-2021, GL-AHA-CCD-2023</td></tr>
+  <tr><td>Raise metoprolol succinate to 100 mg for persisting angina, with an echocardiogram, and revascularization of the proximal LAD lesion if angina persists despite medical therapy or he prefers it after a shared decision</td><td>completed</td><td>GL-AHA-CCD-2023, GL-ESC-CCS-2024</td></tr>
+  <tr><td>Expedition plan: a symptom-limited exercise test before departure, a written cardiac summary with ECG and stent card, three months&#39; extra medicines split between two bags, an automated external defibrillator and emergency cardiac medicines on board, a satellite link for telemedicine, an evacuation plan to the nearest cardiac centers along the route, and advice on cold stress</td><td>completed</td><td>GL-AHA-CCD-2023, GL-ESC-CCS-2024</td></tr>
+  <tr><td>Invasive coronary angiography with a drug-eluting stent to the proximal LAD, then aspirin with clopidogrel for six months and aspirin alone after</td><td>completed</td><td>GL-AHA-CCD-2023, GL-ESC-CCS-2024</td></tr>
+  <tr><td>Cardiac rehabilitation after the stent, three sessions a week until departure, with a home exercise plan for the voyage</td><td>completed</td><td>GL-AHA-CCD-2023, GL-CMID-2026</td></tr>
+  <tr><td>Add ezetimibe 10 mg because LDL cholesterol was 62 mg/dL on atorvastatin 80 mg, above the target below 55</td><td>completed</td><td>GL-ESC-CCS-2024, GL-CMID-2026</td></tr></tbody></table></section>
+    <section><h2>Planned encounters</h2><ul>
+  <li><strong>2026-05-12</strong> — New patient visit for chest tightness and breathlessness on exertion in a heavy smoker planning a polar expedition: risk assessment, ECG and blood tests, starting treatment, smoking and alcohol counseling, and a cardiology referral <span class="muted">(ENC-001)</span></li>
+  <li><strong>2026-05-26</strong> — Two-week follow-up and cardiology consultation with coronary CT angiography and echocardiogram <span class="muted">(ENC-002)</span></li>
+  <li><strong>2026-06-23</strong> — Six-week review: angina on medical therapy, smoking, and a shared decision about coronary angiography and stenting <span class="muted">(ENC-003)</span></li>
+  <li><strong>2026-07-21</strong> — Ten-week review: three weeks after the stent, lipids, cardiac rehabilitation, smoking and alcohol <span class="muted">(ENC-004)</span></li>
+  <li><strong>2026-08-11</strong> — Periodic adult preventive visit <span class="muted">(ENC-006)</span></li>
+  <li><strong>2026-08-25</strong> — Same-day sick visit for low back pain <span class="muted">(ENC-007, unscheduled)</span></li>
+  <li><strong>2026-09-08</strong> — Four-month review before departure: exercise test, lipids, HbA1c, and the expedition medical plan <span class="muted">(ENC-005)</span></li></ul></section>
+    <section><h2>Supporting documents</h2><ul><li><a href="notes/hp.md">History and physical</a></li><li><a href="notes/progress-01.md">Progress note 01</a></li><li><a href="notes/progress-02.md">Progress note 02 — Focused Visit (Follow-up)</a></li><li><a href="notes/progress-03.md">Progress note 03 — Focused Visit (Follow-up)</a></li><li><a href="notes/progress-04.md">Progress note 04 — Focused Visit (Follow-up)</a></li><li><a href="notes/progress-05.md">Progress note 05 — Preventive Visit</a></li><li><a href="notes/progress-06.md">Progress note 06 — Sick Visit</a></li><li><a href="notes/progress-07.md">Progress note 07 — Focused Visit (Care-plan review)</a></li><li><a href="notes/referral-01.md">Cardiology referral</a></li><li><a href="notes/consult-01.md">Cardiology consultation</a></li><li><a href="notes/careplan.md">Patient care plan</a></li><li><a href="notes/teaching-note.md">Teaching note</a></li><li><a href="provenance.csv">Provenance CSV</a></li></ul></section>
+    <section><h2>C-CDA note documents</h2><p class="muted">Each link opens a readable copy; the XML beside it is the exchange file.</p><ul><li><a href="ccda/hp-01.html">History and physical</a> <a href="ccda/hp-01.xml">(XML)</a></li><li><a href="ccda/progress-01.html">Progress note 01</a> <a href="ccda/progress-01.xml">(XML)</a></li><li><a href="ccda/progress-02.html">Progress note 02 — Focused Visit (Follow-up)</a> <a href="ccda/progress-02.xml">(XML)</a></li><li><a href="ccda/progress-03.html">Progress note 03 — Focused Visit (Follow-up)</a> <a href="ccda/progress-03.xml">(XML)</a></li><li><a href="ccda/progress-04.html">Progress note 04 — Focused Visit (Follow-up)</a> <a href="ccda/progress-04.xml">(XML)</a></li><li><a href="ccda/progress-05.html">Progress note 05 — Preventive Visit</a> <a href="ccda/progress-05.xml">(XML)</a></li><li><a href="ccda/progress-06.html">Progress note 06 — Sick Visit</a> <a href="ccda/progress-06.xml">(XML)</a></li><li><a href="ccda/progress-07.html">Progress note 07 — Focused Visit (Care-plan review)</a> <a href="ccda/progress-07.xml">(XML)</a></li><li><a href="ccda/referral-01.html">Cardiology referral</a> <a href="ccda/referral-01.xml">(XML)</a></li><li><a href="ccda/consult-01.html">Cardiology consultation</a> <a href="ccda/consult-01.xml">(XML)</a></li></ul></section>
+    <section><h2>Sources</h2><table><thead><tr><th>ID</th><th>Source</th><th>Publisher</th><th>Type</th></tr></thead><tbody>
+  <tr>
+    <td>SRC-0001</td>
+    <td><a href="https://kildarelibraries.ie/ehistory/?p=4914" target="_blank" rel="noreferrer">Death of Ernest Shackleton (Kildare eHistory Journal)</a></td>
+    <td>Kildare Library and Arts Service, Kildare County Council</td>
+    <td>government</td>
+  </tr>
+  <tr>
+    <td>SRC-0002</td>
+    <td><a href="https://id.loc.gov/authorities/names/n50002512.html" target="_blank" rel="noreferrer">Shackleton, Ernest Henry, Sir, 1874-1922 (name authority record n50002512)</a></td>
+    <td>Library of Congress</td>
+    <td>government</td>
+  </tr>
+  <tr>
+    <td>SRC-0003</td>
+    <td><a href="https://www.gutenberg.org/ebooks/58973" target="_blank" rel="noreferrer">Wild F, with Macklin AH. Shackleton&#39;s Last Voyage: The Story of the Quest. London, 1923. Project Gutenberg eBook 58973</a></td>
+    <td>Project Gutenberg</td>
+    <td>primary</td>
+  </tr>
+  <tr>
+    <td>SRC-0004</td>
+    <td><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC4794964/" target="_blank" rel="noreferrer">Calder I, Till J. Shackleton&#39;s heart. J R Soc Med 2016;109(3):106-8. PMID 26759361</a></td>
+    <td>Journal of the Royal Society of Medicine</td>
+    <td>scholarly</td>
+  </tr>
+  <tr>
+    <td>SRC-0005</td>
+    <td><a href="https://pubmed.ncbi.nlm.nih.gov/33896263/" target="_blank" rel="noreferrer">Firth PG, Benavidez OJ, Fiechtner L. The signs and symptoms of Ernest Shackleton. J Med Biogr 2023;31(1):10-15. PMID 33896263</a></td>
+    <td>Journal of Medical Biography</td>
+    <td>scholarly</td>
+  </tr>
+  <tr>
+    <td>SRC-0006</td>
+    <td><a href="https://www.gutenberg.org/ebooks/5199" target="_blank" rel="noreferrer">Shackleton EH. South: The Story of Shackleton&#39;s Last Expedition, 1914-1917. London, 1919. Project Gutenberg eBook 5199</a></td>
+    <td>Project Gutenberg</td>
+    <td>primary</td>
+  </tr>
+  <tr>
+    <td>SRC-0007</td>
+    <td><a href="https://sgmuseum.gs/chapter/death-of-shackleton/" target="_blank" rel="noreferrer">Death of Shackleton</a></td>
+    <td>South Georgia Museum</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0008</td>
+    <td><a href="https://humanrecord.example.org/internal/HISTMED_Master_Roster_v3.xlsx" target="_blank" rel="noreferrer">HISTMED Master Roster v3</a></td>
+    <td>The Human Record project</td>
+    <td>other</td>
+  </tr></tbody></table></section>
+    <section><h2>Review status</h2><table><thead><tr><th>Review</th><th>Status</th><th>Notes</th></tr></thead><tbody>
+  <tr><td>schema validation</td><td>not_started</td><td>Run scripts/build.ps1 -Conformance.</td></tr>
+  <tr><td>clinical review</td><td>not_started</td><td>Awaiting clinician review; check coronary CT angiography as the first test, PCI for angina despite medical therapy in chronic coronary disease, six months of dual antiplatelet therapy on a remote expedition, the LDL target, and the expedition fitness plan.</td></tr>
+  <tr><td>provenance review</td><td>not_started</td><td>Kildare County Council library article, Library of Congress authority record, the 1923 Quest narrative with Macklin&#39;s medical appendix and the 1919 South (Project Gutenberg), the South Georgia Museum, a full-text 2016 essay, and a PubMed abstract logged. The atrial septal defect and beriberi theories are graded R.</td></tr>
+  <tr><td>safe messaging review</td><td>not_started</td><td>No behavioral-health diagnosis; hazardous drinking is synthetic, uncoded, and marked as not a claim about his real drinking.</td></tr></tbody></table></section>
+  </main>
+</body>
+</html>
