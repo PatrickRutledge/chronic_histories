@@ -1,0 +1,772 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Rachel Carson — The Human Record</title>
+  <style>
+    :root { --navy:#17365d; --blue:#1f4e78; --pale:#eef5fa; --ink:#1f2933; --muted:#66788a; --amber:#fff2cc; --red:#f8d7da; --green:#d9ead3; }
+    * { box-sizing:border-box; }
+    body { margin:0; font:16px/1.5 Arial, sans-serif; color:var(--ink); background:#f6f8fa; }
+    header { background:var(--navy); color:white; padding:24px max(24px,calc((100vw - 1180px)/2)); }
+    header h1 { margin:4px 0; font-size:30px; }
+    .banner { background:#b42318; color:white; font-weight:700; text-align:center; padding:10px; letter-spacing:.03em; }
+    main { max-width:1180px; margin:24px auto 60px; padding:0 24px; }
+    section { background:white; border:1px solid #d9e1e8; border-radius:8px; margin:18px 0; padding:20px; }
+    h2 { color:var(--navy); margin:0 0 14px; font-size:22px; }
+    h3 { color:var(--blue); }
+    .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:12px; }
+    .card { background:var(--pale); border-left:4px solid var(--blue); padding:12px; }
+    .label { color:var(--muted); font-size:13px; text-transform:uppercase; letter-spacing:.04em; }
+    table { width:100%; border-collapse:collapse; }
+    th { background:var(--blue); color:white; text-align:left; }
+    th,td { padding:9px; border-bottom:1px solid #dfe6ec; vertical-align:top; }
+    .badge { display:inline-block; min-width:28px; text-align:center; font-weight:700; border-radius:12px; padding:2px 8px; }
+    .grade-D { background:var(--green); } .grade-R { background:var(--amber); } .grade-S { background:var(--red); }
+    .muted { color:var(--muted); font-size:14px; }
+    .relationship { color:var(--muted); font-size:12px; }
+    .downloads a { display:inline-block; margin:4px 8px 4px 0; padding:8px 12px; background:var(--blue); color:white; text-decoration:none; border-radius:5px; }
+    @media (max-width:700px) { table { display:block; overflow-x:auto; } }
+  </style>
+</head>
+<body>
+  <div class="banner">SYNTHETIC RECORD, NOT A REAL MEDICAL RECORD</div>
+  <header>
+    <div>The Human Record</div>
+    <h1>Rachel Carson</h1>
+    <div>Case HR-ML041 · Modern EHR teaching episode · Draft for review</div>
+  </header>
+  <main>
+    <section>
+      <h2>Review summary</h2>
+      <div class="grid">
+        <div class="card"><div class="label">Historical dates</div>May 27, 1907 – April 14, 1964</div>
+        <div class="card"><div class="label">Synthetic DOB</div>1973-05-27</div>
+        <div class="card"><div class="label">Index visit</div>2026-03-09 at age 52</div>
+        <div class="card"><div class="label">Synthetic MRN</div>HR-ML041-SYN</div>
+      </div>
+      <p><strong>Teaching objective:</strong> Evaluate a new breast lump in a postmenopausal woman of 52 with diagnostic mammography, ultrasound, and core biopsy with ER, PR, HER2, and Ki-67; above all, tell her the diagnosis directly and in plain words, at the pace she chooses, and make every treatment decision with her. Plan breast-conserving surgery or mastectomy by her informed choice, with sentinel node biopsy and germline testing; manage one to two positive sentinel nodes without axillary dissection; choose adjuvant radiation, letrozole, ribociclib, and zoledronic acid with her, and monitor the ECG, blood counts, liver tests, and electrolytes that ribociclib requires; protect bone health and her work as a writer. The teaching note contrasts this with the documented 1960 nondisclosure, when her surgeon told her that her tumor was not cancer, the usual practice of that time.</p>
+      <div class="downloads">
+        <a href="../case.json">Canonical JSON</a>
+        <a href="fhir-bundle.json">FHIR R4 draft</a>
+        <a href="ccda.html">C-CDA R2.1 summary</a> <a href="ccda.xml">(XML)</a> <a href="review.html">Review checklist</a>
+        <a href="../sources.md">Evidence dossier</a>
+      </div>
+    </section>
+    <section><h2>Historical timeline</h2><table><thead><tr><th>Date</th><th>Event</th><th>Claims</th></tr></thead><tbody>
+  <tr><td>May 27, 1907</td><td>Born in Springdale, Pennsylvania.</td><td>CLM-0001</td></tr>
+  <tr><td>1936</td><td>Hired by the Bureau of Fisheries as a junior aquatic biologist.</td><td>CLM-0002</td></tr>
+  <tr><td>1950</td><td>Benign tumor removed from her left breast.</td><td>CLM-0004</td></tr>
+  <tr><td>1952</td><td>Resigned from the Fish and Wildlife Service to write full time.</td><td>CLM-0002</td></tr>
+  <tr><td>Early 1960</td><td>Found two lumps in her left breast while writing Silent Spring.</td><td>CLM-0006</td></tr>
+  <tr><td>April 1960</td><td>Radical mastectomy of the left breast; her surgeon did not tell her the tumor was malignant.</td><td>CLM-0007, CLM-0008, CLM-0014</td></tr>
+  <tr><td>Late 1960</td><td>Learned that the cancer had spread; radiation treatment began; worked on through other illnesses and kept the cancer private.</td><td>CLM-0009, CLM-0005, CLM-0011</td></tr>
+  <tr><td>September 27, 1962</td><td>Silent Spring published.</td><td>CLM-0003</td></tr>
+  <tr><td>Early 1963</td><td>Wrote to her cancer surgeon about angina, diseased nodes above the collarbone treated with radiation, and a shoulder bone lesion.</td><td>CLM-0010</td></tr>
+  <tr><td>June 4, 1963</td><td>Testified before a Senate subcommittee on pesticides.</td><td>CLM-0012</td></tr>
+  <tr><td>April 14, 1964</td><td>Died at home in Silver Spring, Maryland.</td><td>CLM-0013</td></tr></tbody></table></section>
+    <section><h2>Evidence claims</h2><p class="muted">D = documented, R = retrospective, S = synthetic.</p><table><thead><tr><th>Grade</th><th>Claim</th><th>Certainty</th><th>Sources</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>Rachel Louise Carson was born on May 27, 1907, on a family farm in Springdale, Pennsylvania.</strong></td>
+    <td>confirmed</td>
+    <td><a href="https://www.nps.gov/people/rachel-carson.htm" target="_blank" rel="noreferrer">Rachel Carson</a> <span class="relationship">supports</span><br><a href="https://rachelcarsoncouncil.org/about-rcc/about-rachel-carson/" target="_blank" rel="noreferrer">About Rachel Carson</a> <span class="relationship">supports</span><br><a href="https://www.sciencehistory.org/education/scientific-biographies/rachel-carson/" target="_blank" rel="noreferrer">Rachel Carson (scientific biography)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>Carson was hired by the U.S. Bureau of Fisheries in 1936 as a junior aquatic biologist and rose to be editor-in-chief of the publications of its successor, the U.S. Fish and Wildlife Service. She resigned in 1952 to write full time.</strong></td>
+    <td>confirmed</td>
+    <td><a href="https://www.sciencehistory.org/education/scientific-biographies/rachel-carson/" target="_blank" rel="noreferrer">Rachel Carson (scientific biography)</a> <span class="relationship">supports</span><br><a href="https://rachelcarsoncouncil.org/about-rcc/about-rachel-carson/" target="_blank" rel="noreferrer">About Rachel Carson</a> <span class="relationship">supports</span><br><a href="https://www.nps.gov/people/rachel-carson.htm" target="_blank" rel="noreferrer">Rachel Carson</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>Carson was a marine biologist and writer. Her books included Under the Sea Wind (1941) and the best-selling The Sea Around Us. Silent Spring, published on September 27, 1962, warned of the harm done by the widespread use of chemical pesticides.</strong></td>
+    <td>confirmed</td>
+    <td><a href="https://rachelcarsoncouncil.org/about-rcc/about-rachel-carson/" target="_blank" rel="noreferrer">About Rachel Carson</a> <span class="relationship">supports</span><br><a href="https://www.sciencehistory.org/education/scientific-biographies/rachel-carson/" target="_blank" rel="noreferrer">Rachel Carson (scientific biography)</a> <span class="relationship">supports</span><br><a href="https://static1.squarespace.com/static/581a91969f7456744441bb8a/t/5e4494ac41cab754748bda1a/1581552814650/Sidebar+8-How+Silent+Spring+Ignited+a+Movement-+Griswold+NYT+9-2012.pdf" target="_blank" rel="noreferrer">Griswold E. How &#39;Silent Spring&#39; Ignited the Environmental Movement. New York Times Magazine, September 21, 2012 (reprint)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>In 1950, while preparing her second book, Carson had her first breast operation, to remove a benign tumor from her left breast.</strong><div class="muted">A single secondary source gives this date; the same source dates a later operation to 1959, which other sources place in 1960. The 1950 operation is recorded as probable.</div></td>
+    <td>probable</td>
+    <td><a href="https://www.literaryladiesguide.com/author-biography/rachel-carson/" target="_blank" rel="noreferrer">McCauley M. Rachel Carson, Author of Silent Spring</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>While writing Silent Spring Carson worked through what she called &quot;a catalogue of illnesses&quot;: flu, a sinus infection, heart trouble, arthritis, and an ulcer. She told her publisher that her disability was arthritis, and only a few friends knew the truth.</strong><div class="muted">The cited sources do not date each illness. A review of the standard biography says she described her disability as arthritis to keep the cancer hidden, so the word may not describe a joint disease.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://encyclopedia.com/women/encyclopedias-almanacs-transcripts-and-maps/carson-rachel-1907-1964" target="_blank" rel="noreferrer">Carson, Rachel (1907–1964). Women in World History: A Biographical Encyclopedia</a> <span class="relationship">supports</span><br><a href="https://www.trumpeter.athabascau.ca/index.php/trumpet/article/download/164/197?inline=1" target="_blank" rel="noreferrer">Stevens A. Review of Rachel Carson: Witness for Nature, by Linda Lear</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>In early 1960, while writing Silent Spring, Carson found two lumps in her left breast.</strong><div class="muted">The documented presentation that anchors the synthetic episode.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.seattleweekly.com/?p=78526" target="_blank" rel="noreferrer">Call for a Cure</a> <span class="relationship">supports</span><br><a href="https://www.sciencehistory.org/education/scientific-biographies/rachel-carson/" target="_blank" rel="noreferrer">Rachel Carson (scientific biography)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>In April 1960 Carson had a radical mastectomy for tumors of her left breast.</strong><div class="muted">Later than the synthetic index visit; linked only to the later timeline event and to the diagnosis made at the second visit.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.sciencehistory.org/education/scientific-biographies/rachel-carson/" target="_blank" rel="noreferrer">Rachel Carson (scientific biography)</a> <span class="relationship">supports</span><br><a href="https://encyclopedia.com/women/encyclopedias-almanacs-transcripts-and-maps/carson-rachel-1907-1964" target="_blank" rel="noreferrer">Carson, Rachel (1907–1964). Women in World History: A Biographical Encyclopedia</a> <span class="relationship">supports</span><br><a href="https://static1.squarespace.com/static/581a91969f7456744441bb8a/t/5e4494ac41cab754748bda1a/1581552814650/Sidebar+8-How+Silent+Spring+Ignited+a+Movement-+Griswold+NYT+9-2012.pdf" target="_blank" rel="noreferrer">Griswold E. How &#39;Silent Spring&#39; Ignited the Environmental Movement. New York Times Magazine, September 21, 2012 (reprint)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>Carson&#39;s surgeon did not tell her she had cancer, even after the radical mastectomy and when later swelling showed that the cancer had spread; when she asked direct questions he told her she had &quot;a condition bordering on malignancy.&quot; A review of her standard biography calls this a lie on the part of the surgeon, never forgiven by the patient.</strong><div class="muted">The documented nondisclosure that the synthetic episode is built to contrast. The surgeon is not named in this record.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.seattleweekly.com/?p=78526" target="_blank" rel="noreferrer">Call for a Cure</a> <span class="relationship">supports</span><br><a href="https://www.trumpeter.athabascau.ca/index.php/trumpet/article/download/164/197?inline=1" target="_blank" rel="noreferrer">Stevens A. Review of Rachel Carson: Witness for Nature, by Linda Lear</a> <span class="relationship">supports</span><br><a href="https://pubmed.ncbi.nlm.nih.gov/24857085/" target="_blank" rel="noreferrer">Burstein HJ. Fifty years of systemic therapy for breast cancer: from one size fits all to tailored therapy. Am Soc Clin Oncol Educ Book 2014:e1-3. PMID 24857085</a> <span class="relationship">context</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>Within months of the operation the cancer had spread to her ribs and she began radiation treatment. Her biographer writes that Carson had to fight the medical profession to tell her the truth about her own illness; she later wrote to George Crile Jr. of the Cleveland Clinic, her cancer surgeon and friend, asking for his honest view of her prognosis.</strong><div class="muted">How and from whom she first learned the diagnosis is not stated in the sources read; the record says only that she learned it later and sought the truth from another physician.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.sciencehistory.org/education/scientific-biographies/rachel-carson/" target="_blank" rel="noreferrer">Rachel Carson (scientific biography)</a> <span class="relationship">supports</span><br><a href="https://publicism.info/environment/woods/30.html" target="_blank" rel="noreferrer">Lear L, ed. Letter to Dr. George Crile, Jr., with the editor&#39;s headnote. In: Lost Woods: The Discovered Writing of Rachel Carson (Beacon Press, 1998)</a> <span class="relationship">supports</span><br><a href="https://static1.squarespace.com/static/581a91969f7456744441bb8a/t/5e4494ac41cab754748bda1a/1581552814650/Sidebar+8-How+Silent+Spring+Ignited+a+Movement-+Griswold+NYT+9-2012.pdf" target="_blank" rel="noreferrer">Griswold E. How &#39;Silent Spring&#39; Ignited the Environmental Movement. New York Times Magazine, September 21, 2012 (reprint)</a> <span class="relationship">context</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>Early in 1963 Carson wrote that a cardiologist had diagnosed angina, that hard, tender lymph nodes above her left collarbone had been found to be diseased and were being treated with radiation, and that an X-ray showed erosion of a bone of her left shoulder. Her cancer spread to lymph nodes, bones, and liver, with more radiation and hormone treatment.</strong><div class="muted">Later than the synthetic episode and not used in it.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://publicism.info/environment/woods/30.html" target="_blank" rel="noreferrer">Lear L, ed. Letter to Dr. George Crile, Jr., with the editor&#39;s headnote. In: Lost Woods: The Discovered Writing of Rachel Carson (Beacon Press, 1998)</a> <span class="relationship">supports</span><br><a href="https://www.trumpeter.athabascau.ca/index.php/trumpet/article/download/164/197?inline=1" target="_blank" rel="noreferrer">Stevens A. Review of Rachel Carson: Witness for Nature, by Linda Lear</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>Carson kept her cancer hidden from all but a handful of friends, in part so that her illness could not be used against Silent Spring.</strong><div class="muted">Her privacy is respected in the synthetic episode, which shares her diagnosis only with the people she chooses.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://publicism.info/environment/woods/30.html" target="_blank" rel="noreferrer">Lear L, ed. Letter to Dr. George Crile, Jr., with the editor&#39;s headnote. In: Lost Woods: The Discovered Writing of Rachel Carson (Beacon Press, 1998)</a> <span class="relationship">supports</span><br><a href="https://encyclopedia.com/women/encyclopedias-almanacs-transcripts-and-maps/carson-rachel-1907-1964" target="_blank" rel="noreferrer">Carson, Rachel (1907–1964). Women in World History: A Biographical Encyclopedia</a> <span class="relationship">supports</span><br><a href="https://static1.squarespace.com/static/581a91969f7456744441bb8a/t/5e4494ac41cab754748bda1a/1581552814650/Sidebar+8-How+Silent+Spring+Ignited+a+Movement-+Griswold+NYT+9-2012.pdf" target="_blank" rel="noreferrer">Griswold E. How &#39;Silent Spring&#39; Ignited the Environmental Movement. New York Times Magazine, September 21, 2012 (reprint)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>On June 4, 1963, Carson testified before the Senate Government Operations Subcommittee on Reorganization and International Organizations on the control of pesticides and other chemical poisons, and she also testified before the Senate Commerce Committee. She was dying of breast cancer; her pelvis was so riddled with fractures that she could barely walk to her seat, and she wore a wig to hide hair loss.</strong><div class="muted">Later than the synthetic episode and not used in it.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://rachelcarsoncouncil.org/about-rcc/about-rachel-carson/rachel-carsons-statement-before-congress-1963/" target="_blank" rel="noreferrer">Rachel Carson&#39;s Statement before Congress, 1963</a> <span class="relationship">supports</span><br><a href="https://static1.squarespace.com/static/581a91969f7456744441bb8a/t/5e4494ac41cab754748bda1a/1581552814650/Sidebar+8-How+Silent+Spring+Ignited+a+Movement-+Griswold+NYT+9-2012.pdf" target="_blank" rel="noreferrer">Griswold E. How &#39;Silent Spring&#39; Ignited the Environmental Movement. New York Times Magazine, September 21, 2012 (reprint)</a> <span class="relationship">supports</span><br><a href="https://www.nps.gov/people/rachel-carson.htm" target="_blank" rel="noreferrer">Rachel Carson</a> <span class="relationship">supports</span><br><a href="https://www.sciencehistory.org/education/scientific-biographies/rachel-carson/" target="_blank" rel="noreferrer">Rachel Carson (scientific biography)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>Carson died of cancer at her home in Silver Spring, Maryland, on April 14, 1964, at 56.</strong><div class="muted">Record the death as a fact without detail.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.nps.gov/people/rachel-carson.htm" target="_blank" rel="noreferrer">Rachel Carson</a> <span class="relationship">supports</span><br><a href="https://rachelcarsoncouncil.org/about-rcc/about-rachel-carson/" target="_blank" rel="noreferrer">About Rachel Carson</a> <span class="relationship">supports</span><br><a href="https://encyclopedia.com/women/encyclopedias-almanacs-transcripts-and-maps/carson-rachel-1907-1964" target="_blank" rel="noreferrer">Carson, Rachel (1907–1964). Women in World History: A Biographical Encyclopedia</a> <span class="relationship">supports</span><br><a href="https://msa.maryland.gov/msa/educ/exhibits/womenshall/html/carson.html" target="_blank" rel="noreferrer">Rachel Carson (1907–1964). Maryland Women&#39;s Hall of Fame</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>In a 1961 survey of physicians, 90 percent preferred not to tell a cancer patient the diagnosis; when the same questionnaire was given in 1977, 97 percent preferred to tell.</strong><div class="muted">Context for the teaching contrast: the nondisclosure Carson met was the usual practice of her time.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://pubmed.ncbi.nlm.nih.gov/13730593/" target="_blank" rel="noreferrer">Oken D. What to tell cancer patients. A study of medical attitudes. JAMA 1961;175:1120-8. PMID 13730593</a> <span class="relationship">supports</span><br><a href="https://pubmed.ncbi.nlm.nih.gov/762865/" target="_blank" rel="noreferrer">Novack DH, et al. Changes in physicians&#39; attitudes toward telling the cancer patient. JAMA 1979;241(9):897-900. PMID 762865</a> <span class="relationship">supports</span><br><a href="https://www.seattleweekly.com/?p=78526" target="_blank" rel="noreferrer">Call for a Cure</a> <span class="relationship">supports</span></td>
+  </tr></tbody></table></section>
+    <section><h2>Modern synthetic problem list</h2><table><thead><tr><th>Grade</th><th>Problem</th><th>Clinical status</th><th>Verification</th><th>Placement</th><th>Historical claims</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Invasive ductal carcinoma of the left breast, upper outer quadrant at 2 o&#39;clock, 2.4 cm on imaging; core biopsy grade 2, estrogen and progesterone receptor positive, HER2 negative, Ki-67 22 percent; clinical stage T2 N0 (cT2 cN0 M0); synthetic modern counterpart of the documented 1960 breast cancer, which was not disclosed to her</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>both_with_link</td>
+    <td>CLM-0006, CLM-0007, CLM-0008</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Estrogen receptor positive status of the breast cancer (ER 95 percent, PR 80 percent)</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>New firm lump in the upper outer quadrant of the left breast, found two weeks ago; clinically suspicious; diagnostic imaging and biopsy booked</td>
+    <td>resolved</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td>CLM-0006</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Duodenal ulcer found at endoscopy seven weeks ago, with Helicobacter pylori on biopsy; treated with 14 days of bismuth quadruple therapy and completing eight weeks of omeprazole; test of cure planned</td>
+    <td>resolved</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Primary osteoarthritis of both knees, mild, with stiffness after long walks on the shore</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Metastatic carcinoma in two of three left axillary sentinel lymph nodes (macrometastases, no extranodal extension); pathologic stage pT2 pN1a(sn) M0, anatomic stage IIB; recurrence score 17</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Long-term use of letrozole as adjuvant endocrine therapy, with ribociclib for three years</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Low bone mass (osteopenia) on baseline DXA before letrozole: lumbar spine T-score -1.8, femoral neck -1.3; 10-year major osteoporotic fracture risk about 7 percent (FRAX); vitamin D insufficiency</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Acute viral rhinosinusitis for five days while on ribociclib, with expected grade 2 neutropenia (absolute neutrophil count 1.2) and no fever; resolved with saline irrigation</td>
+    <td>resolved</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td></td>
+  </tr></tbody></table></section>
+    <section><h2>Synthetic outcome measures</h2><table><thead><tr><th>Grade</th><th>Date</th><th>Measure</th><th>Result</th><th>Coding</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-09</td>
+    <td>Patient Health Questionnaire 2 item (PHQ-2) total score [Reported]</td>
+    <td>1</td>
+    <td>http://loinc.org · 55758-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-09</td>
+    <td>Hemoglobin [Mass/volume] in Blood</td>
+    <td>12.3 g/dL<div class="muted">Reference 12-15.5 g/dL</div></td>
+    <td>http://loinc.org · 718-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-09</td>
+    <td>Leukocytes [#/volume] in Blood by Automated count</td>
+    <td>6.4 10*3/uL<div class="muted">Reference 4-11 10*3/uL</div></td>
+    <td>http://loinc.org · 6690-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-09</td>
+    <td>Platelets [#/volume] in Blood by Automated count</td>
+    <td>262 10*3/uL<div class="muted">Reference 150-400 10*3/uL</div></td>
+    <td>http://loinc.org · 777-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-09</td>
+    <td>Creatinine [Mass/volume] in Serum or Plasma</td>
+    <td>0.8 mg/dL<div class="muted">Reference 0.5-1.1 mg/dL</div></td>
+    <td>http://loinc.org · 2160-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-09</td>
+    <td>Alanine aminotransferase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>18 U/L<div class="muted">Reference &lt;=33 U/L</div></td>
+    <td>http://loinc.org · 1742-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-09</td>
+    <td>Aspartate aminotransferase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>20 U/L<div class="muted">Reference &lt;=32 U/L</div></td>
+    <td>http://loinc.org · 1920-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-18</td>
+    <td>Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]</td>
+    <td>6</td>
+    <td>http://loinc.org · 44261-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-18</td>
+    <td>Generalized anxiety disorder 7 item (GAD-7) total score [Reported.PHQ]</td>
+    <td>8</td>
+    <td>http://loinc.org · 70274-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-04-20</td>
+    <td>Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]</td>
+    <td>4</td>
+    <td>http://loinc.org · 44261-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-04-20</td>
+    <td>Generalized anxiety disorder 7 item (GAD-7) total score [Reported.PHQ]</td>
+    <td>5</td>
+    <td>http://loinc.org · 70274-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-06-15</td>
+    <td>Hemoglobin [Mass/volume] in Blood</td>
+    <td>12.8 g/dL<div class="muted">Reference 12-15.5 g/dL</div></td>
+    <td>http://loinc.org · 718-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-06-15</td>
+    <td>Leukocytes [#/volume] in Blood by Automated count</td>
+    <td>5.9 10*3/uL<div class="muted">Reference 4-11 10*3/uL</div></td>
+    <td>http://loinc.org · 6690-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-06-15</td>
+    <td>Neutrophils [#/volume] in Blood by Automated count</td>
+    <td>3.4 10*3/uL<div class="muted">Reference 1.8-7.7 10*3/uL</div></td>
+    <td>http://loinc.org · 751-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-06-15</td>
+    <td>Platelets [#/volume] in Blood by Automated count</td>
+    <td>240 10*3/uL<div class="muted">Reference 150-400 10*3/uL</div></td>
+    <td>http://loinc.org · 777-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-06-15</td>
+    <td>Creatinine [Mass/volume] in Serum or Plasma</td>
+    <td>0.8 mg/dL<div class="muted">Reference 0.5-1.1 mg/dL</div></td>
+    <td>http://loinc.org · 2160-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-06-15</td>
+    <td>Glomerular filtration rate [Volume Rate/Area] in Serum, Plasma or Blood by Creatinine-based formula (CKD-EPI 2021)/1.73 sq M</td>
+    <td>87 mL/min/1.73 m²<div class="muted">Reference &gt;=60 mL/min/1.73 m²</div></td>
+    <td>http://loinc.org · 98979-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-06-15</td>
+    <td>Alanine aminotransferase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>20 U/L<div class="muted">Reference &lt;=33 U/L</div></td>
+    <td>http://loinc.org · 1742-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-06-15</td>
+    <td>Aspartate aminotransferase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>22 U/L<div class="muted">Reference &lt;=32 U/L</div></td>
+    <td>http://loinc.org · 1920-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-06-15</td>
+    <td>Bilirubin.total [Mass/volume] in Serum or Plasma</td>
+    <td>0.6 mg/dL<div class="muted">Reference &lt;=1.2 mg/dL</div></td>
+    <td>http://loinc.org · 1975-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-06-15</td>
+    <td>Potassium [Moles/volume] in Serum or Plasma</td>
+    <td>4.2 mmol/L<div class="muted">Reference 3.5-5.1 mmol/L</div></td>
+    <td>http://loinc.org · 2823-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-06-15</td>
+    <td>Magnesium [Mass/volume] in Serum or Plasma</td>
+    <td>2.1 mg/dL<div class="muted">Reference 1.7-2.4 mg/dL</div></td>
+    <td>http://loinc.org · 19123-9</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-06-15</td>
+    <td>Calcium [Mass/volume] in Serum or Plasma</td>
+    <td>9.4 mg/dL<div class="muted">Reference 8.6-10.3 mg/dL</div></td>
+    <td>http://loinc.org · 17861-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-06-15</td>
+    <td>Cholesterol [Mass/volume] in Serum or Plasma</td>
+    <td>208 mg/dL (high)<div class="muted">Reference &lt;=199 mg/dL</div></td>
+    <td>http://loinc.org · 2093-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-06-15</td>
+    <td>Cholesterol in HDL [Mass/volume] in Serum or Plasma</td>
+    <td>62 mg/dL<div class="muted">Reference &gt;=50 mg/dL</div></td>
+    <td>http://loinc.org · 2085-9</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-06-15</td>
+    <td>Cholesterol in LDL [Mass/volume] in Serum or Plasma by calculation</td>
+    <td>124 mg/dL (high)<div class="muted">Reference &lt;=99 mg/dL</div></td>
+    <td>http://loinc.org · 13457-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-06-15</td>
+    <td>Triglyceride [Mass/volume] in Serum or Plasma</td>
+    <td>110 mg/dL<div class="muted">Reference &lt;=149 mg/dL</div></td>
+    <td>http://loinc.org · 2571-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-06-15</td>
+    <td>25-Hydroxyvitamin D3+25-Hydroxyvitamin D2 [Mass/volume] in Serum or Plasma</td>
+    <td>22 ng/mL (low)<div class="muted">Reference 30-100 ng/mL</div></td>
+    <td>http://loinc.org · 62292-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-06-15</td>
+    <td>Q-T interval corrected</td>
+    <td>418 ms<div class="muted">Reference Ribociclib is started only when QTcF is below 450 ms</div></td>
+    <td>http://loinc.org · 8636-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-06-15</td>
+    <td>DXA Lumbar spine [T-score] Bone density</td>
+    <td>-1.8 (low)<div class="muted">Reference &gt;=-1</div></td>
+    <td>http://loinc.org · 38267-1</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-06-15</td>
+    <td>DXA Femur [T-score] Bone density</td>
+    <td>-1.3 (low)<div class="muted">Reference &gt;=-1</div></td>
+    <td>http://loinc.org · 38263-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-09-08</td>
+    <td>Hemoglobin [Mass/volume] in Blood</td>
+    <td>12.5 g/dL<div class="muted">Reference 12-15.5 g/dL</div></td>
+    <td>http://loinc.org · 718-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-09-08</td>
+    <td>Leukocytes [#/volume] in Blood by Automated count</td>
+    <td>3.4 10*3/uL (low)<div class="muted">Reference 4-11 10*3/uL</div></td>
+    <td>http://loinc.org · 6690-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-09-08</td>
+    <td>Neutrophils [#/volume] in Blood by Automated count</td>
+    <td>1.6 10*3/uL (low)<div class="muted">Reference 1.8-7.7 10*3/uL</div></td>
+    <td>http://loinc.org · 751-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-09-08</td>
+    <td>Platelets [#/volume] in Blood by Automated count</td>
+    <td>192 10*3/uL<div class="muted">Reference 150-400 10*3/uL</div></td>
+    <td>http://loinc.org · 777-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-09-08</td>
+    <td>Creatinine [Mass/volume] in Serum or Plasma</td>
+    <td>0.8 mg/dL<div class="muted">Reference 0.5-1.1 mg/dL</div></td>
+    <td>http://loinc.org · 2160-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-09-08</td>
+    <td>Alanine aminotransferase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>31 U/L<div class="muted">Reference &lt;=33 U/L</div></td>
+    <td>http://loinc.org · 1742-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-09-08</td>
+    <td>Aspartate aminotransferase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>29 U/L<div class="muted">Reference &lt;=32 U/L</div></td>
+    <td>http://loinc.org · 1920-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-09-08</td>
+    <td>Bilirubin.total [Mass/volume] in Serum or Plasma</td>
+    <td>0.7 mg/dL<div class="muted">Reference &lt;=1.2 mg/dL</div></td>
+    <td>http://loinc.org · 1975-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-09-08</td>
+    <td>Potassium [Moles/volume] in Serum or Plasma</td>
+    <td>4.1 mmol/L<div class="muted">Reference 3.5-5.1 mmol/L</div></td>
+    <td>http://loinc.org · 2823-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-09-08</td>
+    <td>Magnesium [Mass/volume] in Serum or Plasma</td>
+    <td>2 mg/dL<div class="muted">Reference 1.7-2.4 mg/dL</div></td>
+    <td>http://loinc.org · 19123-9</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-09-08</td>
+    <td>Calcium [Mass/volume] in Serum or Plasma</td>
+    <td>9.5 mg/dL<div class="muted">Reference 8.6-10.3 mg/dL</div></td>
+    <td>http://loinc.org · 17861-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-09-08</td>
+    <td>25-Hydroxyvitamin D3+25-Hydroxyvitamin D2 [Mass/volume] in Serum or Plasma</td>
+    <td>34 ng/mL<div class="muted">Reference 30-100 ng/mL</div></td>
+    <td>http://loinc.org · 62292-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-09-08</td>
+    <td>Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]</td>
+    <td>3</td>
+    <td>http://loinc.org · 44261-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-07-20</td>
+    <td>Leukocytes [#/volume] in Blood by Automated count</td>
+    <td>2.9 10*3/uL (low)<div class="muted">Reference 4-11 10*3/uL</div></td>
+    <td>http://loinc.org · 6690-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-07-20</td>
+    <td>Neutrophils [#/volume] in Blood by Automated count</td>
+    <td>1.2 10*3/uL (low)<div class="muted">Reference 1.8-7.7 10*3/uL</div></td>
+    <td>http://loinc.org · 751-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-07-20</td>
+    <td>Hemoglobin [Mass/volume] in Blood</td>
+    <td>12.2 g/dL<div class="muted">Reference 12-15.5 g/dL</div></td>
+    <td>http://loinc.org · 718-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-07-20</td>
+    <td>Platelets [#/volume] in Blood by Automated count</td>
+    <td>168 10*3/uL<div class="muted">Reference 150-400 10*3/uL</div></td>
+    <td>http://loinc.org · 777-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-10-13</td>
+    <td>Patient Health Questionnaire 2 item (PHQ-2) total score [Reported]</td>
+    <td>0</td>
+    <td>http://loinc.org · 55758-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-10-13</td>
+    <td>Total score [AUDIT-C]</td>
+    <td>1</td>
+    <td>http://loinc.org · 75626-2</td>
+  </tr></tbody></table></section>
+    <section><h2>Synthetic vital signs</h2><table><thead><tr><th>Date</th><th>Measure</th><th>Result</th><th>LOINC</th><th>Grade</th></tr></thead><tbody>
+  <tr><td>2026-03-09</td><td>Body height</td><td>163 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-09</td><td>Body weight</td><td>59.4 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-09</td><td>Body mass index (BMI) [Ratio]</td><td>22.4 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-09</td><td>Systolic blood pressure</td><td>124 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-09</td><td>Diastolic blood pressure</td><td>78 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-09</td><td>Heart rate</td><td>76 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-09</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-09</td><td>Body temperature</td><td>36.7 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-09</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>98 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-18</td><td>Body height</td><td>163 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-18</td><td>Body weight</td><td>59 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-18</td><td>Body mass index (BMI) [Ratio]</td><td>22.2 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-18</td><td>Systolic blood pressure</td><td>130 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-18</td><td>Diastolic blood pressure</td><td>80 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-18</td><td>Heart rate</td><td>84 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-18</td><td>Respiratory rate</td><td>16 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-18</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-18</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>98 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-20</td><td>Body height</td><td>163 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-20</td><td>Body weight</td><td>58.6 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-20</td><td>Body mass index (BMI) [Ratio]</td><td>22.1 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-20</td><td>Systolic blood pressure</td><td>122 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-20</td><td>Diastolic blood pressure</td><td>76 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-20</td><td>Heart rate</td><td>74 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-20</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-20</td><td>Body temperature</td><td>36.7 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-20</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>98 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-15</td><td>Body height</td><td>163 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-15</td><td>Body weight</td><td>58.9 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-15</td><td>Body mass index (BMI) [Ratio]</td><td>22.2 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-15</td><td>Systolic blood pressure</td><td>120 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-15</td><td>Diastolic blood pressure</td><td>76 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-15</td><td>Heart rate</td><td>70 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-15</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-15</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-15</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>99 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-09-08</td><td>Body height</td><td>163 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-09-08</td><td>Body weight</td><td>59.6 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-09-08</td><td>Body mass index (BMI) [Ratio]</td><td>22.4 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-09-08</td><td>Systolic blood pressure</td><td>118 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-09-08</td><td>Diastolic blood pressure</td><td>74 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-09-08</td><td>Heart rate</td><td>72 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-09-08</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-09-08</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-09-08</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>99 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-07-20</td><td>Body height</td><td>163 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-07-20</td><td>Body weight</td><td>59.2 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-07-20</td><td>Body mass index (BMI) [Ratio]</td><td>22.3 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-07-20</td><td>Systolic blood pressure</td><td>118 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-07-20</td><td>Diastolic blood pressure</td><td>74 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-07-20</td><td>Heart rate</td><td>82 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-07-20</td><td>Respiratory rate</td><td>16 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-07-20</td><td>Body temperature</td><td>37.3 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-07-20</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>98 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-13</td><td>Body height</td><td>163 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-13</td><td>Body weight</td><td>59.8 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-13</td><td>Body mass index (BMI) [Ratio]</td><td>22.5 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-13</td><td>Systolic blood pressure</td><td>116 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-13</td><td>Diastolic blood pressure</td><td>74 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-13</td><td>Heart rate</td><td>70 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-13</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-13</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-13</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>99 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr></tbody></table></section>
+    <section><h2>Social, functional, and mental status</h2><h3>Social history</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Occupation: marine biologist and writer, formerly a government science editor; finishing a book on the effects of chemical pesticides, with a deadline this year; works at home most days</li><li><span class="badge grade-S" title="Synthetic">S</span> Never smoker; a glass of sherry a few times a month; walks most days and spends summers on the coast studying tide pools</li><li><span class="badge grade-S" title="Synthetic">S</span> Lives in her own house; never married; independent</li><li><span class="badge grade-S" title="Synthetic">S</span> Supports: a close friend and her editor; she shares health news with very few people</li><li><span class="badge grade-S" title="Synthetic">S</span> Reproductive history: no pregnancies; menopause at 51; never used menopausal hormone therapy</li></ul><h3>Functional status</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Independent in all activities of daily living; walks 30 to 40 minutes most days; mild knee stiffness after long walks</li></ul><h3>Mental status</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Alert, precise, and scientifically minded; asks for exact information and to read her own reports</li><li><span class="badge grade-S" title="Synthetic">S</span> Mood steady; PHQ-2 negative at presentation</li></ul></section>
+    
+    <section><h2>Allergies and medications</h2><h3>Allergies</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> No known allergy</li></ul><h3>Medications</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Omeprazole 20 mg delayed-release oral capsule, one capsule by mouth once daily before breakfast, to complete eight weeks of ulcer healing</li><li><span class="badge grade-S" title="Synthetic">S</span> Acetaminophen 500 mg oral tablet, two tablets (1000 mg) by mouth up to three times a day as needed for knee pain, no more than 3000 mg a day</li><li><span class="badge grade-S" title="Synthetic">S</span> Letrozole 2.5 mg oral tablet, one tablet by mouth once daily, planned for at least five years</li><li><span class="badge grade-S" title="Synthetic">S</span> Ribociclib 200 mg oral tablet, two tablets (400 mg) by mouth once daily on days 1 to 21 of each 28-day cycle, with letrozole, planned for three years</li><li><span class="badge grade-S" title="Synthetic">S</span> Zoledronic acid 4 mg in 100 mL intravenous infusion over 15 minutes every six months for three years</li><li><span class="badge grade-S" title="Synthetic">S</span> Cholecalciferol (vitamin D3) 1000 units oral tablet, one tablet by mouth once daily</li></ul></section>
+    <section><h2>Procedures and immunizations</h2><h3>Procedures</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Diagnostic mammography of the left breast with a right breast view: 2.4 cm irregular spiculated mass at 2 o&#39;clock in the upper outer left breast; scattered fibroglandular density; right breast normal; BI-RADS 5</li><li><span class="badge grade-S" title="Synthetic">S</span> Left breast and axillary ultrasound: 2.4 cm irregular hypoechoic mass at 2 o&#39;clock, 7 cm from the nipple; axillary lymph nodes normal in size and shape</li><li><span class="badge grade-S" title="Synthetic">S</span> Ultrasound-guided core needle biopsy of the left breast mass with clip placement: invasive ductal carcinoma, grade 2; ER 95 percent, PR 80 percent, HER2 1+ (negative), Ki-67 22 percent</li><li><span class="badge grade-S" title="Synthetic">S</span> Genetic counseling and germline multigene panel testing for inherited breast cancer risk: no pathogenic variant</li><li><span class="badge grade-S" title="Synthetic">S</span> Left breast lumpectomy (breast-conserving surgery) with wire-free localization of the biopsy clip, her informed choice. Pathology: invasive ductal carcinoma 2.3 cm, grade 2, margins clear (closest 4 mm), no lymphovascular invasion; pT2. Recurrence score (21-gene assay) 17</li><li><span class="badge grade-S" title="Synthetic">S</span> Left axillary sentinel lymph node biopsy at lumpectomy: 2 of 3 nodes with macrometastases (largest 6 mm), no extranodal extension; pN1a(sn)</li><li><span class="badge grade-S" title="Synthetic">S</span> 13C urea breath test four weeks after bismuth quadruple therapy and two weeks after stopping omeprazole: negative; Helicobacter pylori eradicated</li><li><span class="badge grade-S" title="Synthetic">S</span> Hypofractionated radiation to the left whole breast and regional lymph nodes, 40 Gy in 15 fractions, with a tumor-bed boost of 10 Gy in 4 fractions; completed with grade 1 skin reddening</li><li><span class="badge grade-S" title="Synthetic">S</span> Baseline bone density scan (DXA) before letrozole: lumbar spine T-score -1.8, femoral neck T-score -1.3 (low bone mass)</li><li><span class="badge grade-S" title="Synthetic">S</span> Baseline 12-lead electrocardiogram before ribociclib: sinus rhythm 70/min, QTcF 418 ms</li></ul><h3>Immunizations</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> 2025-10-14: Influenza vaccine, 2025-2026 season</li><li><span class="badge grade-S" title="Synthetic">S</span> 2021-05-10: Tdap vaccine</li><li><span class="badge grade-S" title="Synthetic">S</span> 2026-10-13: Influenza vaccine, 2026-2027 season</li><li><span class="badge grade-S" title="Synthetic">S</span> 2026-10-13: Pneumococcal conjugate vaccine PCV20</li><li><span class="badge grade-S" title="Synthetic">S</span> 2026-10-13: Recombinant zoster vaccine, dose 1 of 2</li></ul></section>
+    <section><h2>Past medical history</h2><p class="muted">True biography with historical dates; not part of the synthetic care timeline.</p><ul><li><span class="badge grade-D" title="Documented">D</span> 1950: Benign tumor removed from the left breast <span class="muted">(CLM-0004)</span></li><li><span class="badge grade-D" title="Documented">D</span> Early 1960: Two lumps found in the left breast while writing a book <span class="muted">(CLM-0006)</span></li></ul><h3>Family history</h3><p class="muted">No family medical history is documented in the logged sources. Family history of real relatives is never synthesized.</p></section>
+    <section><h2>Care-plan goals</h2><table><thead><tr><th>Goal</th><th>Target date</th><th>Status</th><th>Outcome</th></tr></thead><tbody>
+  <tr><td>Receive the biopsy result in person within ten days, explained in plain words, with a copy of the report</td><td>2026-03-18</td><td>completed</td><td>Told the diagnosis in person nine days after presentation, with the pathology report in hand; teach-back confirmed her understanding</td></tr>
+  <tr><td>Make each treatment decision herself after hearing the options, benefits, and harms</td><td>2026-04-20</td><td>completed</td><td>Chose breast-conserving surgery and, after the pathology, radiation, letrozole, ribociclib, and zoledronic acid</td></tr>
+  <tr><td>Complete surgery and radiation, then start endocrine therapy, within four months of diagnosis</td><td>2026-06-15</td><td>completed</td><td>Lumpectomy at three weeks, radiation completed at ten weeks, letrozole and ribociclib started at thirteen weeks</td></tr>
+  <tr><td>Take adjuvant systemic therapy safely, with every safety check the drugs require done on schedule</td><td>2026-12-07</td><td>active</td><td>Ribociclib started with QTcF 418 ms; blood counts and liver tests on schedule; the day-14 ECG was late, as recorded</td></tr>
+  <tr><td>Keep writing at least four mornings a week through treatment</td><td>2026-12-07</td><td>active</td><td>Writing most mornings, with radiation booked in the afternoons</td></tr></tbody></table></section>
+    <section><h2>Interventions</h2><table><thead><tr><th>Intervention</th><th>Status</th><th>Guideline</th></tr></thead><tbody>
+  <tr><td>Diagnostic mammography and ultrasound of the left breast and axilla this week, then image-guided core biopsy with ER, PR, HER2, and Ki-67 testing</td><td>completed</td><td>GL-NCCN-BREAST-2025, GL-CMID-2026</td></tr>
+  <tr><td>Breast surgical oncology consultation once the biopsy result is available, to discuss surgical options and axillary staging with her</td><td>completed</td><td>GL-NCCN-BREAST-2025</td></tr>
+  <tr><td>Disclosure and shared decision-making: ask what she wants to know, give each result in person and in plain words with a written copy, check understanding by teach-back, and make every decision with her; share her health information only with the people she names</td><td>completed</td><td>GL-AMA-2.1.3, GL-ASCO-COMM-2017</td></tr>
+  <tr><td>Test of cure for Helicobacter pylori by urea breath test at least four weeks after antibiotics and two weeks after stopping omeprazole</td><td>completed</td><td>GL-ACG-HP-2024</td></tr>
+  <tr><td>Knee osteoarthritis: walking and strengthening exercise, acetaminophen as needed, no nonsteroidal anti-inflammatory drugs after her ulcer</td><td>completed</td><td>GL-ACR-OA-2019</td></tr>
+  <tr><td>Germline multigene panel testing with genetic counseling before surgery, as recommended for breast cancer diagnosed at 65 or younger</td><td>completed</td><td>GL-ASCO-SSO-GERM-2024, GL-NCCN-BREAST-2025</td></tr>
+  <tr><td>Left breast-conserving surgery (lumpectomy) with sentinel lymph node biopsy, her choice after mastectomy was also explained; no axillary dissection if one or two sentinel nodes are involved and she has whole-breast radiation</td><td>completed</td><td>GL-NCCN-BREAST-2025, GL-ASCO-AXILLA-2021</td></tr>
+  <tr><td>Hypofractionated whole-breast and regional nodal radiation with a tumor-bed boost by the radiation oncology team, booked in the afternoons so she can write in the mornings</td><td>completed</td><td>GL-NCCN-BREAST-2025</td></tr>
+  <tr><td>Letrozole 2.5 mg daily for at least five years with ribociclib 400 mg on days 1 to 21 of each 28-day cycle for three years, chosen by her; no chemotherapy with a recurrence score of 17; ECG before starting and about day 14, blood counts and liver tests every two weeks for two cycles and then at the start of the next four cycles, and electrolytes at the start of the first six cycles; avoid drugs that prolong the QT interval</td><td>completed</td><td>GL-NCCN-BREAST-2025, GL-ASCO-CDK46-2024, GL-FDA-RIBOCICLIB-2026, GL-ASCO-ENDO-2019</td></tr>
+  <tr><td>Bone health: baseline DXA, dental check, then zoledronic acid 4 mg every six months for three years; vitamin D and calcium from food; weight-bearing exercise; DXA every two years</td><td>completed</td><td>GL-ASCO-BMA-2022, GL-CMID-2026</td></tr>
+  <tr><td>Survivorship care: history and examination every 3 to 6 months, a mammogram 6 to 12 months after radiation and then yearly, no routine tumor markers or body imaging; lymphedema checks, joint-pain and hot-flash review, distress screening, and a written survivorship care plan</td><td>completed</td><td>GL-CMID-2026, GL-ACS-ASCO-SURV-2016, GL-ASCO-FU-2013</td></tr></tbody></table></section>
+    <section><h2>Planned encounters</h2><ul>
+  <li><strong>2026-03-09</strong> — Primary care visit for a new left breast lump; follow-up of a recently treated duodenal ulcer <span class="muted">(ENC-001)</span></li>
+  <li><strong>2026-03-18</strong> — Disclosure of the biopsy diagnosis of breast cancer and shared decision-making, with the breast surgical oncology consultation the same day <span class="muted">(ENC-002)</span></li>
+  <li><strong>2026-04-20</strong> — Review two weeks after lumpectomy and sentinel node biopsy: full disclosure of the pathology and the adjuvant treatment decision <span class="muted">(ENC-003)</span></li>
+  <li><strong>2026-06-15</strong> — Start of letrozole, ribociclib, and zoledronic acid after radiation <span class="muted">(ENC-004)</span></li>
+  <li><strong>2026-07-20</strong> — Same-day sick visit for sinus symptoms on ribociclib <span class="muted">(ENC-006, unscheduled)</span></li>
+  <li><strong>2026-09-08</strong> — Monitoring visit at the start of the fourth ribociclib cycle <span class="muted">(ENC-005)</span></li>
+  <li><strong>2026-10-13</strong> — Adult preventive visit <span class="muted">(ENC-007)</span></li></ul></section>
+    <section><h2>Supporting documents</h2><ul><li><a href="notes/hp.md">History and physical</a></li><li><a href="notes/progress-01.md">Progress note 01</a></li><li><a href="notes/progress-02.md">Progress note 02 — Focused Visit (Follow-up)</a></li><li><a href="notes/progress-03.md">Progress note 03 — Focused Visit (Follow-up)</a></li><li><a href="notes/progress-04.md">Progress note 04 — Focused Visit (Follow-up)</a></li><li><a href="notes/progress-05.md">Progress note 05 — Sick Visit</a></li><li><a href="notes/progress-06.md">Progress note 06 — Focused Visit (Care-plan review)</a></li><li><a href="notes/progress-07.md">Progress note 07 — Preventive Visit</a></li><li><a href="notes/referral-01.md">Surgical Oncology (breast) referral</a></li><li><a href="notes/consult-01.md">Surgical Oncology (breast) consultation</a></li><li><a href="notes/careplan.md">Patient care plan</a></li><li><a href="notes/teaching-note.md">Teaching note</a></li><li><a href="provenance.csv">Provenance CSV</a></li></ul></section>
+    <section><h2>C-CDA note documents</h2><p class="muted">Each link opens a readable copy; the XML beside it is the exchange file.</p><ul><li><a href="ccda/hp-01.html">History and physical</a> <a href="ccda/hp-01.xml">(XML)</a></li><li><a href="ccda/progress-01.html">Progress note 01</a> <a href="ccda/progress-01.xml">(XML)</a></li><li><a href="ccda/progress-02.html">Progress note 02 — Focused Visit (Follow-up)</a> <a href="ccda/progress-02.xml">(XML)</a></li><li><a href="ccda/progress-03.html">Progress note 03 — Focused Visit (Follow-up)</a> <a href="ccda/progress-03.xml">(XML)</a></li><li><a href="ccda/progress-04.html">Progress note 04 — Focused Visit (Follow-up)</a> <a href="ccda/progress-04.xml">(XML)</a></li><li><a href="ccda/progress-05.html">Progress note 05 — Sick Visit</a> <a href="ccda/progress-05.xml">(XML)</a></li><li><a href="ccda/progress-06.html">Progress note 06 — Focused Visit (Care-plan review)</a> <a href="ccda/progress-06.xml">(XML)</a></li><li><a href="ccda/progress-07.html">Progress note 07 — Preventive Visit</a> <a href="ccda/progress-07.xml">(XML)</a></li><li><a href="ccda/referral-01.html">Surgical Oncology (breast) referral</a> <a href="ccda/referral-01.xml">(XML)</a></li><li><a href="ccda/consult-01.html">Surgical Oncology (breast) consultation</a> <a href="ccda/consult-01.xml">(XML)</a></li></ul></section>
+    <section><h2>Sources</h2><table><thead><tr><th>ID</th><th>Source</th><th>Publisher</th><th>Type</th></tr></thead><tbody>
+  <tr>
+    <td>SRC-0001</td>
+    <td><a href="https://www.nps.gov/people/rachel-carson.htm" target="_blank" rel="noreferrer">Rachel Carson</a></td>
+    <td>National Park Service</td>
+    <td>government</td>
+  </tr>
+  <tr>
+    <td>SRC-0002</td>
+    <td><a href="https://rachelcarsoncouncil.org/about-rcc/about-rachel-carson/" target="_blank" rel="noreferrer">About Rachel Carson</a></td>
+    <td>Rachel Carson Council</td>
+    <td>biography</td>
+  </tr>
+  <tr>
+    <td>SRC-0003</td>
+    <td><a href="https://www.sciencehistory.org/education/scientific-biographies/rachel-carson/" target="_blank" rel="noreferrer">Rachel Carson (scientific biography)</a></td>
+    <td>Science History Institute</td>
+    <td>biography</td>
+  </tr>
+  <tr>
+    <td>SRC-0004</td>
+    <td><a href="https://encyclopedia.com/women/encyclopedias-almanacs-transcripts-and-maps/carson-rachel-1907-1964" target="_blank" rel="noreferrer">Carson, Rachel (1907–1964). Women in World History: A Biographical Encyclopedia</a></td>
+    <td>Encyclopedia.com (Gale)</td>
+    <td>biography</td>
+  </tr>
+  <tr>
+    <td>SRC-0005</td>
+    <td><a href="https://www.trumpeter.athabascau.ca/index.php/trumpet/article/download/164/197?inline=1" target="_blank" rel="noreferrer">Stevens A. Review of Rachel Carson: Witness for Nature, by Linda Lear</a></td>
+    <td>The Trumpeter (Athabasca University)</td>
+    <td>scholarly</td>
+  </tr>
+  <tr>
+    <td>SRC-0006</td>
+    <td><a href="https://www.seattleweekly.com/?p=78526" target="_blank" rel="noreferrer">Call for a Cure</a></td>
+    <td>Seattle Weekly</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0007</td>
+    <td><a href="https://publicism.info/environment/woods/30.html" target="_blank" rel="noreferrer">Lear L, ed. Letter to Dr. George Crile, Jr., with the editor&#39;s headnote. In: Lost Woods: The Discovered Writing of Rachel Carson (Beacon Press, 1998)</a></td>
+    <td>Online transcription (publicism.info)</td>
+    <td>primary</td>
+  </tr>
+  <tr>
+    <td>SRC-0008</td>
+    <td><a href="https://static1.squarespace.com/static/581a91969f7456744441bb8a/t/5e4494ac41cab754748bda1a/1581552814650/Sidebar+8-How+Silent+Spring+Ignited+a+Movement-+Griswold+NYT+9-2012.pdf" target="_blank" rel="noreferrer">Griswold E. How &#39;Silent Spring&#39; Ignited the Environmental Movement. New York Times Magazine, September 21, 2012 (reprint)</a></td>
+    <td>The New York Times (reprint PDF)</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0009</td>
+    <td><a href="https://rachelcarsoncouncil.org/about-rcc/about-rachel-carson/rachel-carsons-statement-before-congress-1963/" target="_blank" rel="noreferrer">Rachel Carson&#39;s Statement before Congress, 1963</a></td>
+    <td>Rachel Carson Council</td>
+    <td>primary</td>
+  </tr>
+  <tr>
+    <td>SRC-0010</td>
+    <td><a href="https://msa.maryland.gov/msa/educ/exhibits/womenshall/html/carson.html" target="_blank" rel="noreferrer">Rachel Carson (1907–1964). Maryland Women&#39;s Hall of Fame</a></td>
+    <td>Maryland State Archives</td>
+    <td>government</td>
+  </tr>
+  <tr>
+    <td>SRC-0011</td>
+    <td><a href="https://www.literaryladiesguide.com/author-biography/rachel-carson/" target="_blank" rel="noreferrer">McCauley M. Rachel Carson, Author of Silent Spring</a></td>
+    <td>Literary Ladies Guide</td>
+    <td>biography</td>
+  </tr>
+  <tr>
+    <td>SRC-0012</td>
+    <td><a href="https://pubmed.ncbi.nlm.nih.gov/13730593/" target="_blank" rel="noreferrer">Oken D. What to tell cancer patients. A study of medical attitudes. JAMA 1961;175:1120-8. PMID 13730593</a></td>
+    <td>JAMA (PubMed record)</td>
+    <td>scholarly</td>
+  </tr>
+  <tr>
+    <td>SRC-0013</td>
+    <td><a href="https://pubmed.ncbi.nlm.nih.gov/762865/" target="_blank" rel="noreferrer">Novack DH, et al. Changes in physicians&#39; attitudes toward telling the cancer patient. JAMA 1979;241(9):897-900. PMID 762865</a></td>
+    <td>JAMA (PubMed abstract)</td>
+    <td>scholarly</td>
+  </tr>
+  <tr>
+    <td>SRC-0014</td>
+    <td><a href="https://pubmed.ncbi.nlm.nih.gov/24857085/" target="_blank" rel="noreferrer">Burstein HJ. Fifty years of systemic therapy for breast cancer: from one size fits all to tailored therapy. Am Soc Clin Oncol Educ Book 2014:e1-3. PMID 24857085</a></td>
+    <td>American Society of Clinical Oncology (PubMed abstract)</td>
+    <td>scholarly</td>
+  </tr>
+  <tr>
+    <td>SRC-0015</td>
+    <td><a href="https://humanrecord.example.org/internal/HISTMED_Master_Roster_v3.xlsx" target="_blank" rel="noreferrer">HISTMED Master Roster v3</a></td>
+    <td>The Human Record project</td>
+    <td>other</td>
+  </tr></tbody></table></section>
+    <section><h2>Review status</h2><table><thead><tr><th>Review</th><th>Status</th><th>Notes</th></tr></thead><tbody>
+  <tr><td>schema validation</td><td>not_started</td><td>Run scripts/build.ps1 -Conformance.</td></tr>
+  <tr><td>clinical review</td><td>not_started</td><td>Awaiting clinician review; check omission of axillary dissection with two positive sentinel nodes, regional nodal radiation, omission of chemotherapy at recurrence score 17, the adjuvant ribociclib choice and its monitoring, and adjuvant zoledronic acid.</td></tr>
+  <tr><td>provenance review</td><td>not_started</td><td>Her illness is documented from the Science History Institute, the National Park Service, the Rachel Carson Council, a Gale reference biography, a journal review of the standard biography, her biographer&#39;s headnote to a letter, a news feature, and a magazine article; the 1950 operation rests on one popular biography and is graded probable. The surgeon is not named; no relative or friend is quoted.</td></tr>
+  <tr><td>safe messaging review</td><td>not_started</td><td>No behavioral-health diagnosis; mild distress at diagnosis is screened and supported; her documented wish for privacy is respected; death recorded without detail.</td></tr></tbody></table></section>
+  </main>
+</body>
+</html>

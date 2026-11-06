@@ -1,0 +1,579 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bruce Lee — The Human Record</title>
+  <style>
+    :root { --navy:#17365d; --blue:#1f4e78; --pale:#eef5fa; --ink:#1f2933; --muted:#66788a; --amber:#fff2cc; --red:#f8d7da; --green:#d9ead3; }
+    * { box-sizing:border-box; }
+    body { margin:0; font:16px/1.5 Arial, sans-serif; color:var(--ink); background:#f6f8fa; }
+    header { background:var(--navy); color:white; padding:24px max(24px,calc((100vw - 1180px)/2)); }
+    header h1 { margin:4px 0; font-size:30px; }
+    .banner { background:#b42318; color:white; font-weight:700; text-align:center; padding:10px; letter-spacing:.03em; }
+    main { max-width:1180px; margin:24px auto 60px; padding:0 24px; }
+    section { background:white; border:1px solid #d9e1e8; border-radius:8px; margin:18px 0; padding:20px; }
+    h2 { color:var(--navy); margin:0 0 14px; font-size:22px; }
+    h3 { color:var(--blue); }
+    .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:12px; }
+    .card { background:var(--pale); border-left:4px solid var(--blue); padding:12px; }
+    .label { color:var(--muted); font-size:13px; text-transform:uppercase; letter-spacing:.04em; }
+    table { width:100%; border-collapse:collapse; }
+    th { background:var(--blue); color:white; text-align:left; }
+    th,td { padding:9px; border-bottom:1px solid #dfe6ec; vertical-align:top; }
+    .badge { display:inline-block; min-width:28px; text-align:center; font-weight:700; border-radius:12px; padding:2px 8px; }
+    .grade-D { background:var(--green); } .grade-R { background:var(--amber); } .grade-S { background:var(--red); }
+    .muted { color:var(--muted); font-size:14px; }
+    .relationship { color:var(--muted); font-size:12px; }
+    .downloads a { display:inline-block; margin:4px 8px 4px 0; padding:8px 12px; background:var(--blue); color:white; text-decoration:none; border-radius:5px; }
+    @media (max-width:700px) { table { display:block; overflow-x:auto; } }
+  </style>
+</head>
+<body>
+  <div class="banner">SYNTHETIC RECORD, NOT A REAL MEDICAL RECORD</div>
+  <header>
+    <div>The Human Record</div>
+    <h1>Bruce Lee</h1>
+    <div>Case HR-ML044 · Modern EHR teaching episode · Draft for review</div>
+  </header>
+  <main>
+    <section>
+      <h2>Review summary</h2>
+      <div class="grid">
+        <div class="card"><div class="label">Historical dates</div>November 27, 1940 – July 20, 1973</div>
+        <div class="card"><div class="label">Synthetic DOB</div>1993-11-27</div>
+        <div class="card"><div class="label">Index visit</div>2026-05-14 at age 32</div>
+        <div class="card"><div class="label">Synthetic MRN</div>HR-ML044-SYN</div>
+      </div>
+      <p><strong>Teaching objective:</strong> Evaluation and management after a first convulsive seizure in a 32-year-old Chinese American martial artist, actor and film-maker in Hong Kong, anchored to his documented collapse with convulsions at a film studio two months before his death. The episode covers the emergency care that preceded the index visit (recorded as history); telling a seizure from convulsive syncope (witness history, ECG and QTc); sodium, glucose, calcium, kidney function and creatine kinase; MRI with an epilepsy protocol and a sleep-deprived EEG; classifying the event as an unknown-onset motor (tonic-clonic) seizure by the ILAE 2017 classification and deciding that a single unprovoked seizure with normal studies is not epilepsy; the AAN/AES 2015 guideline on whether to start an antiseizure medicine after a first unprovoked seizure (recurrence risk 21% to 45% over two years, lower with immediate treatment but with no long-term benefit), decided with him in favor of no medicine and a clear plan for a second seizure; triggers (sleep deprivation, heat, missed meals, fluid and electrolyte balance, cannabis); medicines that lower the seizure threshold; Hong Kong driving rules; seizure first aid and work safety for a stunt performer; and his documented chronic back pain managed with exercise and pain medicines that neither lower the seizure threshold nor interact. It is taught with culturally appropriate care: his languages, his philosophy of training, and his own decisions, without stereotype.</p>
+      <div class="downloads">
+        <a href="../case.json">Canonical JSON</a>
+        <a href="fhir-bundle.json">FHIR R4 draft</a>
+        <a href="ccda.html">C-CDA R2.1 summary</a> <a href="ccda.xml">(XML)</a> <a href="review.html">Review checklist</a>
+        <a href="../sources.md">Evidence dossier</a>
+      </div>
+    </section>
+    <section><h2>Historical timeline</h2><table><thead><tr><th>Date</th><th>Event</th><th>Claims</th></tr></thead><tbody>
+  <tr><td>November 27, 1940</td><td>Born in San Francisco&#39;s Chinatown; raised in Hong Kong from three months old.</td><td>CLM-0001, CLM-0002</td></tr>
+  <tr><td>1959</td><td>Returns to the United States; studies at the University of Washington and teaches gung fu.</td><td>CLM-0003, CLM-0004</td></tr>
+  <tr><td>1964</td><td>Marries; opens a school in Oakland; develops Jeet Kune Do.</td><td>CLM-0004, CLM-0020</td></tr>
+  <tr><td>1965</td><td>His father dies in Hong Kong.</td><td>CLM-0020</td></tr>
+  <tr><td>1970</td><td>Severe back injury lifting a barbell; months of bed rest and chronic pain afterward.</td><td>CLM-0005</td></tr>
+  <tr><td>1971</td><td>Films The Big Boss for Golden Harvest in Hong Kong.</td><td>CLM-0006</td></tr>
+  <tr><td>May 10, 1973</td><td>Collapses while dubbing Enter the Dragon; convulsions described; cerebral oedema diagnosed and treated with mannitol.</td><td>CLM-0007, CLM-0008, CLM-0009, CLM-0010</td></tr>
+  <tr><td>May 29, 1973</td><td>Neurological evaluation with an electroencephalogram finds no abnormality; phenytoin prescribed.</td><td>CLM-0011</td></tr>
+  <tr><td>July 20, 1973</td><td>Dies in Hong Kong, aged 32, of acute cerebral oedema after taking an Equagesic tablet for a headache.</td><td>CLM-0012</td></tr>
+  <tr><td>September 1973</td><td>Coroner&#39;s inquest records death by misadventure; the cause of the cerebral oedema remains disputed.</td><td>CLM-0013, CLM-0014, CLM-0016, CLM-0017, CLM-0018</td></tr>
+  <tr><td>2002</td><td>The Bruce Lee Foundation is founded.</td><td>CLM-0021</td></tr>
+  <tr><td>2022</td><td>Nephrologists propose the hyponatraemia hypothesis.</td><td>CLM-0015</td></tr></tbody></table></section>
+    <section><h2>Evidence claims</h2><p class="muted">D = documented, R = retrospective, S = synthetic.</p><table><thead><tr><th>Grade</th><th>Claim</th><th>Certainty</th><th>Sources</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>Bruce Jun Fan Lee was born on November 27, 1940, at the Jackson Street Hospital in San Francisco&#39;s Chinatown, while his parents were on tour with the Chinese opera; his parents named him Jun Fan, and a nurse at the hospital gave him the English name Bruce. At three months old he returned with his parents to Hong Kong, where he was raised until the age of 18.</strong><div class="muted">Anchors the true birth date and place.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://brucelee.com/bruce-lee" target="_blank" rel="noreferrer">Bruce Lee (short and long biography)</a> <span class="relationship">supports</span><br><a href="https://pubmed.ncbi.nlm.nih.gov/36381374/" target="_blank" rel="noreferrer">Villalvazo P, Fernandez-Prado R, Niño MDS, et al. Who killed Bruce Lee? The hyponatraemia hypothesis. Clin Kidney J. 2022;15(12):2169-2176 (PMID 36381374; PMC9664576)</a> <span class="relationship">supports</span><br><a href="https://www.history.com/this-day-in-history/july-20/bruce-lee-dies-at-age-32" target="_blank" rel="noreferrer">Actor and martial-arts expert Bruce Lee dies at age 32 (This Day in History, July 20)</a> <span class="relationship">supports</span><br><a href="https://humanrecord.example.org/internal/HISTMED_Master_Roster_v3.xlsx" target="_blank" rel="noreferrer">HISTMED Master Roster v3</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>His Chinese name was 李振藩 (Lee Jun-fan in Cantonese romanization); as a child actor he took the stage name 李小龍 (Lee Siu-lung, &quot;Little Dragon&quot;).</strong><div class="muted">Anchors the alias. The romanization Lee Jun-fan follows the Clinical Kidney Journal article; Bruce Lee Enterprises writes the stage name as Lee Siu Loong.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://news.ifeng.com/c/8RbWf9Zu3UO" target="_blank" rel="noreferrer">李小龙逝世50周年：一代功夫巨星的武者之道与银幕人生 (July 21, 2023)</a> <span class="relationship">supports</span><br><a href="https://pubmed.ncbi.nlm.nih.gov/36381374/" target="_blank" rel="noreferrer">Villalvazo P, Fernandez-Prado R, Niño MDS, et al. Who killed Bruce Lee? The hyponatraemia hypothesis. Clin Kidney J. 2022;15(12):2169-2176 (PMID 36381374; PMC9664576)</a> <span class="relationship">supports</span><br><a href="https://brucelee.com/bruce-lee" target="_blank" rel="noreferrer">Bruce Lee (short and long biography)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>Raised in Hong Kong, he was a child actor in some 20 films; at 13 he began studying wing chun gung fu under Yip Man, and he was also an accomplished dancer.</strong><div class="muted">Anchors his Hong Kong upbringing and lifelong martial arts training.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://brucelee.com/bruce-lee" target="_blank" rel="noreferrer">Bruce Lee (short and long biography)</a> <span class="relationship">supports</span><br><a href="https://www.history.com/this-day-in-history/july-20/bruce-lee-dies-at-age-32" target="_blank" rel="noreferrer">Actor and martial-arts expert Bruce Lee dies at age 32 (This Day in History, July 20)</a> <span class="relationship">supports</span><br><a href="https://www.tourism.gov.hk/resources/tc_chi/paperreport_doc/press/2013-06-26/Bruce_Lee_exhibition_tc.pdf" target="_blank" rel="noreferrer">李小龍展覽七月中起於香港文化博物館展出 (press release, June 26, 2013)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>In 1959 he returned to the United States, settled in Seattle, studied philosophy at the University of Washington and began teaching gung fu, opening schools in Seattle, Oakland and Los Angeles; he developed his own martial art, Jeet Kune Do (&quot;the way of the intercepting fist&quot;), grounded in simplicity, directness and personal freedom. He is known for the words &quot;Be water, my friend.&quot;</strong><div class="muted">Anchors his work, philosophy and strengths in the modern social history.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://brucelee.com/bruce-lee" target="_blank" rel="noreferrer">Bruce Lee (short and long biography)</a> <span class="relationship">supports</span><br><a href="https://www.history.com/this-day-in-history/july-20/bruce-lee-dies-at-age-32" target="_blank" rel="noreferrer">Actor and martial-arts expert Bruce Lee dies at age 32 (This Day in History, July 20)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>In 1970, without warming up, he lifted a 125-pound barbell in a &quot;good morning&quot; exercise and severely injured his back; after many tests an injury to the fourth sacral nerve was found. He was ordered to complete bed rest, told he would never do gung fu again, and stayed in bed for about six months before beginning his own recovery program; the injury became a chronic source of pain for the rest of his life.</strong><div class="muted">Anchors the modern chronic low back pain problem and its pain management. The source is his family&#39;s company; the medical details (fourth sacral nerve) are as it reports them.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://brucelee.com/bruce-lee" target="_blank" rel="noreferrer">Bruce Lee (short and long biography)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>He returned to Hong Kong to make films for Golden Harvest: The Big Boss (1971), Fist of Fury and The Way of the Dragon, which he wrote, directed and starred in; Enter the Dragon, the first Hong Kong and Hollywood co-production, was released after his death.</strong><div class="muted">Anchors his occupation and the dubbing work at the time of the collapse.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://brucelee.com/bruce-lee" target="_blank" rel="noreferrer">Bruce Lee (short and long biography)</a> <span class="relationship">supports</span><br><a href="https://www.history.com/this-day-in-history/july-20/bruce-lee-dies-at-age-32" target="_blank" rel="noreferrer">Actor and martial-arts expert Bruce Lee dies at age 32 (This Day in History, July 20)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>On May 10, 1973, while dubbing lines for Enter the Dragon at Golden Harvest&#39;s Hammer Hill Road studios in Hong Kong, he felt faint, collapsed in the bathroom, was helped back to the dubbing studio, vomited and fainted again; he was taken to hospital in critical condition, where a neurosurgeon diagnosed cerebral oedema and gave mannitol to reduce the swelling. He recovered.</strong><div class="muted">The documented anchor for the modern first seizure. The South China Morning Post cites its own reports of July 22 and September 21, 1973; the Clinical Kidney Journal article names Hong Kong Baptist Hospital.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.scmp.com/culture/film-tv/article/2155978/do-we-know-what-killed-bruce-lee-yes-and-no-and-thats-left-ample" target="_blank" rel="noreferrer">Do we know what killed Bruce Lee? Yes, and no - and that&#39;s left ample room for speculation as to the real cause (July 19, 2018)</a> <span class="relationship">supports</span><br><a href="https://www.scmp.com/lifestyle/entertainment/article/3228184/what-killed-bruce-lee-4-leading-theories-medical-and-martial-arts-experts-proposed-after-his-shock" target="_blank" rel="noreferrer">Lui M. What killed Bruce Lee? 4 leading theories medical and martial arts experts proposed after his shock death (July 19, 2023)</a> <span class="relationship">supports</span><br><a href="https://pubmed.ncbi.nlm.nih.gov/36381374/" target="_blank" rel="noreferrer">Villalvazo P, Fernandez-Prado R, Niño MDS, et al. Who killed Bruce Lee? The hyponatraemia hypothesis. Clin Kidney J. 2022;15(12):2169-2176 (PMID 36381374; PMC9664576)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>His biographer Matthew Polly, as quoted in the Clinical Kidney Journal, wrote that on May 10 &quot;his body began convulsing&quot; after he lost consciousness; a seizure was considered a potential cause of the episode, but because it was a single episode, epilepsy was not diagnosed.</strong><div class="muted">Supports a generalized convulsive event on May 10, 1973. The account is the biographer&#39;s, quoted in a peer-reviewed article; no medical record was read.</div></td>
+    <td>probable</td>
+    <td><a href="https://pubmed.ncbi.nlm.nih.gov/36381374/" target="_blank" rel="noreferrer">Villalvazo P, Fernandez-Prado R, Niño MDS, et al. Who killed Bruce Lee? The hyponatraemia hypothesis. Clin Kidney J. 2022;15(12):2169-2176 (PMID 36381374; PMC9664576)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>The air conditioning in the dubbing room had been turned off to avoid sound problems in the recording, and he had high temperature, weakness, vomiting and loss of consciousness, according to his biographer.</strong><div class="muted">Anchors heat exposure as a trigger in the modern history. The heat stroke interpretation is recorded separately as R (CLM-0016).</div></td>
+    <td>probable</td>
+    <td><a href="https://www.scmp.com/lifestyle/entertainment/article/3228184/what-killed-bruce-lee-4-leading-theories-medical-and-martial-arts-experts-proposed-after-his-shock" target="_blank" rel="noreferrer">Lui M. What killed Bruce Lee? 4 leading theories medical and martial arts experts proposed after his shock death (July 19, 2023)</a> <span class="relationship">supports</span><br><a href="https://pubmed.ncbi.nlm.nih.gov/36381374/" target="_blank" rel="noreferrer">Villalvazo P, Fernandez-Prado R, Niño MDS, et al. Who killed Bruce Lee? The hyponatraemia hypothesis. Clin Kidney J. 2022;15(12):2169-2176 (PMID 36381374; PMC9664576)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>He had used cannabis (hashish) on the day of the May 10 collapse; the Hong Kong neurosurgeon who treated him thought it was a factor, an explanation he rejected.</strong><div class="muted">Anchors cannabis counseling in the modern episode. Recorded without judgment.</div></td>
+    <td>probable</td>
+    <td><a href="https://www.scmp.com/culture/film-tv/article/2155978/do-we-know-what-killed-bruce-lee-yes-and-no-and-thats-left-ample" target="_blank" rel="noreferrer">Do we know what killed Bruce Lee? Yes, and no - and that&#39;s left ample room for speculation as to the real cause (July 19, 2018)</a> <span class="relationship">supports</span><br><a href="https://www.scmp.com/lifestyle/entertainment/article/3228184/what-killed-bruce-lee-4-leading-theories-medical-and-martial-arts-experts-proposed-after-his-shock" target="_blank" rel="noreferrer">Lui M. What killed Bruce Lee? 4 leading theories medical and martial arts experts proposed after his shock death (July 19, 2023)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>On May 29 and 30, 1973, he underwent a full neurological evaluation, including a brain flow study and an electroencephalogram, that found no abnormality; phenytoin was nevertheless prescribed and he took it until his death. He was also reported to take dextropropoxyphene (Doloxene), an opioid analgesic.</strong><div class="muted">After the true-frame index date; recorded for the timeline only. The modern episode does not start an antiseizure medicine; see sources.md.</div></td>
+    <td>probable</td>
+    <td><a href="https://pubmed.ncbi.nlm.nih.gov/36381374/" target="_blank" rel="noreferrer">Villalvazo P, Fernandez-Prado R, Niño MDS, et al. Who killed Bruce Lee? The hyponatraemia hypothesis. Clin Kidney J. 2022;15(12):2169-2176 (PMID 36381374; PMC9664576)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>He died in Hong Kong on July 20, 1973, at the age of 32. That evening, at a private home in Kowloon, he complained of a bad headache, took an Equagesic tablet (a prescription analgesic combining meprobamate and aspirin), lay down to rest and could not be revived; the report from Queen Elizabeth Hospital gave the cause of death as acute cerebral oedema. His body was returned to Seattle for burial.</strong><div class="muted">History after the modern episode.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.scmp.com/culture/film-tv/article/2155978/do-we-know-what-killed-bruce-lee-yes-and-no-and-thats-left-ample" target="_blank" rel="noreferrer">Do we know what killed Bruce Lee? Yes, and no - and that&#39;s left ample room for speculation as to the real cause (July 19, 2018)</a> <span class="relationship">supports</span><br><a href="https://www.scmp.com/lifestyle/entertainment/article/3228184/what-killed-bruce-lee-4-leading-theories-medical-and-martial-arts-experts-proposed-after-his-shock" target="_blank" rel="noreferrer">Lui M. What killed Bruce Lee? 4 leading theories medical and martial arts experts proposed after his shock death (July 19, 2023)</a> <span class="relationship">supports</span><br><a href="https://brucelee.com/bruce-lee" target="_blank" rel="noreferrer">Bruce Lee (short and long biography)</a> <span class="relationship">supports</span><br><a href="https://www.history.com/this-day-in-history/july-20/bruce-lee-dies-at-age-32" target="_blank" rel="noreferrer">Actor and martial-arts expert Bruce Lee dies at age 32 (This Day in History, July 20)</a> <span class="relationship">supports</span><br><a href="https://humanrecord.example.org/internal/HISTMED_Master_Roster_v3.xlsx" target="_blank" rel="noreferrer">HISTMED Master Roster v3</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>A nine-day coroner&#39;s inquest with testimony from pathologists from several countries followed; doctors at the inquest disagreed about what had caused the cerebral oedema, the medical evidence was insufficient to prove that the drug caused it, and a verdict of death by misadventure was recorded. Traces of cannabis were found in his stomach and intestine.</strong><div class="muted">History after the modern episode; the cause of the cerebral oedema remains disputed (CLM-0014 to CLM-0018).</div></td>
+    <td>confirmed</td>
+    <td><a href="https://brucelee.com/bruce-lee" target="_blank" rel="noreferrer">Bruce Lee (short and long biography)</a> <span class="relationship">supports</span><br><a href="https://www.scmp.com/culture/film-tv/article/2155978/do-we-know-what-killed-bruce-lee-yes-and-no-and-thats-left-ample" target="_blank" rel="noreferrer">Do we know what killed Bruce Lee? Yes, and no - and that&#39;s left ample room for speculation as to the real cause (July 19, 2018)</a> <span class="relationship">supports</span><br><a href="https://www.scmp.com/lifestyle/entertainment/article/3228184/what-killed-bruce-lee-4-leading-theories-medical-and-martial-arts-experts-proposed-after-his-shock" target="_blank" rel="noreferrer">Lui M. What killed Bruce Lee? 4 leading theories medical and martial arts experts proposed after his shock death (July 19, 2023)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-R" title="Retrospective">R</span></td>
+    <td><strong>The explanation favored at the inquest: a hypersensitivity reaction to the aspirin or meprobamate in Equagesic, or both, caused the cerebral oedema, as proposed by a London professor of forensic medicine and supported by the hospital pathologist who performed the postmortem. Critics note that neither drug is known to cause cerebral oedema and that he had taken the drug before.</strong><div class="muted">One of several proposed causes; not adopted by the record.</div></td>
+    <td>disputed</td>
+    <td><a href="https://www.scmp.com/lifestyle/entertainment/article/3228184/what-killed-bruce-lee-4-leading-theories-medical-and-martial-arts-experts-proposed-after-his-shock" target="_blank" rel="noreferrer">Lui M. What killed Bruce Lee? 4 leading theories medical and martial arts experts proposed after his shock death (July 19, 2023)</a> <span class="relationship">supports</span><br><a href="https://www.scmp.com/culture/film-tv/article/2155978/do-we-know-what-killed-bruce-lee-yes-and-no-and-thats-left-ample" target="_blank" rel="noreferrer">Do we know what killed Bruce Lee? Yes, and no - and that&#39;s left ample room for speculation as to the real cause (July 19, 2018)</a> <span class="relationship">supports</span><br><a href="https://pubmed.ncbi.nlm.nih.gov/36381374/" target="_blank" rel="noreferrer">Villalvazo P, Fernandez-Prado R, Niño MDS, et al. Who killed Bruce Lee? The hyponatraemia hypothesis. Clin Kidney J. 2022;15(12):2169-2176 (PMID 36381374; PMC9664576)</a> <span class="relationship">supports</span><br><a href="https://brucelee.com/bruce-lee" target="_blank" rel="noreferrer">Bruce Lee (short and long biography)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-R" title="Retrospective">R</span></td>
+    <td><strong>In 2022 nephrologists in Madrid proposed, from publicly available information, that the cerebral oedema was caused by hyponatraemia: that his kidneys could not excrete excess water, with risk factors that may have included high chronic fluid intake, cannabis, prescription drugs, alcohol, low solute intake, a past acute kidney injury and exercise.</strong><div class="muted">A hypothesis built on secondary accounts, without a recorded sodium value; not adopted by the record. It informs the modern fluid counseling only as general teaching.</div></td>
+    <td>disputed</td>
+    <td><a href="https://pubmed.ncbi.nlm.nih.gov/36381374/" target="_blank" rel="noreferrer">Villalvazo P, Fernandez-Prado R, Niño MDS, et al. Who killed Bruce Lee? The hyponatraemia hypothesis. Clin Kidney J. 2022;15(12):2169-2176 (PMID 36381374; PMC9664576)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-R" title="Retrospective">R</span></td>
+    <td><strong>His biographer proposed heat stroke: the dubbing room on May 10 was unventilated, he had lost weight from overwork, and he had had the sweat glands removed from his armpits months before. The Madrid authors judged axillary sweat gland removal insufficient to impair heat loss.</strong><div class="muted">A proposed cause; not adopted by the record.</div></td>
+    <td>disputed</td>
+    <td><a href="https://www.scmp.com/lifestyle/entertainment/article/3228184/what-killed-bruce-lee-4-leading-theories-medical-and-martial-arts-experts-proposed-after-his-shock" target="_blank" rel="noreferrer">Lui M. What killed Bruce Lee? 4 leading theories medical and martial arts experts proposed after his shock death (July 19, 2023)</a> <span class="relationship">supports</span><br><a href="https://pubmed.ncbi.nlm.nih.gov/36381374/" target="_blank" rel="noreferrer">Villalvazo P, Fernandez-Prado R, Niño MDS, et al. Who killed Bruce Lee? The hyponatraemia hypothesis. Clin Kidney J. 2022;15(12):2169-2176 (PMID 36381374; PMC9664576)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-R" title="Retrospective">R</span></td>
+    <td><strong>Others have proposed epilepsy, including sudden unexpected death in epilepsy; there is no record that he had epilepsy, and the neurologist who evaluated him after May 10 did not diagnose it.</strong><div class="muted">A proposed cause; the modern record diagnoses a single seizure, not epilepsy.</div></td>
+    <td>disputed</td>
+    <td><a href="https://pubmed.ncbi.nlm.nih.gov/32693379/" target="_blank" rel="noreferrer">Vancini RL, de Lira CAB, Andrade MS, Arida RM. Could epilepsy have been the cause of Bruce Lee&#39;s death?: &quot;The athlete and myth of martial arts&quot;. Epilepsy Behav. 2020;111:107310 (PMID 32693379)</a> <span class="relationship">supports</span><br><a href="https://www.scmp.com/culture/film-tv/article/2155978/do-we-know-what-killed-bruce-lee-yes-and-no-and-thats-left-ample" target="_blank" rel="noreferrer">Do we know what killed Bruce Lee? Yes, and no - and that&#39;s left ample room for speculation as to the real cause (July 19, 2018)</a> <span class="relationship">supports</span><br><a href="https://pubmed.ncbi.nlm.nih.gov/36381374/" target="_blank" rel="noreferrer">Villalvazo P, Fernandez-Prado R, Niño MDS, et al. Who killed Bruce Lee? The hyponatraemia hypothesis. Clin Kidney J. 2022;15(12):2169-2176 (PMID 36381374; PMC9664576)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-R" title="Retrospective">R</span></td>
+    <td><strong>Some Hong Kong doctors believed cannabis brought on the cerebral oedema; no causal link between cannabis and cerebral oedema has been documented, and this explanation has been dismissed as speculation.</strong><div class="muted">A proposed cause; not adopted by the record.</div></td>
+    <td>disputed</td>
+    <td><a href="https://www.scmp.com/culture/film-tv/article/2155978/do-we-know-what-killed-bruce-lee-yes-and-no-and-thats-left-ample" target="_blank" rel="noreferrer">Do we know what killed Bruce Lee? Yes, and no - and that&#39;s left ample room for speculation as to the real cause (July 19, 2018)</a> <span class="relationship">supports</span><br><a href="https://www.scmp.com/lifestyle/entertainment/article/3228184/what-killed-bruce-lee-4-leading-theories-medical-and-martial-arts-experts-proposed-after-his-shock" target="_blank" rel="noreferrer">Lui M. What killed Bruce Lee? 4 leading theories medical and martial arts experts proposed after his shock death (July 19, 2023)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>His biographer reported that some months before May 1973 he had the sweat glands removed from his armpits.</strong><div class="muted">Past surgical history before the index date; reported by the biographer, with the timing given differently by the two sources read.</div></td>
+    <td>probable</td>
+    <td><a href="https://www.scmp.com/lifestyle/entertainment/article/3228184/what-killed-bruce-lee-4-leading-theories-medical-and-martial-arts-experts-proposed-after-his-shock" target="_blank" rel="noreferrer">Lui M. What killed Bruce Lee? 4 leading theories medical and martial arts experts proposed after his shock death (July 19, 2023)</a> <span class="relationship">supports</span><br><a href="https://pubmed.ncbi.nlm.nih.gov/36381374/" target="_blank" rel="noreferrer">Villalvazo P, Fernandez-Prado R, Niño MDS, et al. Who killed Bruce Lee? The hyponatraemia hypothesis. Clin Kidney J. 2022;15(12):2169-2176 (PMID 36381374; PMC9664576)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>He married in 1964; a son was born in 1965 and a daughter in 1969. His father, the Cantonese opera performer and actor Lee Hoi Chuen, died in Hong Kong in 1965, a week after the birth of his first grandchild.</strong><div class="muted">Anchors the family history and household. His wife and children are not named in the record, and no statement or decision is attributed to them.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://brucelee.com/bruce-lee" target="_blank" rel="noreferrer">Bruce Lee (short and long biography)</a> <span class="relationship">supports</span><br><a href="https://news.ifeng.com/c/8RbWf9Zu3UO" target="_blank" rel="noreferrer">李小龙逝世50周年：一代功夫巨星的武者之道与银幕人生 (July 21, 2023)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>The Bruce Lee Foundation, founded in 2002, shares his teachings and legacy through martial arts and mindfulness programs for youth mental wellness; Hong Kong&#39;s Leisure and Cultural Services Department described him as having grown up and become famous in Hong Kong, &quot;the pride of Hong Kong&quot;.</strong><div class="muted">Legacy after his lifetime.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://bruceleefoundation.org/about" target="_blank" rel="noreferrer">About Us</a> <span class="relationship">supports</span><br><a href="https://www.tourism.gov.hk/resources/tc_chi/paperreport_doc/press/2013-06-26/Bruce_Lee_exhibition_tc.pdf" target="_blank" rel="noreferrer">李小龍展覽七月中起於香港文化博物館展出 (press release, June 26, 2013)</a> <span class="relationship">supports</span></td>
+  </tr></tbody></table></section>
+    <section><h2>Modern synthetic problem list</h2><table><thead><tr><th>Grade</th><th>Problem</th><th>Clinical status</th><th>Verification</th><th>Placement</th><th>Historical claims</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Sudden collapse with loss of consciousness four days before the visit, after hours of voice recording in a hot booth with the air conditioning off: felt hot and faint, lost consciousness, generalized stiffening then jerking of all four limbs for about a minute, vomiting, and 20 to 30 minutes of confusion; seizure versus convulsive syncope; emergency evaluation the same day</td>
+    <td>resolved</td>
+    <td>provisional</td>
+    <td>active</td>
+    <td>CLM-0007, CLM-0008, CLM-0009</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>First unprovoked seizure: unknown-onset motor (tonic-clonic) seizure by the ILAE 2017 classification; MRI with epilepsy protocol and sleep-deprived EEG normal, so it does not meet the definition of epilepsy; likely triggers were sleep deprivation, heat, missed meals and cannabis the same day; no antiseizure medicine by shared decision; synthetic modern episode linked to his documented collapse with convulsions</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>both_with_link</td>
+    <td>CLM-0007, CLM-0008, CLM-0009</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Chronic low back pain since a weightlifting injury three years ago, reported as an injury to a sacral nerve; worse with long sitting and heavy lifting; no weakness, numbness or bladder or bowel change</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td>CLM-0005</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Acute flare of low back pain with left lumbar muscle spasm after twisting during a training kick; no red flags, normal saddle sensation and bladder function; resolved</td>
+    <td>resolved</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td>CLM-0005</td>
+  </tr></tbody></table></section>
+    <section><h2>Synthetic outcome measures</h2><table><thead><tr><th>Grade</th><th>Date</th><th>Measure</th><th>Result</th><th>Coding</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-05-14</td>
+    <td>Sodium [Moles/volume] in Serum or Plasma</td>
+    <td>139 mmol/L<div class="muted">Reference 135-145 mmol/L</div></td>
+    <td>http://loinc.org · 2951-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-05-14</td>
+    <td>Potassium [Moles/volume] in Serum or Plasma</td>
+    <td>4.1 mmol/L<div class="muted">Reference 3.5-5.1 mmol/L</div></td>
+    <td>http://loinc.org · 2823-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-05-14</td>
+    <td>Creatinine [Mass/volume] in Serum or Plasma</td>
+    <td>1.02 mg/dL<div class="muted">Reference 0.74-1.35 mg/dL</div></td>
+    <td>http://loinc.org · 2160-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-05-14</td>
+    <td>Glomerular filtration rate [Volume Rate/Area] in Serum, Plasma or Blood by Creatinine-based formula (CKD-EPI 2021)/1.73 sq M</td>
+    <td>100 mL/min/1.73 m²<div class="muted">Reference &gt;=60 mL/min/1.73 m²</div></td>
+    <td>http://loinc.org · 98979-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-05-14</td>
+    <td>Glucose [Mass/volume] in Serum or Plasma</td>
+    <td>86 mg/dL<div class="muted">Reference 70-99 mg/dL</div></td>
+    <td>http://loinc.org · 2345-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-05-14</td>
+    <td>Chloride [Moles/volume] in Serum or Plasma</td>
+    <td>103 mmol/L<div class="muted">Reference 98-107 mmol/L</div></td>
+    <td>http://loinc.org · 2075-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-05-14</td>
+    <td>Carbon dioxide, total [Moles/volume] in Serum or Plasma</td>
+    <td>25 mmol/L<div class="muted">Reference 22-29 mmol/L</div></td>
+    <td>http://loinc.org · 2028-9</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-05-14</td>
+    <td>Calcium [Mass/volume] in Serum or Plasma</td>
+    <td>9.5 mg/dL<div class="muted">Reference 8.6-10.3 mg/dL</div></td>
+    <td>http://loinc.org · 17861-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-05-14</td>
+    <td>Magnesium [Mass/volume] in Serum or Plasma</td>
+    <td>2 mg/dL<div class="muted">Reference 1.7-2.2 mg/dL</div></td>
+    <td>http://loinc.org · 19123-9</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-05-14</td>
+    <td>Creatine kinase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>820 U/L (high)<div class="muted">Reference 39-308 U/L</div></td>
+    <td>http://loinc.org · 2157-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-05-14</td>
+    <td>Leukocytes [#/volume] in Blood by Automated count</td>
+    <td>6.2 10*3/uL<div class="muted">Reference 3.4-9.6 10*3/uL</div></td>
+    <td>http://loinc.org · 6690-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-05-14</td>
+    <td>Hemoglobin [Mass/volume] in Blood</td>
+    <td>14.6 g/dL<div class="muted">Reference 13.2-16.6 g/dL</div></td>
+    <td>http://loinc.org · 718-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-05-14</td>
+    <td>Platelets [#/volume] in Blood by Automated count</td>
+    <td>238 10*3/uL<div class="muted">Reference 135-317 10*3/uL</div></td>
+    <td>http://loinc.org · 777-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-05-14</td>
+    <td>Thyrotropin [Units/volume] in Serum or Plasma</td>
+    <td>1.6 mIU/L<div class="muted">Reference 0.4-4 mIU/L</div></td>
+    <td>http://loinc.org · 3016-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-05-14</td>
+    <td>Q-T interval corrected</td>
+    <td>412 ms<div class="muted">Reference 350-450 ms</div></td>
+    <td>http://loinc.org · 8636-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-05-14</td>
+    <td>Pain severity - 0-10 verbal numeric rating [Score] - Reported</td>
+    <td>4</td>
+    <td>http://loinc.org · 72514-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-05-14</td>
+    <td>Total score [AUDIT-C]</td>
+    <td>1</td>
+    <td>http://loinc.org · 75626-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-06-15</td>
+    <td>Sodium [Moles/volume] in Serum or Plasma</td>
+    <td>140 mmol/L<div class="muted">Reference 135-145 mmol/L</div></td>
+    <td>http://loinc.org · 2951-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-06-15</td>
+    <td>Potassium [Moles/volume] in Serum or Plasma</td>
+    <td>4.3 mmol/L<div class="muted">Reference 3.5-5.1 mmol/L</div></td>
+    <td>http://loinc.org · 2823-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-06-15</td>
+    <td>Creatinine [Mass/volume] in Serum or Plasma</td>
+    <td>0.96 mg/dL<div class="muted">Reference 0.74-1.35 mg/dL</div></td>
+    <td>http://loinc.org · 2160-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-06-15</td>
+    <td>Glomerular filtration rate [Volume Rate/Area] in Serum, Plasma or Blood by Creatinine-based formula (CKD-EPI 2021)/1.73 sq M</td>
+    <td>108 mL/min/1.73 m²<div class="muted">Reference &gt;=60 mL/min/1.73 m²</div></td>
+    <td>http://loinc.org · 98979-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-06-15</td>
+    <td>Glucose [Mass/volume] in Serum or Plasma</td>
+    <td>90 mg/dL<div class="muted">Reference 70-99 mg/dL</div></td>
+    <td>http://loinc.org · 2345-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-06-15</td>
+    <td>Creatine kinase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>168 U/L<div class="muted">Reference 39-308 U/L</div></td>
+    <td>http://loinc.org · 2157-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-06-15</td>
+    <td>Pain severity - 0-10 verbal numeric rating [Score] - Reported</td>
+    <td>3</td>
+    <td>http://loinc.org · 72514-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-06-22</td>
+    <td>Pain severity - 0-10 verbal numeric rating [Score] - Reported</td>
+    <td>7</td>
+    <td>http://loinc.org · 72514-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-07-13</td>
+    <td>Pain severity - 0-10 verbal numeric rating [Score] - Reported</td>
+    <td>2</td>
+    <td>http://loinc.org · 72514-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-06-29</td>
+    <td>Patient Health Questionnaire 2 item (PHQ-2) total score [Reported]</td>
+    <td>0</td>
+    <td>http://loinc.org · 55758-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-06-29</td>
+    <td>Total score [AUDIT-C]</td>
+    <td>1</td>
+    <td>http://loinc.org · 75626-2</td>
+  </tr></tbody></table></section>
+    <section><h2>Synthetic vital signs</h2><table><thead><tr><th>Date</th><th>Measure</th><th>Result</th><th>LOINC</th><th>Grade</th></tr></thead><tbody>
+  <tr><td>2026-05-14</td><td>Body height</td><td>171 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-05-14</td><td>Body weight</td><td>57.6 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-05-14</td><td>Body mass index (BMI) [Ratio]</td><td>19.7 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-05-14</td><td>Systolic blood pressure</td><td>116 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-05-14</td><td>Diastolic blood pressure</td><td>70 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-05-14</td><td>Heart rate</td><td>58 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-05-14</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-05-14</td><td>Body temperature</td><td>36.7 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-05-14</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>99 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-05-18</td><td>Body height</td><td>171 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-05-18</td><td>Body weight</td><td>57.8 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-05-18</td><td>Body mass index (BMI) [Ratio]</td><td>19.8 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-05-18</td><td>Systolic blood pressure</td><td>118 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-05-18</td><td>Diastolic blood pressure</td><td>72 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-05-18</td><td>Heart rate</td><td>60 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-05-18</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-05-18</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-05-18</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>99 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-15</td><td>Body height</td><td>171 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-15</td><td>Body weight</td><td>58.6 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-15</td><td>Body mass index (BMI) [Ratio]</td><td>20 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-15</td><td>Systolic blood pressure</td><td>114 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-15</td><td>Diastolic blood pressure</td><td>70 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-15</td><td>Heart rate</td><td>56 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-15</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-15</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-15</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>99 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-07-13</td><td>Body height</td><td>171 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-07-13</td><td>Body weight</td><td>59.4 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-07-13</td><td>Body mass index (BMI) [Ratio]</td><td>20.3 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-07-13</td><td>Systolic blood pressure</td><td>116 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-07-13</td><td>Diastolic blood pressure</td><td>68 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-07-13</td><td>Heart rate</td><td>56 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-07-13</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-07-13</td><td>Body temperature</td><td>36.5 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-07-13</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>99 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-22</td><td>Body height</td><td>171 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-22</td><td>Body weight</td><td>58.8 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-22</td><td>Body mass index (BMI) [Ratio]</td><td>20.1 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-22</td><td>Systolic blood pressure</td><td>124 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-22</td><td>Diastolic blood pressure</td><td>76 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-22</td><td>Heart rate</td><td>66 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-22</td><td>Respiratory rate</td><td>16 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-22</td><td>Body temperature</td><td>36.7 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-22</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>99 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-29</td><td>Body height</td><td>171 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-29</td><td>Body weight</td><td>59 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-29</td><td>Body mass index (BMI) [Ratio]</td><td>20.2 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-29</td><td>Systolic blood pressure</td><td>114 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-29</td><td>Diastolic blood pressure</td><td>68 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-29</td><td>Heart rate</td><td>56 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-29</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-29</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-29</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>99 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr></tbody></table></section>
+    <section><h2>Social, functional, and mental status</h2><h3>Social history</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Martial artist, teacher of his own art, actor, writer and director; works long days on films in Hong Kong, with intense daily training</li><li><span class="badge grade-S" title="Synthetic">S</span> Speaks Cantonese and English; chose English for his visits, with Cantonese terms where he prefers them; raised in Hong Kong and educated in the United States</li><li><span class="badge grade-S" title="Synthetic">S</span> Married, with two young children; lives with his family in Kowloon; he makes his own medical decisions and wants his family told only what he chooses to share</li><li><span class="badge grade-S" title="Synthetic">S</span> Cannabis: uses hashish occasionally, including on the day of the collapse; no tobacco; alcohol rarely; no other drugs</li><li><span class="badge grade-S" title="Synthetic">S</span> Sleep, food and fluids: about four hours of sleep a night during the recent dubbing schedule; skips meals when working and has lost weight; drinks large amounts of water and fruit juice while training in the heat</li><li><span class="badge grade-S" title="Synthetic">S</span> Drives himself to the studios; does his own stunts and fight scenes, including work at heights</li><li><span class="badge grade-S" title="Synthetic">S</span> Strengths and purpose: a disciplined, thoughtful approach to training and to his own body, a philosophy of adapting &quot;like water&quot;, his teaching, and his family</li></ul><h3>Functional status</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Fully independent; trains daily; back pain limits long sitting and heavy lifting</li></ul><h3>Mental status</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Alert, focused and precise; full memory of the hours before the collapse and none of the minutes after it; worried about another episode stopping his work; mood steady</li></ul></section>
+    
+    <section><h2>Allergies and medications</h2><h3>Allergies</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> No known allergy</li></ul><h3>Medications</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Acetaminophen 500 mg oral tablet, one or two tablets up to three times a day when needed for back pain, no more than 3,000 mg a day</li><li><span class="badge grade-S" title="Synthetic">S</span> Naproxen 500 mg oral tablet, one tablet twice a day with food for seven days</li></ul></section>
+    <section><h2>Procedures and immunizations</h2><h3>Procedures</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Twelve-lead electrocardiogram in the clinic: sinus bradycardia at 56 per minute, normal PR and QRS intervals, QTc 412 ms, no pre-excitation, Brugada pattern or signs of cardiomyopathy</li><li><span class="badge grade-S" title="Synthetic">S</span> Advance care planning conversation, about 15 minutes, with his consent</li><li><span class="badge grade-S" title="Synthetic">S</span> MRI of the brain with an epilepsy protocol (thin coronal slices through the hippocampi, FLAIR and susceptibility sequences): normal; no hippocampal sclerosis, cortical malformation, tumor, scar, old hemorrhage or swelling</li><li><span class="badge grade-S" title="Synthetic">S</span> Sleep-deprived electroencephalogram, about 60 minutes, with wakefulness, drowsiness and light sleep, hyperventilation and photic stimulation: normal background; no epileptiform discharges; no photoparoxysmal response</li></ul><h3>Immunizations</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> 2026-06-29: Tetanus, diphtheria, and acellular pertussis vaccine (Tdap)</li><li><span class="badge grade-S" title="Synthetic">S</span> 2026-06-29: Hepatitis B vaccine (HepB-CpG), dose 1 of 2</li></ul></section>
+    <section><h2>Past medical history</h2><p class="muted">True biography with historical dates; not part of the synthetic care timeline.</p><ul><li><span class="badge grade-D" title="Documented">D</span> 1970: Severe back injury lifting a 125-pound barbell without warming up, reported as an injury to the fourth sacral nerve; about six months of bed rest, then his own recovery program; chronic pain since <span class="muted">(CLM-0005)</span></li><li><span class="badge grade-D" title="Documented">D</span> 1973: Removal of the sweat glands from both armpits, months before the collapse, as reported by his biographer <span class="muted">(CLM-0019)</span></li></ul><h3>Family history</h3><ul><li><span class="badge grade-D" title="Documented">D</span> father: Died in Hong Kong eight years ago; cause not recorded in the cited source</li></ul></section>
+    <section><h2>Care-plan goals</h2><table><thead><tr><th>Goal</th><th>Target date</th><th>Status</th><th>Outcome</th></tr></thead><tbody>
+  <tr><td>No further seizures</td><td>2026-07-13</td><td>active</td><td>None in the two months since the first</td></tr>
+  <tr><td>Sleep at least seven hours a night, including on film schedules</td><td>2026-06-15</td><td>completed</td><td>About seven hours a night from the first month</td></tr>
+  <tr><td>No cannabis while the seizure risk is highest</td><td>2026-07-13</td><td>active</td><td>None since the seizure, by his report</td></tr>
+  <tr><td>Back pain at 3 or less out of 10 with full training</td><td>2026-07-13</td><td>completed</td><td>Pain 2 out of 10 after a flare that settled within a week</td></tr></tbody></table></section>
+    <section><h2>Interventions</h2><table><thead><tr><th>Intervention</th><th>Status</th><th>Guideline</th></tr></thead><tbody>
+  <tr><td>Culturally appropriate care: ask how he wishes to be addressed and in which language; explain the evidence plainly and let him decide; respect his own training methods and philosophy; share information with his family only as he chooses</td><td>completed</td><td>GL-AAN-SEIZURE-2015</td></tr>
+  <tr><td>Urgent referral to the epilepsy clinic within the week, with MRI of the brain with an epilepsy protocol and a sleep-deprived EEG</td><td>completed</td><td>GL-AAN-EVAL-2007, GL-AAN-SEIZURE-2015</td></tr>
+  <tr><td>Laboratory tests after the seizure: sodium, glucose, calcium, magnesium, kidney function, creatine kinase, blood count and TSH, with creatine kinase and creatinine repeated until normal</td><td>completed</td><td>GL-AAN-EVAL-2007</td></tr>
+  <tr><td>No driving until the epilepsy clinic has seen him and the period without seizures it advises has passed; Hong Kong&#39;s driving licence regulations list epilepsy and liability to sudden fainting among the conditions for which the Commissioner for Transport must refuse or cancel a licence</td><td>completed</td><td>GL-HK-DL-374B, GL-DVLA-NEURO</td></tr>
+  <tr><td>Seizure safety: no swimming alone, no work at heights or with dangerous machinery, showers rather than baths, and seizure first aid taught to the people he works with; a stunt double for falls and heights until the clinic advises otherwise</td><td>completed</td><td>GL-CDC-SZFIRSTAID, GL-AAN-SEIZURE-2015</td></tr>
+  <tr><td>Triggers: at least seven hours of sleep, regular meals, breaks and air conditioning during long recording and training sessions, and drinking to thirst with salty food or an electrolyte drink in the heat rather than large volumes of plain water</td><td>completed</td><td>GL-AAN-SEIZURE-2015</td></tr>
+  <tr><td>Cannabis: a nonjudgmental conversation about cannabis, heat, sleep loss and seizures; he chose to stop while his risk is highest; no synthetic cannabinoids</td><td>completed</td><td>GL-AAN-SEIZURE-2015</td></tr>
+  <tr><td>Medicine safety: avoid medicines that lower the seizure threshold, such as tramadol, bupropion and high doses of sedating antihistamines, and sedatives whose withdrawal can provoke seizures, such as meprobamate and carisoprodol; tell any doctor or pharmacist about the seizure</td><td>completed</td><td>GL-AAN-SEIZURE-2015, GL-ACP-LBP-2017</td></tr>
+  <tr><td>Chronic back pain: a structured core strengthening and motor control program with a physical therapist, heat, and acetaminophen when needed; nonsteroidal anti-inflammatory drugs only in short courses, with food and normal fluids; no opioids</td><td>completed</td><td>GL-ACP-LBP-2017</td></tr>
+  <tr><td>No antiseizure medicine after this first unprovoked seizure, by shared decision: his two-year recurrence risk is at the lower end of 21% to 45% with a normal MRI and EEG; immediate treatment would lower the two-year risk but not change long-term remission; a second unprovoked seizure would mean epilepsy and starting a medicine such as levetiracetam or lamotrigine</td><td>completed</td><td>GL-AAN-SEIZURE-2015, GL-ILAE-DEF-2014, GL-ILAE-SZ-2017</td></tr></tbody></table></section>
+    <section><h2>Planned encounters</h2><ul>
+  <li><strong>2026-05-14</strong> — Urgent follow-up four days after an emergency visit for a first convulsive collapse: history from him and a witness, triggers, examination, ECG, laboratory tests, driving and seizure safety, cannabis counseling, chronic back pain, and urgent epilepsy referral <span class="muted">(ENC-001)</span></li>
+  <li><strong>2026-05-18</strong> — Epilepsy clinic: MRI brain with epilepsy protocol, sleep-deprived EEG, classification, and the decision on an antiseizure medicine <span class="muted">(ENC-002)</span></li>
+  <li><strong>2026-06-15</strong> — One-month review: no further events, sleep and heat plan, kidney function and creatine kinase, back pain program <span class="muted">(ENC-003)</span></li>
+  <li><strong>2026-06-22</strong> — Same-week sick visit for an acute flare of low back pain <span class="muted">(ENC-005, unscheduled)</span></li>
+  <li><strong>2026-06-29</strong> — Periodic adult preventive visit <span class="muted">(ENC-006)</span></li>
+  <li><strong>2026-07-13</strong> — Two-month review: seizure-free, safety and driving, results of preventive tests, back pain and return to full training <span class="muted">(ENC-004)</span></li></ul></section>
+    <section><h2>Supporting documents</h2><ul><li><a href="notes/hp.md">History and physical</a></li><li><a href="notes/progress-01.md">Progress note 01</a></li><li><a href="notes/progress-02.md">Progress note 02 — Focused Visit (Follow-up)</a></li><li><a href="notes/progress-03.md">Progress note 03 — Focused Visit (Follow-up)</a></li><li><a href="notes/progress-04.md">Progress note 04 — Sick Visit</a></li><li><a href="notes/progress-05.md">Progress note 05 — Preventive Visit</a></li><li><a href="notes/progress-06.md">Progress note 06 — Focused Visit (Care-plan review)</a></li><li><a href="notes/referral-01.md">Neurology (epilepsy) referral</a></li><li><a href="notes/consult-01.md">Neurology (epilepsy) consultation</a></li><li><a href="notes/careplan.md">Patient care plan</a></li><li><a href="notes/teaching-note.md">Teaching note</a></li><li><a href="provenance.csv">Provenance CSV</a></li></ul></section>
+    <section><h2>C-CDA note documents</h2><p class="muted">Each link opens a readable copy; the XML beside it is the exchange file.</p><ul><li><a href="ccda/hp-01.html">History and physical</a> <a href="ccda/hp-01.xml">(XML)</a></li><li><a href="ccda/progress-01.html">Progress note 01</a> <a href="ccda/progress-01.xml">(XML)</a></li><li><a href="ccda/progress-02.html">Progress note 02 — Focused Visit (Follow-up)</a> <a href="ccda/progress-02.xml">(XML)</a></li><li><a href="ccda/progress-03.html">Progress note 03 — Focused Visit (Follow-up)</a> <a href="ccda/progress-03.xml">(XML)</a></li><li><a href="ccda/progress-04.html">Progress note 04 — Sick Visit</a> <a href="ccda/progress-04.xml">(XML)</a></li><li><a href="ccda/progress-05.html">Progress note 05 — Preventive Visit</a> <a href="ccda/progress-05.xml">(XML)</a></li><li><a href="ccda/progress-06.html">Progress note 06 — Focused Visit (Care-plan review)</a> <a href="ccda/progress-06.xml">(XML)</a></li><li><a href="ccda/referral-01.html">Neurology (epilepsy) referral</a> <a href="ccda/referral-01.xml">(XML)</a></li><li><a href="ccda/consult-01.html">Neurology (epilepsy) consultation</a> <a href="ccda/consult-01.xml">(XML)</a></li></ul></section>
+    <section><h2>Sources</h2><table><thead><tr><th>ID</th><th>Source</th><th>Publisher</th><th>Type</th></tr></thead><tbody>
+  <tr>
+    <td>SRC-0001</td>
+    <td><a href="https://brucelee.com/bruce-lee" target="_blank" rel="noreferrer">Bruce Lee (short and long biography)</a></td>
+    <td>Bruce Lee Enterprises (brucelee.com)</td>
+    <td>biography</td>
+  </tr>
+  <tr>
+    <td>SRC-0002</td>
+    <td><a href="https://www.scmp.com/culture/film-tv/article/2155978/do-we-know-what-killed-bruce-lee-yes-and-no-and-thats-left-ample" target="_blank" rel="noreferrer">Do we know what killed Bruce Lee? Yes, and no - and that&#39;s left ample room for speculation as to the real cause (July 19, 2018)</a></td>
+    <td>South China Morning Post</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0003</td>
+    <td><a href="https://www.scmp.com/lifestyle/entertainment/article/3228184/what-killed-bruce-lee-4-leading-theories-medical-and-martial-arts-experts-proposed-after-his-shock" target="_blank" rel="noreferrer">Lui M. What killed Bruce Lee? 4 leading theories medical and martial arts experts proposed after his shock death (July 19, 2023)</a></td>
+    <td>South China Morning Post</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0004</td>
+    <td><a href="https://pubmed.ncbi.nlm.nih.gov/36381374/" target="_blank" rel="noreferrer">Villalvazo P, Fernandez-Prado R, Niño MDS, et al. Who killed Bruce Lee? The hyponatraemia hypothesis. Clin Kidney J. 2022;15(12):2169-2176 (PMID 36381374; PMC9664576)</a></td>
+    <td>Oxford University Press on behalf of the ERA</td>
+    <td>scholarly</td>
+  </tr>
+  <tr>
+    <td>SRC-0005</td>
+    <td><a href="https://pubmed.ncbi.nlm.nih.gov/32693379/" target="_blank" rel="noreferrer">Vancini RL, de Lira CAB, Andrade MS, Arida RM. Could epilepsy have been the cause of Bruce Lee&#39;s death?: &quot;The athlete and myth of martial arts&quot;. Epilepsy Behav. 2020;111:107310 (PMID 32693379)</a></td>
+    <td>Elsevier</td>
+    <td>scholarly</td>
+  </tr>
+  <tr>
+    <td>SRC-0006</td>
+    <td><a href="https://www.history.com/this-day-in-history/july-20/bruce-lee-dies-at-age-32" target="_blank" rel="noreferrer">Actor and martial-arts expert Bruce Lee dies at age 32 (This Day in History, July 20)</a></td>
+    <td>HISTORY.com (A&amp;E Television Networks)</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0007</td>
+    <td><a href="https://news.ifeng.com/c/8RbWf9Zu3UO" target="_blank" rel="noreferrer">李小龙逝世50周年：一代功夫巨星的武者之道与银幕人生 (July 21, 2023)</a></td>
+    <td>Phoenix Television (ifeng.com)</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0008</td>
+    <td><a href="https://www.tourism.gov.hk/resources/tc_chi/paperreport_doc/press/2013-06-26/Bruce_Lee_exhibition_tc.pdf" target="_blank" rel="noreferrer">李小龍展覽七月中起於香港文化博物館展出 (press release, June 26, 2013)</a></td>
+    <td>Hong Kong Leisure and Cultural Services Department (via the Tourism Commission)</td>
+    <td>government</td>
+  </tr>
+  <tr>
+    <td>SRC-0009</td>
+    <td><a href="https://humanrecord.example.org/internal/HISTMED_Master_Roster_v3.xlsx" target="_blank" rel="noreferrer">HISTMED Master Roster v3</a></td>
+    <td>The Human Record project</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0010</td>
+    <td><a href="https://bruceleefoundation.org/about" target="_blank" rel="noreferrer">About Us</a></td>
+    <td>Bruce Lee Foundation</td>
+    <td>other</td>
+  </tr></tbody></table></section>
+    <section><h2>Review status</h2><table><thead><tr><th>Review</th><th>Status</th><th>Notes</th></tr></thead><tbody>
+  <tr><td>schema validation</td><td>not_started</td><td>Run scripts/build.ps1 -Conformance.</td></tr>
+  <tr><td>clinical review</td><td>not_started</td><td>Awaiting clinician review; check the seizure-versus-syncope reasoning, classing the seizure as unprovoked despite cannabis use, heat and sleep loss the same day, the decision not to start an antiseizure medicine, the driving advice under Hong Kong rules, the stunt-work restrictions, the fluid advice, and the choice of pain medicines for his back.</td></tr>
+  <tr><td>provenance review</td><td>not_started</td><td>Sources: Bruce Lee Enterprises, two South China Morning Post articles (one citing the Post&#39;s 1973 reports), the Clinical Kidney Journal article (2022), an Epilepsy &amp; Behavior letter (title only), HISTORY.com, Phoenix Television, a Hong Kong government press release and the Bruce Lee Foundation. The New York Times archive and the 1973 inquest record were not read. The 1973 cause of death is recorded as disputed.</td></tr>
+  <tr><td>safe messaging review</td><td>not_started</td><td>Cannabis use is recorded from the cited accounts without judgment and marked sensitive; no substance use disorder is diagnosed. His wife and daughter are not named, and no living person is given a statement, decision or health fact. Unproven theories about his death (assassination and the like) are not recorded.</td></tr></tbody></table></section>
+  </main>
+</body>
+</html>

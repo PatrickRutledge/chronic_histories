@@ -1,0 +1,722 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mary Seacole — The Human Record</title>
+  <style>
+    :root { --navy:#17365d; --blue:#1f4e78; --pale:#eef5fa; --ink:#1f2933; --muted:#66788a; --amber:#fff2cc; --red:#f8d7da; --green:#d9ead3; }
+    * { box-sizing:border-box; }
+    body { margin:0; font:16px/1.5 Arial, sans-serif; color:var(--ink); background:#f6f8fa; }
+    header { background:var(--navy); color:white; padding:24px max(24px,calc((100vw - 1180px)/2)); }
+    header h1 { margin:4px 0; font-size:30px; }
+    .banner { background:#b42318; color:white; font-weight:700; text-align:center; padding:10px; letter-spacing:.03em; }
+    main { max-width:1180px; margin:24px auto 60px; padding:0 24px; }
+    section { background:white; border:1px solid #d9e1e8; border-radius:8px; margin:18px 0; padding:20px; }
+    h2 { color:var(--navy); margin:0 0 14px; font-size:22px; }
+    h3 { color:var(--blue); }
+    .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:12px; }
+    .card { background:var(--pale); border-left:4px solid var(--blue); padding:12px; }
+    .label { color:var(--muted); font-size:13px; text-transform:uppercase; letter-spacing:.04em; }
+    table { width:100%; border-collapse:collapse; }
+    th { background:var(--blue); color:white; text-align:left; }
+    th,td { padding:9px; border-bottom:1px solid #dfe6ec; vertical-align:top; }
+    .badge { display:inline-block; min-width:28px; text-align:center; font-weight:700; border-radius:12px; padding:2px 8px; }
+    .grade-D { background:var(--green); } .grade-R { background:var(--amber); } .grade-S { background:var(--red); }
+    .muted { color:var(--muted); font-size:14px; }
+    .relationship { color:var(--muted); font-size:12px; }
+    .downloads a { display:inline-block; margin:4px 8px 4px 0; padding:8px 12px; background:var(--blue); color:white; text-decoration:none; border-radius:5px; }
+    @media (max-width:700px) { table { display:block; overflow-x:auto; } }
+  </style>
+</head>
+<body>
+  <div class="banner">SYNTHETIC RECORD, NOT A REAL MEDICAL RECORD</div>
+  <header>
+    <div>The Human Record</div>
+    <h1>Mary Seacole</h1>
+    <div>Case HR-NI027 · Modern EHR teaching episode · Draft for review</div>
+  </header>
+  <main>
+    <section>
+      <h2>Review summary</h2>
+      <div class="grid">
+        <div class="card"><div class="label">Historical dates</div>1805 – May 14, 1881</div>
+        <div class="card"><div class="label">Synthetic DOB</div>1954-11-23</div>
+        <div class="card"><div class="label">Index visit</div>2026-03-09 at age 71</div>
+        <div class="card"><div class="label">Synthetic MRN</div>HR-NI027-SYN</div>
+      </div>
+      <p><strong>Teaching objective:</strong> Hypertension with knee osteoarthritis and fall risk in a 71-year-old Black Jamaican British woman, a nurse and healer living alone in London on a modest fixed income. The episode covers a very high blood pressure found at a visit for headaches, without a hypertensive emergency; confirmation with home readings; baseline tests (metabolic panel, lipids, hemoglobin A1c, TSH, urine albumin, ECG, fundi and an echocardiogram for stage 2 hypertension); two first-line medicines of different classes, a calcium channel blocker and a thiazide-like diuretic, chosen under the 2025 AHA/ACC guideline, with a target below 130/80 mmHg; thiazide-associated hyponatremia and orthostatic hypotension with a near-fall during a cold, and the change to an angiotensin receptor blocker; a moderate-intensity statin; stroke risk reduction; knee osteoarthritis managed under the ACR/AF 2019 guideline with exercise therapy, tai chi, topical diclofenac, weight loss, a cane and an injection offered; falls under CDC STEADI and the USPSTF; bone health; her own healing knowledge and remedies respected and checked for interactions (liquorice root raises blood pressure and lowers potassium); loneliness and the cost of care; and her public work. It is taught with dignity and attention to equity: her expertise as a healer is respected, she is addressed as she wishes, and access barriers (cost of a cuff, transport, stairs) are solved rather than blamed on her.</p>
+      <div class="downloads">
+        <a href="../case.json">Canonical JSON</a>
+        <a href="fhir-bundle.json">FHIR R4 draft</a>
+        <a href="ccda.html">C-CDA R2.1 summary</a> <a href="ccda.xml">(XML)</a> <a href="review.html">Review checklist</a>
+        <a href="../sources.md">Evidence dossier</a>
+      </div>
+    </section>
+    <section><h2>Historical timeline</h2><table><thead><tr><th>Date</th><th>Event</th><th>Claims</th></tr></thead><tbody>
+  <tr><td>1805</td><td>Born Mary Jane Grant in Kingston, Jamaica.</td><td>CLM-0001, CLM-0002</td></tr>
+  <tr><td>November 10, 1836</td><td>Marries Edwin Horatio Hamilton Seacole.</td><td>CLM-0004</td></tr>
+  <tr><td>1844</td><td>Widowed; her mother dies soon after.</td><td>CLM-0004</td></tr>
+  <tr><td>1850</td><td>Nurses victims of cholera in Kingston.</td><td>CLM-0005</td></tr>
+  <tr><td>1851</td><td>Treats cholera in Cruces, Panama, and has cholera herself.</td><td>CLM-0005, CLM-0006</td></tr>
+  <tr><td>1853</td><td>Supervises nursing during the yellow fever epidemic in Kingston.</td><td>CLM-0007</td></tr>
+  <tr><td>1855</td><td>Runs the British Hotel near Balaclava in the Crimean War.</td><td>CLM-0008</td></tr>
+  <tr><td>November 1856</td><td>Returns in poor health; declared bankrupt.</td><td>CLM-0009, CLM-0010</td></tr>
+  <tr><td>July 1857</td><td>Seacole Fund festival; publishes her memoir.</td><td>CLM-0010, CLM-0011, CLM-0014</td></tr>
+  <tr><td>1869</td><td>Back in London; masseuse to the Princess of Wales.</td><td>CLM-0012</td></tr>
+  <tr><td>1873</td><td>Last known photograph.</td><td>CLM-0013</td></tr>
+  <tr><td>May 14, 1881</td><td>Dies at home in Paddington after an apoplexy two weeks earlier.</td><td>CLM-0015, CLM-0016</td></tr>
+  <tr><td>2016</td><td>Statue unveiled at St Thomas&#39; Hospital.</td><td>CLM-0017</td></tr></tbody></table></section>
+    <section><h2>Evidence claims</h2><p class="muted">D = documented, R = retrospective, S = synthetic.</p><table><thead><tr><th>Grade</th><th>Claim</th><th>Certainty</th><th>Sources</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>She was born Mary Jane Grant in Kingston, Jamaica, in 1805, the daughter of James Grant, a white Scottish army officer, and a free Black Jamaican woman who kept a boarding house; she was born free, at a time when many Black people in the Caribbean were enslaved, and had a sister, Louisa, and a brother, Edward. In her memoir she wrote that &quot;the century and myself were both young together&quot; and called herself a Creole &quot;with good Scotch blood.&quot;</strong><div class="muted">Anchors the true birth year and the alias.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.english-heritage.org.uk/visit/blue-plaques/mary-seacole/" target="_blank" rel="noreferrer">Mary Seacole (1805-1881), blue plaque at 14 Soho Square</a> <span class="relationship">supports</span><br><a href="https://www.maryseacoletrust.org.uk/learn-about-mary/" target="_blank" rel="noreferrer">Read Mary&#39;s Story</a> <span class="relationship">supports</span><br><a href="https://www.gutenberg.org/ebooks/23031" target="_blank" rel="noreferrer">Seacole M. Wonderful Adventures of Mrs. Seacole in Many Lands. London: James Blackwood; 1857 (Project Gutenberg eBook #23031)</a> <span class="relationship">supports</span><br><a href="https://humanrecord.example.org/internal/HISTMED_Master_Roster_v3.xlsx" target="_blank" rel="noreferrer">HISTMED Master Roster v3</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>A London commemorative database gives her date of birth as November 23, 1805; English Heritage, the Mary Seacole Trust and her memoir give no day.</strong><div class="muted">Used only to choose the month and day of the synthetic date of birth.</div></td>
+    <td>possible</td>
+    <td><a href="https://londonremembers.com/subjects/mary-seacole" target="_blank" rel="noreferrer">Mary Seacole</a> <span class="relationship">supports</span><br><a href="https://www.gutenberg.org/ebooks/23031" target="_blank" rel="noreferrer">Seacole M. Wonderful Adventures of Mrs. Seacole in Many Lands. London: James Blackwood; 1857 (Project Gutenberg eBook #23031)</a> <span class="relationship">context</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>Her mother was a healer, &quot;like very many of the Creole women, an admirable doctress,&quot; and taught her traditional Jamaican medicine; as a child she practised on her doll, and she later learned &quot;a great deal of Creole medicinal art&quot; in her mother&#39;s house. She visited England in the early 1820s and gained some knowledge of European medicine.</strong><div class="muted">Anchors her own healing knowledge, which the modern clinicians respect and ask about.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.gutenberg.org/ebooks/23031" target="_blank" rel="noreferrer">Seacole M. Wonderful Adventures of Mrs. Seacole in Many Lands. London: James Blackwood; 1857 (Project Gutenberg eBook #23031)</a> <span class="relationship">supports</span><br><a href="https://www.maryseacoletrust.org.uk/learn-about-mary/" target="_blank" rel="noreferrer">Read Mary&#39;s Story</a> <span class="relationship">supports</span><br><a href="https://www.english-heritage.org.uk/visit/blue-plaques/mary-seacole/" target="_blank" rel="noreferrer">Mary Seacole (1805-1881), blue plaque at 14 Soho Square</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>She married Edwin Horatio Hamilton Seacole on November 10, 1836, and they kept a store at Black River; he was delicate, she nursed him, and he died in 1844, followed closely by the death of her mother. She had no children.</strong><div class="muted">Anchors her widowhood and living alone in the modern social history.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.maryseacoletrust.org.uk/learn-about-mary/" target="_blank" rel="noreferrer">Read Mary&#39;s Story</a> <span class="relationship">supports</span><br><a href="https://www.english-heritage.org.uk/visit/blue-plaques/mary-seacole/" target="_blank" rel="noreferrer">Mary Seacole (1805-1881), blue plaque at 14 Soho Square</a> <span class="relationship">supports</span><br><a href="https://www.gutenberg.org/ebooks/23031" target="_blank" rel="noreferrer">Seacole M. Wonderful Adventures of Mrs. Seacole in Many Lands. London: James Blackwood; 1857 (Project Gutenberg eBook #23031)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>In 1850 she nursed victims of the cholera epidemic in Kingston, learning about its treatment from a doctor lodging in her house; in 1851 she went to Cruces, on the Isthmus of Panama, where she treated cholera with mustard emetics, warm fomentations, mustard plasters and calomel, and was called the &quot;yellow doctress.&quot;</strong><div class="muted">Anchors her experience as a healer of epidemic disease.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.maryseacoletrust.org.uk/learn-about-mary/" target="_blank" rel="noreferrer">Read Mary&#39;s Story</a> <span class="relationship">supports</span><br><a href="https://www.gutenberg.org/ebooks/23031" target="_blank" rel="noreferrer">Seacole M. Wonderful Adventures of Mrs. Seacole in Many Lands. London: James Blackwood; 1857 (Project Gutenberg eBook #23031)</a> <span class="relationship">supports</span><br><a href="https://www.english-heritage.org.uk/visit/blue-plaques/mary-seacole/" target="_blank" rel="noreferrer">Mary Seacole (1805-1881), blue plaque at 14 Soho Square</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>In Cruces she had cholera herself: &quot;I felt an unpleasant chill come over me … and, before nightfall, I knew full well that my turn had come at last, and that the cholera had attacked me.&quot; She recovered.</strong><div class="muted">Her own account of a serious past illness; recorded in the past medical history.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.gutenberg.org/ebooks/23031" target="_blank" rel="noreferrer">Seacole M. Wonderful Adventures of Mrs. Seacole in Many Lands. London: James Blackwood; 1857 (Project Gutenberg eBook #23031)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>In 1853 she cared for victims of a yellow fever epidemic in Kingston; she was invited by the medical authorities to supervise nursing at Up-Park Camp, the British Army&#39;s headquarters, and turned her mother&#39;s former lodging house into a hospital.</strong><div class="muted">History only.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.maryseacoletrust.org.uk/learn-about-mary/" target="_blank" rel="noreferrer">Read Mary&#39;s Story</a> <span class="relationship">supports</span><br><a href="https://www.gutenberg.org/ebooks/23031" target="_blank" rel="noreferrer">Seacole M. Wonderful Adventures of Mrs. Seacole in Many Lands. London: James Blackwood; 1857 (Project Gutenberg eBook #23031)</a> <span class="relationship">supports</span><br><a href="https://www.english-heritage.org.uk/visit/blue-plaques/mary-seacole/" target="_blank" rel="noreferrer">Mary Seacole (1805-1881), blue plaque at 14 Soho Square</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>At the outbreak of the Crimean War she went to London and asked the War Office to send her as an army nurse; she was refused. She paid her own way to the Crimea and, with Thomas Day, a relative of her husband, built the British Hotel at Spring Hill near Balaclava, a place of respite for sick and recovering soldiers; she nursed the wounded on the battlefield, sometimes under fire, and soldiers called her &quot;Mother Seacole.&quot;</strong><div class="muted">Anchors her public work and strengths. The refusal is recorded without speculation about its reasons.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.maryseacoletrust.org.uk/learn-about-mary/" target="_blank" rel="noreferrer">Read Mary&#39;s Story</a> <span class="relationship">supports</span><br><a href="https://www.gutenberg.org/ebooks/23031" target="_blank" rel="noreferrer">Seacole M. Wonderful Adventures of Mrs. Seacole in Many Lands. London: James Blackwood; 1857 (Project Gutenberg eBook #23031)</a> <span class="relationship">supports</span><br><a href="https://www.english-heritage.org.uk/visit/blue-plaques/mary-seacole/" target="_blank" rel="noreferrer">Mary Seacole (1805-1881), blue plaque at 14 Soho Square</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>She returned from the Crimea in 1856 in poor health and poor finances; in her memoir she wrote: &quot;I returned from it shaken in health … a little labour fatigues me now--I cannot watch by sick-beds as I could--a week&#39;s want of rest quite knocks me up now.&quot; She described herself as &quot;a hearty, strong woman--plain-spoken people might say stout.&quot;</strong><div class="muted">The only account of her health after the Crimea in the sources read; it names no diagnosis.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.gutenberg.org/ebooks/23031" target="_blank" rel="noreferrer">Seacole M. Wonderful Adventures of Mrs. Seacole in Many Lands. London: James Blackwood; 1857 (Project Gutenberg eBook #23031)</a> <span class="relationship">supports</span><br><a href="https://londonremembers.com/subjects/mary-seacole" target="_blank" rel="noreferrer">Mary Seacole</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>With unpaid bills and unsold stock at the end of the war, she was declared bankrupt in November 1856. The Times and Punch campaigned for her, a Seacole Fund Grand Military Festival was held in Kennington in July 1857, and her autobiography, Wonderful Adventures of Mrs. Seacole in Many Lands, was published the same month.</strong><div class="muted">Anchors her experience of financial hardship, which informs the modern discussion of costs.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.english-heritage.org.uk/visit/blue-plaques/mary-seacole/" target="_blank" rel="noreferrer">Mary Seacole (1805-1881), blue plaque at 14 Soho Square</a> <span class="relationship">supports</span><br><a href="https://www.maryseacoletrust.org.uk/learn-about-mary/" target="_blank" rel="noreferrer">Read Mary&#39;s Story</a> <span class="relationship">supports</span><br><a href="https://www.gutenberg.org/ebooks/23031" target="_blank" rel="noreferrer">Seacole M. Wonderful Adventures of Mrs. Seacole in Many Lands. London: James Blackwood; 1857 (Project Gutenberg eBook #23031)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>W. H. Russell, war correspondent of The Times, wrote of her in 1857: &quot;I trust that England will not forget one who nursed her sick, who sought out her wounded to aid and succour them, and who performed the last offices for some of her illustrious dead.&quot;</strong><div class="muted">Public recognition of her work; strengths.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.maryseacoletrust.org.uk/learn-about-mary/" target="_blank" rel="noreferrer">Read Mary&#39;s Story</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>She travelled between England and Jamaica in the 1860s and was back in London by about 1869 to 1870, where she mixed with royalty and acted as a personal masseuse to the Princess of Wales; she was painted by Albert Charles Challen around 1869 and sculpted by Count Gleichen in 1871.</strong><div class="muted">Anchors her life in London in the 1870s and her skill in massage. The two sources give 1869 and 1870 for her return.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.english-heritage.org.uk/visit/blue-plaques/mary-seacole/" target="_blank" rel="noreferrer">Mary Seacole (1805-1881), blue plaque at 14 Soho Square</a> <span class="relationship">supports</span><br><a href="https://londonremembers.com/subjects/mary-seacole" target="_blank" rel="noreferrer">Mary Seacole</a> <span class="relationship">supports</span><br><a href="https://www.maryseacoletrust.org.uk/learn-about-mary/" target="_blank" rel="noreferrer">Read Mary&#39;s Story</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>Her last known photograph was taken around 1873; little else is documented about her health or daily life in her last decade in London.</strong><div class="muted">Records the gap in the documentary record for the years of the modern episode.</div></td>
+    <td>probable</td>
+    <td><a href="https://www.maryseacoletrust.org.uk/learn-about-mary/" target="_blank" rel="noreferrer">Read Mary&#39;s Story</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>Her memoir describes her lifelong practice of nursing and healing, including the remedies she carried, and her belief that the Creoles seek out &quot;the simple remedies which are available for the terrible diseases&quot;: &quot;beside the nettle ever grows the cure for its sting.&quot;</strong><div class="muted">Anchors respect for her own remedies in the modern episode.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.gutenberg.org/ebooks/23031" target="_blank" rel="noreferrer">Seacole M. Wonderful Adventures of Mrs. Seacole in Many Lands. London: James Blackwood; 1857 (Project Gutenberg eBook #23031)</a> <span class="relationship">supports</span><br><a href="https://www.maryseacoletrust.org.uk/learn-about-mary/" target="_blank" rel="noreferrer">Read Mary&#39;s Story</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>She died on May 14, 1881, at her home in Paddington, London, aged about 75; a literary history records that she had suffered &quot;an apoplexy&quot; two weeks before and spent three days in a coma, that she died in prosperous circumstances with an estate of more than £2,500, and that she was buried, as she had asked, in the Roman Catholic section of Kensal Green Cemetery.</strong><div class="muted">History after the modern episode. The cause rests on one scholarly secondary source; the death record itself was not read.</div></td>
+    <td>probable</td>
+    <td><a href="https://orlando.cambridge.org/index.php/profiles/seacma" target="_blank" rel="noreferrer">Mary Seacole (author profile), Orlando: Women&#39;s Writing in the British Isles from the Beginnings to the Present</a> <span class="relationship">supports</span><br><a href="https://www.english-heritage.org.uk/visit/blue-plaques/mary-seacole/" target="_blank" rel="noreferrer">Mary Seacole (1805-1881), blue plaque at 14 Soho Square</a> <span class="relationship">supports</span><br><a href="https://londonremembers.com/subjects/mary-seacole" target="_blank" rel="noreferrer">Mary Seacole</a> <span class="relationship">supports</span><br><a href="https://humanrecord.example.org/internal/HISTMED_Master_Roster_v3.xlsx" target="_blank" rel="noreferrer">HISTMED Master Roster v3</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-R" title="Retrospective">R</span></td>
+    <td><strong>&quot;Apoplexy&quot; in nineteenth-century usage meant a sudden loss of consciousness and is usually read today as a stroke; whether hers was a hemorrhage or an infarct, and what caused it, cannot be known from the sources.</strong><div class="muted">A retrospective reading of the recorded term; it anchors the stroke-prevention teaching in the modern episode but is not a diagnosis.</div></td>
+    <td>possible</td>
+    <td><a href="https://orlando.cambridge.org/index.php/profiles/seacma" target="_blank" rel="noreferrer">Mary Seacole (author profile), Orlando: Women&#39;s Writing in the British Isles from the Beginnings to the Present</a> <span class="relationship">context</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>She was largely forgotten for about a century, until Caribbean nurses visited her grave; in 2004 she was voted the greatest Black Briton, and in 2016 a statue of her was unveiled at St Thomas&#39; Hospital in London. The Mary Seacole Trust continues her legacy.</strong><div class="muted">Legacy after her lifetime.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.maryseacoletrust.org.uk/learn-about-mary/" target="_blank" rel="noreferrer">Read Mary&#39;s Story</a> <span class="relationship">supports</span></td>
+  </tr></tbody></table></section>
+    <section><h2>Modern synthetic problem list</h2><table><thead><tr><th>Grade</th><th>Problem</th><th>Clinical status</th><th>Verification</th><th>Placement</th><th>Historical claims</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Headaches on waking for three weeks and blood pressure 184/102 mmHg at the visit (average of two seated readings with a large cuff); no chest pain, breathlessness, visual loss, confusion or weakness; fundi with arteriolar narrowing but no hemorrhages or papilledema; no hypertensive emergency; hypertension not yet confirmed</td>
+    <td>resolved</td>
+    <td>provisional</td>
+    <td>active</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Stage 2 hypertension confirmed by home readings (seven-day average 168/96 mmHg), with left ventricular hypertrophy by ECG voltage; no albuminuria; 10-year cardiovascular risk about 14%; treated to reduce the risk of stroke, heart failure and kidney disease</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td>CLM-0015, CLM-0016</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Bilateral primary knee osteoarthritis, worse on the left: pain on stairs and on rising from a chair, morning stiffness under 30 minutes, crepitus and bony enlargement without warmth; clinical diagnosis without imaging</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Fall risk: one fall in the past year, a trip on the outside steps without injury; afraid of falling and going out less; STEADI screen positive; Timed Up and Go 15 seconds</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Obesity, class 1 (BMI 31.6); she calls herself stout and wants to lose some weight for her knees</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td>CLM-0009</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Thiazide-associated hyponatremia (sodium 129 mmol/L) and hypokalemia (potassium 3.3 mmol/L) with orthostatic hypotension and a near-fall, after four days of a cold with little food while taking chlorthalidone; no confusion; resolved after chlorthalidone was stopped</td>
+    <td>resolved</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td></td>
+  </tr></tbody></table></section>
+    <section><h2>Synthetic outcome measures</h2><table><thead><tr><th>Grade</th><th>Date</th><th>Measure</th><th>Result</th><th>Coding</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-09</td>
+    <td>Sodium [Moles/volume] in Serum or Plasma</td>
+    <td>140 mmol/L<div class="muted">Reference 135-145 mmol/L</div></td>
+    <td>http://loinc.org · 2951-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-09</td>
+    <td>Potassium [Moles/volume] in Serum or Plasma</td>
+    <td>4.1 mmol/L<div class="muted">Reference 3.5-5.1 mmol/L</div></td>
+    <td>http://loinc.org · 2823-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-09</td>
+    <td>Creatinine [Mass/volume] in Serum or Plasma</td>
+    <td>0.92 mg/dL<div class="muted">Reference 0.59-1.04 mg/dL</div></td>
+    <td>http://loinc.org · 2160-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-09</td>
+    <td>Glomerular filtration rate [Volume Rate/Area] in Serum, Plasma or Blood by Creatinine-based formula (CKD-EPI 2021)/1.73 sq M</td>
+    <td>67 mL/min/1.73 m²<div class="muted">Reference &gt;=60 mL/min/1.73 m²</div></td>
+    <td>http://loinc.org · 98979-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-09</td>
+    <td>Glucose [Mass/volume] in Serum or Plasma</td>
+    <td>96 mg/dL<div class="muted">Reference 70-99 mg/dL</div></td>
+    <td>http://loinc.org · 2345-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-09</td>
+    <td>Hemoglobin A1c/Hemoglobin.total in Blood</td>
+    <td>5.6%<div class="muted">Reference &lt;=5.6%</div></td>
+    <td>http://loinc.org · 4548-4</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-09</td>
+    <td>Cholesterol [Mass/volume] in Serum or Plasma</td>
+    <td>228 mg/dL (high)<div class="muted">Reference &lt;=199 mg/dL</div></td>
+    <td>http://loinc.org · 2093-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-09</td>
+    <td>Cholesterol in LDL [Mass/volume] in Serum or Plasma by calculation</td>
+    <td>146 mg/dL (high)<div class="muted">Reference &lt;=99 mg/dL</div></td>
+    <td>http://loinc.org · 13457-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-09</td>
+    <td>Cholesterol in HDL [Mass/volume] in Serum or Plasma</td>
+    <td>54 mg/dL<div class="muted">Reference &gt;=50 mg/dL</div></td>
+    <td>http://loinc.org · 2085-9</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-09</td>
+    <td>Triglyceride [Mass/volume] in Serum or Plasma</td>
+    <td>140 mg/dL<div class="muted">Reference &lt;=149 mg/dL</div></td>
+    <td>http://loinc.org · 2571-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-09</td>
+    <td>Thyrotropin [Units/volume] in Serum or Plasma</td>
+    <td>2.1 mIU/L<div class="muted">Reference 0.4-4 mIU/L</div></td>
+    <td>http://loinc.org · 3016-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-09</td>
+    <td>Albumin/Creatinine [Mass Ratio] in Urine</td>
+    <td>18 mg/g{creat}<div class="muted">Reference &lt;=29 mg/g{creat}</div></td>
+    <td>http://loinc.org · 9318-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-09</td>
+    <td>Hemoglobin [Mass/volume] in Blood</td>
+    <td>12.8 g/dL<div class="muted">Reference 11.6-15 g/dL</div></td>
+    <td>http://loinc.org · 718-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-09</td>
+    <td>Pain severity - 0-10 verbal numeric rating [Score] - Reported</td>
+    <td>6</td>
+    <td>http://loinc.org · 72514-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-09</td>
+    <td>Total interval score [KOOSJR]</td>
+    <td>52.5</td>
+    <td>http://loinc.org · 82332-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-16</td>
+    <td>Pain severity - 0-10 verbal numeric rating [Score] - Reported</td>
+    <td>6</td>
+    <td>http://loinc.org · 72514-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-16</td>
+    <td>Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]</td>
+    <td>6</td>
+    <td>http://loinc.org · 44261-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-04-13</td>
+    <td>Sodium [Moles/volume] in Serum or Plasma</td>
+    <td>136 mmol/L<div class="muted">Reference 135-145 mmol/L</div></td>
+    <td>http://loinc.org · 2951-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-04-13</td>
+    <td>Potassium [Moles/volume] in Serum or Plasma</td>
+    <td>3.7 mmol/L<div class="muted">Reference 3.5-5.1 mmol/L</div></td>
+    <td>http://loinc.org · 2823-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-04-13</td>
+    <td>Creatinine [Mass/volume] in Serum or Plasma</td>
+    <td>0.95 mg/dL<div class="muted">Reference 0.59-1.04 mg/dL</div></td>
+    <td>http://loinc.org · 2160-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-04-13</td>
+    <td>Glomerular filtration rate [Volume Rate/Area] in Serum, Plasma or Blood by Creatinine-based formula (CKD-EPI 2021)/1.73 sq M</td>
+    <td>64 mL/min/1.73 m²<div class="muted">Reference &gt;=60 mL/min/1.73 m²</div></td>
+    <td>http://loinc.org · 98979-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-04-13</td>
+    <td>Glucose [Mass/volume] in Serum or Plasma</td>
+    <td>94 mg/dL<div class="muted">Reference 70-99 mg/dL</div></td>
+    <td>http://loinc.org · 2345-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-04-13</td>
+    <td>Left ventricular Ejection fraction</td>
+    <td>64%<div class="muted">Reference 50-70%</div></td>
+    <td>http://loinc.org · 10230-1</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-04-13</td>
+    <td>Pain severity - 0-10 verbal numeric rating [Score] - Reported</td>
+    <td>5</td>
+    <td>http://loinc.org · 72514-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-04-13</td>
+    <td>Total interval score [KOOSJR]</td>
+    <td>56.6</td>
+    <td>http://loinc.org · 82332-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-05-11</td>
+    <td>Sodium [Moles/volume] in Serum or Plasma</td>
+    <td>129 mmol/L (low)<div class="muted">Reference 135-145 mmol/L</div></td>
+    <td>http://loinc.org · 2951-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-05-11</td>
+    <td>Potassium [Moles/volume] in Serum or Plasma</td>
+    <td>3.3 mmol/L (low)<div class="muted">Reference 3.5-5.1 mmol/L</div></td>
+    <td>http://loinc.org · 2823-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-05-11</td>
+    <td>Creatinine [Mass/volume] in Serum or Plasma</td>
+    <td>1.05 mg/dL (high)<div class="muted">Reference 0.59-1.04 mg/dL</div></td>
+    <td>http://loinc.org · 2160-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-05-11</td>
+    <td>Glomerular filtration rate [Volume Rate/Area] in Serum, Plasma or Blood by Creatinine-based formula (CKD-EPI 2021)/1.73 sq M</td>
+    <td>57 mL/min/1.73 m² (low)<div class="muted">Reference &gt;=60 mL/min/1.73 m²</div></td>
+    <td>http://loinc.org · 98979-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-05-11</td>
+    <td>Glucose [Mass/volume] in Serum or Plasma</td>
+    <td>102 mg/dL (high)<div class="muted">Reference 70-99 mg/dL</div></td>
+    <td>http://loinc.org · 2345-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-06-15</td>
+    <td>Sodium [Moles/volume] in Serum or Plasma</td>
+    <td>138 mmol/L<div class="muted">Reference 135-145 mmol/L</div></td>
+    <td>http://loinc.org · 2951-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-06-15</td>
+    <td>Potassium [Moles/volume] in Serum or Plasma</td>
+    <td>4.2 mmol/L<div class="muted">Reference 3.5-5.1 mmol/L</div></td>
+    <td>http://loinc.org · 2823-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-06-15</td>
+    <td>Creatinine [Mass/volume] in Serum or Plasma</td>
+    <td>0.94 mg/dL<div class="muted">Reference 0.59-1.04 mg/dL</div></td>
+    <td>http://loinc.org · 2160-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-06-15</td>
+    <td>Glomerular filtration rate [Volume Rate/Area] in Serum, Plasma or Blood by Creatinine-based formula (CKD-EPI 2021)/1.73 sq M</td>
+    <td>65 mL/min/1.73 m²<div class="muted">Reference &gt;=60 mL/min/1.73 m²</div></td>
+    <td>http://loinc.org · 98979-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-06-15</td>
+    <td>Glucose [Mass/volume] in Serum or Plasma</td>
+    <td>95 mg/dL<div class="muted">Reference 70-99 mg/dL</div></td>
+    <td>http://loinc.org · 2345-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-06-15</td>
+    <td>Cholesterol [Mass/volume] in Serum or Plasma</td>
+    <td>160 mg/dL<div class="muted">Reference &lt;=199 mg/dL</div></td>
+    <td>http://loinc.org · 2093-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-06-15</td>
+    <td>Cholesterol in LDL [Mass/volume] in Serum or Plasma by calculation</td>
+    <td>82 mg/dL<div class="muted">Reference &lt;=99 mg/dL</div></td>
+    <td>http://loinc.org · 13457-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-06-15</td>
+    <td>Cholesterol in HDL [Mass/volume] in Serum or Plasma</td>
+    <td>56 mg/dL<div class="muted">Reference &gt;=50 mg/dL</div></td>
+    <td>http://loinc.org · 2085-9</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-06-15</td>
+    <td>Triglyceride [Mass/volume] in Serum or Plasma</td>
+    <td>110 mg/dL<div class="muted">Reference &lt;=149 mg/dL</div></td>
+    <td>http://loinc.org · 2571-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-06-15</td>
+    <td>Pain severity - 0-10 verbal numeric rating [Score] - Reported</td>
+    <td>4</td>
+    <td>http://loinc.org · 72514-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-06-15</td>
+    <td>Total interval score [KOOSJR]</td>
+    <td>61.6</td>
+    <td>http://loinc.org · 82332-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-07-13</td>
+    <td>Sodium [Moles/volume] in Serum or Plasma</td>
+    <td>139 mmol/L<div class="muted">Reference 135-145 mmol/L</div></td>
+    <td>http://loinc.org · 2951-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-07-13</td>
+    <td>Potassium [Moles/volume] in Serum or Plasma</td>
+    <td>4.4 mmol/L<div class="muted">Reference 3.5-5.1 mmol/L</div></td>
+    <td>http://loinc.org · 2823-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-07-13</td>
+    <td>Creatinine [Mass/volume] in Serum or Plasma</td>
+    <td>0.98 mg/dL<div class="muted">Reference 0.59-1.04 mg/dL</div></td>
+    <td>http://loinc.org · 2160-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-07-13</td>
+    <td>Glomerular filtration rate [Volume Rate/Area] in Serum, Plasma or Blood by Creatinine-based formula (CKD-EPI 2021)/1.73 sq M</td>
+    <td>62 mL/min/1.73 m²<div class="muted">Reference &gt;=60 mL/min/1.73 m²</div></td>
+    <td>http://loinc.org · 98979-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-07-13</td>
+    <td>Glucose [Mass/volume] in Serum or Plasma</td>
+    <td>93 mg/dL<div class="muted">Reference 70-99 mg/dL</div></td>
+    <td>http://loinc.org · 2345-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-09-14</td>
+    <td>Pain severity - 0-10 verbal numeric rating [Score] - Reported</td>
+    <td>3</td>
+    <td>http://loinc.org · 72514-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-09-14</td>
+    <td>Total interval score [KOOSJR]</td>
+    <td>66.2</td>
+    <td>http://loinc.org · 82332-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-07-13</td>
+    <td>Patient Health Questionnaire 2 item (PHQ-2) total score [Reported]</td>
+    <td>1</td>
+    <td>http://loinc.org · 55758-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-07-13</td>
+    <td>Total score [Mini-Cog]</td>
+    <td>5</td>
+    <td>http://loinc.org · 72233-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-07-13</td>
+    <td>Total score [AUDIT-C]</td>
+    <td>1</td>
+    <td>http://loinc.org · 75626-2</td>
+  </tr></tbody></table></section>
+    <section><h2>Synthetic vital signs</h2><table><thead><tr><th>Date</th><th>Measure</th><th>Result</th><th>LOINC</th><th>Grade</th></tr></thead><tbody>
+  <tr><td>2026-03-09</td><td>Body height</td><td>157 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-09</td><td>Body weight</td><td>78 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-09</td><td>Body mass index (BMI) [Ratio]</td><td>31.6 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-09</td><td>Systolic blood pressure</td><td>184 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-09</td><td>Diastolic blood pressure</td><td>102 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-09</td><td>Heart rate</td><td>78 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-09</td><td>Respiratory rate</td><td>16 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-09</td><td>Body temperature</td><td>36.7 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-09</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>97 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-16</td><td>Body height</td><td>157 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-16</td><td>Body weight</td><td>78 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-16</td><td>Body mass index (BMI) [Ratio]</td><td>31.6 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-16</td><td>Systolic blood pressure</td><td>176 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-16</td><td>Diastolic blood pressure</td><td>98 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-16</td><td>Heart rate</td><td>76 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-16</td><td>Respiratory rate</td><td>16 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-16</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-16</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>97 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-13</td><td>Body height</td><td>157 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-13</td><td>Body weight</td><td>77.6 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-13</td><td>Body mass index (BMI) [Ratio]</td><td>31.5 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-13</td><td>Systolic blood pressure</td><td>138 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-13</td><td>Diastolic blood pressure</td><td>82 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-13</td><td>Heart rate</td><td>76 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-13</td><td>Respiratory rate</td><td>16 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-13</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-13</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>97 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-15</td><td>Body height</td><td>157 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-15</td><td>Body weight</td><td>77.2 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-15</td><td>Body mass index (BMI) [Ratio]</td><td>31.3 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-15</td><td>Systolic blood pressure</td><td>144 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-15</td><td>Diastolic blood pressure</td><td>84 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-15</td><td>Heart rate</td><td>74 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-15</td><td>Respiratory rate</td><td>16 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-15</td><td>Body temperature</td><td>36.7 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-15</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>97 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-09-14</td><td>Body height</td><td>157 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-09-14</td><td>Body weight</td><td>76 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-09-14</td><td>Body mass index (BMI) [Ratio]</td><td>30.8 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-09-14</td><td>Systolic blood pressure</td><td>128 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-09-14</td><td>Diastolic blood pressure</td><td>76 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-09-14</td><td>Heart rate</td><td>72 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-09-14</td><td>Respiratory rate</td><td>16 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-09-14</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-09-14</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>98 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-05-11</td><td>Body height</td><td>157 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-05-11</td><td>Body weight</td><td>77 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-05-11</td><td>Body mass index (BMI) [Ratio]</td><td>31.2 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-05-11</td><td>Systolic blood pressure</td><td>118 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-05-11</td><td>Diastolic blood pressure</td><td>70 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-05-11</td><td>Heart rate</td><td>90 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-05-11</td><td>Respiratory rate</td><td>16 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-05-11</td><td>Body temperature</td><td>37.2 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-05-11</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>97 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-07-13</td><td>Body height</td><td>157 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-07-13</td><td>Body weight</td><td>76.8 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-07-13</td><td>Body mass index (BMI) [Ratio]</td><td>31.2 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-07-13</td><td>Systolic blood pressure</td><td>132 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-07-13</td><td>Diastolic blood pressure</td><td>78 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-07-13</td><td>Heart rate</td><td>72 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-07-13</td><td>Respiratory rate</td><td>16 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-07-13</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-07-13</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>98 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr></tbody></table></section>
+    <section><h2>Social, functional, and mental status</h2><h3>Social history</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Nurse, healer and writer; asked to be called Mrs. Seacole; known to many former soldiers and their families; still gives nursing advice to neighbours who call on her</li><li><span class="badge grade-S" title="Synthetic">S</span> Widowed for many years, with no children; lives alone in rented rooms up two flights of stairs in Paddington; friends visit, but she goes out less since her fall and some weeks speaks to few people</li><li><span class="badge grade-S" title="Synthetic">S</span> Income: a modest fixed income from savings and the fund raised for her; careful with money since her bankruptcy, and worried about the cost of medicines, a blood pressure cuff and taxis</li><li><span class="badge grade-S" title="Synthetic">S</span> Her own remedies: ginger tea most days; a liquorice root infusion for coughs on and off; a liniment she makes with camphor and oil of wintergreen, which she massages into her knees; she shared these openly and wants them respected</li><li><span class="badge grade-S" title="Synthetic">S</span> Diet: home cooking with rice, peas, fish, vegetables and fruit, and salted fish and pickled foods several times a week; tea with sugar; never smoked; a small glass of wine on occasions</li><li><span class="badge grade-S" title="Synthetic">S</span> Strengths, supports and purpose: decades of nursing and healing, courage, humour, her writing and her friendships with old soldiers; she wants to keep walking to see her friends</li></ul><h3>Functional status</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Independent in personal care; manages her own medicines and money; carries heavy shopping with difficulty and avoids the stairs when her knees are bad; walks with no aid</li></ul><h3>Mental status</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Alert, warm and quick-witted; describes her symptoms with a nurse&#39;s precision; worried about falling and about cost; mood a little low when alone</li></ul></section>
+    
+    <section><h2>Allergies and medications</h2><h3>Allergies</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> No known allergy</li></ul><h3>Medications</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Diclofenac sodium 1% topical gel, 4 g rubbed into each painful knee up to four times a day</li><li><span class="badge grade-S" title="Synthetic">S</span> Amlodipine 5 mg oral tablet, one tablet daily</li><li><span class="badge grade-S" title="Synthetic">S</span> Chlorthalidone 12.5 mg oral tablet, one tablet each morning</li><li><span class="badge grade-S" title="Synthetic">S</span> Atorvastatin 20 mg oral tablet, one tablet daily</li><li><span class="badge grade-S" title="Synthetic">S</span> Losartan 25 mg oral tablet, one tablet daily</li></ul></section>
+    <section><h2>Procedures and immunizations</h2><h3>Procedures</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Twelve-lead electrocardiogram: sinus rhythm at 76 per minute; left ventricular hypertrophy by voltage criteria with no strain pattern; no ischemia or arrhythmia</li><li><span class="badge grade-S" title="Synthetic">S</span> Transthoracic echocardiography: ejection fraction 64%; mild concentric left ventricular hypertrophy; normal valves; grade 1 diastolic dysfunction; no heart failure</li><li><span class="badge grade-S" title="Synthetic">S</span> Advance care planning conversation, about 25 minutes, with her consent</li></ul><h3>Immunizations</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> 2026-07-13: Pneumococcal conjugate vaccine PCV20</li><li><span class="badge grade-S" title="Synthetic">S</span> 2026-07-13: Recombinant zoster vaccine, dose 1 of 2</li><li><span class="badge grade-S" title="Synthetic">S</span> 2026-09-14: Recombinant zoster vaccine, dose 2 of 2</li><li><span class="badge grade-S" title="Synthetic">S</span> 2026-09-14: Tetanus, diphtheria, and acellular pertussis vaccine (Tdap)</li><li><span class="badge grade-S" title="Synthetic">S</span> 2026-09-14: Influenza vaccine, high-dose</li></ul></section>
+    <section><h2>Past medical history</h2><p class="muted">True biography with historical dates; not part of the synthetic care timeline.</p><ul><li><span class="badge grade-D" title="Documented">D</span> 1851: Cholera in Cruces, Panama, by her own account, with chills and rapid onset; recovered <span class="muted">(CLM-0006)</span></li><li><span class="badge grade-D" title="Documented">D</span> 1856: Returned from the Crimean War &quot;shaken in health,&quot; tiring with little labour; no diagnosis recorded <span class="muted">(CLM-0009)</span></li></ul><h3>Family history</h3><ul><li><span class="badge grade-D" title="Documented">D</span> mother: A healer who taught her traditional Jamaican medicine; died decades ago; cause not recorded in the cited source</li></ul></section>
+    <section><h2>Care-plan goals</h2><table><thead><tr><th>Goal</th><th>Target date</th><th>Status</th><th>Outcome</th></tr></thead><tbody>
+  <tr><td>Blood pressure below 130/80 mmHg at home and in the clinic, without dizziness on standing</td><td>2026-09-14</td><td>completed</td><td>128/76 in the clinic and 126/74 at home on amlodipine and losartan, with no orthostatic drop</td></tr>
+  <tr><td>Headaches gone</td><td>2026-04-13</td><td>completed</td><td>No headaches since the second week of treatment</td></tr>
+  <tr><td>Knee pain 3 or less out of 10 and walking 20 minutes a day with a cane</td><td>2026-09-14</td><td>completed</td><td>Pain 3 out of 10; KOOS JR 52.5 to 66.2; walks 20 minutes most days</td></tr>
+  <tr><td>Lose 5% of body weight (about 4 kg)</td><td>2026-09-14</td><td>active</td><td>78.0 to 76.0 kg (2.6%)</td></tr>
+  <tr><td>No falls</td><td>2026-09-14</td><td>active</td><td>No falls in six months; one near-fall during the sodium problem, without injury</td></tr></tbody></table></section>
+    <section><h2>Interventions</h2><table><thead><tr><th>Intervention</th><th>Status</th><th>Guideline</th></tr></thead><tbody>
+  <tr><td>Dignified, culturally safe care: address her as Mrs. Seacole; respect her expertise as a nurse and healer; ask about her remedies openly and check them for interactions without dismissing them; explain each choice plainly and let her decide; solve access barriers (a free home blood pressure cuff in a large size, transport, the stairs) rather than treat them as non-adherence</td><td>completed</td><td>GL-AHA-HTN-2025, GL-NCCIH-LICORICE</td></tr>
+  <tr><td>Geriatric medicine consultation within one week for a comprehensive geriatric assessment: falls, blood pressure targets and medicine choices in an older woman living alone, knee osteoarthritis, mood and social needs</td><td>completed</td><td>GL-CDC-STEADI, GL-AHA-HTN-2025</td></tr>
+  <tr><td>Confirm the blood pressure: home readings twice daily for seven days with a validated upper-arm monitor and a large cuff, technique taught; ECG, metabolic panel, lipids, hemoglobin A1c, TSH, urine albumin and blood count today; an echocardiogram for stage 2 readings with ECG voltage for left ventricular hypertrophy; treatment decided at the one-week review</td><td>completed</td><td>GL-AHA-HTN-2025, GL-CMID-2026</td></tr>
+  <tr><td>Knee osteoarthritis: exercise therapy with a physical therapist, then a tai chi class at the community center; diclofenac 1% gel; a 5% weight loss; a cane, fitted and used in the right hand; no oral anti-inflammatory medicines because of her blood pressure and kidneys; a corticosteroid injection as an option for a flare</td><td>completed</td><td>GL-ACR-OA-2019, GL-CMID-2026</td></tr>
+  <tr><td>Falls (STEADI): screen, then Timed Up and Go, 30-second chair stand, 4-stage balance test and orthostatic blood pressure at visits; medicine review against the Beers criteria; vision and footwear checks; a home safety visit by an occupational therapist, with a rail for the stairs to her rooms; exercise for strength and balance</td><td>completed</td><td>GL-CDC-STEADI, GL-USPSTF-FALLS-2024, GL-AGS-BEERS-2023</td></tr>
+  <tr><td>Her own remedies, checked with her: liquorice root can raise blood pressure and lower potassium, so she will pause it while her blood pressure is treated (her decision); ginger tea in food amounts is fine; her camphor and wintergreen liniment contains a salicylate, so it is used on a different knee or at a different time from the diclofenac gel, never under a heat pad, and kept away from the eyes</td><td>completed</td><td>GL-NCCIH-LICORICE, GL-NCCIH-GINGER, GL-ACR-OA-2019</td></tr>
+  <tr><td>Loneliness and costs: a social prescribing link worker; the tai chi group and a lunch club near her home; a check of the help she is entitled to with costs and transport; generic medicines and a 90-day supply</td><td>completed</td><td>GL-AHA-HTN-2025</td></tr>
+  <tr><td>Lifestyle: less salted fish and pickled food, more vegetables and fruit, regular walking, and alcohol kept to occasions</td><td>completed</td><td>GL-AHA-HTN-2025, GL-CMID-2026</td></tr>
+  <tr><td>Two first-line medicines for stage 2 hypertension: amlodipine 5 mg and chlorthalidone 12.5 mg each morning, with sodium, potassium and creatinine in about four weeks and orthostatic readings at each visit; target below 130/80 mmHg; sick-day rule: stop chlorthalidone and call if she cannot eat or drink normally, or has vomiting or diarrhea</td><td>completed</td><td>GL-AHA-HTN-2025, GL-CMID-2026, GL-AGS-BEERS-2023</td></tr>
+  <tr><td>Atorvastatin 20 mg daily (moderate intensity) for a 10-year cardiovascular risk of about 14% with LDL 146 mg/dL; lipid panel in four to twelve weeks</td><td>completed</td><td>GL-ACC-CHOL-2018, GL-AHA-HTN-2025, GL-CMID-2026</td></tr>
+  <tr><td>Chlorthalidone stopped for hyponatremia and hypokalemia with orthostatic hypotension; eat normally with some salt for a few days; sodium recheck in one week</td><td>completed</td><td>GL-AGS-BEERS-2023, GL-AHA-HTN-2025</td></tr>
+  <tr><td>Losartan 25 mg daily added to amlodipine 5 mg, with potassium and creatinine in two to four weeks; blood tests drawn at home by the community nurse when a separate trip would be needed</td><td>completed</td><td>GL-AHA-HTN-2025, GL-CMID-2026</td></tr></tbody></table></section>
+    <section><h2>Planned encounters</h2><ul>
+  <li><strong>2026-03-09</strong> — Visit for headaches on waking and knee pain with a fall: very high blood pressure found, without target-organ emergency; examination, ECG, laboratory tests, home monitoring, knee osteoarthritis, falls screen, her own remedies, and geriatric medicine referral <span class="muted">(ENC-001)</span></li>
+  <li><strong>2026-03-16</strong> — One-week review with geriatric medicine: home readings confirm stage 2 hypertension; two first-line medicines; comprehensive geriatric assessment of falls, function, mood and social needs <span class="muted">(ENC-002)</span></li>
+  <li><strong>2026-04-13</strong> — Four-week review: blood pressure, sodium and potassium on chlorthalidone, echocardiogram, statin decision, knee exercise program and cane <span class="muted">(ENC-003)</span></li>
+  <li><strong>2026-05-11</strong> — Same-day sick visit for dizziness on standing during a cold <span class="muted">(ENC-006, unscheduled)</span></li>
+  <li><strong>2026-06-15</strong> — Three-month review after chlorthalidone was stopped: blood pressure above target, losartan added; lipids on atorvastatin; knee and falls <span class="muted">(ENC-004)</span></li>
+  <li><strong>2026-07-13</strong> — Subsequent annual wellness visit <span class="muted">(ENC-007)</span></li>
+  <li><strong>2026-09-14</strong> — Six-month review: blood pressure at target, screening and bone density results, knee function, falls and social connection <span class="muted">(ENC-005)</span></li></ul></section>
+    <section><h2>Supporting documents</h2><ul><li><a href="notes/hp.md">History and physical</a></li><li><a href="notes/progress-01.md">Progress note 01</a></li><li><a href="notes/progress-02.md">Progress note 02 — Focused Visit (Follow-up)</a></li><li><a href="notes/progress-03.md">Progress note 03 — Focused Visit (Follow-up)</a></li><li><a href="notes/progress-04.md">Progress note 04 — Sick Visit</a></li><li><a href="notes/progress-05.md">Progress note 05 — Focused Visit (Follow-up)</a></li><li><a href="notes/progress-06.md">Progress note 06 — Annual Wellness Visit, Subsequent</a></li><li><a href="notes/progress-07.md">Progress note 07 — Focused Visit (Care-plan review)</a></li><li><a href="notes/referral-01.md">Geriatric Medicine referral</a></li><li><a href="notes/consult-01.md">Geriatric Medicine consultation</a></li><li><a href="notes/careplan.md">Patient care plan</a></li><li><a href="notes/teaching-note.md">Teaching note</a></li><li><a href="provenance.csv">Provenance CSV</a></li></ul></section>
+    <section><h2>C-CDA note documents</h2><p class="muted">Each link opens a readable copy; the XML beside it is the exchange file.</p><ul><li><a href="ccda/hp-01.html">History and physical</a> <a href="ccda/hp-01.xml">(XML)</a></li><li><a href="ccda/progress-01.html">Progress note 01</a> <a href="ccda/progress-01.xml">(XML)</a></li><li><a href="ccda/progress-02.html">Progress note 02 — Focused Visit (Follow-up)</a> <a href="ccda/progress-02.xml">(XML)</a></li><li><a href="ccda/progress-03.html">Progress note 03 — Focused Visit (Follow-up)</a> <a href="ccda/progress-03.xml">(XML)</a></li><li><a href="ccda/progress-04.html">Progress note 04 — Sick Visit</a> <a href="ccda/progress-04.xml">(XML)</a></li><li><a href="ccda/progress-05.html">Progress note 05 — Focused Visit (Follow-up)</a> <a href="ccda/progress-05.xml">(XML)</a></li><li><a href="ccda/progress-06.html">Progress note 06 — Annual Wellness Visit, Subsequent</a> <a href="ccda/progress-06.xml">(XML)</a></li><li><a href="ccda/progress-07.html">Progress note 07 — Focused Visit (Care-plan review)</a> <a href="ccda/progress-07.xml">(XML)</a></li><li><a href="ccda/referral-01.html">Geriatric Medicine referral</a> <a href="ccda/referral-01.xml">(XML)</a></li><li><a href="ccda/consult-01.html">Geriatric Medicine consultation</a> <a href="ccda/consult-01.xml">(XML)</a></li></ul></section>
+    <section><h2>Sources</h2><table><thead><tr><th>ID</th><th>Source</th><th>Publisher</th><th>Type</th></tr></thead><tbody>
+  <tr>
+    <td>SRC-0001</td>
+    <td><a href="https://www.english-heritage.org.uk/visit/blue-plaques/mary-seacole/" target="_blank" rel="noreferrer">Mary Seacole (1805-1881), blue plaque at 14 Soho Square</a></td>
+    <td>English Heritage</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0002</td>
+    <td><a href="https://www.maryseacoletrust.org.uk/learn-about-mary/" target="_blank" rel="noreferrer">Read Mary&#39;s Story</a></td>
+    <td>Mary Seacole Trust</td>
+    <td>biography</td>
+  </tr>
+  <tr>
+    <td>SRC-0003</td>
+    <td><a href="https://www.gutenberg.org/ebooks/23031" target="_blank" rel="noreferrer">Seacole M. Wonderful Adventures of Mrs. Seacole in Many Lands. London: James Blackwood; 1857 (Project Gutenberg eBook #23031)</a></td>
+    <td>Project Gutenberg</td>
+    <td>primary</td>
+  </tr>
+  <tr>
+    <td>SRC-0004</td>
+    <td><a href="https://orlando.cambridge.org/index.php/profiles/seacma" target="_blank" rel="noreferrer">Mary Seacole (author profile), Orlando: Women&#39;s Writing in the British Isles from the Beginnings to the Present</a></td>
+    <td>Cambridge University Press</td>
+    <td>scholarly</td>
+  </tr>
+  <tr>
+    <td>SRC-0005</td>
+    <td><a href="https://londonremembers.com/subjects/mary-seacole" target="_blank" rel="noreferrer">Mary Seacole</a></td>
+    <td>London Remembers</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0006</td>
+    <td><a href="https://humanrecord.example.org/internal/HISTMED_Master_Roster_v3.xlsx" target="_blank" rel="noreferrer">HISTMED Master Roster v3</a></td>
+    <td>The Human Record project</td>
+    <td>other</td>
+  </tr></tbody></table></section>
+    <section><h2>Review status</h2><table><thead><tr><th>Review</th><th>Status</th><th>Notes</th></tr></thead><tbody>
+  <tr><td>schema validation</td><td>not_started</td><td>Run scripts/build.ps1 -Conformance.</td></tr>
+  <tr><td>clinical review</td><td>not_started</td><td>Awaiting clinician review; check outpatient management of 184/102 mmHg without target-organ emergency, confirmation by home readings, the choice of amlodipine with chlorthalidone in a 71-year-old woman living alone, the thiazide hyponatremia and its management as an outpatient, the switch to losartan, the statin decision, the knee osteoarthritis plan, the falls plan and the remedy interaction advice.</td></tr>
+  <tr><td>provenance review</td><td>not_started</td><td>Sources: English Heritage, the Mary Seacole Trust, her 1857 memoir (Project Gutenberg), the Orlando profile (Cambridge University Press) and London Remembers. The National Portrait Gallery, the National Archives (UK), the Oxford Dictionary of National Biography and the British Library pages could not be fetched (blocked or removed), and Jane Robinson&#39;s biography was not read. Her death after an apoplexy rests on the Orlando profile.</td></tr>
+  <tr><td>safe messaging review</td><td>not_started</td><td>Her race and her experience of refusal and bankruptcy are recorded as history, with dignity and without speculation. Her healing knowledge is respected, and the remedies in the modern episode are synthetic and checked, not mocked. No relative or historical person is given a modern statement, decision or health fact.</td></tr></tbody></table></section>
+  </main>
+</body>
+</html>

@@ -1,0 +1,727 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mary McLeod Bethune — The Human Record</title>
+  <style>
+    :root { --navy:#17365d; --blue:#1f4e78; --pale:#eef5fa; --ink:#1f2933; --muted:#66788a; --amber:#fff2cc; --red:#f8d7da; --green:#d9ead3; }
+    * { box-sizing:border-box; }
+    body { margin:0; font:16px/1.5 Arial, sans-serif; color:var(--ink); background:#f6f8fa; }
+    header { background:var(--navy); color:white; padding:24px max(24px,calc((100vw - 1180px)/2)); }
+    header h1 { margin:4px 0; font-size:30px; }
+    .banner { background:#b42318; color:white; font-weight:700; text-align:center; padding:10px; letter-spacing:.03em; }
+    main { max-width:1180px; margin:24px auto 60px; padding:0 24px; }
+    section { background:white; border:1px solid #d9e1e8; border-radius:8px; margin:18px 0; padding:20px; }
+    h2 { color:var(--navy); margin:0 0 14px; font-size:22px; }
+    h3 { color:var(--blue); }
+    .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:12px; }
+    .card { background:var(--pale); border-left:4px solid var(--blue); padding:12px; }
+    .label { color:var(--muted); font-size:13px; text-transform:uppercase; letter-spacing:.04em; }
+    table { width:100%; border-collapse:collapse; }
+    th { background:var(--blue); color:white; text-align:left; }
+    th,td { padding:9px; border-bottom:1px solid #dfe6ec; vertical-align:top; }
+    .badge { display:inline-block; min-width:28px; text-align:center; font-weight:700; border-radius:12px; padding:2px 8px; }
+    .grade-D { background:var(--green); } .grade-R { background:var(--amber); } .grade-S { background:var(--red); }
+    .muted { color:var(--muted); font-size:14px; }
+    .relationship { color:var(--muted); font-size:12px; }
+    .downloads a { display:inline-block; margin:4px 8px 4px 0; padding:8px 12px; background:var(--blue); color:white; text-decoration:none; border-radius:5px; }
+    @media (max-width:700px) { table { display:block; overflow-x:auto; } }
+  </style>
+</head>
+<body>
+  <div class="banner">SYNTHETIC RECORD, NOT A REAL MEDICAL RECORD</div>
+  <header>
+    <div>The Human Record</div>
+    <h1>Mary McLeod Bethune</h1>
+    <div>Case HR-ML043 · Modern EHR teaching episode · Draft for review</div>
+  </header>
+  <main>
+    <section>
+      <h2>Review summary</h2>
+      <div class="grid">
+        <div class="card"><div class="label">Historical dates</div>July 10, 1875 – May 18, 1955</div>
+        <div class="card"><div class="label">Synthetic DOB</div>1953-07-10</div>
+        <div class="card"><div class="label">Index visit</div>2026-03-09 at age 72</div>
+        <div class="card"><div class="label">Synthetic MRN</div>HR-ML043-SYN</div>
+      </div>
+      <p><strong>Teaching objective:</strong> Confirm asthma in a 72-year-old Black woman with years of wheeze and breathlessness who has been treated with albuterol alone, and tell it apart from COPD and heart failure: spirometry with bronchodilator response interpreted with race-neutral equations, DLCO, FeNO and blood eosinophils, chest X-ray, BNP and echocardiography. Then treat on GINA 2025 track 1 (budesonide-formoterol as maintenance and reliever, with SABA-only treatment stopped) and the 2020 NAEPP focused update, check inhaler technique and adherence before any step-up, write an asthma action plan, manage an exacerbation and review after it, assess for biologic therapy against the definition of severe asthma, and treat the comorbidities that worsen asthma (chronic rhinosinusitis, reflux, obesity without stigma) and the hypertensive heart disease found on the echocardiogram, with vaccinations; Black Americans have higher asthma death rates and race-based spirometry equations have hidden lung impairment, so each step is checked for under-treatment.</p>
+      <div class="downloads">
+        <a href="../case.json">Canonical JSON</a>
+        <a href="fhir-bundle.json">FHIR R4 draft</a>
+        <a href="ccda.html">C-CDA R2.1 summary</a> <a href="ccda.xml">(XML)</a> <a href="review.html">Review checklist</a>
+        <a href="../sources.md">Evidence dossier</a>
+      </div>
+    </section>
+    <section><h2>Historical timeline</h2><table><thead><tr><th>Date</th><th>Event</th><th>Claims</th></tr></thead><tbody>
+  <tr><td>July 10, 1875</td><td>Born near Mayesville, South Carolina, to formerly enslaved parents.</td><td>CLM-0001</td></tr>
+  <tr><td>1898</td><td>Marries Albertus Bethune after her schooling.</td><td>CLM-0002</td></tr>
+  <tr><td>1904</td><td>Founds her school for girls in Daytona Beach.</td><td>CLM-0003</td></tr>
+  <tr><td>December 5, 1935</td><td>Founds the National Council of Negro Women; leads Negro affairs at the National Youth Administration.</td><td>CLM-0004</td></tr>
+  <tr><td>1942</td><td>After a severe asthma attack, gives up the college presidency.</td><td>CLM-0005</td></tr>
+  <tr><td>1943</td><td>Asthma attacks recur in her correspondence; the Council House is bought in Washington.</td><td>CLM-0006, CLM-0007</td></tr>
+  <tr><td>1950</td><td>Leaves public life at 75 for her home on the campus.</td><td>CLM-0008, CLM-0009</td></tr>
+  <tr><td>May 18, 1955</td><td>Dies of a heart attack in Daytona Beach at 79.</td><td>CLM-0010, CLM-0011</td></tr></tbody></table></section>
+    <section><h2>Evidence claims</h2><p class="muted">D = documented, R = retrospective, S = synthetic.</p><table><thead><tr><th>Grade</th><th>Claim</th><th>Certainty</th><th>Sources</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>Mary Jane McLeod was born on July 10, 1875, near Mayesville, South Carolina, the fifteenth of seventeen children of Samuel and Patsy McLeod. Her parents, and eight of her older siblings, had been enslaved; after emancipation the family bought five acres of land and farmed cotton.</strong><div class="muted">The documented date used for the synthetic date of birth.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.nps.gov/hofr/learn/historyculture/mary-mcleod-bethune.htm" target="_blank" rel="noreferrer">Mary McLeod Bethune (The Roosevelts and African American Civil Rights Leaders)</a> <span class="relationship">supports</span><br><a href="https://www.encyclopedia.com/people/social-sciences-and-law/education-biographies/mary-mcleod-bethune" target="_blank" rel="noreferrer">Podesta J. Bethune, Mary McLeod 1875-1955 (Contemporary Black Biography)</a> <span class="relationship">supports</span><br><a href="https://humanrecord.example.org/internal/HISTMED_Master_Roster_v3.xlsx" target="_blank" rel="noreferrer">HISTMED Master Roster v3</a> <span class="relationship">context</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>She was the only McLeod child to get an education, first at a Presbyterian mission school near Mayesville and then at Scotia Seminary. In 1898 she married Albertus Bethune; they separated after about nine years without divorcing, and he died in 1918.</strong></td>
+    <td>confirmed</td>
+    <td><a href="https://www.nps.gov/hofr/learn/historyculture/mary-mcleod-bethune.htm" target="_blank" rel="noreferrer">Mary McLeod Bethune (The Roosevelts and African American Civil Rights Leaders)</a> <span class="relationship">supports</span><br><a href="https://www.encyclopedia.com/people/social-sciences-and-law/education-biographies/mary-mcleod-bethune" target="_blank" rel="noreferrer">Podesta J. Bethune, Mary McLeod 1875-1955 (Contemporary Black Biography)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>In 1904 she founded a school for Black girls in Daytona Beach, Florida. She opened McLeod Hospital there in 1911, which the National Park Service says played a critical role in containing the influenza pandemic of 1918, and she and her students faced down the Ku Klux Klan at the school. The school merged with the Cookman Institute (dated 1923 by the National Park Service; named Bethune-Cookman College in 1929 according to another reference), and she was its president until 1942.</strong><div class="muted">Her documented life&#39;s work as an educator anchors the modern social history.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.nps.gov/hofr/learn/historyculture/mary-mcleod-bethune.htm" target="_blank" rel="noreferrer">Mary McLeod Bethune (The Roosevelts and African American Civil Rights Leaders)</a> <span class="relationship">supports</span><br><a href="https://www.encyclopedia.com/people/social-sciences-and-law/education-biographies/mary-mcleod-bethune" target="_blank" rel="noreferrer">Podesta J. Bethune, Mary McLeod 1875-1955 (Contemporary Black Biography)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>She was president of the National Association of Colored Women from 1924, received the NAACP&#39;s Spingarn Medal in 1935, and founded the National Council of Negro Women on December 5, 1935. She directed the Division of Negro Affairs of the National Youth Administration from the mid-1930s until it closed in 1943 and led the informal group of Black federal advisers known as the Black Cabinet. She said of her place in Washington: &quot;When they see me, they know that the Negro is present.&quot;</strong><div class="muted">Her documented national leadership and constant travel anchor the modern social history and her concern about being able to keep working.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.nps.gov/hofr/learn/historyculture/mary-mcleod-bethune.htm" target="_blank" rel="noreferrer">Mary McLeod Bethune (The Roosevelts and African American Civil Rights Leaders)</a> <span class="relationship">supports</span><br><a href="https://www.nps.gov/articles/mary-mcleod-bethune-council-house.htm" target="_blank" rel="noreferrer">Mary McLeod Bethune Council House National Historic Site</a> <span class="relationship">supports</span><br><a href="https://www.encyclopedia.com/people/social-sciences-and-law/education-biographies/mary-mcleod-bethune" target="_blank" rel="noreferrer">Podesta J. Bethune, Mary McLeod 1875-1955 (Contemporary Black Biography)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>For many years she suffered from chronic asthma, which increasingly restricted her ability to travel, and after a particularly severe attack in 1942 she gave up the presidency of Bethune-Cookman College.</strong><div class="muted">The documented long-standing asthma to which the modern diagnosis is linked. The account comes from one reference work; the age at onset, the triggers and the treatment she received are not recorded in the sources found.</div></td>
+    <td>probable</td>
+    <td><a href="https://www.encyclopedia.com/people/social-sciences-and-law/education-biographies/mary-mcleod-bethune" target="_blank" rel="noreferrer">Baxter D. Bethune, Mary McLeod (1875-1955) (Women in World History: A Biographical Encyclopedia)</a> <span class="relationship">supports</span><br><a href="https://www.encyclopedia.com/people/social-sciences-and-law/education-biographies/mary-mcleod-bethune" target="_blank" rel="noreferrer">Podesta J. Bethune, Mary McLeod 1875-1955 (Contemporary Black Biography)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>The guide to her foundation&#39;s papers lists &quot;Bethune asthma attacks&quot; as a major topic of her administrative correspondence in the first half of 1943, and describes her health problems as a recurrent subject of her correspondence in those years.</strong><div class="muted">An archival finding aid describing her own correspondence; it corroborates repeated asthma attacks in the 1940s without clinical detail.</div></td>
+    <td>probable</td>
+    <td><a href="https://www.lexisnexis.com/documents/academic/upa_cis/1388_marmclbethfoundpt1.pdf" target="_blank" rel="noreferrer">Mary McLeod Bethune Papers: The Bethune Foundation Collection, Part 1 (guide to the microfilm edition)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>From 1935 she lived in a series of apartments in Washington, D.C., while keeping her home, known as the Retreat, on the campus in Daytona Beach. In December 1943 she and the National Council of Negro Women bought 1318 Vermont Avenue, which became the council&#39;s first national headquarters and her Washington residence.</strong><div class="muted">Anchors the modern household, divided between Daytona Beach and Washington.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://home.nps.gov/mamc/learn/historyculture/the-council-house.htm" target="_blank" rel="noreferrer">The Council House</a> <span class="relationship">supports</span><br><a href="https://www.nps.gov/articles/mary-mcleod-bethune-council-house.htm" target="_blank" rel="noreferrer">Mary McLeod Bethune Council House National Historic Site</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>She retired to Florida in the late 1940s while still president of the National Council of Negro Women, and on her 75th birthday in 1950 left public life for her small home on the Bethune-Cookman campus.</strong><div class="muted">History only, after the true-frame index date.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.lexisnexis.com/documents/academic/upa_cis/1388_marmclbethfoundpt1.pdf" target="_blank" rel="noreferrer">Mary McLeod Bethune Papers: The Bethune Foundation Collection, Part 1 (guide to the microfilm edition)</a> <span class="relationship">supports</span><br><a href="https://www.encyclopedia.com/people/social-sciences-and-law/education-biographies/mary-mcleod-bethune" target="_blank" rel="noreferrer">Baxter D. Bethune, Mary McLeod (1875-1955) (Women in World History: A Biographical Encyclopedia)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>In her last years her papers record a description of an asthma clinic in Biloxi, Mississippi (1950), and her failing health and a hospitalization (1952); in 1952 she travelled to Liberia as a U.S. delegate.</strong><div class="muted">History only, after the true-frame index date; the finding aid does not give the reason for the hospitalization.</div></td>
+    <td>probable</td>
+    <td><a href="https://www.lexisnexis.com/documents/academic/upa_cis/1388_marmclbethfoundpt1.pdf" target="_blank" rel="noreferrer">Mary McLeod Bethune Papers: The Bethune Foundation Collection, Part 1 (guide to the microfilm edition)</a> <span class="relationship">supports</span><br><a href="https://www.encyclopedia.com/people/social-sciences-and-law/education-biographies/mary-mcleod-bethune" target="_blank" rel="noreferrer">Baxter D. Bethune, Mary McLeod (1875-1955) (Women in World History: A Biographical Encyclopedia)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>She died of a heart attack in Daytona Beach, Florida, in May 1955, at 79. Two reference works give May 18, 1955; the National Park Service gives May 20 and says she died at home. Noting that her death was not far off, she had written &quot;My Last Will and Testament,&quot; published by Ebony after her death.</strong><div class="muted">History only, stated without detail. The date conflict is recorded; May 18 is preferred.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.encyclopedia.com/people/social-sciences-and-law/education-biographies/mary-mcleod-bethune" target="_blank" rel="noreferrer">Podesta J. Bethune, Mary McLeod 1875-1955 (Contemporary Black Biography)</a> <span class="relationship">supports</span><br><a href="https://www.encyclopedia.com/people/social-sciences-and-law/education-biographies/mary-mcleod-bethune" target="_blank" rel="noreferrer">Baxter D. Bethune, Mary McLeod (1875-1955) (Women in World History: A Biographical Encyclopedia)</a> <span class="relationship">supports</span><br><a href="https://www.nps.gov/hofr/learn/historyculture/mary-mcleod-bethune.htm" target="_blank" rel="noreferrer">Mary McLeod Bethune (The Roosevelts and African American Civil Rights Leaders)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-R" title="Retrospective">R</span></td>
+    <td><strong>Retrospective interpretation: a fatal heart attack at 79 is most consistent with coronary heart disease, but no source found describes heart symptoms, a cardiac diagnosis or blood pressure readings during her life.</strong><div class="muted">Retrospective and weak. The modern hypertensive heart findings are synthetic and are not a claim about her real heart.</div></td>
+    <td>possible</td>
+    <td><a href="https://www.encyclopedia.com/people/social-sciences-and-law/education-biographies/mary-mcleod-bethune" target="_blank" rel="noreferrer">Podesta J. Bethune, Mary McLeod 1875-1955 (Contemporary Black Biography)</a> <span class="relationship">supports</span><br><a href="https://www.encyclopedia.com/people/social-sciences-and-law/education-biographies/mary-mcleod-bethune" target="_blank" rel="noreferrer">Baxter D. Bethune, Mary McLeod (1875-1955) (Women in World History: A Biographical Encyclopedia)</a> <span class="relationship">supports</span></td>
+  </tr></tbody></table></section>
+    <section><h2>Modern synthetic problem list</h2><table><thead><tr><th>Grade</th><th>Problem</th><th>Clinical status</th><th>Verification</th><th>Placement</th><th>Historical claims</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Wheeze, cough and breathlessness for four months: waking with cough and tight chest two or three nights a week, breathless on one flight of stairs, relieved by albuterol, worse with colds, dust and strong scents; known asthma for many years but never confirmed by lung function testing and never treated with an inhaled steroid. Asthma, COPD and heart failure to be distinguished: spirometry with bronchodilator response, FeNO and an echocardiogram booked</td>
+    <td>resolved</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td>CLM-0005, CLM-0006</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Blocked nose, thick postnasal drip and a reduced sense of smell for years, worse in the last year; no nosebleeds; never seen by an ear, nose and throat specialist</td>
+    <td>resolved</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Gastro-esophageal reflux: heartburn and an acid taste two or three evenings a week, worse after late meals and lying down; no trouble swallowing, vomiting, black stools or weight loss</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Obesity, class 1 (BMI 33.1); she wants to walk more and to keep up with her work, and agreed to talk about it</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Moderate asthma exacerbation triggered by a cold: two days of worsening wheeze and night waking despite eight reliever inhalations a day, peak flow 205 L/min (60 percent of her best), oxygen saturation 94 percent; improved to 275 L/min in clinic; treated without admission; resolved</td>
+    <td>resolved</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td>CLM-0005, CLM-0006</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Asthma, confirmed: variable airflow obstruction (FEV1 64 percent predicted, rising 270 mL or 21 percent after bronchodilator, with a normal post-bronchodilator FEV1/FVC of 0.72 and normal DLCO); type 2 inflammation (FeNO 46 ppb, blood eosinophils 0.42 x10^3/uL, total IgE 210, house dust mite sensitization); not COPD and not heart failure. Uncontrolled at diagnosis on albuterol alone</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>both_with_link</td>
+    <td>CLM-0005, CLM-0006</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Hypertensive heart disease without heart failure: clinic blood pressure 152/88 and 146/86, home average 144/84; mild concentric left ventricular hypertrophy with grade 1 diastolic dysfunction and a normal ejection fraction (62 percent); BNP 48 pg/mL</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Hyperlipidemia: LDL cholesterol 144 mg/dL; 10-year ASCVD risk above 20 percent with hypertension</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Chronic rhinosinusitis without nasal polyps: years of congestion, postnasal drip and reduced smell, with mucosal swelling and mucus in both middle meatuses and no polyps on nasal endoscopy</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td></td>
+  </tr></tbody></table></section>
+    <section><h2>Synthetic outcome measures</h2><table><thead><tr><th>Grade</th><th>Date</th><th>Measure</th><th>Result</th><th>Coding</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-09</td>
+    <td>Hemoglobin [Mass/volume] in Blood</td>
+    <td>12.9 g/dL<div class="muted">Reference 12-15.5 g/dL</div></td>
+    <td>http://loinc.org · 718-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-09</td>
+    <td>Leukocytes [#/volume] in Blood by Automated count</td>
+    <td>7.6 10*3/uL<div class="muted">Reference 4-11 10*3/uL</div></td>
+    <td>http://loinc.org · 6690-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-09</td>
+    <td>Eosinophils [#/volume] in Blood by Automated count</td>
+    <td>0.42 10*3/uL<div class="muted">Reference 0-0.5 10*3/uL</div></td>
+    <td>http://loinc.org · 711-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-09</td>
+    <td>Platelets [#/volume] in Blood by Automated count</td>
+    <td>268 10*3/uL<div class="muted">Reference 150-400 10*3/uL</div></td>
+    <td>http://loinc.org · 777-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-09</td>
+    <td>Sodium [Moles/volume] in Serum or Plasma</td>
+    <td>140 mmol/L<div class="muted">Reference 135-145 mmol/L</div></td>
+    <td>http://loinc.org · 2951-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-09</td>
+    <td>Potassium [Moles/volume] in Serum or Plasma</td>
+    <td>4.1 mmol/L<div class="muted">Reference 3.5-5.1 mmol/L</div></td>
+    <td>http://loinc.org · 2823-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-09</td>
+    <td>Creatinine [Mass/volume] in Serum or Plasma</td>
+    <td>0.92 mg/dL<div class="muted">Reference 0.59-1.04 mg/dL</div></td>
+    <td>http://loinc.org · 2160-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-09</td>
+    <td>Glomerular filtration rate [Volume Rate/Area] in Serum, Plasma or Blood by Creatinine-based formula (CKD-EPI 2021)/1.73 sq M</td>
+    <td>66 mL/min/1.73 m²<div class="muted">Reference &gt;=60 mL/min/1.73 m²</div></td>
+    <td>http://loinc.org · 98979-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-09</td>
+    <td>Glucose [Mass/volume] in Serum or Plasma</td>
+    <td>102 mg/dL (high)<div class="muted">Reference 70-99 mg/dL</div></td>
+    <td>http://loinc.org · 2345-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-09</td>
+    <td>Hemoglobin A1c/Hemoglobin.total in Blood</td>
+    <td>5.9% (high)<div class="muted">Reference Below 5.7% is normal; 5.7 to 6.4% prediabetes; 6.5% or more diabetes</div></td>
+    <td>http://loinc.org · 4548-4</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-09</td>
+    <td>Thyrotropin [Units/volume] in Serum or Plasma</td>
+    <td>2.2 mIU/L<div class="muted">Reference 0.4-4 mIU/L</div></td>
+    <td>http://loinc.org · 3016-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-09</td>
+    <td>Natriuretic peptide B [Mass/volume] in Serum or Plasma</td>
+    <td>48 pg/mL<div class="muted">Reference Below 100 pg/mL makes heart failure unlikely</div></td>
+    <td>http://loinc.org · 30934-4</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-09</td>
+    <td>Cholesterol [Mass/volume] in Serum or Plasma</td>
+    <td>228 mg/dL (high)<div class="muted">Reference &lt;=199 mg/dL</div></td>
+    <td>http://loinc.org · 2093-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-09</td>
+    <td>Cholesterol in HDL [Mass/volume] in Serum or Plasma</td>
+    <td>56 mg/dL<div class="muted">Reference 50 mg/dL or more for women</div></td>
+    <td>http://loinc.org · 2085-9</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-09</td>
+    <td>Triglyceride [Mass/volume] in Serum or Plasma</td>
+    <td>140 mg/dL<div class="muted">Reference &lt;=149 mg/dL</div></td>
+    <td>http://loinc.org · 2571-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-09</td>
+    <td>Cholesterol in LDL [Mass/volume] in Serum or Plasma by calculation</td>
+    <td>144 mg/dL (high)<div class="muted">Reference &lt;=99 mg/dL</div></td>
+    <td>http://loinc.org · 13457-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-09</td>
+    <td>Albumin/Creatinine [Mass Ratio] in Urine</td>
+    <td>18 mg/g<div class="muted">Reference &lt;=30 mg/g</div></td>
+    <td>http://loinc.org · 9318-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-09</td>
+    <td>Patient Health Questionnaire 2 item (PHQ-2) total score [Reported]</td>
+    <td>1</td>
+    <td>http://loinc.org · 55758-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-09</td>
+    <td>Total score [ACT]</td>
+    <td>13</td>
+    <td>http://loinc.org · 82668-5</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-06-15</td>
+    <td>Maximum expiratory gas flow Respiratory system airway by Peak flow meter</td>
+    <td>205 L/min (low)<div class="muted">Reference 80 percent of her personal best of 340 L/min</div></td>
+    <td>http://loinc.org · 19935-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-09-21</td>
+    <td>Patient Health Questionnaire 2 item (PHQ-2) total score [Reported]</td>
+    <td>0</td>
+    <td>http://loinc.org · 55758-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-09-21</td>
+    <td>Total score [Mini-Cog]</td>
+    <td>5</td>
+    <td>http://loinc.org · 72233-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-09-21</td>
+    <td>Total score [AUDIT-C]</td>
+    <td>0</td>
+    <td>http://loinc.org · 75626-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-23</td>
+    <td>FEV1 --pre bronchodilation</td>
+    <td>1.3 L (low)<div class="muted">Reference Lower limit of normal, GLI Global race-neutral equations; predicted 2.03 L</div></td>
+    <td>http://loinc.org · 20157-4</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-23</td>
+    <td>FEV1 --post bronchodilation</td>
+    <td>1.57 L<div class="muted">Reference Lower limit of normal, GLI Global race-neutral equations; predicted 2.03 L</div></td>
+    <td>http://loinc.org · 20155-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-23</td>
+    <td>FEV1 measured/predicted</td>
+    <td>64% (low)<div class="muted">Reference GLI Global race-neutral equations</div></td>
+    <td>http://loinc.org · 20152-5</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-23</td>
+    <td>FEV1/FVC</td>
+    <td>0.64 (low)<div class="muted">Reference &gt;=0.7</div></td>
+    <td>http://loinc.org · 19926-5</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-23</td>
+    <td>FEV1/FVC --post bronchodilation</td>
+    <td>0.72<div class="muted">Reference 0.70 or more after bronchodilator: no persistent airflow obstruction</div></td>
+    <td>http://loinc.org · 69970-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-23</td>
+    <td>Diffusion capacity.carbon monoxide</td>
+    <td>17.2 mL/min/mm[Hg]<div class="muted">Reference Lower limit of normal, GLI race-neutral; predicted 18.6</div></td>
+    <td>http://loinc.org · 19911-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-23</td>
+    <td>Fractional concentration of exhaled nitric oxide</td>
+    <td>46 [ppb] (high)<div class="muted">Reference Above 50 ppb high; 25 to 50 intermediate (ATS)</div></td>
+    <td>http://loinc.org · 96269-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-23</td>
+    <td>Left ventricular Ejection fraction</td>
+    <td>62%<div class="muted">Reference 53-73%</div></td>
+    <td>http://loinc.org · 10230-1</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-23</td>
+    <td>IgE [Units/volume] in Serum or Plasma</td>
+    <td>210 [IU]/mL (high)<div class="muted">Reference &lt;=100 [IU]/mL</div></td>
+    <td>http://loinc.org · 19113-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-23</td>
+    <td>Total score [ACT]</td>
+    <td>14</td>
+    <td>http://loinc.org · 82668-5</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-05-04</td>
+    <td>Total score [ACT]</td>
+    <td>18</td>
+    <td>http://loinc.org · 82668-5</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-05-04</td>
+    <td>Potassium [Moles/volume] in Serum or Plasma</td>
+    <td>4.2 mmol/L<div class="muted">Reference 3.5-5.1 mmol/L</div></td>
+    <td>http://loinc.org · 2823-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-05-04</td>
+    <td>Creatinine [Mass/volume] in Serum or Plasma</td>
+    <td>0.94 mg/dL<div class="muted">Reference 0.59-1.04 mg/dL</div></td>
+    <td>http://loinc.org · 2160-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-05-04</td>
+    <td>Glomerular filtration rate [Volume Rate/Area] in Serum, Plasma or Blood by Creatinine-based formula (CKD-EPI 2021)/1.73 sq M</td>
+    <td>64 mL/min/1.73 m²<div class="muted">Reference &gt;=60 mL/min/1.73 m²</div></td>
+    <td>http://loinc.org · 98979-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-05-04</td>
+    <td>Cholesterol [Mass/volume] in Serum or Plasma</td>
+    <td>170 mg/dL<div class="muted">Reference &lt;=199 mg/dL</div></td>
+    <td>http://loinc.org · 2093-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-05-04</td>
+    <td>Cholesterol in HDL [Mass/volume] in Serum or Plasma</td>
+    <td>57 mg/dL<div class="muted">Reference 50 mg/dL or more for women</div></td>
+    <td>http://loinc.org · 2085-9</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-05-04</td>
+    <td>Triglyceride [Mass/volume] in Serum or Plasma</td>
+    <td>126 mg/dL<div class="muted">Reference &lt;=149 mg/dL</div></td>
+    <td>http://loinc.org · 2571-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-05-04</td>
+    <td>Cholesterol in LDL [Mass/volume] in Serum or Plasma by calculation</td>
+    <td>88 mg/dL<div class="muted">Reference &lt;=99 mg/dL</div></td>
+    <td>http://loinc.org · 13457-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-07-27</td>
+    <td>Total score [ACT]</td>
+    <td>22</td>
+    <td>http://loinc.org · 82668-5</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-07-27</td>
+    <td>FEV1 --pre bronchodilation</td>
+    <td>1.72 L<div class="muted">Reference Lower limit of normal, GLI Global race-neutral equations; predicted 2.03 L</div></td>
+    <td>http://loinc.org · 20157-4</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-07-27</td>
+    <td>FEV1 measured/predicted</td>
+    <td>85%<div class="muted">Reference GLI Global race-neutral equations</div></td>
+    <td>http://loinc.org · 20152-5</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-07-27</td>
+    <td>FEV1/FVC</td>
+    <td>0.73<div class="muted">Reference &gt;=0.7</div></td>
+    <td>http://loinc.org · 19926-5</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-07-27</td>
+    <td>Fractional concentration of exhaled nitric oxide</td>
+    <td>21 [ppb]<div class="muted">Reference Above 50 ppb high; 25 to 50 intermediate (ATS)</div></td>
+    <td>http://loinc.org · 96269-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-07-27</td>
+    <td>Maximum expiratory gas flow Respiratory system airway by Peak flow meter</td>
+    <td>330 L/min<div class="muted">Reference 80 percent of her personal best of 340 L/min</div></td>
+    <td>http://loinc.org · 19935-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-07-27</td>
+    <td>Hemoglobin [Mass/volume] in Blood</td>
+    <td>13 g/dL<div class="muted">Reference 12-15.5 g/dL</div></td>
+    <td>http://loinc.org · 718-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-07-27</td>
+    <td>Leukocytes [#/volume] in Blood by Automated count</td>
+    <td>7.1 10*3/uL<div class="muted">Reference 4-11 10*3/uL</div></td>
+    <td>http://loinc.org · 6690-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-07-27</td>
+    <td>Eosinophils [#/volume] in Blood by Automated count</td>
+    <td>0.24 10*3/uL<div class="muted">Reference 0-0.5 10*3/uL</div></td>
+    <td>http://loinc.org · 711-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-07-27</td>
+    <td>Platelets [#/volume] in Blood by Automated count</td>
+    <td>255 10*3/uL<div class="muted">Reference 150-400 10*3/uL</div></td>
+    <td>http://loinc.org · 777-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-07-27</td>
+    <td>Potassium [Moles/volume] in Serum or Plasma</td>
+    <td>4.3 mmol/L<div class="muted">Reference 3.5-5.1 mmol/L</div></td>
+    <td>http://loinc.org · 2823-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-07-27</td>
+    <td>Creatinine [Mass/volume] in Serum or Plasma</td>
+    <td>0.96 mg/dL<div class="muted">Reference 0.59-1.04 mg/dL</div></td>
+    <td>http://loinc.org · 2160-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-07-27</td>
+    <td>Glomerular filtration rate [Volume Rate/Area] in Serum, Plasma or Blood by Creatinine-based formula (CKD-EPI 2021)/1.73 sq M</td>
+    <td>62 mL/min/1.73 m²<div class="muted">Reference &gt;=60 mL/min/1.73 m²</div></td>
+    <td>http://loinc.org · 98979-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-07-27</td>
+    <td>Patient Health Questionnaire 2 item (PHQ-2) total score [Reported]</td>
+    <td>0</td>
+    <td>http://loinc.org · 55758-7</td>
+  </tr></tbody></table></section>
+    <section><h2>Synthetic vital signs</h2><table><thead><tr><th>Date</th><th>Measure</th><th>Result</th><th>LOINC</th><th>Grade</th></tr></thead><tbody>
+  <tr><td>2026-03-09</td><td>Body height</td><td>163 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-09</td><td>Body weight</td><td>88 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-09</td><td>Body mass index (BMI) [Ratio]</td><td>33.1 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-09</td><td>Systolic blood pressure</td><td>152 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-09</td><td>Diastolic blood pressure</td><td>88 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-09</td><td>Heart rate</td><td>82 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-09</td><td>Respiratory rate</td><td>20 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-09</td><td>Body temperature</td><td>36.7 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-09</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>95 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-15</td><td>Body height</td><td>163 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-15</td><td>Body weight</td><td>87.2 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-15</td><td>Body mass index (BMI) [Ratio]</td><td>32.8 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-15</td><td>Systolic blood pressure</td><td>138 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-15</td><td>Diastolic blood pressure</td><td>82 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-15</td><td>Heart rate</td><td>98 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-15</td><td>Respiratory rate</td><td>22 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-15</td><td>Body temperature</td><td>37.4 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-15</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>94 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-09-21</td><td>Body height</td><td>163 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-09-21</td><td>Body weight</td><td>86 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-09-21</td><td>Body mass index (BMI) [Ratio]</td><td>32.4 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-09-21</td><td>Systolic blood pressure</td><td>126 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-09-21</td><td>Diastolic blood pressure</td><td>76 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-09-21</td><td>Heart rate</td><td>70 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-09-21</td><td>Respiratory rate</td><td>16 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-09-21</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-09-21</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>97 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-23</td><td>Body height</td><td>163 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-23</td><td>Body weight</td><td>87.6 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-23</td><td>Body mass index (BMI) [Ratio]</td><td>33 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-23</td><td>Systolic blood pressure</td><td>146 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-23</td><td>Diastolic blood pressure</td><td>86 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-23</td><td>Heart rate</td><td>78 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-23</td><td>Respiratory rate</td><td>18 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-23</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-23</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>96 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-05-04</td><td>Body height</td><td>163 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-05-04</td><td>Body weight</td><td>87 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-05-04</td><td>Body mass index (BMI) [Ratio]</td><td>32.7 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-05-04</td><td>Systolic blood pressure</td><td>134 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-05-04</td><td>Diastolic blood pressure</td><td>80 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-05-04</td><td>Heart rate</td><td>76 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-05-04</td><td>Respiratory rate</td><td>16 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-05-04</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-05-04</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>97 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-07-27</td><td>Body height</td><td>163 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-07-27</td><td>Body weight</td><td>86.4 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-07-27</td><td>Body mass index (BMI) [Ratio]</td><td>32.5 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-07-27</td><td>Systolic blood pressure</td><td>128 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-07-27</td><td>Diastolic blood pressure</td><td>78 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-07-27</td><td>Heart rate</td><td>72 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-07-27</td><td>Respiratory rate</td><td>16 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-07-27</td><td>Body temperature</td><td>36.5 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-07-27</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>97 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr></tbody></table></section>
+    <section><h2>Social, functional, and mental status</h2><h3>Social history</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Retired college president who still chairs a national women&#39;s organization and travels to Washington, D.C., for its board meetings every month or two; lives in her own house on the campus in Daytona Beach and stays in the organization&#39;s Washington headquarters when she is there</li><li><span class="badge grade-S" title="Synthetic">S</span> Lives alone; separated from her husband long before his death decades ago; a son and grandchildren live nearby; colleagues and church members visit daily. No relative is named or given a role in her care</li><li><span class="badge grade-S" title="Synthetic">S</span> Grew up in a large farming family in South Carolina whose parents had been enslaved; has spent her life working against segregation, and has met clinicians who dismissed her breathlessness as her weight or her age</li><li><span class="badge grade-S" title="Synthetic">S</span> Never smoked; no vaping; no wood stove at home; no alcohol; no occupational dust or chemical exposure</li><li><span class="badge grade-S" title="Synthetic">S</span> Triggers she has noticed: colds, dust when papers and books are moved, strong perfume at meetings, and humid summer air; no pets; the house has central air conditioning</li></ul><h3>Functional status</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Independent in all activities of daily living; breathless on one flight of stairs and has cut back her travel because of night cough and breathlessness</li></ul><h3>Mental status</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Alert, dignified and forthright; frustrated that her breathing is slowing her work; PHQ-2 1; no thoughts of self-harm</li></ul></section>
+    
+    <section><h2>Allergies and medications</h2><h3>Allergies</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> No known allergy</li></ul><h3>Medications</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Albuterol 90 mcg/actuation inhaler, two puffs as needed, from an urgent care visit four months ago (used alone, without an inhaled steroid)</li><li><span class="badge grade-S" title="Synthetic">S</span> Prednisone 20 mg oral tablet, two tablets (40 mg) by mouth each morning for five days</li><li><span class="badge grade-S" title="Synthetic">S</span> Budesonide-formoterol 160/4.5 mcg inhaler as maintenance and reliever (GINA track 1, step 3): one inhalation twice daily and one inhalation as needed for symptoms, no more than 12 inhalations a day</li><li><span class="badge grade-S" title="Synthetic">S</span> Budesonide-formoterol 160/4.5 mcg inhaler with a spacer: two inhalations twice daily and one as needed (stepped up during the exacerbation), no more than 12 inhalations a day</li><li><span class="badge grade-S" title="Synthetic">S</span> Budesonide-formoterol 160/4.5 mcg inhaler with a spacer: one inhalation twice daily and one as needed, no more than 12 inhalations a day</li><li><span class="badge grade-S" title="Synthetic">S</span> Fluticasone propionate 50 mcg/actuation nasal spray, two sprays in each nostril once daily, aimed away from the septum</li><li><span class="badge grade-S" title="Synthetic">S</span> Sodium chloride 0.65% nasal spray, two sprays in each nostril up to four times daily before the steroid spray</li><li><span class="badge grade-S" title="Synthetic">S</span> Amlodipine 5 mg oral tablet, one tablet daily</li><li><span class="badge grade-S" title="Synthetic">S</span> Atorvastatin 20 mg oral tablet, one tablet daily</li><li><span class="badge grade-S" title="Synthetic">S</span> Omeprazole 20 mg delayed-release capsule, one capsule daily 30 minutes before breakfast for eight weeks</li></ul></section>
+    <section><h2>Procedures and immunizations</h2><h3>Procedures</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Chest X-ray, posteroanterior and lateral: mild hyperinflation; heart size normal (cardiothoracic ratio 0.48); no pulmonary edema, effusion, mass or consolidation</li><li><span class="badge grade-S" title="Synthetic">S</span> Resting 12-lead ECG: sinus rhythm at 80 per minute; left ventricular hypertrophy by voltage criteria; no Q waves, ST changes or arrhythmia</li><li><span class="badge grade-S" title="Synthetic">S</span> Advance care planning conversation, about 25 minutes, with her consent</li><li><span class="badge grade-S" title="Synthetic">S</span> Spirometry before and 15 minutes after albuterol 400 mcg, with DLCO and FeNO, interpreted with GLI Global race-neutral equations: FEV1 1.30 L (64 percent predicted) rising to 1.57 L (+270 mL, +21 percent); FEV1/FVC 0.64 before and 0.72 after; DLCO 92 percent predicted; FeNO 46 ppb. Variable airflow obstruction without persistent obstruction: asthma, not COPD</li><li><span class="badge grade-S" title="Synthetic">S</span> Transthoracic echocardiogram: left ventricular ejection fraction 62 percent; mild concentric left ventricular hypertrophy (septum 1.2 cm); grade 1 diastolic dysfunction; left atrium normal in size; right ventricle normal; estimated pulmonary artery systolic pressure 28 mmHg; no significant valve disease</li><li><span class="badge grade-S" title="Synthetic">S</span> Written asthma action plan with peak flow zones (green above 270 L/min, yellow 170 to 270, red below 170, based on a provisional best of 340 to be confirmed), given and explained</li><li><span class="badge grade-S" title="Synthetic">S</span> Nasal endoscopy by the ear, nose and throat specialist: swollen mucosa and mucus in both middle meatuses; no polyps or mass; septum near midline</li><li><span class="badge grade-S" title="Synthetic">S</span> Inhaler technique assessment with her own inhaler: she did not shake it, breathed in fast and did not hold her breath; retrained with a spacer and checked by teach-back</li><li><span class="badge grade-S" title="Synthetic">S</span> Spirometry before bronchodilator after stabilization: FEV1 1.72 L (85 percent predicted); FEV1/FVC 0.73</li></ul><h3>Immunizations</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> 2024-05-14: Recombinant zoster vaccine, dose 2 of 2</li><li><span class="badge grade-S" title="Synthetic">S</span> 2021-02-08: Tdap vaccine</li><li><span class="badge grade-S" title="Synthetic">S</span> 2026-03-23: Pneumococcal conjugate vaccine PCV20</li><li><span class="badge grade-S" title="Synthetic">S</span> 2026-09-21: Influenza vaccine, high-dose, this season</li><li><span class="badge grade-S" title="Synthetic">S</span> 2026-09-21: COVID-19 mRNA vaccine, this season&#39;s formula</li><li><span class="badge grade-S" title="Synthetic">S</span> 2026-09-21: Respiratory syncytial virus vaccine, single dose</li></ul></section>
+    <section><h2>Past medical history</h2><p class="muted">True biography with historical dates; not part of the synthetic care timeline.</p><ul><li><span class="badge grade-D" title="Documented">D</span> 1942: Chronic asthma for many years, increasingly limiting her travel; a particularly severe attack in 1942, after which she gave up the presidency of the college <span class="muted">(CLM-0005)</span></li><li><span class="badge grade-D" title="Documented">D</span> 1943: Repeated asthma attacks recorded in her correspondence <span class="muted">(CLM-0006)</span></li></ul><h3>Family history</h3><p class="muted">No family medical history is documented in the logged sources. Family history of real relatives is never synthesized.</p></section>
+    <section><h2>Care-plan goals</h2><table><thead><tr><th>Goal</th><th>Target date</th><th>Status</th><th>Outcome</th></tr></thead><tbody>
+  <tr><td>A confirmed diagnosis within three weeks: spirometry with bronchodilator response, FeNO and an echocardiogram, with the pulmonology consultation</td><td>2026-03-23</td><td>completed</td><td>Asthma confirmed by a 21 percent, 270 mL bronchodilator response and FeNO 46 ppb; heart failure excluded; hypertensive heart disease found, two weeks after the first visit</td></tr>
+  <tr><td>Asthma Control Test 20 or more, no night waking, and travel to Washington without breathlessness</td><td>2026-07-27</td><td>completed</td><td>Asthma Control Test 22; no night waking; travelled to two board meetings</td></tr>
+  <tr><td>Correct inhaler technique with her own inhaler at every visit, and a written asthma action plan she can use</td><td>2026-05-04</td><td>completed</td><td>Technique corrected with a spacer at six weeks; action plan written at diagnosis and used during the exacerbation</td></tr>
+  <tr><td>Blood pressure below 130/80 at home and in clinic</td><td>2026-07-27</td><td>completed</td><td>Clinic 128/78; home average 126/76 on amlodipine</td></tr>
+  <tr><td>No exacerbation needing oral corticosteroids</td><td>2026-07-27</td><td>completed</td><td>Not achieved: one moderate exacerbation with a cold, treated with five days of prednisone without admission</td></tr></tbody></table></section>
+    <section><h2>Interventions</h2><table><thead><tr><th>Intervention</th><th>Status</th><th>Guideline</th></tr></thead><tbody>
+  <tr><td>Pulmonology consultation in two weeks with spirometry before and after bronchodilator, DLCO and FeNO, to confirm or refute asthma, separate it from COPD and heart disease, and plan treatment</td><td>completed</td><td>GL-GINA-2025, GL-NAEPP-2020, GL-CMID-2026</td></tr>
+  <tr><td>Work-up of wheeze and breathlessness: chest X-ray, ECG, blood count with eosinophils, BNP, TSH and kidney function today; transthoracic echocardiogram before the consultation; albuterol continued as needed until testing, holding it for six hours before spirometry</td><td>completed</td><td>GL-GINA-2025, GL-NAEPP-2020, GL-AHA-HF-2022</td></tr>
+  <tr><td>Home blood pressure readings twice daily for a week, with a validated upper-arm cuff, because clinic readings are raised</td><td>completed</td><td>GL-AHA-HTN-2025, GL-CMID-2026</td></tr>
+  <tr><td>Equity safeguards: spirometry read with race-neutral GLI Global equations, plain explanation of every result, and a check at each visit that her symptoms are not put down to her weight or age</td><td>completed</td><td>GL-ATS-RACE-2023, GL-MMWR-ASTHMA-2021</td></tr>
+  <tr><td>GINA track 1: budesonide-formoterol 160/4.5 mcg as maintenance and reliever (one inhalation twice daily and one as needed, no more than 12 a day), albuterol stopped; inhaler technique, adherence and Asthma Control Test at every visit; a written asthma action plan with peak flow zones; review six weeks after any change and within a week of any exacerbation</td><td>completed</td><td>GL-GINA-2025, GL-NAEPP-2020, GL-CMID-2026</td></tr>
+  <tr><td>Hypertensive heart disease without heart failure: amlodipine 5 mg daily (a beta-blocker avoided because of asthma), a lower-salt diet, home readings, and kidney function and potassium at follow-up</td><td>completed</td><td>GL-AHA-HTN-2025, GL-CMID-2026</td></tr>
+  <tr><td>Cardiovascular prevention: atorvastatin 20 mg daily for a 10-year ASCVD risk above 20 percent</td><td>completed</td><td>GL-AHA-HTN-2025</td></tr>
+  <tr><td>Upper airway and reflux: fluticasone nasal spray and saline rinses, ear, nose and throat review with nasal endoscopy; omeprazole for eight weeks for heartburn with meal timing and head-of-bed elevation, then stop if settled</td><td>completed</td><td>GL-GINA-2025, GL-CMID-2026</td></tr>
+  <tr><td>Weight and fitness, as she chooses: a dietitian visit, a walking plan she can follow on campus and in Washington, and a later discussion of medicines for weight if she wants one</td><td>completed</td><td>GL-GINA-2025, GL-CMID-2026</td></tr>
+  <tr><td>Biologic assessment: not indicated while asthma is controlled on low-to-medium dose ICS-formoterol with good technique; repeat blood eosinophils and refer for biologic therapy if asthma becomes uncontrolled on step 4 to 5 treatment or there are two or more exacerbations needing oral corticosteroids in a year</td><td>completed</td><td>GL-GINA-2025, GL-CMID-2026</td></tr></tbody></table></section>
+    <section><h2>Planned encounters</h2><ul>
+  <li><strong>2026-03-09</strong> — New patient visit for four months of wheeze, night cough and breathlessness on exertion in a 72-year-old woman with long-standing asthma that was never confirmed: examination, chest X-ray, ECG, blood tests and BNP, and planning of lung function testing and an echocardiogram <span class="muted">(ENC-001)</span></li>
+  <li><strong>2026-03-23</strong> — Diagnosis visit: spirometry, FeNO and echocardiogram results with the pulmonology consultation; asthma confirmed, heart failure excluded, hypertensive heart disease found; start of budesonide-formoterol as maintenance and reliever <span class="muted">(ENC-002)</span></li>
+  <li><strong>2026-05-04</strong> — Six-week asthma review: control, inhaler technique and adherence, the ear, nose and throat result, blood pressure and reflux <span class="muted">(ENC-003)</span></li>
+  <li><strong>2026-06-15</strong> — Same-day sick visit for an asthma exacerbation with a cold <span class="muted">(ENC-005, unscheduled)</span></li>
+  <li><strong>2026-07-27</strong> — Review six weeks after an exacerbation: control, repeat spirometry and FeNO, biologic assessment, blood pressure and the post-exacerbation plan <span class="muted">(ENC-004)</span></li>
+  <li><strong>2026-09-21</strong> — Subsequent annual wellness visit <span class="muted">(ENC-006)</span></li></ul></section>
+    <section><h2>Supporting documents</h2><ul><li><a href="notes/hp.md">History and physical</a></li><li><a href="notes/progress-01.md">Progress note 01</a></li><li><a href="notes/progress-02.md">Progress note 02 — Focused Visit (Follow-up)</a></li><li><a href="notes/progress-03.md">Progress note 03 — Focused Visit (Follow-up)</a></li><li><a href="notes/progress-04.md">Progress note 04 — Sick Visit</a></li><li><a href="notes/progress-05.md">Progress note 05 — Focused Visit (Care-plan review)</a></li><li><a href="notes/progress-06.md">Progress note 06 — Annual Wellness Visit, Subsequent</a></li><li><a href="notes/referral-01.md">Pulmonology (asthma) referral</a></li><li><a href="notes/consult-01.md">Pulmonology (asthma) consultation</a></li><li><a href="notes/careplan.md">Patient care plan</a></li><li><a href="notes/teaching-note.md">Teaching note</a></li><li><a href="provenance.csv">Provenance CSV</a></li></ul></section>
+    <section><h2>C-CDA note documents</h2><p class="muted">Each link opens a readable copy; the XML beside it is the exchange file.</p><ul><li><a href="ccda/hp-01.html">History and physical</a> <a href="ccda/hp-01.xml">(XML)</a></li><li><a href="ccda/progress-01.html">Progress note 01</a> <a href="ccda/progress-01.xml">(XML)</a></li><li><a href="ccda/progress-02.html">Progress note 02 — Focused Visit (Follow-up)</a> <a href="ccda/progress-02.xml">(XML)</a></li><li><a href="ccda/progress-03.html">Progress note 03 — Focused Visit (Follow-up)</a> <a href="ccda/progress-03.xml">(XML)</a></li><li><a href="ccda/progress-04.html">Progress note 04 — Sick Visit</a> <a href="ccda/progress-04.xml">(XML)</a></li><li><a href="ccda/progress-05.html">Progress note 05 — Focused Visit (Care-plan review)</a> <a href="ccda/progress-05.xml">(XML)</a></li><li><a href="ccda/progress-06.html">Progress note 06 — Annual Wellness Visit, Subsequent</a> <a href="ccda/progress-06.xml">(XML)</a></li><li><a href="ccda/referral-01.html">Pulmonology (asthma) referral</a> <a href="ccda/referral-01.xml">(XML)</a></li><li><a href="ccda/consult-01.html">Pulmonology (asthma) consultation</a> <a href="ccda/consult-01.xml">(XML)</a></li></ul></section>
+    <section><h2>Sources</h2><table><thead><tr><th>ID</th><th>Source</th><th>Publisher</th><th>Type</th></tr></thead><tbody>
+  <tr>
+    <td>SRC-0001</td>
+    <td><a href="https://www.nps.gov/hofr/learn/historyculture/mary-mcleod-bethune.htm" target="_blank" rel="noreferrer">Mary McLeod Bethune (The Roosevelts and African American Civil Rights Leaders)</a></td>
+    <td>National Park Service</td>
+    <td>government</td>
+  </tr>
+  <tr>
+    <td>SRC-0002</td>
+    <td><a href="https://home.nps.gov/mamc/learn/historyculture/the-council-house.htm" target="_blank" rel="noreferrer">The Council House</a></td>
+    <td>National Park Service, Mary McLeod Bethune Council House National Historic Site</td>
+    <td>government</td>
+  </tr>
+  <tr>
+    <td>SRC-0003</td>
+    <td><a href="https://www.nps.gov/articles/mary-mcleod-bethune-council-house.htm" target="_blank" rel="noreferrer">Mary McLeod Bethune Council House National Historic Site</a></td>
+    <td>National Park Service</td>
+    <td>government</td>
+  </tr>
+  <tr>
+    <td>SRC-0004</td>
+    <td><a href="https://www.encyclopedia.com/people/social-sciences-and-law/education-biographies/mary-mcleod-bethune" target="_blank" rel="noreferrer">Podesta J. Bethune, Mary McLeod 1875-1955 (Contemporary Black Biography)</a></td>
+    <td>Encyclopedia.com (Gale)</td>
+    <td>biography</td>
+  </tr>
+  <tr>
+    <td>SRC-0005</td>
+    <td><a href="https://www.encyclopedia.com/people/social-sciences-and-law/education-biographies/mary-mcleod-bethune" target="_blank" rel="noreferrer">Baxter D. Bethune, Mary McLeod (1875-1955) (Women in World History: A Biographical Encyclopedia)</a></td>
+    <td>Encyclopedia.com (Gale)</td>
+    <td>biography</td>
+  </tr>
+  <tr>
+    <td>SRC-0006</td>
+    <td><a href="https://www.lexisnexis.com/documents/academic/upa_cis/1388_marmclbethfoundpt1.pdf" target="_blank" rel="noreferrer">Mary McLeod Bethune Papers: The Bethune Foundation Collection, Part 1 (guide to the microfilm edition)</a></td>
+    <td>University Publications of America (LexisNexis)</td>
+    <td>primary</td>
+  </tr>
+  <tr>
+    <td>SRC-0007</td>
+    <td><a href="https://humanrecord.example.org/internal/HISTMED_Master_Roster_v3.xlsx" target="_blank" rel="noreferrer">HISTMED Master Roster v3</a></td>
+    <td>The Human Record project</td>
+    <td>other</td>
+  </tr></tbody></table></section>
+    <section><h2>Review status</h2><table><thead><tr><th>Review</th><th>Status</th><th>Notes</th></tr></thead><tbody>
+  <tr><td>schema validation</td><td>not_started</td><td>Run scripts/build.ps1 -Conformance.</td></tr>
+  <tr><td>clinical review</td><td>not_started</td><td>Awaiting clinician review; check the separation of asthma from COPD and heart failure (bronchodilator response, post-bronchodilator ratio, DLCO, FeNO, BNP and echocardiogram), the choice of GINA track 1 maintenance-and-reliever therapy and the decision not to step up before technique was corrected, the exacerbation management and the missed in-person review within a week, the biologic assessment, amlodipine rather than a beta-blocker, and the statin decision.</td></tr>
+  <tr><td>provenance review</td><td>not_started</td><td>She died in 1955; the recent-death rule does not apply. Claims rest on three National Park Service pages, two reference biographies on Encyclopedia.com, and the University Publications of America guide to her foundation&#39;s papers. Her chronic asthma and the 1942 attack are D from one reference biography, corroborated by the archival guide. The sinus surgery at Johns Hopkins could not be verified and is left out. Her heart disease before her fatal heart attack is not documented; the retrospective claim is R, possible.</td></tr>
+  <tr><td>safe messaging review</td><td>not_started</td><td>No mental health or substance claim is made; mood screens are synthetic and below the threshold for a safety assessment. Obesity is recorded in her words and with her agreement. Her death is recorded once, without detail. No relative is given a role in the modern episode; the president and the first lady of her Washington years are not named.</td></tr></tbody></table></section>
+  </main>
+</body>
+</html>

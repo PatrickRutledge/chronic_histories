@@ -1,0 +1,847 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Robert Peary — The Human Record</title>
+  <style>
+    :root { --navy:#17365d; --blue:#1f4e78; --pale:#eef5fa; --ink:#1f2933; --muted:#66788a; --amber:#fff2cc; --red:#f8d7da; --green:#d9ead3; }
+    * { box-sizing:border-box; }
+    body { margin:0; font:16px/1.5 Arial, sans-serif; color:var(--ink); background:#f6f8fa; }
+    header { background:var(--navy); color:white; padding:24px max(24px,calc((100vw - 1180px)/2)); }
+    header h1 { margin:4px 0; font-size:30px; }
+    .banner { background:#b42318; color:white; font-weight:700; text-align:center; padding:10px; letter-spacing:.03em; }
+    main { max-width:1180px; margin:24px auto 60px; padding:0 24px; }
+    section { background:white; border:1px solid #d9e1e8; border-radius:8px; margin:18px 0; padding:20px; }
+    h2 { color:var(--navy); margin:0 0 14px; font-size:22px; }
+    h3 { color:var(--blue); }
+    .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:12px; }
+    .card { background:var(--pale); border-left:4px solid var(--blue); padding:12px; }
+    .label { color:var(--muted); font-size:13px; text-transform:uppercase; letter-spacing:.04em; }
+    table { width:100%; border-collapse:collapse; }
+    th { background:var(--blue); color:white; text-align:left; }
+    th,td { padding:9px; border-bottom:1px solid #dfe6ec; vertical-align:top; }
+    .badge { display:inline-block; min-width:28px; text-align:center; font-weight:700; border-radius:12px; padding:2px 8px; }
+    .grade-D { background:var(--green); } .grade-R { background:var(--amber); } .grade-S { background:var(--red); }
+    .muted { color:var(--muted); font-size:14px; }
+    .relationship { color:var(--muted); font-size:12px; }
+    .downloads a { display:inline-block; margin:4px 8px 4px 0; padding:8px 12px; background:var(--blue); color:white; text-decoration:none; border-radius:5px; }
+    @media (max-width:700px) { table { display:block; overflow-x:auto; } }
+  </style>
+</head>
+<body>
+  <div class="banner">SYNTHETIC RECORD, NOT A REAL MEDICAL RECORD</div>
+  <header>
+    <div>The Human Record</div>
+    <h1>Robert Peary</h1>
+    <div>Case HR-EX004 · Modern EHR teaching episode · Draft for review</div>
+  </header>
+  <main>
+    <section>
+      <h2>Review summary</h2>
+      <div class="grid">
+        <div class="card"><div class="label">Historical dates</div>May 6, 1856 – February 20, 1920</div>
+        <div class="card"><div class="label">Synthetic DOB</div>1963-05-06</div>
+        <div class="card"><div class="label">Index visit</div>2026-01-13 at age 62</div>
+        <div class="card"><div class="label">Synthetic MRN</div>HR-EX004-SYN</div>
+      </div>
+      <p><strong>Teaching objective:</strong> Pernicious anemia in an older man with old frostbite amputations: a 62-year-old retired naval officer and polar explorer comes in with four months of fatigue, breathlessness, pallor, a sore tongue and numb, unsteady feet. The episode covers the blood count, MCV, smear and reticulocytes; vitamin B12, methylmalonic acid, homocysteine and folate; iron studies; intrinsic factor and parietal cell antibodies and gastrin; treatment without delay when nerves are affected, with intramuscular cyanocobalamin loading, a weekly phase and lifelong monthly maintenance under the 2014 British Society for Haematology guideline and the 2024 NICE guideline, and high-dose oral therapy as an alternative; the reticulocyte response and the risk of low potassium early in treatment; restrictive transfusion; upper endoscopy for neuroendocrine tumors and gastric cancer risk and its surveillance under the 2021 AGA clinical practice update on atrophic gastritis; screening for autoimmune thyroid disease and diabetes; iron deficiency unmasked by recovery; the examination of subacute combined degeneration and its partial recovery; neuropathy and falls; and foot care for a man with old toe amputations, with footwear, daily skin checks and podiatry.</p>
+      <div class="downloads">
+        <a href="../case.json">Canonical JSON</a>
+        <a href="fhir-bundle.json">FHIR R4 draft</a>
+        <a href="ccda.html">C-CDA R2.1 summary</a> <a href="ccda.xml">(XML)</a> <a href="review.html">Review checklist</a>
+        <a href="../sources.md">Evidence dossier</a>
+      </div>
+    </section>
+    <section><h2>Historical timeline</h2><table><thead><tr><th>Date</th><th>Event</th><th>Claims</th></tr></thead><tbody>
+  <tr><td>May 6, 1856</td><td>Born in Cresson, Pennsylvania; his father dies within three years and his mother raises him in Maine.</td><td>CLM-0001</td></tr>
+  <tr><td>1877</td><td>Graduates from Bowdoin College as a civil engineer; later joins the Navy Civil Engineer Corps and hires Matthew Henson in Nicaragua.</td><td>CLM-0002</td></tr>
+  <tr><td>1886</td><td>First of eight Arctic expeditions, carried out with the help of Inughuit men and women.</td><td>CLM-0003</td></tr>
+  <tr><td>1888</td><td>Marries; two children follow.</td><td>CLM-0008</td></tr>
+  <tr><td>July 11, 1891</td><td>Breaks both bones of a leg above the ankle aboard the Kite.</td><td>CLM-0004</td></tr>
+  <tr><td>1897</td><td>Brings six Inughuit people to New York; four die within months.</td><td>CLM-0005</td></tr>
+  <tr><td>January 6, 1899</td><td>Both feet frozen on reaching Fort Conger, Ellesmere Island; most of his toes amputated in March.</td><td>CLM-0006, CLM-0007</td></tr>
+  <tr><td>1900</td><td>Has two sons with an Inughuit woman in Greenland during the expeditions of these years.</td><td>CLM-0008</td></tr>
+  <tr><td>April 6, 1909</td><td>Reports reaching the North Pole with Matthew Henson and four Inughuit men; the claim is disputed.</td><td>CLM-0009</td></tr>
+  <tr><td>1911</td><td>Retires as a rear admiral; lives in Washington, D.C., with summers on Eagle Island, Maine.</td><td>CLM-0010</td></tr>
+  <tr><td>February 20, 1920</td><td>Dies of pernicious anemia; buried at Arlington National Cemetery. Liver therapy, the first effective treatment, came only after his death.</td><td>CLM-0013, CLM-0014</td></tr></tbody></table></section>
+    <section><h2>Evidence claims</h2><p class="muted">D = documented, R = retrospective, S = synthetic.</p><table><thead><tr><th>Grade</th><th>Claim</th><th>Certainty</th><th>Sources</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>Robert Edwin Peary was born on May 6, 1856, in Cresson, Pennsylvania. His father died within three years of his birth, and his mother raised him in southern Maine.</strong></td>
+    <td>confirmed</td>
+    <td><a href="https://www.bowdoin.edu/arctic-museum/educational-resources/arctic-biographies/peary.html" target="_blank" rel="noreferrer">Robert E. Peary (Arctic biographies)</a> <span class="relationship">supports</span><br><a href="https://pubs.aina.ucalgary.ca/arctic/Arctic35-4-556.pdf" target="_blank" rel="noreferrer">Weems JE. Arctic Profiles: Robert Edwin Peary (1856-1920). Arctic 1982;35(4):556</a> <span class="relationship">supports</span><br><a href="https://humanrecord.example.org/internal/HISTMED_Master_Roster_v3.xlsx" target="_blank" rel="noreferrer">HISTMED Master Roster v3</a> <span class="relationship">context</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>He graduated from Bowdoin College as a civil engineer in 1877, joined the Coast and Geodetic Survey in Washington in 1879 and the U.S. Navy Civil Engineer Corps in 1881, and surveyed in Nicaragua for a proposed canal; there he hired Matthew Henson, the African American who proved indispensable to his Arctic work.</strong><div class="muted">Anchors his background as an engineer and naval officer.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.bowdoin.edu/arctic-museum/educational-resources/arctic-biographies/peary.html" target="_blank" rel="noreferrer">Robert E. Peary (Arctic biographies)</a> <span class="relationship">supports</span><br><a href="https://pubs.aina.ucalgary.ca/arctic/Arctic35-4-556.pdf" target="_blank" rel="noreferrer">Weems JE. Arctic Profiles: Robert Edwin Peary (1856-1920). Arctic 1982;35(4):556</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>From 1886 to 1909 he planned and led eight Arctic expeditions, one of them four years long, relying on the help of Inughuit (Polar Inuit) men and women of northwestern Greenland, who hunted, sledged, sewed and overwintered with his parties. On the 1891 to 1892 expedition he showed that Greenland is an island.</strong><div class="muted">History of his work and of the Inughuit people whose labor made the expeditions possible; no health fact about any of them is recorded.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://pubs.aina.ucalgary.ca/arctic/Arctic35-4-556.pdf" target="_blank" rel="noreferrer">Weems JE. Arctic Profiles: Robert Edwin Peary (1856-1920). Arctic 1982;35(4):556</a> <span class="relationship">supports</span><br><a href="https://pubs.aina.ucalgary.ca/arctic/Arctic67-3-340.pdf" target="_blank" rel="noreferrer">LeMoine G. Elatu&#39;s Funeral: A Glimpse of Inughuit-American Relations on Robert E. Peary&#39;s 1898-1902 Expedition. Arctic 2014;67(3):340-346</a> <span class="relationship">supports</span><br><a href="https://www.bowdoin.edu/arctic-museum/educational-resources/arctic-biographies/peary.html" target="_blank" rel="noreferrer">Robert E. Peary (Arctic biographies)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>On July 11, 1891, aboard the Kite in the ice of Melville Bay, the iron tiller, jammed over by an ice cake, caught his leg against the deckhouse and broke both bones just above the ankle; the leg was set and he was carried ashore at the winter camp.</strong><div class="muted">Past injury; the healed fracture is recorded in the past medical history.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://learn.bowdoin.edu/pearys-north-pole-explorations/maps/1891/1891-16-a-broken-leg.html" target="_blank" rel="noreferrer">1891 - Melville Bay Ice Pack; A Broken Leg (Polar Pathways: Robert E. Peary&#39;s Arctic Expeditions)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>In 1897, at the request of staff of the American Museum of Natural History, who had asked for one Inughuit man to work with the museum for a year, he brought six Inughuit people from Greenland to New York: three men, a woman and two children. Within months four of them had died; a boy of about seven, whose father was among the dead, was left an orphan far from home, and the museum kept his father&#39;s bones instead of burying them.</strong><div class="muted">A documented part of his treatment of Inuit people, recorded plainly. It has no clinical role in the modern episode; no health fact about any of the six is recorded.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.bowdoin.edu/news/2018/10/caught-in-the-middle-the-tragic-life-of-minik-wallace.html" target="_blank" rel="noreferrer">Caught in the Middle: The Tragic Life of Minik Wallace</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>On the expedition of 1898 to 1902, reaching the old station at Fort Conger on Ellesmere Island at midnight on January 6, 1899, he found that both feet were frozen; in March a doctor amputated the affected toes. He lost most of his toes, and the stumps were often left bloody and aching by knocks against rough ice on later journeys.</strong><div class="muted">Anchors the synthetic toe amputations, the forefoot care and the importance of foot protection in the modern episode.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://learn.bowdoin.edu/pearys-north-pole-explorations/maps/1898-1902-expeditions/1898-07-fort-conger.html" target="_blank" rel="noreferrer">1898 to Fort Conger: Demise of Peary&#39;s Toes (Polar Pathways: Robert E. Peary&#39;s Arctic Expeditions)</a> <span class="relationship">supports</span><br><a href="https://pubs.aina.ucalgary.ca/arctic/Arctic35-4-556.pdf" target="_blank" rel="noreferrer">Weems JE. Arctic Profiles: Robert Edwin Peary (1856-1920). Arctic 1982;35(4):556</a> <span class="relationship">supports</span><br><a href="https://pubs.aina.ucalgary.ca/arctic/Arctic67-3-340.pdf" target="_blank" rel="noreferrer">LeMoine G. Elatu&#39;s Funeral: A Glimpse of Inughuit-American Relations on Robert E. Peary&#39;s 1898-1902 Expedition. Arctic 2014;67(3):340-346</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-R" title="Retrospective">R</span></td>
+    <td><strong>The number of toes he lost is uncertain: the roster says eight, and a historian of the expedition notes that the exact number and circumstances have been mythologized.</strong><div class="muted">The synthetic modern record gives a number (toes two to five on each foot); it is not a claim about the real count.</div></td>
+    <td>disputed</td>
+    <td><a href="https://pubs.aina.ucalgary.ca/arctic/Arctic67-3-340.pdf" target="_blank" rel="noreferrer">LeMoine G. Elatu&#39;s Funeral: A Glimpse of Inughuit-American Relations on Robert E. Peary&#39;s 1898-1902 Expedition. Arctic 2014;67(3):340-346</a> <span class="relationship">supports</span><br><a href="https://humanrecord.example.org/internal/HISTMED_Master_Roster_v3.xlsx" target="_blank" rel="noreferrer">HISTMED Master Roster v3</a> <span class="relationship">context</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>He married in 1888 and had two children with his wife. He also had two sons with an Inughuit woman in Greenland, born during his expeditions; his daughter&#39;s papers name them as her half-brothers, and one of them was an infant in the winter of 1900 to 1901.</strong><div class="muted">Documented family history recorded plainly as history; no relative has any statement, decision or health fact in the modern episode, and no descendant is named.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://pubs.aina.ucalgary.ca/arctic/Arctic35-4-556.pdf" target="_blank" rel="noreferrer">Weems JE. Arctic Profiles: Robert Edwin Peary (1856-1920). Arctic 1982;35(4):556</a> <span class="relationship">supports</span><br><a href="https://library.une.edu/mwwc/collections/collections-a-z/marie-ahnighito-peary-papers-1862-1995/" target="_blank" rel="noreferrer">Marie Ahnighito Peary papers, 1862-1995 (finding aid)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>On April 6, 1909, he reported reaching the North Pole with Matthew Henson and four Inughuit men, Ootah, Egingwah, Seegloo and Ooqueah (Odaq, Iggianguaq, Sigluk and Ukkujaaq in today&#39;s spelling). Frederick Cook announced a competing claim days before Peary returned; most geographic bodies came to credit Peary, but the claim has long been disputed.</strong><div class="muted">History of his work and of his companions; the dispute is a documented fact, not a health fact.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.bowdoin.edu/arctic-museum/educational-resources/arctic-biographies/peary.html" target="_blank" rel="noreferrer">Robert E. Peary (Arctic biographies)</a> <span class="relationship">supports</span><br><a href="https://pubs.aina.ucalgary.ca/arctic/Arctic35-4-556.pdf" target="_blank" rel="noreferrer">Weems JE. Arctic Profiles: Robert Edwin Peary (1856-1920). Arctic 1982;35(4):556</a> <span class="relationship">supports</span><br><a href="https://www.arlingtoncemetery.mil/Explore/Notable-Graves/Explorers" target="_blank" rel="noreferrer">Notable Graves: Explorers</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>He retired from the Navy in 1911 as a rear admiral with the Thanks of Congress, and lived his last years with his family in Washington, D.C., spending summers on Eagle Island on the Maine coast; the dispute over his claim cast a pall over those years.</strong><div class="muted">Anchors the setting and the social history of the modern episode.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.bowdoin.edu/arctic-museum/educational-resources/arctic-biographies/peary.html" target="_blank" rel="noreferrer">Robert E. Peary (Arctic biographies)</a> <span class="relationship">supports</span><br><a href="https://pubs.aina.ucalgary.ca/arctic/Arctic35-4-556.pdf" target="_blank" rel="noreferrer">Weems JE. Arctic Profiles: Robert Edwin Peary (1856-1920). Arctic 1982;35(4):556</a> <span class="relationship">supports</span><br><a href="https://www.arlingtoncemetery.mil/Explore/Notable-Graves/Explorers" target="_blank" rel="noreferrer">Notable Graves: Explorers</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>He died on February 20, 1920, of pernicious anemia, and was buried at Arlington National Cemetery, where Matthew Henson was later reinterred beside him.</strong><div class="muted">Anchors the modern diagnosis of pernicious anemia in the last years of his life; the timing of its onset and its treatment are not documented in the sources read.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://pubs.aina.ucalgary.ca/arctic/Arctic35-4-556.pdf" target="_blank" rel="noreferrer">Weems JE. Arctic Profiles: Robert Edwin Peary (1856-1920). Arctic 1982;35(4):556</a> <span class="relationship">supports</span><br><a href="https://www.bowdoin.edu/arctic-museum/educational-resources/arctic-biographies/peary.html" target="_blank" rel="noreferrer">Robert E. Peary (Arctic biographies)</a> <span class="relationship">supports</span><br><a href="https://www.arlingtoncemetery.mil/Explore/Notable-Graves/Explorers" target="_blank" rel="noreferrer">Notable Graves: Explorers</a> <span class="relationship">supports</span><br><a href="https://humanrecord.example.org/internal/HISTMED_Master_Roster_v3.xlsx" target="_blank" rel="noreferrer">HISTMED Master Roster v3</a> <span class="relationship">context</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>Liver therapy for pernicious anemia, the first effective treatment, was discovered only after his death; George Whipple, George Minot and William Murphy shared the 1934 Nobel Prize in Physiology or Medicine for it.</strong><div class="muted">Context: in his lifetime pernicious anemia had no effective treatment; the modern episode shows how it is treated now.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.nobelprize.org/prizes/medicine/1934/summary/" target="_blank" rel="noreferrer">The Nobel Prize in Physiology or Medicine 1934 (summary)</a> <span class="relationship">supports</span></td>
+  </tr></tbody></table></section>
+    <section><h2>Modern synthetic problem list</h2><table><thead><tr><th>Grade</th><th>Problem</th><th>Clinical status</th><th>Verification</th><th>Placement</th><th>Historical claims</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Fatigue, breathlessness on exertion, pallor with a lemon-yellow tinge, a sore tongue, and numbness and unsteadiness in the feet over about four months, with a macrocytic anemia, low white cells and platelets, a low vitamin B12 and a high methylmalonic acid; cause under evaluation with a hematology consultation</td>
+    <td>resolved</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td>CLM-0013</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Pernicious anemia (autoimmune gastritis with intrinsic factor antibodies), with severe vitamin B12 deficiency; synthetic modern diagnosis linked to the documented cause of his death</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>both_with_link</td>
+    <td>CLM-0013</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Subacute combined degeneration of the spinal cord with peripheral neuropathy from vitamin B12 deficiency: loss of vibration and joint position sense in the feet, absent ankle jerks, brisk knee jerks and a positive Romberg test</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td>CLM-0013</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Absence of the second to fifth toes of the right foot after frostbite and amputation in early middle age; healed stumps; callus under the first metatarsal head</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>both_with_link</td>
+    <td>CLM-0006, CLM-0007</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Absence of the second to fifth toes of the left foot after frostbite and amputation in early middle age; healed stumps</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>both_with_link</td>
+    <td>CLM-0006, CLM-0007</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>One fall in a dark bedroom a month ago without injury; unsteady in the dark and on uneven ground; uses a stick outdoors</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td>CLM-0006, CLM-0007</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Autoimmune atrophic gastritis, corpus-predominant, with intestinal metaplasia and enterochromaffin-like cell hyperplasia in the body of the stomach, a spared antrum, no Helicobacter pylori, no neuroendocrine tumor and no dysplasia</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td>CLM-0013</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Iron deficiency without anemia, unmasked by the recovery of red cell production and the poor iron absorption of atrophic gastritis; colonoscopy and endoscopy without a bleeding source</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td>CLM-0013</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Blister on the end of the left forefoot over the old amputation stump, from boots not yet broken in, in a foot with reduced sensation; no infection; healed in two weeks</td>
+    <td>resolved</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td>CLM-0006, CLM-0007</td>
+  </tr></tbody></table></section>
+    <section><h2>Synthetic outcome measures</h2><table><thead><tr><th>Grade</th><th>Date</th><th>Measure</th><th>Result</th><th>Coding</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-01-13</td>
+    <td>Hemoglobin [Mass/volume] in Blood</td>
+    <td>8.2 g/dL (low)<div class="muted">Reference 13.2-17.1 g/dL</div></td>
+    <td>http://loinc.org · 718-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-01-13</td>
+    <td>MCV [Entitic mean volume] in Red Blood Cells by Automated count</td>
+    <td>118 fL (high)<div class="muted">Reference 80-100 fL</div></td>
+    <td>http://loinc.org · 787-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-01-13</td>
+    <td>Erythrocyte [DistWidth] in Blood by Automated count</td>
+    <td>19.6% (high)<div class="muted">Reference 11-15%</div></td>
+    <td>http://loinc.org · 788-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-01-13</td>
+    <td>Leukocytes [#/volume] in Blood by Automated count</td>
+    <td>3.4 10*3/uL (low)<div class="muted">Reference 3.8-10.8 10*3/uL</div></td>
+    <td>http://loinc.org · 6690-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-01-13</td>
+    <td>Platelets [#/volume] in Blood by Automated count</td>
+    <td>118 10*3/uL (low)<div class="muted">Reference 140-400 10*3/uL</div></td>
+    <td>http://loinc.org · 777-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-01-13</td>
+    <td>Reticulocytes/Erythrocytes in Blood by Automated count</td>
+    <td>0.4% (low)<div class="muted">Reference 0.5-2.5%</div></td>
+    <td>http://loinc.org · 17849-1</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-01-13</td>
+    <td>Lactate dehydrogenase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>1240 U/L (high)<div class="muted">Reference 120-250 U/L</div></td>
+    <td>http://loinc.org · 2532-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-01-13</td>
+    <td>Bilirubin.total [Mass/volume] in Serum or Plasma</td>
+    <td>1.9 mg/dL (high)<div class="muted">Reference 0.2-1.2 mg/dL</div></td>
+    <td>http://loinc.org · 1975-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-01-13</td>
+    <td>Sodium [Moles/volume] in Serum or Plasma</td>
+    <td>139 mmol/L<div class="muted">Reference 135-146 mmol/L</div></td>
+    <td>http://loinc.org · 2951-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-01-13</td>
+    <td>Potassium [Moles/volume] in Serum or Plasma</td>
+    <td>4.1 mmol/L<div class="muted">Reference 3.5-5.3 mmol/L</div></td>
+    <td>http://loinc.org · 2823-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-01-13</td>
+    <td>Creatinine [Mass/volume] in Serum or Plasma</td>
+    <td>0.98 mg/dL<div class="muted">Reference 0.7-1.3 mg/dL</div></td>
+    <td>http://loinc.org · 2160-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-01-13</td>
+    <td>Glomerular filtration rate [Volume Rate/Area] in Serum, Plasma or Blood by Creatinine-based formula (CKD-EPI 2021)/1.73 sq M</td>
+    <td>85 mL/min/1.73 m²<div class="muted">Reference &gt;=60 mL/min/1.73 m²</div></td>
+    <td>http://loinc.org · 98979-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-01-13</td>
+    <td>Glucose [Mass/volume] in Serum or Plasma</td>
+    <td>92 mg/dL<div class="muted">Reference 65-99 mg/dL</div></td>
+    <td>http://loinc.org · 2345-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-01-13</td>
+    <td>Cobalamin (Vitamin B12) [Mass/volume] in Serum or Plasma</td>
+    <td>96 pg/mL (low)<div class="muted">Reference 200-1100 pg/mL</div></td>
+    <td>http://loinc.org · 2132-9</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-01-13</td>
+    <td>Folate [Mass/volume] in Serum or Plasma</td>
+    <td>14.2 ng/mL<div class="muted">Reference &gt;=5.4 ng/mL</div></td>
+    <td>http://loinc.org · 2284-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-01-13</td>
+    <td>Methylmalonate [Moles/volume] in Serum or Plasma</td>
+    <td>3.1 umol/L (high)<div class="muted">Reference &lt;=0.4 umol/L</div></td>
+    <td>http://loinc.org · 13964-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-01-13</td>
+    <td>Homocysteine [Moles/volume] in Serum or Plasma</td>
+    <td>38 umol/L (high)<div class="muted">Reference &lt;=15 umol/L</div></td>
+    <td>http://loinc.org · 13965-9</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-01-13</td>
+    <td>Ferritin [Mass/volume] in Serum or Plasma</td>
+    <td>62 ng/mL<div class="muted">Reference 30-400 ng/mL</div></td>
+    <td>http://loinc.org · 2276-4</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-01-13</td>
+    <td>Iron [Mass/volume] in Serum or Plasma</td>
+    <td>148 ug/dL<div class="muted">Reference 50-180 ug/dL</div></td>
+    <td>http://loinc.org · 2498-4</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-01-13</td>
+    <td>Iron binding capacity [Mass/volume] in Serum or Plasma</td>
+    <td>268 ug/dL<div class="muted">Reference 250-425 ug/dL</div></td>
+    <td>http://loinc.org · 2500-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-01-13</td>
+    <td>Iron saturation [Mass Fraction] in Serum or Plasma</td>
+    <td>55% (high)<div class="muted">Reference 20-50%</div></td>
+    <td>http://loinc.org · 2502-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-01-13</td>
+    <td>Thyrotropin [Units/volume] in Serum or Plasma</td>
+    <td>2.6 mIU/L<div class="muted">Reference 0.4-4.5 mIU/L</div></td>
+    <td>http://loinc.org · 3016-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-01-13</td>
+    <td>Hemoglobin A1c/Hemoglobin.total in Blood</td>
+    <td>5.5%<div class="muted">Reference &lt;=5.6%</div></td>
+    <td>http://loinc.org · 4548-4</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-01-13</td>
+    <td>Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]</td>
+    <td>6</td>
+    <td>http://loinc.org · 44261-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-01-13</td>
+    <td>Total score [MoCA]</td>
+    <td>27</td>
+    <td>http://loinc.org · 72172-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-01-13</td>
+    <td>Total score [AUDIT-C]</td>
+    <td>2</td>
+    <td>http://loinc.org · 75626-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-01-21</td>
+    <td>Hemoglobin [Mass/volume] in Blood</td>
+    <td>8.9 g/dL (low)<div class="muted">Reference 13.2-17.1 g/dL</div></td>
+    <td>http://loinc.org · 718-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-01-21</td>
+    <td>MCV [Entitic mean volume] in Red Blood Cells by Automated count</td>
+    <td>114 fL (high)<div class="muted">Reference 80-100 fL</div></td>
+    <td>http://loinc.org · 787-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-01-21</td>
+    <td>Leukocytes [#/volume] in Blood by Automated count</td>
+    <td>4.6 10*3/uL<div class="muted">Reference 3.8-10.8 10*3/uL</div></td>
+    <td>http://loinc.org · 6690-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-01-21</td>
+    <td>Platelets [#/volume] in Blood by Automated count</td>
+    <td>186 10*3/uL<div class="muted">Reference 140-400 10*3/uL</div></td>
+    <td>http://loinc.org · 777-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-01-21</td>
+    <td>Reticulocytes/Erythrocytes in Blood by Automated count</td>
+    <td>7.9% (high)<div class="muted">Reference 0.5-2.5%</div></td>
+    <td>http://loinc.org · 17849-1</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-01-21</td>
+    <td>Potassium [Moles/volume] in Serum or Plasma</td>
+    <td>3.6 mmol/L<div class="muted">Reference 3.5-5.3 mmol/L</div></td>
+    <td>http://loinc.org · 2823-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-01-21</td>
+    <td>Intrinsic factor Ab [Units/volume] in Serum by Immunoassay</td>
+    <td>38.5 [arb&#39;U]/mL (high)<div class="muted">Reference 1.1 AU/mL or less: negative</div></td>
+    <td>http://loinc.org · 56539-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-01-21</td>
+    <td>Parietal cell Ab [Units/volume] in Serum by Immunoassay</td>
+    <td>96 [arb&#39;U]/mL (high)<div class="muted">Reference Below 20.1: negative</div></td>
+    <td>http://loinc.org · 56147-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-01-21</td>
+    <td>Gastrin [Mass/volume] in Serum or Plasma</td>
+    <td>820 pg/mL (high)<div class="muted">Reference &lt;=100 pg/mL</div></td>
+    <td>http://loinc.org · 2333-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-01-21</td>
+    <td>Thyroperoxidase Ab [Units/volume] in Serum or Plasma</td>
+    <td>6 [IU]/mL<div class="muted">Reference &lt;=8 [IU]/mL</div></td>
+    <td>http://loinc.org · 8099-4</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-02-17</td>
+    <td>Hemoglobin [Mass/volume] in Blood</td>
+    <td>12 g/dL (low)<div class="muted">Reference 13.2-17.1 g/dL</div></td>
+    <td>http://loinc.org · 718-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-02-17</td>
+    <td>MCV [Entitic mean volume] in Red Blood Cells by Automated count</td>
+    <td>101 fL (high)<div class="muted">Reference 80-100 fL</div></td>
+    <td>http://loinc.org · 787-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-02-17</td>
+    <td>Leukocytes [#/volume] in Blood by Automated count</td>
+    <td>5.6 10*3/uL<div class="muted">Reference 3.8-10.8 10*3/uL</div></td>
+    <td>http://loinc.org · 6690-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-02-17</td>
+    <td>Platelets [#/volume] in Blood by Automated count</td>
+    <td>232 10*3/uL<div class="muted">Reference 140-400 10*3/uL</div></td>
+    <td>http://loinc.org · 777-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-02-17</td>
+    <td>Reticulocytes/Erythrocytes in Blood by Automated count</td>
+    <td>1.6%<div class="muted">Reference 0.5-2.5%</div></td>
+    <td>http://loinc.org · 17849-1</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-02-17</td>
+    <td>Potassium [Moles/volume] in Serum or Plasma</td>
+    <td>4.3 mmol/L<div class="muted">Reference 3.5-5.3 mmol/L</div></td>
+    <td>http://loinc.org · 2823-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-10</td>
+    <td>Hemoglobin [Mass/volume] in Blood</td>
+    <td>14.1 g/dL<div class="muted">Reference 13.2-17.1 g/dL</div></td>
+    <td>http://loinc.org · 718-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-10</td>
+    <td>MCV [Entitic mean volume] in Red Blood Cells by Automated count</td>
+    <td>91 fL<div class="muted">Reference 80-100 fL</div></td>
+    <td>http://loinc.org · 787-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-10</td>
+    <td>Erythrocyte [DistWidth] in Blood by Automated count</td>
+    <td>15.6% (high)<div class="muted">Reference 11-15%</div></td>
+    <td>http://loinc.org · 788-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-10</td>
+    <td>Leukocytes [#/volume] in Blood by Automated count</td>
+    <td>6.2 10*3/uL<div class="muted">Reference 3.8-10.8 10*3/uL</div></td>
+    <td>http://loinc.org · 6690-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-10</td>
+    <td>Platelets [#/volume] in Blood by Automated count</td>
+    <td>248 10*3/uL<div class="muted">Reference 140-400 10*3/uL</div></td>
+    <td>http://loinc.org · 777-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-10</td>
+    <td>Methylmalonate [Moles/volume] in Serum or Plasma</td>
+    <td>0.26 umol/L<div class="muted">Reference &lt;=0.4 umol/L</div></td>
+    <td>http://loinc.org · 13964-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-10</td>
+    <td>Homocysteine [Moles/volume] in Serum or Plasma</td>
+    <td>11 umol/L<div class="muted">Reference &lt;=15 umol/L</div></td>
+    <td>http://loinc.org · 13965-9</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-10</td>
+    <td>Lactate dehydrogenase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>190 U/L<div class="muted">Reference 120-250 U/L</div></td>
+    <td>http://loinc.org · 2532-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-10</td>
+    <td>Bilirubin.total [Mass/volume] in Serum or Plasma</td>
+    <td>0.7 mg/dL<div class="muted">Reference 0.2-1.2 mg/dL</div></td>
+    <td>http://loinc.org · 1975-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-10</td>
+    <td>Ferritin [Mass/volume] in Serum or Plasma</td>
+    <td>24 ng/mL (low)<div class="muted">Reference 30-400 ng/mL</div></td>
+    <td>http://loinc.org · 2276-4</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-10</td>
+    <td>Iron [Mass/volume] in Serum or Plasma</td>
+    <td>52 ug/dL<div class="muted">Reference 50-180 ug/dL</div></td>
+    <td>http://loinc.org · 2498-4</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-10</td>
+    <td>Iron binding capacity [Mass/volume] in Serum or Plasma</td>
+    <td>382 ug/dL<div class="muted">Reference 250-425 ug/dL</div></td>
+    <td>http://loinc.org · 2500-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-10</td>
+    <td>Iron saturation [Mass Fraction] in Serum or Plasma</td>
+    <td>14% (low)<div class="muted">Reference 20-50%</div></td>
+    <td>http://loinc.org · 2502-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-24</td>
+    <td>Patient Health Questionnaire 2 item (PHQ-2) total score [Reported]</td>
+    <td>0</td>
+    <td>http://loinc.org · 55758-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-24</td>
+    <td>Cholesterol [Mass/volume] in Serum or Plasma</td>
+    <td>196 mg/dL<div class="muted">Reference &lt;=199 mg/dL</div></td>
+    <td>http://loinc.org · 2093-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-24</td>
+    <td>Cholesterol in HDL [Mass/volume] in Serum or Plasma</td>
+    <td>58 mg/dL<div class="muted">Reference &gt;=40 mg/dL</div></td>
+    <td>http://loinc.org · 2085-9</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-24</td>
+    <td>Cholesterol in LDL [Mass/volume] in Serum or Plasma by calculation</td>
+    <td>118 mg/dL (high)<div class="muted">Reference &lt;=99 mg/dL</div></td>
+    <td>http://loinc.org · 13457-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-24</td>
+    <td>Triglyceride [Mass/volume] in Serum or Plasma</td>
+    <td>100 mg/dL<div class="muted">Reference &lt;=149 mg/dL</div></td>
+    <td>http://loinc.org · 2571-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-04-28</td>
+    <td>Hemoglobin [Mass/volume] in Blood</td>
+    <td>14.8 g/dL<div class="muted">Reference 13.2-17.1 g/dL</div></td>
+    <td>http://loinc.org · 718-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-04-28</td>
+    <td>MCV [Entitic mean volume] in Red Blood Cells by Automated count</td>
+    <td>90 fL<div class="muted">Reference 80-100 fL</div></td>
+    <td>http://loinc.org · 787-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-04-28</td>
+    <td>Erythrocyte [DistWidth] in Blood by Automated count</td>
+    <td>13.8%<div class="muted">Reference 11-15%</div></td>
+    <td>http://loinc.org · 788-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-04-28</td>
+    <td>Ferritin [Mass/volume] in Serum or Plasma</td>
+    <td>64 ng/mL<div class="muted">Reference 30-400 ng/mL</div></td>
+    <td>http://loinc.org · 2276-4</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-04-28</td>
+    <td>Iron saturation [Mass Fraction] in Serum or Plasma</td>
+    <td>27%<div class="muted">Reference 20-50%</div></td>
+    <td>http://loinc.org · 2502-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-04-28</td>
+    <td>Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]</td>
+    <td>2</td>
+    <td>http://loinc.org · 44261-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-04-28</td>
+    <td>Total score [MoCA]</td>
+    <td>28</td>
+    <td>http://loinc.org · 72172-0</td>
+  </tr></tbody></table></section>
+    <section><h2>Synthetic vital signs</h2><table><thead><tr><th>Date</th><th>Measure</th><th>Result</th><th>LOINC</th><th>Grade</th></tr></thead><tbody>
+  <tr><td>2026-01-13</td><td>Body height</td><td>183 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-01-13</td><td>Body weight</td><td>72.4 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-01-13</td><td>Body mass index (BMI) [Ratio]</td><td>21.6 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-01-13</td><td>Systolic blood pressure</td><td>124 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-01-13</td><td>Diastolic blood pressure</td><td>66 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-01-13</td><td>Heart rate</td><td>102 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-01-13</td><td>Respiratory rate</td><td>18 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-01-13</td><td>Body temperature</td><td>36.7 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-01-13</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>97 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-01-21</td><td>Body height</td><td>183 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-01-21</td><td>Body weight</td><td>72.6 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-01-21</td><td>Body mass index (BMI) [Ratio]</td><td>21.7 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-01-21</td><td>Systolic blood pressure</td><td>122 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-01-21</td><td>Diastolic blood pressure</td><td>68 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-01-21</td><td>Heart rate</td><td>94 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-01-21</td><td>Respiratory rate</td><td>16 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-01-21</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-01-21</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>97 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-02-17</td><td>Body height</td><td>183 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-02-17</td><td>Body weight</td><td>73.4 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-02-17</td><td>Body mass index (BMI) [Ratio]</td><td>21.9 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-02-17</td><td>Systolic blood pressure</td><td>126 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-02-17</td><td>Diastolic blood pressure</td><td>72 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-02-17</td><td>Heart rate</td><td>80 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-02-17</td><td>Respiratory rate</td><td>16 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-02-17</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-02-17</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>98 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-10</td><td>Body height</td><td>183 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-10</td><td>Body weight</td><td>74 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-10</td><td>Body mass index (BMI) [Ratio]</td><td>22.1 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-10</td><td>Systolic blood pressure</td><td>128 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-10</td><td>Diastolic blood pressure</td><td>74 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-10</td><td>Heart rate</td><td>74 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-10</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-10</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-10</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>98 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-28</td><td>Body height</td><td>183 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-28</td><td>Body weight</td><td>74.6 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-28</td><td>Body mass index (BMI) [Ratio]</td><td>22.3 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-28</td><td>Systolic blood pressure</td><td>128 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-28</td><td>Diastolic blood pressure</td><td>76 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-28</td><td>Heart rate</td><td>70 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-28</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-28</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-28</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>98 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-24</td><td>Body height</td><td>183 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-24</td><td>Body weight</td><td>74.2 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-24</td><td>Body mass index (BMI) [Ratio]</td><td>22.2 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-24</td><td>Systolic blood pressure</td><td>126 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-24</td><td>Diastolic blood pressure</td><td>74 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-24</td><td>Heart rate</td><td>72 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-24</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-24</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-24</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>98 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-02-03</td><td>Body height</td><td>183 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-02-03</td><td>Body weight</td><td>72.8 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-02-03</td><td>Body mass index (BMI) [Ratio]</td><td>21.7 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-02-03</td><td>Systolic blood pressure</td><td>124 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-02-03</td><td>Diastolic blood pressure</td><td>70 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-02-03</td><td>Heart rate</td><td>88 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-02-03</td><td>Respiratory rate</td><td>16 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-02-03</td><td>Body temperature</td><td>36.7 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-02-03</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>98 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr></tbody></table></section>
+    <section><h2>Social, functional, and mental status</h2><h3>Social history</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Retired naval officer and civil engineer, and a polar explorer who led eight Arctic expeditions; writes and lectures on polar travel; the long public dispute over his claim to have reached the North Pole still weighs on him</li><li><span class="badge grade-S" title="Synthetic">S</span> Lives in Washington, D.C., with his wife; two adult children; spends summers at a family house on an island off the Maine coast</li><li><span class="badge grade-S" title="Synthetic">S</span> Never used tobacco; a glass of wine with dinner a few times a week (AUDIT-C 2); eats a mixed diet with meat and dairy most days</li><li><span class="badge grade-S" title="Synthetic">S</span> Walked several miles a day until the autumn; now tires after a few blocks and uses a stick outdoors; wears made-to-measure boots with toe fillers</li><li><span class="badge grade-S" title="Synthetic">S</span> Strengths: physical toughness, careful planning and record-keeping, a long habit of looking after his feet in hard conditions, and a household that supports him</li></ul><h3>Functional status</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Independent in daily activities but slowed: breathless on one flight of stairs, tires after a few blocks, unsteady in the dark and when washing his face with his eyes closed; one fall a month ago without injury; Timed Up and Go 14 seconds</li></ul><h3>Mental status</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Alert, direct and orderly; speech normal; mood flat with tiredness; PHQ-9 6 with item 9 scored 0; MoCA 27; no thoughts of self-harm</li></ul></section>
+    
+    <section><h2>Allergies and medications</h2><h3>Allergies</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> No known allergy</li></ul><h3>Medications</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Cyanocobalamin (vitamin B12) 1,000 micrograms (1 mg/mL) intramuscular injection every other day for seven doses, given by the clinic nurse after the intake blood tests were drawn</li><li><span class="badge grade-S" title="Synthetic">S</span> Cyanocobalamin (vitamin B12) 1,000 micrograms (1 mg/mL) intramuscular injection once a week while the nerves recover</li><li><span class="badge grade-S" title="Synthetic">S</span> Cyanocobalamin (vitamin B12) 1,000 micrograms (1 mg/mL) intramuscular injection once a month for life</li><li><span class="badge grade-S" title="Synthetic">S</span> Ferrous sulfate 325 mg (65 mg elemental iron) oral tablet, one tablet every other day on an empty stomach with a glass of orange juice</li></ul></section>
+    <section><h2>Procedures and immunizations</h2><h3>Procedures</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Upper endoscopy with biopsies by the updated Sydney protocol (two from the antrum, one from the incisura, two from the body, each site in a separate jar) and targeted biopsies: pale, thin body mucosa with visible vessels and no polyp or mass; antrum normal</li><li><span class="badge grade-S" title="Synthetic">S</span> Screening colonoscopy, done at the same session: complete to the cecum, good preparation, no polyps or bleeding source</li><li><span class="badge grade-S" title="Synthetic">S</span> Advance care planning conversation, about 20 minutes</li></ul><h3>Immunizations</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> 2026-03-24: Recombinant zoster vaccine, first of two doses</li><li><span class="badge grade-S" title="Synthetic">S</span> 2026-03-24: Pneumococcal conjugate vaccine (PCV20), single dose</li></ul></section>
+    <section><h2>Past medical history</h2><p class="muted">True biography with historical dates; not part of the synthetic care timeline.</p><ul><li><span class="badge grade-D" title="Documented">D</span> July 11, 1891: Both bones of one leg broken just above the ankle in a shipboard accident; set and healed <span class="muted">(CLM-0004)</span></li><li><span class="badge grade-D" title="Documented">D</span> January to March 1899: Frostbite of both feet in the Arctic, followed by amputation of most of the toes; stumps often injured on later journeys <span class="muted">(CLM-0006)</span></li></ul><h3>Family history</h3><ul><li><span class="badge grade-D" title="Documented">D</span> father: Died when his son was under three; cause not recorded in the cited source</li></ul></section>
+    <section><h2>Care-plan goals</h2><table><thead><tr><th>Goal</th><th>Target date</th><th>Status</th><th>Outcome</th></tr></thead><tbody>
+  <tr><td>Find the cause of the anemia and the numb feet</td><td>2026-01-21</td><td>completed</td><td>Pernicious anemia confirmed: intrinsic factor and parietal cell antibodies positive, gastrin high</td></tr>
+  <tr><td>Normal hemoglobin and MCV within eight weeks</td><td>2026-03-10</td><td>completed</td><td>Hemoglobin 8.2 to 14.1 g/dL and MCV 118 to 91 fL at eight weeks</td></tr>
+  <tr><td>Recover feeling and balance in the feet and walk without falls</td><td>2026-10-27</td><td>active</td><td>At fifteen weeks: vibration sense back at the ankles, Romberg negative, Timed Up and Go 10 seconds, no falls; numbness at the ends of the feet persists</td></tr>
+  <tr><td>No foot wound that goes unnoticed</td><td>2026-10-27</td><td>active</td><td>Daily foot checks; one blister found early and healed in two weeks; podiatry every three months</td></tr>
+  <tr><td>Gastric surveillance planned with him</td><td>2026-03-10</td><td>completed</td><td>Endoscopy without neuroendocrine tumor or dysplasia; repeat in three years by shared decision</td></tr></tbody></table></section>
+    <section><h2>Interventions</h2><table><thead><tr><th>Intervention</th><th>Status</th><th>Guideline</th></tr></thead><tbody>
+  <tr><td>Diagnosis: blood count with MCV, smear and reticulocytes; vitamin B12, methylmalonic acid, homocysteine and folate; iron studies, LDH and bilirubin; kidney function; TSH and HbA1c; all drawn before the first injection</td><td>completed</td><td>GL-BSH-B12-2014, GL-NICE-B12-2024, GL-CMID-2026</td></tr>
+  <tr><td>Hematology consultation to confirm the cause and advise on treatment, endoscopy and follow-up</td><td>completed</td><td>GL-BSH-B12-2014, GL-AGA-AG-2021</td></tr>
+  <tr><td>Treatment started at intake without waiting for the cause, because of neurological signs: cyanocobalamin 1,000 micrograms into the muscle every other day for seven doses; no folic acid alone; no transfusion while he is stable at rest</td><td>completed</td><td>GL-BSH-B12-2014, GL-NICE-B12-2024</td></tr>
+  <tr><td>Maintenance: weekly injections, taught for self-injection, until neurological improvement levels off, then monthly injections for life; high-dose oral cyanocobalamin (at least 1 mg a day) offered as an alternative; vitamin B12 levels not rechecked routinely once treated</td><td>completed</td><td>GL-BSH-B12-2014, GL-NICE-B12-2024, GL-CMID-2026</td></tr>
+  <tr><td>Response and safety checks: reticulocytes and potassium in the first week, blood count at about five and eight weeks, methylmalonic acid and homocysteine and iron studies at eight weeks, and symptoms at every visit</td><td>completed</td><td>GL-CMID-2026, GL-BSH-B12-2014</td></tr>
+  <tr><td>Stomach: upper endoscopy with biopsies by the updated Sydney protocol to confirm autoimmune gastritis and look for neuroendocrine tumors and dysplasia, with a screening colonoscopy at the same session; surveillance interval set from the findings by shared decision; thyroid antibodies checked</td><td>completed</td><td>GL-AGA-AG-2021, GL-NICE-B12-2024, GL-USPSTF-CRC-2021</td></tr>
+  <tr><td>Nerves and falls: neurological examination (vibration, joint position, reflexes, Romberg, gait, cognition) at each visit; physical therapy for balance and gait; night lights and a clear path at home; a stick outdoors and care on ice</td><td>completed</td><td>GL-CMID-2026, GL-USPSTF-FALLS-2024</td></tr>
+  <tr><td>Feet: daily skin checks with a mirror, extra-depth shoes with toe fillers and a forefoot rocker sole, no new boots without a fitting, nail and callus care by podiatry every three months, and same-day care for any blister, redness or wound</td><td>completed</td><td>GL-IWGDF-2023</td></tr>
+  <tr><td>Mood and cognition: PHQ-9 and MoCA at intake and after treatment, since vitamin B12 deficiency can affect both</td><td>completed</td><td>GL-CMID-2026, GL-USPSTF-DEP-2023, GL-NICE-B12-2024</td></tr></tbody></table></section>
+    <section><h2>Planned encounters</h2><ul>
+  <li><strong>2026-01-13</strong> — Establishing primary care for four months of fatigue, breathlessness, pallor, a sore tongue, and numbness and unsteadiness in the feet: blood tests, neurological and foot examination, falls, mood, the first vitamin B12 injection and a hematology consultation <span class="muted">(ENC-001)</span></li>
+  <li><strong>2026-01-21</strong> — Eight-day review with the reticulocyte response and potassium, seen the same day by hematology: the cause, the injection plan, endoscopy, autoimmune screening and the nerves <span class="muted">(ENC-002)</span></li>
+  <li><strong>2026-02-03</strong> — Same-day sick visit for a blister on the left forefoot <span class="muted">(ENC-007, unscheduled)</span></li>
+  <li><strong>2026-02-17</strong> — Five-week review on the day of upper endoscopy and colonoscopy: blood count, nerves, falls and feet <span class="muted">(ENC-003)</span></li>
+  <li><strong>2026-03-10</strong> — Eight-week review: blood count, methylmalonic acid, iron studies, the endoscopy biopsies and surveillance <span class="muted">(ENC-004)</span></li>
+  <li><strong>2026-03-24</strong> — Periodic adult preventive visit <span class="muted">(ENC-006)</span></li>
+  <li><strong>2026-04-28</strong> — Fifteen-week review: neurological recovery, iron, lifelong maintenance and the plan ahead <span class="muted">(ENC-005)</span></li></ul></section>
+    <section><h2>Supporting documents</h2><ul><li><a href="notes/hp.md">History and physical</a></li><li><a href="notes/progress-01.md">Progress note 01</a></li><li><a href="notes/progress-02.md">Progress note 02 — Focused Visit (Follow-up)</a></li><li><a href="notes/progress-03.md">Progress note 03 — Sick Visit</a></li><li><a href="notes/progress-04.md">Progress note 04 — Focused Visit (Follow-up)</a></li><li><a href="notes/progress-05.md">Progress note 05 — Focused Visit (Follow-up)</a></li><li><a href="notes/progress-06.md">Progress note 06 — Preventive Visit</a></li><li><a href="notes/progress-07.md">Progress note 07 — Focused Visit (Care-plan review)</a></li><li><a href="notes/referral-01.md">Hematology referral</a></li><li><a href="notes/consult-01.md">Hematology consultation</a></li><li><a href="notes/careplan.md">Patient care plan</a></li><li><a href="notes/teaching-note.md">Teaching note</a></li><li><a href="provenance.csv">Provenance CSV</a></li></ul></section>
+    <section><h2>C-CDA note documents</h2><p class="muted">Each link opens a readable copy; the XML beside it is the exchange file.</p><ul><li><a href="ccda/hp-01.html">History and physical</a> <a href="ccda/hp-01.xml">(XML)</a></li><li><a href="ccda/progress-01.html">Progress note 01</a> <a href="ccda/progress-01.xml">(XML)</a></li><li><a href="ccda/progress-02.html">Progress note 02 — Focused Visit (Follow-up)</a> <a href="ccda/progress-02.xml">(XML)</a></li><li><a href="ccda/progress-03.html">Progress note 03 — Sick Visit</a> <a href="ccda/progress-03.xml">(XML)</a></li><li><a href="ccda/progress-04.html">Progress note 04 — Focused Visit (Follow-up)</a> <a href="ccda/progress-04.xml">(XML)</a></li><li><a href="ccda/progress-05.html">Progress note 05 — Focused Visit (Follow-up)</a> <a href="ccda/progress-05.xml">(XML)</a></li><li><a href="ccda/progress-06.html">Progress note 06 — Preventive Visit</a> <a href="ccda/progress-06.xml">(XML)</a></li><li><a href="ccda/progress-07.html">Progress note 07 — Focused Visit (Care-plan review)</a> <a href="ccda/progress-07.xml">(XML)</a></li><li><a href="ccda/referral-01.html">Hematology referral</a> <a href="ccda/referral-01.xml">(XML)</a></li><li><a href="ccda/consult-01.html">Hematology consultation</a> <a href="ccda/consult-01.xml">(XML)</a></li></ul></section>
+    <section><h2>Sources</h2><table><thead><tr><th>ID</th><th>Source</th><th>Publisher</th><th>Type</th></tr></thead><tbody>
+  <tr>
+    <td>SRC-0001</td>
+    <td><a href="https://www.bowdoin.edu/arctic-museum/educational-resources/arctic-biographies/peary.html" target="_blank" rel="noreferrer">Robert E. Peary (Arctic biographies)</a></td>
+    <td>Peary-MacMillan Arctic Museum, Bowdoin College</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0002</td>
+    <td><a href="https://pubs.aina.ucalgary.ca/arctic/Arctic35-4-556.pdf" target="_blank" rel="noreferrer">Weems JE. Arctic Profiles: Robert Edwin Peary (1856-1920). Arctic 1982;35(4):556</a></td>
+    <td>Arctic Institute of North America (Arctic)</td>
+    <td>scholarly</td>
+  </tr>
+  <tr>
+    <td>SRC-0003</td>
+    <td><a href="https://pubs.aina.ucalgary.ca/arctic/Arctic67-3-340.pdf" target="_blank" rel="noreferrer">LeMoine G. Elatu&#39;s Funeral: A Glimpse of Inughuit-American Relations on Robert E. Peary&#39;s 1898-1902 Expedition. Arctic 2014;67(3):340-346</a></td>
+    <td>Arctic Institute of North America (Arctic)</td>
+    <td>scholarly</td>
+  </tr>
+  <tr>
+    <td>SRC-0004</td>
+    <td><a href="https://learn.bowdoin.edu/pearys-north-pole-explorations/maps/1891/1891-16-a-broken-leg.html" target="_blank" rel="noreferrer">1891 - Melville Bay Ice Pack; A Broken Leg (Polar Pathways: Robert E. Peary&#39;s Arctic Expeditions)</a></td>
+    <td>Peary-MacMillan Arctic Museum, Bowdoin College</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0005</td>
+    <td><a href="https://www.bowdoin.edu/news/2018/10/caught-in-the-middle-the-tragic-life-of-minik-wallace.html" target="_blank" rel="noreferrer">Caught in the Middle: The Tragic Life of Minik Wallace</a></td>
+    <td>Bowdoin College (Peary-MacMillan Arctic Museum exhibit)</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0006</td>
+    <td><a href="https://learn.bowdoin.edu/pearys-north-pole-explorations/maps/1898-1902-expeditions/1898-07-fort-conger.html" target="_blank" rel="noreferrer">1898 to Fort Conger: Demise of Peary&#39;s Toes (Polar Pathways: Robert E. Peary&#39;s Arctic Expeditions)</a></td>
+    <td>Peary-MacMillan Arctic Museum, Bowdoin College</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0007</td>
+    <td><a href="https://library.une.edu/mwwc/collections/collections-a-z/marie-ahnighito-peary-papers-1862-1995/" target="_blank" rel="noreferrer">Marie Ahnighito Peary papers, 1862-1995 (finding aid)</a></td>
+    <td>Maine Women Writers Collection, University of New England</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0008</td>
+    <td><a href="https://www.arlingtoncemetery.mil/Explore/Notable-Graves/Explorers" target="_blank" rel="noreferrer">Notable Graves: Explorers</a></td>
+    <td>Arlington National Cemetery</td>
+    <td>government</td>
+  </tr>
+  <tr>
+    <td>SRC-0009</td>
+    <td><a href="https://www.nobelprize.org/prizes/medicine/1934/summary/" target="_blank" rel="noreferrer">The Nobel Prize in Physiology or Medicine 1934 (summary)</a></td>
+    <td>Nobel Prize Outreach</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0012</td>
+    <td><a href="https://humanrecord.example.org/internal/HISTMED_Master_Roster_v3.xlsx" target="_blank" rel="noreferrer">HISTMED Master Roster v3</a></td>
+    <td>The Human Record project</td>
+    <td>other</td>
+  </tr></tbody></table></section>
+    <section><h2>Review status</h2><table><thead><tr><th>Review</th><th>Status</th><th>Notes</th></tr></thead><tbody>
+  <tr><td>schema validation</td><td>not_started</td><td>Run scripts/build.ps1 -Conformance.</td></tr>
+  <tr><td>clinical review</td><td>not_started</td><td>Awaiting clinician review; check treatment before the antibody results, the intramuscular cyanocobalamin schedule and lifelong maintenance, the potassium check, no transfusion, the antibody tests drawn after the first injections, the endoscopy findings and three-year surveillance, iron deficiency after recovery, the neurological examination and its partial recovery, and the foot-care plan for old toe amputations.</td></tr>
+  <tr><td>provenance review</td><td>not_started</td><td>Sources: the Peary-MacMillan Arctic Museum (Bowdoin College) biography, Polar Pathways exhibit pages and Minik exhibit, Weems (Arctic 1982) and LeMoine (Arctic 2014) in full text, the University of New England finding aid for his daughter&#39;s papers, Arlington National Cemetery, and the Nobel Prize page. The roster&#39;s rheumatoid arthritis and psychological burden leads are not used as diagnoses.</td></tr>
+  <tr><td>safe messaging review</td><td>not_started</td><td>His bringing six Inughuit people to New York, four of whom died, and his two sons with an Inughuit woman are recorded plainly and respectfully as documented history; no health fact about any Inuit person is recorded, no descendant is named, and none has a role in the modern episode. Matthew Henson and the four Inughuit men are named only as documented companions. No relative is named or given a role in the modern episode. PHQ-9 6 and then 2 with item 9 scored 0, so no safety assessment is required.</td></tr></tbody></table></section>
+  </main>
+</body>
+</html>
