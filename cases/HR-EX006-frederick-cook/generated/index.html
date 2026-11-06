@@ -1,0 +1,659 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Frederick Cook — The Human Record</title>
+  <style>
+    :root { --navy:#17365d; --blue:#1f4e78; --pale:#eef5fa; --ink:#1f2933; --muted:#66788a; --amber:#fff2cc; --red:#f8d7da; --green:#d9ead3; }
+    * { box-sizing:border-box; }
+    body { margin:0; font:16px/1.5 Arial, sans-serif; color:var(--ink); background:#f6f8fa; }
+    header { background:var(--navy); color:white; padding:24px max(24px,calc((100vw - 1180px)/2)); }
+    header h1 { margin:4px 0; font-size:30px; }
+    .banner { background:#b42318; color:white; font-weight:700; text-align:center; padding:10px; letter-spacing:.03em; }
+    main { max-width:1180px; margin:24px auto 60px; padding:0 24px; }
+    section { background:white; border:1px solid #d9e1e8; border-radius:8px; margin:18px 0; padding:20px; }
+    h2 { color:var(--navy); margin:0 0 14px; font-size:22px; }
+    h3 { color:var(--blue); }
+    .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:12px; }
+    .card { background:var(--pale); border-left:4px solid var(--blue); padding:12px; }
+    .label { color:var(--muted); font-size:13px; text-transform:uppercase; letter-spacing:.04em; }
+    table { width:100%; border-collapse:collapse; }
+    th { background:var(--blue); color:white; text-align:left; }
+    th,td { padding:9px; border-bottom:1px solid #dfe6ec; vertical-align:top; }
+    .badge { display:inline-block; min-width:28px; text-align:center; font-weight:700; border-radius:12px; padding:2px 8px; }
+    .grade-D { background:var(--green); } .grade-R { background:var(--amber); } .grade-S { background:var(--red); }
+    .muted { color:var(--muted); font-size:14px; }
+    .relationship { color:var(--muted); font-size:12px; }
+    .downloads a { display:inline-block; margin:4px 8px 4px 0; padding:8px 12px; background:var(--blue); color:white; text-decoration:none; border-radius:5px; }
+    @media (max-width:700px) { table { display:block; overflow-x:auto; } }
+  </style>
+</head>
+<body>
+  <div class="banner">SYNTHETIC RECORD, NOT A REAL MEDICAL RECORD</div>
+  <header>
+    <div>The Human Record</div>
+    <h1>Frederick Cook</h1>
+    <div>Case HR-EX006 · Modern EHR teaching episode · Draft for review</div>
+  </header>
+  <main>
+    <section>
+      <h2>Review summary</h2>
+      <div class="grid">
+        <div class="card"><div class="label">Historical dates</div>June 10, 1865 – August 5, 1940</div>
+        <div class="card"><div class="label">Synthetic DOB</div>1961-06-10</div>
+        <div class="card"><div class="label">Index visit</div>2026-07-07 at age 65</div>
+        <div class="card"><div class="label">Synthetic MRN</div>HR-EX006-SYN</div>
+      </div>
+      <p><strong>Teaching objective:</strong> Re-entry primary care for a 65-year-old former physician and explorer establishing care four months after release from about six years in prison: medication reconciliation without records; high blood pressure at the first visit confirmed with home readings (stage 2 hypertension, two first-line drugs under the 2025 AHA/ACC guideline, target below 130/80); a right carotid bruit evaluated with duplex ultrasound, which finds an asymptomatic 50 to 69 percent internal carotid stenosis managed with best medical therapy (a statin, low-dose aspirin, blood pressure control and yearly surveillance) rather than revascularization, and stroke warning signs; a drug-induced gout flare on hydrochlorothiazide, treated with low-dose colchicine and followed by a switch to losartan under the 2020 ACR gout guideline; hepatitis C, latent tuberculosis, HIV and hepatitis B screening after incarceration (USPSTF and CDC); depression and shame screening; housing, income, benefits and reputation as health needs; and the Welcome to Medicare preventive examination with vaccinations. Built on the 2025 AHA/ACC hypertension guideline, the 2024 AHA/ASA primary stroke prevention guideline, the SVS 2021 and ESVS 2023 carotid guidelines, the 2018 AHA/ACC cholesterol guideline, the CMID hypertension, hyperlipidemia and stroke monographs, the 2020 ACR gout guideline, and the USPSTF and CDC recommendations.</p>
+      <div class="downloads">
+        <a href="../case.json">Canonical JSON</a>
+        <a href="fhir-bundle.json">FHIR R4 draft</a>
+        <a href="ccda.html">C-CDA R2.1 summary</a> <a href="ccda.xml">(XML)</a> <a href="review.html">Review checklist</a>
+        <a href="../sources.md">Evidence dossier</a>
+      </div>
+    </section>
+    <section><h2>Historical timeline</h2><table><thead><tr><th>Date</th><th>Event</th><th>Claims</th></tr></thead><tbody>
+  <tr><td>June 10, 1865</td><td>Born in Hortonville, Sullivan County, New York.</td><td>CLM-0001</td></tr>
+  <tr><td>about 1870 (when he was five)</td><td>His father, a physician, died of pneumonia.</td><td>CLM-0002</td></tr>
+  <tr><td>1887</td><td>Entered medical school at Columbia; later transferred to New York University.</td><td>CLM-0002</td></tr>
+  <tr><td>1891 to 1892</td><td>Surgeon on the North Greenland expedition.</td><td>CLM-0003</td></tr>
+  <tr><td>1897 to 1899</td><td>Physician of the Belgian Antarctic Expedition; recommended fresh seal meat for scurvy.</td><td>CLM-0004</td></tr>
+  <tr><td>September 16, 1906</td><td>Claimed the first ascent of Mount McKinley (Denali).</td><td>CLM-0005</td></tr>
+  <tr><td>April 21, 1908</td><td>Claimed to have reached the North Pole; the claim was later declared not proven.</td><td>CLM-0006</td></tr>
+  <tr><td>1923</td><td>Convicted of mail fraud in Texas and sentenced to 14 years and 9 months.</td><td>CLM-0007, CLM-0008</td></tr>
+  <tr><td>1925 to 1930</td><td>Imprisoned at Leavenworth, where he worked in the prison hospital.</td><td>CLM-0009, CLM-0010</td></tr>
+  <tr><td>March 1930</td><td>Paroled from Leavenworth.</td><td>CLM-0011, CLM-0012</td></tr>
+  <tr><td>May 1940</td><td>Critically ill of apoplexy; granted a full presidential pardon.</td><td>CLM-0013</td></tr>
+  <tr><td>August 5, 1940</td><td>Died in New Rochelle, New York.</td><td>CLM-0014</td></tr></tbody></table></section>
+    <section><h2>Evidence claims</h2><p class="muted">D = documented, R = retrospective, S = synthetic.</p><table><thead><tr><th>Grade</th><th>Claim</th><th>Certainty</th><th>Sources</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>Frederick Albert Cook was born on June 10, 1865, in Hortonville, New York, the fifth of six children of Theodor and Magdalena Koch (later Cook).</strong></td>
+    <td>confirmed</td>
+    <td><a href="https://library.osu.edu/site/frederickcook/early-years/" target="_blank" rel="noreferrer">Frederick A. Cook exhibit: Early Years</a> <span class="relationship">supports</span><br><a href="https://id.loc.gov/authorities/names/n81021964.html" target="_blank" rel="noreferrer">Cook, Frederick Albert, 1865-1940 (name authority record n81021964)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>His father, a physician, died of pneumonia when Frederick was five, leaving the family poor; he worked at odd jobs while at school, entered the College of Physicians and Surgeons at Columbia University in 1887, transferred to New York University, passed his medical examinations, and opened a medical office in Manhattan.</strong><div class="muted">Documented medical training; anchors his modern history as a physician. The father&#39;s cause of death is recorded in the family history.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://library.osu.edu/site/frederickcook/early-years/" target="_blank" rel="noreferrer">Frederick A. Cook exhibit: Early Years</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>He served as surgeon, ethnologist and photographer on Robert Peary&#39;s North Greenland expedition of 1891 to 1892.</strong><div class="muted">Career context.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://library.osu.edu/site/frederickcook/north-greenland-expedition/" target="_blank" rel="noreferrer">Frederick A. Cook exhibit: North Greenland Expedition</a> <span class="relationship">supports</span><br><a href="https://www.encyclopedia.com/reference/encyclopedias-almanacs-transcripts-and-maps/cook-frederick-albert" target="_blank" rel="noreferrer">Cook, Frederick Albert. The Columbia Encyclopedia, 6th ed. (Encyclopedia.com)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>As physician of the Belgian Antarctic Expedition (1897 to 1899), whose ship Belgica wintered in the pack ice, he recognized the signs of scurvy in the men and recommended that they eat fresh seal meat. On this expedition he met Roald Amundsen, who remained his supporter through the later controversies.</strong><div class="muted">Documented work as an expedition physician; no illness of his own is recorded.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://library.osu.edu/site/frederickcook/belgian-antarctic-expedition/" target="_blank" rel="noreferrer">Frederick A. Cook exhibit: Belgian Antarctic Expedition</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>He claimed to have reached the summit of Mount McKinley (Denali) on the morning of September 16, 1906, with one companion. The claim has been disputed ever since and is widely regarded as untrue.</strong><div class="muted">Career context; the dispute is documented, not a judgment made by this record.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://library.osu.edu/site/frederickcook/return-to-mt-mckinley/" target="_blank" rel="noreferrer">Frederick A. Cook exhibit: Return to Mt. McKinley</a> <span class="relationship">supports</span><br><a href="https://library.osu.edu/finding-aids/ead/PA/SPEC.PA.56.0019.xml" target="_blank" rel="noreferrer">Guide to the Frederick Albert Cook Collection, SPEC.PA.56.0019 (biographical note)</a> <span class="relationship">supports</span><br><a href="https://www.encyclopedia.com/reference/encyclopedias-almanacs-transcripts-and-maps/cook-frederick-albert" target="_blank" rel="noreferrer">Cook, Frederick Albert. The Columbia Encyclopedia, 6th ed. (Encyclopedia.com)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>He claimed to have reached the North Pole on April 21, 1908, with two Inuit companions, Ahwelah and Etukishook, after which they wintered in a cave at Cape Sparbo on Devon Island before returning in 1909. A commission of the University of Copenhagen, given his surviving records, declared the claim not proven, and Robert Peary, who claimed the Pole for April 6, 1909, disputed it publicly.</strong><div class="muted">Career context.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://library.osu.edu/site/frederickcook/north-pole-expedition/" target="_blank" rel="noreferrer">Frederick A. Cook exhibit: North Pole Expedition</a> <span class="relationship">supports</span><br><a href="https://www.visitthecapitol.gov/node/934" target="_blank" rel="noreferrer">Dr. Frederick Cook&#39;s Diary, 1908 (exhibit item; Library of Congress Manuscript Division)</a> <span class="relationship">supports</span><br><a href="https://library.osu.edu/finding-aids/ead/PA/SPEC.PA.56.0019.xml" target="_blank" rel="noreferrer">Guide to the Frederick Albert Cook Collection, SPEC.PA.56.0019 (biographical note)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>He organized the Petroleum Producers&#39; Association in Texas in 1922. In 1923 he was convicted of mail fraud, fined $12,000 and sentenced to 14 years and 9 months.</strong><div class="muted">Documented conviction; anchors the modern re-entry episode.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://aoghs.org/old-oil-stocks/arctic-explorer-turns-oil-promoter" target="_blank" rel="noreferrer">Arctic explorer turns oil promoter</a> <span class="relationship">supports</span><br><a href="https://library.osu.edu/finding-aids/ead/PA/SPEC.PA.56.0019.xml" target="_blank" rel="noreferrer">Guide to the Frederick Albert Cook Collection, SPEC.PA.56.0019 (biographical note)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>The Columbia Encyclopedia states that he served five years (1925 to 1930) of the sentence.</strong><div class="muted">Differs from his own reckoning of six years and three months, which includes county jail; both are recorded.</div></td>
+    <td>probable</td>
+    <td><a href="https://www.encyclopedia.com/reference/encyclopedias-almanacs-transcripts-and-maps/cook-frederick-albert" target="_blank" rel="noreferrer">Cook, Frederick Albert. The Columbia Encyclopedia, 6th ed. (Encyclopedia.com)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>He called it &#39;the greatest tragedy of my life&#39; to have been a federal prisoner for six years and three months: sixteen months in the county jail at Fort Worth, Texas, and four years and eleven months at Leavenworth.</strong><div class="muted">His own account of his imprisonment.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://library.osu.edu/site/frederickcook/afterward/" target="_blank" rel="noreferrer">Frederick A. Cook exhibit: Afterward</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>At Leavenworth he served as a physician in the prison hospital and edited the prison newspaper, the New Era.</strong><div class="muted">Documented work in prison; anchors his modern history.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://library.osu.edu/site/frederickcook/afterward/" target="_blank" rel="noreferrer">Frederick A. Cook exhibit: Afterward</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>He was paroled from Leavenworth in March 1930, at 64. The parole required that he &#39;write and speak nothing but the truth&#39;, the government was to take the first $12,000 he earned toward his fine, and he met reporters wearing a faded old suit before leaving for Chicago.</strong><div class="muted">Places the start of his life after prison; anchors the modern re-entry episode. Time gives his age as 65; he turned 65 in June 1930.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://content.time.com/time/subscriber/article/0,33009,738807,00.html" target="_blank" rel="noreferrer">Crime: Oilman Out. Time, March 17, 1930</a> <span class="relationship">supports</span><br><a href="https://bklynlibrary.org/blog/2011/05/10/out-cold-part-i" target="_blank" rel="noreferrer">Out in the Cold: Part I (blog, May 10, 2011)</a> <span class="relationship">supports</span><br><a href="https://library.osu.edu/finding-aids/ead/PA/SPEC.PA.56.0019.xml" target="_blank" rel="noreferrer">Guide to the Frederick Albert Cook Collection, SPEC.PA.56.0019 (biographical note)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>After his release he worked on his memoirs and led a relatively quiet life.</strong><div class="muted">Documented in general terms only; his whereabouts and health from 1930 to 1940 were not verified in a fetched source.</div></td>
+    <td>probable</td>
+    <td><a href="https://library.osu.edu/site/frederickcook/afterward/" target="_blank" rel="noreferrer">Frederick A. Cook exhibit: Afterward</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>In May 1940 he lay critically ill of apoplexy at Port Chester, New York; told on his sickbed that he had been granted a full presidential pardon restoring his civil rights, he answered &#39;Thanks - happy&#39; and sank back into a coma.</strong><div class="muted">After the episode. Documented stroke a decade after the synthetic episode; the modern episode makes no prediction about it.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://time.com/archive/6821359/people-may-27-1940/" target="_blank" rel="noreferrer">People, May 27, 1940. Time</a> <span class="relationship">supports</span><br><a href="https://library.osu.edu/site/frederickcook/afterward/" target="_blank" rel="noreferrer">Frederick A. Cook exhibit: Afterward</a> <span class="relationship">supports</span><br><a href="https://library.osu.edu/finding-aids/ead/PA/SPEC.PA.56.0019.xml" target="_blank" rel="noreferrer">Guide to the Frederick Albert Cook Collection, SPEC.PA.56.0019 (biographical note)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>He died on August 5, 1940, in New Rochelle, New York; the Ohio State University exhibit gives the cause as a cerebral hemorrhage.</strong><div class="muted">After the episode.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://id.loc.gov/authorities/names/n81021964.html" target="_blank" rel="noreferrer">Cook, Frederick Albert, 1865-1940 (name authority record n81021964)</a> <span class="relationship">supports</span><br><a href="https://www.scnyhistory.org/?p=4438" target="_blank" rel="noreferrer">Frederick A. Cook</a> <span class="relationship">supports</span><br><a href="https://library.osu.edu/site/frederickcook/afterward/" target="_blank" rel="noreferrer">Frederick A. Cook exhibit: Afterward</a> <span class="relationship">supports</span></td>
+  </tr></tbody></table></section>
+    <section><h2>Modern synthetic problem list</h2><table><thead><tr><th>Grade</th><th>Problem</th><th>Clinical status</th><th>Verification</th><th>Placement</th><th>Historical claims</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Elevated blood pressure at the first visit, 166/94 mmHg (average of two seated readings), without a previous diagnosis of hypertension; no symptoms; out-of-office confirmation with a week of home readings requested</td>
+    <td>resolved</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td>CLM-0011</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Essential hypertension, stage 2, confirmed by home readings averaging 154/90 mmHg; no left ventricular hypertrophy on ECG; urine albumin normal</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Right carotid bruit heard at the first visit in a man with no symptoms of stroke or transient ischemic attack; carotid duplex ultrasound and vascular neurology consultation requested</td>
+    <td>resolved</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Asymptomatic atherosclerotic stenosis of the right internal carotid artery, 50 to 69 percent by duplex ultrasound, with less than 50 percent plaque on the left; no stroke or transient ischemic attack; managed with best medical therapy (blood pressure control, a statin and low-dose aspirin) and yearly duplex surveillance</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Recent release from about six years of incarceration: re-entering community life on parole at 65, establishing primary care with no medical records yet received, a rented room, no earned income, and a public reputation he feels as a burden</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td>CLM-0009, CLM-0010, CLM-0011</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Acute gout of the right first metatarsophalangeal joint, a first flare seven weeks after starting hydrochlorothiazide, diagnosed clinically (sudden overnight onset, redness, swelling and exquisite tenderness of the big toe, no fever); treated with low-dose colchicine; resolved</td>
+    <td>resolved</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td></td>
+  </tr></tbody></table></section>
+    <section><h2>Synthetic outcome measures</h2><table><thead><tr><th>Grade</th><th>Date</th><th>Measure</th><th>Result</th><th>Coding</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-07-07</td>
+    <td>Sodium [Moles/volume] in Serum or Plasma</td>
+    <td>140 mmol/L<div class="muted">Reference 136-145 mmol/L</div></td>
+    <td>http://loinc.org · 2951-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-07-07</td>
+    <td>Potassium [Moles/volume] in Serum or Plasma</td>
+    <td>4.2 mmol/L<div class="muted">Reference 3.5-5.1 mmol/L</div></td>
+    <td>http://loinc.org · 2823-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-07-07</td>
+    <td>Creatinine [Mass/volume] in Serum or Plasma</td>
+    <td>0.98 mg/dL<div class="muted">Reference 0.74-1.35 mg/dL</div></td>
+    <td>http://loinc.org · 2160-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-07-07</td>
+    <td>Glucose [Mass/volume] in Serum or Plasma</td>
+    <td>94 mg/dL<div class="muted">Reference 70-99 mg/dL</div></td>
+    <td>http://loinc.org · 2345-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-07-07</td>
+    <td>Hemoglobin A1c/Hemoglobin.total in Blood</td>
+    <td>5.5%<div class="muted">Reference &lt;=5.6%</div></td>
+    <td>http://loinc.org · 4548-4</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-07-07</td>
+    <td>Hemoglobin [Mass/volume] in Blood</td>
+    <td>14.1 g/dL<div class="muted">Reference 13.2-17.1 g/dL</div></td>
+    <td>http://loinc.org · 718-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-07-07</td>
+    <td>Alanine aminotransferase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>22 U/L<div class="muted">Reference 7-52 U/L</div></td>
+    <td>http://loinc.org · 1742-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-07-07</td>
+    <td>Thyrotropin [Units/volume] in Serum or Plasma</td>
+    <td>2.1 mIU/L<div class="muted">Reference 0.45-4.5 mIU/L</div></td>
+    <td>http://loinc.org · 3016-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-07-07</td>
+    <td>Albumin/Creatinine [Mass Ratio] in Urine</td>
+    <td>18 mg/g<div class="muted">Reference Below 30</div></td>
+    <td>http://loinc.org · 9318-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-07-07</td>
+    <td>Cholesterol [Mass/volume] in Serum or Plasma</td>
+    <td>228 mg/dL (high)<div class="muted">Reference &lt;=199 mg/dL</div></td>
+    <td>http://loinc.org · 2093-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-07-07</td>
+    <td>Cholesterol in HDL [Mass/volume] in Serum or Plasma</td>
+    <td>46 mg/dL<div class="muted">Reference &gt;=40 mg/dL</div></td>
+    <td>http://loinc.org · 2085-9</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-07-07</td>
+    <td>Cholesterol in LDL [Mass/volume] in Serum or Plasma by calculation</td>
+    <td>148 mg/dL (high)<div class="muted">Reference Below 100</div></td>
+    <td>http://loinc.org · 13457-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-07-07</td>
+    <td>Triglyceride [Mass/volume] in Serum or Plasma</td>
+    <td>170 mg/dL (high)<div class="muted">Reference &lt;=149 mg/dL</div></td>
+    <td>http://loinc.org · 2571-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-07-07</td>
+    <td>Hepatitis C virus Ab Signal/Cutoff in Serum or Plasma by Immunoassay</td>
+    <td>0.08<div class="muted">Reference Below 1.00 is nonreactive</div></td>
+    <td>http://loinc.org · 48159-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-07-07</td>
+    <td>Mycobacterium tuberculosis stimulated gamma interferon release by CD4+ and CD8+ T-cells [Units/volume] corrected for background in Blood</td>
+    <td>0.02 [IU]/mL<div class="muted">Reference Below 0.35 is negative</div></td>
+    <td>http://loinc.org · 88517-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-07-07</td>
+    <td>Glomerular filtration rate [Volume Rate/Area] in Serum, Plasma or Blood by Creatinine-based formula (CKD-EPI 2021)/1.73 sq M</td>
+    <td>86 mL/min/1.73 m²<div class="muted">Reference 60 or more</div></td>
+    <td>http://loinc.org · 98979-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-07-07</td>
+    <td>Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]</td>
+    <td>7</td>
+    <td>http://loinc.org · 44261-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-08-18</td>
+    <td>Sodium [Moles/volume] in Serum or Plasma</td>
+    <td>136 mmol/L<div class="muted">Reference 136-145 mmol/L</div></td>
+    <td>http://loinc.org · 2951-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-08-18</td>
+    <td>Potassium [Moles/volume] in Serum or Plasma</td>
+    <td>3.6 mmol/L<div class="muted">Reference 3.5-5.1 mmol/L</div></td>
+    <td>http://loinc.org · 2823-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-08-18</td>
+    <td>Creatinine [Mass/volume] in Serum or Plasma</td>
+    <td>1.02 mg/dL<div class="muted">Reference 0.74-1.35 mg/dL</div></td>
+    <td>http://loinc.org · 2160-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-08-18</td>
+    <td>Glomerular filtration rate [Volume Rate/Area] in Serum, Plasma or Blood by Creatinine-based formula (CKD-EPI 2021)/1.73 sq M</td>
+    <td>82 mL/min/1.73 m²<div class="muted">Reference 60 or more</div></td>
+    <td>http://loinc.org · 98979-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-09-29</td>
+    <td>Urate [Mass/volume] in Serum or Plasma</td>
+    <td>8.4 mg/dL (high)<div class="muted">Reference 3.5-7.2 mg/dL</div></td>
+    <td>http://loinc.org · 3084-1</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-09-29</td>
+    <td>Sodium [Moles/volume] in Serum or Plasma</td>
+    <td>137 mmol/L<div class="muted">Reference 136-145 mmol/L</div></td>
+    <td>http://loinc.org · 2951-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-09-29</td>
+    <td>Potassium [Moles/volume] in Serum or Plasma</td>
+    <td>3.7 mmol/L<div class="muted">Reference 3.5-5.1 mmol/L</div></td>
+    <td>http://loinc.org · 2823-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-09-29</td>
+    <td>Creatinine [Mass/volume] in Serum or Plasma</td>
+    <td>1.04 mg/dL<div class="muted">Reference 0.74-1.35 mg/dL</div></td>
+    <td>http://loinc.org · 2160-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-09-29</td>
+    <td>Glomerular filtration rate [Volume Rate/Area] in Serum, Plasma or Blood by Creatinine-based formula (CKD-EPI 2021)/1.73 sq M</td>
+    <td>80 mL/min/1.73 m²<div class="muted">Reference 60 or more</div></td>
+    <td>http://loinc.org · 98979-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-09-29</td>
+    <td>Cholesterol [Mass/volume] in Serum or Plasma</td>
+    <td>142 mg/dL<div class="muted">Reference &lt;=199 mg/dL</div></td>
+    <td>http://loinc.org · 2093-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-09-29</td>
+    <td>Cholesterol in HDL [Mass/volume] in Serum or Plasma</td>
+    <td>48 mg/dL<div class="muted">Reference &gt;=40 mg/dL</div></td>
+    <td>http://loinc.org · 2085-9</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-09-29</td>
+    <td>Cholesterol in LDL [Mass/volume] in Serum or Plasma by calculation</td>
+    <td>68 mg/dL<div class="muted">Reference Below 100</div></td>
+    <td>http://loinc.org · 13457-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-09-29</td>
+    <td>Triglyceride [Mass/volume] in Serum or Plasma</td>
+    <td>130 mg/dL<div class="muted">Reference &lt;=149 mg/dL</div></td>
+    <td>http://loinc.org · 2571-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-09-29</td>
+    <td>Alanine aminotransferase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>26 U/L<div class="muted">Reference 7-52 U/L</div></td>
+    <td>http://loinc.org · 1742-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-10-27</td>
+    <td>Sodium [Moles/volume] in Serum or Plasma</td>
+    <td>139 mmol/L<div class="muted">Reference 136-145 mmol/L</div></td>
+    <td>http://loinc.org · 2951-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-10-27</td>
+    <td>Potassium [Moles/volume] in Serum or Plasma</td>
+    <td>4.5 mmol/L<div class="muted">Reference 3.5-5.1 mmol/L</div></td>
+    <td>http://loinc.org · 2823-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-10-27</td>
+    <td>Creatinine [Mass/volume] in Serum or Plasma</td>
+    <td>1.06 mg/dL<div class="muted">Reference 0.74-1.35 mg/dL</div></td>
+    <td>http://loinc.org · 2160-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-10-27</td>
+    <td>Glomerular filtration rate [Volume Rate/Area] in Serum, Plasma or Blood by Creatinine-based formula (CKD-EPI 2021)/1.73 sq M</td>
+    <td>78 mL/min/1.73 m²<div class="muted">Reference 60 or more</div></td>
+    <td>http://loinc.org · 98979-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-10-27</td>
+    <td>Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]</td>
+    <td>4</td>
+    <td>http://loinc.org · 44261-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-08-04</td>
+    <td>Patient Health Questionnaire 2 item (PHQ-2) total score [Reported]</td>
+    <td>1</td>
+    <td>http://loinc.org · 55758-7</td>
+  </tr></tbody></table></section>
+    <section><h2>Synthetic vital signs</h2><table><thead><tr><th>Date</th><th>Measure</th><th>Result</th><th>LOINC</th><th>Grade</th></tr></thead><tbody>
+  <tr><td>2026-07-07</td><td>Body height</td><td>175 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-07-07</td><td>Body weight</td><td>76 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-07-07</td><td>Body mass index (BMI) [Ratio]</td><td>24.8 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-07-07</td><td>Systolic blood pressure</td><td>166 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-07-07</td><td>Diastolic blood pressure</td><td>94 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-07-07</td><td>Heart rate</td><td>74 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-07-07</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-07-07</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-07-07</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>97 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-07-21</td><td>Body height</td><td>175 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-07-21</td><td>Body weight</td><td>75.8 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-07-21</td><td>Body mass index (BMI) [Ratio]</td><td>24.8 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-07-21</td><td>Systolic blood pressure</td><td>158 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-07-21</td><td>Diastolic blood pressure</td><td>92 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-07-21</td><td>Heart rate</td><td>72 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-07-21</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-07-21</td><td>Body temperature</td><td>36.5 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-07-21</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>97 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-08-18</td><td>Body height</td><td>175 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-08-18</td><td>Body weight</td><td>75.4 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-08-18</td><td>Body mass index (BMI) [Ratio]</td><td>24.6 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-08-18</td><td>Systolic blood pressure</td><td>138 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-08-18</td><td>Diastolic blood pressure</td><td>84 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-08-18</td><td>Heart rate</td><td>70 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-08-18</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-08-18</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-08-18</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>97 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-09-29</td><td>Body height</td><td>175 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-09-29</td><td>Body weight</td><td>75 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-09-29</td><td>Body mass index (BMI) [Ratio]</td><td>24.5 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-09-29</td><td>Systolic blood pressure</td><td>134 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-09-29</td><td>Diastolic blood pressure</td><td>80 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-09-29</td><td>Heart rate</td><td>68 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-09-29</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-09-29</td><td>Body temperature</td><td>36.5 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-09-29</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>97 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-27</td><td>Body height</td><td>175 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-27</td><td>Body weight</td><td>74.8 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-27</td><td>Body mass index (BMI) [Ratio]</td><td>24.4 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-27</td><td>Systolic blood pressure</td><td>126 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-27</td><td>Diastolic blood pressure</td><td>76 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-27</td><td>Heart rate</td><td>66 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-27</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-27</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-27</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>97 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-08-04</td><td>Body height</td><td>175 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-08-04</td><td>Body weight</td><td>75.6 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-08-04</td><td>Body mass index (BMI) [Ratio]</td><td>24.7 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-08-04</td><td>Systolic blood pressure</td><td>144 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-08-04</td><td>Diastolic blood pressure</td><td>86 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-08-04</td><td>Heart rate</td><td>70 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-08-04</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-08-04</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-08-04</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>97 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-09-08</td><td>Body height</td><td>175 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-09-08</td><td>Body weight</td><td>75.2 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-09-08</td><td>Body mass index (BMI) [Ratio]</td><td>24.6 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-09-08</td><td>Systolic blood pressure</td><td>142 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-09-08</td><td>Diastolic blood pressure</td><td>86 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-09-08</td><td>Heart rate</td><td>78 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-09-08</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-09-08</td><td>Body temperature</td><td>37.2 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-09-08</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>97 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr></tbody></table></section>
+    <section><h2>Social, functional, and mental status</h2><h3>Social history</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Released on parole four months ago after about six years in custody (county jail, then a federal penitentiary), where he worked in the prison hospital and edited the prison newspaper; reports monthly to a parole officer</li><li><span class="badge grade-S" title="Synthetic">S</span> Trained as a physician; led and served on polar expeditions; no longer practices; writing his memoirs</li><li><span class="badge grade-S" title="Synthetic">S</span> Rents a furnished room by the week; no earned income; part of any earnings goes toward a court-ordered fine; has applied for Social Security retirement benefits and Medicare</li><li><span class="badge grade-S" title="Synthetic">S</span> Tobacco: never. Alcohol: none since before prison; no other drugs, no injection drug use, no tattoos received in prison</li><li><span class="badge grade-S" title="Synthetic">S</span> Walks for an hour most days; ate prison food for years and now cooks on a hot plate; has no car</li></ul><h3>Functional status</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Independent in all activities of daily living and in managing money, medicines and transport</li></ul><h3>Mental status</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Alert, articulate and dignified; guarded about his past and the public disputes over his claims; describes shame and low spirits at times but enjoys his writing; PHQ-9 score 7, no thoughts of death or self-harm</li></ul></section>
+    
+    <section><h2>Allergies and medications</h2><h3>Allergies</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> No known allergy</li></ul><h3>Medications</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Hydrochlorothiazide 25 mg tablet, one tablet by mouth each morning</li><li><span class="badge grade-S" title="Synthetic">S</span> Amlodipine 5 mg tablet, one tablet by mouth daily</li><li><span class="badge grade-S" title="Synthetic">S</span> Atorvastatin 40 mg tablet, one tablet by mouth daily</li><li><span class="badge grade-S" title="Synthetic">S</span> Aspirin 81 mg delayed-release tablet, one tablet by mouth daily</li><li><span class="badge grade-S" title="Synthetic">S</span> Losartan 50 mg tablet, one tablet by mouth daily</li><li><span class="badge grade-S" title="Synthetic">S</span> Colchicine 0.6 mg tablet: two tablets at once, one more an hour later, then one tablet twice a day until the flare settles, for up to a week</li></ul></section>
+    <section><h2>Procedures and immunizations</h2><h3>Procedures</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Resting twelve-lead electrocardiogram: sinus rhythm, 72 per minute, normal axis and intervals, no left ventricular hypertrophy by voltage, no Q waves</li><li><span class="badge grade-S" title="Synthetic">S</span> Duplex ultrasound of both carotid arteries: right internal carotid peak systolic velocity 165 cm/s, end-diastolic velocity 38 cm/s, internal-to-common carotid ratio 2.6, heterogeneous plaque, consistent with 50 to 69 percent stenosis; left internal carotid peak systolic velocity 96 cm/s with less than 50 percent plaque; both vertebral arteries with antegrade flow</li><li><span class="badge grade-S" title="Synthetic">S</span> Advance care planning conversation, about 20 minutes</li><li><span class="badge grade-S" title="Synthetic">S</span> Transthoracic echocardiogram: normal left ventricular size and wall thickness, no left ventricular hypertrophy, ejection fraction about 60 percent, normal diastolic function for age, mild aortic valve sclerosis without stenosis</li></ul><h3>Immunizations</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> 2026-08-04: Pneumococcal conjugate vaccine (PCV20)</li><li><span class="badge grade-S" title="Synthetic">S</span> 2026-08-04: Recombinant zoster vaccine, dose 1 of 2</li><li><span class="badge grade-S" title="Synthetic">S</span> 2026-08-04: Tdap vaccine</li><li><span class="badge grade-S" title="Synthetic">S</span> 2026-08-04: Hepatitis B vaccine, CpG-adjuvanted (two-dose series), dose 1 of 2</li><li><span class="badge grade-S" title="Synthetic">S</span> 2026-09-29: Hepatitis B vaccine, CpG-adjuvanted (two-dose series), dose 2 of 2</li><li><span class="badge grade-S" title="Synthetic">S</span> 2026-10-27: Influenza vaccine, high-dose, trivalent</li><li><span class="badge grade-S" title="Synthetic">S</span> 2026-10-27: Recombinant zoster vaccine, dose 2 of 2</li></ul></section>
+    <section><h2>Past medical history</h2><p class="muted">True biography with historical dates; not part of the synthetic care timeline.</p><ul><li><span class="badge grade-D" title="Documented">D</span> 1891 to 1899: Physician on Arctic and Antarctic expeditions in his late twenties and early thirties, including a winter in the Antarctic pack ice in which he treated the crew&#39;s scurvy; no illness of his own is recorded in the cited sources <span class="muted">(CLM-0003, CLM-0004)</span></li></ul><h3>Family history</h3><ul><li><span class="badge grade-D" title="Documented">D</span> father: A physician; died of pneumonia when the patient was five</li></ul></section>
+    <section><h2>Care-plan goals</h2><table><thead><tr><th>Goal</th><th>Target date</th><th>Status</th><th>Outcome</th></tr></thead><tbody>
+  <tr><td>Office and home blood pressure below 130/80 mmHg by four months</td><td>2026-10-27</td><td>completed</td><td>Office 126/76 on amlodipine and losartan</td></tr>
+  <tr><td>LDL cholesterol lowered by at least half on a statin</td><td>2026-09-29</td><td>completed</td><td>LDL 68 mg/dL, from 148 mg/dL, on atorvastatin 40 mg</td></tr>
+  <tr><td>Knows the warning signs of stroke and to call 911 at once</td><td>2026-07-21</td><td>completed</td><td>Taught and repeated back the BE FAST signs at the consultation visit</td></tr>
+  <tr><td>A stable room, Social Security and Medicare in place, and a health insurance card in hand</td><td>2026-09-29</td><td>completed</td><td>Six-month lease on his room; retirement benefits and Medicare approved</td></tr></tbody></table></section>
+    <section><h2>Interventions</h2><table><thead><tr><th>Intervention</th><th>Status</th><th>Guideline</th></tr></thead><tbody>
+  <tr><td>Vascular neurology consultation in two weeks, with carotid duplex ultrasound before it, for a right carotid bruit in a man with high blood pressure: degree of stenosis, medical therapy or revascularization, and surveillance</td><td>completed</td><td>GL-AHA-STROKE-2024, GL-SVS-CAROTID-2021</td></tr>
+  <tr><td>Home blood pressure monitoring twice daily for seven days with a validated upper-arm cuff, to confirm or exclude hypertension before treatment; lower salt, the DASH eating pattern, and daily walking</td><td>completed</td><td>GL-AHA-HTN-2025, GL-CMID-2026</td></tr>
+  <tr><td>Baseline tests: basic metabolic panel, HbA1c, lipid panel, urine albumin-to-creatinine ratio, TSH, hemoglobin and ALT, and a resting ECG; re-entry screening with a hepatitis C antibody, an interferon-gamma release assay for latent tuberculosis, an HIV test and a hepatitis B panel; PHQ-9</td><td>completed</td><td>GL-AHA-HTN-2025, GL-CMID-2026, GL-USPSTF-HCV-2020, GL-CDC-HCV-2020, GL-USPSTF-LTBI-2023, GL-CDC-TB-CORR-2006, GL-USPSTF-DEP-2023</td></tr>
+  <tr><td>Re-entry support: a release-of-information request for his prison medical records, a social work referral for housing, Social Security and Medicare enrollment, a low-cost pharmacy plan, and a conversation about shame and reputation, with follow-up of mood at each visit</td><td>completed</td><td>GL-USPSTF-DEP-2023</td></tr>
+  <tr><td>Two first-line drugs for stage 2 hypertension, hydrochlorothiazide 25 mg and amlodipine 5 mg daily, aiming for below 130/80 mmHg, with sodium, potassium and creatinine in about four weeks</td><td>completed</td><td>GL-AHA-HTN-2025, GL-CMID-2026</td></tr>
+  <tr><td>Best medical therapy for asymptomatic right carotid stenosis of 50 to 69 percent: atorvastatin 40 mg and aspirin 81 mg daily, a lipid panel and ALT in 4 to 12 weeks, blood pressure control, stroke warning signs and calling 911, and a repeat duplex in twelve months</td><td>completed</td><td>GL-AHA-STROKE-2024, GL-SVS-CAROTID-2021, GL-ESVS-CAROTID-2023, GL-ACC-CHOL-2018, GL-CMID-2026</td></tr>
+  <tr><td>Switch hydrochlorothiazide to losartan 50 mg daily after a drug-induced gout flare, with potassium and creatinine one to two weeks after starting; no urate-lowering drug after a single flare</td><td>completed</td><td>GL-ACR-GOUT-2020, GL-AHA-HTN-2025</td></tr></tbody></table></section>
+    <section><h2>Planned encounters</h2><ul>
+  <li><strong>2026-07-07</strong> — New patient visit to establish care after release from prison: history, medication reconciliation, blood pressure, a right carotid bruit, re-entry screening for hepatitis C, tuberculosis and HIV, mood and social needs, and a vascular neurology referral <span class="muted">(ENC-001)</span></li>
+  <li><strong>2026-07-21</strong> — Two-week follow-up: home blood pressure readings, carotid duplex ultrasound and vascular neurology consultation, starting treatment <span class="muted">(ENC-002)</span></li>
+  <li><strong>2026-08-04</strong> — Initial preventive physical examination (Welcome to Medicare) <span class="muted">(ENC-006)</span></li>
+  <li><strong>2026-08-18</strong> — Six-week review: blood pressure, electrolytes and kidney function on hydrochlorothiazide and amlodipine; statin and aspirin tolerance <span class="muted">(ENC-003)</span></li>
+  <li><strong>2026-09-08</strong> — Same-day sick visit for a painful, swollen right big toe <span class="muted">(ENC-007, unscheduled)</span></li>
+  <li><strong>2026-09-29</strong> — Twelve-week review: blood pressure and lipids after a gout flare on hydrochlorothiazide; switch to losartan <span class="muted">(ENC-004)</span></li>
+  <li><strong>2026-10-27</strong> — Sixteen-week review: blood pressure, potassium and kidney function on losartan, mood, social needs and stroke prevention <span class="muted">(ENC-005)</span></li></ul></section>
+    <section><h2>Supporting documents</h2><ul><li><a href="notes/hp.md">History and physical</a></li><li><a href="notes/progress-01.md">Progress note 01</a></li><li><a href="notes/progress-02.md">Progress note 02 — Focused Visit (Follow-up)</a></li><li><a href="notes/progress-03.md">Progress note 03 — Initial Preventive Physical Examination</a></li><li><a href="notes/progress-04.md">Progress note 04 — Focused Visit (Follow-up)</a></li><li><a href="notes/progress-05.md">Progress note 05 — Sick Visit</a></li><li><a href="notes/progress-06.md">Progress note 06 — Focused Visit (Follow-up)</a></li><li><a href="notes/progress-07.md">Progress note 07 — Focused Visit (Care-plan review)</a></li><li><a href="notes/referral-01.md">Vascular Neurology referral</a></li><li><a href="notes/consult-01.md">Vascular Neurology consultation</a></li><li><a href="notes/careplan.md">Patient care plan</a></li><li><a href="notes/teaching-note.md">Teaching note</a></li><li><a href="provenance.csv">Provenance CSV</a></li></ul></section>
+    <section><h2>C-CDA note documents</h2><p class="muted">Each link opens a readable copy; the XML beside it is the exchange file.</p><ul><li><a href="ccda/hp-01.html">History and physical</a> <a href="ccda/hp-01.xml">(XML)</a></li><li><a href="ccda/progress-01.html">Progress note 01</a> <a href="ccda/progress-01.xml">(XML)</a></li><li><a href="ccda/progress-02.html">Progress note 02 — Focused Visit (Follow-up)</a> <a href="ccda/progress-02.xml">(XML)</a></li><li><a href="ccda/progress-03.html">Progress note 03 — Initial Preventive Physical Examination</a> <a href="ccda/progress-03.xml">(XML)</a></li><li><a href="ccda/progress-04.html">Progress note 04 — Focused Visit (Follow-up)</a> <a href="ccda/progress-04.xml">(XML)</a></li><li><a href="ccda/progress-05.html">Progress note 05 — Sick Visit</a> <a href="ccda/progress-05.xml">(XML)</a></li><li><a href="ccda/progress-06.html">Progress note 06 — Focused Visit (Follow-up)</a> <a href="ccda/progress-06.xml">(XML)</a></li><li><a href="ccda/progress-07.html">Progress note 07 — Focused Visit (Care-plan review)</a> <a href="ccda/progress-07.xml">(XML)</a></li><li><a href="ccda/referral-01.html">Vascular Neurology referral</a> <a href="ccda/referral-01.xml">(XML)</a></li><li><a href="ccda/consult-01.html">Vascular Neurology consultation</a> <a href="ccda/consult-01.xml">(XML)</a></li></ul></section>
+    <section><h2>Sources</h2><table><thead><tr><th>ID</th><th>Source</th><th>Publisher</th><th>Type</th></tr></thead><tbody>
+  <tr>
+    <td>SRC-0001</td>
+    <td><a href="https://id.loc.gov/authorities/names/n81021964.html" target="_blank" rel="noreferrer">Cook, Frederick Albert, 1865-1940 (name authority record n81021964)</a></td>
+    <td>Library of Congress</td>
+    <td>government</td>
+  </tr>
+  <tr>
+    <td>SRC-0002</td>
+    <td><a href="https://library.osu.edu/site/frederickcook/early-years/" target="_blank" rel="noreferrer">Frederick A. Cook exhibit: Early Years</a></td>
+    <td>Ohio State University Libraries, Byrd Polar and Climate Research Center Archival Program</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0003</td>
+    <td><a href="https://library.osu.edu/site/frederickcook/north-greenland-expedition/" target="_blank" rel="noreferrer">Frederick A. Cook exhibit: North Greenland Expedition</a></td>
+    <td>Ohio State University Libraries, Byrd Polar and Climate Research Center Archival Program</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0004</td>
+    <td><a href="https://library.osu.edu/site/frederickcook/belgian-antarctic-expedition/" target="_blank" rel="noreferrer">Frederick A. Cook exhibit: Belgian Antarctic Expedition</a></td>
+    <td>Ohio State University Libraries, Byrd Polar and Climate Research Center Archival Program</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0005</td>
+    <td><a href="https://library.osu.edu/site/frederickcook/return-to-mt-mckinley/" target="_blank" rel="noreferrer">Frederick A. Cook exhibit: Return to Mt. McKinley</a></td>
+    <td>Ohio State University Libraries, Byrd Polar and Climate Research Center Archival Program</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0006</td>
+    <td><a href="https://library.osu.edu/site/frederickcook/north-pole-expedition/" target="_blank" rel="noreferrer">Frederick A. Cook exhibit: North Pole Expedition</a></td>
+    <td>Ohio State University Libraries, Byrd Polar and Climate Research Center Archival Program</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0007</td>
+    <td><a href="https://www.visitthecapitol.gov/node/934" target="_blank" rel="noreferrer">Dr. Frederick Cook&#39;s Diary, 1908 (exhibit item; Library of Congress Manuscript Division)</a></td>
+    <td>U.S. Capitol Visitor Center</td>
+    <td>government</td>
+  </tr>
+  <tr>
+    <td>SRC-0008</td>
+    <td><a href="https://library.osu.edu/finding-aids/ead/PA/SPEC.PA.56.0019.xml" target="_blank" rel="noreferrer">Guide to the Frederick Albert Cook Collection, SPEC.PA.56.0019 (biographical note)</a></td>
+    <td>Ohio State University Libraries, Byrd Polar and Climate Research Center Archival Program</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0009</td>
+    <td><a href="https://library.osu.edu/site/frederickcook/afterward/" target="_blank" rel="noreferrer">Frederick A. Cook exhibit: Afterward</a></td>
+    <td>Ohio State University Libraries, Byrd Polar and Climate Research Center Archival Program</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0010</td>
+    <td><a href="https://content.time.com/time/subscriber/article/0,33009,738807,00.html" target="_blank" rel="noreferrer">Crime: Oilman Out. Time, March 17, 1930</a></td>
+    <td>Time</td>
+    <td>primary</td>
+  </tr>
+  <tr>
+    <td>SRC-0011</td>
+    <td><a href="https://time.com/archive/6821359/people-may-27-1940/" target="_blank" rel="noreferrer">People, May 27, 1940. Time</a></td>
+    <td>Time</td>
+    <td>primary</td>
+  </tr>
+  <tr>
+    <td>SRC-0012</td>
+    <td><a href="https://aoghs.org/old-oil-stocks/arctic-explorer-turns-oil-promoter" target="_blank" rel="noreferrer">Arctic explorer turns oil promoter</a></td>
+    <td>American Oil &amp; Gas Historical Society</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0013</td>
+    <td><a href="https://www.scnyhistory.org/?p=4438" target="_blank" rel="noreferrer">Frederick A. Cook</a></td>
+    <td>Sullivan County Historical Society</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0014</td>
+    <td><a href="https://humanrecord.example.org/internal/HISTMED_Master_Roster_v3.xlsx" target="_blank" rel="noreferrer">HISTMED Master Roster v3</a></td>
+    <td>The Human Record project</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0015</td>
+    <td><a href="https://www.encyclopedia.com/reference/encyclopedias-almanacs-transcripts-and-maps/cook-frederick-albert" target="_blank" rel="noreferrer">Cook, Frederick Albert. The Columbia Encyclopedia, 6th ed. (Encyclopedia.com)</a></td>
+    <td>Columbia University Press (via Encyclopedia.com)</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0016</td>
+    <td><a href="https://bklynlibrary.org/blog/2011/05/10/out-cold-part-i" target="_blank" rel="noreferrer">Out in the Cold: Part I (blog, May 10, 2011)</a></td>
+    <td>Brooklyn Public Library</td>
+    <td>other</td>
+  </tr></tbody></table></section>
+    <section><h2>Review status</h2><table><thead><tr><th>Review</th><th>Status</th><th>Notes</th></tr></thead><tbody>
+  <tr><td>schema validation</td><td>not_started</td><td>Run scripts/build.ps1 -Conformance.</td></tr>
+  <tr><td>clinical review</td><td>not_started</td><td>Awaiting clinician review; check the confirmation of stage 2 hypertension by home readings and the two-drug start, the evaluation of a bruit by duplex despite the USPSTF recommendation against screening, best medical therapy rather than revascularization for an asymptomatic 50 to 69 percent stenosis, the switch from hydrochlorothiazide to losartan after gout, and the re-entry screening.</td></tr>
+  <tr><td>provenance review</td><td>not_started</td><td>The Library of Congress authority record, the Ohio State University Byrd Polar archive exhibit and finding aid, the U.S. Capitol Visitor Center exhibit, two Time reports (1930 and 1940), the American Oil &amp; Gas Historical Society, the Sullivan County Historical Society, the Columbia Encyclopedia and a Brooklyn Public Library blog logged. No retrospective diagnosis is recorded; the roster&#39;s depression was not found in a fetched source and is left out.</td></tr>
+  <tr><td>safe messaging review</td><td>not_started</td><td>His own words about imprisonment and the parole terms are marked sensitive. The modern PHQ-9 scores (7, then 4) are synthetic and below 10; no behavioral-health diagnosis is made and no safety assessment is required. The modern episode makes no prediction about his documented stroke in 1940.</td></tr></tbody></table></section>
+  </main>
+</body>
+</html>

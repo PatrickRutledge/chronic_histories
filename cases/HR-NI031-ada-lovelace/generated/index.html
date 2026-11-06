@@ -1,0 +1,709 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ada Lovelace — The Human Record</title>
+  <style>
+    :root { --navy:#17365d; --blue:#1f4e78; --pale:#eef5fa; --ink:#1f2933; --muted:#66788a; --amber:#fff2cc; --red:#f8d7da; --green:#d9ead3; }
+    * { box-sizing:border-box; }
+    body { margin:0; font:16px/1.5 Arial, sans-serif; color:var(--ink); background:#f6f8fa; }
+    header { background:var(--navy); color:white; padding:24px max(24px,calc((100vw - 1180px)/2)); }
+    header h1 { margin:4px 0; font-size:30px; }
+    .banner { background:#b42318; color:white; font-weight:700; text-align:center; padding:10px; letter-spacing:.03em; }
+    main { max-width:1180px; margin:24px auto 60px; padding:0 24px; }
+    section { background:white; border:1px solid #d9e1e8; border-radius:8px; margin:18px 0; padding:20px; }
+    h2 { color:var(--navy); margin:0 0 14px; font-size:22px; }
+    h3 { color:var(--blue); }
+    .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:12px; }
+    .card { background:var(--pale); border-left:4px solid var(--blue); padding:12px; }
+    .label { color:var(--muted); font-size:13px; text-transform:uppercase; letter-spacing:.04em; }
+    table { width:100%; border-collapse:collapse; }
+    th { background:var(--blue); color:white; text-align:left; }
+    th,td { padding:9px; border-bottom:1px solid #dfe6ec; vertical-align:top; }
+    .badge { display:inline-block; min-width:28px; text-align:center; font-weight:700; border-radius:12px; padding:2px 8px; }
+    .grade-D { background:var(--green); } .grade-R { background:var(--amber); } .grade-S { background:var(--red); }
+    .muted { color:var(--muted); font-size:14px; }
+    .relationship { color:var(--muted); font-size:12px; }
+    .downloads a { display:inline-block; margin:4px 8px 4px 0; padding:8px 12px; background:var(--blue); color:white; text-decoration:none; border-radius:5px; }
+    @media (max-width:700px) { table { display:block; overflow-x:auto; } }
+  </style>
+</head>
+<body>
+  <div class="banner">SYNTHETIC RECORD, NOT A REAL MEDICAL RECORD</div>
+  <header>
+    <div>The Human Record</div>
+    <h1>Ada Lovelace</h1>
+    <div>Case HR-NI031 · Modern EHR teaching episode · Draft for review</div>
+  </header>
+  <main>
+    <section>
+      <h2>Review summary</h2>
+      <div class="grid">
+        <div class="card"><div class="label">Historical dates</div>December 10, 1815 – November 27, 1852</div>
+        <div class="card"><div class="label">Synthetic DOB</div>1990-12-10</div>
+        <div class="card"><div class="label">Index visit</div>2026-06-02 at age 35</div>
+        <div class="card"><div class="label">Synthetic MRN</div>HR-NI031-SYN</div>
+      </div>
+      <p><strong>Teaching objective:</strong> Primary care, gynecologic oncology and early palliative care for a 35-year-old mathematician with five months of abnormal bleeding and pelvic pain who has taken prescribed opium tincture for years: speculum examination and biopsy of a visible cervical tumor at the first visit, with tumor HPV typing; intravenous iron for iron deficiency anemia from blood loss; conversion of an unmeasured opium tincture to measured oral morphine, then long-acting morphine, with naloxone, a bowel regimen, safe storage and a prescription monitoring check, applying the ASCO 2023 guideline on opioids for cancer pain and noting that the CDC 2022 opioid guideline does not cover cancer pain; FIGO 2018 staging with MRI and PET-CT and biopsy of a lung metastasis (stage IVB); tumor biomarkers (PD-L1, mismatch repair, HER2) and why germline testing is not indicated; palliative pelvic radiation for bleeding; first-line carboplatin, paclitaxel and pembrolizumab under the NCCN cervical cancer guideline and KEYNOTE-826, without bevacizumab while she was bleeding after pelvic radiation; specialist palliative care from diagnosis (ASCO 2024); immune-related thyroid monitoring; opioid-induced constipation; goals-of-care conversations and advance care planning; vaccination of an adult on chemotherapy; and protecting clear-headed hours for her mathematical work.</p>
+      <div class="downloads">
+        <a href="../case.json">Canonical JSON</a>
+        <a href="fhir-bundle.json">FHIR R4 draft</a>
+        <a href="ccda.html">C-CDA R2.1 summary</a> <a href="ccda.xml">(XML)</a> <a href="review.html">Review checklist</a>
+        <a href="../sources.md">Evidence dossier</a>
+      </div>
+    </section>
+    <section><h2>Historical timeline</h2><table><thead><tr><th>Date</th><th>Event</th><th>Claims</th></tr></thead><tbody>
+  <tr><td>December 10, 1815</td><td>Born in Piccadilly, London.</td><td>CLM-0001</td></tr>
+  <tr><td>1829</td><td>Measles, with a long recovery and a year in bed.</td><td>CLM-0002</td></tr>
+  <tr><td>July 8, 1835</td><td>Married; Countess of Lovelace from 1838.</td><td>CLM-0003</td></tr>
+  <tr><td>1837</td><td>Cholera, with lingering asthma and digestive problems.</td><td>CLM-0004</td></tr>
+  <tr><td>1842 to 1843</td><td>Translation of Menabrea&#39;s article on the Analytical Engine, with her Notes.</td><td>CLM-0006</td></tr>
+  <tr><td>1843 to 1844 and later</td><td>Declining health; several medicines; laudanum and opium.</td><td>CLM-0005, CLM-0007</td></tr>
+  <tr><td>about 1850 to 1852</td><td>Gambling on horses and pawned jewels.</td><td>CLM-0008</td></tr>
+  <tr><td>1851</td><td>Gravely ill with uterine cancer.</td><td>CLM-0010</td></tr>
+  <tr><td>January 1852</td><td>Wracked with pain as the cancer advanced.</td><td>CLM-0011</td></tr>
+  <tr><td>November 27, 1852</td><td>Died in Marylebone, London; owed about 2,000 pounds in gambling debts.</td><td>CLM-0009, CLM-0012</td></tr></tbody></table></section>
+    <section><h2>Evidence claims</h2><p class="muted">D = documented, R = retrospective, S = synthetic.</p><table><thead><tr><th>Grade</th><th>Claim</th><th>Certainty</th><th>Sources</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>Augusta Ada Byron was born on December 10, 1815, in Piccadilly, London, the daughter of the poet Lord Byron and Anne Isabella Byron.</strong></td>
+    <td>confirmed</td>
+    <td><a href="https://blogs.bodleian.ox.ac.uk/adalovelace/about-ada-lovelace/" target="_blank" rel="noreferrer">McCarthy L. About Ada Lovelace (Ada Lovelace blog)</a> <span class="relationship">supports</span><br><a href="https://mathshistory.st-andrews.ac.uk/Biographies/Lovelace/" target="_blank" rel="noreferrer">O&#39;Connor JJ, Robertson EF. Augusta Ada King, Countess of Lovelace (MacTutor History of Mathematics)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>She was often ill as a child. In 1829, at 13, she caught measles, from which she took a long while to recover; she was bedridden for a whole year.</strong><div class="muted">Documented childhood illness. The brief&#39;s &#39;unable to walk&#39; and later crutches were not found in a fetched source and are not recorded.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://mathshistory.st-andrews.ac.uk/Biographies/Lovelace/" target="_blank" rel="noreferrer">O&#39;Connor JJ, Robertson EF. Augusta Ada King, Countess of Lovelace (MacTutor History of Mathematics)</a> <span class="relationship">supports</span><br><a href="https://www.smithsonianmag.com/science-nature/who-was-ada-lovelace-25830687/" target="_blank" rel="noreferrer">Zielinski S. Who Was Ada Lovelace? Smithsonian Magazine, March 24, 2010</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>On July 8, 1835, she married William King, who was created an earl in 1838, making her Countess of Lovelace.</strong></td>
+    <td>confirmed</td>
+    <td><a href="https://blogs.bodleian.ox.ac.uk/adalovelace/about-ada-lovelace/" target="_blank" rel="noreferrer">McCarthy L. About Ada Lovelace (Ada Lovelace blog)</a> <span class="relationship">supports</span><br><a href="https://mathshistory.st-andrews.ac.uk/Biographies/Lovelace/" target="_blank" rel="noreferrer">O&#39;Connor JJ, Robertson EF. Augusta Ada King, Countess of Lovelace (MacTutor History of Mathematics)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>Her health suffered after a bout of cholera in 1837, and she had lingering problems with asthma and her digestive system.</strong><div class="muted">Documented in a general biography only.</div></td>
+    <td>probable</td>
+    <td><a href="https://www.biography.com/scientist/ada-lovelace" target="_blank" rel="noreferrer">Biography.com Editors. Ada Lovelace Biography (last updated May 6, 2021)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>Her doctors gave her painkillers such as laudanum and opium; she reportedly had mood swings and hallucinations.</strong><div class="muted">Documented in a general biography only; no doses or dates are given. Anchors the modern history of long-term prescribed opium tincture; no substance use disorder is inferred.</div></td>
+    <td>probable</td>
+    <td><a href="https://www.biography.com/scientist/ada-lovelace" target="_blank" rel="noreferrer">Biography.com Editors. Ada Lovelace Biography (last updated May 6, 2021)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>Between 1842 and 1843 she translated L. F. Menabrea&#39;s article on Charles Babbage&#39;s Analytical Engine and added her own extensive Notes, published in 1843 under the initials A.A.L. The Notes, which include a method for computing Bernoulli numbers on the engine, are often described as the first published computer program.</strong><div class="muted">Her mathematical work; anchors the modern goal of clear-headed working hours.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://blogs.bodleian.ox.ac.uk/adalovelace/about-ada-lovelace/" target="_blank" rel="noreferrer">McCarthy L. About Ada Lovelace (Ada Lovelace blog)</a> <span class="relationship">supports</span><br><a href="https://mathshistory.st-andrews.ac.uk/Biographies/Lovelace/" target="_blank" rel="noreferrer">O&#39;Connor JJ, Robertson EF. Augusta Ada King, Countess of Lovelace (MacTutor History of Mathematics)</a> <span class="relationship">supports</span><br><a href="https://www.maths.ox.ac.uk/node/25695" target="_blank" rel="noreferrer">Exploding the myths of Ada Lovelace&#39;s mathematics</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>Her health, always fragile, declined sharply after 1843. By the end of that year she was taking several medicines for different health problems; in 1844 she wrote that a recent illness had left her &#39;utterly unable to think even of my studies&#39;, and she thought of writing a scientific study of the effects of opium and wine based on her own experience. In the 1840s she had what she called heart or rheumatic attacks.</strong><div class="muted">Documented chronic ill health and her own use of opium; no diagnosis is inferred.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://blogs.bodleian.ox.ac.uk/adalovelace/about-ada-lovelace/" target="_blank" rel="noreferrer">McCarthy L. About Ada Lovelace (Ada Lovelace blog)</a> <span class="relationship">supports</span><br><a href="https://mathshistory.st-andrews.ac.uk/Biographies/Lovelace/" target="_blank" rel="noreferrer">O&#39;Connor JJ, Robertson EF. Augusta Ada King, Countess of Lovelace (MacTutor History of Mathematics)</a> <span class="relationship">supports</span><br><a href="https://www.smithsonianmag.com/science-nature/who-was-ada-lovelace-25830687/" target="_blank" rel="noreferrer">Zielinski S. Who Was Ada Lovelace? Smithsonian Magazine, March 24, 2010</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>Gambling on horses was a passion of her later years, and she pawned some of her jewels to finance it.</strong><div class="muted">Documented gambling; the years are not given exactly. No gambling disorder is inferred.</div></td>
+    <td>probable</td>
+    <td><a href="https://mathshistory.st-andrews.ac.uk/Biographies/Lovelace/" target="_blank" rel="noreferrer">O&#39;Connor JJ, Robertson EF. Augusta Ada King, Countess of Lovelace (MacTutor History of Mathematics)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>As she lay dying it came out that she had led a ruinous horse-betting ring, borrowed money from shady people, and pawned her diamonds twice; she owed about 2,000 pounds in gambling debts when she died.</strong><div class="muted">After the episode.</div></td>
+    <td>probable</td>
+    <td><a href="https://historicalnovelsociety.org/?p=22040" target="_blank" rel="noreferrer">Warr T. Review of Miranda Seymour, In Byron&#39;s Wake. Historical Novels Review 85 (August 2018)</a> <span class="relationship">supports</span><br><a href="https://mathshistory.st-andrews.ac.uk/Biographies/Lovelace/" target="_blank" rel="noreferrer">O&#39;Connor JJ, Robertson EF. Augusta Ada King, Countess of Lovelace (MacTutor History of Mathematics)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>By 1851 she was extremely sick with uterine cancer.</strong><div class="muted">Documented; the site is given as the uterus, and the modern episode&#39;s cervical primary is a synthetic choice.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.smithsonianmag.com/science-nature/who-was-ada-lovelace-25830687/" target="_blank" rel="noreferrer">Zielinski S. Who Was Ada Lovelace? Smithsonian Magazine, March 24, 2010</a> <span class="relationship">supports</span><br><a href="https://historicalnovelsociety.org/?p=22040" target="_blank" rel="noreferrer">Warr T. Review of Miranda Seymour, In Byron&#39;s Wake. Historical Novels Review 85 (August 2018)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>By January 1852 she was wracked with pain as the cancer became more acute.</strong><div class="muted">After the episode.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://mathshistory.st-andrews.ac.uk/Biographies/Lovelace/" target="_blank" rel="noreferrer">O&#39;Connor JJ, Robertson EF. Augusta Ada King, Countess of Lovelace (MacTutor History of Mathematics)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>She died on November 27, 1852, in Marylebone, London, at 36, the age at which her father had died, and was buried at her request next to her father at the Church of St. Mary Magdalene in Hucknall, Nottinghamshire.</strong><div class="muted">After the episode.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://blogs.bodleian.ox.ac.uk/adalovelace/about-ada-lovelace/" target="_blank" rel="noreferrer">McCarthy L. About Ada Lovelace (Ada Lovelace blog)</a> <span class="relationship">supports</span><br><a href="https://mathshistory.st-andrews.ac.uk/Biographies/Lovelace/" target="_blank" rel="noreferrer">O&#39;Connor JJ, Robertson EF. Augusta Ada King, Countess of Lovelace (MacTutor History of Mathematics)</a> <span class="relationship">supports</span><br><a href="https://www.biography.com/scientist/ada-lovelace" target="_blank" rel="noreferrer">Biography.com Editors. Ada Lovelace Biography (last updated May 6, 2021)</a> <span class="relationship">supports</span><br><a href="https://www.computerhistory.org/revolution/calculators/1/51/207" target="_blank" rel="noreferrer">Augusta Ada King (nee Byron), Countess of Lovelace (Revolution exhibit)</a> <span class="relationship">supports</span></td>
+  </tr></tbody></table></section>
+    <section><h2>Modern synthetic problem list</h2><table><thead><tr><th>Grade</th><th>Problem</th><th>Clinical status</th><th>Verification</th><th>Placement</th><th>Historical claims</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Bleeding between periods and after intercourse, with heavier periods, a watery blood-stained discharge and a constant pelvic ache, for about five months; average pain 7 of 10 despite her opium tincture; a friable cervical mass found on examination and biopsied; cause not yet established at intake</td>
+    <td>resolved</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td>CLM-0010</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Iron deficiency anemia from chronic blood loss: hemoglobin 8.4 g/dL, mean cell volume 74 fL, ferritin 5 ng/mL, with tiredness and breathlessness on stairs</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td>CLM-0010</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Adenocarcinoma of the endocervix, usual (HPV-associated) type, HPV 18 positive, FIGO 2018 stage IVB: a 5.2 cm tumor with left parametrial invasion, metastases to left pelvic and para-aortic lymph nodes, and bilateral lung metastases on MRI and PET-CT; PD-L1 combined positive score 5, mismatch repair proficient, HER2 1+; treated with palliative pelvic radiation for bleeding and carboplatin, paclitaxel and pembrolizumab, with specialist palliative care from diagnosis</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td>CLM-0010</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Cancer-related pelvic pain, nociceptive and visceral, from the cervical tumor and its left parametrial extension</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td>CLM-0010</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Long-term prescribed opioid therapy: opium tincture for recurrent pelvic and abdominal pain for about two years, measured at times with a household spoon, converted at intake to measured oral morphine; no opioid use disorder on a DSM-5 assessment; naloxone supplied</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td>CLM-0005, CLM-0007</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Drug-induced constipation from long-acting morphine and ondansetron, a week after the first chemotherapy cycle: no bowel movement for five days, with bloating and cramping but passing wind, without vomiting; no bowel obstruction on examination; potassium and calcium normal; resolved with laxatives</td>
+    <td>resolved</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td></td>
+  </tr></tbody></table></section>
+    <section><h2>Synthetic outcome measures</h2><table><thead><tr><th>Grade</th><th>Date</th><th>Measure</th><th>Result</th><th>Coding</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-06-02</td>
+    <td>Hemoglobin [Mass/volume] in Blood</td>
+    <td>8.4 g/dL (low)<div class="muted">Reference 12-15.5 g/dL</div></td>
+    <td>http://loinc.org · 718-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-06-02</td>
+    <td>MCV [Entitic mean volume] in Red Blood Cells by Automated count</td>
+    <td>74 fL (low)<div class="muted">Reference 80-100 fL</div></td>
+    <td>http://loinc.org · 787-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-06-02</td>
+    <td>Leukocytes [#/volume] in Blood by Automated count</td>
+    <td>7.8 10*3/uL<div class="muted">Reference 4-11 10*3/uL</div></td>
+    <td>http://loinc.org · 6690-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-06-02</td>
+    <td>Platelets [#/volume] in Blood by Automated count</td>
+    <td>412 10*3/uL (high)<div class="muted">Reference 150-400 10*3/uL</div></td>
+    <td>http://loinc.org · 777-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-06-02</td>
+    <td>Ferritin [Mass/volume] in Serum or Plasma</td>
+    <td>5 ng/mL (low)<div class="muted">Reference 15-150 ng/mL</div></td>
+    <td>http://loinc.org · 2276-4</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-06-02</td>
+    <td>Creatinine [Mass/volume] in Serum or Plasma</td>
+    <td>0.68 mg/dL<div class="muted">Reference 0.57-1 mg/dL</div></td>
+    <td>http://loinc.org · 2160-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-06-02</td>
+    <td>Alanine aminotransferase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>18 U/L<div class="muted">Reference 7-35 U/L</div></td>
+    <td>http://loinc.org · 1742-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-06-02</td>
+    <td>Albumin [Mass/volume] in Serum or Plasma</td>
+    <td>3.6 g/dL<div class="muted">Reference 3.5-5 g/dL</div></td>
+    <td>http://loinc.org · 1751-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-06-02</td>
+    <td>Choriogonadotropin.beta subunit [Units/volume] in Serum or Plasma</td>
+    <td>1 m[IU]/mL<div class="muted">Reference Below 5 is negative</div></td>
+    <td>http://loinc.org · 21198-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-06-02</td>
+    <td>Glomerular filtration rate [Volume Rate/Area] in Serum, Plasma or Blood by Creatinine-based formula (CKD-EPI 2021)/1.73 sq M</td>
+    <td>116 mL/min/1.73 m²<div class="muted">Reference 60 or more</div></td>
+    <td>http://loinc.org · 98979-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-06-02</td>
+    <td>Pain severity - 0-10 verbal numeric rating [Score] - Reported</td>
+    <td>7</td>
+    <td>http://loinc.org · 72514-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-06-02</td>
+    <td>Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]</td>
+    <td>8</td>
+    <td>http://loinc.org · 44261-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-06-16</td>
+    <td>Hemoglobin [Mass/volume] in Blood</td>
+    <td>9 g/dL (low)<div class="muted">Reference 12-15.5 g/dL</div></td>
+    <td>http://loinc.org · 718-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-06-16</td>
+    <td>Creatinine [Mass/volume] in Serum or Plasma</td>
+    <td>0.66 mg/dL<div class="muted">Reference 0.57-1 mg/dL</div></td>
+    <td>http://loinc.org · 2160-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-06-16</td>
+    <td>Alanine aminotransferase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>17 U/L<div class="muted">Reference 7-35 U/L</div></td>
+    <td>http://loinc.org · 1742-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-06-16</td>
+    <td>Thyrotropin [Units/volume] in Serum or Plasma</td>
+    <td>1.9 mIU/L<div class="muted">Reference 0.45-4.5 mIU/L</div></td>
+    <td>http://loinc.org · 3016-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-06-16</td>
+    <td>Thyroxine (T4) free [Mass/volume] in Serum or Plasma</td>
+    <td>1.2 ng/dL<div class="muted">Reference 0.8-1.8 ng/dL</div></td>
+    <td>http://loinc.org · 3024-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-06-16</td>
+    <td>Glomerular filtration rate [Volume Rate/Area] in Serum, Plasma or Blood by Creatinine-based formula (CKD-EPI 2021)/1.73 sq M</td>
+    <td>117 mL/min/1.73 m²<div class="muted">Reference 60 or more</div></td>
+    <td>http://loinc.org · 98979-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-06-16</td>
+    <td>Pain severity - 0-10 verbal numeric rating [Score] - Reported</td>
+    <td>6</td>
+    <td>http://loinc.org · 72514-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-07-07</td>
+    <td>Potassium [Moles/volume] in Serum or Plasma</td>
+    <td>3.8 mmol/L<div class="muted">Reference 3.5-5.1 mmol/L</div></td>
+    <td>http://loinc.org · 2823-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-07-07</td>
+    <td>Calcium [Mass/volume] in Serum or Plasma</td>
+    <td>9.3 mg/dL<div class="muted">Reference 8.6-10.3 mg/dL</div></td>
+    <td>http://loinc.org · 17861-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-07-14</td>
+    <td>Hemoglobin [Mass/volume] in Blood</td>
+    <td>9.8 g/dL (low)<div class="muted">Reference 12-15.5 g/dL</div></td>
+    <td>http://loinc.org · 718-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-07-14</td>
+    <td>Leukocytes [#/volume] in Blood by Automated count</td>
+    <td>4.1 10*3/uL<div class="muted">Reference 4-11 10*3/uL</div></td>
+    <td>http://loinc.org · 6690-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-07-14</td>
+    <td>Neutrophils [#/volume] in Blood by Automated count</td>
+    <td>2.2 10*3/uL<div class="muted">Reference 1.8-7.7 10*3/uL</div></td>
+    <td>http://loinc.org · 751-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-07-14</td>
+    <td>Platelets [#/volume] in Blood by Automated count</td>
+    <td>236 10*3/uL<div class="muted">Reference 150-400 10*3/uL</div></td>
+    <td>http://loinc.org · 777-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-07-14</td>
+    <td>Creatinine [Mass/volume] in Serum or Plasma</td>
+    <td>0.7 mg/dL<div class="muted">Reference 0.57-1 mg/dL</div></td>
+    <td>http://loinc.org · 2160-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-07-14</td>
+    <td>Alanine aminotransferase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>22 U/L<div class="muted">Reference 7-35 U/L</div></td>
+    <td>http://loinc.org · 1742-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-07-14</td>
+    <td>Glomerular filtration rate [Volume Rate/Area] in Serum, Plasma or Blood by Creatinine-based formula (CKD-EPI 2021)/1.73 sq M</td>
+    <td>116 mL/min/1.73 m²<div class="muted">Reference 60 or more</div></td>
+    <td>http://loinc.org · 98979-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-07-14</td>
+    <td>Pain severity - 0-10 verbal numeric rating [Score] - Reported</td>
+    <td>3</td>
+    <td>http://loinc.org · 72514-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-07-14</td>
+    <td>Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]</td>
+    <td>9</td>
+    <td>http://loinc.org · 44261-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-09-08</td>
+    <td>Hemoglobin [Mass/volume] in Blood</td>
+    <td>10.6 g/dL (low)<div class="muted">Reference 12-15.5 g/dL</div></td>
+    <td>http://loinc.org · 718-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-09-08</td>
+    <td>Leukocytes [#/volume] in Blood by Automated count</td>
+    <td>3.8 10*3/uL (low)<div class="muted">Reference 4-11 10*3/uL</div></td>
+    <td>http://loinc.org · 6690-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-09-08</td>
+    <td>Neutrophils [#/volume] in Blood by Automated count</td>
+    <td>1.9 10*3/uL<div class="muted">Reference 1.8-7.7 10*3/uL</div></td>
+    <td>http://loinc.org · 751-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-09-08</td>
+    <td>Platelets [#/volume] in Blood by Automated count</td>
+    <td>172 10*3/uL<div class="muted">Reference 150-400 10*3/uL</div></td>
+    <td>http://loinc.org · 777-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-09-08</td>
+    <td>Creatinine [Mass/volume] in Serum or Plasma</td>
+    <td>0.72 mg/dL<div class="muted">Reference 0.57-1 mg/dL</div></td>
+    <td>http://loinc.org · 2160-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-09-08</td>
+    <td>Alanine aminotransferase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>26 U/L<div class="muted">Reference 7-35 U/L</div></td>
+    <td>http://loinc.org · 1742-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-09-08</td>
+    <td>Thyrotropin [Units/volume] in Serum or Plasma</td>
+    <td>3.4 mIU/L<div class="muted">Reference 0.45-4.5 mIU/L</div></td>
+    <td>http://loinc.org · 3016-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-09-08</td>
+    <td>Ferritin [Mass/volume] in Serum or Plasma</td>
+    <td>210 ng/mL (high)<div class="muted">Reference 15-150 ng/mL</div></td>
+    <td>http://loinc.org · 2276-4</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-09-08</td>
+    <td>Glomerular filtration rate [Volume Rate/Area] in Serum, Plasma or Blood by Creatinine-based formula (CKD-EPI 2021)/1.73 sq M</td>
+    <td>112 mL/min/1.73 m²<div class="muted">Reference 60 or more</div></td>
+    <td>http://loinc.org · 98979-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-09-08</td>
+    <td>Pain severity - 0-10 verbal numeric rating [Score] - Reported</td>
+    <td>3</td>
+    <td>http://loinc.org · 72514-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-09-08</td>
+    <td>Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]</td>
+    <td>7</td>
+    <td>http://loinc.org · 44261-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-10-20</td>
+    <td>Hemoglobin [Mass/volume] in Blood</td>
+    <td>10.9 g/dL (low)<div class="muted">Reference 12-15.5 g/dL</div></td>
+    <td>http://loinc.org · 718-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-10-20</td>
+    <td>Leukocytes [#/volume] in Blood by Automated count</td>
+    <td>4.2 10*3/uL<div class="muted">Reference 4-11 10*3/uL</div></td>
+    <td>http://loinc.org · 6690-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-10-20</td>
+    <td>Neutrophils [#/volume] in Blood by Automated count</td>
+    <td>2.4 10*3/uL<div class="muted">Reference 1.8-7.7 10*3/uL</div></td>
+    <td>http://loinc.org · 751-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-10-20</td>
+    <td>Platelets [#/volume] in Blood by Automated count</td>
+    <td>188 10*3/uL<div class="muted">Reference 150-400 10*3/uL</div></td>
+    <td>http://loinc.org · 777-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-10-20</td>
+    <td>Creatinine [Mass/volume] in Serum or Plasma</td>
+    <td>0.71 mg/dL<div class="muted">Reference 0.57-1 mg/dL</div></td>
+    <td>http://loinc.org · 2160-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-10-20</td>
+    <td>Alanine aminotransferase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>24 U/L<div class="muted">Reference 7-35 U/L</div></td>
+    <td>http://loinc.org · 1742-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-10-20</td>
+    <td>Thyrotropin [Units/volume] in Serum or Plasma</td>
+    <td>7.8 mIU/L (high)<div class="muted">Reference 0.45-4.5 mIU/L</div></td>
+    <td>http://loinc.org · 3016-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-10-20</td>
+    <td>Thyroxine (T4) free [Mass/volume] in Serum or Plasma</td>
+    <td>1 ng/dL<div class="muted">Reference 0.8-1.8 ng/dL</div></td>
+    <td>http://loinc.org · 3024-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-10-20</td>
+    <td>Glomerular filtration rate [Volume Rate/Area] in Serum, Plasma or Blood by Creatinine-based formula (CKD-EPI 2021)/1.73 sq M</td>
+    <td>114 mL/min/1.73 m²<div class="muted">Reference 60 or more</div></td>
+    <td>http://loinc.org · 98979-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-10-20</td>
+    <td>Pain severity - 0-10 verbal numeric rating [Score] - Reported</td>
+    <td>2</td>
+    <td>http://loinc.org · 72514-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-10-20</td>
+    <td>Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]</td>
+    <td>5</td>
+    <td>http://loinc.org · 44261-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-08-18</td>
+    <td>Patient Health Questionnaire 2 item (PHQ-2) total score [Reported]</td>
+    <td>2</td>
+    <td>http://loinc.org · 55758-7</td>
+  </tr></tbody></table></section>
+    <section><h2>Synthetic vital signs</h2><table><thead><tr><th>Date</th><th>Measure</th><th>Result</th><th>LOINC</th><th>Grade</th></tr></thead><tbody>
+  <tr><td>2026-06-02</td><td>Body height</td><td>165 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-02</td><td>Body weight</td><td>54 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-02</td><td>Body mass index (BMI) [Ratio]</td><td>19.8 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-02</td><td>Systolic blood pressure</td><td>108 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-02</td><td>Diastolic blood pressure</td><td>68 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-02</td><td>Heart rate</td><td>96 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-02</td><td>Respiratory rate</td><td>16 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-02</td><td>Body temperature</td><td>36.8 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-02</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>98 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-16</td><td>Body height</td><td>165 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-16</td><td>Body weight</td><td>54.2 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-16</td><td>Body mass index (BMI) [Ratio]</td><td>19.9 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-16</td><td>Systolic blood pressure</td><td>106 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-16</td><td>Diastolic blood pressure</td><td>66 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-16</td><td>Heart rate</td><td>92 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-16</td><td>Respiratory rate</td><td>16 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-16</td><td>Body temperature</td><td>36.7 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-16</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>98 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-07-14</td><td>Body height</td><td>165 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-07-14</td><td>Body weight</td><td>53.4 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-07-14</td><td>Body mass index (BMI) [Ratio]</td><td>19.6 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-07-14</td><td>Systolic blood pressure</td><td>110 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-07-14</td><td>Diastolic blood pressure</td><td>70 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-07-14</td><td>Heart rate</td><td>84 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-07-14</td><td>Respiratory rate</td><td>16 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-07-14</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-07-14</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>98 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-09-08</td><td>Body height</td><td>165 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-09-08</td><td>Body weight</td><td>54 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-09-08</td><td>Body mass index (BMI) [Ratio]</td><td>19.8 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-09-08</td><td>Systolic blood pressure</td><td>112 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-09-08</td><td>Diastolic blood pressure</td><td>70 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-09-08</td><td>Heart rate</td><td>80 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-09-08</td><td>Respiratory rate</td><td>16 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-09-08</td><td>Body temperature</td><td>36.7 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-09-08</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>98 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-20</td><td>Body height</td><td>165 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-20</td><td>Body weight</td><td>54.4 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-20</td><td>Body mass index (BMI) [Ratio]</td><td>20 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-20</td><td>Systolic blood pressure</td><td>114 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-20</td><td>Diastolic blood pressure</td><td>72 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-20</td><td>Heart rate</td><td>78 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-20</td><td>Respiratory rate</td><td>16 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-20</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-20</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>98 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-08-18</td><td>Body height</td><td>165 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-08-18</td><td>Body weight</td><td>53.6 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-08-18</td><td>Body mass index (BMI) [Ratio]</td><td>19.7 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-08-18</td><td>Systolic blood pressure</td><td>110 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-08-18</td><td>Diastolic blood pressure</td><td>70 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-08-18</td><td>Heart rate</td><td>80 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-08-18</td><td>Respiratory rate</td><td>16 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-08-18</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-08-18</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>98 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-07-07</td><td>Body height</td><td>165 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-07-07</td><td>Body weight</td><td>53.8 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-07-07</td><td>Body mass index (BMI) [Ratio]</td><td>19.8 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-07-07</td><td>Systolic blood pressure</td><td>110 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-07-07</td><td>Diastolic blood pressure</td><td>70 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-07-07</td><td>Heart rate</td><td>88 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-07-07</td><td>Respiratory rate</td><td>16 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-07-07</td><td>Body temperature</td><td>36.7 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-07-07</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>98 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr></tbody></table></section>
+    <section><h2>Social, functional, and mental status</h2><h3>Social history</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Mathematician; writes on calculating machines and is drafting new mathematical notes; works best in the mornings</li><li><span class="badge grade-S" title="Synthetic">S</span> Married, a countess by marriage; lives in her family&#39;s London house; household help available</li><li><span class="badge grade-S" title="Synthetic">S</span> Gambling: bets on horse races; has borrowed money and pawned jewelry to cover losses and feels ashamed of the debts; Brief Problem Gambling Screen positive</li><li><span class="badge grade-S" title="Synthetic">S</span> Tobacco: never. Alcohol: a glass of wine some evenings, none since the bleeding began; no other drugs</li><li><span class="badge grade-S" title="Synthetic">S</span> Contraception: none needed by her account; serum hCG negative</li></ul><h3>Functional status</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Independent in self-care; tires on stairs; ECOG performance status 1</li></ul><h3>Mental status</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Alert, quick and articulate; anxious about the bleeding; mild low mood; PHQ-9 score 8, no thoughts of death or self-harm; no opioid craving or use beyond what is prescribed</li></ul></section>
+    
+    <section><h2>Allergies and medications</h2><h3>Allergies</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> No known allergy</li></ul><h3>Medications</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Opium tincture (100 mg/mL opium, equivalent to 10 mg/mL morphine), 0.5 mL by mouth four to six times a day as needed for pain</li><li><span class="badge grade-S" title="Synthetic">S</span> Morphine sulfate oral solution 2 mg/mL, 5 mg (2.5 mL by oral syringe) every 4 hours as needed for pain</li><li><span class="badge grade-S" title="Synthetic">S</span> Morphine sulfate extended-release 15 mg tablet, one tablet by mouth every 12 hours; swallow whole</li><li><span class="badge grade-S" title="Synthetic">S</span> Morphine sulfate extended-release 15 mg tablet, one tablet by mouth at night, for two weeks, then stop</li><li><span class="badge grade-S" title="Synthetic">S</span> Naloxone 4 mg nasal spray, one spray in a nostril for suspected opioid overdose; call 911</li><li><span class="badge grade-S" title="Synthetic">S</span> Senna 8.6 mg tablet, two tablets by mouth at night</li><li><span class="badge grade-S" title="Synthetic">S</span> Polyethylene glycol 3350, 17 g in water by mouth once or twice a day</li><li><span class="badge grade-S" title="Synthetic">S</span> Acetaminophen 500 mg tablet, two tablets by mouth three times a day</li><li><span class="badge grade-S" title="Synthetic">S</span> Ferric carboxymaltose 750 mg intravenous infusion, two doses at the first two visits</li><li><span class="badge grade-S" title="Synthetic">S</span> Pembrolizumab 200 mg intravenously every 3 weeks</li><li><span class="badge grade-S" title="Synthetic">S</span> Carboplatin, dose to an AUC of 5 (650 mg), intravenously every 3 weeks for six cycles</li><li><span class="badge grade-S" title="Synthetic">S</span> Paclitaxel 175 mg/m2 (275 mg) intravenously every 3 weeks for six cycles, with premedication</li><li><span class="badge grade-S" title="Synthetic">S</span> Ondansetron 8 mg tablet, one tablet by mouth twice a day for three days after each chemotherapy cycle, then as needed</li></ul></section>
+    <section><h2>Procedures and immunizations</h2><h3>Procedures</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Speculum examination with punch biopsy of an exophytic friable cervical mass, with a specimen for high-risk HPV typing; hemostasis with ferric subsulfate</li><li><span class="badge grade-S" title="Synthetic">S</span> MRI of the pelvis: 5.2 cm endocervical tumor with left parametrial invasion, not reaching the pelvic sidewall; no hydronephrosis; enlarged left external iliac lymph node</li><li><span class="badge grade-S" title="Synthetic">S</span> FDG PET-CT: avid cervical tumor; avid left pelvic and para-aortic lymph nodes; six avid nodules in both lungs up to 1.4 cm; no bone or liver lesions</li><li><span class="badge grade-S" title="Synthetic">S</span> CT-guided core biopsy of a right lower lobe lung nodule: metastatic adenocarcinoma, p16 strongly positive and HPV 18 detected, matching the cervical primary; small apical pneumothorax not needing treatment</li><li><span class="badge grade-S" title="Synthetic">S</span> Palliative external beam radiation to the pelvis for bleeding and pain, 20 Gy in 5 fractions over five days</li><li><span class="badge grade-S" title="Synthetic">S</span> CT of chest, abdomen and pelvis after four cycles: partial response by RECIST 1.1, with the cervical tumor 3.1 cm, lung nodules smaller (largest 0.6 cm) and two resolved, para-aortic nodes below 1 cm; no new lesions</li><li><span class="badge grade-S" title="Synthetic">S</span> Advance care planning conversation, about 30 minutes</li></ul><h3>Immunizations</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> 2026-08-18: Pneumococcal conjugate vaccine (PCV20)</li><li><span class="badge grade-S" title="Synthetic">S</span> 2026-08-18: Recombinant zoster vaccine, dose 1 of 2</li><li><span class="badge grade-S" title="Synthetic">S</span> 2026-08-18: Tdap vaccine</li><li><span class="badge grade-S" title="Synthetic">S</span> 2026-08-18: Hepatitis B vaccine, CpG-adjuvanted (two-dose series), dose 1 of 2</li><li><span class="badge grade-S" title="Synthetic">S</span> 2026-10-20: Influenza vaccine, inactivated, trivalent</li><li><span class="badge grade-S" title="Synthetic">S</span> 2026-10-20: COVID-19 mRNA vaccine, current season</li><li><span class="badge grade-S" title="Synthetic">S</span> 2026-10-20: Recombinant zoster vaccine, dose 2 of 2</li><li><span class="badge grade-S" title="Synthetic">S</span> 2026-10-20: Hepatitis B vaccine, CpG-adjuvanted (two-dose series), dose 2 of 2</li></ul></section>
+    <section><h2>Past medical history</h2><p class="muted">True biography with historical dates; not part of the synthetic care timeline.</p><ul><li><span class="badge grade-D" title="Documented">D</span> 1829: Measles at 13, with a long recovery and about a year in bed <span class="muted">(CLM-0002)</span></li><li><span class="badge grade-D" title="Documented">D</span> 1837: Cholera at 21, followed by lingering asthma and digestive problems <span class="muted">(CLM-0004)</span></li><li><span class="badge grade-D" title="Documented">D</span> from about 1843: Chronic ill health from her late twenties, with episodes she called heart or rheumatic attacks, treated with several medicines including laudanum and opium <span class="muted">(CLM-0005, CLM-0007)</span></li></ul><h3>Family history</h3><ul><li><span class="badge grade-D" title="Documented">D</span> father: A poet; died at 36; cause not recorded in the cited source</li></ul></section>
+    <section><h2>Care-plan goals</h2><table><thead><tr><th>Goal</th><th>Target date</th><th>Status</th><th>Outcome</th></tr></thead><tbody>
+  <tr><td>Average pelvic pain at or below 3 of 10 without daytime sedation</td><td>2026-07-14</td><td>completed</td><td>Average pain 3 of 10 after radiation, on long-acting morphine, without daytime sleepiness</td></tr>
+  <tr><td>Bleeding controlled and hemoglobin above 10 g/dL without transfusion</td><td>2026-09-08</td><td>completed</td><td>No bleeding since radiation; hemoglobin 10.6 g/dL</td></tr>
+  <tr><td>A documented goals-of-care conversation and a named health care agent</td><td>2026-09-08</td><td>completed</td><td>Advance care plan and goals-of-care conversation recorded</td></tr>
+  <tr><td>Able to work on her mathematics for at least two hours most mornings</td><td>2026-10-20</td><td>completed</td><td>Working most mornings</td></tr></tbody></table></section>
+    <section><h2>Interventions</h2><table><thead><tr><th>Intervention</th><th>Status</th><th>Guideline</th></tr></thead><tbody>
+  <tr><td>Gynecologic oncology consultation in two weeks for a friable cervical mass with bleeding and pain, biopsied today: diagnosis, staging, treatment intent, bleeding control, and pain</td><td>completed</td><td>GL-NCCN-CERV-2026, GL-FIGO-2018</td></tr>
+  <tr><td>Stop opium tincture and change to measured oral morphine solution 5 mg every 4 hours as needed with an oral syringe, with acetaminophen, senna and polyethylene glycol, a naloxone nasal spray, a prescription monitoring check, locked storage, one prescriber, and review in two weeks</td><td>completed</td><td>GL-ASCO-OPIOID-2023, GL-CDC-OPIOID-2022</td></tr>
+  <tr><td>Iron deficiency anemia: ferric carboxymaltose 750 mg intravenously today and in two weeks, with a blood count at each visit and ferritin 6 to 8 weeks after the infusions</td><td>completed</td><td>GL-CMID-2026</td></tr>
+  <tr><td>Blood tests: blood count, ferritin, creatinine, ALT, albumin and a pregnancy test; HIV, hepatitis B and hepatitis C tests before any cancer treatment; PHQ-9</td><td>completed</td><td>GL-ASCO-HBV-2020, GL-USPSTF-DEP-2023</td></tr>
+  <tr><td>Staging by FIGO 2018 with pelvic MRI and PET-CT, and a CT-guided biopsy of a lung nodule; tumor PD-L1, mismatch repair and HER2 testing; no germline testing, because cervical cancer is not a hereditary cancer syndrome</td><td>completed</td><td>GL-NCCN-CERV-2026, GL-FIGO-2018</td></tr>
+  <tr><td>Palliative pelvic radiation, 20 Gy in 5 fractions, for bleeding and pain, then carboplatin, paclitaxel and pembrolizumab every 3 weeks for six cycles with pembrolizumab continuing, without bevacizumab while bleeding and after pelvic radiation; blood counts before each cycle and thyroid tests every six weeks</td><td>completed</td><td>GL-NCCN-CERV-2026, GL-KN826-2021</td></tr>
+  <tr><td>Specialist palliative care alongside cancer treatment from diagnosis, for pain, symptoms, mood, and goals-of-care conversations, with long-acting morphine 15 mg every 12 hours and oral morphine 5 mg as needed for breakthrough pain</td><td>completed</td><td>GL-ASCO-PALL-2024, GL-ASCO-OPIOID-2023, GL-ASCO-COMM-2026</td></tr></tbody></table></section>
+    <section><h2>Planned encounters</h2><ul>
+  <li><strong>2026-06-02</strong> — New patient visit for abnormal bleeding and pelvic pain: history, speculum examination and cervical biopsy, blood count and iron studies, conversion of opium tincture to measured oral morphine, an iron infusion, and a gynecologic oncology referral <span class="muted">(ENC-001)</span></li>
+  <li><strong>2026-06-16</strong> — Two-week follow-up and gynecologic oncology consultation: pathology, MRI and PET-CT, staging, treatment intent, palliative care, and long-acting morphine <span class="muted">(ENC-002)</span></li>
+  <li><strong>2026-07-07</strong> — Same-day sick visit for constipation <span class="muted">(ENC-007, unscheduled)</span></li>
+  <li><strong>2026-07-14</strong> — Six-week review: bleeding and pain after palliative pelvic radiation, the first cycle of chemotherapy with pembrolizumab, blood counts, mood and opioid safety <span class="muted">(ENC-003)</span></li>
+  <li><strong>2026-08-18</strong> — Periodic adult preventive visit <span class="muted">(ENC-006)</span></li>
+  <li><strong>2026-09-08</strong> — Fourteen-week review: restaging CT, blood counts, iron and thyroid, pain, and a goals-of-care conversation <span class="muted">(ENC-004)</span></li>
+  <li><strong>2026-10-20</strong> — Twenty-week review after the last chemotherapy cycle: blood counts, thyroid on pembrolizumab, tapering morphine, mood and her work <span class="muted">(ENC-005)</span></li></ul></section>
+    <section><h2>Supporting documents</h2><ul><li><a href="notes/hp.md">History and physical</a></li><li><a href="notes/progress-01.md">Progress note 01</a></li><li><a href="notes/progress-02.md">Progress note 02 — Focused Visit (Follow-up)</a></li><li><a href="notes/progress-03.md">Progress note 03 — Sick Visit</a></li><li><a href="notes/progress-04.md">Progress note 04 — Focused Visit (Follow-up)</a></li><li><a href="notes/progress-05.md">Progress note 05 — Preventive Visit</a></li><li><a href="notes/progress-06.md">Progress note 06 — Focused Visit (Follow-up)</a></li><li><a href="notes/progress-07.md">Progress note 07 — Focused Visit (Care-plan review)</a></li><li><a href="notes/referral-01.md">Gynecologic Oncology referral</a></li><li><a href="notes/consult-01.md">Gynecologic Oncology consultation</a></li><li><a href="notes/careplan.md">Patient care plan</a></li><li><a href="notes/teaching-note.md">Teaching note</a></li><li><a href="provenance.csv">Provenance CSV</a></li></ul></section>
+    <section><h2>C-CDA note documents</h2><p class="muted">Each link opens a readable copy; the XML beside it is the exchange file.</p><ul><li><a href="ccda/hp-01.html">History and physical</a> <a href="ccda/hp-01.xml">(XML)</a></li><li><a href="ccda/progress-01.html">Progress note 01</a> <a href="ccda/progress-01.xml">(XML)</a></li><li><a href="ccda/progress-02.html">Progress note 02 — Focused Visit (Follow-up)</a> <a href="ccda/progress-02.xml">(XML)</a></li><li><a href="ccda/progress-03.html">Progress note 03 — Sick Visit</a> <a href="ccda/progress-03.xml">(XML)</a></li><li><a href="ccda/progress-04.html">Progress note 04 — Focused Visit (Follow-up)</a> <a href="ccda/progress-04.xml">(XML)</a></li><li><a href="ccda/progress-05.html">Progress note 05 — Preventive Visit</a> <a href="ccda/progress-05.xml">(XML)</a></li><li><a href="ccda/progress-06.html">Progress note 06 — Focused Visit (Follow-up)</a> <a href="ccda/progress-06.xml">(XML)</a></li><li><a href="ccda/progress-07.html">Progress note 07 — Focused Visit (Care-plan review)</a> <a href="ccda/progress-07.xml">(XML)</a></li><li><a href="ccda/referral-01.html">Gynecologic Oncology referral</a> <a href="ccda/referral-01.xml">(XML)</a></li><li><a href="ccda/consult-01.html">Gynecologic Oncology consultation</a> <a href="ccda/consult-01.xml">(XML)</a></li></ul></section>
+    <section><h2>Sources</h2><table><thead><tr><th>ID</th><th>Source</th><th>Publisher</th><th>Type</th></tr></thead><tbody>
+  <tr>
+    <td>SRC-0001</td>
+    <td><a href="https://blogs.bodleian.ox.ac.uk/adalovelace/about-ada-lovelace/" target="_blank" rel="noreferrer">McCarthy L. About Ada Lovelace (Ada Lovelace blog)</a></td>
+    <td>Bodleian Libraries, University of Oxford</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0002</td>
+    <td><a href="https://mathshistory.st-andrews.ac.uk/Biographies/Lovelace/" target="_blank" rel="noreferrer">O&#39;Connor JJ, Robertson EF. Augusta Ada King, Countess of Lovelace (MacTutor History of Mathematics)</a></td>
+    <td>University of St Andrews</td>
+    <td>scholarly</td>
+  </tr>
+  <tr>
+    <td>SRC-0003</td>
+    <td><a href="https://www.smithsonianmag.com/science-nature/who-was-ada-lovelace-25830687/" target="_blank" rel="noreferrer">Zielinski S. Who Was Ada Lovelace? Smithsonian Magazine, March 24, 2010</a></td>
+    <td>Smithsonian Magazine</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0004</td>
+    <td><a href="https://www.biography.com/scientist/ada-lovelace" target="_blank" rel="noreferrer">Biography.com Editors. Ada Lovelace Biography (last updated May 6, 2021)</a></td>
+    <td>A&amp;E Television Networks (Biography.com)</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0005</td>
+    <td><a href="https://historicalnovelsociety.org/?p=22040" target="_blank" rel="noreferrer">Warr T. Review of Miranda Seymour, In Byron&#39;s Wake. Historical Novels Review 85 (August 2018)</a></td>
+    <td>Historical Novel Society</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0006</td>
+    <td><a href="https://www.computerhistory.org/revolution/calculators/1/51/207" target="_blank" rel="noreferrer">Augusta Ada King (nee Byron), Countess of Lovelace (Revolution exhibit)</a></td>
+    <td>Computer History Museum</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0007</td>
+    <td><a href="https://www.maths.ox.ac.uk/node/25695" target="_blank" rel="noreferrer">Exploding the myths of Ada Lovelace&#39;s mathematics</a></td>
+    <td>Mathematical Institute, University of Oxford</td>
+    <td>scholarly</td>
+  </tr>
+  <tr>
+    <td>SRC-0008</td>
+    <td><a href="https://humanrecord.example.org/internal/HISTMED_Master_Roster_v3.xlsx" target="_blank" rel="noreferrer">HISTMED Master Roster v3</a></td>
+    <td>The Human Record project</td>
+    <td>other</td>
+  </tr></tbody></table></section>
+    <section><h2>Review status</h2><table><thead><tr><th>Review</th><th>Status</th><th>Notes</th></tr></thead><tbody>
+  <tr><td>schema validation</td><td>not_started</td><td>Run scripts/build.ps1 -Conformance.</td></tr>
+  <tr><td>clinical review</td><td>not_started</td><td>Awaiting clinician review; check the opium tincture to morphine conversion and titration, the stage IVB staging and lung biopsy, palliative radiation before systemic therapy, the omission of bevacizumab, the immune-related thyroid monitoring, the opioid taper, and the early palliative care.</td></tr>
+  <tr><td>provenance review</td><td>not_started</td><td>The Bodleian Libraries, the MacTutor archive (University of St Andrews), Smithsonian Magazine, Biography.com, a Historical Novels Review summary of Miranda Seymour&#39;s biography, the Computer History Museum and the Oxford Mathematical Institute logged. The laudanum and opium claim rests on a general biography and on her own words about opium and is graded probable. Bloodletting, cannabis and the details of the final illness were not verified and are left out.</td></tr>
+  <tr><td>safe messaging review</td><td>not_started</td><td>Claims about opium, laudanum, gambling and debts are marked sensitive. The modern PHQ-9 scores (8, 9, 7, 5) are synthetic and below 10; no behavioral-health or substance use diagnosis is made, and no safety assessment is required. The modern episode makes no prediction about her death.</td></tr></tbody></table></section>
+  </main>
+</body>
+</html>

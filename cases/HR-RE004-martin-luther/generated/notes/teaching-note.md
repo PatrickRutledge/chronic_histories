@@ -1,0 +1,31 @@
+# Teaching Note — Martin Luther pilot
+
+> **SYNTHETIC RECORD, NOT A REAL MEDICAL RECORD**
+
+## Why this case matters
+
+This case shows how historical evidence can support a transparent fictional modern episode without presenting interpretation or generated content as documented fact.
+
+## Learning objectives
+
+1. Distinguish documented (**D**), retrospective (**R**), and synthetic (**S**) content.
+2. Keep historical and active problems distinct.
+3. Connect measurable goals and interventions to guidelines.
+4. Preserve strengths, function, identity, and agency.
+
+## Destigmatization message
+
+A health condition is one part of a person’s life and does not erase achievement, relationships, purpose, or agency.
+
+## Discussion questions
+
+- Which facts support concern without establishing a modern diagnosis?
+- Which entries belong in active problems, historical problems, or both?
+- What additional evidence would change an evidence grade?
+- How should an EHR distinguish synthetic and historical content?
+
+## Evidence-grade summary
+
+- **D:** Martin Luther was born on 10 November 1483 (Julian calendar) in Eisleben, into a relatively prosperous mining family; his father, Hans, gave him a good education and intended him for law. He entered the University of Erfurt in 1501 and became a Master of Arts in 1505; later in 1505, after a vow to St Anna made in a thunderstorm, he entered the Augustinian monastery at Erfurt against his father's wishes, and he was ordained in 1507. As a monk, although he made full use of confession, he felt that he was 'a sinner before God with an extremely disturbed conscience', and this anxiety and fear meant that he underwent what he termed Anfechtungen, spiritual trials or temptations, in particular about predestination. He became professor of the Bible at Wittenberg in 1512 and held the post until his death. He published the Ninety-Five Theses on 31 October 1517, refused to recant at the Diet of Worms in 1521, was declared an outlaw, was sheltered at the Wartburg, and returned to Wittenberg on 6 March 1522. In 1525 he married Katharina von Bora, a former nun; they had six children, two daughters of whom died young. In May 1521, at the Wartburg, he wrote to Philipp Melanchthon that the Lord had afflicted him with painful constipation, and that he had not slept all night. In the autumn of 1510, in Bologna, he reported severe headache and whizzing in the ear; from 1523, according to his physician Matthias Ratzeberger, he had regular headaches with fainting spells and vertigo. From 1526 on he had sporadic attacks of urinary stones, which reminded him of death because of the excruciating pain; the first stone, in 1526, was preceded by headache, heaviness in the head, vertigo and nausea and was passed through the urethra. On 22 April 1527 (Julian) a severe attack of dizziness forced him to break off a sermon. On the evening of 6 July 1527 (Julian), when he was 43, he had an attack that began with a roaring tinnitus in his left ear, which increased and seemed to fill the left half of his head, followed by nausea, pallor, coldness and a state of collapse without loss of consciousness; he prayed and believed he would not survive the night. After a night's rest all the symptoms had subsided except the tinnitus, which persisted. His friends Justus Jonas and Johannes Bugenhagen wrote accounts of it. In the first half of 1527 he was deeply disturbed by disputes with other reformers over the Lord's Supper and suffered severe depression. His depression and illness returned in August, September and late December 1527; he wrote to Melanchthon that he had spent more than a week 'in death and hell'. When plague broke out in Wittenberg in August 1527, he stayed to care for the sick and his house became a hospital. In 1537, at the meeting of the Schmalkaldic League in Schmalkalden, he had his worst attack of stones: he told his wife that not a drop of water had passed from him for days and that he had been as good as dead, and he felt as if born again when his bladder opened. After 1530 he had headaches, often with ringing or buzzing in the ears, which after 1541 sometimes forced him to stop work and avoid sunlight, and an open sore on his leg, which physicians kept open for drainage from 1543; similar attacks of tinnitus and vertigo recurred irregularly, and from 1528 hearing loss was mentioned. On his last journey to Eisleben, from 1 February 1546, to settle a dispute between the counts of Mansfeld, he had chest pressure, breathlessness and weakness of the left arm; after a similar attack he died in Eisleben, the town of his birth, on 18 February 1546 (Julian).
+- **R:** Feldmann concluded from Luther's letters and his friends' reports that the attacks with tinnitus and vertigo that began in 1527 were a typical case of Ménière disease of the left ear, more than 330 years before Ménière's description; earlier writers had read them as a psychiatric disorder or as chronic inflammation of the middle ear, and a later Japanese review reads them as chronic suppurative otitis media. Evers, applying modern criteria to the letters, found that some of his vertigo attacks met the criteria for Ménière disease, that others occurred with headaches meeting the criteria for vestibular migraine, and that his headaches partly met the criteria for migraine; he concluded that vestibular migraine with migraine and Ménière disease is possible but not final. Psychiatric readings of his life are disputed: the Danish psychiatrist Paul Reiter diagnosed him as manic-depressive in a work of 1937 to 1941, while Grossmann in 1956 could not show a consistent link between low mood and reduced drive in 1527 and 1528 and spoke of a cyclothymic personality; a recent review notes that the behavior of a historical person cannot be judged objectively from the sources. A Norwegian pathologist's review lists among his bodily illnesses varicose ulcer, angina pectoris with anxiety, obesity, hypertension, Ménière disease, constipation with hemorrhoids, urolithiasis, gout and a cataract in one eye. Feldmann and a Japanese review conclude that he died of a coronary thrombosis (myocardial infarction).
+- **S:** Shifted identity, fictional care team, modern encounters, results, plans, and outcomes.

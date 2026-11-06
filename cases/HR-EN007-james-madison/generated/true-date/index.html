@@ -1,0 +1,518 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>James Madison — The Human Record</title>
+  <style>
+    :root { --navy:#17365d; --blue:#1f4e78; --pale:#eef5fa; --ink:#1f2933; --muted:#66788a; --amber:#fff2cc; --red:#f8d7da; --green:#d9ead3; }
+    * { box-sizing:border-box; }
+    body { margin:0; font:16px/1.5 Arial, sans-serif; color:var(--ink); background:#f6f8fa; }
+    header { background:var(--navy); color:white; padding:24px max(24px,calc((100vw - 1180px)/2)); }
+    header h1 { margin:4px 0; font-size:30px; }
+    .banner { background:#b42318; color:white; font-weight:700; text-align:center; padding:10px; letter-spacing:.03em; }
+    main { max-width:1180px; margin:24px auto 60px; padding:0 24px; }
+    section { background:white; border:1px solid #d9e1e8; border-radius:8px; margin:18px 0; padding:20px; }
+    h2 { color:var(--navy); margin:0 0 14px; font-size:22px; }
+    h3 { color:var(--blue); }
+    .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:12px; }
+    .card { background:var(--pale); border-left:4px solid var(--blue); padding:12px; }
+    .label { color:var(--muted); font-size:13px; text-transform:uppercase; letter-spacing:.04em; }
+    table { width:100%; border-collapse:collapse; }
+    th { background:var(--blue); color:white; text-align:left; }
+    th,td { padding:9px; border-bottom:1px solid #dfe6ec; vertical-align:top; }
+    .badge { display:inline-block; min-width:28px; text-align:center; font-weight:700; border-radius:12px; padding:2px 8px; }
+    .grade-D { background:var(--green); } .grade-R { background:var(--amber); } .grade-S { background:var(--red); }
+    .muted { color:var(--muted); font-size:14px; }
+    .relationship { color:var(--muted); font-size:12px; }
+    .downloads a { display:inline-block; margin:4px 8px 4px 0; padding:8px 12px; background:var(--blue); color:white; text-decoration:none; border-radius:5px; }
+    @media (max-width:700px) { table { display:block; overflow-x:auto; } }
+  </style>
+</head>
+<body>
+  <div class="banner">SYNTHETIC RECORD, NOT A REAL MEDICAL RECORD</div>
+  <div class="banner">True-date frame: synthetic events are moved into the patient&#39;s historical lifetime. Codes, instruments, and treatments remain modern and are anachronistic.</div>
+  <header>
+    <div>The Human Record</div>
+    <h1>James Madison</h1>
+    <div>Case HR-EN007-TD · Modern EHR teaching episode · Draft for review</div>
+  </header>
+  <main>
+    <section>
+      <h2>Review summary</h2>
+      <div class="grid">
+        <div class="card"><div class="label">Historical dates</div>March 16, 1751 (Gregorian; March 5, 1750/51, Old Style) – June 28, 1836</div>
+        <div class="card"><div class="label">Synthetic DOB</div>1751-03-16</div>
+        <div class="card"><div class="label">Index visit</div>1774-04-07 at age 23</div>
+        <div class="card"><div class="label">Synthetic MRN</div>HR-EN007-SYN-TD</div>
+      </div>
+      <p><strong>Teaching objective:</strong> Evaluate a 23-year-old man with two years of recurrent sudden episodes of unresponsiveness, low mood, and anxiety, already taking levetiracetam without a confirmed diagnosis: a witness-informed history, ECG and laboratory tests, brain MRI, and inpatient video-EEG monitoring to capture habitual events; a reasoned diagnosis between epilepsy, functional/dissociative seizures, and syncope at the ILAE &#39;documented&#39; level of certainty; communicating the diagnosis well (ILAE task force terminology; Hall-Patch and Stone); withdrawing the unneeded antiseizure medicine; CBT-informed psychotherapy (LaFrance 1762; CODES 1768); PHQ-9 and GAD-7 measurement-based care with an SSRI by shared decision; suicide risk assessment with a safety plan and the 988 Lifeline; seizure first aid; driving under the AAN 1773 position; and planning his studies (CMID depression monograph).</p>
+      <div class="downloads">
+        <a href="../case.json">Canonical JSON</a>
+        <a href="fhir-bundle.json">FHIR R4 draft</a>
+        <a href="ccda.html">C-CDA R2.1 summary</a> <a href="ccda.xml">(XML)</a>
+        <a href="../sources.md">Evidence dossier</a>
+      </div>
+    </section>
+    <section><h2>Historical timeline</h2><table><thead><tr><th>Date</th><th>Event</th><th>Claims</th></tr></thead><tbody>
+  <tr><td>16 March 1751 (5 March 1750/51, Old Style)</td><td>Born at Port Conway, Virginia; a frail and sickly child.</td><td>CLM-0001, CLM-0003</td></tr>
+  <tr><td>Early 1760s</td><td>The family moves to the brick house at Montpelier, built by enslaved laborers.</td><td>CLM-0002</td></tr>
+  <tr><td>1769 to 1772</td><td>College of New Jersey; graduates 1771; overwork and infirm health.</td><td>CLM-0004</td></tr>
+  <tr><td>November 1772</td><td>Back in Virginia, writes that he does not expect a long or healthy life.</td><td>CLM-0005</td></tr>
+  <tr><td>December 1774</td><td>Appointed to the Orange County Committee of Safety.</td><td>CLM-0006</td></tr>
+  <tr><td>1775 to 1783</td><td>Ill health keeps him out of military service.</td><td>CLM-0007</td></tr>
+  <tr><td>1776</td><td>Virginia Convention; meets Thomas Jefferson in October.</td><td>CLM-0009</td></tr>
+  <tr><td>1801</td><td>Inherits Montpelier and more than 100 enslaved people.</td><td>CLM-0012</td></tr>
+  <tr><td>1817 to 1836</td><td>Retirement: bilious fever (1821), worsening rheumatism, deafness in one ear.</td><td>CLM-0010</td></tr>
+  <tr><td>28 June 1836</td><td>Dies at Montpelier, aged 85; his will does not free the people he enslaved.</td><td>CLM-0011, CLM-0012</td></tr>
+  <tr><td>2008 to 2024</td><td>Historians and physicians propose epilepsy or other causes for his attacks; all retrospective.</td><td>CLM-0008</td></tr></tbody></table></section>
+    <section><h2>Evidence claims</h2><p class="muted">D = documented, R = retrospective, S = synthetic.</p><table><thead><tr><th>Grade</th><th>Claim</th><th>Certainty</th><th>Sources</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>James Madison was born at Port Conway, Virginia, on 16 March 1751 in the Gregorian calendar (5 March, Old Style), the first of twelve children of James Madison and Nelly Conway Madison; his mother was visiting her own mother&#39;s home there. A family sketch he sent in 1834 gives the date as &#39;5th of March, 1751 (O. S.)&#39;.</strong><div class="muted">Virginia used the Julian calendar, with the legal year beginning on 25 March, until 1752; 5 March 1750/51 Old Style is 16 March 1751 Gregorian.</div></td>
+    <td>confirmed</td>
+    <td><a href="http://memory.loc.gov/ammem/collections/madison_papers/mjmtime1.html" target="_blank" rel="noreferrer">James Madison Timeline 1751-1836: 1751-1773, The Colonial Period. The James Madison Papers</a> <span class="relationship">supports</span><br><a href="https://www.montpelier.org/learn/the-life-of-james-madison/" target="_blank" rel="noreferrer">The Life of James Madison</a> <span class="relationship">supports</span><br><a href="https://www.gutenberg.org/ebooks/28992" target="_blank" rel="noreferrer">Gay SH. James Madison (American Statesmen series; Boston: Houghton, Mifflin, 1884)</a> <span class="relationship">supports</span><br><a href="https://www.rmg.co.uk/sites/default/files/Calendars-from-around-the-world.pdf" target="_blank" rel="noreferrer">Longstaff A. Calendars from around the world</a> <span class="relationship">context</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>The Madison family&#39;s wealth lay in land, enslaved people, and tobacco. In the early 1760s the plantation&#39;s enslaved labor force built the brick house half a mile from the first family home, the estate later named Montpelier, in Orange County, Virginia.</strong><div class="muted">Documented social history of the household he grew up in.</div></td>
+    <td>confirmed</td>
+    <td><a href="http://memory.loc.gov/ammem/collections/madison_papers/mjmtime1.html" target="_blank" rel="noreferrer">James Madison Timeline 1751-1836: 1751-1773, The Colonial Period. The James Madison Papers</a> <span class="relationship">supports</span><br><a href="https://www.montpelier.org/learn/the-life-of-james-madison/" target="_blank" rel="noreferrer">The Life of James Madison</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>The Library of Congress describes him as an excellent student but a frail and sickly child. His health had always been delicate, and Williamsburg was regarded as unhealthy, which was among the reasons he went north to the College of New Jersey (Princeton) rather than to William and Mary.</strong></td>
+    <td>confirmed</td>
+    <td><a href="http://memory.loc.gov/ammem/collections/madison_papers/mjmtime1.html" target="_blank" rel="noreferrer">James Madison Timeline 1751-1836: 1751-1773, The Colonial Period. The James Madison Papers</a> <span class="relationship">supports</span><br><a href="https://archive.org/details/lifeofjamesmadis00hunt" target="_blank" rel="noreferrer">Hunt G. The Life of James Madison (New York: Doubleday, Page, 1902)</a> <span class="relationship">supports</span><br><a href="https://www.montpelier.org/learn/the-life-of-james-madison/" target="_blank" rel="noreferrer">The Life of James Madison</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>He entered the College of New Jersey in 1769, graduated in 1771, and stayed on several months to study Hebrew and other subjects under John Witherspoon. His biographer Gaillard Hunt wrote that for several months he spared only three hours in twenty-four for sleep, until he found his constitution unable to endure the strain. In his own late autobiography he wrote that &#39;his very infirm health, had been occasioned not a little by a doubled labor&#39;, accomplishing the studies of two years in one. A later account that he was excused from the commencement exercises cannot be confirmed from the college&#39;s records.</strong><div class="muted">Overwork and poor health at college are documented; their nature is not.</div></td>
+    <td>confirmed</td>
+    <td><a href="http://memory.loc.gov/ammem/collections/madison_papers/mjmtime1.html" target="_blank" rel="noreferrer">James Madison Timeline 1751-1836: 1751-1773, The Colonial Period. The James Madison Papers</a> <span class="relationship">supports</span><br><a href="https://www.montpelier.org/learn/the-life-of-james-madison/" target="_blank" rel="noreferrer">The Life of James Madison</a> <span class="relationship">supports</span><br><a href="https://archive.org/details/lifeofjamesmadis00hunt" target="_blank" rel="noreferrer">Hunt G. The Life of James Madison (New York: Doubleday, Page, 1902)</a> <span class="relationship">supports</span><br><a href="https://universityarchives.princeton.edu/2008/01/did-james-madison-suffer-a-nervous-collapse-due-to-the-intensity-of-his-studies" target="_blank" rel="noreferrer">Did James Madison suffer a nervous collapse due to the intensity of his studies? (Mudd Manuscript Library blog, 24 January 2008)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>He returned to Virginia in 1772 and studied law. In November 1772 he wrote to his college friend William Bradford: &#39;I am too dull and infirm now to look out for extraordinary things in this world, for I think my sensations for many months have intimated to me not to expect a long or healthy life&#39;. The Miller Center describes these as some of the most morose letters of his life, written with failing health and the expectation of an early death; Hunt describes a solitary, purposeless period darkened by enfeebled health.</strong><div class="muted">His own words record poor health, low spirits, and the expectation of an early death; they do not record a diagnosis or any thought of self-harm.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.gutenberg.org/ebooks/28992" target="_blank" rel="noreferrer">Gay SH. James Madison (American Statesmen series; Boston: Houghton, Mifflin, 1884)</a> <span class="relationship">supports</span><br><a href="https://millercenter.org/president/madison/life-before-the-presidency" target="_blank" rel="noreferrer">James Madison: Life Before the Presidency</a> <span class="relationship">supports</span><br><a href="https://archive.org/details/lifeofjamesmadis00hunt" target="_blank" rel="noreferrer">Hunt G. The Life of James Madison (New York: Doubleday, Page, 1902)</a> <span class="relationship">supports</span><br><a href="http://memory.loc.gov/ammem/collections/madison_papers/mjmtime1.html" target="_blank" rel="noreferrer">James Madison Timeline 1751-1836: 1751-1773, The Colonial Period. The James Madison Papers</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>In December 1774 he was appointed to the Orange County Committee of Safety, which oversaw the county militia; he worked to build up its strength.</strong></td>
+    <td>confirmed</td>
+    <td><a href="http://memory.loc.gov/ammem/collections/madison_papers/mjmtime2.html" target="_blank" rel="noreferrer">James Madison Timeline 1751-1836: 1774-1783, The American Revolution. The James Madison Papers</a> <span class="relationship">supports</span><br><a href="https://www.montpelier.org/learn/the-life-of-james-madison/" target="_blank" rel="noreferrer">The Life of James Madison</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>His health kept him from serving in the militia in the Revolution; a nineteenth-century biographer judged that his place, from temperament and want of physical vigor, was in the council, not the field.</strong><div class="muted">The sources read state that ill health kept him from military service without describing the illness.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://millercenter.org/president/madison/life-before-the-presidency" target="_blank" rel="noreferrer">James Madison: Life Before the Presidency</a> <span class="relationship">supports</span><br><a href="https://www.gutenberg.org/ebooks/28992" target="_blank" rel="noreferrer">Gay SH. James Madison (American Statesmen series; Boston: Houghton, Mifflin, 1884)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-R" title="Retrospective">R</span></td>
+    <td><strong>Later in life he suffered periodic bouts of an unknown malady that some historians, including his biographers Ralph Ketcham and Irving Brant, suspect may have been epilepsy. A physician writing in 2018 described an account of his sudden collapse at a militia drill in 1775 as an &#39;absence seizure&#39; while noting that whether his later agitation came from a seizure disorder or from anxiety is not known.</strong><div class="muted">Retrospective interpretations. No physician of his time recorded a diagnosis; epilepsy, functional (dissociative) seizures, anxiety, and other causes cannot be distinguished from the record.</div></td>
+    <td>disputed</td>
+    <td><a href="https://universityarchives.princeton.edu/2008/01/did-james-madison-suffer-a-nervous-collapse-due-to-the-intensity-of-his-studies" target="_blank" rel="noreferrer">Did James Madison suffer a nervous collapse due to the intensity of his studies? (Mudd Manuscript Library blog, 24 January 2008)</a> <span class="relationship">supports</span><br><a href="https://www.inquirer.com/philly/health/medical-mystery-james-madisons-sudden-collapse-20180128.html" target="_blank" rel="noreferrer">Schwartz AB. Medical mystery: James Madison&#39;s sudden collapse. Philadelphia Inquirer, 28 January 2018</a> <span class="relationship">supports</span><br><a href="https://pubmed.ncbi.nlm.nih.gov/37936385/" target="_blank" rel="noreferrer">Abrams J. Dolley and James Madison through the lens of medicine, sickness, and health. J Med Biogr 2024;32(3):329-336. PMID 37936385</a> <span class="relationship">context</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>In 1776, at 25, he was elected to the Virginia Convention that framed the state&#39;s constitution and met Thomas Jefferson for the first time that October. Hunt describes him then as five feet six and a quarter inches tall, thin and delicate, with a countenance that &#39;bespoke the suffering of bad health&#39;.</strong></td>
+    <td>confirmed</td>
+    <td><a href="http://memory.loc.gov/ammem/collections/madison_papers/mjmtime2.html" target="_blank" rel="noreferrer">James Madison Timeline 1751-1836: 1774-1783, The American Revolution. The James Madison Papers</a> <span class="relationship">supports</span><br><a href="https://archive.org/details/lifeofjamesmadis00hunt" target="_blank" rel="noreferrer">Hunt G. The Life of James Madison (New York: Doubleday, Page, 1902)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>After his presidency (1809 to 1817) there was no continuous period when his health was good. He had the prevailing bilious fever in the autumn of 1821 and recovered quickly; he suffered increasingly from rheumatism, which by his last years crippled his fingers; at 83 he was so disabled by it that he lived in one room, and he complained that one ear was deaf. His mind remained sharp.</strong></td>
+    <td>confirmed</td>
+    <td><a href="https://archive.org/details/lifeofjamesmadis00hunt" target="_blank" rel="noreferrer">Hunt G. The Life of James Madison (New York: Doubleday, Page, 1902)</a> <span class="relationship">supports</span><br><a href="http://memory.loc.gov/ammem/collections/madison_papers/essayStagg.pdf" target="_blank" rel="noreferrer">Stagg JCA. An Introduction to the Life and Papers of James Madison</a> <span class="relationship">supports</span><br><a href="https://pubmed.ncbi.nlm.nih.gov/37936385/" target="_blank" rel="noreferrer">Abrams J. Dolley and James Madison through the lens of medicine, sickness, and health. J Med Biogr 2024;32(3):329-336. PMID 37936385</a> <span class="relationship">context</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>He died at Montpelier on the morning of 28 June 1836, aged 85, the last of the Founding Fathers, extremely emaciated and growing gradually weaker; he died alone in his chair over his breakfast, minutes after his niece brought it.</strong><div class="muted">No cause of death was recorded beyond weakness in old age.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://archive.org/details/lifeofjamesmadis00hunt" target="_blank" rel="noreferrer">Hunt G. The Life of James Madison (New York: Doubleday, Page, 1902)</a> <span class="relationship">supports</span><br><a href="https://www.montpelier.org/learn/the-life-of-james-madison/" target="_blank" rel="noreferrer">The Life of James Madison</a> <span class="relationship">supports</span><br><a href="http://memory.loc.gov/ammem/collections/madison_papers/essayStagg.pdf" target="_blank" rel="noreferrer">Stagg JCA. An Introduction to the Life and Papers of James Madison</a> <span class="relationship">supports</span><br><a href="http://memory.loc.gov/ammem/collections/madison_papers/mjmtime6.html" target="_blank" rel="noreferrer">James Madison Timeline 1751-1836: 1817-1836, Retirement. The James Madison Papers</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>At his father&#39;s death in 1801 he inherited Montpelier and more than 100 enslaved African Americans. He continued to hold enslaved people, became president of the American Colonization Society, and under debt sold some of them; his will did not free them but left them to his widow with the wish that they not be sold without their consent, a wish she did not honor.</strong><div class="muted">Documented social history. The record gives no health information about any enslaved person.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.montpelier.org/learn/the-life-of-james-madison/" target="_blank" rel="noreferrer">The Life of James Madison</a> <span class="relationship">supports</span><br><a href="http://memory.loc.gov/ammem/collections/madison_papers/mjmtime6.html" target="_blank" rel="noreferrer">James Madison Timeline 1751-1836: 1817-1836, Retirement. The James Madison Papers</a> <span class="relationship">supports</span><br><a href="http://memory.loc.gov/ammem/collections/madison_papers/essayStagg.pdf" target="_blank" rel="noreferrer">Stagg JCA. An Introduction to the Life and Papers of James Madison</a> <span class="relationship">supports</span></td>
+  </tr></tbody></table></section>
+    <section><h2>Modern synthetic problem list</h2><table><thead><tr><th>Grade</th><th>Problem</th><th>Clinical status</th><th>Verification</th><th>Placement</th><th>Historical claims</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Recurrent sudden episodes of unresponsiveness for two years, two or three a month: he &#39;blanks out&#39;, stops speaking, slumps or sinks to the floor with his eyes closed for two to ten minutes, and afterwards is tearful and tired, with no tongue biting, incontinence, or injury; first during a period of overwork and little sleep at college; with low mood and anxiety; unchanged on levetiracetam; under evaluation for epilepsy, functional (dissociative) seizures, syncope, and other causes</td>
+    <td>resolved</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td>CLM-0003, CLM-0004, CLM-0005</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Taking an antiseizure medicine (levetiracetam) started without a confirmed diagnosis of epilepsy</td>
+    <td>resolved</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Functional/dissociative seizures (psychogenic nonepileptic seizures), documented by video-EEG: two habitual events captured with eyes closed and resisting opening, fluctuating unresponsiveness, and a normal waking EEG throughout, with no ictal or postictal change; normal interictal EEG and brain MRI; epilepsy and syncope excluded</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>both_with_link</td>
+    <td>CLM-0004, CLM-0005, CLM-0008</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Generalized anxiety disorder: worry about his future, his health, and his studies most days for more than a year, with restlessness, poor sleep, and muscle tension (GAD-7 14 at intake)</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Major depressive disorder, single episode, moderate: low mood, loss of interest, poor sleep and concentration, and a sense that he will not live long, for about eighteen months (PHQ-9 13 at intake); no suicidal ideation or intent</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td>CLM-0005</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Acute viral gastroenteritis with mild dehydration, a day of vomiting and diarrhea after a household outbreak; one functional seizure the evening before the visit; resolved</td>
+    <td>resolved</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td>CLM-0010</td>
+  </tr></tbody></table></section>
+    <section><h2>Synthetic outcome measures</h2><table><thead><tr><th>Grade</th><th>Date</th><th>Measure</th><th>Result</th><th>Coding</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1774-04-07</td>
+    <td>Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]</td>
+    <td>13</td>
+    <td>http://loinc.org · 44261-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1774-04-07</td>
+    <td>Generalized anxiety disorder 7 item (GAD-7) total score [Reported.PHQ]</td>
+    <td>14</td>
+    <td>http://loinc.org · 70274-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1774-04-07</td>
+    <td>Total score [AUDIT-C]</td>
+    <td>1</td>
+    <td>http://loinc.org · 75626-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1774-04-07</td>
+    <td>Hemoglobin [Mass/volume] in Blood</td>
+    <td>14.9 g/dL<div class="muted">Reference 13.2-16.6 g/dL</div></td>
+    <td>http://loinc.org · 718-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1774-04-07</td>
+    <td>Leukocytes [#/volume] in Blood by Automated count</td>
+    <td>6.4 10*3/uL<div class="muted">Reference 3.4-9.6 10*3/uL</div></td>
+    <td>http://loinc.org · 6690-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1774-04-07</td>
+    <td>Platelets [#/volume] in Blood by Automated count</td>
+    <td>231 10*3/uL<div class="muted">Reference 150-400 10*3/uL</div></td>
+    <td>http://loinc.org · 777-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1774-04-07</td>
+    <td>Sodium [Moles/volume] in Serum or Plasma</td>
+    <td>139 mmol/L<div class="muted">Reference 135-145 mmol/L</div></td>
+    <td>http://loinc.org · 2951-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1774-04-07</td>
+    <td>Potassium [Moles/volume] in Serum or Plasma</td>
+    <td>4.2 mmol/L<div class="muted">Reference 3.5-5.1 mmol/L</div></td>
+    <td>http://loinc.org · 2823-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1774-04-07</td>
+    <td>Creatinine [Mass/volume] in Serum or Plasma</td>
+    <td>0.86 mg/dL<div class="muted">Reference 0.74-1.35 mg/dL</div></td>
+    <td>http://loinc.org · 2160-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1774-04-07</td>
+    <td>Glomerular filtration rate [Volume Rate/Area] in Serum, Plasma or Blood by Creatinine-based formula (CKD-EPI 1769)/1.73 sq M</td>
+    <td>125 mL/min/1.73 m²<div class="muted">Reference &gt;=60 mL/min/1.73 m²</div></td>
+    <td>http://loinc.org · 98979-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1774-04-07</td>
+    <td>Glucose [Mass/volume] in Serum or Plasma</td>
+    <td>84 mg/dL<div class="muted">Reference 70-99 mg/dL</div></td>
+    <td>http://loinc.org · 2345-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1774-04-07</td>
+    <td>Calcium [Mass/volume] in Serum or Plasma</td>
+    <td>9.6 mg/dL<div class="muted">Reference 8.6-10.3 mg/dL</div></td>
+    <td>http://loinc.org · 17861-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1774-04-07</td>
+    <td>Thyrotropin [Units/volume] in Serum or Plasma</td>
+    <td>1.8 mIU/L<div class="muted">Reference 0.4-4 mIU/L</div></td>
+    <td>http://loinc.org · 3016-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1774-04-07</td>
+    <td>Q-T interval corrected</td>
+    <td>404 ms<div class="muted">Reference Below 450 ms is normal for a man</div></td>
+    <td>http://loinc.org · 8636-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1774-04-30</td>
+    <td>Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]</td>
+    <td>12</td>
+    <td>http://loinc.org · 44261-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1774-04-30</td>
+    <td>Generalized anxiety disorder 7 item (GAD-7) total score [Reported.PHQ]</td>
+    <td>13</td>
+    <td>http://loinc.org · 70274-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1774-06-11</td>
+    <td>Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]</td>
+    <td>11</td>
+    <td>http://loinc.org · 44261-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1774-06-11</td>
+    <td>Generalized anxiety disorder 7 item (GAD-7) total score [Reported.PHQ]</td>
+    <td>12</td>
+    <td>http://loinc.org · 70274-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1774-07-16</td>
+    <td>Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]</td>
+    <td>8</td>
+    <td>http://loinc.org · 44261-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1774-07-16</td>
+    <td>Total score [AUDIT-C]</td>
+    <td>1</td>
+    <td>http://loinc.org · 75626-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1774-09-24</td>
+    <td>Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]</td>
+    <td>6</td>
+    <td>http://loinc.org · 44261-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1774-09-24</td>
+    <td>Generalized anxiety disorder 7 item (GAD-7) total score [Reported.PHQ]</td>
+    <td>7</td>
+    <td>http://loinc.org · 70274-6</td>
+  </tr></tbody></table></section>
+    <section><h2>Synthetic vital signs</h2><table><thead><tr><th>Date</th><th>Measure</th><th>Result</th><th>LOINC</th><th>Grade</th></tr></thead><tbody>
+  <tr><td>1774-04-07</td><td>Body height</td><td>168 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1774-04-07</td><td>Body weight</td><td>54 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1774-04-07</td><td>Body mass index (BMI) [Ratio]</td><td>19.1 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1774-04-07</td><td>Systolic blood pressure</td><td>112 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1774-04-07</td><td>Diastolic blood pressure</td><td>70 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1774-04-07</td><td>Heart rate</td><td>76 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1774-04-07</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1774-04-07</td><td>Body temperature</td><td>36.7 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1774-04-07</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>99 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1774-04-30</td><td>Body height</td><td>168 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1774-04-30</td><td>Body weight</td><td>54.2 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1774-04-30</td><td>Body mass index (BMI) [Ratio]</td><td>19.2 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1774-04-30</td><td>Systolic blood pressure</td><td>110 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1774-04-30</td><td>Diastolic blood pressure</td><td>68 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1774-04-30</td><td>Heart rate</td><td>72 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1774-04-30</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1774-04-30</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1774-04-30</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>99 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1774-06-11</td><td>Body height</td><td>168 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1774-06-11</td><td>Body weight</td><td>54.6 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1774-06-11</td><td>Body mass index (BMI) [Ratio]</td><td>19.3 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1774-06-11</td><td>Systolic blood pressure</td><td>112 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1774-06-11</td><td>Diastolic blood pressure</td><td>70 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1774-06-11</td><td>Heart rate</td><td>74 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1774-06-11</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1774-06-11</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1774-06-11</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>99 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1774-07-16</td><td>Body height</td><td>168 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1774-07-16</td><td>Body weight</td><td>55 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1774-07-16</td><td>Body mass index (BMI) [Ratio]</td><td>19.5 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1774-07-16</td><td>Systolic blood pressure</td><td>114 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1774-07-16</td><td>Diastolic blood pressure</td><td>72 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1774-07-16</td><td>Heart rate</td><td>70 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1774-07-16</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1774-07-16</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1774-07-16</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>99 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1774-08-20</td><td>Body height</td><td>168 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1774-08-20</td><td>Body weight</td><td>53.6 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1774-08-20</td><td>Body mass index (BMI) [Ratio]</td><td>19 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1774-08-20</td><td>Systolic blood pressure</td><td>104 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1774-08-20</td><td>Diastolic blood pressure</td><td>64 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1774-08-20</td><td>Heart rate</td><td>102 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1774-08-20</td><td>Respiratory rate</td><td>16 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1774-08-20</td><td>Body temperature</td><td>37.7 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1774-08-20</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>99 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1774-09-24</td><td>Body height</td><td>168 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1774-09-24</td><td>Body weight</td><td>55.2 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1774-09-24</td><td>Body mass index (BMI) [Ratio]</td><td>19.6 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1774-09-24</td><td>Systolic blood pressure</td><td>112 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1774-09-24</td><td>Diastolic blood pressure</td><td>70 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1774-09-24</td><td>Heart rate</td><td>68 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1774-09-24</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1774-09-24</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1774-09-24</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>99 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr></tbody></table></section>
+    <section><h2>Social, functional, and mental status</h2><h3>Social history</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Education and work: graduated in history and philosophy two years ago after finishing the degree a year early, then stayed a further year for advanced study; now studying for the law school admission test, tutoring part-time, and volunteering on a county civic committee</li><li><span class="badge grade-S" title="Synthetic">S</span> Lives in a small house on a farm in a rural county; no partner; a few close friends, with whom he keeps up by letter and message; drives a car, the only way to reach town</li><li><span class="badge grade-S" title="Synthetic">S</span> Never smoked or vaped; one or two drinks a month (AUDIT-C 1); no cannabis or other drugs; two cups of coffee a day</li><li><span class="badge grade-S" title="Synthetic">S</span> Sleep: five to six hours on study nights, often studying past midnight; no snoring</li><li><span class="badge grade-S" title="Synthetic">S</span> A hunting rifle is kept in the house; no history of violence; no past trauma he wishes to describe at this visit</li></ul><h3>Functional status</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Independent in all activities; has stopped going to evening civic meetings for fear of an event in public; drove until intake, with no events at the wheel</li></ul><h3>Mental status</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Slight, quiet, courteous, and precise in speech; mood &quot;flat, and worried about everything&quot;; affect constricted; thought process logical; no psychotic features; no suicidal ideation, intent, or plan; says he does not expect to live long but has no wish to die; insight good</li></ul></section>
+    <section><h2>Structured safety assessment</h2><div class="grid"><div class="card"><div class="label">Current ideation</div>absent</div><div class="card"><div class="label">Intent</div>absent</div><div class="card"><div class="label">Plan</div>absent</div><div class="card"><div class="label">Disposition</div>No suicidal ideation, intent, plan, or behavior (C-SSRS screen negative; PHQ-9 item 9 scored 0); a fatalistic sense that he will not live long, without any wish to die. Moderate depression and anxiety with recurrent events raise risk, so: outpatient care with a written safety plan, the 988 Suicide &amp; Crisis Lifeline and the clinic number, the rifle locked and the ammunition stored separately, and safety review at every visit</div></div><p class="muted">This assessment is synthetic and does not convert historical behavior into a present-day fact.</p></section>
+    <section><h2>Allergies and medications</h2><h3>Allergies</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> No known allergy</li></ul><h3>Medications</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Levetiracetam 500 mg oral tablet, one tablet twice daily, started at an emergency department visit four months before intake for possible seizures, without an EEG</li><li><span class="badge grade-S" title="Synthetic">S</span> Levetiracetam 500 mg oral tablet, taper: half a tablet (250 mg) twice daily for two weeks, then half a tablet at night for one week, then stop</li><li><span class="badge grade-S" title="Synthetic">S</span> Sertraline 50 mg oral tablet, half a tablet (25 mg) each morning for one week, then one tablet (50 mg) each morning</li><li><span class="badge grade-S" title="Synthetic">S</span> Ondansetron 4 mg orally disintegrating tablet, one tablet every 8 hours as needed for vomiting, for up to three days</li></ul></section>
+    <section><h2>Procedures and immunizations</h2><h3>Procedures</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Resting 12-lead ECG: sinus rhythm at 76 per minute; normal PR, QRS, and QTc (404 ms); no pre-excitation, Brugada pattern, or heart block</li><li><span class="badge grade-S" title="Synthetic">S</span> MRI of the brain with an epilepsy protocol (3 tesla, thin coronal sections through the hippocampi): normal; no hippocampal sclerosis, cortical malformation, or other lesion</li><li><span class="badge grade-S" title="Synthetic">S</span> Inpatient video-EEG monitoring for 72 hours with sleep deprivation, hyperventilation, and photic stimulation, levetiracetam continued: two habitual events captured (2 minutes 40 seconds and 6 minutes), each with eyes closed and resisting opening, fluctuating unresponsiveness, and slow side-to-side head movements, during which the EEG showed a continuous normal waking posterior rhythm with no ictal or postictal change; normal interictal EEG awake and asleep; he confirmed both events as typical</li></ul><h3>Immunizations</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> 1763-03-20: Tdap vaccine, adolescent dose</li><li><span class="badge grade-S" title="Synthetic">S</span> 1763-09-18: HPV vaccine, 9-valent, two-dose series completed</li><li><span class="badge grade-S" title="Synthetic">S</span> 1774-07-16: Tdap vaccine, adult booster</li><li><span class="badge grade-S" title="Synthetic">S</span> 1774-09-24: Influenza vaccine, 1774-1775 season</li></ul></section>
+    <section><h2>Past medical history</h2><p class="muted">True biography with historical dates; not part of the synthetic care timeline.</p><ul><li><span class="badge grade-D" title="Documented">D</span> Childhood: A frail and sickly child, by the Library of Congress&#39;s account <span class="muted">(CLM-0003)</span></li><li><span class="badge grade-D" title="Documented">D</span> 1771 to 1772: Infirm health at college, which he put down to doing two years&#39; work in one; for months he slept only three hours a night <span class="muted">(CLM-0004)</span></li><li><span class="badge grade-D" title="Documented">D</span> November 1772: Wrote that he felt dull and infirm and did not expect a long or healthy life <span class="muted">(CLM-0005)</span></li></ul><h3>Family history</h3><p class="muted">No family medical history is documented in the logged sources. Family history of real relatives is never synthesized.</p></section>
+    <section><h2>Care-plan goals</h2><table><thead><tr><th>Goal</th><th>Target date</th><th>Status</th><th>Outcome</th></tr></thead><tbody>
+  <tr><td>Cause of the episodes established by the second visit</td><td>1774-04-30</td><td>completed</td><td>Functional/dissociative seizures documented by video-EEG; epilepsy and syncope excluded</td></tr>
+  <tr><td>Antiseizure medicine stopped safely</td><td>1774-06-11</td><td>completed</td><td>Levetiracetam tapered over three weeks and stopped, with no change in events and less irritability</td></tr>
+  <tr><td>Events reduced by at least half, then free of events for three months</td><td>1774-12-31</td><td>active</td><td>From two or three a month to one in the last two months; none for five weeks</td></tr>
+  <tr><td>Depression and anxiety improved by at least 50 percent (PHQ-9 and GAD-7)</td><td>1774-12-31</td><td>active</td><td>PHQ-9 13 to 6 and GAD-7 14 to 7</td></tr>
+  <tr><td>No suicidal thoughts</td><td>1774-12-31</td><td>active</td><td>None at any visit</td></tr></tbody></table></section>
+    <section><h2>Interventions</h2><table><thead><tr><th>Intervention</th><th>Status</th><th>Guideline</th></tr></thead><tbody>
+  <tr><td>Diagnostic workup: a detailed history including a witness account or phone video if available, ECG, blood count, metabolic panel, TSH, brain MRI with an epilepsy protocol, and inpatient video-EEG monitoring to capture his habitual events; levetiracetam continued unchanged until the evaluation is complete</td><td>completed</td><td>GL-ILAE-PNES-2013, GL-ILAE-FDS-2025, GL-ILAE-SZ-2017, GL-ILAE-DEF-2014</td></tr>
+  <tr><td>Safety now: no driving until the evaluation is complete and the neurologist advises; showers rather than baths, no swimming alone or working at heights; seizure first aid for the people he lives and works near</td><td>completed</td><td>GL-AAN-DRIVE-2025, GL-CDC-SZFIRSTAID</td></tr>
+  <tr><td>Suicide risk assessment with a written safety plan: warning signs, coping steps, people to contact, the clinic number, and the 988 Suicide &amp; Crisis Lifeline; the rifle locked with the ammunition stored separately; safety reviewed at every visit</td><td>completed</td><td>GL-SUICIDE-2024, GL-CMID-2026</td></tr>
+  <tr><td>Neurology consultation (epilepsy and functional neurological disorder) with admission for video-EEG monitoring, on the diagnosis, the antiseizure medicine, and treatment</td><td>completed</td><td>GL-ILAE-PNES-2013, GL-ILAE-FDS-2025, GL-ILAE-SZ-2017</td></tr>
+  <tr><td>Explaining the diagnosis: functional/dissociative seizures named and explained in person and in writing as real, common, and not epilepsy or feigning; how the brain can switch off awareness under strain; why antiseizure medicines do not help; that treatment works; a reliable written and online resource; a follow-up appointment to answer questions</td><td>completed</td><td>GL-HALLPATCH-2010, GL-STONE-2016, GL-ILAE-FDS-2025</td></tr>
+  <tr><td>Levetiracetam withdrawn: 250 mg twice daily for two weeks, 250 mg at night for one week, then stopped; no driving during the taper</td><td>completed</td><td>GL-ILAE-PNES-2013, GL-ILAE-FDS-2025, GL-ILAE-SZ-2017, GL-AAN-DRIVE-2025</td></tr>
+  <tr><td>CBT-informed psychotherapy for functional seizures: twelve weekly sessions with a psychologist experienced in functional neurological disorder, with an event diary, recognition of warning sensations, grounding techniques, work on avoidance, sleep, and worry, and a relapse-prevention plan</td><td>completed</td><td>GL-LAFRANCE-2014, GL-CODES-2020, GL-ILAE-PNES-2013, GL-ILAE-FDS-2025, GL-ILAE-SZ-2017</td></tr>
+  <tr><td>Measurement-based care for depression and anxiety: PHQ-9 and GAD-7 at least monthly during treatment; psychotherapy, an SSRI such as sertraline, or both, by shared decision once the cause of the events is clear</td><td>completed</td><td>GL-CMID-2026, GL-MDD-2022</td></tr>
+  <tr><td>Studies and daily life: a regular sleep window of at least seven hours, study blocks with breaks, academic accommodations for testing (extra breaks), and a return to civic meetings with a friend who knows the first-aid plan</td><td>completed</td><td>GL-ILAE-PNES-2013, GL-ILAE-FDS-2025, GL-ILAE-SZ-2017, GL-LAFRANCE-2014, GL-CODES-2020</td></tr>
+  <tr><td>Driving: may resume once free of events for at least three months and with the neurologist&#39;s agreement, following state licensing rules and the AAN 1773 position</td><td>completed</td><td>GL-AAN-DRIVE-2025</td></tr></tbody></table></section>
+    <section><h2>Planned encounters</h2><ul>
+  <li><strong>1774-04-07</strong> — Primary care visit for two years of recurrent sudden episodes of unresponsiveness, with low mood and anxiety, on levetiracetam started without a diagnosis <span class="muted">(ENC-001)</span></li>
+  <li><strong>1774-04-30</strong> — Discharge-day review after video-EEG monitoring: diagnosis, its explanation, and the epilepsy and functional neurological disorder consultation <span class="muted">(ENC-002)</span></li>
+  <li><strong>1774-06-11</strong> — Six-week review after the diagnosis: levetiracetam withdrawn, psychotherapy under way, mood and anxiety <span class="muted">(ENC-003)</span></li>
+  <li><strong>1774-07-16</strong> — Preventive health visit at 23 <span class="muted">(ENC-005)</span></li>
+  <li><strong>1774-08-20</strong> — Same-day sick visit for viral gastroenteritis <span class="muted">(ENC-006, unscheduled)</span></li>
+  <li><strong>1774-09-24</strong> — Three-month review after completing psychotherapy: events, mood, driving, and his studies <span class="muted">(ENC-004)</span></li></ul></section>
+    <section><h2>Supporting documents</h2><ul><li><a href="notes/hp.md">History and physical</a></li><li><a href="notes/progress-01.md">Progress note 01</a></li><li><a href="notes/progress-02.md">Progress note 02 — Focused Visit (Follow-up)</a></li><li><a href="notes/progress-03.md">Progress note 03 — Focused Visit (Follow-up)</a></li><li><a href="notes/progress-04.md">Progress note 04 — Preventive Visit</a></li><li><a href="notes/progress-05.md">Progress note 05 — Sick Visit</a></li><li><a href="notes/progress-06.md">Progress note 06 — Focused Visit (Care-plan review)</a></li><li><a href="notes/referral-01.md">Neurology (epilepsy and functional neurological disorder) referral</a></li><li><a href="notes/consult-01.md">Neurology (epilepsy and functional neurological disorder) consultation</a></li><li><a href="notes/careplan.md">Patient care plan</a></li><li><a href="notes/teaching-note.md">Teaching note</a></li><li><a href="provenance.csv">Provenance CSV</a></li></ul></section>
+    <section><h2>C-CDA note documents</h2><p class="muted">Each link opens a readable copy; the XML beside it is the exchange file.</p><ul><li><a href="ccda/hp-01.html">History and physical</a> <a href="ccda/hp-01.xml">(XML)</a></li><li><a href="ccda/progress-01.html">Progress note 01</a> <a href="ccda/progress-01.xml">(XML)</a></li><li><a href="ccda/progress-02.html">Progress note 02 — Focused Visit (Follow-up)</a> <a href="ccda/progress-02.xml">(XML)</a></li><li><a href="ccda/progress-03.html">Progress note 03 — Focused Visit (Follow-up)</a> <a href="ccda/progress-03.xml">(XML)</a></li><li><a href="ccda/progress-04.html">Progress note 04 — Preventive Visit</a> <a href="ccda/progress-04.xml">(XML)</a></li><li><a href="ccda/progress-05.html">Progress note 05 — Sick Visit</a> <a href="ccda/progress-05.xml">(XML)</a></li><li><a href="ccda/progress-06.html">Progress note 06 — Focused Visit (Care-plan review)</a> <a href="ccda/progress-06.xml">(XML)</a></li><li><a href="ccda/referral-01.html">Neurology (epilepsy and functional neurological disorder) referral</a> <a href="ccda/referral-01.xml">(XML)</a></li><li><a href="ccda/consult-01.html">Neurology (epilepsy and functional neurological disorder) consultation</a> <a href="ccda/consult-01.xml">(XML)</a></li></ul></section>
+    <section><h2>Sources</h2><table><thead><tr><th>ID</th><th>Source</th><th>Publisher</th><th>Type</th></tr></thead><tbody>
+  <tr>
+    <td>SRC-0001</td>
+    <td><a href="http://memory.loc.gov/ammem/collections/madison_papers/mjmtime1.html" target="_blank" rel="noreferrer">James Madison Timeline 1751-1836: 1751-1773, The Colonial Period. The James Madison Papers</a></td>
+    <td>Library of Congress, American Memory (read through the Internet Archive)</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0002</td>
+    <td><a href="http://memory.loc.gov/ammem/collections/madison_papers/mjmtime2.html" target="_blank" rel="noreferrer">James Madison Timeline 1751-1836: 1774-1783, The American Revolution. The James Madison Papers</a></td>
+    <td>Library of Congress, American Memory (read through the Internet Archive)</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0003</td>
+    <td><a href="http://memory.loc.gov/ammem/collections/madison_papers/mjmtime6.html" target="_blank" rel="noreferrer">James Madison Timeline 1751-1836: 1817-1836, Retirement. The James Madison Papers</a></td>
+    <td>Library of Congress, American Memory (read through the Internet Archive)</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0004</td>
+    <td><a href="http://memory.loc.gov/ammem/collections/madison_papers/essayStagg.pdf" target="_blank" rel="noreferrer">Stagg JCA. An Introduction to the Life and Papers of James Madison</a></td>
+    <td>Library of Congress, American Memory (read through the Internet Archive)</td>
+    <td>scholarly</td>
+  </tr>
+  <tr>
+    <td>SRC-0005</td>
+    <td><a href="https://www.montpelier.org/learn/the-life-of-james-madison/" target="_blank" rel="noreferrer">The Life of James Madison</a></td>
+    <td>James Madison&#39;s Montpelier</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0006</td>
+    <td><a href="https://millercenter.org/president/madison/life-before-the-presidency" target="_blank" rel="noreferrer">James Madison: Life Before the Presidency</a></td>
+    <td>Miller Center, University of Virginia</td>
+    <td>scholarly</td>
+  </tr>
+  <tr>
+    <td>SRC-0007</td>
+    <td><a href="https://www.gutenberg.org/ebooks/28992" target="_blank" rel="noreferrer">Gay SH. James Madison (American Statesmen series; Boston: Houghton, Mifflin, 1884)</a></td>
+    <td>Project Gutenberg</td>
+    <td>primary</td>
+  </tr>
+  <tr>
+    <td>SRC-0008</td>
+    <td><a href="https://archive.org/details/lifeofjamesmadis00hunt" target="_blank" rel="noreferrer">Hunt G. The Life of James Madison (New York: Doubleday, Page, 1902)</a></td>
+    <td>Internet Archive</td>
+    <td>primary</td>
+  </tr>
+  <tr>
+    <td>SRC-0009</td>
+    <td><a href="https://universityarchives.princeton.edu/2008/01/did-james-madison-suffer-a-nervous-collapse-due-to-the-intensity-of-his-studies" target="_blank" rel="noreferrer">Did James Madison suffer a nervous collapse due to the intensity of his studies? (Mudd Manuscript Library blog, 24 January 2008)</a></td>
+    <td>Princeton University Archives</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0010</td>
+    <td><a href="https://pubmed.ncbi.nlm.nih.gov/37936385/" target="_blank" rel="noreferrer">Abrams J. Dolley and James Madison through the lens of medicine, sickness, and health. J Med Biogr 2024;32(3):329-336. PMID 37936385</a></td>
+    <td>PubMed</td>
+    <td>scholarly</td>
+  </tr>
+  <tr>
+    <td>SRC-0011</td>
+    <td><a href="https://www.rmg.co.uk/sites/default/files/Calendars-from-around-the-world.pdf" target="_blank" rel="noreferrer">Longstaff A. Calendars from around the world</a></td>
+    <td>Royal Museums Greenwich</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0012</td>
+    <td><a href="https://humanrecord.example.org/internal/HISTMED_Master_Roster_v3.xlsx" target="_blank" rel="noreferrer">HISTMED Master Roster v3</a></td>
+    <td>The Human Record project</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0013</td>
+    <td><a href="https://www.inquirer.com/philly/health/medical-mystery-james-madisons-sudden-collapse-20180128.html" target="_blank" rel="noreferrer">Schwartz AB. Medical mystery: James Madison&#39;s sudden collapse. Philadelphia Inquirer, 28 January 2018</a></td>
+    <td>The Philadelphia Inquirer</td>
+    <td>other</td>
+  </tr></tbody></table></section>
+    <section><h2>Review status</h2><table><thead><tr><th>Review</th><th>Status</th><th>Notes</th></tr></thead><tbody>
+  <tr><td>schema validation</td><td>not_started</td><td>Run scripts/build.ps1 -Conformance.</td></tr>
+  <tr><td>clinical review</td><td>not_started</td><td>Awaiting clinician review; check the video-EEG interpretation and the ILAE &#39;documented&#39; level of certainty, the explanation of the diagnosis, the levetiracetam withdrawal, psychotherapy and sertraline, the safety assessment, and the driving advice.</td></tr>
+  <tr><td>provenance review</td><td>not_started</td><td>Library of Congress timeline and Stagg essay, Montpelier, the Miller Center, Gay (1884) and Hunt (1902), the Princeton University Archives answer, Abrams (2024, abstract), and a 2018 newspaper column logged. Founders Online (including his autobiography of December 1830), the Adair edition of the autobiography, and the Ketcham and Brant biographies could not be read.</td></tr>
+  <tr><td>safe messaging review</td><td>not_started</td><td>No suicidal thoughts in the synthetic episode; a fatalistic expectation of an early death, echoing his documented letter, is handled with a safety plan, means safety, and the 988 Lifeline. Claims about his health and spirits in youth and the retrospective diagnoses are marked sensitive.</td></tr></tbody></table></section>
+  </main>
+</body>
+</html>

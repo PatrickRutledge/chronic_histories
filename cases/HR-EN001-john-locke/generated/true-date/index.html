@@ -1,0 +1,623 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>John Locke — The Human Record</title>
+  <style>
+    :root { --navy:#17365d; --blue:#1f4e78; --pale:#eef5fa; --ink:#1f2933; --muted:#66788a; --amber:#fff2cc; --red:#f8d7da; --green:#d9ead3; }
+    * { box-sizing:border-box; }
+    body { margin:0; font:16px/1.5 Arial, sans-serif; color:var(--ink); background:#f6f8fa; }
+    header { background:var(--navy); color:white; padding:24px max(24px,calc((100vw - 1180px)/2)); }
+    header h1 { margin:4px 0; font-size:30px; }
+    .banner { background:#b42318; color:white; font-weight:700; text-align:center; padding:10px; letter-spacing:.03em; }
+    main { max-width:1180px; margin:24px auto 60px; padding:0 24px; }
+    section { background:white; border:1px solid #d9e1e8; border-radius:8px; margin:18px 0; padding:20px; }
+    h2 { color:var(--navy); margin:0 0 14px; font-size:22px; }
+    h3 { color:var(--blue); }
+    .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:12px; }
+    .card { background:var(--pale); border-left:4px solid var(--blue); padding:12px; }
+    .label { color:var(--muted); font-size:13px; text-transform:uppercase; letter-spacing:.04em; }
+    table { width:100%; border-collapse:collapse; }
+    th { background:var(--blue); color:white; text-align:left; }
+    th,td { padding:9px; border-bottom:1px solid #dfe6ec; vertical-align:top; }
+    .badge { display:inline-block; min-width:28px; text-align:center; font-weight:700; border-radius:12px; padding:2px 8px; }
+    .grade-D { background:var(--green); } .grade-R { background:var(--amber); } .grade-S { background:var(--red); }
+    .muted { color:var(--muted); font-size:14px; }
+    .relationship { color:var(--muted); font-size:12px; }
+    .downloads a { display:inline-block; margin:4px 8px 4px 0; padding:8px 12px; background:var(--blue); color:white; text-decoration:none; border-radius:5px; }
+    @media (max-width:700px) { table { display:block; overflow-x:auto; } }
+  </style>
+</head>
+<body>
+  <div class="banner">SYNTHETIC RECORD, NOT A REAL MEDICAL RECORD</div>
+  <div class="banner">True-date frame: synthetic events are moved into the patient&#39;s historical lifetime. Codes, instruments, and treatments remain modern and are anachronistic.</div>
+  <header>
+    <div>The Human Record</div>
+    <h1>John Locke</h1>
+    <div>Case HR-EN001-TD · Modern EHR teaching episode · Draft for review</div>
+  </header>
+  <main>
+    <section>
+      <h2>Review summary</h2>
+      <div class="grid">
+        <div class="card"><div class="label">Historical dates</div>8 September 1632 (Gregorian; 29 August 1632, Julian) – 8 November 1704 (Gregorian; 28 October 1704, Julian)</div>
+        <div class="card"><div class="label">Synthetic DOB</div>1632-09-08</div>
+        <div class="card"><div class="label">Index visit</div>1692-03-12 at age 59</div>
+        <div class="card"><div class="label">Synthetic MRN</div>HR-EN001-SYN-TD</div>
+      </div>
+      <p><strong>Teaching objective:</strong> Evaluate a 59-year-old never-smoker with a lifelong cough, wheeze, and breathlessness, worse in city air and by open fires at home: pre- and post-bronchodilator spirometry interpreted with race-neutral GLI equations and the ATS/ERS 1688 bronchodilator criterion, FeNO, blood eosinophils and IgE, DLCO, alpha-1 antitrypsin, NT-proBNP, an interferon-gamma release assay, chest X-ray, and CT for persistent airflow limitation; a reasoned decision between asthma with persistent airflow limitation and COPD from non-tobacco exposures (GINA 1691, GOLD 1691); GINA track 1 budesonide-formoterol maintenance-and-reliever therapy with add-on tiotropium; inhaler technique, adherence, and a written action plan with peak-flow zones; pulmonary rehabilitation; air pollution as a cause and exposure reduction (WHO 1687 air quality guidelines, air quality alerts, removing indoor solid-fuel smoke, HEPA air cleaning, respirators on unavoidable high-pollution days); vaccinations; and management of a viral flare by the action plan (CMID asthma and COPD monographs).</p>
+      <div class="downloads">
+        <a href="../case.json">Canonical JSON</a>
+        <a href="fhir-bundle.json">FHIR R4 draft</a>
+        <a href="ccda.html">C-CDA R2.1 summary</a> <a href="ccda.xml">(XML)</a>
+        <a href="../sources.md">Evidence dossier</a>
+      </div>
+    </section>
+    <section><h2>Historical timeline</h2><table><thead><tr><th>Date</th><th>Event</th><th>Claims</th></tr></thead><tbody>
+  <tr><td>8 September 1632 (29 August 1632, Julian)</td><td>Born at Wrington, Somerset.</td><td>CLM-0001</td></tr>
+  <tr><td>1652</td><td>Elected to a studentship at Christ Church, Oxford; BA 1656; medical studies follow.</td><td>CLM-0002</td></tr>
+  <tr><td>23 February 1661 (13 February 1660/1, Julian)</td><td>His father dies, of consumption or a kindred malady by his biographer&#39;s account; his brother dies of consumption soon after.</td><td>CLM-0003</td></tr>
+  <tr><td>1667</td><td>Physician in Lord Ashley&#39;s household; friendship with Sydenham; the abscess operation of June 1668.</td><td>CLM-0004, CLM-0005</td></tr>
+  <tr><td>About 1670</td><td>A cough begins that troubles him for the rest of his life.</td><td>CLM-0006</td></tr>
+  <tr><td>1675</td><td>Bachelor of Medicine (February 1674/5); in France, mostly at Montpellier, from late 1675 to 1677.</td><td>CLM-0004, CLM-0006</td></tr>
+  <tr><td>1679</td><td>Back in London, he must leave the city often, and always in winter, because of its coal smoke.</td><td>CLM-0007, CLM-0008</td></tr>
+  <tr><td>1683 to 1689</td><td>Political exile in Holland; returns in February 1689.</td><td>CLM-0009</td></tr>
+  <tr><td>Spring 1691</td><td>Settles at Oates, High Laver, Essex.</td><td>CLM-0010</td></tr>
+  <tr><td>10 March 1692 (29 February 1691/2, Julian)</td><td>Writes that his lungs cannot bear the smoke of the city.</td><td>CLM-0011</td></tr>
+  <tr><td>May 1692</td><td>Visits Cambridge at a friend&#39;s invitation.</td><td>CLM-0012</td></tr>
+  <tr><td>8 December 1692 (28 November 1692, Julian)</td><td>Back at Oates after a day in London left him hardly able to breathe.</td><td>CLM-0013</td></tr>
+  <tr><td>1696 to 1700</td><td>Board of Trade: in London only in the warmer months.</td><td>CLM-0014</td></tr>
+  <tr><td>2 February 1698 (23 January 1697/8, Julian)</td><td>Breathless lying flat during a winter visit to London.</td><td>CLM-0015</td></tr>
+  <tr><td>1700 to 1702</td><td>Sore legs keep him in bed; deafness for a time.</td><td>CLM-0016</td></tr>
+  <tr><td>8 November 1704 (28 October 1704, Julian)</td><td>Dies at Oates, aged 72, after a year of increasing breathlessness and leg swelling.</td><td>CLM-0017</td></tr>
+  <tr><td>1876 to 2022</td><td>Biographers and historians describe his illness as a lifelong cough, possible consumption, and asthma.</td><td>CLM-0018, CLM-0019</td></tr></tbody></table></section>
+    <section><h2>Evidence claims</h2><p class="muted">D = documented, R = retrospective, S = synthetic.</p><table><thead><tr><th>Grade</th><th>Claim</th><th>Certainty</th><th>Sources</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>John Locke was born on 29 August 1632 (Julian; 8 September 1632, Gregorian) at Wrington, Somerset, to Puritan parents of modest means. His father, John Locke (1606 to 1661), was a country attorney who served in a cavalry company on the Parliamentary side early in the Civil War; his mother was Agnes Keene. He had one brother, Thomas, born in 1637.</strong></td>
+    <td>confirmed</td>
+    <td><a href="https://en.wikisource.org/wiki/Dictionary_of_National_Biography,_1885-1900/Locke,_John_(1632-1704)" target="_blank" rel="noreferrer">Stephen L. Locke, John (1632-1704). Dictionary of National Biography, vol. 34 (London, 1893)</a> <span class="relationship">supports</span><br><a href="https://plato.stanford.edu/entries/locke/" target="_blank" rel="noreferrer">Uzgalis W. John Locke. The Stanford Encyclopedia of Philosophy (substantive revision 7 July 2022)</a> <span class="relationship">supports</span><br><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC2083071/" target="_blank" rel="noreferrer">Williams AN. Physician, philosopher, and paediatrician: John Locke&#39;s practice of child health care. Arch Dis Child 2006;91(1):85-89. PMID 16371386</a> <span class="relationship">supports</span><br><a href="https://www.rmg.co.uk/sites/default/files/Calendars-from-around-the-world.pdf" target="_blank" rel="noreferrer">Longstaff A. Calendars from around the world</a> <span class="relationship">context</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>He was educated at Westminster School and at Christ Church, Oxford, where he was elected to a studentship in 1652 and took his BA in 1656.</strong><div class="muted">Westminster entry is dated 1646 in one source and 1647 in another; the record gives no year.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://plato.stanford.edu/entries/locke/" target="_blank" rel="noreferrer">Uzgalis W. John Locke. The Stanford Encyclopedia of Philosophy (substantive revision 7 July 2022)</a> <span class="relationship">supports</span><br><a href="https://en.wikisource.org/wiki/Dictionary_of_National_Biography,_1885-1900/Locke,_John_(1632-1704)" target="_blank" rel="noreferrer">Stephen L. Locke, John (1632-1704). Dictionary of National Biography, vol. 34 (London, 1893)</a> <span class="relationship">supports</span><br><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC2083071/" target="_blank" rel="noreferrer">Williams AN. Physician, philosopher, and paediatrician: John Locke&#39;s practice of child health care. Arch Dis Child 2006;91(1):85-89. PMID 16371386</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>His father died on 13 February 1660/1 (Julian), at about 54, of consumption or some kindred malady, by his biographer&#39;s account; his only brother, Thomas, died of consumption soon afterwards, at about 26, leaving no children.</strong><div class="muted">A nineteenth-century biographer&#39;s account; &#39;consumption&#39; then meant a wasting chest disease, usually but not always tuberculosis.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://archive.org/details/lifeofjohnlocke01bouruoft" target="_blank" rel="noreferrer">Fox Bourne HR. The Life of John Locke, vol. 1 (London: Henry S. King, 1876)</a> <span class="relationship">supports</span><br><a href="https://en.wikisource.org/wiki/Dictionary_of_National_Biography,_1885-1900/Locke,_John_(1632-1704)" target="_blank" rel="noreferrer">Stephen L. Locke, John (1632-1704). Dictionary of National Biography, vol. 34 (London, 1893)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>He studied medicine at Oxford and took the degree of Bachelor of Medicine in February 1674/5, with a licence to practise, but never took the doctorate. From 1667 he lived in the household of Lord Ashley (later the first Earl of Shaftesbury) as his physician, and in June 1668 he organized the surgical drainage of a large abscess above Ashley&#39;s liver, with advice from leading physicians including Thomas Sydenham.</strong><div class="muted">DNB dates the degree to 1674 and Williams to 6 February 1675; under the English year that began on 25 March these are the same day.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://en.wikisource.org/wiki/Dictionary_of_National_Biography,_1885-1900/Locke,_John_(1632-1704)" target="_blank" rel="noreferrer">Stephen L. Locke, John (1632-1704). Dictionary of National Biography, vol. 34 (London, 1893)</a> <span class="relationship">supports</span><br><a href="https://plato.stanford.edu/entries/locke/" target="_blank" rel="noreferrer">Uzgalis W. John Locke. The Stanford Encyclopedia of Philosophy (substantive revision 7 July 2022)</a> <span class="relationship">supports</span><br><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC2083071/" target="_blank" rel="noreferrer">Williams AN. Physician, philosopher, and paediatrician: John Locke&#39;s practice of child health care. Arch Dis Child 2006;91(1):85-89. PMID 16371386</a> <span class="relationship">supports</span><br><a href="https://pubmed.ncbi.nlm.nih.gov/22332471/" target="_blank" rel="noreferrer">Anstey PR, Principe LM. John Locke and the case of Anthony Ashley Cooper. Early Sci Med 2011;16(5):379-503. PMID 22332471</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>From about 1667 he was a close friend of the physician Thomas Sydenham, accompanied him on visits to patients, helped him with his writings, and was praised by him; Sydenham embraced careful observation of disease.</strong></td>
+    <td>confirmed</td>
+    <td><a href="https://en.wikisource.org/wiki/Dictionary_of_National_Biography,_1885-1900/Locke,_John_(1632-1704)" target="_blank" rel="noreferrer">Stephen L. Locke, John (1632-1704). Dictionary of National Biography, vol. 34 (London, 1893)</a> <span class="relationship">supports</span><br><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC2083071/" target="_blank" rel="noreferrer">Williams AN. Physician, philosopher, and paediatrician: John Locke&#39;s practice of child health care. Arch Dis Child 2006;91(1):85-89. PMID 16371386</a> <span class="relationship">supports</span><br><a href="https://plato.stanford.edu/entries/locke/" target="_blank" rel="noreferrer">Uzgalis W. John Locke. The Stanford Encyclopedia of Philosophy (substantive revision 7 July 2022)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>His biographer H. R. Fox Bourne wrote that about 1670 Locke began to have a cough that seriously troubled him through the remainder of his life, and that an undated fragment in his hand from those years, titled &#39;Tussis&#39;, was the start of a paper on coughs. His health was already weak by the early 1670s; a letter from Sydenham, probably at the end of 1674, advised him to go to bed early and be very temperate and cautious, and from late 1675 to 1677 he lived in France, mostly at Montpellier, then much visited by invalids.</strong><div class="muted">The onset of a lifelong cough in his late thirties is documented; its cause is not.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://archive.org/details/lifeofjohnlocke01bouruoft" target="_blank" rel="noreferrer">Fox Bourne HR. The Life of John Locke, vol. 1 (London: Henry S. King, 1876)</a> <span class="relationship">supports</span><br><a href="https://en.wikisource.org/wiki/Dictionary_of_National_Biography,_1885-1900/Locke,_John_(1632-1704)" target="_blank" rel="noreferrer">Stephen L. Locke, John (1632-1704). Dictionary of National Biography, vol. 34 (London, 1893)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>Lady Masham later wrote that although his travels in France had done his health some good, after his return he was still less able than before to stay long in London without retreating to a neighbouring village &#39;to recover the prejudice his health received from the smoke of that vast quantity of sea-coal which is burnt in this great city&#39;. From then on he left London as often as he could, and always in the winter months.</strong><div class="muted">A close friend&#39;s account, written after his death, linking his illness to London&#39;s coal smoke.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://archive.org/details/lifeofjohnlocke01bouruoft" target="_blank" rel="noreferrer">Fox Bourne HR. The Life of John Locke, vol. 1 (London: Henry S. King, 1876)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>Among his medical papers, an account of consumption that Fox Bourne describes as drawn from Sydenham&#39;s observation and confirmed by Locke attributes the frequency of consumptions in London to &#39;a perpetual mist&#39; mixed with the fumes of the city&#39;s trades, &#39;but especially the sulphur and fumes of sea coals, with which the air is repleted; and these being sucked into our lungs ... give an occasion to a cough&#39;.</strong><div class="muted">Seventeenth-century medical theory, recorded as such; it shows that he and Sydenham linked coal smoke with cough.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://archive.org/details/lifeofjohnlocke01bouruoft" target="_blank" rel="noreferrer">Fox Bourne HR. The Life of John Locke, vol. 1 (London: Henry S. King, 1876)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>He left England in the autumn of 1683, when he was under suspicion for his association with Shaftesbury, lived in Holland, and landed at Greenwich on 12 February 1688/9 (Julian). He soon declined a diplomatic mission on the ground of insufficient health, and wrote in April 1689 that he hoped to breathe more easily and be less troubled by his cough.</strong><div class="muted">His exile was political; the sources read do not say that he went to Holland for his health.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://en.wikisource.org/wiki/Dictionary_of_National_Biography,_1885-1900/Locke,_John_(1632-1704)" target="_blank" rel="noreferrer">Stephen L. Locke, John (1632-1704). Dictionary of National Biography, vol. 34 (London, 1893)</a> <span class="relationship">supports</span><br><a href="https://plato.stanford.edu/entries/locke/" target="_blank" rel="noreferrer">Uzgalis W. John Locke. The Stanford Encyclopedia of Philosophy (substantive revision 7 July 2022)</a> <span class="relationship">supports</span><br><a href="https://archive.org/details/lifeofjohnlocke02bouruoft" target="_blank" rel="noreferrer">Fox Bourne HR. The Life of John Locke, vol. 2 (London: Henry S. King, 1876)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>He found the smoke of London unfavourable to his health, and from the spring of 1691 lived at Oates, in the parish of High Laver, Essex, the home of Sir Francis and Lady Masham (Damaris Cudworth).</strong></td>
+    <td>confirmed</td>
+    <td><a href="https://en.wikisource.org/wiki/Dictionary_of_National_Biography,_1885-1900/Locke,_John_(1632-1704)" target="_blank" rel="noreferrer">Stephen L. Locke, John (1632-1704). Dictionary of National Biography, vol. 34 (London, 1893)</a> <span class="relationship">supports</span><br><a href="https://plato.stanford.edu/entries/locke/" target="_blank" rel="noreferrer">Uzgalis W. John Locke. The Stanford Encyclopedia of Philosophy (substantive revision 7 July 2022)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>On 29 February 1691/2 (Julian; 10 March 1692, Gregorian) he wrote to Philipp van Limborch that since visiting Robert Boyle on his deathbed in December, &#39;my health has kept me in the country, for I found my lungs could not bear the smoke of the city&#39;.</strong><div class="muted">His own words, in Fox Bourne&#39;s translation of the Latin letter.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://archive.org/details/lifeofjohnlocke02bouruoft" target="_blank" rel="noreferrer">Fox Bourne HR. The Life of John Locke, vol. 2 (London: Henry S. King, 1876)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>In May 1692 he spent a day or two at Cambridge after Isaac Newton wrote to him on 3 May (Julian) that, now the churlish weather was almost over, he hoped to see him there.</strong></td>
+    <td>confirmed</td>
+    <td><a href="https://archive.org/details/lifeofjohnlocke02bouruoft" target="_blank" rel="noreferrer">Fox Bourne HR. The Life of John Locke, vol. 2 (London: Henry S. King, 1876)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>In November 1692 he wrote that after a single day in London he fell so ill that he could hardly breathe and had to come away; back at Oates on 28 November (Julian) he told Edward Clarke, &#39;well I cannot say I yet am, under so troublesome a cough as I have, but my lungs move easier than they did&#39;.</strong><div class="muted">His own account of breathlessness in London relieved in the country.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://archive.org/details/lifeofjohnlocke02bouruoft" target="_blank" rel="noreferrer">Fox Bourne HR. The Life of John Locke, vol. 2 (London: Henry S. King, 1876)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>As a commissioner of the Board of Trade from 1696 to 1700 he suffered so much from his chest illness, which the Stanford Encyclopedia calls asthma, that he could bear the smoke of London only in the four warmer months; he attended its meetings in the summer and autumn and was confined to Oates the rest of the year. In October 1698 he wrote that &#39;a troublesome cough and great difficulty of breathing&#39; were forcing him out of town.</strong></td>
+    <td>confirmed</td>
+    <td><a href="https://plato.stanford.edu/entries/locke/" target="_blank" rel="noreferrer">Uzgalis W. John Locke. The Stanford Encyclopedia of Philosophy (substantive revision 7 July 2022)</a> <span class="relationship">supports</span><br><a href="https://en.wikisource.org/wiki/Dictionary_of_National_Biography,_1885-1900/Locke,_John_(1632-1704)" target="_blank" rel="noreferrer">Stephen L. Locke, John (1632-1704). Dictionary of National Biography, vol. 34 (London, 1893)</a> <span class="relationship">supports</span><br><a href="https://archive.org/details/lifeofjohnlocke02bouruoft" target="_blank" rel="noreferrer">Fox Bourne HR. The Life of John Locke, vol. 2 (London: Henry S. King, 1876)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>Summoned to London to see the king on 23 January 1697/8 (Julian), he wrote to Lord Somers that when he lay down in bed his breath failed him, so that he had to sit up most of the night and at three in the morning got up and sat by the fire till morning; he returned to Oates at once, and declined the employment offered because of his health.</strong><div class="muted">His own description of breathlessness lying flat during a winter visit to London.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://archive.org/details/lifeofjohnlocke02bouruoft" target="_blank" rel="noreferrer">Fox Bourne HR. The Life of John Locke, vol. 2 (London: Henry S. King, 1876)</a> <span class="relationship">supports</span><br><a href="https://en.wikisource.org/wiki/Dictionary_of_National_Biography,_1885-1900/Locke,_John_(1632-1704)" target="_blank" rel="noreferrer">Stephen L. Locke, John (1632-1704). Dictionary of National Biography, vol. 34 (London, 1893)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>From 1700 he was often kept in bed by sore legs and wrote of &#39;my old evil of my breast&#39;; by 1702 he had become so deaf for a time that he could hardly take part in conversation.</strong></td>
+    <td>confirmed</td>
+    <td><a href="https://archive.org/details/lifeofjohnlocke02bouruoft" target="_blank" rel="noreferrer">Fox Bourne HR. The Life of John Locke, vol. 2 (London: Henry S. King, 1876)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>In June 1704 he wrote that his shortness of breath and uneasiness increased every day, despite the season that usually restored him. That summer his legs swelled, more so towards the end of October. Lady Masham wrote that all the faculties of his mind were perfect to the last, and that he died of weakness alone. On 28 October 1704 (Julian; 8 November 1704, Gregorian), carried to his chair while she read the psalms to him, he died quietly at Oates, aged 72. He was buried in the churchyard at High Laver.</strong><div class="muted">The documented decline of his last year: increasing breathlessness, leg swelling, and weakness; no cause of death was recorded.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://archive.org/details/lifeofjohnlocke02bouruoft" target="_blank" rel="noreferrer">Fox Bourne HR. The Life of John Locke, vol. 2 (London: Henry S. King, 1876)</a> <span class="relationship">supports</span><br><a href="https://en.wikisource.org/wiki/Dictionary_of_National_Biography,_1885-1900/Locke,_John_(1632-1704)" target="_blank" rel="noreferrer">Stephen L. Locke, John (1632-1704). Dictionary of National Biography, vol. 34 (London, 1893)</a> <span class="relationship">supports</span><br><a href="https://plato.stanford.edu/entries/locke/" target="_blank" rel="noreferrer">Uzgalis W. John Locke. The Stanford Encyclopedia of Philosophy (substantive revision 7 July 2022)</a> <span class="relationship">supports</span><br><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC2083071/" target="_blank" rel="noreferrer">Williams AN. Physician, philosopher, and paediatrician: John Locke&#39;s practice of child health care. Arch Dis Child 2006;91(1):85-89. PMID 16371386</a> <span class="relationship">supports</span><br><a href="https://www.rmg.co.uk/sites/default/files/Calendars-from-around-the-world.pdf" target="_blank" rel="noreferrer">Longstaff A. Calendars from around the world</a> <span class="relationship">context</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-R" title="Retrospective">R</span></td>
+    <td><strong>Modern accounts describe him as asthmatic: the Stanford Encyclopedia of Philosophy states that he was asthmatic, and a 2006 history of medicine article that his health was blighted throughout life by asthma, which often incapacitated him for long periods.</strong><div class="muted">A retrospective label in modern secondary sources; no physician&#39;s diagnosis from his lifetime is recorded.</div></td>
+    <td>probable</td>
+    <td><a href="https://plato.stanford.edu/entries/locke/" target="_blank" rel="noreferrer">Uzgalis W. John Locke. The Stanford Encyclopedia of Philosophy (substantive revision 7 July 2022)</a> <span class="relationship">supports</span><br><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC2083071/" target="_blank" rel="noreferrer">Williams AN. Physician, philosopher, and paediatrician: John Locke&#39;s practice of child health care. Arch Dis Child 2006;91(1):85-89. PMID 16371386</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-R" title="Retrospective">R</span></td>
+    <td><strong>Fox Bourne judged that his cough was connected with disease in the lungs, and that probably only extreme care in treating himself had kept it from passing into a rapid consumption.</strong><div class="muted">A nineteenth-century biographer&#39;s interpretation. No source read diagnoses tuberculosis; his long survival argues against it.</div></td>
+    <td>possible</td>
+    <td><a href="https://archive.org/details/lifeofjohnlocke01bouruoft" target="_blank" rel="noreferrer">Fox Bourne HR. The Life of John Locke, vol. 1 (London: Henry S. King, 1876)</a> <span class="relationship">supports</span></td>
+  </tr></tbody></table></section>
+    <section><h2>Modern synthetic problem list</h2><table><thead><tr><th>Grade</th><th>Problem</th><th>Clinical status</th><th>Verification</th><th>Placement</th><th>Historical claims</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Chronic cough with wheeze and breathlessness since his late thirties, worse every winter and within a day of any stay in the city or by an open fire, better in warm weather and country air; night cough two or three times a week this winter; under evaluation</td>
+    <td>resolved</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td>CLM-0007, CLM-0010, CLM-0011, CLM-0006</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Long exposure to urban air pollution (decades in a large city with heavy traffic and coal and wood burning) and to indoor solid-fuel smoke from open coal and wood fires at home</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td>CLM-0007, CLM-0008, CLM-0010</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Asthma with persistent airflow limitation, type 2 (eosinophilic) phenotype, in a never-smoker: post-bronchodilator FEV1/FVC 0.62, FEV1 62 percent predicted rising 380 mL after albuterol, FeNO 41 ppb, eosinophils 0.46 x 10^3/uL, IgE 186 IU/mL, normal DLCO, no emphysema on CT; aggravated by air pollution and indoor smoke; not COPD</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>both_with_link</td>
+    <td>CLM-0006, CLM-0011, CLM-0018</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Acute viral upper respiratory infection (common cold) with a yellow-zone asthma flare: peak flow 68 percent of personal best, managed with extra as-needed budesonide-formoterol by his action plan, without oral corticosteroids; resolved</td>
+    <td>resolved</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td>CLM-0014</td>
+  </tr></tbody></table></section>
+    <section><h2>Synthetic outcome measures</h2><table><thead><tr><th>Grade</th><th>Date</th><th>Measure</th><th>Result</th><th>Coding</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1692-03-12</td>
+    <td>Total score [ACT]</td>
+    <td>12</td>
+    <td>http://loinc.org · 82668-5</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1692-03-12</td>
+    <td>Patient Health Questionnaire 2 item (PHQ-2) total score [Reported]</td>
+    <td>1</td>
+    <td>http://loinc.org · 55758-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1692-03-12</td>
+    <td>Hemoglobin [Mass/volume] in Blood</td>
+    <td>14.8 g/dL<div class="muted">Reference 13.2-16.6 g/dL</div></td>
+    <td>http://loinc.org · 718-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1692-03-12</td>
+    <td>Leukocytes [#/volume] in Blood by Automated count</td>
+    <td>7.4 10*3/uL<div class="muted">Reference 3.4-9.6 10*3/uL</div></td>
+    <td>http://loinc.org · 6690-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1692-03-12</td>
+    <td>Eosinophils [#/volume] in Blood by Automated count</td>
+    <td>0.46 10*3/uL<div class="muted">Reference 0.15 or more suggests type 2 airway inflammation; 0.30 or more is typical of it</div></td>
+    <td>http://loinc.org · 711-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1692-03-12</td>
+    <td>Platelets [#/volume] in Blood by Automated count</td>
+    <td>251 10*3/uL<div class="muted">Reference 150-400 10*3/uL</div></td>
+    <td>http://loinc.org · 777-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1692-03-12</td>
+    <td>IgE [Units/volume] in Serum or Plasma</td>
+    <td>186 [IU]/mL (high)<div class="muted">Reference &lt;=100 [IU]/mL</div></td>
+    <td>http://loinc.org · 19113-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1692-03-12</td>
+    <td>Alpha 1 antitrypsin [Mass/volume] in Serum or Plasma</td>
+    <td>131 mg/dL<div class="muted">Reference 90-200 mg/dL</div></td>
+    <td>http://loinc.org · 1825-9</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1692-03-12</td>
+    <td>Natriuretic peptide.B prohormone N-Terminal [Mass/volume] in Serum or Plasma</td>
+    <td>58 pg/mL<div class="muted">Reference Below 125 pg/mL makes heart failure unlikely in an outpatient</div></td>
+    <td>http://loinc.org · 33762-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1692-03-12</td>
+    <td>Mycobacterium tuberculosis stimulated gamma interferon release by CD4+ T-cells [Units/volume] corrected for background in Blood</td>
+    <td>0.02 [IU]/mL<div class="muted">Reference Positive at 0.35 IU/mL or more</div></td>
+    <td>http://loinc.org · 64084-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1692-03-26</td>
+    <td>FEV1 --pre bronchodilation</td>
+    <td>2.11 L (low)<div class="muted">Reference Lower limit of normal, GLI Global race-neutral equations for a man of 59, 178 cm; predicted 3.38 L</div></td>
+    <td>http://loinc.org · 20157-4</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1692-03-26</td>
+    <td>Forced vital capacity [Volume] Respiratory system by Spirometry --pre bronchodilation</td>
+    <td>3.71 L<div class="muted">Reference Lower limit of normal, GLI Global race-neutral equations for a man of 59, 178 cm; predicted 4.37 L</div></td>
+    <td>http://loinc.org · 19876-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1692-03-26</td>
+    <td>FEV1/FVC</td>
+    <td>0.57 (low)<div class="muted">Reference Lower limit of normal, GLI Global race-neutral equations for a man of 59, 178 cm</div></td>
+    <td>http://loinc.org · 19926-5</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1692-03-26</td>
+    <td>FEV1 measured/predicted</td>
+    <td>62% (low)<div class="muted">Reference GLI Global race-neutral equations for a man of 59, 178 cm</div></td>
+    <td>http://loinc.org · 20152-5</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1692-03-26</td>
+    <td>FEV1 --post bronchodilation</td>
+    <td>2.49 L (low)<div class="muted">Reference Lower limit of normal, GLI Global race-neutral equations for a man of 59, 178 cm; predicted 3.38 L</div></td>
+    <td>http://loinc.org · 20155-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1692-03-26</td>
+    <td>Forced vital capacity [Volume] Respiratory system --post bronchodilation</td>
+    <td>4.02 L<div class="muted">Reference Lower limit of normal, GLI Global race-neutral equations for a man of 59, 178 cm; predicted 4.37 L</div></td>
+    <td>http://loinc.org · 19875-4</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1692-03-26</td>
+    <td>FEV1/FVC --post bronchodilation</td>
+    <td>0.62 (low)<div class="muted">Reference Lower limit of normal, GLI Global race-neutral equations for a man of 59, 178 cm; below it (and below 0.70) after bronchodilator means persistent airflow limitation</div></td>
+    <td>http://loinc.org · 69970-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1692-03-26</td>
+    <td>Diffusion capacity.carbon monoxide</td>
+    <td>26.4 mL/min/mm[Hg]<div class="muted">Reference Lower limit of normal, GLI 1683 race-neutral equations; predicted 26.9</div></td>
+    <td>http://loinc.org · 19911-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1692-03-26</td>
+    <td>Fractional concentration of exhaled nitric oxide</td>
+    <td>41 [ppb] (high)<div class="muted">Reference In adults, below 25 ppb low, 25 to 50 intermediate, above 50 high (ATS)</div></td>
+    <td>http://loinc.org · 96269-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1692-03-26</td>
+    <td>Six minute walk test</td>
+    <td>430 m (low)<div class="muted">Reference Predicted about 630 m for his age, sex, height and weight (Enright and Sherrill); lower limit about 480 m</div></td>
+    <td>http://loinc.org · 64098-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1692-03-26</td>
+    <td>Total score [ACT]</td>
+    <td>13</td>
+    <td>http://loinc.org · 82668-5</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1692-06-18</td>
+    <td>Total score [ACT]</td>
+    <td>19</td>
+    <td>http://loinc.org · 82668-5</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1692-06-18</td>
+    <td>FEV1 --pre bronchodilation</td>
+    <td>2.46 L (low)<div class="muted">Reference Lower limit of normal, GLI Global race-neutral equations for a man of 59, 178 cm; predicted 3.38 L</div></td>
+    <td>http://loinc.org · 20157-4</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1692-06-18</td>
+    <td>FEV1 measured/predicted</td>
+    <td>73% (low)<div class="muted">Reference GLI Global race-neutral equations for a man of 59, 178 cm</div></td>
+    <td>http://loinc.org · 20152-5</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1692-06-18</td>
+    <td>FEV1 --post bronchodilation</td>
+    <td>2.58 L (low)<div class="muted">Reference Lower limit of normal, GLI Global race-neutral equations for a man of 59, 178 cm; predicted 3.38 L</div></td>
+    <td>http://loinc.org · 20155-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1692-06-18</td>
+    <td>Forced vital capacity [Volume] Respiratory system --post bronchodilation</td>
+    <td>4.12 L<div class="muted">Reference Lower limit of normal, GLI Global race-neutral equations for a man of 59, 178 cm; predicted 4.37 L</div></td>
+    <td>http://loinc.org · 19875-4</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1692-06-18</td>
+    <td>FEV1/FVC --post bronchodilation</td>
+    <td>0.63 (low)<div class="muted">Reference Lower limit of normal, GLI Global race-neutral equations for a man of 59, 178 cm; below it (and below 0.70) after bronchodilator means persistent airflow limitation</div></td>
+    <td>http://loinc.org · 69970-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1692-06-18</td>
+    <td>Fractional concentration of exhaled nitric oxide</td>
+    <td>22 [ppb]<div class="muted">Reference In adults, below 25 ppb low, 25 to 50 intermediate, above 50 high (ATS)</div></td>
+    <td>http://loinc.org · 96269-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1692-06-18</td>
+    <td>Six minute walk test</td>
+    <td>505 m<div class="muted">Reference Predicted about 630 m for his age, sex, height and weight (Enright and Sherrill); lower limit about 480 m</div></td>
+    <td>http://loinc.org · 64098-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1692-09-17</td>
+    <td>Patient Health Questionnaire 2 item (PHQ-2) total score [Reported]</td>
+    <td>0</td>
+    <td>http://loinc.org · 55758-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1692-09-17</td>
+    <td>Cholesterol [Mass/volume] in Serum or Plasma</td>
+    <td>182 mg/dL<div class="muted">Reference &lt;=199 mg/dL</div></td>
+    <td>http://loinc.org · 2093-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1692-09-17</td>
+    <td>Cholesterol in HDL [Mass/volume] in Serum or Plasma</td>
+    <td>64 mg/dL<div class="muted">Reference &gt;=40 mg/dL</div></td>
+    <td>http://loinc.org · 2085-9</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1692-09-17</td>
+    <td>Cholesterol in LDL [Mass/volume] in Serum or Plasma by calculation</td>
+    <td>101 mg/dL<div class="muted">Reference &lt;=129 mg/dL</div></td>
+    <td>http://loinc.org · 13457-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1692-09-17</td>
+    <td>Triglyceride [Mass/volume] in Serum or Plasma</td>
+    <td>85 mg/dL<div class="muted">Reference &lt;=149 mg/dL</div></td>
+    <td>http://loinc.org · 2571-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1692-10-08</td>
+    <td>Maximum expiratory gas flow Respiratory system airway by Peak flow meter</td>
+    <td>300 L/min (low)<div class="muted">Reference 80 percent of his personal best of 440 L/min</div></td>
+    <td>http://loinc.org · 19935-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1692-10-22</td>
+    <td>Maximum expiratory gas flow Respiratory system airway by Peak flow meter</td>
+    <td>430 L/min<div class="muted">Reference 80 percent of his personal best of 440 L/min</div></td>
+    <td>http://loinc.org · 19935-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1692-10-22</td>
+    <td>Total score [ACT]</td>
+    <td>21</td>
+    <td>http://loinc.org · 82668-5</td>
+  </tr></tbody></table></section>
+    <section><h2>Synthetic vital signs</h2><table><thead><tr><th>Date</th><th>Measure</th><th>Result</th><th>LOINC</th><th>Grade</th></tr></thead><tbody>
+  <tr><td>1692-03-12</td><td>Body height</td><td>178 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1692-03-12</td><td>Body weight</td><td>62 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1692-03-12</td><td>Body mass index (BMI) [Ratio]</td><td>19.6 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1692-03-12</td><td>Systolic blood pressure</td><td>122 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1692-03-12</td><td>Diastolic blood pressure</td><td>74 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1692-03-12</td><td>Heart rate</td><td>84 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1692-03-12</td><td>Respiratory rate</td><td>18 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1692-03-12</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1692-03-12</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>95 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1692-03-26</td><td>Body height</td><td>178 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1692-03-26</td><td>Body weight</td><td>62.1 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1692-03-26</td><td>Body mass index (BMI) [Ratio]</td><td>19.6 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1692-03-26</td><td>Systolic blood pressure</td><td>120 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1692-03-26</td><td>Diastolic blood pressure</td><td>74 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1692-03-26</td><td>Heart rate</td><td>82 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1692-03-26</td><td>Respiratory rate</td><td>18 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1692-03-26</td><td>Body temperature</td><td>36.5 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1692-03-26</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>95 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1692-06-18</td><td>Body height</td><td>178 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1692-06-18</td><td>Body weight</td><td>62.8 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1692-06-18</td><td>Body mass index (BMI) [Ratio]</td><td>19.8 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1692-06-18</td><td>Systolic blood pressure</td><td>118 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1692-06-18</td><td>Diastolic blood pressure</td><td>72 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1692-06-18</td><td>Heart rate</td><td>76 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1692-06-18</td><td>Respiratory rate</td><td>16 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1692-06-18</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1692-06-18</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>97 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1692-09-17</td><td>Body height</td><td>178 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1692-09-17</td><td>Body weight</td><td>63 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1692-09-17</td><td>Body mass index (BMI) [Ratio]</td><td>19.9 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1692-09-17</td><td>Systolic blood pressure</td><td>120 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1692-09-17</td><td>Diastolic blood pressure</td><td>74 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1692-09-17</td><td>Heart rate</td><td>74 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1692-09-17</td><td>Respiratory rate</td><td>16 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1692-09-17</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1692-09-17</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>97 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1692-10-08</td><td>Body height</td><td>178 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1692-10-08</td><td>Body weight</td><td>62.6 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1692-10-08</td><td>Body mass index (BMI) [Ratio]</td><td>19.8 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1692-10-08</td><td>Systolic blood pressure</td><td>124 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1692-10-08</td><td>Diastolic blood pressure</td><td>76 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1692-10-08</td><td>Heart rate</td><td>94 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1692-10-08</td><td>Respiratory rate</td><td>20 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1692-10-08</td><td>Body temperature</td><td>37.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1692-10-08</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>95 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1692-10-22</td><td>Body height</td><td>178 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1692-10-22</td><td>Body weight</td><td>62.8 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1692-10-22</td><td>Body mass index (BMI) [Ratio]</td><td>19.8 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1692-10-22</td><td>Systolic blood pressure</td><td>118 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1692-10-22</td><td>Diastolic blood pressure</td><td>72 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1692-10-22</td><td>Heart rate</td><td>74 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1692-10-22</td><td>Respiratory rate</td><td>16 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1692-10-22</td><td>Body temperature</td><td>36.5 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1692-10-22</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>97 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr></tbody></table></section>
+    <section><h2>Social, functional, and mental status</h2><h3>Social history</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Occupation: philosopher and author; trained as a physician (bachelor of medicine) and still gives occasional informal medical advice; serves part-time on a government appeals board, which takes him into the city for a few days at a time</li><li><span class="badge grade-S" title="Synthetic">S</span> Home: for a year has lodged with long-standing friends in an old country house about 25 miles from the city; his study and bedroom are heated by open fires that burn coal and wood, and he reads by the fire most evenings; no gas cooking in his rooms; no damp or mould; no pets or birds</li><li><span class="badge grade-S" title="Synthetic">S</span> Exposure history: about 30 years living and working in a large city with heavy traffic and winter coal and wood smoke, in flats near main roads; breathless within a day of each return; no occupational dust, fume, or chemical exposure</li><li><span class="badge grade-S" title="Synthetic">S</span> Never smoker; never vaped; no secondhand tobacco smoke at home; a glass of wine with dinner a few times a week (AUDIT-C 2); no other substances</li><li><span class="badge grade-S" title="Synthetic">S</span> Never married; no children; close to the household he lives with; walks most days in good weather</li></ul><h3>Functional status</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Independent in all activities of daily living; walks about a mile on the level at his own pace, but stops on hills and after one flight of stairs this winter; cannot stay in the city more than a day or two without severe breathlessness</li></ul><h3>Mental status</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Alert, articulate, and good-humored; mood &quot;tired of being driven out of town&quot;; thought process orderly; no anxiety or low mood beyond frustration (PHQ-2 1)</li></ul></section>
+    
+    <section><h2>Allergies and medications</h2><h3>Allergies</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> No known allergy</li></ul><h3>Medications</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Albuterol 90 mcg/actuation inhaler, two puffs every 4 hours as needed while tests are done; hold for 6 hours before spirometry</li><li><span class="badge grade-S" title="Synthetic">S</span> Budesonide-formoterol 160/4.5 mcg inhaler as maintenance and reliever (GINA track 1, step 4): two inhalations twice daily and one inhalation as needed for symptoms, no more than 12 inhalations a day</li><li><span class="badge grade-S" title="Synthetic">S</span> Tiotropium 2.5 mcg/actuation soft-mist inhaler, two inhalations once daily (add-on long-acting muscarinic antagonist, GINA step 5)</li><li><span class="badge grade-S" title="Synthetic">S</span> Acetaminophen 500 mg oral tablet, one or two tablets every 6 hours as needed for aches or fever, no more than 3 g a day</li></ul></section>
+    <section><h2>Procedures and immunizations</h2><h3>Procedures</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Chest X-ray, posteroanterior and lateral: mild hyperinflation; normal heart size; no consolidation, mass, cavitation, hilar enlargement, or effusion</li><li><span class="badge grade-S" title="Synthetic">S</span> CT of the chest without contrast, with expiratory images: diffuse bronchial wall thickening and mosaic attenuation with air trapping on expiration; no emphysema, bronchiectasis, nodules, lymph node enlargement, or interstitial lung disease</li></ul><h3>Immunizations</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> 1687-05-10: Tdap vaccine</li><li><span class="badge grade-S" title="Synthetic">S</span> 1691-10-14: Influenza vaccine, last season</li><li><span class="badge grade-S" title="Synthetic">S</span> 1692-03-26: Pneumococcal conjugate vaccine PCV20</li><li><span class="badge grade-S" title="Synthetic">S</span> 1692-09-17: Influenza vaccine, 1692-1693 season</li><li><span class="badge grade-S" title="Synthetic">S</span> 1692-09-17: COVID-19 mRNA vaccine, this season&#39;s formula</li><li><span class="badge grade-S" title="Synthetic">S</span> 1692-09-17: Respiratory syncytial virus vaccine, single dose</li><li><span class="badge grade-S" title="Synthetic">S</span> 1692-10-22: Recombinant zoster vaccine, dose 1 of 2</li></ul></section>
+    <section><h2>Past medical history</h2><p class="muted">True biography with historical dates; not part of the synthetic care timeline.</p><ul><li><span class="badge grade-D" title="Documented">D</span> About 1670: A cough that began about the age of 38 and troubled him thereafter, by his biographer&#39;s account <span class="muted">(CLM-0006)</span></li><li><span class="badge grade-D" title="Documented">D</span> From 1679: Unable to stay long in London because of its coal smoke, and away from the city every winter <span class="muted">(CLM-0007)</span></li><li><span class="badge grade-D" title="Documented">D</span> 1691 to 1692: Moved to the country because the smoke of London harmed his health; wrote that his lungs could not bear the smoke of the city <span class="muted">(CLM-0010, CLM-0011)</span></li></ul><h3>Family history</h3><ul><li><span class="badge grade-D" title="Documented">D</span> father: Died at about 54 of consumption or some kindred malady, by his biographer&#39;s account</li><li><span class="badge grade-D" title="Documented">D</span> brother: Died of consumption at about 26, by his biographer&#39;s account</li></ul></section>
+    <section><h2>Care-plan goals</h2><table><thead><tr><th>Goal</th><th>Target date</th><th>Status</th><th>Outcome</th></tr></thead><tbody>
+  <tr><td>Cause of the cough and breathlessness established by the second visit</td><td>1692-03-26</td><td>completed</td><td>Asthma with persistent airflow limitation confirmed by spirometry, FeNO, eosinophils, DLCO, and CT; tuberculosis, alpha-1 antitrypsin deficiency, and heart failure excluded</td></tr>
+  <tr><td>Asthma well controlled (Asthma Control Test 20 or more) with no flare needing oral corticosteroids</td><td>1693-03-31</td><td>active</td><td>ACT 21 at the last visit; one yellow-zone flare with a cold, managed by the action plan without oral corticosteroids</td></tr>
+  <tr><td>No indoor solid-fuel smoke and less outdoor pollution exposure</td><td>1693-03-31</td><td>active</td><td>Open fires out of use since intake; HEPA air cleaner in his study and bedroom; air quality alerts followed</td></tr>
+  <tr><td>Six-minute walk distance improved by at least 30 m after pulmonary rehabilitation</td><td>1692-06-18</td><td>completed</td><td>430 m before and 505 m after an eight-week program</td></tr></tbody></table></section>
+    <section><h2>Interventions</h2><table><thead><tr><th>Intervention</th><th>Status</th><th>Guideline</th></tr></thead><tbody>
+  <tr><td>Diagnostic workup: spirometry before and after bronchodilator, FeNO, DLCO, blood count with eosinophils, total IgE, alpha-1 antitrypsin, NT-proBNP, interferon-gamma release assay, chest X-ray, and CT of the chest if airflow limitation persists after bronchodilator; albuterol withheld for 6 hours before testing</td><td>completed</td><td>GL-CMID-2026, GL-GINA-2025, GL-NAEPP-2020, GL-GOLD-2025, GL-ATS-ERS-PFT-2022, GL-ATS-RACE-2023</td></tr>
+  <tr><td>Exposure reduction from today: no open coal or wood fires in his rooms (electric or heat-pump heating instead); a portable HEPA air cleaner sized for his study and bedroom; daily check of the air quality index, with city trips and outdoor exertion avoided on alert days; a well-fitted N95 respirator on unavoidable high-pollution days; quieter routes away from main roads</td><td>completed</td><td>GL-WHO-AQG-2021, GL-ERS-AIR-2020, GL-AIRNOW-AQI, GL-EPA-AIRCLEAN, GL-CMID-2026, GL-GINA-2025, GL-NAEPP-2020</td></tr>
+  <tr><td>Pulmonology consultation on the diagnosis (asthma, COPD, or both), the need for CT, treatment, and pulmonary rehabilitation</td><td>completed</td><td>GL-CMID-2026, GL-GINA-2025, GL-NAEPP-2020, GL-GOLD-2025</td></tr>
+  <tr><td>Shared decision on treatment: budesonide-formoterol 160/4.5 mcg as maintenance and reliever, two inhalations twice daily plus one as needed, no more than 12 a day; albuterol stopped; inhaler technique taught and checked at every visit; a written asthma action plan</td><td>completed</td><td>GL-CMID-2026, GL-GINA-2025, GL-NAEPP-2020</td></tr>
+  <tr><td>Pulmonary rehabilitation: an eight-week, twice-weekly program of supervised exercise training and education, with a six-minute walk test before and after</td><td>completed</td><td>GL-GINA-2025, GL-CMID-2026, GL-ATS-PR-2023</td></tr>
+  <tr><td>Vaccinations: pneumococcal conjugate vaccine PCV20 at the diagnosis visit; influenza, COVID-19, and RSV vaccines in the autumn; recombinant zoster vaccine</td><td>completed</td><td>GL-CDC-IMZ-2026, GL-CMID-2026</td></tr>
+  <tr><td>Monitoring: Asthma Control Test, inhaler technique, adherence, reliever use, and exposures at every visit; spirometry and FeNO 3 months after starting treatment, then every 1 to 2 years; home peak flow diary</td><td>completed</td><td>GL-CMID-2026, GL-GINA-2025, GL-NAEPP-2020</td></tr>
+  <tr><td>Add-on tiotropium 2.5 mcg soft-mist inhaler, two inhalations once daily, for persistent symptoms and airflow limitation on medium-dose budesonide-formoterol; written action plan updated with peak-flow zones from his personal best of 440 L/min</td><td>completed</td><td>GL-CMID-2026, GL-GINA-2025, GL-NAEPP-2020</td></tr>
+  <tr><td>After any flare: a review within one week, booked by the clinic when he calls or is seen for the flare</td><td>completed</td><td>GL-CMID-2026, GL-GINA-2025, GL-NAEPP-2020</td></tr></tbody></table></section>
+    <section><h2>Planned encounters</h2><ul>
+  <li><strong>1692-03-12</strong> — Primary care visit for a lifelong cough with wheeze and breathlessness, worse in city air and by open fires, in a never-smoker <span class="muted">(ENC-001)</span></li>
+  <li><strong>1692-03-26</strong> — Two-week review of lung function and blood tests, diagnosis, start of treatment, and pulmonology consultation <span class="muted">(ENC-002)</span></li>
+  <li><strong>1692-06-18</strong> — Twelve-week asthma review with repeat spirometry after pulmonary rehabilitation <span class="muted">(ENC-003)</span></li>
+  <li><strong>1692-09-17</strong> — Preventive health visit at 60 <span class="muted">(ENC-005)</span></li>
+  <li><strong>1692-10-08</strong> — Same-day sick visit for a cold with a yellow-zone asthma flare <span class="muted">(ENC-006, unscheduled)</span></li>
+  <li><strong>1692-10-22</strong> — Asthma review two weeks after a cold with a yellow-zone flare <span class="muted">(ENC-004)</span></li></ul></section>
+    <section><h2>Supporting documents</h2><ul><li><a href="notes/hp.md">History and physical</a></li><li><a href="notes/progress-01.md">Progress note 01</a></li><li><a href="notes/progress-02.md">Progress note 02 — Focused Visit (Follow-up)</a></li><li><a href="notes/progress-03.md">Progress note 03 — Focused Visit (Follow-up)</a></li><li><a href="notes/progress-04.md">Progress note 04 — Preventive Visit</a></li><li><a href="notes/progress-05.md">Progress note 05 — Sick Visit</a></li><li><a href="notes/progress-06.md">Progress note 06 — Focused Visit (Care-plan review)</a></li><li><a href="notes/referral-01.md">Pulmonology referral</a></li><li><a href="notes/consult-01.md">Pulmonology consultation</a></li><li><a href="notes/careplan.md">Patient care plan</a></li><li><a href="notes/teaching-note.md">Teaching note</a></li><li><a href="provenance.csv">Provenance CSV</a></li></ul></section>
+    <section><h2>C-CDA note documents</h2><p class="muted">Each link opens a readable copy; the XML beside it is the exchange file.</p><ul><li><a href="ccda/hp-01.html">History and physical</a> <a href="ccda/hp-01.xml">(XML)</a></li><li><a href="ccda/progress-01.html">Progress note 01</a> <a href="ccda/progress-01.xml">(XML)</a></li><li><a href="ccda/progress-02.html">Progress note 02 — Focused Visit (Follow-up)</a> <a href="ccda/progress-02.xml">(XML)</a></li><li><a href="ccda/progress-03.html">Progress note 03 — Focused Visit (Follow-up)</a> <a href="ccda/progress-03.xml">(XML)</a></li><li><a href="ccda/progress-04.html">Progress note 04 — Preventive Visit</a> <a href="ccda/progress-04.xml">(XML)</a></li><li><a href="ccda/progress-05.html">Progress note 05 — Sick Visit</a> <a href="ccda/progress-05.xml">(XML)</a></li><li><a href="ccda/progress-06.html">Progress note 06 — Focused Visit (Care-plan review)</a> <a href="ccda/progress-06.xml">(XML)</a></li><li><a href="ccda/referral-01.html">Pulmonology referral</a> <a href="ccda/referral-01.xml">(XML)</a></li><li><a href="ccda/consult-01.html">Pulmonology consultation</a> <a href="ccda/consult-01.xml">(XML)</a></li></ul></section>
+    <section><h2>Sources</h2><table><thead><tr><th>ID</th><th>Source</th><th>Publisher</th><th>Type</th></tr></thead><tbody>
+  <tr>
+    <td>SRC-0001</td>
+    <td><a href="https://plato.stanford.edu/entries/locke/" target="_blank" rel="noreferrer">Uzgalis W. John Locke. The Stanford Encyclopedia of Philosophy (substantive revision 7 July 2022)</a></td>
+    <td>Stanford Encyclopedia of Philosophy, Stanford University</td>
+    <td>scholarly</td>
+  </tr>
+  <tr>
+    <td>SRC-0002</td>
+    <td><a href="https://en.wikisource.org/wiki/Dictionary_of_National_Biography,_1885-1900/Locke,_John_(1632-1704)" target="_blank" rel="noreferrer">Stephen L. Locke, John (1632-1704). Dictionary of National Biography, vol. 34 (London, 1893)</a></td>
+    <td>Wikisource</td>
+    <td>scholarly</td>
+  </tr>
+  <tr>
+    <td>SRC-0003</td>
+    <td><a href="https://archive.org/details/lifeofjohnlocke01bouruoft" target="_blank" rel="noreferrer">Fox Bourne HR. The Life of John Locke, vol. 1 (London: Henry S. King, 1876)</a></td>
+    <td>Internet Archive</td>
+    <td>primary</td>
+  </tr>
+  <tr>
+    <td>SRC-0004</td>
+    <td><a href="https://archive.org/details/lifeofjohnlocke02bouruoft" target="_blank" rel="noreferrer">Fox Bourne HR. The Life of John Locke, vol. 2 (London: Henry S. King, 1876)</a></td>
+    <td>Internet Archive</td>
+    <td>primary</td>
+  </tr>
+  <tr>
+    <td>SRC-0005</td>
+    <td><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC2083071/" target="_blank" rel="noreferrer">Williams AN. Physician, philosopher, and paediatrician: John Locke&#39;s practice of child health care. Arch Dis Child 2006;91(1):85-89. PMID 16371386</a></td>
+    <td>PubMed Central</td>
+    <td>scholarly</td>
+  </tr>
+  <tr>
+    <td>SRC-0006</td>
+    <td><a href="https://pubmed.ncbi.nlm.nih.gov/22332471/" target="_blank" rel="noreferrer">Anstey PR, Principe LM. John Locke and the case of Anthony Ashley Cooper. Early Sci Med 2011;16(5):379-503. PMID 22332471</a></td>
+    <td>PubMed</td>
+    <td>scholarly</td>
+  </tr>
+  <tr>
+    <td>SRC-0007</td>
+    <td><a href="https://www.rmg.co.uk/sites/default/files/Calendars-from-around-the-world.pdf" target="_blank" rel="noreferrer">Longstaff A. Calendars from around the world</a></td>
+    <td>Royal Museums Greenwich</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0008</td>
+    <td><a href="https://humanrecord.example.org/internal/HISTMED_Master_Roster_v3.xlsx" target="_blank" rel="noreferrer">HISTMED Master Roster v3</a></td>
+    <td>The Human Record project</td>
+    <td>other</td>
+  </tr></tbody></table></section>
+    <section><h2>Review status</h2><table><thead><tr><th>Review</th><th>Status</th><th>Notes</th></tr></thead><tbody>
+  <tr><td>schema validation</td><td>not_started</td><td>Run scripts/build.ps1 -Conformance.</td></tr>
+  <tr><td>clinical review</td><td>not_started</td><td>Awaiting clinician review; check the decision of asthma with persistent airflow limitation over COPD from non-tobacco exposures, the spirometry interpretation (GLI race-neutral equations, ATS/ERS 2022 bronchodilator criterion), the choice of medium-dose MART and add-on tiotropium, the CT indication, the exposure advice, and the management of the viral flare.</td></tr>
+  <tr><td>provenance review</td><td>not_started</td><td>The Stanford Encyclopedia of Philosophy, the Dictionary of National Biography (1893), Fox Bourne&#39;s two-volume biography (1876) quoting his letters and Lady Masham&#39;s account, Williams (2006), and Anstey and Principe (2011) logged. The de Beer edition of the correspondence, Woolhouse&#39;s biography, Dewhurst&#39;s medical biography, and the Bodleian manuscripts could not be read.</td></tr>
+  <tr><td>safe messaging review</td><td>not_started</td><td>No behavioral-health content; PHQ-2 negative at both screens.</td></tr></tbody></table></section>
+  </main>
+</body>
+</html>

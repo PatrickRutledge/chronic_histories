@@ -1,0 +1,506 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Phillis Wheatley — The Human Record</title>
+  <style>
+    :root { --navy:#17365d; --blue:#1f4e78; --pale:#eef5fa; --ink:#1f2933; --muted:#66788a; --amber:#fff2cc; --red:#f8d7da; --green:#d9ead3; }
+    * { box-sizing:border-box; }
+    body { margin:0; font:16px/1.5 Arial, sans-serif; color:var(--ink); background:#f6f8fa; }
+    header { background:var(--navy); color:white; padding:24px max(24px,calc((100vw - 1180px)/2)); }
+    header h1 { margin:4px 0; font-size:30px; }
+    .banner { background:#b42318; color:white; font-weight:700; text-align:center; padding:10px; letter-spacing:.03em; }
+    main { max-width:1180px; margin:24px auto 60px; padding:0 24px; }
+    section { background:white; border:1px solid #d9e1e8; border-radius:8px; margin:18px 0; padding:20px; }
+    h2 { color:var(--navy); margin:0 0 14px; font-size:22px; }
+    h3 { color:var(--blue); }
+    .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:12px; }
+    .card { background:var(--pale); border-left:4px solid var(--blue); padding:12px; }
+    .label { color:var(--muted); font-size:13px; text-transform:uppercase; letter-spacing:.04em; }
+    table { width:100%; border-collapse:collapse; }
+    th { background:var(--blue); color:white; text-align:left; }
+    th,td { padding:9px; border-bottom:1px solid #dfe6ec; vertical-align:top; }
+    .badge { display:inline-block; min-width:28px; text-align:center; font-weight:700; border-radius:12px; padding:2px 8px; }
+    .grade-D { background:var(--green); } .grade-R { background:var(--amber); } .grade-S { background:var(--red); }
+    .muted { color:var(--muted); font-size:14px; }
+    .relationship { color:var(--muted); font-size:12px; }
+    .downloads a { display:inline-block; margin:4px 8px 4px 0; padding:8px 12px; background:var(--blue); color:white; text-decoration:none; border-radius:5px; }
+    @media (max-width:700px) { table { display:block; overflow-x:auto; } }
+  </style>
+</head>
+<body>
+  <div class="banner">SYNTHETIC RECORD, NOT A REAL MEDICAL RECORD</div>
+  <header>
+    <div>The Human Record</div>
+    <h1>Phillis Wheatley</h1>
+    <div>Case HR-EN015 · Modern EHR teaching episode · Draft for review</div>
+  </header>
+  <main>
+    <section>
+      <h2>Review summary</h2>
+      <div class="grid">
+        <div class="card"><div class="label">Historical dates</div>About 1753 (1753 or 1754); month and day not recorded – December 5, 1784</div>
+        <div class="card"><div class="label">Synthetic DOB</div>2006-07-01</div>
+        <div class="card"><div class="label">Index visit</div>2026-02-09 at age 19</div>
+        <div class="card"><div class="label">Synthetic MRN</div>HR-EN015-SYN</div>
+      </div>
+      <p><strong>Teaching objective:</strong> Confirm asthma in a 19-year-old Black woman, born in West Africa, who has been called frail and asthmatic since childhood but never tested: spirometry with bronchodilator response read with race-neutral equations, FeNO and blood eosinophils, with tuberculosis excluded. Then treat on GINA 2025 track 1 (as-needed low-dose budesonide-formoterol, stepping to maintenance-and-reliever therapy after an exacerbation), write an action plan, address her triggers (cold air, cooking and fireplace smoke, colds), prepare her for a long sea journey and a summer away from her clinic, vaccinate, screen for depression and anxiety, and counsel on contraception and pregnancy planning with asthma (budesonide preferred, controller continued in pregnancy). Her social history at the true-frame index date is enslavement: the modern episode renders it truthfully as domestic servitude, and the clinic practises trauma-informed, patient-centred care in which she alone consents, decides and receives her information.</p>
+      <div class="downloads">
+        <a href="../case.json">Canonical JSON</a>
+        <a href="fhir-bundle.json">FHIR R4 draft</a>
+        <a href="ccda.html">C-CDA R2.1 summary</a> <a href="ccda.xml">(XML)</a> <a href="review.html">Review checklist</a>
+        <a href="../sources.md">Evidence dossier</a>
+      </div>
+    </section>
+    <section><h2>Historical timeline</h2><table><thead><tr><th>Date</th><th>Event</th><th>Claims</th></tr></thead><tbody>
+  <tr><td>About 1753 (1753 or 1754)</td><td>Born in the Senegambia region of West Africa.</td><td>CLM-0001</td></tr>
+  <tr><td>July 11, 1761</td><td>Arrives in Boston aboard the slave ship Phillis; bought by the Wheatley family; described as a frail child.</td><td>CLM-0002, CLM-0003</td></tr>
+  <tr><td>December 21, 1767</td><td>First known poem published in the Newport Mercury; renown follows with the Whitefield elegy of 1770.</td><td>CLM-0004</td></tr>
+  <tr><td>1772</td><td>Boston proposals for her volume of poems fail; publication is arranged in London.</td><td>CLM-0005</td></tr>
+  <tr><td>May 1773</td><td>Sails for London, partly for her health, to see her book through the press.</td><td>CLM-0006</td></tr>
+  <tr><td>September 1773</td><td>Poems on Various Subjects, Religious and Moral is published in London; she returns to Boston.</td><td>CLM-0007</td></tr>
+  <tr><td>October 1773</td><td>Writes that she has her freedom, and that she has a cold and has had asthma since her return.</td><td>CLM-0008, CLM-0009, CLM-0013</td></tr>
+  <tr><td>April 1, 1778</td><td>Marries John Peters; years of poverty follow.</td><td>CLM-0010</td></tr>
+  <tr><td>December 5, 1784</td><td>Dies in poverty in Boston, aged about 31; her children did not survive.</td><td>CLM-0011, CLM-0012</td></tr></tbody></table></section>
+    <section><h2>Evidence claims</h2><p class="muted">D = documented, R = retrospective, S = synthetic.</p><table><thead><tr><th>Grade</th><th>Claim</th><th>Certainty</th><th>Sources</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>Phillis Wheatley was born in West Africa, probably in the Senegambia region (present-day Senegal and the Gambia), about 1753 or 1754. Nothing is known of her early life before she was kidnapped and trafficked as a child.</strong><div class="muted">The approximate birth year used for the synthetic date of birth; the month and day are not known.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.womenshistory.org/education-resources/biographies/phillis-wheatley" target="_blank" rel="noreferrer">Michals D. Phillis Wheatley</a> <span class="relationship">supports</span><br><a href="https://www.societyofearlyamericanists.org/wp-content/uploads/2020/08/Wheatley-Chronology.pdf" target="_blank" rel="noreferrer">Bynum TA. Phillis Wheatley Peters, A Chronology</a> <span class="relationship">supports</span><br><a href="https://www.poetryfoundation.org/poets/phillis-wheatley" target="_blank" rel="noreferrer">Phillis Wheatley (biography)</a> <span class="relationship">supports</span><br><a href="https://humanrecord.example.org/internal/HISTMED_Master_Roster_v3.xlsx" target="_blank" rel="noreferrer">HISTMED Master Roster v3</a> <span class="relationship">context</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>In 1761 the child arrived in Boston aboard the slave ship Phillis (on 11 July, by one scholarly chronology) and was bought by the Boston merchant John Wheatley and his wife Susanna (or Susannah), in whose household she was enslaved as a domestic servant and companion. She was named Phillis after the ship and Wheatley after the family. The family judged her to be about seven because she was shedding her front teeth.</strong><div class="muted">Anchors the modern social history: she was brought to Boston as a young child by traffickers and lived in the household that held her.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.societyofearlyamericanists.org/wp-content/uploads/2020/08/Wheatley-Chronology.pdf" target="_blank" rel="noreferrer">Bynum TA. Phillis Wheatley Peters, A Chronology</a> <span class="relationship">supports</span><br><a href="https://www.poetryfoundation.org/poets/phillis-wheatley" target="_blank" rel="noreferrer">Phillis Wheatley (biography)</a> <span class="relationship">supports</span><br><a href="https://www.womenshistory.org/education-resources/biographies/phillis-wheatley" target="_blank" rel="noreferrer">Michals D. Phillis Wheatley</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>When she was bought in 1761 she was described as a slender, frail child, &quot;evidently suffering from a change of climate&quot;; the slave ship&#39;s captain is said to have sold her cheaply because he believed she was dying. One reference work describes her as &quot;the frail, asthmatic child&quot; and says she remained small and delicate.</strong><div class="muted">The documented frailty and early label of asthma to which the modern presenting problem is linked. The description of her as asthmatic as a child rests on one reference work; no source describes her symptoms, triggers or treatment in childhood.</div></td>
+    <td>probable</td>
+    <td><a href="https://www.poetryfoundation.org/poets/phillis-wheatley" target="_blank" rel="noreferrer">Phillis Wheatley (biography)</a> <span class="relationship">supports</span><br><a href="https://www.encyclopedia.com/arts/news-wires-white-papers-and-books/wheatley-phillis" target="_blank" rel="noreferrer">Baytop A. Wheatley, Phillis (American Women Writers: A Critical Reference Guide from Colonial Times to the Present)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>In the Wheatley household she was taught to read and write and within about sixteen months could read the Bible; she went on to read Greek and Latin classics and British literature. Her first known poem was published in the Newport Mercury in December 1767, and her elegy on the evangelist George Whitefield, published in 1770, brought her wide renown.</strong><div class="muted">Anchors the modern social history: a widely read, published poet.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.womenshistory.org/education-resources/biographies/phillis-wheatley" target="_blank" rel="noreferrer">Michals D. Phillis Wheatley</a> <span class="relationship">supports</span><br><a href="https://www.poetryfoundation.org/poets/phillis-wheatley" target="_blank" rel="noreferrer">Phillis Wheatley (biography)</a> <span class="relationship">supports</span><br><a href="https://www.societyofearlyamericanists.org/wp-content/uploads/2020/08/Wheatley-Chronology.pdf" target="_blank" rel="noreferrer">Bynum TA. Phillis Wheatley Peters, A Chronology</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>Proposals to publish a volume of her poems in Boston in 1772 found too few subscribers, and the volume was instead prepared for publication in London with the support of Selina Hastings, Countess of Huntingdon.</strong><div class="muted">Anchors the modern concern with publishing her book and the planned journey.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.poetryfoundation.org/poets/phillis-wheatley" target="_blank" rel="noreferrer">Phillis Wheatley (biography)</a> <span class="relationship">supports</span><br><a href="https://www.masshist.org/object-of-the-month/objects/october-2023" target="_blank" rel="noreferrer">Precious Cargo: Phillis Wheatley&#39;s Poems and the Boston Tea Party (Object of the Month, October 2023; letter from Phillis Wheatley to David Wooster, 18 October 1773)</a> <span class="relationship">supports</span><br><a href="https://www.womenshistory.org/education-resources/biographies/phillis-wheatley" target="_blank" rel="noreferrer">Michals D. Phillis Wheatley</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>In May 1773 she sailed for London with Nathaniel Wheatley, the family&#39;s son. The Massachusetts Historical Society says the voyage was &quot;partly to regain her fragile health, but more importantly to shepherd her book of poetry through to publication&quot;; another biography says she left &quot;suffering from a chronic asthma condition.&quot;</strong><div class="muted">History only, after the true-frame index date. The modern episode plans a sea journey for the same two reasons. (One biography misdates the departure to 1771; the Boston newspaper notice and the chronology give May 1773.)</div></td>
+    <td>probable</td>
+    <td><a href="https://www.masshist.org/object-of-the-month/objects/october-2023" target="_blank" rel="noreferrer">Precious Cargo: Phillis Wheatley&#39;s Poems and the Boston Tea Party (Object of the Month, October 2023; letter from Phillis Wheatley to David Wooster, 18 October 1773)</a> <span class="relationship">supports</span><br><a href="https://www.poetryfoundation.org/poets/phillis-wheatley" target="_blank" rel="noreferrer">Phillis Wheatley (biography)</a> <span class="relationship">supports</span><br><a href="https://www.societyofearlyamericanists.org/wp-content/uploads/2020/08/Wheatley-Chronology.pdf" target="_blank" rel="noreferrer">Bynum TA. Phillis Wheatley Peters, A Chronology</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>In London she was received by many prominent people. Poems on Various Subjects, Religious and Moral was published there in September 1773, the first volume of poetry by an African American published in modern times. She returned to Boston in September 1773; Boston newspapers reported her return on 16 September.</strong><div class="muted">History only, after the true-frame index date.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.poetryfoundation.org/poets/phillis-wheatley" target="_blank" rel="noreferrer">Phillis Wheatley (biography)</a> <span class="relationship">supports</span><br><a href="https://www.societyofearlyamericanists.org/wp-content/uploads/2020/08/Wheatley-Chronology.pdf" target="_blank" rel="noreferrer">Bynum TA. Phillis Wheatley Peters, A Chronology</a> <span class="relationship">supports</span><br><a href="https://www.masshist.org/object-of-the-month/objects/october-2023" target="_blank" rel="noreferrer">Precious Cargo: Phillis Wheatley&#39;s Poems and the Boston Tea Party (Object of the Month, October 2023; letter from Phillis Wheatley to David Wooster, 18 October 1773)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>In a letter from Boston dated 30 October 1773 to her friend Obour Tanner she wrote that she was &quot;at present indispos&#39;d by a cold. &amp; Since my arrival have been visited by the Asthma,&quot; and that &quot;my voyage to England has conduced to the recovery (in a great measure) of my Health.&quot;</strong><div class="muted">Her own account of asthma with a cold after her return, and of the voyage helping her health. The sick visit after the return in the modern episode is anchored to it. History only, after the true-frame index date.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.masshist.org/database/774" target="_blank" rel="noreferrer">Letter from Phillis Wheatley to Obour Tanner, 30 October 1773 (Collections Online, with transcription)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>She was freed soon after her return. On 18 October 1773 she wrote to David Wooster: &quot;Since my return to America my Master, has at the desire of my friends in England given me my freedom,&quot; adding that whatever she earned from her book was now hers. One biography dates the manumission to some three months before Susanna Wheatley&#39;s death on 3 March 1774.</strong><div class="muted">History only, after the true-frame index date; her own letter is preferred to the later dating. The last visit of the modern episode reflects her new freedom.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.masshist.org/object-of-the-month/objects/october-2023" target="_blank" rel="noreferrer">Precious Cargo: Phillis Wheatley&#39;s Poems and the Boston Tea Party (Object of the Month, October 2023; letter from Phillis Wheatley to David Wooster, 18 October 1773)</a> <span class="relationship">supports</span><br><a href="https://www.poetryfoundation.org/poets/phillis-wheatley" target="_blank" rel="noreferrer">Phillis Wheatley (biography)</a> <span class="relationship">disputes</span><br><a href="https://www.societyofearlyamericanists.org/wp-content/uploads/2020/08/Wheatley-Chronology.pdf" target="_blank" rel="noreferrer">Bynum TA. Phillis Wheatley Peters, A Chronology</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>In 1778 (on 1 April, by one biography) she married John Peters, a free Black man of Boston. The couple lived in poverty in Wilmington and Boston during and after the Revolutionary War; she worked as a maid or charwoman while continuing to write, and a proposal in 1779 for a second volume of her poems found too few subscribers.</strong><div class="muted">History only, after the true-frame index date.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.poetryfoundation.org/poets/phillis-wheatley" target="_blank" rel="noreferrer">Phillis Wheatley (biography)</a> <span class="relationship">supports</span><br><a href="https://www.womenshistory.org/education-resources/biographies/phillis-wheatley" target="_blank" rel="noreferrer">Michals D. Phillis Wheatley</a> <span class="relationship">supports</span><br><a href="https://www.masshist.org/object-of-the-month/objects/october-2023" target="_blank" rel="noreferrer">Precious Cargo: Phillis Wheatley&#39;s Poems and the Boston Tea Party (Object of the Month, October 2023; letter from Phillis Wheatley to David Wooster, 18 October 1773)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>She bore children who did not survive. Sources differ on the details: one says three children, none of whom survived; one that she had lost two children and died with her young daughter; one that her last surviving child, a son, was buried with her; and one that the third child died a few hours after she did.</strong><div class="muted">History only, after the true-frame index date. The number, sex and dates of the children are disputed and are not used in the modern episode.</div></td>
+    <td>probable</td>
+    <td><a href="https://www.womenshistory.org/education-resources/biographies/phillis-wheatley" target="_blank" rel="noreferrer">Michals D. Phillis Wheatley</a> <span class="relationship">supports</span><br><a href="https://www.masshist.org/object-of-the-month/objects/october-2023" target="_blank" rel="noreferrer">Precious Cargo: Phillis Wheatley&#39;s Poems and the Boston Tea Party (Object of the Month, October 2023; letter from Phillis Wheatley to David Wooster, 18 October 1773)</a> <span class="relationship">supports</span><br><a href="https://www.poetryfoundation.org/poets/phillis-wheatley" target="_blank" rel="noreferrer">Phillis Wheatley (biography)</a> <span class="relationship">supports</span><br><a href="https://www.encyclopedia.com/arts/news-wires-white-papers-and-books/wheatley-phillis" target="_blank" rel="noreferrer">Baytop A. Wheatley, Phillis (American Women Writers: A Critical Reference Guide from Colonial Times to the Present)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>She died in poverty in a Boston boardinghouse on 5 December 1784, aged about 31; her husband was probably in prison for debt at the time. The Independent Chronicle noted the death of &quot;Phillis Peters formerly Phillis Wheatley aged 31.&quot; The cause of her death is not recorded in the cited sources.</strong><div class="muted">History only, stated without detail.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.masshist.org/object-of-the-month/objects/october-2023" target="_blank" rel="noreferrer">Precious Cargo: Phillis Wheatley&#39;s Poems and the Boston Tea Party (Object of the Month, October 2023; letter from Phillis Wheatley to David Wooster, 18 October 1773)</a> <span class="relationship">supports</span><br><a href="https://www.womenshistory.org/education-resources/biographies/phillis-wheatley" target="_blank" rel="noreferrer">Michals D. Phillis Wheatley</a> <span class="relationship">supports</span><br><a href="https://www.societyofearlyamericanists.org/wp-content/uploads/2020/08/Wheatley-Chronology.pdf" target="_blank" rel="noreferrer">Bynum TA. Phillis Wheatley Peters, A Chronology</a> <span class="relationship">supports</span><br><a href="https://www.poetryfoundation.org/poets/phillis-wheatley" target="_blank" rel="noreferrer">Phillis Wheatley (biography)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-R" title="Retrospective">R</span></td>
+    <td><strong>Retrospective interpretation: the asthma her contemporaries named and she herself described, with a cold bringing it on and a sea voyage and a summer away relieving it, is consistent with asthma in the modern sense, but no source records her symptoms in enough detail to confirm it, and other chest disease cannot be excluded.</strong><div class="muted">Retrospective; the modern diagnosis of asthma is synthetic and is not a claim that her illness was asthma as now defined.</div></td>
+    <td>possible</td>
+    <td><a href="https://www.encyclopedia.com/arts/news-wires-white-papers-and-books/wheatley-phillis" target="_blank" rel="noreferrer">Baytop A. Wheatley, Phillis (American Women Writers: A Critical Reference Guide from Colonial Times to the Present)</a> <span class="relationship">supports</span><br><a href="https://www.masshist.org/database/774" target="_blank" rel="noreferrer">Letter from Phillis Wheatley to Obour Tanner, 30 October 1773 (Collections Online, with transcription)</a> <span class="relationship">supports</span><br><a href="https://www.masshist.org/object-of-the-month/objects/october-2023" target="_blank" rel="noreferrer">Precious Cargo: Phillis Wheatley&#39;s Poems and the Boston Tea Party (Object of the Month, October 2023; letter from Phillis Wheatley to David Wooster, 18 October 1773)</a> <span class="relationship">context</span></td>
+  </tr></tbody></table></section>
+    <section><h2>Modern synthetic problem list</h2><table><thead><tr><th>Grade</th><th>Problem</th><th>Clinical status</th><th>Verification</th><th>Placement</th><th>Historical claims</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Wheeze, cough and breathlessness this winter, for about three months: symptoms on three or four days a week, waking with cough and a tight chest about twice a month, breathless climbing the hill streets in cold air; worse with cold wind, kitchen and fireplace smoke, and colds; called a weak chest and asthma since childhood but never tested or treated. Asthma to be confirmed with spirometry before and after bronchodilator and FeNO</td>
+    <td>resolved</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td>CLM-0003</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Asthma, confirmed, mild persistent: variable airflow obstruction (FEV1/FVC 0.72, below the lower limit of normal, rising to 0.80 after bronchodilator; FEV1 2.24 L, 83 percent predicted, rising 330 mL or 15 percent); type 2 inflammation (FeNO 38 ppb, blood eosinophils 0.38 x10^3/uL, total IgE 165, house dust mite sensitization); tuberculosis infection test negative and chest X-ray clear. Triggers: cold air, kitchen and fireplace smoke, colds</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>both_with_link</td>
+    <td>CLM-0003, CLM-0013</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Asthma exacerbation with a cold a week after returning from abroad: three days of wheeze, chest tightness and waking at night despite six to eight reliever inhalations a day; peak flow 270 L/min (68 percent of her best of 400), oxygen saturation 96 percent; 330 L/min after treatment in clinic; treated without oral corticosteroids; resolved</td>
+    <td>resolved</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td>CLM-0008, CLM-0013</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Prone to seasickness on boat trips; meclizine for the sea crossing; resolved on her return</td>
+    <td>resolved</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Pregnancy planning: not sexually active and no contraception wanted now; she may wish to have children one day; folic acid by her choice, and asthma care planned before and during any pregnancy</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td></td>
+  </tr></tbody></table></section>
+    <section><h2>Synthetic outcome measures</h2><table><thead><tr><th>Grade</th><th>Date</th><th>Measure</th><th>Result</th><th>Coding</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-02-09</td>
+    <td>Hemoglobin [Mass/volume] in Blood</td>
+    <td>12.6 g/dL<div class="muted">Reference 12-15.5 g/dL</div></td>
+    <td>http://loinc.org · 718-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-02-09</td>
+    <td>Leukocytes [#/volume] in Blood by Automated count</td>
+    <td>7.2 10*3/uL<div class="muted">Reference 4-11 10*3/uL</div></td>
+    <td>http://loinc.org · 6690-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-02-09</td>
+    <td>Eosinophils [#/volume] in Blood by Automated count</td>
+    <td>0.38 10*3/uL<div class="muted">Reference 0-0.5 10*3/uL</div></td>
+    <td>http://loinc.org · 711-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-02-09</td>
+    <td>Platelets [#/volume] in Blood by Automated count</td>
+    <td>284 10*3/uL<div class="muted">Reference 150-400 10*3/uL</div></td>
+    <td>http://loinc.org · 777-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-02-09</td>
+    <td>Total score [ACT]</td>
+    <td>15</td>
+    <td>http://loinc.org · 82668-5</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-02-09</td>
+    <td>Patient Health Questionnaire 2 item (PHQ-2) total score [Reported]</td>
+    <td>1</td>
+    <td>http://loinc.org · 55758-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-04-27</td>
+    <td>Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]</td>
+    <td>4</td>
+    <td>http://loinc.org · 44261-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-04-27</td>
+    <td>Generalized anxiety disorder 7 item (GAD-7) total score [Reported.PHQ]</td>
+    <td>3</td>
+    <td>http://loinc.org · 70274-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-09-21</td>
+    <td>Maximum expiratory gas flow Respiratory system airway by Peak flow meter</td>
+    <td>270 L/min (low)<div class="muted">Reference 80 percent of her personal best of 400 L/min</div></td>
+    <td>http://loinc.org · 19935-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-02-23</td>
+    <td>FEV1 --pre bronchodilation</td>
+    <td>2.24 L<div class="muted">Reference Lower limit of normal; predicted 2.70 L; lower limit of normal 2.17 L (GLI Global race-neutral equations)</div></td>
+    <td>http://loinc.org · 20157-4</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-02-23</td>
+    <td>FEV1 --post bronchodilation</td>
+    <td>2.57 L<div class="muted">Reference Lower limit of normal; predicted 2.70 L; lower limit of normal 2.17 L (GLI Global race-neutral equations)</div></td>
+    <td>http://loinc.org · 20155-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-02-23</td>
+    <td>FEV1 measured/predicted</td>
+    <td>83%<div class="muted">Reference GLI Global race-neutral equations</div></td>
+    <td>http://loinc.org · 20152-5</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-02-23</td>
+    <td>FEV1/FVC</td>
+    <td>0.72 (low)<div class="muted">Reference Lower limit of normal for her age (GLI Global)</div></td>
+    <td>http://loinc.org · 19926-5</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-02-23</td>
+    <td>FEV1/FVC --post bronchodilation</td>
+    <td>0.8<div class="muted">Reference Lower limit of normal for her age (GLI Global)</div></td>
+    <td>http://loinc.org · 69970-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-02-23</td>
+    <td>Fractional concentration of exhaled nitric oxide</td>
+    <td>38 [ppb] (high)<div class="muted">Reference Above 50 ppb high; 25 to 50 intermediate (ATS)</div></td>
+    <td>http://loinc.org · 96269-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-02-23</td>
+    <td>IgE [Units/volume] in Serum or Plasma</td>
+    <td>165 [IU]/mL (high)<div class="muted">Reference &lt;=100 [IU]/mL</div></td>
+    <td>http://loinc.org · 19113-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-02-23</td>
+    <td>Total score [ACT]</td>
+    <td>16</td>
+    <td>http://loinc.org · 82668-5</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-04-06</td>
+    <td>Total score [ACT]</td>
+    <td>21</td>
+    <td>http://loinc.org · 82668-5</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-04-06</td>
+    <td>Maximum expiratory gas flow Respiratory system airway by Peak flow meter</td>
+    <td>400 L/min<div class="muted">Reference 80 percent of her personal best of 400 L/min</div></td>
+    <td>http://loinc.org · 19935-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-10-26</td>
+    <td>Total score [ACT]</td>
+    <td>20</td>
+    <td>http://loinc.org · 82668-5</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-10-26</td>
+    <td>FEV1 --pre bronchodilation</td>
+    <td>2.45 L<div class="muted">Reference Lower limit of normal; predicted 2.70 L; lower limit of normal 2.17 L (GLI Global race-neutral equations)</div></td>
+    <td>http://loinc.org · 20157-4</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-10-26</td>
+    <td>FEV1 measured/predicted</td>
+    <td>91%<div class="muted">Reference GLI Global race-neutral equations</div></td>
+    <td>http://loinc.org · 20152-5</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-10-26</td>
+    <td>FEV1/FVC</td>
+    <td>0.78<div class="muted">Reference Lower limit of normal for her age (GLI Global)</div></td>
+    <td>http://loinc.org · 19926-5</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-10-26</td>
+    <td>Fractional concentration of exhaled nitric oxide</td>
+    <td>24 [ppb]<div class="muted">Reference Above 50 ppb high; 25 to 50 intermediate (ATS)</div></td>
+    <td>http://loinc.org · 96269-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-10-26</td>
+    <td>Maximum expiratory gas flow Respiratory system airway by Peak flow meter</td>
+    <td>385 L/min<div class="muted">Reference 80 percent of her personal best of 400 L/min</div></td>
+    <td>http://loinc.org · 19935-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-10-26</td>
+    <td>Patient Health Questionnaire 2 item (PHQ-2) total score [Reported]</td>
+    <td>0</td>
+    <td>http://loinc.org · 55758-7</td>
+  </tr></tbody></table></section>
+    <section><h2>Synthetic vital signs</h2><table><thead><tr><th>Date</th><th>Measure</th><th>Result</th><th>LOINC</th><th>Grade</th></tr></thead><tbody>
+  <tr><td>2026-02-09</td><td>Body height</td><td>152 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-02-09</td><td>Body weight</td><td>45.6 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-02-09</td><td>Body mass index (BMI) [Ratio]</td><td>19.7 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-02-09</td><td>Systolic blood pressure</td><td>104 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-02-09</td><td>Diastolic blood pressure</td><td>66 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-02-09</td><td>Heart rate</td><td>86 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-02-09</td><td>Respiratory rate</td><td>18 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-02-09</td><td>Body temperature</td><td>36.7 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-02-09</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>97 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-02-23</td><td>Body height</td><td>152 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-02-23</td><td>Body weight</td><td>45.8 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-02-23</td><td>Body mass index (BMI) [Ratio]</td><td>19.8 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-02-23</td><td>Systolic blood pressure</td><td>106 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-02-23</td><td>Diastolic blood pressure</td><td>66 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-02-23</td><td>Heart rate</td><td>82 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-02-23</td><td>Respiratory rate</td><td>16 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-02-23</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-02-23</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>98 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-06</td><td>Body height</td><td>152 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-06</td><td>Body weight</td><td>46.4 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-06</td><td>Body mass index (BMI) [Ratio]</td><td>20.1 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-06</td><td>Systolic blood pressure</td><td>104 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-06</td><td>Diastolic blood pressure</td><td>64 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-06</td><td>Heart rate</td><td>76 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-06</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-06</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-06</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>99 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-27</td><td>Body height</td><td>152 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-27</td><td>Body weight</td><td>46.6 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-27</td><td>Body mass index (BMI) [Ratio]</td><td>20.2 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-27</td><td>Systolic blood pressure</td><td>102 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-27</td><td>Diastolic blood pressure</td><td>64 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-27</td><td>Heart rate</td><td>74 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-27</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-27</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-27</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>99 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-09-21</td><td>Body height</td><td>152 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-09-21</td><td>Body weight</td><td>47.2 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-09-21</td><td>Body mass index (BMI) [Ratio]</td><td>20.4 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-09-21</td><td>Systolic blood pressure</td><td>108 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-09-21</td><td>Diastolic blood pressure</td><td>68 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-09-21</td><td>Heart rate</td><td>98 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-09-21</td><td>Respiratory rate</td><td>20 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-09-21</td><td>Body temperature</td><td>37.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-09-21</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>96 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-26</td><td>Body height</td><td>152 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-26</td><td>Body weight</td><td>47.6 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-26</td><td>Body mass index (BMI) [Ratio]</td><td>20.6 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-26</td><td>Systolic blood pressure</td><td>104 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-26</td><td>Diastolic blood pressure</td><td>66 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-26</td><td>Heart rate</td><td>74 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-26</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-26</td><td>Body temperature</td><td>36.5 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-26</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>99 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr></tbody></table></section>
+    <section><h2>Social, functional, and mental status</h2><h3>Social history</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Born in West Africa; taken from her family by traffickers as a young child and brought to Boston, where she has lived since in the household of the family who acquired her. She works in the house as a domestic companion without wages, does not hold her own identity papers, and the household decides where she may travel. She knows nothing of her birth family</li><li><span class="badge grade-S" title="Synthetic">S</span> Taught to read and write in the household; reads the Bible, Latin and Greek classics and English poetry; a published poet whose first book is being prepared for publication abroad. Writes in the early morning and late at night. Her sources of strength are her faith, her writing and her correspondence with a close friend</li><li><span class="badge grade-S" title="Synthetic">S</span> Exposures: no tobacco, vaping, alcohol or drug use; cooks over a gas range without a vented hood and tends the wood fireplaces in the house; walks the steep streets of the old town in winter wind</li><li><span class="badge grade-S" title="Synthetic">S</span> Not sexually active; has not been pregnant; no one pressures her about sex or pregnancy (asked privately)</li><li><span class="badge grade-S" title="Synthetic">S</span> Seen alone for part of the visit, as every patient is; she is an adult and makes her own decisions. Asked privately, she says she is not physically harmed, and that she hopes to win her freedom in her own way; she accepted written information and the clinic social worker&#39;s direct line (555-0142), and declined other help for now. Results and plans go to her alone, and the clinic takes no instructions about her care from the household</li></ul><h3>Functional status</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Independent in all activities of daily living; this winter she stops to rest when climbing hills in the cold, and night cough leaves her tired for her writing</li></ul><h3>Mental status</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Alert, articulate and composed; speaks with quiet precision and asks exact questions about her tests; PHQ-2 1; no thoughts of self-harm</li></ul></section>
+    
+    <section><h2>Allergies and medications</h2><h3>Allergies</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> No known allergy</li></ul><h3>Medications</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Budesonide-formoterol 160/4.5 mcg inhaler as needed only (GINA track 1, step 2, anti-inflammatory reliever): one inhalation whenever needed for symptoms or before exercise in the cold, no more than 12 inhalations a day</li><li><span class="badge grade-S" title="Synthetic">S</span> Prednisone 20 mg oral tablet, standby course for the sea journey and the summer away: two tablets (40 mg) each morning for five days, to start only as her action plan directs</li><li><span class="badge grade-S" title="Synthetic">S</span> Meclizine 25 mg oral tablet, one tablet an hour before sailing and then once daily as needed for seasickness</li><li><span class="badge grade-S" title="Synthetic">S</span> Folic acid 0.4 mg oral tablet, one tablet daily</li><li><span class="badge grade-S" title="Synthetic">S</span> Budesonide-formoterol 160/4.5 mcg inhaler as maintenance and reliever (GINA track 1, step 3): one inhalation twice daily and one inhalation as needed, no more than 12 inhalations a day</li></ul></section>
+    <section><h2>Procedures and immunizations</h2><h3>Procedures</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Chest X-ray, posteroanterior and lateral: lungs clear and not hyperinflated; no consolidation, hilar enlargement, cavity, scarring or effusion; heart size normal</li><li><span class="badge grade-S" title="Synthetic">S</span> Spirometry before and 15 minutes after albuterol 400 mcg, with FeNO, interpreted with GLI Global race-neutral equations: FEV1 2.24 L (83 percent predicted) rising to 2.57 L (+330 mL, +15 percent); FEV1/FVC 0.72 before (below the lower limit of normal of 0.75) and 0.80 after; FeNO 38 ppb. Reversible airflow obstruction: asthma</li><li><span class="badge grade-S" title="Synthetic">S</span> Written asthma action plan, given and explained: green zone use the reliever as needed; yellow zone (more symptoms, waking, or peak flow below 80 percent of her best) use more reliever inhalations up to 12 a day and call the clinic; red zone (peak flow below 50 percent, cannot speak in sentences, or no relief) emergency care. Peak flow meter given; zones to be set from her personal best</li><li><span class="badge grade-S" title="Synthetic">S</span> Inhaler technique with her new pressurized inhaler and a spacer: taught and checked by teach-back; correct</li><li><span class="badge grade-S" title="Synthetic">S</span> Asthma action plan updated for travel: peak flow zones set from her personal best of 400 L/min (green above 320, yellow 200 to 320, red below 200); instructions for the standby prednisone course and for finding care at sea and abroad; a printed medical summary</li><li><span class="badge grade-S" title="Synthetic">S</span> Advance care planning conversation, about 16 minutes, with her consent</li><li><span class="badge grade-S" title="Synthetic">S</span> Spirometry before bronchodilator after recovery: FEV1 2.45 L (91 percent predicted); FEV1/FVC 0.78; FeNO 24 ppb</li><li><span class="badge grade-S" title="Synthetic">S</span> Asthma action plan updated for maintenance-and-reliever therapy through the winter (green above 320 L/min, yellow 200 to 320, red below 200)</li></ul><h3>Immunizations</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> 2018-09-04: Tdap vaccine (from her school record)</li><li><span class="badge grade-S" title="Synthetic">S</span> 2026-02-23: Influenza vaccine, this season</li><li><span class="badge grade-S" title="Synthetic">S</span> 2026-02-23: COVID-19 mRNA vaccine, this season&#39;s formula</li><li><span class="badge grade-S" title="Synthetic">S</span> 2026-02-23: Pneumococcal conjugate vaccine PCV20</li><li><span class="badge grade-S" title="Synthetic">S</span> 2026-04-27: Human papillomavirus vaccine (9-valent), dose 1 of 3</li><li><span class="badge grade-S" title="Synthetic">S</span> 2026-04-27: Hepatitis B vaccine (HepB-CpG), dose 1 of 2</li><li><span class="badge grade-S" title="Synthetic">S</span> 2026-10-26: Hepatitis B vaccine (HepB-CpG), dose 2 of 2</li><li><span class="badge grade-S" title="Synthetic">S</span> 2026-10-26: Human papillomavirus vaccine (9-valent), dose 2 of 3</li><li><span class="badge grade-S" title="Synthetic">S</span> 2026-10-26: Influenza vaccine, the new season</li><li><span class="badge grade-S" title="Synthetic">S</span> 2026-10-26: COVID-19 mRNA vaccine, the new season&#39;s formula</li></ul></section>
+    <section><h2>Past medical history</h2><p class="muted">True biography with historical dates; not part of the synthetic care timeline.</p><ul><li><span class="badge grade-D" title="Documented">D</span> 1761: Described as a slender, frail child on her arrival in Boston at about seven, and by one reference work as asthmatic; no symptoms, triggers or treatment recorded <span class="muted">(CLM-0003)</span></li></ul><h3>Family history</h3><p class="muted">No family medical history is documented in the logged sources. Family history of real relatives is never synthesized.</p></section>
+    <section><h2>Care-plan goals</h2><table><thead><tr><th>Goal</th><th>Target date</th><th>Status</th><th>Outcome</th></tr></thead><tbody>
+  <tr><td>A confirmed diagnosis within two weeks: spirometry with bronchodilator response and FeNO, with tuberculosis excluded</td><td>2026-02-23</td><td>completed</td><td>Asthma confirmed by a 330 mL (15 percent) bronchodilator response and FeNO 38 ppb; tuberculosis test negative and chest X-ray clear, two weeks after the first visit</td></tr>
+  <tr><td>Asthma Control Test 20 or more with no night waking</td><td>2026-04-06</td><td>completed</td><td>Asthma Control Test 21 and no night waking six weeks after starting treatment; 20 after the exacerbation</td></tr>
+  <tr><td>Correct inhaler technique and a written action plan she can use at home and at sea</td><td>2026-04-06</td><td>completed</td><td>Technique correct at every visit; plan used during the exacerbation</td></tr>
+  <tr><td>Well enough to make the sea journey and spend the summer away</td><td>2026-09-21</td><td>completed</td><td>Travelled and stayed well all summer without the standby prednisone</td></tr>
+  <tr><td>No exacerbation needing an oral corticosteroid</td><td>2026-10-26</td><td>completed</td><td>Achieved: one exacerbation with a cold, managed with extra budesonide-formoterol and a step-up, without prednisone</td></tr>
+  <tr><td>Hepatitis B and HPV vaccination complete</td><td>2027-01-25</td><td>active</td><td>Hepatitis B series complete; HPV dose 3 due</td></tr></tbody></table></section>
+    <section><h2>Interventions</h2><table><thead><tr><th>Intervention</th><th>Status</th><th>Guideline</th></tr></thead><tbody>
+  <tr><td>Pulmonology consultation in two weeks with spirometry before and after bronchodilator and FeNO, to confirm or refute asthma, exclude other chest disease, and plan treatment and preparation for travel</td><td>completed</td><td>GL-GINA-2025, GL-NAEPP-2020, GL-CMID-2026</td></tr>
+  <tr><td>Work-up of wheeze and cough: chest X-ray, blood count with eosinophils, interferon-gamma release assay for tuberculosis infection (born in a country where tuberculosis is common), and a urine pregnancy test before treatment; no inhaler is started before testing unless symptoms worsen</td><td>completed</td><td>GL-GINA-2025, GL-USPSTF-LTBI-2023</td></tr>
+  <tr><td>Trauma-informed, patient-centred care: seen alone for part of every visit; consent, information and results to her alone, through her own contact details; no instructions about her care accepted from the household; private screening for safety and exploitation at each visit, with resources and social work offered and her decisions respected</td><td>completed</td><td>GL-ACOG-TRAFFICKING-2019, GL-USPSTF-IPV-2025</td></tr>
+  <tr><td>Equity safeguards: spirometry read with race-neutral GLI Global equations, plain explanation of every result, and attention to the higher asthma burden carried by Black women</td><td>completed</td><td>GL-ATS-RACE-2023, GL-MMWR-ASTHMA-2021</td></tr>
+  <tr><td>GINA track 1, step 2: as-needed low-dose budesonide-formoterol (no albuterol-only reliever), a written action plan with peak flow zones, technique checks and trigger reduction (kitchen ventilation, avoiding fireplace smoke, a scarf in cold wind, mite-proof bedding); review six weeks after starting and within a week of any exacerbation</td><td>completed</td><td>GL-GINA-2025, GL-NAEPP-2020, GL-CMID-2026</td></tr>
+  <tr><td>Vaccines for an adult with asthma: influenza and COVID-19 each season, and PCV20 once</td><td>completed</td><td>GL-CDC-IMZ-MC-2026, GL-CDC-IMZ-2026</td></tr>
+  <tr><td>Travel plan for a long sea journey: two inhalers and a spacer, an updated action plan, a standby five-day prednisone course with clear start rules, meclizine for seasickness, an aired cabin away from smoke, a printed medical summary and contact with the clinic by message</td><td>completed</td><td>GL-GINA-2025, GL-CDC-YB-MOTION</td></tr>
+  <tr><td>Contraception and pregnancy planning on her terms: information on every method (all suitable with asthma), folic acid 0.4 mg daily by her choice, and asthma review before and during any pregnancy with budesonide as the preferred inhaled steroid and the controller never stopped</td><td>completed</td><td>GL-CDC-MEC-2024, GL-ACOG-ASTHMA-2008, GL-USPSTF-FOLIC-2023</td></tr>
+  <tr><td>After the exacerbation: GINA track 1 step 3, budesonide-formoterol one inhalation twice daily and as needed through the winter, with a step-down to as-needed treatment in the spring if she stays well</td><td>completed</td><td>GL-GINA-2025, GL-CMID-2026</td></tr>
+  <tr><td>Social work, at her request, for health coverage in her own name, income and housing after she gained her freedom</td><td>completed</td><td>GL-ACOG-TRAFFICKING-2019</td></tr></tbody></table></section>
+    <section><h2>Planned encounters</h2><ul>
+  <li><strong>2026-02-09</strong> — New patient visit for three months of winter wheeze, cough and breathlessness in a 19-year-old woman called asthmatic since childhood and never tested: examination, chest X-ray, blood count, tuberculosis and pregnancy tests, and planning of lung function testing; trauma-informed social history <span class="muted">(ENC-001)</span></li>
+  <li><strong>2026-02-23</strong> — Diagnosis visit: spirometry with bronchodilator response and FeNO with the pulmonology consultation; asthma confirmed; start of as-needed budesonide-formoterol (GINA track 1); action plan; vaccines <span class="muted">(ENC-002)</span></li>
+  <li><strong>2026-04-06</strong> — Six-week asthma review: control, technique, personal best peak flow, triggers, and planning for a long sea journey and a summer away <span class="muted">(ENC-003)</span></li>
+  <li><strong>2026-04-27</strong> — Periodic preventive visit before a long sea journey <span class="muted">(ENC-005)</span></li>
+  <li><strong>2026-09-21</strong> — Same-day sick visit for asthma with a cold after returning from abroad <span class="muted">(ENC-006, unscheduled)</span></li>
+  <li><strong>2026-10-26</strong> — Asthma review after an exacerbation with a cold on her return from abroad: control, repeat spirometry and FeNO, the winter plan, completion of vaccines, and her changed circumstances <span class="muted">(ENC-004)</span></li></ul></section>
+    <section><h2>Supporting documents</h2><ul><li><a href="notes/hp.md">History and physical</a></li><li><a href="notes/progress-01.md">Progress note 01</a></li><li><a href="notes/progress-02.md">Progress note 02 — Focused Visit (Follow-up)</a></li><li><a href="notes/progress-03.md">Progress note 03 — Focused Visit (Follow-up)</a></li><li><a href="notes/progress-04.md">Progress note 04 — Preventive Visit</a></li><li><a href="notes/progress-05.md">Progress note 05 — Sick Visit</a></li><li><a href="notes/progress-06.md">Progress note 06 — Focused Visit (Care-plan review)</a></li><li><a href="notes/referral-01.md">Pulmonology referral</a></li><li><a href="notes/consult-01.md">Pulmonology consultation</a></li><li><a href="notes/careplan.md">Patient care plan</a></li><li><a href="notes/teaching-note.md">Teaching note</a></li><li><a href="provenance.csv">Provenance CSV</a></li></ul></section>
+    <section><h2>C-CDA note documents</h2><p class="muted">Each link opens a readable copy; the XML beside it is the exchange file.</p><ul><li><a href="ccda/hp-01.html">History and physical</a> <a href="ccda/hp-01.xml">(XML)</a></li><li><a href="ccda/progress-01.html">Progress note 01</a> <a href="ccda/progress-01.xml">(XML)</a></li><li><a href="ccda/progress-02.html">Progress note 02 — Focused Visit (Follow-up)</a> <a href="ccda/progress-02.xml">(XML)</a></li><li><a href="ccda/progress-03.html">Progress note 03 — Focused Visit (Follow-up)</a> <a href="ccda/progress-03.xml">(XML)</a></li><li><a href="ccda/progress-04.html">Progress note 04 — Preventive Visit</a> <a href="ccda/progress-04.xml">(XML)</a></li><li><a href="ccda/progress-05.html">Progress note 05 — Sick Visit</a> <a href="ccda/progress-05.xml">(XML)</a></li><li><a href="ccda/progress-06.html">Progress note 06 — Focused Visit (Care-plan review)</a> <a href="ccda/progress-06.xml">(XML)</a></li><li><a href="ccda/referral-01.html">Pulmonology referral</a> <a href="ccda/referral-01.xml">(XML)</a></li><li><a href="ccda/consult-01.html">Pulmonology consultation</a> <a href="ccda/consult-01.xml">(XML)</a></li></ul></section>
+    <section><h2>Sources</h2><table><thead><tr><th>ID</th><th>Source</th><th>Publisher</th><th>Type</th></tr></thead><tbody>
+  <tr>
+    <td>SRC-0001</td>
+    <td><a href="https://www.masshist.org/database/774" target="_blank" rel="noreferrer">Letter from Phillis Wheatley to Obour Tanner, 30 October 1773 (Collections Online, with transcription)</a></td>
+    <td>Massachusetts Historical Society</td>
+    <td>primary</td>
+  </tr>
+  <tr>
+    <td>SRC-0002</td>
+    <td><a href="https://www.masshist.org/object-of-the-month/objects/october-2023" target="_blank" rel="noreferrer">Precious Cargo: Phillis Wheatley&#39;s Poems and the Boston Tea Party (Object of the Month, October 2023; letter from Phillis Wheatley to David Wooster, 18 October 1773)</a></td>
+    <td>Massachusetts Historical Society</td>
+    <td>primary</td>
+  </tr>
+  <tr>
+    <td>SRC-0003</td>
+    <td><a href="https://www.poetryfoundation.org/poets/phillis-wheatley" target="_blank" rel="noreferrer">Phillis Wheatley (biography)</a></td>
+    <td>Poetry Foundation</td>
+    <td>biography</td>
+  </tr>
+  <tr>
+    <td>SRC-0004</td>
+    <td><a href="https://www.womenshistory.org/education-resources/biographies/phillis-wheatley" target="_blank" rel="noreferrer">Michals D. Phillis Wheatley</a></td>
+    <td>National Women&#39;s History Museum</td>
+    <td>biography</td>
+  </tr>
+  <tr>
+    <td>SRC-0005</td>
+    <td><a href="https://www.societyofearlyamericanists.org/wp-content/uploads/2020/08/Wheatley-Chronology.pdf" target="_blank" rel="noreferrer">Bynum TA. Phillis Wheatley Peters, A Chronology</a></td>
+    <td>Society of Early Americanists</td>
+    <td>scholarly</td>
+  </tr>
+  <tr>
+    <td>SRC-0006</td>
+    <td><a href="https://www.encyclopedia.com/arts/news-wires-white-papers-and-books/wheatley-phillis" target="_blank" rel="noreferrer">Baytop A. Wheatley, Phillis (American Women Writers: A Critical Reference Guide from Colonial Times to the Present)</a></td>
+    <td>Encyclopedia.com (Gale)</td>
+    <td>biography</td>
+  </tr>
+  <tr>
+    <td>SRC-0007</td>
+    <td><a href="https://humanrecord.example.org/internal/HISTMED_Master_Roster_v3.xlsx" target="_blank" rel="noreferrer">HISTMED Master Roster v3</a></td>
+    <td>The Human Record project</td>
+    <td>other</td>
+  </tr></tbody></table></section>
+    <section><h2>Review status</h2><table><thead><tr><th>Review</th><th>Status</th><th>Notes</th></tr></thead><tbody>
+  <tr><td>schema validation</td><td>not_started</td><td>Run scripts/build.ps1 -Conformance.</td></tr>
+  <tr><td>clinical review</td><td>not_started</td><td>Awaiting clinician review; check the confirmation of asthma (bronchodilator response, FeNO) with tuberculosis excluded, GINA track 1 as-needed budesonide-formoterol at step 2 and the step to maintenance-and-reliever therapy after the exacerbation, the standby prednisone course for the sea journey, the missed review within a week of the exacerbation, the vaccine plan for an adult with asthma born in West Africa, and the contraception and pregnancy counselling.</td></tr>
+  <tr><td>provenance review</td><td>not_started</td><td>She died in 1784; the recent-death rule does not apply. Claims rest on two Massachusetts Historical Society items (her letter of 30 October 1773 with transcription, and the October 2023 feature quoting her letter to David Wooster), the Poetry Foundation and National Women&#39;s History Museum biographies, the Society of Early Americanists chronology and one Gale reference work. Her childhood asthma rests on one reference work (D, probable); her own letter documents asthma after her return in 1773. The brief&#39;s statement that she died soon after childbirth is not supported by the fetched sources and is left out.</td></tr>
+  <tr><td>safe messaging review</td><td>not_started</td><td>She was enslaved at the true-frame index date. The modern episode renders this as domestic servitude without inventing abuse, records her own words and choices, and gives no decision, statement or health fact to any real person. Her enslavers are named only in the documented history, and nothing is said of their health beyond the documented reason for her return. Mood screens are synthetic and below the threshold for a safety assessment.</td></tr></tbody></table></section>
+  </main>
+</body>
+</html>

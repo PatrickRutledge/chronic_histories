@@ -1,0 +1,731 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Swami Vivekananda — The Human Record</title>
+  <style>
+    :root { --navy:#17365d; --blue:#1f4e78; --pale:#eef5fa; --ink:#1f2933; --muted:#66788a; --amber:#fff2cc; --red:#f8d7da; --green:#d9ead3; }
+    * { box-sizing:border-box; }
+    body { margin:0; font:16px/1.5 Arial, sans-serif; color:var(--ink); background:#f6f8fa; }
+    header { background:var(--navy); color:white; padding:24px max(24px,calc((100vw - 1180px)/2)); }
+    header h1 { margin:4px 0; font-size:30px; }
+    .banner { background:#b42318; color:white; font-weight:700; text-align:center; padding:10px; letter-spacing:.03em; }
+    main { max-width:1180px; margin:24px auto 60px; padding:0 24px; }
+    section { background:white; border:1px solid #d9e1e8; border-radius:8px; margin:18px 0; padding:20px; }
+    h2 { color:var(--navy); margin:0 0 14px; font-size:22px; }
+    h3 { color:var(--blue); }
+    .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:12px; }
+    .card { background:var(--pale); border-left:4px solid var(--blue); padding:12px; }
+    .label { color:var(--muted); font-size:13px; text-transform:uppercase; letter-spacing:.04em; }
+    table { width:100%; border-collapse:collapse; }
+    th { background:var(--blue); color:white; text-align:left; }
+    th,td { padding:9px; border-bottom:1px solid #dfe6ec; vertical-align:top; }
+    .badge { display:inline-block; min-width:28px; text-align:center; font-weight:700; border-radius:12px; padding:2px 8px; }
+    .grade-D { background:var(--green); } .grade-R { background:var(--amber); } .grade-S { background:var(--red); }
+    .muted { color:var(--muted); font-size:14px; }
+    .relationship { color:var(--muted); font-size:12px; }
+    .downloads a { display:inline-block; margin:4px 8px 4px 0; padding:8px 12px; background:var(--blue); color:white; text-decoration:none; border-radius:5px; }
+    @media (max-width:700px) { table { display:block; overflow-x:auto; } }
+  </style>
+</head>
+<body>
+  <div class="banner">SYNTHETIC RECORD, NOT A REAL MEDICAL RECORD</div>
+  <header>
+    <div>The Human Record</div>
+    <h1>Swami Vivekananda</h1>
+    <div>Case HR-NI032 · Modern EHR teaching episode · Draft for review</div>
+  </header>
+  <main>
+    <section>
+      <h2>Review summary</h2>
+      <div class="grid">
+        <div class="card"><div class="label">Historical dates</div>January 12, 1863 – July 4, 1902</div>
+        <div class="card"><div class="label">Synthetic DOB</div>1991-01-12</div>
+        <div class="card"><div class="label">Index visit</div>2026-02-09 at age 35</div>
+        <div class="card"><div class="label">Synthetic MRN</div>HR-NI032-SYN</div>
+      </div>
+      <p><strong>Teaching objective:</strong> Diagnose and classify diabetes in a 35-year-old South Asian man at a near-normal BMI (ADA screens Asian Americans from a BMI of 23 because South Asians develop type 2 diabetes at lower weights and younger ages): confirm with A1c and fasting glucose, test GAD antibodies and C-peptide to exclude type 1 and slowly progressive autoimmune diabetes, and record the decision. Then treat by shared decision with metformin and, once moderately increased albuminuria is confirmed, an SGLT2 inhibitor; build a mostly vegetarian, culturally fitting nutrition plan with a dietitian around his monastic diet; plan safe religious fasting with medication adjustment (IDF-DAR guidance, adapted from Ramadan to Hindu fasts); screen and protect the kidneys (UACR, eGFR, blood pressure with an ARB), eyes and lipids; treat long-standing insomnia without hypnotics; and diagnose and treat adult-onset asthma on GINA track 1, managing the steroid-induced hyperglycemia of an exacerbation. His diet, fasting and monastic practice are his to decide; the clinic adapts to them.</p>
+      <div class="downloads">
+        <a href="../case.json">Canonical JSON</a>
+        <a href="fhir-bundle.json">FHIR R4 draft</a>
+        <a href="ccda.html">C-CDA R2.1 summary</a> <a href="ccda.xml">(XML)</a> <a href="review.html">Review checklist</a>
+        <a href="../sources.md">Evidence dossier</a>
+      </div>
+    </section>
+    <section><h2>Historical timeline</h2><table><thead><tr><th>Date</th><th>Event</th><th>Claims</th></tr></thead><tbody>
+  <tr><td>January 12, 1863</td><td>Born Narendranath Datta in Calcutta.</td><td>CLM-0001</td></tr>
+  <tr><td>November 1881</td><td>Meets Sri Ramakrishna; takes monastic vows in 1887.</td><td>CLM-0002</td></tr>
+  <tr><td>September 1893</td><td>Speaks at the World&#39;s Parliament of Religions in Chicago; teaches in the West until 1897.</td><td>CLM-0003</td></tr>
+  <tr><td>March 1897</td><td>Writes that he has diabetes; goes to Darjeeling on his physicians&#39; advice.</td><td>CLM-0005</td></tr>
+  <tr><td>May 1, 1897</td><td>Founds the Ramakrishna Mission Association; writes of lifelong trouble falling asleep.</td><td>CLM-0004, CLM-0006</td></tr>
+  <tr><td>March 30, 1898</td><td>Leaves for Darjeeling; plague relief in Calcutta; travels north from May 11.</td><td>CLM-0007</td></tr>
+  <tr><td>October 18, 1898</td><td>Returns to Belur pallid and ill, with suffocating attacks of asthma.</td><td>CLM-0008</td></tr>
+  <tr><td>January 26, 1899</td><td>Writes that the diabetes has gone and asthma has come in its place.</td><td>CLM-0009, CLM-0014</td></tr>
+  <tr><td>June 1899</td><td>Second visit to the West, returning to the Belur Math in December 1900.</td><td>CLM-0010</td></tr>
+  <tr><td>December 12, 1901</td><td>Writes of albuminuria for three years and a bleed in the right eye; asthma, diabetes and dropsy in his last illness.</td><td>CLM-0011, CLM-0012, CLM-0015</td></tr>
+  <tr><td>July 4, 1902</td><td>Dies at the Belur Math at 39.</td><td>CLM-0013, CLM-0016</td></tr></tbody></table></section>
+    <section><h2>Evidence claims</h2><p class="muted">D = documented, R = retrospective, S = synthetic.</p><table><thead><tr><th>Grade</th><th>Claim</th><th>Certainty</th><th>Sources</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>He was born Narendranath (Narendra Nath) Datta in an affluent family in Calcutta (Kolkata) on 12 January 1863. His father, Vishwanath Datta, was a successful attorney; his mother was Bhuvaneshwari Devi.</strong><div class="muted">The documented date used for the synthetic date of birth.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://belurmath.org/swami-vivekananda/" target="_blank" rel="noreferrer">Swami Vivekananda</a> <span class="relationship">supports</span><br><a href="https://humanrecord.example.org/internal/HISTMED_Master_Roster_v3.xlsx" target="_blank" rel="noreferrer">HISTMED Master Roster v3</a> <span class="relationship">context</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>He met Sri Ramakrishna at Dakshineswar in November 1881 and became his disciple; in 1887 he and his brother disciples took the formal vows of sannyasa and new monastic names.</strong><div class="muted">Anchors the modern social history: a Hindu monk living by monastic vows.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://belurmath.org/swami-vivekananda/" target="_blank" rel="noreferrer">Swami Vivekananda</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>He left Bombay for America on 31 May 1893 and spoke at the World&#39;s Parliament of Religions in Chicago in September 1893, which made him famous; he then spent nearly three and a half years teaching Vedanta, mostly in the eastern United States and London, and returned to India in January 1897.</strong><div class="muted">Anchors the modern social history: an internationally known teacher who travels and lectures.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://belurmath.org/swami-vivekananda/" target="_blank" rel="noreferrer">Swami Vivekananda</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>On 1 May 1897, at a meeting of the monastic and lay devotees of Sri Ramakrishna in Calcutta, he founded the Ramakrishna Mission Association; in February 1898 the monastery moved to a garden house at Belur on the west bank of the Ganga, and land for the Belur Math was bought in early 1898.</strong><div class="muted">Anchors the modern social history: head of a monastic order and its service mission, living at the monastery by the river near Calcutta.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://belurmath.org/swami-vivekananda/" target="_blank" rel="noreferrer">Swami Vivekananda</a> <span class="relationship">supports</span><br><a href="https://www.ramakrishnavivekananda.info/vivekananda_biography/10_return.htm" target="_blank" rel="noreferrer">Nikhilananda S. Vivekananda: A Biography. Chapter: Return to India</a> <span class="relationship">supports</span><br><a href="https://www.ramakrishnavivekananda.info/vivekananda_biography/11_northern_india.htm" target="_blank" rel="noreferrer">Nikhilananda S. Vivekananda: A Biography. Chapter: In Northern India</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>In March and April 1897, soon after his return to India, he wrote that he had diabetes. On 16 March he wrote: &quot;The work has broken me down completely, and I have got &#39;diabetes&#39;, an incurable disease&quot;; on 26 March: &quot;The result of this steady work in the West and the tremendous work of a month in India upon the Bengalee constitution is &#39;diabetes&#39;. It is a hereditary foe,&quot; adding that &quot;Eating only meat and drinking no water seems to be the only way to prolong life&quot;; and on 7 April that he had been &quot;attacked by &#39;Diabetes&#39;, a fell disease&quot; and had gone to Darjeeling, cool and &quot;very good for the disease,&quot; where the doctors did not want him to move about. A biography says he went to Darjeeling on the advice of physicians.</strong><div class="muted">The documented diabetes, at about 34, to which the modern diagnosis is linked. He called it hereditary; no relative is named. How the diagnosis was made is not recorded (urine sugar is likely but not stated).</div></td>
+    <td>confirmed</td>
+    <td><a href="https://en.wikisource.org/wiki/The_Complete_Works_of_Swami_Vivekananda/Volume_9/Letters_-_Fifth_Series/CV_Christina" target="_blank" rel="noreferrer">Vivekananda S. Letter to Sister Christine, Darjeeling, 16 March 1897 (Complete Works, vol. 9, Letters, Fifth Series, CV)</a> <span class="relationship">supports</span><br><a href="https://en.wikisource.org/wiki/The_Complete_Works_of_Swami_Vivekananda/Volume_9/Letters_-_Fifth_Series/CVI_Mrs._Bull%E2%80%94" target="_blank" rel="noreferrer">Vivekananda S. Letter to Mrs. Ole Bull, 26 March 1897 (Complete Works, vol. 9, Letters, Fifth Series, CVI)</a> <span class="relationship">supports</span><br><a href="https://en.wikisource.org/wiki/The_Complete_Works_of_Swami_Vivekananda/Volume_9/Letters_-_Fifth_Series/CIX_Lalajee" target="_blank" rel="noreferrer">Vivekananda S. Letter to Lala Badri Sah, Darjeeling, 7 April 1897 (Complete Works, vol. 9, Letters, Fifth Series, CIX)</a> <span class="relationship">supports</span><br><a href="https://www.ramakrishnavivekananda.info/vivekananda_biography/10_return.htm" target="_blank" rel="noreferrer">Nikhilananda S. Vivekananda: A Biography. Chapter: Return to India</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>On 29 May 1897, from Almora, he wrote to a physician disciple that he was taking the medicines sent to him, riding morning and evening and feeling very strong, but that &quot;I never in my life could sleep as soon as I got into bed. I must toss for at least two hours,&quot; that he felt hot after the evening meal, that &quot;There has not been any thirst even though the days are fearfully hot,&quot; and that he was afraid of &quot;getting fat on a too much milk diet.&quot;</strong><div class="muted">His own account of lifelong difficulty falling asleep, linked to the modern insomnia; and of thirst as a symptom he watched for.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://en.wikisource.org/wiki/The_Complete_Works_of_Swami_Vivekananda/Volume_5/Epistles_-_First_Series/LXXV_Doctor_Shashi" target="_blank" rel="noreferrer">Vivekananda S. Letter to Dr. Shashi Bhushan Ghosh, Almora, 29 May 1897 (Complete Works, vol. 5, Epistles, First Series, LXXV)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>In 1898 he went to Darjeeling on 30 March for the cool air, came down to Calcutta to organize relief during an outbreak of plague, and left on 11 May for Nainital, Almora and Kashmir.</strong><div class="muted">History only, after the true-frame index date; it explains the long gap in the modern visits.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.ramakrishnavivekananda.info/vivekananda_biography/11_northern_india.htm" target="_blank" rel="noreferrer">Nikhilananda S. Vivekananda: A Biography. Chapter: In Northern India</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>He returned to Belur on 18 October 1898. His brother disciples saw that he was &quot;very pallid and ill. He suffered from suffocating attacks of asthma; when he emerged from its painful fits, his face looked blue, like that of a drowning man.&quot;</strong><div class="muted">History only, after the true-frame index date; the documented asthma to which the modern sick visit and asthma diagnosis are linked.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.ramakrishnavivekananda.info/vivekananda_biography/11_northern_india.htm" target="_blank" rel="noreferrer">Nikhilananda S. Vivekananda: A Biography. Chapter: In Northern India</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>On 26 January 1899 he wrote from the Belur Math: &quot;The old diabetes has now disappeared. In its place has come what some doctors call asthma, others dyspepsia, owing to nervous prostration. However, it is a most worrying disease, giving one the sensation of suffocation - sometimes for days.&quot;</strong><div class="muted">History only, after the true-frame index date.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://en.wikisource.org/wiki/The_Complete_Works_of_Swami_Vivekananda/Volume_9/Letters_-_Fifth_Series/CXXXII_Christina" target="_blank" rel="noreferrer">Vivekananda S. Letter to Sister Christine, Belur Math, 26 January 1899 (Complete Works, vol. 9, Letters, Fifth Series, CXXXII)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>He made a second visit to the West from June 1899 and returned to the Belur Math in December 1900.</strong><div class="muted">History only, after the true-frame index date.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://belurmath.org/swami-vivekananda/" target="_blank" rel="noreferrer">Swami Vivekananda</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>In 1901 he wrote that &quot;Bengal brings the asthma now and then&quot; and that &quot;the terrible things - Bright&#39;s disease and diabetes - have disappeared altogether&quot; (2 September), and later (12 December) that &quot;the last three years I have been getting albuminuria now and then,&quot; that the kidneys were &quot;structurally all right,&quot; that a cold always increased it, and that &quot;a small blood vessel in the right eye&quot; had burst; his doctors put him to bed and forbade meat.</strong><div class="muted">History only, after the true-frame index date. His own reports of albuminuria from about 1898, of a diagnosis of Bright&#39;s disease, and of a bleed in the right eye.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://en.wikisource.org/wiki/The_Complete_Works_of_Swami_Vivekananda/Volume_9/Letters_-_Fifth_Series/CCIII_Christine" target="_blank" rel="noreferrer">Vivekananda S. Letter to Sister Christine, Belur Math, 2 September 1901 (Complete Works, vol. 9, Letters, Fifth Series, CCIII)</a> <span class="relationship">supports</span><br><a href="https://en.wikisource.org/wiki/The_Complete_Works_of_Swami_Vivekananda/Volume_9/Letters_-_Fifth_Series/CCXI_Christine" target="_blank" rel="noreferrer">Vivekananda S. Letter to Sister Christine, Belur Math, 12 December 1901 (Complete Works, vol. 9, Letters, Fifth Series, CCXI)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>According to a biography by a monk of his order, in March 1901 he was &quot;suffering from both asthma and diabetes&quot;; in the last year and a half of his life &quot;Diabetes took the form of dropsy. His feet swelled ... He could hardly close his eyes in sleep,&quot; and on a physician&#39;s strict regimen he avoided water and salt, for twenty-one days taking no water at all.</strong><div class="muted">History only, after the true-frame index date. The biographer&#39;s description of his last illness; the cause of the swelling is not recorded.</div></td>
+    <td>probable</td>
+    <td><a href="https://www.ramakrishnavivekananda.info/vivekananda_biography/13_towards_the_end.htm" target="_blank" rel="noreferrer">Nikhilananda S. Vivekananda: A Biography. Chapter: Towards the End</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>He died at the Belur Math on the night of 4 July 1902, at 39, after an hour of meditation; a brother monk recalled &quot;a little blood in his nostrils, about his mouth, and in his eyes.&quot; The physicians gave the cause as &quot;apoplexy or sudden failure of the heart&quot;; the monks held that he had left his body in samadhi.</strong><div class="muted">History only, stated without detail and with respect for the monks&#39; understanding of his death.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.ramakrishnavivekananda.info/vivekananda_biography/13_towards_the_end.htm" target="_blank" rel="noreferrer">Nikhilananda S. Vivekananda: A Biography. Chapter: Towards the End</a> <span class="relationship">supports</span><br><a href="https://belurmath.org/swami-vivekananda/" target="_blank" rel="noreferrer">Swami Vivekananda</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-R" title="Retrospective">R</span></td>
+    <td><strong>Retrospective interpretation: diabetes beginning at about 34 in a man of South Asian ancestry who called it hereditary, who lived five more years without insulin, and whose thirst and sugar came and went with diet and rest, is most consistent with type 2 diabetes; slowly progressive autoimmune diabetes cannot be excluded from the record.</strong><div class="muted">Retrospective; the modern classification is synthetic.</div></td>
+    <td>possible</td>
+    <td><a href="https://en.wikisource.org/wiki/The_Complete_Works_of_Swami_Vivekananda/Volume_9/Letters_-_Fifth_Series/CVI_Mrs._Bull%E2%80%94" target="_blank" rel="noreferrer">Vivekananda S. Letter to Mrs. Ole Bull, 26 March 1897 (Complete Works, vol. 9, Letters, Fifth Series, CVI)</a> <span class="relationship">supports</span><br><a href="https://en.wikisource.org/wiki/The_Complete_Works_of_Swami_Vivekananda/Volume_9/Letters_-_Fifth_Series/CXXXII_Christina" target="_blank" rel="noreferrer">Vivekananda S. Letter to Sister Christine, Belur Math, 26 January 1899 (Complete Works, vol. 9, Letters, Fifth Series, CXXXII)</a> <span class="relationship">supports</span><br><a href="https://www.ramakrishnavivekananda.info/vivekananda_biography/13_towards_the_end.htm" target="_blank" rel="noreferrer">Nikhilananda S. Vivekananda: A Biography. Chapter: Towards the End</a> <span class="relationship">context</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-R" title="Retrospective">R</span></td>
+    <td><strong>Retrospective interpretation: albuminuria from about 1898, a diagnosis of Bright&#39;s disease, a bleed in the eye and swelling of the feet late in his life are consistent with diabetic kidney disease, perhaps with high blood pressure, but no measurement survives and other kidney or heart disease cannot be excluded.</strong><div class="muted">Retrospective; the modern albuminuria and diabetic kidney disease are synthetic.</div></td>
+    <td>possible</td>
+    <td><a href="https://en.wikisource.org/wiki/The_Complete_Works_of_Swami_Vivekananda/Volume_9/Letters_-_Fifth_Series/CCXI_Christine" target="_blank" rel="noreferrer">Vivekananda S. Letter to Sister Christine, Belur Math, 12 December 1901 (Complete Works, vol. 9, Letters, Fifth Series, CCXI)</a> <span class="relationship">supports</span><br><a href="https://en.wikisource.org/wiki/The_Complete_Works_of_Swami_Vivekananda/Volume_9/Letters_-_Fifth_Series/CCIII_Christine" target="_blank" rel="noreferrer">Vivekananda S. Letter to Sister Christine, Belur Math, 2 September 1901 (Complete Works, vol. 9, Letters, Fifth Series, CCIII)</a> <span class="relationship">supports</span><br><a href="https://www.ramakrishnavivekananda.info/vivekananda_biography/13_towards_the_end.htm" target="_blank" rel="noreferrer">Nikhilananda S. Vivekananda: A Biography. Chapter: Towards the End</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-R" title="Retrospective">R</span></td>
+    <td><strong>Retrospective interpretation: his sudden death, which many accounts describe as the rupture of a blood vessel in the brain, could have been a brain hemorrhage or a heart event; the physicians&#39; &quot;apoplexy or sudden failure of the heart&quot; does not decide between them, and his followers understand it as samadhi.</strong><div class="muted">Retrospective and disputed; not used in the modern episode.</div></td>
+    <td>disputed</td>
+    <td><a href="https://www.ramakrishnavivekananda.info/vivekananda_biography/13_towards_the_end.htm" target="_blank" rel="noreferrer">Nikhilananda S. Vivekananda: A Biography. Chapter: Towards the End</a> <span class="relationship">supports</span></td>
+  </tr></tbody></table></section>
+    <section><h2>Modern synthetic problem list</h2><table><thead><tr><th>Grade</th><th>Problem</th><th>Clinical status</th><th>Verification</th><th>Placement</th><th>Historical claims</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Thirst, frequent urination day and night, tiredness and about 4 kg weight loss over two months, with a random glucose of 246 mg/dL; told by physicians a year ago that he had diabetes, never confirmed with modern tests or treated except by diet. Diabetes to be confirmed and classified (type 2, type 1 or slowly progressive autoimmune diabetes) with A1c, fasting glucose, GAD antibodies and C-peptide</td>
+    <td>resolved</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td>CLM-0005</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Type 2 diabetes: A1c 9.4 percent and fasting glucose 172 mg/dL, with symptoms; GAD65 antibodies negative and fasting C-peptide preserved (2.6 ng/mL); no ketones. BMI 24.6, in the range where ADA screens Asian Americans. Classified as type 2, not type 1 or slowly progressive autoimmune diabetes</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>both_with_link</td>
+    <td>CLM-0005, CLM-0014</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Moderately increased albuminuria on a first sample (urine albumin-to-creatinine ratio 46 mg/g), eGFR normal; to be confirmed on two of three samples over three to six months</td>
+    <td>resolved</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td>CLM-0011, CLM-0015</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Raised blood pressure in clinic (138/86, average of two readings) without a diagnosis of hypertension; home readings to be taken</td>
+    <td>resolved</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Hypertension, stage 1: clinic 138/86, 136/86 and 134/84; home average 136/86 over seven days; with moderately increased albuminuria and diabetes</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td>CLM-0015</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Long-standing difficulty falling asleep: by his own account he has never been able to fall asleep on getting into bed and lies awake for two hours or more most nights; worse lately with waking to pass urine; rises before dawn for meditation</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>both_with_link</td>
+    <td>CLM-0006</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Mixed hyperlipidemia: LDL cholesterol 132 mg/dL, triglycerides 228, HDL 36</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Attacks of wheeze and breathlessness for three weeks since coming down from the mountains to the damp plains, the worst last night with a sense of suffocation: peak flow 330 L/min (56 percent of predicted), oxygen saturation 94 percent, rising to 410 L/min after bronchodilator; no fever, edema or chest pain; chest X-ray and ECG without heart failure or pneumonia. Asthma to be confirmed with spirometry</td>
+    <td>resolved</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td>CLM-0008</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Asthma, adult onset, confirmed: FEV1 2.95 L (77 percent predicted) rising 470 mL (16 percent) after bronchodilator, FEV1/FVC 0.66 rising to 0.75; FeNO 44 ppb; brought on by damp air and smoke; one moderate attack treated with prednisone</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>both_with_link</td>
+    <td>CLM-0008, CLM-0009</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Diabetic kidney disease, CKD stage G1 A2: moderately increased albuminuria on three samples over eight months (46, 41 and 34 mg/g) with eGFR above 90</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>both_with_link</td>
+    <td>CLM-0011, CLM-0015</td>
+  </tr></tbody></table></section>
+    <section><h2>Synthetic outcome measures</h2><table><thead><tr><th>Grade</th><th>Date</th><th>Measure</th><th>Result</th><th>Coding</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-02-09</td>
+    <td>Glucose [Mass/volume] in Serum or Plasma</td>
+    <td>246 mg/dL (high)<div class="muted">Reference Random sample; 200 mg/dL or more with symptoms suggests diabetes</div></td>
+    <td>http://loinc.org · 2345-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-02-09</td>
+    <td>Sodium [Moles/volume] in Serum or Plasma</td>
+    <td>136 mmol/L<div class="muted">Reference 135-145 mmol/L</div></td>
+    <td>http://loinc.org · 2951-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-02-09</td>
+    <td>Potassium [Moles/volume] in Serum or Plasma</td>
+    <td>4.3 mmol/L<div class="muted">Reference 3.5-5.1 mmol/L</div></td>
+    <td>http://loinc.org · 2823-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-02-09</td>
+    <td>Creatinine [Mass/volume] in Serum or Plasma</td>
+    <td>0.96 mg/dL<div class="muted">Reference 0.74-1.35 mg/dL</div></td>
+    <td>http://loinc.org · 2160-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-02-09</td>
+    <td>Glomerular filtration rate [Volume Rate/Area] in Serum, Plasma or Blood by Creatinine-based formula (CKD-EPI 2021)/1.73 sq M</td>
+    <td>106 mL/min/1.73 m²<div class="muted">Reference &gt;=60 mL/min/1.73 m²</div></td>
+    <td>http://loinc.org · 98979-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-02-09</td>
+    <td>Hemoglobin [Mass/volume] in Blood</td>
+    <td>14.6 g/dL<div class="muted">Reference 13.5-17.5 g/dL</div></td>
+    <td>http://loinc.org · 718-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-02-09</td>
+    <td>Patient Health Questionnaire 2 item (PHQ-2) total score [Reported]</td>
+    <td>0</td>
+    <td>http://loinc.org · 55758-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-09</td>
+    <td>Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]</td>
+    <td>3</td>
+    <td>http://loinc.org · 44261-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-09</td>
+    <td>Generalized anxiety disorder 7 item (GAD-7) total score [Reported.PHQ]</td>
+    <td>2</td>
+    <td>http://loinc.org · 70274-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-09</td>
+    <td>Total score [AUDIT-C]</td>
+    <td>0</td>
+    <td>http://loinc.org · 75626-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-10-20</td>
+    <td>Maximum expiratory gas flow Respiratory system airway by Peak flow meter</td>
+    <td>330 L/min (low)<div class="muted">Reference 80 percent of his predicted 590 L/min</div></td>
+    <td>http://loinc.org · 19935-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-02-16</td>
+    <td>Hemoglobin A1c/Hemoglobin.total in Blood</td>
+    <td>9.4% (high)<div class="muted">Reference Below 5.7% is normal; 6.5% or more diabetes; his target below 7%</div></td>
+    <td>http://loinc.org · 4548-4</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-02-16</td>
+    <td>Glucose [Mass/volume] in Serum or Plasma</td>
+    <td>172 mg/dL (high)<div class="muted">Reference Fasting; 126 mg/dL or more indicates diabetes</div></td>
+    <td>http://loinc.org · 2345-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-02-16</td>
+    <td>Glutamate decarboxylase 65 Ab [Units/volume] in Serum by Immunoassay</td>
+    <td>1.2 [IU]/mL<div class="muted">Reference Below 5 IU/mL negative</div></td>
+    <td>http://loinc.org · 56540-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-02-16</td>
+    <td>C peptide [Mass/volume] in Serum or Plasma</td>
+    <td>2.6 ng/mL<div class="muted">Reference 0.8-3.5 ng/mL</div></td>
+    <td>http://loinc.org · 1986-9</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-02-16</td>
+    <td>Albumin/Creatinine [Mass Ratio] in Urine</td>
+    <td>46 mg/g (high)<div class="muted">Reference 30 to 299 moderately increased; 300 or more severely increased</div></td>
+    <td>http://loinc.org · 9318-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-02-16</td>
+    <td>Cholesterol [Mass/volume] in Serum or Plasma</td>
+    <td>214 mg/dL (high)<div class="muted">Reference &lt;=199 mg/dL</div></td>
+    <td>http://loinc.org · 2093-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-02-16</td>
+    <td>Cholesterol in HDL [Mass/volume] in Serum or Plasma</td>
+    <td>36 mg/dL (low)<div class="muted">Reference 40 mg/dL or more for men</div></td>
+    <td>http://loinc.org · 2085-9</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-02-16</td>
+    <td>Triglyceride [Mass/volume] in Serum or Plasma</td>
+    <td>228 mg/dL (high)<div class="muted">Reference &lt;=149 mg/dL</div></td>
+    <td>http://loinc.org · 2571-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-02-16</td>
+    <td>Cholesterol in LDL [Mass/volume] in Serum or Plasma by calculation</td>
+    <td>132 mg/dL (high)<div class="muted">Reference &lt;=99 mg/dL</div></td>
+    <td>http://loinc.org · 13457-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-02-16</td>
+    <td>Alanine aminotransferase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>38 U/L<div class="muted">Reference 7-55 U/L</div></td>
+    <td>http://loinc.org · 1742-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-02-16</td>
+    <td>Thyrotropin [Units/volume] in Serum or Plasma</td>
+    <td>1.8 mIU/L<div class="muted">Reference 0.4-4 mIU/L</div></td>
+    <td>http://loinc.org · 3016-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-02-16</td>
+    <td>Cobalamin (Vitamin B12) [Mass/volume] in Serum or Plasma</td>
+    <td>312 pg/mL<div class="muted">Reference 232-1245 pg/mL</div></td>
+    <td>http://loinc.org · 2132-9</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-23</td>
+    <td>Potassium [Moles/volume] in Serum or Plasma</td>
+    <td>4.6 mmol/L<div class="muted">Reference 3.5-5.1 mmol/L</div></td>
+    <td>http://loinc.org · 2823-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-23</td>
+    <td>Creatinine [Mass/volume] in Serum or Plasma</td>
+    <td>1 mg/dL<div class="muted">Reference 0.74-1.35 mg/dL</div></td>
+    <td>http://loinc.org · 2160-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-23</td>
+    <td>Glomerular filtration rate [Volume Rate/Area] in Serum, Plasma or Blood by Creatinine-based formula (CKD-EPI 2021)/1.73 sq M</td>
+    <td>101 mL/min/1.73 m²<div class="muted">Reference &gt;=60 mL/min/1.73 m²</div></td>
+    <td>http://loinc.org · 98979-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-23</td>
+    <td>Albumin/Creatinine [Mass Ratio] in Urine</td>
+    <td>41 mg/g (high)<div class="muted">Reference 30 to 299 moderately increased; 300 or more severely increased</div></td>
+    <td>http://loinc.org · 9318-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-10-27</td>
+    <td>Hemoglobin A1c/Hemoglobin.total in Blood</td>
+    <td>6.9% (high)<div class="muted">Reference Below 5.7% is normal; 6.5% or more diabetes; his target below 7%</div></td>
+    <td>http://loinc.org · 4548-4</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-10-27</td>
+    <td>Glucose [Mass/volume] in Serum or Plasma</td>
+    <td>124 mg/dL (high)<div class="muted">Reference Fasting; 126 mg/dL or more indicates diabetes</div></td>
+    <td>http://loinc.org · 2345-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-10-27</td>
+    <td>Albumin/Creatinine [Mass Ratio] in Urine</td>
+    <td>34 mg/g (high)<div class="muted">Reference 30 to 299 moderately increased; 300 or more severely increased</div></td>
+    <td>http://loinc.org · 9318-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-10-27</td>
+    <td>Potassium [Moles/volume] in Serum or Plasma</td>
+    <td>4.5 mmol/L<div class="muted">Reference 3.5-5.1 mmol/L</div></td>
+    <td>http://loinc.org · 2823-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-10-27</td>
+    <td>Creatinine [Mass/volume] in Serum or Plasma</td>
+    <td>0.98 mg/dL<div class="muted">Reference 0.74-1.35 mg/dL</div></td>
+    <td>http://loinc.org · 2160-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-10-27</td>
+    <td>Glomerular filtration rate [Volume Rate/Area] in Serum, Plasma or Blood by Creatinine-based formula (CKD-EPI 2021)/1.73 sq M</td>
+    <td>103 mL/min/1.73 m²<div class="muted">Reference &gt;=60 mL/min/1.73 m²</div></td>
+    <td>http://loinc.org · 98979-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-10-27</td>
+    <td>Cholesterol [Mass/volume] in Serum or Plasma</td>
+    <td>152 mg/dL<div class="muted">Reference &lt;=199 mg/dL</div></td>
+    <td>http://loinc.org · 2093-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-10-27</td>
+    <td>Cholesterol in HDL [Mass/volume] in Serum or Plasma</td>
+    <td>39 mg/dL (low)<div class="muted">Reference 40 mg/dL or more for men</div></td>
+    <td>http://loinc.org · 2085-9</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-10-27</td>
+    <td>Triglyceride [Mass/volume] in Serum or Plasma</td>
+    <td>146 mg/dL<div class="muted">Reference &lt;=149 mg/dL</div></td>
+    <td>http://loinc.org · 2571-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-10-27</td>
+    <td>Cholesterol in LDL [Mass/volume] in Serum or Plasma by calculation</td>
+    <td>84 mg/dL<div class="muted">Reference &lt;=99 mg/dL</div></td>
+    <td>http://loinc.org · 13457-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-10-27</td>
+    <td>FEV1 --pre bronchodilation</td>
+    <td>2.95 L (low)<div class="muted">Reference Lower limit of normal; predicted 3.85 L; lower limit of normal 3.10 L (GLI Global race-neutral equations)</div></td>
+    <td>http://loinc.org · 20157-4</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-10-27</td>
+    <td>FEV1 --post bronchodilation</td>
+    <td>3.42 L<div class="muted">Reference Lower limit of normal; predicted 3.85 L; lower limit of normal 3.10 L (GLI Global race-neutral equations)</div></td>
+    <td>http://loinc.org · 20155-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-10-27</td>
+    <td>FEV1 measured/predicted</td>
+    <td>77% (low)<div class="muted">Reference GLI Global race-neutral equations</div></td>
+    <td>http://loinc.org · 20152-5</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-10-27</td>
+    <td>FEV1/FVC</td>
+    <td>0.66 (low)<div class="muted">Reference Lower limit of normal for his age (GLI Global)</div></td>
+    <td>http://loinc.org · 19926-5</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-10-27</td>
+    <td>FEV1/FVC --post bronchodilation</td>
+    <td>0.75<div class="muted">Reference Lower limit of normal for his age (GLI Global)</div></td>
+    <td>http://loinc.org · 69970-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-10-27</td>
+    <td>Fractional concentration of exhaled nitric oxide</td>
+    <td>44 [ppb] (high)<div class="muted">Reference Above 50 ppb high; 25 to 50 intermediate (ATS)</div></td>
+    <td>http://loinc.org · 96269-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-10-27</td>
+    <td>Total score [ACT]</td>
+    <td>15</td>
+    <td>http://loinc.org · 82668-5</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-10-27</td>
+    <td>Patient Health Questionnaire 2 item (PHQ-2) total score [Reported]</td>
+    <td>1</td>
+    <td>http://loinc.org · 55758-7</td>
+  </tr></tbody></table></section>
+    <section><h2>Synthetic vital signs</h2><table><thead><tr><th>Date</th><th>Measure</th><th>Result</th><th>LOINC</th><th>Grade</th></tr></thead><tbody>
+  <tr><td>2026-02-09</td><td>Body height</td><td>172 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-02-09</td><td>Body weight</td><td>73 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-02-09</td><td>Body mass index (BMI) [Ratio]</td><td>24.7 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-02-09</td><td>Systolic blood pressure</td><td>138 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-02-09</td><td>Diastolic blood pressure</td><td>86 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-02-09</td><td>Heart rate</td><td>84 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-02-09</td><td>Respiratory rate</td><td>16 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-02-09</td><td>Body temperature</td><td>36.8 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-02-09</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>98 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-02-16</td><td>Body height</td><td>172 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-02-16</td><td>Body weight</td><td>72.8 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-02-16</td><td>Body mass index (BMI) [Ratio]</td><td>24.6 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-02-16</td><td>Systolic blood pressure</td><td>136 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-02-16</td><td>Diastolic blood pressure</td><td>86 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-02-16</td><td>Heart rate</td><td>80 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-02-16</td><td>Respiratory rate</td><td>16 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-02-16</td><td>Body temperature</td><td>36.7 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-02-16</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>98 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-09</td><td>Body height</td><td>172 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-09</td><td>Body weight</td><td>73.4 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-09</td><td>Body mass index (BMI) [Ratio]</td><td>24.8 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-09</td><td>Systolic blood pressure</td><td>134 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-09</td><td>Diastolic blood pressure</td><td>84 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-09</td><td>Heart rate</td><td>76 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-09</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-09</td><td>Body temperature</td><td>36.7 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-09</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>98 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-23</td><td>Body height</td><td>172 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-23</td><td>Body weight</td><td>73.8 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-23</td><td>Body mass index (BMI) [Ratio]</td><td>24.9 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-23</td><td>Systolic blood pressure</td><td>128 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-23</td><td>Diastolic blood pressure</td><td>80 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-23</td><td>Heart rate</td><td>74 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-23</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-23</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-23</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>98 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-20</td><td>Body height</td><td>172 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-20</td><td>Body weight</td><td>74.6 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-20</td><td>Body mass index (BMI) [Ratio]</td><td>25.2 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-20</td><td>Systolic blood pressure</td><td>132 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-20</td><td>Diastolic blood pressure</td><td>82 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-20</td><td>Heart rate</td><td>108 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-20</td><td>Respiratory rate</td><td>24 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-20</td><td>Body temperature</td><td>36.9 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-20</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>94 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-27</td><td>Body height</td><td>172 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-27</td><td>Body weight</td><td>74.8 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-27</td><td>Body mass index (BMI) [Ratio]</td><td>25.3 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-27</td><td>Systolic blood pressure</td><td>126 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-27</td><td>Diastolic blood pressure</td><td>78 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-27</td><td>Heart rate</td><td>82 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-27</td><td>Respiratory rate</td><td>16 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-27</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-27</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>97 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr></tbody></table></section>
+    <section><h2>Social, functional, and mental status</h2><h3>Social history</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> A Hindu monk of a monastic order, under vows of renunciation and celibacy; head of the order and of its service mission; lives at the order&#39;s monastery by the river with his brother monks and young disciples; teaches daily classes on scripture and lectures widely</li><li><span class="badge grade-S" title="Synthetic">S</span> Daily routine: rises before dawn for meditation and worship; teaching and correspondence through the day; often works late into the night. Travels often, in India and abroad, and is now planning a long journey in the mountains from the spring</li><li><span class="badge grade-S" title="Synthetic">S</span> Diet: eats with the monastery, mostly vegetarian (rice, chapati, dal, vegetables, milk and yogurt, and sweets offered after worship), with fish at some meals by his own choice; keeps religious fasts on the eleventh day of each lunar fortnight and at major festivals, sometimes without water. A year ago he believed that eating only meat and drinking no water was the way to live with diabetes</li><li><span class="badge grade-S" title="Synthetic">S</span> No alcohol, by his vows; no tobacco use now; no drug use. Incense and smoke from the monastery kitchen fires</li><li><span class="badge grade-S" title="Synthetic">S</span> Supports: his brother monks and disciples, who share his daily life; his faith and practice. He wants his care to fit his vows and his duties, and he alone decides it</li></ul><h3>Functional status</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Independent; walks and rides; tires by evening for the last two months</li></ul><h3>Mental status</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Alert, warm, forceful and humorous; speaks with great clarity; frustrated by tiredness and broken nights; PHQ-2 0</li></ul></section>
+    
+    <section><h2>Allergies and medications</h2><h3>Allergies</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> No known allergy</li></ul><h3>Medications</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Metformin extended-release 500 mg tablets: two tablets (1000 mg) with the evening meal, starting with one for the first week</li><li><span class="badge grade-S" title="Synthetic">S</span> Metformin extended-release 500 mg tablets: four tablets (2000 mg) with the evening meal; on fast days with the meal that ends the fast; hold if vomiting, diarrhea or unable to drink</li><li><span class="badge grade-S" title="Synthetic">S</span> Losartan 25 mg oral tablet, one tablet daily</li><li><span class="badge grade-S" title="Synthetic">S</span> Atorvastatin 10 mg oral tablet, one tablet daily</li><li><span class="badge grade-S" title="Synthetic">S</span> Prednisone 20 mg oral tablet, two tablets (40 mg) each morning for five days</li><li><span class="badge grade-S" title="Synthetic">S</span> Budesonide-formoterol 160/4.5 mcg inhaler with a spacer, one inhalation as needed for wheeze or breathlessness, no more than 12 inhalations a day, until lung function testing</li><li><span class="badge grade-S" title="Synthetic">S</span> Empagliflozin 10 mg oral tablet, one tablet each morning; skip it on any day of fasting without water, and stop it when unable to eat or drink</li><li><span class="badge grade-S" title="Synthetic">S</span> Budesonide-formoterol 160/4.5 mcg inhaler with a spacer as maintenance and reliever (GINA track 1, step 3): one inhalation twice daily and one as needed, no more than 12 inhalations a day</li></ul></section>
+    <section><h2>Procedures and immunizations</h2><h3>Procedures</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Comprehensive diabetic foot examination: skin intact; pulses present; 10-g monofilament and vibration sense normal at all sites</li><li><span class="badge grade-S" title="Synthetic">S</span> Diabetes self-management education and medical nutrition therapy referral: a dietitian visit to build a meal plan around his monastery diet and fasts</li><li><span class="badge grade-S" title="Synthetic">S</span> Advance care planning conversation, about 20 minutes, with his consent</li><li><span class="badge grade-S" title="Synthetic">S</span> Diabetic retinopathy screening with retinal photographs of both eyes: no retinopathy; no macular edema</li><li><span class="badge grade-S" title="Synthetic">S</span> Chest X-ray, posteroanterior and lateral: mild hyperinflation; heart size normal; no pulmonary edema, effusion or consolidation</li><li><span class="badge grade-S" title="Synthetic">S</span> Resting 12-lead ECG: sinus tachycardia at 106 per minute; normal axis and intervals; no ischemic change</li><li><span class="badge grade-S" title="Synthetic">S</span> Spirometry before and 15 minutes after albuterol 400 mcg, with FeNO, interpreted with GLI Global race-neutral equations: FEV1 2.95 L (77 percent predicted) rising to 3.42 L (+470 mL, +16 percent); FEV1/FVC 0.66 before and 0.75 after; FeNO 44 ppb. Reversible airflow obstruction: asthma</li><li><span class="badge grade-S" title="Synthetic">S</span> Written asthma action plan with peak flow zones (green above 470 L/min, yellow 300 to 470, red below 300, from his predicted value until a personal best is set), given and explained</li><li><span class="badge grade-S" title="Synthetic">S</span> Inhaler technique with a spacer, taught and checked by teach-back: correct</li></ul><h3>Immunizations</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> 2026-02-16: Influenza vaccine, this season</li><li><span class="badge grade-S" title="Synthetic">S</span> 2026-02-16: COVID-19 mRNA vaccine, this season&#39;s formula</li><li><span class="badge grade-S" title="Synthetic">S</span> 2026-02-16: Pneumococcal conjugate vaccine PCV20</li><li><span class="badge grade-S" title="Synthetic">S</span> 2026-03-09: Tdap vaccine (no record of a tetanus vaccine in adulthood)</li><li><span class="badge grade-S" title="Synthetic">S</span> 2026-03-09: Hepatitis B vaccine (HepB-CpG), dose 1 of 2</li><li><span class="badge grade-S" title="Synthetic">S</span> 2026-10-27: Hepatitis B vaccine (HepB-CpG), dose 2 of 2</li><li><span class="badge grade-S" title="Synthetic">S</span> 2026-10-27: Influenza vaccine, the new season</li><li><span class="badge grade-S" title="Synthetic">S</span> 2026-10-27: COVID-19 mRNA vaccine, the new season&#39;s formula</li></ul></section>
+    <section><h2>Past medical history</h2><p class="muted">True biography with historical dates; not part of the synthetic care timeline.</p><ul><li><span class="badge grade-D" title="Documented">D</span> March 1897: Diabetes, as he described it in his letters, after his return to India at about 34; physicians advised the cool air of Darjeeling and rest; he wrote that eating only meat and drinking no water seemed the only way to prolong his life; how it was diagnosed is not recorded <span class="muted">(CLM-0005)</span></li><li><span class="badge grade-D" title="Documented">D</span> May 29, 1897: Lifelong difficulty falling asleep, in his own words: unable to sleep on getting into bed, tossing for at least two hours <span class="muted">(CLM-0006)</span></li></ul><h3>Family history</h3><ul><li><span class="badge grade-D" title="Documented">D</span> family member: Diabetes, which he called &quot;a hereditary foe&quot;; no relative is named and no detail is recorded</li></ul></section>
+    <section><h2>Care-plan goals</h2><table><thead><tr><th>Goal</th><th>Target date</th><th>Status</th><th>Outcome</th></tr></thead><tbody>
+  <tr><td>Diabetes confirmed and classified within a week</td><td>2026-02-16</td><td>completed</td><td>Type 2 diabetes confirmed by A1c 9.4 percent and fasting glucose 172 mg/dL; GAD65 antibodies negative and C-peptide preserved</td></tr>
+  <tr><td>A1c below 7 percent without hypoglycemia, in a way that fits his diet and fasts</td><td>2026-10-27</td><td>completed</td><td>A1c 6.9 percent on metformin; no hypoglycemia; fasts kept safely</td></tr>
+  <tr><td>Blood pressure below 130/80</td><td>2026-03-23</td><td>completed</td><td>Home 128/80 and clinic 128/80 two weeks after starting losartan</td></tr>
+  <tr><td>Albuminuria reduced and kidney function preserved</td><td>2027-01-26</td><td>active</td><td>Urine albumin-to-creatinine ratio down from 46 to 34 mg/g; eGFR 103; empagliflozin started</td></tr>
+  <tr><td>Falling asleep within 30 minutes on most nights</td><td>2026-12-08</td><td>active</td><td>About 45 minutes after four of six sessions</td></tr></tbody></table></section>
+    <section><h2>Interventions</h2><table><thead><tr><th>Intervention</th><th>Status</th><th>Guideline</th></tr></thead><tbody>
+  <tr><td>Endocrinology consultation in one week, the same day as fasting blood tests, to confirm and classify diabetes (A1c, fasting glucose, GAD antibodies, C-peptide), and advise on treatment that fits his diet, his religious fasts and his travel</td><td>completed</td><td>GL-ADA-DX-2026, GL-ADA-PHARM-2026, GL-CMID-2026</td></tr>
+  <tr><td>Diagnostic tests in one week, fasting: A1c, fasting plasma glucose, GAD65 antibodies, C-peptide, urine albumin-to-creatinine ratio, lipid panel, ALT, TSH and vitamin B12; urine ketones negative today; drink water freely while thirsty and avoid waterless fasts until the results are known; return the same day if vomiting, abdominal pain or drowsiness</td><td>completed</td><td>GL-ADA-DX-2026, GL-ADA-PHARM-2026, GL-CMID-2026, GL-ADA-COMORB-2026</td></tr>
+  <tr><td>Home blood pressure readings twice daily for a week with a validated upper-arm cuff, because clinic readings are raised</td><td>completed</td><td>GL-ADA-CVD-2026, GL-CMID-2026</td></tr>
+  <tr><td>Insomnia: sleep diary for two weeks, screening for sleep apnea, and cognitive behavioral therapy for insomnia adapted to his pre-dawn meditation; no sleeping tablets, by his preference; nocturia to be reviewed once glucose is treated</td><td>completed</td><td>GL-ACP-INS-2016, GL-AASM-INS-2021</td></tr>
+  <tr><td>Metformin extended-release with the evening meal, titrated to 2000 mg, chosen by shared decision over early combination therapy or an injected GLP-1 receptor agonist; home glucose meter; diabetes education and medical nutrition therapy for a mostly vegetarian plan built on his monastery meals, his choices and his fasts; sulfonylureas avoided because of fasting</td><td>completed</td><td>GL-ADA-PHARM-2026, GL-ADA-BEH-2026, GL-SA-PLANT-2022, GL-CMID-2026</td></tr>
+  <tr><td>Religious fasting plan adapted from IDF-DAR risk stratification: fasts with fruit, milk and water allowed; waterless fasts only once glucose is steady, with hydration; metformin with the meal that ends the fast; glucose checks at midday and before breaking the fast; break the fast below 70 or above 300 mg/dL or when unwell</td><td>completed</td><td>GL-IDF-DAR-2021, GL-ADA-BEH-2026</td></tr>
+  <tr><td>Vaccines for an adult with diabetes: influenza and COVID-19 each season, PCV20 once, hepatitis B (two doses) and Tdap</td><td>completed</td><td>GL-CDC-IMZ-MC-2026, GL-CDC-IMZ-2026</td></tr>
+  <tr><td>Hypertension with albuminuria: losartan 25 mg daily (an ARB rather than an ACE inhibitor, to avoid cough), less salt, home readings, potassium and creatinine two weeks after starting</td><td>completed</td><td>GL-ADA-CVD-2026, GL-ADA-CKD-2026, GL-CMID-2026</td></tr>
+  <tr><td>Cardiovascular prevention: atorvastatin 10 mg daily at 35 with diabetes, South Asian ancestry, albuminuria and hypertension, by his choice; lipid panel six to twelve weeks after starting</td><td>completed</td><td>GL-ADA-CVD-2026, GL-SOUTHASIAN-2013, GL-CMID-2026</td></tr>
+  <tr><td>Travel plan for months away: medicine and test-strip supply, sick-day rules (hold metformin and losartan when vomiting, with diarrhea or unable to drink), monthly messages with readings, and A1c, urine albumin and lipids at three months wherever he is</td><td>completed</td><td>GL-ADA-PHARM-2026, GL-CMID-2026</td></tr>
+  <tr><td>Asthma attack in a man with diabetes: prednisone 40 mg for five days with glucose checks before breakfast and the evening meal and a call for readings above 300 mg/dL; as-needed budesonide-formoterol until spirometry; review within a week</td><td>completed</td><td>GL-GINA-2025, GL-ADA-GLY-2026</td></tr>
+  <tr><td>Diabetic kidney disease G1 A2: empagliflozin 10 mg each morning, skipped on waterless fast days and stopped with metformin when unable to eat or drink; losartan continued; potassium, creatinine and urine albumin in three months, then every six months</td><td>completed</td><td>GL-ADA-CKD-2026, GL-KDIGO-CKD-2024, GL-IDF-DAR-2021</td></tr>
+  <tr><td>Asthma on GINA track 1, step 3: budesonide-formoterol one inhalation twice daily and as needed with a spacer, a written action plan, a smoke-free room, review in four to six weeks and spirometry in three months</td><td>completed</td><td>GL-GINA-2025, GL-NAEPP-2020, GL-CMID-2026</td></tr></tbody></table></section>
+    <section><h2>Planned encounters</h2><ul>
+  <li><strong>2026-02-09</strong> — New patient visit for thirst, frequent urination, tiredness and weight loss in a 35-year-old monk told of diabetes a year ago and never tested: examination, random glucose and urine tests, and planning of fasting tests to confirm and classify diabetes; long-standing insomnia; raised blood pressure <span class="muted">(ENC-001)</span></li>
+  <li><strong>2026-02-16</strong> — Diagnosis visit with the endocrinology consultation: A1c, fasting glucose, GAD antibodies, C-peptide, urine albumin, lipids and B12; type 2 diabetes confirmed; metformin by shared decision; nutrition and fasting plans <span class="muted">(ENC-002)</span></li>
+  <li><strong>2026-03-09</strong> — Periodic preventive visit <span class="muted">(ENC-005)</span></li>
+  <li><strong>2026-03-23</strong> — Five-week diabetes review before a long journey: glucose log, metformin dose, kidney function and potassium on losartan, repeat urine albumin, retinal photographs, statin, and a travel and fasting plan <span class="muted">(ENC-003)</span></li>
+  <li><strong>2026-10-20</strong> — Same-day sick visit for an asthma attack after returning from the mountains <span class="muted">(ENC-006, unscheduled)</span></li>
+  <li><strong>2026-10-27</strong> — Review after seven months away and a week after an asthma attack: A1c, kidneys, lipids, spirometry with bronchodilator response and FeNO; asthma and diabetic kidney disease confirmed; empagliflozin and maintenance-and-reliever inhaler; fasting plan for the coming festival <span class="muted">(ENC-004)</span></li></ul></section>
+    <section><h2>Supporting documents</h2><ul><li><a href="notes/hp.md">History and physical</a></li><li><a href="notes/progress-01.md">Progress note 01</a></li><li><a href="notes/progress-02.md">Progress note 02 — Focused Visit (Follow-up)</a></li><li><a href="notes/progress-03.md">Progress note 03 — Preventive Visit</a></li><li><a href="notes/progress-04.md">Progress note 04 — Focused Visit (Follow-up)</a></li><li><a href="notes/progress-05.md">Progress note 05 — Sick Visit</a></li><li><a href="notes/progress-06.md">Progress note 06 — Focused Visit (Care-plan review)</a></li><li><a href="notes/referral-01.md">Endocrinology referral</a></li><li><a href="notes/consult-01.md">Endocrinology consultation</a></li><li><a href="notes/careplan.md">Patient care plan</a></li><li><a href="notes/teaching-note.md">Teaching note</a></li><li><a href="provenance.csv">Provenance CSV</a></li></ul></section>
+    <section><h2>C-CDA note documents</h2><p class="muted">Each link opens a readable copy; the XML beside it is the exchange file.</p><ul><li><a href="ccda/hp-01.html">History and physical</a> <a href="ccda/hp-01.xml">(XML)</a></li><li><a href="ccda/progress-01.html">Progress note 01</a> <a href="ccda/progress-01.xml">(XML)</a></li><li><a href="ccda/progress-02.html">Progress note 02 — Focused Visit (Follow-up)</a> <a href="ccda/progress-02.xml">(XML)</a></li><li><a href="ccda/progress-03.html">Progress note 03 — Preventive Visit</a> <a href="ccda/progress-03.xml">(XML)</a></li><li><a href="ccda/progress-04.html">Progress note 04 — Focused Visit (Follow-up)</a> <a href="ccda/progress-04.xml">(XML)</a></li><li><a href="ccda/progress-05.html">Progress note 05 — Sick Visit</a> <a href="ccda/progress-05.xml">(XML)</a></li><li><a href="ccda/progress-06.html">Progress note 06 — Focused Visit (Care-plan review)</a> <a href="ccda/progress-06.xml">(XML)</a></li><li><a href="ccda/referral-01.html">Endocrinology referral</a> <a href="ccda/referral-01.xml">(XML)</a></li><li><a href="ccda/consult-01.html">Endocrinology consultation</a> <a href="ccda/consult-01.xml">(XML)</a></li></ul></section>
+    <section><h2>Sources</h2><table><thead><tr><th>ID</th><th>Source</th><th>Publisher</th><th>Type</th></tr></thead><tbody>
+  <tr>
+    <td>SRC-0001</td>
+    <td><a href="https://belurmath.org/swami-vivekananda/" target="_blank" rel="noreferrer">Swami Vivekananda</a></td>
+    <td>Belur Math (Ramakrishna Math and Ramakrishna Mission)</td>
+    <td>biography</td>
+  </tr>
+  <tr>
+    <td>SRC-0002</td>
+    <td><a href="https://www.ramakrishnavivekananda.info/vivekananda_biography/10_return.htm" target="_blank" rel="noreferrer">Nikhilananda S. Vivekananda: A Biography. Chapter: Return to India</a></td>
+    <td>Ramakrishna-Vivekananda Center of New York (via ramakrishnavivekananda.info)</td>
+    <td>biography</td>
+  </tr>
+  <tr>
+    <td>SRC-0003</td>
+    <td><a href="https://www.ramakrishnavivekananda.info/vivekananda_biography/11_northern_india.htm" target="_blank" rel="noreferrer">Nikhilananda S. Vivekananda: A Biography. Chapter: In Northern India</a></td>
+    <td>Ramakrishna-Vivekananda Center of New York (via ramakrishnavivekananda.info)</td>
+    <td>biography</td>
+  </tr>
+  <tr>
+    <td>SRC-0004</td>
+    <td><a href="https://www.ramakrishnavivekananda.info/vivekananda_biography/13_towards_the_end.htm" target="_blank" rel="noreferrer">Nikhilananda S. Vivekananda: A Biography. Chapter: Towards the End</a></td>
+    <td>Ramakrishna-Vivekananda Center of New York (via ramakrishnavivekananda.info)</td>
+    <td>biography</td>
+  </tr>
+  <tr>
+    <td>SRC-0005</td>
+    <td><a href="https://en.wikisource.org/wiki/The_Complete_Works_of_Swami_Vivekananda/Volume_9/Letters_-_Fifth_Series/CV_Christina" target="_blank" rel="noreferrer">Vivekananda S. Letter to Sister Christine, Darjeeling, 16 March 1897 (Complete Works, vol. 9, Letters, Fifth Series, CV)</a></td>
+    <td>Advaita Ashrama (Complete Works), via Wikisource</td>
+    <td>primary</td>
+  </tr>
+  <tr>
+    <td>SRC-0006</td>
+    <td><a href="https://en.wikisource.org/wiki/The_Complete_Works_of_Swami_Vivekananda/Volume_9/Letters_-_Fifth_Series/CVI_Mrs._Bull%E2%80%94" target="_blank" rel="noreferrer">Vivekananda S. Letter to Mrs. Ole Bull, 26 March 1897 (Complete Works, vol. 9, Letters, Fifth Series, CVI)</a></td>
+    <td>Advaita Ashrama (Complete Works), via Wikisource</td>
+    <td>primary</td>
+  </tr>
+  <tr>
+    <td>SRC-0007</td>
+    <td><a href="https://en.wikisource.org/wiki/The_Complete_Works_of_Swami_Vivekananda/Volume_9/Letters_-_Fifth_Series/CIX_Lalajee" target="_blank" rel="noreferrer">Vivekananda S. Letter to Lala Badri Sah, Darjeeling, 7 April 1897 (Complete Works, vol. 9, Letters, Fifth Series, CIX)</a></td>
+    <td>Advaita Ashrama (Complete Works), via Wikisource</td>
+    <td>primary</td>
+  </tr>
+  <tr>
+    <td>SRC-0008</td>
+    <td><a href="https://en.wikisource.org/wiki/The_Complete_Works_of_Swami_Vivekananda/Volume_5/Epistles_-_First_Series/LXXV_Doctor_Shashi" target="_blank" rel="noreferrer">Vivekananda S. Letter to Dr. Shashi Bhushan Ghosh, Almora, 29 May 1897 (Complete Works, vol. 5, Epistles, First Series, LXXV)</a></td>
+    <td>Advaita Ashrama (Complete Works), via Wikisource</td>
+    <td>primary</td>
+  </tr>
+  <tr>
+    <td>SRC-0009</td>
+    <td><a href="https://en.wikisource.org/wiki/The_Complete_Works_of_Swami_Vivekananda/Volume_9/Letters_-_Fifth_Series/CXXXII_Christina" target="_blank" rel="noreferrer">Vivekananda S. Letter to Sister Christine, Belur Math, 26 January 1899 (Complete Works, vol. 9, Letters, Fifth Series, CXXXII)</a></td>
+    <td>Advaita Ashrama (Complete Works), via Wikisource</td>
+    <td>primary</td>
+  </tr>
+  <tr>
+    <td>SRC-0010</td>
+    <td><a href="https://en.wikisource.org/wiki/The_Complete_Works_of_Swami_Vivekananda/Volume_9/Letters_-_Fifth_Series/CCIII_Christine" target="_blank" rel="noreferrer">Vivekananda S. Letter to Sister Christine, Belur Math, 2 September 1901 (Complete Works, vol. 9, Letters, Fifth Series, CCIII)</a></td>
+    <td>Advaita Ashrama (Complete Works), via Wikisource</td>
+    <td>primary</td>
+  </tr>
+  <tr>
+    <td>SRC-0011</td>
+    <td><a href="https://en.wikisource.org/wiki/The_Complete_Works_of_Swami_Vivekananda/Volume_9/Letters_-_Fifth_Series/CCXI_Christine" target="_blank" rel="noreferrer">Vivekananda S. Letter to Sister Christine, Belur Math, 12 December 1901 (Complete Works, vol. 9, Letters, Fifth Series, CCXI)</a></td>
+    <td>Advaita Ashrama (Complete Works), via Wikisource</td>
+    <td>primary</td>
+  </tr>
+  <tr>
+    <td>SRC-0012</td>
+    <td><a href="https://humanrecord.example.org/internal/HISTMED_Master_Roster_v3.xlsx" target="_blank" rel="noreferrer">HISTMED Master Roster v3</a></td>
+    <td>The Human Record project</td>
+    <td>other</td>
+  </tr></tbody></table></section>
+    <section><h2>Review status</h2><table><thead><tr><th>Review</th><th>Status</th><th>Notes</th></tr></thead><tbody>
+  <tr><td>schema validation</td><td>not_started</td><td>Run scripts/build.ps1 -Conformance.</td></tr>
+  <tr><td>clinical review</td><td>not_started</td><td>Awaiting clinician review; check the classification as type 2 diabetes (GAD antibodies negative, C-peptide preserved, no ketosis), metformin alone at diagnosis with an A1c of 9.4 percent by his choice, the delay of the SGLT2 inhibitor until albuminuria was confirmed, losartan for stage 1 hypertension with albuminuria, the statin at 35, the adapted IDF-DAR fasting plan, the missed three-month A1c and post-statin lipid checks while he travelled, the prednisone course in a man with diabetes, and asthma on GINA track 1.</td></tr>
+  <tr><td>provenance review</td><td>not_started</td><td>He died in 1902; the recent-death rule does not apply. Claims rest on the Belur Math biography, three chapters of Swami Nikhilananda&#39;s biography, and seven of his own letters in the Complete Works (via Wikisource). His diabetes (1897), insomnia (1897), asthma (1898 to 1901) and albuminuria are documented in his own words; the classification of his diabetes, his kidney disease and the cause of his death are R.</td></tr>
+  <tr><td>safe messaging review</td><td>not_started</td><td>No mental health or substance claim is made; mood screens are synthetic and negative. His monastic life, diet and fasts are described with respect and left to his choice. His death is recorded once, with the physicians&#39; and the monks&#39; understandings side by side. No disciple, brother monk or other real person is named or given a role in the modern episode.</td></tr></tbody></table></section>
+  </main>
+</body>
+</html>

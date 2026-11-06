@@ -1,0 +1,687 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Martin Luther King Jr. — The Human Record</title>
+  <style>
+    :root { --navy:#17365d; --blue:#1f4e78; --pale:#eef5fa; --ink:#1f2933; --muted:#66788a; --amber:#fff2cc; --red:#f8d7da; --green:#d9ead3; }
+    * { box-sizing:border-box; }
+    body { margin:0; font:16px/1.5 Arial, sans-serif; color:var(--ink); background:#f6f8fa; }
+    header { background:var(--navy); color:white; padding:24px max(24px,calc((100vw - 1180px)/2)); }
+    header h1 { margin:4px 0; font-size:30px; }
+    .banner { background:#b42318; color:white; font-weight:700; text-align:center; padding:10px; letter-spacing:.03em; }
+    main { max-width:1180px; margin:24px auto 60px; padding:0 24px; }
+    section { background:white; border:1px solid #d9e1e8; border-radius:8px; margin:18px 0; padding:20px; }
+    h2 { color:var(--navy); margin:0 0 14px; font-size:22px; }
+    h3 { color:var(--blue); }
+    .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:12px; }
+    .card { background:var(--pale); border-left:4px solid var(--blue); padding:12px; }
+    .label { color:var(--muted); font-size:13px; text-transform:uppercase; letter-spacing:.04em; }
+    table { width:100%; border-collapse:collapse; }
+    th { background:var(--blue); color:white; text-align:left; }
+    th,td { padding:9px; border-bottom:1px solid #dfe6ec; vertical-align:top; }
+    .badge { display:inline-block; min-width:28px; text-align:center; font-weight:700; border-radius:12px; padding:2px 8px; }
+    .grade-D { background:var(--green); } .grade-R { background:var(--amber); } .grade-S { background:var(--red); }
+    .muted { color:var(--muted); font-size:14px; }
+    .relationship { color:var(--muted); font-size:12px; }
+    .downloads a { display:inline-block; margin:4px 8px 4px 0; padding:8px 12px; background:var(--blue); color:white; text-decoration:none; border-radius:5px; }
+    @media (max-width:700px) { table { display:block; overflow-x:auto; } }
+  </style>
+</head>
+<body>
+  <div class="banner">SYNTHETIC RECORD, NOT A REAL MEDICAL RECORD</div>
+  <div class="banner">True-date frame: synthetic events are moved into the patient&#39;s historical lifetime. Codes, instruments, and treatments remain modern and are anachronistic.</div>
+  <header>
+    <div>The Human Record</div>
+    <h1>Martin Luther King Jr.</h1>
+    <div>Case HR-ML001-TD · Modern EHR teaching episode · Draft for review</div>
+  </header>
+  <main>
+    <section>
+      <h2>Review summary</h2>
+      <div class="grid">
+        <div class="card"><div class="label">Historical dates</div>January 15, 1929 – April 4, 1968</div>
+        <div class="card"><div class="label">Synthetic DOB</div>1929-01-15</div>
+        <div class="card"><div class="label">Index visit</div>1965-04-07 at age 36</div>
+        <div class="card"><div class="label">Synthetic MRN</div>HR-ML001-SYN-TD</div>
+      </div>
+      <p><strong>Teaching objective:</strong> Caring for a 36-year-old Black minister and public leader with exhaustion, insomnia and low mood under sustained, real threat: distinguishing major depressive disorder from an adjustment disorder by DSM-5-TR, and realistic vigilance from PTSD (PC-PTSD-5 and interview); a structured safety assessment that separates the expectation of being killed from suicidal ideation and weighs a childhood act of self-injury and a letter urging suicide; CBT, CBT for insomnia and sertraline by shared decision under the APA 1958 guideline and the ACP insomnia guideline; tobacco cessation with counseling and varenicline under the USPSTF 1960 recommendation and the EAGLES trial; confirming stage 1 hypertension with home readings and lifestyle treatment under the 1956 ACC/AHA guideline; lipids and risk at 36; an old thoracotomy scar; a sustainable work plan; and equity in care: racism and threat as causes of stress, trust and privacy for a patient under surveillance, and culturally responsive therapy that respects his faith.</p>
+      <div class="downloads">
+        <a href="../case.json">Canonical JSON</a>
+        <a href="fhir-bundle.json">FHIR R4 draft</a>
+        <a href="ccda.html">C-CDA R2.1 summary</a> <a href="ccda.xml">(XML)</a>
+        <a href="../sources.md">Evidence dossier</a>
+      </div>
+    </section>
+    <section><h2>Historical timeline</h2><table><thead><tr><th>Date</th><th>Event</th><th>Claims</th></tr></thead><tbody>
+  <tr><td>January 15, 1929</td><td>Born Michael King in Atlanta.</td><td>CLM-0001</td></tr>
+  <tr><td>1934</td><td>His father changed both their names to Martin Luther after a journey to Berlin.</td><td>CLM-0002</td></tr>
+  <tr><td>May 18, 1941</td><td>Death of his grandmother; an impulsive act of self-injury in grief, at twelve.</td><td>CLM-0003</td></tr>
+  <tr><td>June 5, 1955</td><td>Doctorate from Boston University, after Morehouse and Crozer.</td><td>CLM-0004</td></tr>
+  <tr><td>June 18, 1953</td><td>Married Coretta Scott.</td><td>CLM-0005</td></tr>
+  <tr><td>January 30, 1956</td><td>His home in Montgomery was bombed.</td><td>CLM-0006</td></tr>
+  <tr><td>September 20, 1958</td><td>Stabbed in the chest in Harlem; thoracic surgery at Harlem Hospital.</td><td>CLM-0007</td></tr>
+  <tr><td>1960 to 1963</td><td>Arrests and jailings in Atlanta, Albany and Birmingham.</td><td>CLM-0008</td></tr>
+  <tr><td>October 1963</td><td>FBI wiretaps on his home and offices authorized; surveillance continued.</td><td>CLM-0009</td></tr>
+  <tr><td>October 14, 1964</td><td>In St. Joseph&#39;s Infirmary for exhaustion and a respiratory infection when the Nobel Peace Prize was announced.</td><td>CLM-0010</td></tr>
+  <tr><td>about November 1964</td><td>The FBI anonymously sent him a recording and a letter.</td><td>CLM-0009</td></tr>
+  <tr><td>December 10, 1964</td><td>Received the Nobel Peace Prize in Oslo.</td><td>CLM-0011</td></tr>
+  <tr><td>March 17 to 25, 1965</td><td>Led the march from Selma to Montgomery.</td><td>CLM-0012</td></tr>
+  <tr><td>the mid-1960s</td><td>A heavy smoker who hid his cigarettes; depression described by biographers.</td><td>CLM-0013, CLM-0014</td></tr>
+  <tr><td>his last year</td><td>People close to him tried to arrange mental health care; he refused.</td><td>CLM-0017</td></tr>
+  <tr><td>April 4, 1968</td><td>Assassinated in Memphis; buried in Atlanta on April 9.</td><td>CLM-0016, CLM-0015</td></tr></tbody></table></section>
+    <section><h2>Evidence claims</h2><p class="muted">D = documented, R = retrospective, S = synthetic.</p><table><thead><tr><th>Grade</th><th>Claim</th><th>Certainty</th><th>Sources</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>He was born Michael King on January 15, 1929, at 501 Auburn Avenue in Atlanta, Georgia.</strong></td>
+    <td>confirmed</td>
+    <td><a href="https://kinginstitute.stanford.edu/king-resources/major-king-events-chronology-1929-1968" target="_blank" rel="noreferrer">Major King Events Chronology: 1929-1968</a> <span class="relationship">supports</span><br><a href="https://kinginstitute.stanford.edu/michael-king-born-0" target="_blank" rel="noreferrer">Michael King born (January 15, 1929)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>In 1934 his father, the Reverend Michael King, attended the Baptist World Alliance meeting in Berlin and afterwards changed his own name and his son&#39;s from Michael to Martin Luther, after the German Protestant reformer; the son&#39;s birth certificate was altered to read Martin Luther King, Jr. on July 23, 1957.</strong><div class="muted">Explains his name; the reformer Martin Luther has his own record (HR-RE004). Context only.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://kinginstitute.stanford.edu/king-martin-luther-sr" target="_blank" rel="noreferrer">King, Martin Luther, Sr.</a> <span class="relationship">supports</span><br><a href="https://ajc.com/news/atlanta-black-history/black-history-why-martin-luther-king-jrs-father-changed-their-names/PQSUL3LEJNEAVXBQXPNQU5YT6M/" target="_blank" rel="noreferrer">Clanton N. Black History: Why Martin Luther King Jr.&#39;s father changed their names</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>His grandmother, Jennie Celeste Williams, died on May 18, 1941, when he was twelve, while he was at a parade without his parents&#39; permission. Grieved and remorseful, he reacted with an impulsive act of self-injury at home. The editors of his papers note that neither he nor his father later described this as a suicide attempt; his father wrote that he cried off and on for several days and could not sleep at night.</strong><div class="muted">A documented act of self-injury in childhood grief. The roster&#39;s &#39;suicide attempt at 12&#39; overstates the sources and is not adopted. Recorded once; the modern record refers to it only as an impulsive act of self-injury in grief.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://kinginstitute.stanford.edu/introduction-volume-i-called-serve" target="_blank" rel="noreferrer">Introduction, The Papers of Martin Luther King, Jr., Volume I: Called to Serve, January 1929-June 1951</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>He entered Morehouse College in 1944, was ordained in 1948, graduated from Crozer Theological Seminary in 1951, and received his doctorate in systematic theology from Boston University on June 5, 1955.</strong><div class="muted">Context.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://kinginstitute.stanford.edu/king-resources/major-king-events-chronology-1929-1968" target="_blank" rel="noreferrer">Major King Events Chronology: 1929-1968</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>He married Coretta Scott on June 18, 1953, at the Scott home near Marion, Alabama.</strong><div class="muted">Context; no health fact, statement or decision of his wife or children is used in the modern episode.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://kinginstitute.stanford.edu/king-resources/major-king-events-chronology-1929-1968" target="_blank" rel="noreferrer">Major King Events Chronology: 1929-1968</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>As president of the Montgomery Improvement Association during the bus boycott, his home was bombed on the evening of January 30, 1956, while he spoke at a mass meeting; his wife and daughter were not hurt, and he pleaded with an angry crowd for nonviolence.</strong><div class="muted">Documented violent threat to his family.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://kinginstitute.stanford.edu/king-resources/major-king-events-chronology-1929-1968" target="_blank" rel="noreferrer">Major King Events Chronology: 1929-1968</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>On September 20, 1958, at a book signing at Blumstein&#39;s Department Store in Harlem, he was stabbed in the upper left side of the chest with a seven-inch steel letter opener. At Harlem Hospital he had more than two hours of surgery; the blade lay so close to the aorta that, he was told, a sneeze could have punctured it, and he wrote that his whole chest had to be opened to remove it. He left the hospital on October 3 and convalesced until late October.</strong><div class="muted">Documented chest wound and thoracic surgery; anchors the old scar and the trauma history in the modern episode.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://kinginstitute.stanford.edu/encyclopedia/curry-izola-ware" target="_blank" rel="noreferrer">Curry, Izola Ware (encyclopedia entry)</a> <span class="relationship">supports</span><br><a href="https://kinginstitute.stanford.edu/publications/autobiography-martin-luther-king-jr/chapter-12-brush-death" target="_blank" rel="noreferrer">Chapter 12: Brush with Death, The Autobiography of Martin Luther King, Jr. (ed. Clayborne Carson)</a> <span class="relationship">supports</span><br><a href="https://kinginstitute.stanford.edu/king-resources/major-king-events-chronology-1929-1968" target="_blank" rel="noreferrer">Major King Events Chronology: 1929-1968</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>He was arrested and jailed repeatedly: at a sit-in at Rich&#39;s department store in Atlanta in October 1960, when he was sentenced to four months of hard labor for violating probation; in Albany, Georgia, in December 1961 and in July 1962, when he spent two weeks in jail; and in Birmingham from April 12 to 19, 1963.</strong><div class="muted">Documented arrests and jailings.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://kinginstitute.stanford.edu/king-resources/major-king-events-chronology-1929-1968" target="_blank" rel="noreferrer">Major King Events Chronology: 1929-1968</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>The FBI monitored him from December 1955; wiretaps on his home and the SCLC offices were authorized in October 1963, and he was subjected to surveillance under the counterintelligence program. In about November 1964 the FBI anonymously sent him a recording with an anonymous letter that SCLC staff read as urging him to take his own life.</strong><div class="muted">Documented surveillance and the anonymous letter. Its content is not quoted. Anchors the threat and privacy concerns in the modern episode.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://kinginstitute.stanford.edu/encyclopedia/federal-bureau-investigation-fbi" target="_blank" rel="noreferrer">Federal Bureau of Investigation (FBI) (encyclopedia entry)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>In October 1964, exhausted by a heavy speaking schedule and with a respiratory infection, he was admitted to St. Joseph&#39;s Infirmary in Atlanta for several days of rest; he was asleep there on October 14, 1964, when his wife telephoned to tell him he had been awarded the Nobel Peace Prize.</strong><div class="muted">Documented admission for exhaustion; the brief&#39;s &#39;viral infection&#39; is recorded as a respiratory infection, as the source says. Anchors the presenting exhaustion.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.historynewsnetwork.org/article/7823" target="_blank" rel="noreferrer">Auchmutey J. King&#39;s Nobel left Atlanta ambivalent (The Atlanta Journal-Constitution, October 3, 2004; reposted by History News Network)</a> <span class="relationship">supports</span><br><a href="https://kinginstitute.stanford.edu/nobel-peace-prize" target="_blank" rel="noreferrer">Nobel Peace Prize (encyclopedia entry)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>He received the Nobel Peace Prize in Oslo on December 10, 1964, at 35 the youngest person to have won it.</strong><div class="muted">Context.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://kinginstitute.stanford.edu/nobel-peace-prize" target="_blank" rel="noreferrer">Nobel Peace Prize (encyclopedia entry)</a> <span class="relationship">supports</span><br><a href="https://thekingcenter.org/about-tkc/martin-luther-king-jr/" target="_blank" rel="noreferrer">About Dr. King</a> <span class="relationship">supports</span><br><a href="https://kinginstitute.stanford.edu/king-resources/major-king-events-chronology-1929-1968" target="_blank" rel="noreferrer">Major King Events Chronology: 1929-1968</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>After voting rights marchers were beaten at the Edmund Pettus Bridge in Selma on March 7, 1965, he led the march from Selma to Montgomery from March 17 to 25, 1965.</strong><div class="muted">Context: the sustained campaign just before the index date.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://kinginstitute.stanford.edu/king-resources/major-king-events-chronology-1929-1968" target="_blank" rel="noreferrer">Major King Events Chronology: 1929-1968</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>A man who drove for the King family in the mid-1960s described him as a chain smoker who kept his cigarettes hidden at home.</strong><div class="muted">A first-hand account in a national public radio report; anchors the modern tobacco use. The driver is not named here.</div></td>
+    <td>probable</td>
+    <td><a href="https://www.wgbh.org/news/2016-01-15/the-accidental-wheelman-of-martin-luther-king-jr" target="_blank" rel="noreferrer">The accidental wheelman of Martin Luther King Jr. (NPR Morning Edition, January 15, 2016)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-R" title="Retrospective">R</span></td>
+    <td><strong>Biographers and historians describe depression in his adult life: David Garrow wrote that, partly as a result of the FBI&#39;s intimidation, he often suffered from morbid depression, a contention others have disputed; a psychologist writing in 2024 states that, although never diagnosed, he had serious bouts of depression that he kept secret for fear it could be used against him.</strong><div class="muted">Retrospective and secondhand; no historical psychiatric diagnosis is adopted. Anchors the synthetic modern depression and the privacy concern.</div></td>
+    <td>probable</td>
+    <td><a href="https://time.com/archive/6708116/that-old-rugged-cross" target="_blank" rel="noreferrer">White JE. That old, rugged cross (review of David J. Garrow, Bearing the Cross)</a> <span class="relationship">supports</span><br><a href="https://mindsitenews.org/2024/01/15/what-martin-luther-king-jr-knew-but-never-said/" target="_blank" rel="noreferrer">Pike KM. What Martin Luther King Jr. knew but never said</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-R" title="Retrospective">R</span></td>
+    <td><strong>According to the historian Taylor Branch, as reported in a newspaper caption, his autopsy showed the heart of a 60-year-old man, which Branch attributed to stress.</strong><div class="muted">Reported secondhand; the autopsy report was not seen. After the index date; history only.</div></td>
+    <td>possible</td>
+    <td><a href="https://santamariatimes.com/14-if-the-bullet-didn-t-kill-king-stress-might-have/image_dacfdf27-a630-550c-97cb-388105437ea8.html" target="_blank" rel="noreferrer">If the bullet didn&#39;t kill King, stress might have (photo caption)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>On April 4, 1968, he was shot and killed while standing on the balcony of the Lorraine Motel in Memphis, where he had come to support striking sanitation workers; he was buried in Atlanta on April 9.</strong><div class="muted">After the index date; history only.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://kinginstitute.stanford.edu/king-resources/major-king-events-chronology-1929-1968" target="_blank" rel="noreferrer">Major King Events Chronology: 1929-1968</a> <span class="relationship">supports</span><br><a href="https://thekingcenter.org/about-tkc/martin-luther-king-jr/" target="_blank" rel="noreferrer">About Dr. King</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-R" title="Retrospective">R</span></td>
+    <td><strong>The same 2024 commentary states that shortly before his death several people close to him tried to arrange mental health care for him, which he refused.</strong><div class="muted">After the index date; history only.</div></td>
+    <td>possible</td>
+    <td><a href="https://mindsitenews.org/2024/01/15/what-martin-luther-king-jr-knew-but-never-said/" target="_blank" rel="noreferrer">Pike KM. What Martin Luther King Jr. knew but never said</a> <span class="relationship">supports</span></td>
+  </tr></tbody></table></section>
+    <section><h2>Modern synthetic problem list</h2><table><thead><tr><th>Grade</th><th>Problem</th><th>Clinical status</th><th>Verification</th><th>Placement</th><th>Historical claims</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Exhaustion, broken sleep and low mood for about two months, under sustained threats and a punishing schedule, after an admission for exhaustion and a respiratory infection six months ago; cause not established at intake: a depressive disorder, an adjustment disorder, PTSD, an insomnia disorder, thyroid disease and anemia to be assessed; psychiatry consultation requested</td>
+    <td>resolved</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td>CLM-0010, CLM-0006, CLM-0007, CLM-0008, CLM-0009</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Major depressive disorder, single episode, moderate (DSM-5-TR), arising under chronic threat, surveillance and overwork; no suicidal ideation; PTSD not present on screening and interview</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>both_with_link</td>
+    <td>CLM-0010, CLM-0006, CLM-0007, CLM-0008, CLM-0009, CLM-0014</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Insomnia disorder (DSM-5-TR), comorbid with depression: trouble falling and staying asleep at least four nights a week for over three months, with short sleep from late-night work and travel</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td>CLM-0010</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Nicotine dependence, cigarettes: about a pack a day since his twenties, smoked out of public view</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td>CLM-0013</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Elevated blood pressure readings in the clinic (138/88 mmHg) without a diagnosis of hypertension; home monitoring to confirm</td>
+    <td>resolved</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Healed stab wound of the left chest, repaired by thoracotomy seven years ago; occasional aching along the scar with coughing and in cold weather, without exertional or ischemic features</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td>CLM-0007</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Acute bronchitis after a cold, in a man eleven weeks off cigarettes; no pneumonia; managed without antibiotics; resolved</td>
+    <td>resolved</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Stage 1 hypertension (1956 ACC/AHA), confirmed by home readings averaging 136/86 mmHg; no end-organ damage (normal ECG, urine albumin, kidney function and fundi); low estimated 10-year risk; lifestyle treatment</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td></td>
+  </tr></tbody></table></section>
+    <section><h2>Synthetic outcome measures</h2><table><thead><tr><th>Grade</th><th>Date</th><th>Measure</th><th>Result</th><th>Coding</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1965-04-07</td>
+    <td>Hemoglobin [Mass/volume] in Blood</td>
+    <td>14.8 g/dL<div class="muted">Reference 13.5-17.5 g/dL</div></td>
+    <td>http://loinc.org · 718-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1965-04-07</td>
+    <td>Leukocytes [#/volume] in Blood by Automated count</td>
+    <td>7.2 10*3/uL<div class="muted">Reference 4-11 10*3/uL</div></td>
+    <td>http://loinc.org · 6690-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1965-04-07</td>
+    <td>Platelets [#/volume] in Blood by Automated count</td>
+    <td>250 10*3/uL<div class="muted">Reference 150-400 10*3/uL</div></td>
+    <td>http://loinc.org · 777-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1965-04-07</td>
+    <td>Sodium [Moles/volume] in Serum or Plasma</td>
+    <td>139 mmol/L<div class="muted">Reference 135-145 mmol/L</div></td>
+    <td>http://loinc.org · 2951-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1965-04-07</td>
+    <td>Potassium [Moles/volume] in Serum or Plasma</td>
+    <td>4.1 mmol/L<div class="muted">Reference 3.5-5.1 mmol/L</div></td>
+    <td>http://loinc.org · 2823-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1965-04-07</td>
+    <td>Carbon dioxide, total [Moles/volume] in Serum or Plasma</td>
+    <td>25 mmol/L<div class="muted">Reference 22-29 mmol/L</div></td>
+    <td>http://loinc.org · 2028-9</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1965-04-07</td>
+    <td>Urea nitrogen [Mass/volume] in Serum or Plasma</td>
+    <td>13 mg/dL<div class="muted">Reference 7-20 mg/dL</div></td>
+    <td>http://loinc.org · 3094-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1965-04-07</td>
+    <td>Creatinine [Mass/volume] in Serum or Plasma</td>
+    <td>1.04 mg/dL<div class="muted">Reference 0.74-1.35 mg/dL</div></td>
+    <td>http://loinc.org · 2160-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1965-04-07</td>
+    <td>Glucose [Mass/volume] in Serum or Plasma</td>
+    <td>92 mg/dL<div class="muted">Reference 70-99 mg/dL</div></td>
+    <td>http://loinc.org · 2345-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1965-04-07</td>
+    <td>Alanine aminotransferase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>28 U/L<div class="muted">Reference 7-55 U/L</div></td>
+    <td>http://loinc.org · 1742-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1965-04-07</td>
+    <td>Thyrotropin [Units/volume] in Serum or Plasma</td>
+    <td>2.1 mIU/L<div class="muted">Reference 0.45-4.5 mIU/L</div></td>
+    <td>http://loinc.org · 3016-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1965-04-07</td>
+    <td>Hemoglobin A1c/Hemoglobin.total in Blood</td>
+    <td>5.5%<div class="muted">Reference Below 5.7</div></td>
+    <td>http://loinc.org · 4548-4</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1965-04-07</td>
+    <td>Cholesterol [Mass/volume] in Serum or Plasma</td>
+    <td>214 mg/dL (high)<div class="muted">Reference Below 200</div></td>
+    <td>http://loinc.org · 2093-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1965-04-07</td>
+    <td>Triglyceride [Mass/volume] in Serum or Plasma</td>
+    <td>150 mg/dL (high)<div class="muted">Reference Below 150</div></td>
+    <td>http://loinc.org · 2571-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1965-04-07</td>
+    <td>Cholesterol in HDL [Mass/volume] in Serum or Plasma</td>
+    <td>42 mg/dL<div class="muted">Reference 40 or more</div></td>
+    <td>http://loinc.org · 2085-9</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1965-04-07</td>
+    <td>Cholesterol in LDL [Mass/volume] in Serum or Plasma by calculation</td>
+    <td>142 mg/dL (high)<div class="muted">Reference Below 130</div></td>
+    <td>http://loinc.org · 13457-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1965-04-07</td>
+    <td>Q-T interval corrected</td>
+    <td>412 ms<div class="muted">Reference Above 450 ms is prolonged in men</div></td>
+    <td>http://loinc.org · 8636-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1965-04-07</td>
+    <td>Glomerular filtration rate [Volume Rate/Area] in Serum, Plasma or Blood by Creatinine-based formula (CKD-EPI 1960)/1.73 sq M</td>
+    <td>95 mL/min/1.73 m²<div class="muted">Reference 60 or more</div></td>
+    <td>http://loinc.org · 98979-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1965-04-07</td>
+    <td>Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]</td>
+    <td>17</td>
+    <td>http://loinc.org · 44261-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1965-04-07</td>
+    <td>Generalized anxiety disorder 7 item (GAD-7) total score [Reported.PHQ]</td>
+    <td>11</td>
+    <td>http://loinc.org · 70274-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1965-04-07</td>
+    <td>PC-PTSD-5 score [PC-PTSD-5]</td>
+    <td>2</td>
+    <td>http://loinc.org · 102017-1</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1965-04-07</td>
+    <td>Total score [AUDIT-C]</td>
+    <td>2</td>
+    <td>http://loinc.org · 75626-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1965-05-12</td>
+    <td>Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]</td>
+    <td>13</td>
+    <td>http://loinc.org · 44261-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1965-04-20</td>
+    <td>Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]</td>
+    <td>16</td>
+    <td>http://loinc.org · 44261-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1965-06-02</td>
+    <td>Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]</td>
+    <td>11</td>
+    <td>http://loinc.org · 44261-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1965-06-02</td>
+    <td>Generalized anxiety disorder 7 item (GAD-7) total score [Reported.PHQ]</td>
+    <td>7</td>
+    <td>http://loinc.org · 70274-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1965-06-02</td>
+    <td>Albumin/Creatinine [Mass Ratio] in Urine</td>
+    <td>8 mg/g<div class="muted">Reference Below 30</div></td>
+    <td>http://loinc.org · 9318-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1965-07-14</td>
+    <td>Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]</td>
+    <td>8</td>
+    <td>http://loinc.org · 44261-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1965-07-14</td>
+    <td>Generalized anxiety disorder 7 item (GAD-7) total score [Reported.PHQ]</td>
+    <td>5</td>
+    <td>http://loinc.org · 70274-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1965-07-14</td>
+    <td>PC-PTSD-5 score [PC-PTSD-5]</td>
+    <td>1</td>
+    <td>http://loinc.org · 102017-1</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1965-09-15</td>
+    <td>Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]</td>
+    <td>4</td>
+    <td>http://loinc.org · 44261-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1965-09-15</td>
+    <td>Cholesterol [Mass/volume] in Serum or Plasma</td>
+    <td>196 mg/dL<div class="muted">Reference Below 200</div></td>
+    <td>http://loinc.org · 2093-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1965-09-15</td>
+    <td>Triglyceride [Mass/volume] in Serum or Plasma</td>
+    <td>120 mg/dL<div class="muted">Reference Below 150</div></td>
+    <td>http://loinc.org · 2571-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1965-09-15</td>
+    <td>Cholesterol in HDL [Mass/volume] in Serum or Plasma</td>
+    <td>45 mg/dL<div class="muted">Reference 40 or more</div></td>
+    <td>http://loinc.org · 2085-9</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1965-09-15</td>
+    <td>Cholesterol in LDL [Mass/volume] in Serum or Plasma by calculation</td>
+    <td>127 mg/dL<div class="muted">Reference Below 130</div></td>
+    <td>http://loinc.org · 13457-7</td>
+  </tr></tbody></table></section>
+    <section><h2>Synthetic vital signs</h2><table><thead><tr><th>Date</th><th>Measure</th><th>Result</th><th>LOINC</th><th>Grade</th></tr></thead><tbody>
+  <tr><td>1965-04-07</td><td>Body height</td><td>170 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1965-04-07</td><td>Body weight</td><td>84 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1965-04-07</td><td>Body mass index (BMI) [Ratio]</td><td>29.1 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1965-04-07</td><td>Systolic blood pressure</td><td>138 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1965-04-07</td><td>Diastolic blood pressure</td><td>88 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1965-04-07</td><td>Heart rate</td><td>84 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1965-04-07</td><td>Respiratory rate</td><td>16 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1965-04-07</td><td>Body temperature</td><td>36.7 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1965-04-07</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>98 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1965-04-20</td><td>Body height</td><td>170 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1965-04-20</td><td>Body weight</td><td>84.2 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1965-04-20</td><td>Body mass index (BMI) [Ratio]</td><td>29.1 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1965-04-20</td><td>Systolic blood pressure</td><td>136 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1965-04-20</td><td>Diastolic blood pressure</td><td>86 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1965-04-20</td><td>Heart rate</td><td>80 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1965-04-20</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1965-04-20</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1965-04-20</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>98 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1965-06-02</td><td>Body height</td><td>170 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1965-06-02</td><td>Body weight</td><td>84.6 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1965-06-02</td><td>Body mass index (BMI) [Ratio]</td><td>29.3 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1965-06-02</td><td>Systolic blood pressure</td><td>134 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1965-06-02</td><td>Diastolic blood pressure</td><td>86 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1965-06-02</td><td>Heart rate</td><td>76 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1965-06-02</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1965-06-02</td><td>Body temperature</td><td>36.7 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1965-06-02</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>98 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1965-07-14</td><td>Body height</td><td>170 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1965-07-14</td><td>Body weight</td><td>84 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1965-07-14</td><td>Body mass index (BMI) [Ratio]</td><td>29.1 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1965-07-14</td><td>Systolic blood pressure</td><td>130 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1965-07-14</td><td>Diastolic blood pressure</td><td>84 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1965-07-14</td><td>Heart rate</td><td>72 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1965-07-14</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1965-07-14</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1965-07-14</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>98 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1965-09-15</td><td>Body height</td><td>170 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1965-09-15</td><td>Body weight</td><td>82.8 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1965-09-15</td><td>Body mass index (BMI) [Ratio]</td><td>28.7 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1965-09-15</td><td>Systolic blood pressure</td><td>128 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1965-09-15</td><td>Diastolic blood pressure</td><td>82 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1965-09-15</td><td>Heart rate</td><td>70 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1965-09-15</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1965-09-15</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1965-09-15</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>98 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1965-05-12</td><td>Body height</td><td>170 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1965-05-12</td><td>Body weight</td><td>84.4 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1965-05-12</td><td>Body mass index (BMI) [Ratio]</td><td>29.2 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1965-05-12</td><td>Systolic blood pressure</td><td>134 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1965-05-12</td><td>Diastolic blood pressure</td><td>86 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1965-05-12</td><td>Heart rate</td><td>78 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1965-05-12</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1965-05-12</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1965-05-12</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>98 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1965-08-04</td><td>Body height</td><td>170 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1965-08-04</td><td>Body weight</td><td>83.4 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1965-08-04</td><td>Body mass index (BMI) [Ratio]</td><td>28.9 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1965-08-04</td><td>Systolic blood pressure</td><td>128 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1965-08-04</td><td>Diastolic blood pressure</td><td>82 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1965-08-04</td><td>Heart rate</td><td>82 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1965-08-04</td><td>Respiratory rate</td><td>16 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1965-08-04</td><td>Body temperature</td><td>37.2 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1965-08-04</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>97 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr></tbody></table></section>
+    <section><h2>Social, functional, and mental status</h2><h3>Social history</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Baptist minister and the president of a national civil rights organization; travels most weeks, speaks several times a day, and works late into the night</li><li><span class="badge grade-S" title="Synthetic">S</span> Married, with four young children; lives in Atlanta; his faith and his congregation are central to his life</li><li><span class="badge grade-S" title="Synthetic">S</span> Lives under sustained threat: his home was bombed nine years ago, he was stabbed seven years ago, he receives threats by telephone and mail, and he has reason to believe his calls are monitored</li><li><span class="badge grade-S" title="Synthetic">S</span> Tobacco: about a pack of cigarettes a day since his twenties, kept out of public view and away from his children; has never tried to quit with help. Alcohol: occasional, AUDIT-C 2. No other drugs</li><li><span class="badge grade-S" title="Synthetic">S</span> Racism and segregation have shaped his daily life, his work and his family&#39;s safety; he has been jailed repeatedly for nonviolent protest</li></ul><h3>Functional status</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Independent and working full time, but drained after speaking, unable to rest on days off, and forgetting small things</li></ul><h3>Mental status</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Composed, courteous and eloquent; tired; mood low, affect constricted but warm; speaks calmly of the likelihood that he will be killed, without any wish to die; no suicidal ideation, intent or plan; no psychotic features; insight and judgment good</li></ul></section>
+    <section><h2>Structured safety assessment</h2><div class="grid"><div class="card"><div class="label">Current ideation</div>absent</div><div class="card"><div class="label">Intent</div>absent</div><div class="card"><div class="label">Plan</div>absent</div><div class="card"><div class="label">Disposition</div>No suicidal ideation, intent, plan or past suicide attempt. He expects that he may be killed and has accepted the risk, which is a realistic appraisal, not a wish to die. Risk factors weighed: an impulsive act of self-injury in grief at twelve, an anonymous letter urging him to end his life, depression, insomnia and isolation of leadership. Outpatient care with a safety plan, the 988 Suicide &amp; Crisis Lifeline and the clinic number, and review at every visit</div></div><p class="muted">This assessment is synthetic and does not convert historical behavior into a present-day fact.</p></section>
+    <section><h2>Allergies and medications</h2><h3>Allergies</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> No known allergy</li></ul><h3>Medications</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Varenicline 0.5 mg tablet, one by mouth once daily for 3 days, then twice daily for 4 days</li><li><span class="badge grade-S" title="Synthetic">S</span> Varenicline 1 mg tablet, one by mouth twice daily after food</li><li><span class="badge grade-S" title="Synthetic">S</span> Acetaminophen 500 mg tablet, one or two by mouth every 6 hours as needed for chest-wall aching with the cough, no more than 3,000 mg a day</li><li><span class="badge grade-S" title="Synthetic">S</span> Sertraline 25 mg tablet, one by mouth each morning for one week</li><li><span class="badge grade-S" title="Synthetic">S</span> Sertraline 50 mg tablet, one by mouth each morning</li></ul></section>
+    <section><h2>Procedures and immunizations</h2><h3>Procedures</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Resting twelve-lead electrocardiogram</li><li><span class="badge grade-S" title="Synthetic">S</span> Advance care planning conversation, about 18 minutes</li></ul><h3>Immunizations</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> 1965-05-12: Tdap vaccine</li></ul></section>
+    <section><h2>Past medical history</h2><p class="muted">True biography with historical dates; not part of the synthetic care timeline.</p><ul><li><span class="badge grade-D" title="Documented">D</span> seven years ago: Stab wound of the upper left chest, close to the aorta, repaired at thoracic surgery seven years ago, with a full recovery over about five weeks <span class="muted">(CLM-0007)</span></li><li><span class="badge grade-D" title="Documented">D</span> six months ago: Admission for several days&#39; rest for exhaustion and a respiratory infection six months ago <span class="muted">(CLM-0010)</span></li><li><span class="badge grade-D" title="Documented">D</span> age twelve: An impulsive act of self-injury in grief at twelve, after his grandmother&#39;s death; he has not described it as a suicide attempt <span class="muted">(CLM-0003)</span></li><li><span class="badge grade-D" title="Documented">D</span> the past five years: Repeated arrests and jailings over the past five years, including two weeks in jail and a sentence of hard labor <span class="muted">(CLM-0008)</span></li></ul><h3>Family history</h3><p class="muted">No family medical history is documented in the logged sources. Family history of real relatives is never synthesized.</p></section>
+    <section><h2>Care-plan goals</h2><table><thead><tr><th>Goal</th><th>Target date</th><th>Status</th><th>Outcome</th></tr></thead><tbody>
+  <tr><td>Depression remission (PHQ-9 below 5) by six months</td><td>1965-09-15</td><td>completed</td><td>PHQ-9 4 at twenty-three weeks, from 17</td></tr>
+  <tr><td>Sleep of at least six and a half hours on most nights, with an Insomnia Severity Index below 10</td><td>1965-09-15</td><td>completed</td><td>About seven hours on most nights; ISI 7 at twenty-three weeks</td></tr>
+  <tr><td>Smoke-free, confirmed at every visit after the quit date</td><td>1965-11-30</td><td>active</td><td>Smoke-free since the quit date except one lapse in June; finishing a second twelve weeks of varenicline</td></tr>
+  <tr><td>Home blood pressure below 130/80 mmHg with lifestyle changes</td><td>1965-12-31</td><td>active</td><td>Home average 128/82 at twenty-three weeks, from 136/86</td></tr>
+  <tr><td>A sustainable schedule: one full day a week without work, no more than two speeches a day, and a two-week break in the summer</td><td>1965-07-14</td><td>completed</td><td>Kept for six weeks; two-week break taken in July</td></tr></tbody></table></section>
+    <section><h2>Interventions</h2><table><thead><tr><th>Intervention</th><th>Status</th><th>Guideline</th></tr></thead><tbody>
+  <tr><td>Psychiatry consultation in two weeks to confirm the diagnosis, assess for PTSD and safety, and advise on therapy and medicine</td><td>completed</td><td>GL-APA-DEP-2019, GL-PTSD-2023</td></tr>
+  <tr><td>Assessment at intake: blood count, metabolic panel, TSH, lipids, hemoglobin A1c and ECG; PHQ-9, GAD-7, PC-PTSD-5 and AUDIT-C; Insomnia Severity Index and sleep apnea screening; safety plan with the 988 Suicide &amp; Crisis Lifeline and the clinic number</td><td>completed</td><td>GL-CMID-2026, GL-SUICIDE-2024, GL-ACP-INSOMNIA-2016</td></tr>
+  <tr><td>Tobacco: advice to quit, an offer of counseling and medicine, and a quit plan agreed by shared decision</td><td>completed</td><td>GL-USPSTF-TOB-2021</td></tr>
+  <tr><td>Blood pressure: validated home monitoring, twice morning and evening for seven days, before a diagnosis is made</td><td>completed</td><td>GL-ACC-AHA-BP-2017, GL-USPSTF-HTN-2021, GL-CMID-2026</td></tr>
+  <tr><td>Privacy: a restricted chart with audited access, documentation kept to what care requires, and a choice of therapist, including a Black clinician if he prefers</td><td>completed</td><td>GL-APA-DEP-2019</td></tr>
+  <tr><td>Depression and insomnia: weekly cognitive behavioral therapy with CBT for insomnia (fixed rising time, a sleep window, no work in bed), respecting his faith; sertraline 25 mg daily for a week, then 50 mg, by shared decision; no hypnotic</td><td>completed</td><td>GL-APA-DEP-2019, GL-ACP-INSOMNIA-2016, GL-AASM-INSOMNIA-2021, GL-CMID-2026</td></tr>
+  <tr><td>A sustainable work plan: one full day a week without work, no more than two speeches a day, delegation of travel and correspondence, and a two-week break in the summer</td><td>completed</td><td>GL-APA-DEP-2019</td></tr>
+  <tr><td>Varenicline 0.5 mg daily for three days, twice daily for four days, then 1 mg twice daily for twelve weeks, with a quit date on day eight and weekly telephone counseling; mood and sleep watched</td><td>completed</td><td>GL-USPSTF-TOB-2021, GL-EAGLES-2016</td></tr>
+  <tr><td>Stage 1 hypertension at low estimated risk: lifestyle treatment (sodium below 1,500 to 2,300 mg a day, DASH-style eating, 150 minutes of activity a week, weight loss, no tobacco), home readings, urine albumin and a fundus examination; medicine if home readings stay at or above 130/80 after three to six months</td><td>completed</td><td>GL-ACC-AHA-BP-2017, GL-CMID-2026</td></tr></tbody></table></section>
+    <section><h2>Planned encounters</h2><ul>
+  <li><strong>1965-04-07</strong> — New patient visit for exhaustion, poor sleep and low mood: history, examination, ECG, blood tests, depression, anxiety, PTSD and safety screening, tobacco and blood pressure assessment, and a psychiatry referral <span class="muted">(ENC-001)</span></li>
+  <li><strong>1965-04-20</strong> — Two-week review and psychiatry consultation: diagnosis, safety, therapy and medicine <span class="muted">(ENC-002)</span></li>
+  <li><strong>1965-05-12</strong> — Periodic adult preventive visit <span class="muted">(ENC-006)</span></li>
+  <li><strong>1965-06-02</strong> — Eight-week review: mood, sleep, sertraline, smoking cessation and home blood pressure <span class="muted">(ENC-003)</span></li>
+  <li><strong>1965-07-14</strong> — Fourteen-week review: mood, sleep, varenicline, blood pressure and the work plan <span class="muted">(ENC-004)</span></li>
+  <li><strong>1965-08-04</strong> — Same-day sick visit for cough <span class="muted">(ENC-007, unscheduled)</span></li>
+  <li><strong>1965-09-15</strong> — Twenty-three-week review: remission, smoking, blood pressure and lipids <span class="muted">(ENC-005)</span></li></ul></section>
+    <section><h2>Supporting documents</h2><ul><li><a href="notes/hp.md">History and physical</a></li><li><a href="notes/progress-01.md">Progress note 01</a></li><li><a href="notes/progress-02.md">Progress note 02 — Focused Visit (Follow-up)</a></li><li><a href="notes/progress-03.md">Progress note 03 — Preventive Visit</a></li><li><a href="notes/progress-04.md">Progress note 04 — Focused Visit (Follow-up)</a></li><li><a href="notes/progress-05.md">Progress note 05 — Focused Visit (Follow-up)</a></li><li><a href="notes/progress-06.md">Progress note 06 — Sick Visit</a></li><li><a href="notes/progress-07.md">Progress note 07 — Focused Visit (Care-plan review)</a></li><li><a href="notes/referral-01.md">Psychiatry referral</a></li><li><a href="notes/consult-01.md">Psychiatry consultation</a></li><li><a href="notes/careplan.md">Patient care plan</a></li><li><a href="notes/teaching-note.md">Teaching note</a></li><li><a href="provenance.csv">Provenance CSV</a></li></ul></section>
+    <section><h2>C-CDA note documents</h2><p class="muted">Each link opens a readable copy; the XML beside it is the exchange file.</p><ul><li><a href="ccda/hp-01.html">History and physical</a> <a href="ccda/hp-01.xml">(XML)</a></li><li><a href="ccda/progress-01.html">Progress note 01</a> <a href="ccda/progress-01.xml">(XML)</a></li><li><a href="ccda/progress-02.html">Progress note 02 — Focused Visit (Follow-up)</a> <a href="ccda/progress-02.xml">(XML)</a></li><li><a href="ccda/progress-03.html">Progress note 03 — Preventive Visit</a> <a href="ccda/progress-03.xml">(XML)</a></li><li><a href="ccda/progress-04.html">Progress note 04 — Focused Visit (Follow-up)</a> <a href="ccda/progress-04.xml">(XML)</a></li><li><a href="ccda/progress-05.html">Progress note 05 — Focused Visit (Follow-up)</a> <a href="ccda/progress-05.xml">(XML)</a></li><li><a href="ccda/progress-06.html">Progress note 06 — Sick Visit</a> <a href="ccda/progress-06.xml">(XML)</a></li><li><a href="ccda/progress-07.html">Progress note 07 — Focused Visit (Care-plan review)</a> <a href="ccda/progress-07.xml">(XML)</a></li><li><a href="ccda/referral-01.html">Psychiatry referral</a> <a href="ccda/referral-01.xml">(XML)</a></li><li><a href="ccda/consult-01.html">Psychiatry consultation</a> <a href="ccda/consult-01.xml">(XML)</a></li></ul></section>
+    <section><h2>Sources</h2><table><thead><tr><th>ID</th><th>Source</th><th>Publisher</th><th>Type</th></tr></thead><tbody>
+  <tr>
+    <td>SRC-0001</td>
+    <td><a href="https://kinginstitute.stanford.edu/king-resources/major-king-events-chronology-1929-1968" target="_blank" rel="noreferrer">Major King Events Chronology: 1929-1968</a></td>
+    <td>The Martin Luther King, Jr. Research and Education Institute, Stanford University</td>
+    <td>scholarly</td>
+  </tr>
+  <tr>
+    <td>SRC-0002</td>
+    <td><a href="https://kinginstitute.stanford.edu/michael-king-born-0" target="_blank" rel="noreferrer">Michael King born (January 15, 1929)</a></td>
+    <td>The Martin Luther King, Jr. Research and Education Institute, Stanford University</td>
+    <td>scholarly</td>
+  </tr>
+  <tr>
+    <td>SRC-0003</td>
+    <td><a href="https://kinginstitute.stanford.edu/king-martin-luther-sr" target="_blank" rel="noreferrer">King, Martin Luther, Sr.</a></td>
+    <td>The Martin Luther King, Jr. Research and Education Institute, Stanford University</td>
+    <td>scholarly</td>
+  </tr>
+  <tr>
+    <td>SRC-0004</td>
+    <td><a href="https://ajc.com/news/atlanta-black-history/black-history-why-martin-luther-king-jrs-father-changed-their-names/PQSUL3LEJNEAVXBQXPNQU5YT6M/" target="_blank" rel="noreferrer">Clanton N. Black History: Why Martin Luther King Jr.&#39;s father changed their names</a></td>
+    <td>The Atlanta Journal-Constitution</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0005</td>
+    <td><a href="https://kinginstitute.stanford.edu/introduction-volume-i-called-serve" target="_blank" rel="noreferrer">Introduction, The Papers of Martin Luther King, Jr., Volume I: Called to Serve, January 1929-June 1951</a></td>
+    <td>The Martin Luther King, Jr. Research and Education Institute, Stanford University (University of California Press, 1992)</td>
+    <td>scholarly</td>
+  </tr>
+  <tr>
+    <td>SRC-0006</td>
+    <td><a href="https://kinginstitute.stanford.edu/encyclopedia/curry-izola-ware" target="_blank" rel="noreferrer">Curry, Izola Ware (encyclopedia entry)</a></td>
+    <td>The Martin Luther King, Jr. Research and Education Institute, Stanford University</td>
+    <td>scholarly</td>
+  </tr>
+  <tr>
+    <td>SRC-0007</td>
+    <td><a href="https://kinginstitute.stanford.edu/publications/autobiography-martin-luther-king-jr/chapter-12-brush-death" target="_blank" rel="noreferrer">Chapter 12: Brush with Death, The Autobiography of Martin Luther King, Jr. (ed. Clayborne Carson)</a></td>
+    <td>The Martin Luther King, Jr. Research and Education Institute, Stanford University</td>
+    <td>scholarly</td>
+  </tr>
+  <tr>
+    <td>SRC-0008</td>
+    <td><a href="https://kinginstitute.stanford.edu/encyclopedia/federal-bureau-investigation-fbi" target="_blank" rel="noreferrer">Federal Bureau of Investigation (FBI) (encyclopedia entry)</a></td>
+    <td>The Martin Luther King, Jr. Research and Education Institute, Stanford University</td>
+    <td>scholarly</td>
+  </tr>
+  <tr>
+    <td>SRC-0009</td>
+    <td><a href="https://www.historynewsnetwork.org/article/7823" target="_blank" rel="noreferrer">Auchmutey J. King&#39;s Nobel left Atlanta ambivalent (The Atlanta Journal-Constitution, October 3, 2004; reposted by History News Network)</a></td>
+    <td>History News Network</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0010</td>
+    <td><a href="https://kinginstitute.stanford.edu/nobel-peace-prize" target="_blank" rel="noreferrer">Nobel Peace Prize (encyclopedia entry)</a></td>
+    <td>The Martin Luther King, Jr. Research and Education Institute, Stanford University</td>
+    <td>scholarly</td>
+  </tr>
+  <tr>
+    <td>SRC-0011</td>
+    <td><a href="https://thekingcenter.org/about-tkc/martin-luther-king-jr/" target="_blank" rel="noreferrer">About Dr. King</a></td>
+    <td>The King Center</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0012</td>
+    <td><a href="https://www.wgbh.org/news/2016-01-15/the-accidental-wheelman-of-martin-luther-king-jr" target="_blank" rel="noreferrer">The accidental wheelman of Martin Luther King Jr. (NPR Morning Edition, January 15, 2016)</a></td>
+    <td>GBH News (NPR)</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0013</td>
+    <td><a href="https://time.com/archive/6708116/that-old-rugged-cross" target="_blank" rel="noreferrer">White JE. That old, rugged cross (review of David J. Garrow, Bearing the Cross)</a></td>
+    <td>TIME</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0014</td>
+    <td><a href="https://mindsitenews.org/2024/01/15/what-martin-luther-king-jr-knew-but-never-said/" target="_blank" rel="noreferrer">Pike KM. What Martin Luther King Jr. knew but never said</a></td>
+    <td>MindSite News</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0015</td>
+    <td><a href="https://santamariatimes.com/14-if-the-bullet-didn-t-kill-king-stress-might-have/image_dacfdf27-a630-550c-97cb-388105437ea8.html" target="_blank" rel="noreferrer">If the bullet didn&#39;t kill King, stress might have (photo caption)</a></td>
+    <td>Santa Maria Times</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0016</td>
+    <td><a href="https://humanrecord.example.org/internal/HISTMED_Master_Roster_v3.xlsx" target="_blank" rel="noreferrer">HISTMED Master Roster v3</a></td>
+    <td>The Human Record project</td>
+    <td>other</td>
+  </tr></tbody></table></section>
+    <section><h2>Review status</h2><table><thead><tr><th>Review</th><th>Status</th><th>Notes</th></tr></thead><tbody>
+  <tr><td>schema validation</td><td>not_started</td><td>Run scripts/build.ps1 -Conformance.</td></tr>
+  <tr><td>clinical review</td><td>not_started</td><td>Awaiting clinician review; check the DSM-5-TR choice of major depressive disorder over adjustment disorder; the decision that PTSD is not present when the threat is real and ongoing; the safety assessment; sertraline with CBT and CBT-I and no hypnotic; varenicline after sertraline in a patient with depression; the stage 1 hypertension plan without medicine at 36; lipids without a statin; and the bronchitis plan avoiding dextromethorphan with sertraline.</td></tr>
+  <tr><td>provenance review</td><td>not_started</td><td>The King Institute at Stanford (chronology, encyclopedia, the editors&#39; introduction to the Papers, Volume I, and the Autobiography), the King Center, the Atlanta Journal-Constitution, an NPR report, a TIME review of Garrow&#39;s biography, a 2024 commentary and a newspaper caption logged. The roster&#39;s &#39;suicide attempt at 12&#39; is corrected to the documented act of self-injury that he did not describe as a suicide attempt; the depression accounts and the autopsy report are graded R.</td></tr>
+  <tr><td>safe messaging review</td><td>not_started</td><td>The childhood act of self-injury and the FBI letter are each recorded once, in claims marked sensitive; the letter is not quoted. The modern safety assessment records no suicidal ideation and separates his expectation of being killed from any wish to die, with a safety plan and the 988 Suicide &amp; Crisis Lifeline. The assassination is history only, with no foreshadowing in the modern episode.</td></tr></tbody></table></section>
+  </main>
+</body>
+</html>
