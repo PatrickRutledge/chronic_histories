@@ -17,12 +17,36 @@ function Get-GeneratedFiles([string]$CaseDirectory) {
         @(Get-ChildItem -LiteralPath (Join-Path $CaseDirectory $Folder) -Filter $Filter -File -ErrorAction SilentlyContinue |
             Sort-Object Name | ForEach-Object { "$Folder/$($_.Name)" })
     }
-    # True-date variant, derived from the modern case (docs/date-shifting.md).
-    $trueDate = 'case.json', 'index.html', 'fhir-bundle.json', 'ccda.xml', 'ccda.html', 'provenance.csv' | ForEach-Object { "generated/true-date/$_" }
+    # True-date variant, derived from the modern case (docs/date-shifting.md). A patient born
+    # before 1 CE has none, because C-CDA and FHIR dates cannot carry the year.
+    $trueDate = if (Test-TrueDateFrameSupported (Join-Path $CaseDirectory 'case.json')) {
+        @('case.json', 'index.html', 'fhir-bundle.json', 'ccda.xml', 'ccda.html', 'provenance.csv' | ForEach-Object { "generated/true-date/$_" }) +
+            (& $listed 'generated/true-date/notes' '*.md') + (& $listed 'generated/true-date/ccda' '*.xml') + (& $listed 'generated/true-date/ccda' '*.html')
+    } else { @() }
     return @($fixed) +
         (& $listed 'generated/notes' '*.md') + (& $listed 'generated/ccda' '*.xml') + (& $listed 'generated/ccda' '*.html') +
-        $trueDate +
-        (& $listed 'generated/true-date/notes' '*.md') + (& $listed 'generated/true-date/ccda' '*.xml') + (& $listed 'generated/true-date/ccda' '*.html')
+        $trueDate
+}
+
+# Historical ISO dates may carry a sign (astronomical year numbering: -0099 is 100 BC). Read the
+# year as a number, never as the first four characters.
+function Get-IsoYear([string]$Iso) { return [int]([regex]::Match($Iso, '^-?\d+').Value) }
+
+# Orders two ISO dates of any precision: by year as a number, then by month and day.
+function Compare-IsoDate([string]$A, [string]$B) {
+    $byYear = (Get-IsoYear $A) - (Get-IsoYear $B)
+    if ($byYear -ne 0) { return [math]::Sign($byYear) }
+    return [string]::CompareOrdinal(($A -replace '^-?\d+', ''), ($B -replace '^-?\d+', ''))
+}
+
+# A true-date variant needs a true birth year of 1 CE or later (see scripts/lib/common.mjs).
+function Test-TrueDateFrameSupported([string]$CasePath) {
+    # An unreadable case counts as supported, so stale true-date outputs are still listed and
+    # removed, and the generators report the real error.
+    try {
+        $case = Get-Content -Raw -LiteralPath $CasePath -ErrorAction Stop | ConvertFrom-Json -ErrorAction Stop
+        return (Get-IsoYear $case.identity.historical_dates.birth.preferred.iso) -ge 1
+    } catch { return $true }
 }
 
 # Every case in the repository: pilots and test fixtures.

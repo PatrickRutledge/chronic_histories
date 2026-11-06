@@ -2,6 +2,7 @@
 // clinical, provenance, and safe-messaging reviews can be worked through without reading every note.
 // Everything is derived from case.json and the case's sources.md; nothing here is new content.
 import { INTERPRETATIONS, MONITORING_DOMAINS, PREVENTION_STATUS, isLab, visitLabels, withUnit } from "./episode.mjs";
+import { trueDateFrameSupported } from "./common.mjs";
 
 const esc = (value) => String(value ?? "").replaceAll("&", "&amp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;").replaceAll('"', "&quot;");
 // Minimal Markdown for sources.md bullets: bold, italics, and links.
@@ -62,7 +63,8 @@ export function reviewPage(data, sourcesText) {
 <h1>Review checklist: ${esc(data.identity.display_name)} (${esc(data.case_id)})</h1>
 <p><a href="index.html">Back to the record</a> · <a href="../sources.md">Dossier (sources.md)</a> · <a href="../terminology.md">Terminology</a></p>
 <p>Everything a reviewer needs to judge, gathered from the record. Release status: <strong>${esc(data.record_classification.public_release_status)}</strong>.</p>
-<ul>
+${trueDateFrameSupported(data) ? "" : `<p class="note">No true-date version: the patient was born before 1 CE, and C-CDA and FHIR dates cannot carry a year that early. The record exists in the modern frame only.</p>
+`}<ul>
   <li><span class="count">${resolutions.length}</span>judgment calls in the dossier</li>
   <li><span class="count">${deviations.length}</span>protocol deviations</li>
   <li><span class="count">${open.length}</span>orders and referrals without results in the record</li>

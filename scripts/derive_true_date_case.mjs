@@ -9,6 +9,7 @@
 // The derived case gets its own case ID and MRN so both frames can be loaded side by side.
 import fs from "node:fs";
 import path from "node:path";
+import { compareIso, isoYear, trueDateFrameSupported } from "./lib/common.mjs";
 
 const SUFFIX = "-TD";
 // Keys whose values are synthetic event dates. Any other key holding a full ISO date inside a
@@ -63,9 +64,10 @@ function shiftText(value, shift, at) {
 export function deriveTrueDateCase(source) {
   const data = structuredClone(source);
   if (data.synthetic_episode.calendar_frame !== "modern_shifted") throw new Error("Input must be a modern_shifted case.");
+  if (!trueDateFrameSupported(data)) throw new Error("No true-date variant: the patient was born before 1 CE, which C-CDA and FHIR dates cannot carry.");
   const trueBirth = data.identity.historical_dates.birth.preferred;
   const syntheticDob = data.identity.synthetic_identity.date_of_birth;
-  const shift = Number(syntheticDob.slice(0, 4)) - Number(trueBirth.iso.slice(0, 4));
+  const shift = isoYear(syntheticDob) - isoYear(trueBirth.iso);
   if (!(shift > 0)) throw new Error(`Shift must be positive, got ${shift}.`);
 
   const originals = new Set();
@@ -90,7 +92,7 @@ export function deriveTrueDateCase(source) {
   }
   // Every shifted event must fall within the patient's lifetime.
   const death = data.identity.historical_dates.death.preferred.iso;
-  const late = [...JSON.stringify(data.synthetic_episode.visit_schedule).matchAll(/\d{4}-\d{2}-\d{2}/g)].map(m => m[0]).filter(d => d > death);
+  const late = [...JSON.stringify(data.synthetic_episode.visit_schedule).matchAll(/\d{4}-\d{2}-\d{2}/g)].map(m => m[0]).filter(d => compareIso(d, death) > 0);
   if (late.length) throw new Error(`Shifted visits fall after the true death date ${death}: ${late.join(", ")}`);
 
   return { data, shift, originals: [...originals].sort() };
@@ -119,7 +121,10 @@ function verify(casePath, outputDir) {
 }
 
 const args = process.argv.slice(2);
-if (args[0] === "--verify") {
+if (args[0] === "--supported") {
+  // Prints yes or no: whether this case has a true-date variant.
+  console.log(trueDateFrameSupported(JSON.parse(fs.readFileSync(path.resolve(args[1]), "utf8"))) ? "yes" : "no");
+} else if (args[0] === "--verify") {
   verify(path.resolve(args[1]), path.resolve(args[2]));
 } else if (args.length === 2) {
   const { data, shift } = deriveTrueDateCase(JSON.parse(fs.readFileSync(path.resolve(args[0]), "utf8")));

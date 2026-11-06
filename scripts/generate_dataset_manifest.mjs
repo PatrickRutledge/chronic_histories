@@ -7,6 +7,7 @@ import crypto from "node:crypto";
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { isoYear } from "./lib/common.mjs";
 
 const repoRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const pilotsDir = path.join(repoRoot, "pilots");
@@ -50,7 +51,7 @@ function conformanceStatus(caseDir) {
 function row(caseDir) {
   const c = JSON.parse(fs.readFileSync(path.join(caseDir, "case.json"), "utf8"));
   const id = c.identity;
-  const deathYear = Number.parseInt(id.historical_dates.death.preferred.iso.slice(0, 4), 10);
+  const deathYear = isoYear(id.historical_dates.death.preferred.iso);
   const grades = c.claims.map(claim => claim.evidence_grade);
   const flags = [];
   if (c.record_classification.real_historical_name) flags.push("real_historical_name");

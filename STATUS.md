@@ -14,7 +14,7 @@ Every generated artifact must display:
 
 ## Current state (November 6, 2026)
 
-- 133 records: 3 pilots (`pilots/`) and 130 batch records in thirteen batches of ten (`cases/`). Every record passes CDA XSD, C-CDA R2.1 Schematron, the note documents, FHIR R4, and US Core 6.1.0 with 0 errors. `scripts/run_controls.ps1` runs 30 controls, all passing.
+- 133 records: 3 pilots (`pilots/`) and 130 batch records in thirteen batches of ten (`cases/`). Every record passes CDA XSD, C-CDA R2.1 Schematron, the note documents, FHIR R4, and US Core 6.1.0 with 0 errors. `scripts/run_controls.ps1` runs 31 controls, all passing.
 - Every record has an intake H&P, focused chronic-care visits with protocol monitoring tables (missed checks recorded as deviations, never filled with invented results), an adult preventive or annual wellness visit, a sick visit (except the recent-death records), a case-specific referral and consultation, and a review checklist (`generated/review.html`).
 - Open decision points are tracked as GitHub issues labeled `clinical-review`, one per patient (#2 to #75: the batch 5 items for Zelda Fitzgerald, Samuel Johnson, Beethoven and Darwin, and the judgment calls of batches 6 and 8 to 13). Each issue links to the record and its sources.md and lists its Editorial resolutions as a checklist. Batch 7 calls were accepted on November 4, and the Salon source for Florence Griffith Joyner was accepted on November 5, 2026.
 - All 133 records are drafts. The pilot reviews of November 2 were reopened on November 3 after the new visit types and consultations were added.

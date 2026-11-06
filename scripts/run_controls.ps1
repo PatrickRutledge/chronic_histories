@@ -96,6 +96,23 @@ try {
     $singleOk = $run.Exit -eq 0 -and $cdaName -match '^<given nullFlavor="NA"/><family>[^<]+</family>$'
     $results.Add([pscustomobject]@{ Control = 'single name with no given name'; Result = $(if ($singleOk) { 'PASS' } else { 'FAIL' }); Detail = $(if ($singleOk) { 'built; C-CDA given name is a null flavor' } elseif ($run.Exit -ne 0) { 'build failed' } else { "C-CDA name: $cdaName" }) })
 
+    # A patient born before 1 CE (signed astronomical years: -0099 is 100 BC) builds in the modern
+    # frame, reads the review-page note, and has no true-date variant.
+    $dir = New-ControlCase 'before-common-era' {
+        param($c)
+        $h = $c.identity.historical_dates
+        $h.birth.preferred.iso = '-0099-12-04'; $h.birth.preferred.display = 'December 4, 100 BC'; $h.birth.preferred.calendar = 'julian'
+        $h.death.preferred.iso = '-0043-03-15'; $h.death.preferred.display = 'March 15, 44 BC'; $h.death.preferred.calendar = 'julian'
+        $h.birth.alternatives = @(); $h.death.alternatives = @()
+        $c.clinical.past_medical_history[0].historical_date.iso = '-0068-01-03'
+        $c.historical_timeline[0].date.iso = '-0099-12-04'; $c.historical_timeline[1].date.iso = '-0069'
+        $c.historical_timeline[2].date.iso = '-0068-01-03'; $c.historical_timeline[4].date.iso = '-0043-03-15'
+    }
+    $run = Invoke-Script $build @('-CaseDirectory', $dir)
+    $review = Join-Path $dir 'generated/review.html'
+    $bceOk = $run.Exit -eq 0 -and -not (Test-Path (Join-Path $dir 'generated/true-date')) -and (Test-Path $review) -and ((Get-Content -Raw -LiteralPath $review) -match 'No true-date version')
+    $results.Add([pscustomobject]@{ Control = 'patient born before 1 CE'; Result = $(if ($bceOk) { 'PASS' } else { 'FAIL' }); Detail = $(if ($bceOk) { 'built; no true-date variant; review page says why' } elseif ($run.Exit -ne 0) { 'build failed' } else { 'true-date variant written or review note missing' }) })
+
     $dir = New-ControlCase 'grade' { param($c) $c.clinical.past_medical_history[2].provenance.evidence_grade = 'D' }
     Assert-Control 'history graded above its claims' (Invoke-Script $build @('-CaseDirectory', $dir)) 'graded D but its claims support R'
 

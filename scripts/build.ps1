@@ -39,12 +39,13 @@ foreach ($directory in $CaseDirectory) {
 
     # True-date variant: derive the case, render it with the same generators, and confirm that
     # no modern synthetic date survived.
+    # A patient born before 1 CE has no true-date variant (docs/date-shifting.md).
     $trueDateDir = Join-Path $generatedDir 'true-date'
     Remove-Item -Recurse -Force -LiteralPath $trueDateDir -ErrorAction SilentlyContinue
     $trueDateCase = Join-Path $trueDateDir 'case.json'
-    $steps = @(, @('derive_true_date_case.mjs', $casePath, $trueDateCase)) +
+    $steps = if (-not (Test-TrueDateFrameSupported $casePath)) { Write-Host "  No true-date variant: born before 1 CE"; @() } else { @(, @('derive_true_date_case.mjs', $casePath, $trueDateCase)) +
         @($generators | ForEach-Object { , @($_, $trueDateCase, $trueDateDir) }) +
-        @(, @('derive_true_date_case.mjs', '--verify', $casePath, $trueDateDir))
+        @(, @('derive_true_date_case.mjs', '--verify', $casePath, $trueDateDir)) }
     foreach ($step in $steps) {
         $output = & node (Join-Path $PSScriptRoot $step[0]) @($step | Select-Object -Skip 1) 2>&1
         if ($LASTEXITCODE -ne 0) {

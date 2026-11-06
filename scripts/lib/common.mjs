@@ -12,6 +12,20 @@ export const deterministicUuid = (seed) => {
 // Calendar frame. A true-date case is derived from the modern one by
 // scripts/derive_true_date_case.mjs and must say that its modern content is anachronistic.
 export const isTrueDateFrame = (data) => data.synthetic_episode.calendar_frame === "true_date";
+
+// Historical ISO dates may carry a sign: astronomical year numbering, so "-0099" is 100 BC and
+// "0000" is 1 BC. Read the year as a number, never as the first four characters.
+export const isoYear = (iso) => Number(/^-?\d+/.exec(iso)[0]);
+export const formatIsoYear = (year) => `${year < 0 ? "-" : ""}${String(Math.abs(year)).padStart(4, "0")}`;
+// Orders two ISO dates of any precision by year as a number, then by month and day. A date with
+// less precision sorts before more precise dates in the same year, as plain ISO strings do.
+export const compareIso = (a, b) => {
+  const rest = (iso) => iso.replace(/^-?\d+/, "");
+  return (isoYear(a) - isoYear(b)) || (rest(a) < rest(b) ? -1 : rest(a) > rest(b) ? 1 : 0);
+};
+// C-CDA (TS) and FHIR (date) cannot carry a year before 1, so a patient born before 1 CE has no
+// true-date variant (docs/date-shifting.md).
+export const trueDateFrameSupported = (data) => isoYear(data.identity.historical_dates.birth.preferred.iso) >= 1;
 export const frameLabel = (data) => isTrueDateFrame(data) ? "true historical dates (modern content is anachronistic)" : "modern shifted";
 export const TRUE_DATE_NOTICE = "True-date frame: synthetic events are moved into the patient's historical lifetime. Codes, instruments, and treatments remain modern and are anachronistic.";
 

@@ -71,6 +71,10 @@ The derivation fails if:
 
 Formal C-CDA and US Core validation runs on the modern frame only. The true-date files use the same templates and differ only in dates, identifiers, and the notice.
 
+### Patients born before 1 CE
+
+Historical dates before 1 CE use signed astronomical years: `-0099` is 100 BC and `0000` is 1 BC. Scripts read a year as a signed number, never as the first four characters. C-CDA (TS) and FHIR (`date`) cannot carry a year before 1, so a patient born before 1 CE has no true-date variant: the build skips `generated/true-date/`, the build manifest omits it, and the review page says why. The modern record, the synthetic birth date rule (1901 or later) and every other check are unchanged.
+
 ## Historical content in modern records
 
 Past medical history and family history describe the real person and real relatives. They carry their true historical dates in narrative form and must be graded `D` or `R` with linked claims. They are never synthesized, and their dates never enter coded entries in the modern frame.

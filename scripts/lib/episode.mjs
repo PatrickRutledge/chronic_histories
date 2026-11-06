@@ -1,17 +1,17 @@
 // Episode logic shared by the Markdown notes and the C-CDA note documents, so the two
 // renderings of the same visit cannot disagree.
-import { isTrueDateFrame } from "./common.mjs";
+import { compareIso, formatIsoYear, isTrueDateFrame, isoYear } from "./common.mjs";
 
 // Clinical notes are written at the index visit, so they cite only claims about events that had
 // happened by then in the true frame. The teaching note still lists every claim.
 export function claimsAtIndex(data) {
   const identity = data.identity;
-  const shiftYears = Number(identity.synthetic_identity.date_of_birth.slice(0, 4)) - Number(identity.historical_dates.birth.preferred.iso.slice(0, 4));
-  const indexYear = Number(data.synthetic_episode.index_date.slice(0, 4)) - (isTrueDateFrame(data) ? 0 : shiftYears);
-  const trueIndexDate = `${String(indexYear).padStart(4, "0")}${data.synthetic_episode.index_date.slice(4)}`;
+  const shiftYears = isoYear(identity.synthetic_identity.date_of_birth) - isoYear(identity.historical_dates.birth.preferred.iso);
+  const indexYear = isoYear(data.synthetic_episode.index_date) - (isTrueDateFrame(data) ? 0 : shiftYears);
+  const trueIndexDate = `${formatIsoYear(indexYear)}${data.synthetic_episode.index_date.replace(/^-?\d+/, "")}`;
   const afterIndex = claim => {
     const events = data.historical_timeline.filter(e => e.claim_ids.includes(claim.claim_id));
-    return events.length > 0 && events.every(e => e.date.iso && e.date.iso > trueIndexDate);
+    return events.length > 0 && events.every(e => e.date.iso && compareIso(e.date.iso, trueIndexDate) > 0);
   };
   const historical = data.claims.filter(claim => claim.evidence_grade !== "S");
   return { included: historical.filter(claim => !afterIndex(claim)), laterCount: historical.filter(afterIndex).length };

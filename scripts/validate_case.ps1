@@ -90,10 +90,12 @@ foreach ($item in @($case.clinical.past_medical_history) + @($case.clinical.fami
 
 # Past medical history is history as of the index visit, so it cannot include events after
 # the true-frame index date (the index date moved back by the whole-year date shift).
-$shiftYears = ([datetime]$case.identity.synthetic_identity.date_of_birth).Year - [int]$case.identity.historical_dates.birth.preferred.iso.Substring(0, 4)
-$trueIndex = ([datetime]$case.synthetic_episode.index_date).AddYears(-$shiftYears).ToString('yyyy-MM-dd')
+# Years are read as signed numbers, so a true frame before 1 CE compares correctly.
+$shiftYears = ([datetime]$case.identity.synthetic_identity.date_of_birth).Year - (Get-IsoYear $case.identity.historical_dates.birth.preferred.iso)
+$trueIndexYear = ([datetime]$case.synthetic_episode.index_date).Year - $shiftYears
+$trueIndex = ('{0}{1:D4}' -f $(if ($trueIndexYear -lt 0) { '-' } else { '' }), [math]::Abs($trueIndexYear)) + $case.synthetic_episode.index_date.Substring(4)
 foreach ($item in @($case.clinical.past_medical_history) | Where-Object { $_.historical_date.iso }) {
-    if ($item.historical_date.iso -gt $trueIndex.Substring(0, $item.historical_date.iso.Length)) { $errors.Add("$($item.id) is dated $($item.historical_date.iso), after the true-frame index date $trueIndex") }
+    if ((Compare-IsoDate $item.historical_date.iso $trueIndex) -gt 0 -and -not $trueIndex.StartsWith($item.historical_date.iso)) { $errors.Add("$($item.id) is dated $($item.historical_date.iso), after the true-frame index date $trueIndex") }
 }
 
 # Synthetic clinical dates must sit inside the modern frame: after the synthetic birth, not after the cutoff.
@@ -130,9 +132,10 @@ foreach ($id in @(Get-NestedIds $case.clinical) + @(Get-NestedIds $case.care_pla
 # The true-date distribution shifts the episode by whole years, so the synthetic birthday must keep the true month and day.
 $trueBirth = $case.identity.historical_dates.birth.preferred
 if ($trueBirth.precision -eq 'day') {
-    $trueDob = [datetime]$trueBirth.iso
-    $leapAdjusted = $trueDob.Month -eq 2 -and $trueDob.Day -eq 29 -and $dob.Month -eq 2 -and $dob.Day -eq 28
-    if (($trueDob.Month -ne $dob.Month -or $trueDob.Day -ne $dob.Day) -and -not $leapAdjusted) { $errors.Add('Synthetic date of birth does not keep the true month and day') }
+    # Month and day come from the string, because [datetime] cannot hold a year before 1 CE.
+    $trueMonth, $trueDay = [int[]]($trueBirth.iso -replace '^-?\d+-', '').Split('-')
+    $leapAdjusted = $trueMonth -eq 2 -and $trueDay -eq 29 -and $dob.Month -eq 2 -and $dob.Day -eq 28
+    if (($trueMonth -ne $dob.Month -or $trueDay -ne $dob.Day) -and -not $leapAdjusted) { $errors.Add('Synthetic date of birth does not keep the true month and day') }
 }
 
 foreach ($visit in $case.synthetic_episode.visit_schedule) {
