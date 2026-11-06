@@ -1,0 +1,490 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>William Shakespeare — The Human Record</title>
+  <style>
+    :root { --navy:#17365d; --blue:#1f4e78; --pale:#eef5fa; --ink:#1f2933; --muted:#66788a; --amber:#fff2cc; --red:#f8d7da; --green:#d9ead3; }
+    * { box-sizing:border-box; }
+    body { margin:0; font:16px/1.5 Arial, sans-serif; color:var(--ink); background:#f6f8fa; }
+    header { background:var(--navy); color:white; padding:24px max(24px,calc((100vw - 1180px)/2)); }
+    header h1 { margin:4px 0; font-size:30px; }
+    .banner { background:#b42318; color:white; font-weight:700; text-align:center; padding:10px; letter-spacing:.03em; }
+    main { max-width:1180px; margin:24px auto 60px; padding:0 24px; }
+    section { background:white; border:1px solid #d9e1e8; border-radius:8px; margin:18px 0; padding:20px; }
+    h2 { color:var(--navy); margin:0 0 14px; font-size:22px; }
+    h3 { color:var(--blue); }
+    .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:12px; }
+    .card { background:var(--pale); border-left:4px solid var(--blue); padding:12px; }
+    .label { color:var(--muted); font-size:13px; text-transform:uppercase; letter-spacing:.04em; }
+    table { width:100%; border-collapse:collapse; }
+    th { background:var(--blue); color:white; text-align:left; }
+    th,td { padding:9px; border-bottom:1px solid #dfe6ec; vertical-align:top; }
+    .badge { display:inline-block; min-width:28px; text-align:center; font-weight:700; border-radius:12px; padding:2px 8px; }
+    .grade-D { background:var(--green); } .grade-R { background:var(--amber); } .grade-S { background:var(--red); }
+    .muted { color:var(--muted); font-size:14px; }
+    .relationship { color:var(--muted); font-size:12px; }
+    .downloads a { display:inline-block; margin:4px 8px 4px 0; padding:8px 12px; background:var(--blue); color:white; text-decoration:none; border-radius:5px; }
+    @media (max-width:700px) { table { display:block; overflow-x:auto; } }
+  </style>
+</head>
+<body>
+  <div class="banner">SYNTHETIC RECORD, NOT A REAL MEDICAL RECORD</div>
+  <div class="banner">True-date frame: synthetic events are moved into the patient&#39;s historical lifetime. Codes, instruments, and treatments remain modern and are anachronistic.</div>
+  <header>
+    <div>The Human Record</div>
+    <h1>William Shakespeare</h1>
+    <div>Case HR-RE005-TD · Modern EHR teaching episode · Draft for review</div>
+  </header>
+  <main>
+    <section>
+      <h2>Review summary</h2>
+      <div class="grid">
+        <div class="card"><div class="label">Historical dates</div>Late April 1564 (Julian); not recorded. Traditionally 23 April (Julian), 3 May 1564 (Gregorian); baptized 26 April 1564 (Julian), 6 May 1564 (Gregorian) – 3 May 1616 (Gregorian; 23 April 1616, Julian)</div>
+        <div class="card"><div class="label">Synthetic DOB</div>1564-05-03</div>
+        <div class="card"><div class="label">Index visit</div>1616-01-12 at age 51</div>
+        <div class="card"><div class="label">Synthetic MRN</div>HR-RE005-SYN-TD</div>
+      </div>
+      <p><strong>Teaching objective:</strong> Evaluate a new tremor of the writing hand in a writer of 51: a history and examination that classify the tremor (rest, postural, kinetic; distribution; signs of parkinsonism, dystonia, or ataxia) against the MDS 1608 consensus; TSH, metabolic tests, and a medication, caffeine, and alcohol review with the AUDIT and a brief intervention for hazardous drinking; handwriting and Archimedes spiral samples and TETRAS ratings over time; propranolol, with primidone as the alternative, following the AAN 1601 guideline (reaffirmed 1615); occupational therapy for writing; a cold managed without decongestants on a beta-blocker; and prevention at 51, including vaccines, infection and fever precautions, and goals-of-care planning.</p>
+      <div class="downloads">
+        <a href="../case.json">Canonical JSON</a>
+        <a href="fhir-bundle.json">FHIR R4 draft</a>
+        <a href="ccda.html">C-CDA R2.1 summary</a> <a href="ccda.xml">(XML)</a>
+        <a href="../sources.md">Evidence dossier</a>
+      </div>
+    </section>
+    <section><h2>Historical timeline</h2><table><thead><tr><th>Date</th><th>Event</th><th>Claims</th></tr></thead><tbody>
+  <tr><td>6 May 1564 (26 April 1564, Julian)</td><td>Baptized at Holy Trinity Church, Stratford-upon-Avon; the birth date is not recorded.</td><td>CLM-0001</td></tr>
+  <tr><td>1582</td><td>Marries Anne Hathaway, at eighteen.</td><td>CLM-0003</td></tr>
+  <tr><td>1585</td><td>Twins Judith and Hamnet born; Hamnet dies at eleven.</td><td>CLM-0003</td></tr>
+  <tr><td>1597</td><td>Buys New Place in Stratford.</td><td>CLM-0004</td></tr>
+  <tr><td>4 April 1616 (25 March 1616, Julian)</td><td>Signs his revised will, three times.</td><td>CLM-0005, CLM-0006</td></tr>
+  <tr><td>3 May 1616 (23 April 1616, Julian)</td><td>Dies at Stratford; buried two days later. Cause unknown.</td><td>CLM-0007</td></tr>
+  <tr><td>1662 to 1663</td><td>The vicar of Stratford records the story of a merry meeting and a fever.</td><td>CLM-0008</td></tr>
+  <tr><td>2001 to 2005</td><td>Retrospective claims about pipe residues and about syphilis and mercury; both disputed.</td><td>CLM-0009, CLM-0010</td></tr></tbody></table></section>
+    <section><h2>Evidence claims</h2><p class="muted">D = documented, R = retrospective, S = synthetic.</p><table><thead><tr><th>Grade</th><th>Claim</th><th>Certainty</th><th>Sources</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>William Shakespeare was born in Stratford-upon-Avon in April 1564; the exact date of his birth is not recorded, although it is most often celebrated on 23 April. His baptism is recorded in the parish register of Holy Trinity Church on Wednesday 26 April 1564 (Julian; 6 May 1564, Gregorian), in Latin, as &#39;Gulielmus filius Johannes Shakspere&#39;. Baptisms typically took place within three days of birth.</strong><div class="muted">The birth date is undocumented; 23 April is a tradition.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.shakespeare.org.uk/explore-shakespeare/shakespedia/william-shakespeare/when-was-shakespeare-born/" target="_blank" rel="noreferrer">When Was Shakespeare Born?</a> <span class="relationship">supports</span><br><a href="https://shakespeare.org.uk/explore-shakespeare/blogs/birth-and-burial-records-william-shakespeare" target="_blank" rel="noreferrer">The Birth and Burial Records of William Shakespeare (2012)</a> <span class="relationship">supports</span><br><a href="https://www.rmg.co.uk/sites/default/files/Calendars-from-around-the-world.pdf" target="_blank" rel="noreferrer">Calendars from around the world</a> <span class="relationship">context</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>His father, John Shakespeare, was a glover who also traded in wool and lent money, served on the town council, and became high bailiff in 1568. Before William was born his parents had lost two infant daughters, Joan within the first few weeks of her life and Margaret a year after she was born; a younger sister, Anne, died at the age of eight.</strong><div class="muted">Causes of these deaths are not recorded in the cited source.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.shakespeare.org.uk/explore-shakespeare/shakespedia/william-shakespeare/william-shakespeares-family/" target="_blank" rel="noreferrer">William Shakespeare&#39;s Family</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>At eighteen he married Anne Hathaway of Shottery; their daughter Susanna was born six months after the marriage, followed by the twins Judith and Hamnet in 1585. Hamnet died at the age of eleven.</strong><div class="muted">The cause of Hamnet&#39;s death is not recorded in the cited source.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.shakespeare.org.uk/explore-shakespeare/shakespedia/william-shakespeare/william-shakespeares-family/" target="_blank" rel="noreferrer">William Shakespeare&#39;s Family</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>His wife and children remained in Stratford while he worked in London, and in 1597 he bought New Place, a large house in the centre of the town, which was his family home.</strong></td>
+    <td>confirmed</td>
+    <td><a href="https://www.shakespeare.org.uk/explore-shakespeare/shakespedia/william-shakespeare/shakespeare-and-stratford/" target="_blank" rel="noreferrer">Shakespeare and Stratford</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>His will, made on 25 March 1616 (Julian; 4 April, Gregorian) and proved on 22 June 1616, opens with the words &#39;in perfect health and memory, God be praised&#39;, a typical phrase of the time. It is written on three sheets, each bearing his signature; these are three of the six surviving examples of his signature. Its first leaf has &#39;January&#39; struck out and replaced with &#39;March&#39;, and scholars have suggested that it was drafted in January and revised on 25 March.</strong><div class="muted">The formula does not establish his state of health.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://shakespearedocumented.folger.edu/resource/document/william-shakespeares-last-will-and-testament-original-copy-including-three" target="_blank" rel="noreferrer">William Shakespeare&#39;s last will and testament: original copy including three signatures (The National Archives, PROB 1/4)</a> <span class="relationship">supports</span><br><a href="https://www.nationalarchives.gov.uk/explore-the-collection/stories/william-shakespeare/" target="_blank" rel="noreferrer">William Shakespeare: a documentary heritage</a> <span class="relationship">supports</span><br><a href="https://www.shakespeare.org.uk/explore-shakespeare/shakespedia/william-shakespeare/shakespeare-death/" target="_blank" rel="noreferrer">How did Shakespeare Die?</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-R" title="Retrospective">R</span></td>
+    <td><strong>The Folger Shakespeare Library describes the three signatures on the will as written in shaky strokes of the pen, suggestive of someone who had trouble holding a writing implement because of illness, and notes that if he was ill and signing from bed at an awkward angle the shakiness would not be remarkable; his other three signatures show similar slight variation. An archivist writing for The National Archives argued in 2016 that he was not seriously or chronically ill in January 1616 but probably fell seriously ill quite suddenly in late March and deteriorated over the next four weeks.</strong><div class="muted">Interpretations of handwriting and of the will&#39;s revisions; no symptom is recorded, and other explanations (posture, age, the act of signing at the foot of a sheet) are offered by the same source.</div></td>
+    <td>possible</td>
+    <td><a href="https://shakespearedocumented.folger.edu/resource/document/william-shakespeares-last-will-and-testament-original-copy-including-three" target="_blank" rel="noreferrer">William Shakespeare&#39;s last will and testament: original copy including three signatures (The National Archives, PROB 1/4)</a> <span class="relationship">supports</span><br><a href="http://web.archive.org/web/20250708201503/https://blog.nationalarchives.gov.uk/shakespeares-will-new-interpretation/" target="_blank" rel="noreferrer">Shakespeare&#39;s will: a new interpretation (2016)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>He died at Stratford on 23 April 1616 (Julian; 3 May 1616, Gregorian), the date given on his monument in Holy Trinity Church, and his burial is recorded in the parish register on 25 April 1616 (Julian) as &#39;Will Shakspere gent.&#39; The Shakespeare Birthplace Trust states that the cause of his death is not known.</strong><div class="muted">Record the death as a fact; the cause is unknown.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.shakespeare.org.uk/explore-shakespeare/shakespedia/william-shakespeare/shakespeare-death/" target="_blank" rel="noreferrer">How did Shakespeare Die?</a> <span class="relationship">supports</span><br><a href="https://shakespeare.org.uk/explore-shakespeare/blogs/birth-and-burial-records-william-shakespeare" target="_blank" rel="noreferrer">The Birth and Burial Records of William Shakespeare (2012)</a> <span class="relationship">supports</span><br><a href="https://www.rmg.co.uk/sites/default/files/Calendars-from-around-the-world.pdf" target="_blank" rel="noreferrer">Calendars from around the world</a> <span class="relationship">context</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-R" title="Retrospective">R</span></td>
+    <td><strong>John Ward, vicar of Stratford-upon-Avon and a physician, wrote in his notebook of 1662 to 1663 that &#39;Shakespeare, Drayton, and Ben Jonson had a merry meeting and it seems drank too hard for Shakespeare died of a fever there contracted&#39;; the Folger Shakespeare Library calls it the only known account of his death.</strong><div class="muted">Hearsay written down more than forty years after the death; often dismissed, though The National Archives&#39; 2016 essay suggests it may deserve reconsideration. It is not evidence of his drinking habits.</div></td>
+    <td>possible</td>
+    <td><a href="https://shakespearedocumented.folger.edu/node/211" target="_blank" rel="noreferrer">John Ward&#39;s notebook: only known account of Shakespeare&#39;s death and other references (Folger Shakespeare Library V.a.292, 1662-1663)</a> <span class="relationship">supports</span><br><a href="http://web.archive.org/web/20250708201503/https://blog.nationalarchives.gov.uk/shakespeares-will-new-interpretation/" target="_blank" rel="noreferrer">Shakespeare&#39;s will: a new interpretation (2016)</a> <span class="relationship">context</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-R" title="Retrospective">R</span></td>
+    <td><strong>A 2001 chemical study of 24 fragments of seventeenth-century clay pipes from Stratford-upon-Avon and its surroundings reported residues suggestive of cannabis in eight, four of them from the garden of his property, and of Peruvian cocaine in two, neither of which came from his property. The researchers stressed that the results do not show that he smoked any of these pipes.</strong><div class="muted">The pipes cannot be linked to him or dated to his household; the cocaine-bearing pipes came from elsewhere.</div></td>
+    <td>disputed</td>
+    <td><a href="https://www.wits.ac.za/news/latest-news/research-news/2024/2024-01/doobee-or-not-doobee.html" target="_blank" rel="noreferrer">Doobee or not doobee? (1 January 2024), on the 2001 South African Journal of Science study of clay pipe residues from Stratford-upon-Avon</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-R" title="Retrospective">R</span></td>
+    <td><strong>A 2005 article in Clinical Infectious Diseases proposed, from his writings, the sonnets, and contemporary gossip, that he had syphilis and that a late-life decline in output, tremor, social withdrawal, and hair loss were due to mercury poisoning from its treatment.</strong><div class="muted">A speculative hypothesis drawn from literary evidence; it was answered by letters in the same journal, and no documentary record of the disease, its treatment, or a tremor exists.</div></td>
+    <td>disputed</td>
+    <td><a href="https://pubmed.ncbi.nlm.nih.gov/15668863/" target="_blank" rel="noreferrer">Shakespeare&#39;s chancre: did the bard have syphilis? Clin Infect Dis 2005;40(3):399-404. PMID 15668863</a> <span class="relationship">supports</span></td>
+  </tr></tbody></table></section>
+    <section><h2>Modern synthetic problem list</h2><table><thead><tr><th>Grade</th><th>Problem</th><th>Clinical status</th><th>Verification</th><th>Placement</th><th>Historical claims</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Tremor of the writing hand for six months, with shaky, effortful handwriting and spilling from cups; under evaluation</td>
+    <td>resolved</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td>CLM-0006</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Essential tremor (MDS 1608 criteria): bilateral upper-limb postural and kinetic tremor, right more than left, for at least three years, worse over six months, without head or voice tremor or other neurological signs; enhanced by alcohol rebound and caffeine; thyroid and metabolic causes excluded</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>both_with_link</td>
+    <td>CLM-0006</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Hazardous drinking (AUDIT 12; about 24 standard drinks a week with heavier evenings with friends), without an alcohol use disorder; raised GGT</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Acute viral upper respiratory infection (common cold) with a low-grade fever, one week after starting propranolol; resolved</td>
+    <td>resolved</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td></td>
+  </tr></tbody></table></section>
+    <section><h2>Synthetic outcome measures</h2><table><thead><tr><th>Grade</th><th>Date</th><th>Measure</th><th>Result</th><th>Coding</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1616-01-12</td>
+    <td>Thyrotropin [Units/volume] in Serum or Plasma</td>
+    <td>1.6 mIU/L<div class="muted">Reference 0.4-4 mIU/L</div></td>
+    <td>http://loinc.org · 3016-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1616-01-12</td>
+    <td>Sodium [Moles/volume] in Serum or Plasma</td>
+    <td>139 mmol/L<div class="muted">Reference 135-145 mmol/L</div></td>
+    <td>http://loinc.org · 2951-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1616-01-12</td>
+    <td>Potassium [Moles/volume] in Serum or Plasma</td>
+    <td>4.2 mmol/L<div class="muted">Reference 3.5-5.1 mmol/L</div></td>
+    <td>http://loinc.org · 2823-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1616-01-12</td>
+    <td>Creatinine [Mass/volume] in Serum or Plasma</td>
+    <td>0.96 mg/dL<div class="muted">Reference 0.74-1.35 mg/dL</div></td>
+    <td>http://loinc.org · 2160-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1616-01-12</td>
+    <td>Glomerular filtration rate [Volume Rate/Area] in Serum, Plasma or Blood by Creatinine-based formula (CKD-EPI 1611)/1.73 sq M</td>
+    <td>96 mL/min/1.73 m²<div class="muted">Reference &gt;=60 mL/min/1.73 m²</div></td>
+    <td>http://loinc.org · 98979-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1616-01-12</td>
+    <td>Glucose [Mass/volume] in Serum or Plasma</td>
+    <td>92 mg/dL<div class="muted">Reference 70-99 mg/dL</div></td>
+    <td>http://loinc.org · 2345-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1616-01-12</td>
+    <td>Calcium [Mass/volume] in Serum or Plasma</td>
+    <td>9.4 mg/dL<div class="muted">Reference 8.6-10.3 mg/dL</div></td>
+    <td>http://loinc.org · 17861-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1616-01-12</td>
+    <td>Alanine aminotransferase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>41 U/L<div class="muted">Reference 7-55 U/L</div></td>
+    <td>http://loinc.org · 1742-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1616-01-12</td>
+    <td>Aspartate aminotransferase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>44 U/L<div class="muted">Reference 8-48 U/L</div></td>
+    <td>http://loinc.org · 1920-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1616-01-12</td>
+    <td>Gamma glutamyl transferase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>84 U/L (high)<div class="muted">Reference 8-61 U/L</div></td>
+    <td>http://loinc.org · 2324-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1616-01-12</td>
+    <td>Hemoglobin [Mass/volume] in Blood</td>
+    <td>15.1 g/dL<div class="muted">Reference 13.2-16.6 g/dL</div></td>
+    <td>http://loinc.org · 718-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1616-01-12</td>
+    <td>MCV [Entitic mean volume] in Red Blood Cells by Automated count</td>
+    <td>99 fL<div class="muted">Reference 80-100 fL</div></td>
+    <td>http://loinc.org · 787-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1616-01-12</td>
+    <td>Platelets [#/volume] in Blood by Automated count</td>
+    <td>212 10*3/uL<div class="muted">Reference 150-400 10*3/uL</div></td>
+    <td>http://loinc.org · 777-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1616-01-12</td>
+    <td>Total score [AUDIT]</td>
+    <td>12</td>
+    <td>http://loinc.org · 75624-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1616-02-16</td>
+    <td>Cholesterol [Mass/volume] in Serum or Plasma</td>
+    <td>204 mg/dL (high)<div class="muted">Reference &lt;=199 mg/dL</div></td>
+    <td>http://loinc.org · 2093-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1616-02-16</td>
+    <td>Cholesterol in HDL [Mass/volume] in Serum or Plasma</td>
+    <td>52 mg/dL<div class="muted">Reference &gt;=40 mg/dL</div></td>
+    <td>http://loinc.org · 2085-9</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1616-02-16</td>
+    <td>Cholesterol in LDL [Mass/volume] in Serum or Plasma by calculation</td>
+    <td>128 mg/dL<div class="muted">Reference &lt;=129 mg/dL</div></td>
+    <td>http://loinc.org · 13457-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1616-02-16</td>
+    <td>Triglyceride [Mass/volume] in Serum or Plasma</td>
+    <td>122 mg/dL<div class="muted">Reference &lt;=149 mg/dL</div></td>
+    <td>http://loinc.org · 2571-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1616-02-16</td>
+    <td>Hemoglobin A1c/Hemoglobin.total in Blood</td>
+    <td>5.4%<div class="muted">Reference &lt;=5.6%</div></td>
+    <td>http://loinc.org · 4548-4</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1616-02-16</td>
+    <td>Patient Health Questionnaire 2 item (PHQ-2) total score [Reported]</td>
+    <td>0</td>
+    <td>http://loinc.org · 55758-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1616-03-23</td>
+    <td>Gamma glutamyl transferase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>49 U/L<div class="muted">Reference 8-61 U/L</div></td>
+    <td>http://loinc.org · 2324-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1616-03-23</td>
+    <td>Alanine aminotransferase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>30 U/L<div class="muted">Reference 7-55 U/L</div></td>
+    <td>http://loinc.org · 1742-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1616-03-23</td>
+    <td>Aspartate aminotransferase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>29 U/L<div class="muted">Reference 8-48 U/L</div></td>
+    <td>http://loinc.org · 1920-8</td>
+  </tr></tbody></table></section>
+    <section><h2>Synthetic vital signs</h2><table><thead><tr><th>Date</th><th>Measure</th><th>Result</th><th>LOINC</th><th>Grade</th></tr></thead><tbody>
+  <tr><td>1616-01-12</td><td>Body height</td><td>175 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1616-01-12</td><td>Body weight</td><td>83 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1616-01-12</td><td>Body mass index (BMI) [Ratio]</td><td>27.1 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1616-01-12</td><td>Systolic blood pressure</td><td>134 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1616-01-12</td><td>Diastolic blood pressure</td><td>84 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1616-01-12</td><td>Heart rate</td><td>80 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1616-01-12</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1616-01-12</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1616-01-12</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>98 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1616-01-26</td><td>Body height</td><td>175 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1616-01-26</td><td>Body weight</td><td>82.6 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1616-01-26</td><td>Body mass index (BMI) [Ratio]</td><td>27 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1616-01-26</td><td>Systolic blood pressure</td><td>130 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1616-01-26</td><td>Diastolic blood pressure</td><td>82 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1616-01-26</td><td>Heart rate</td><td>78 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1616-01-26</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1616-01-26</td><td>Body temperature</td><td>36.7 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1616-01-26</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>98 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1616-02-02</td><td>Body height</td><td>175 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1616-02-02</td><td>Body weight</td><td>82.4 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1616-02-02</td><td>Body mass index (BMI) [Ratio]</td><td>26.9 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1616-02-02</td><td>Systolic blood pressure</td><td>124 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1616-02-02</td><td>Diastolic blood pressure</td><td>78 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1616-02-02</td><td>Heart rate</td><td>70 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1616-02-02</td><td>Respiratory rate</td><td>16 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1616-02-02</td><td>Body temperature</td><td>37.9 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1616-02-02</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>98 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1616-02-16</td><td>Body height</td><td>175 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1616-02-16</td><td>Body weight</td><td>82 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1616-02-16</td><td>Body mass index (BMI) [Ratio]</td><td>26.8 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1616-02-16</td><td>Systolic blood pressure</td><td>122 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1616-02-16</td><td>Diastolic blood pressure</td><td>78 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1616-02-16</td><td>Heart rate</td><td>66 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1616-02-16</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1616-02-16</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1616-02-16</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>98 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1616-02-23</td><td>Body height</td><td>175 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1616-02-23</td><td>Body weight</td><td>81.6 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1616-02-23</td><td>Body mass index (BMI) [Ratio]</td><td>26.6 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1616-02-23</td><td>Systolic blood pressure</td><td>122 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1616-02-23</td><td>Diastolic blood pressure</td><td>76 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1616-02-23</td><td>Heart rate</td><td>64 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1616-02-23</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1616-02-23</td><td>Body temperature</td><td>36.5 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1616-02-23</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>98 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1616-03-23</td><td>Body height</td><td>175 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1616-03-23</td><td>Body weight</td><td>80.8 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1616-03-23</td><td>Body mass index (BMI) [Ratio]</td><td>26.4 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1616-03-23</td><td>Systolic blood pressure</td><td>120 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1616-03-23</td><td>Diastolic blood pressure</td><td>76 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1616-03-23</td><td>Heart rate</td><td>62 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1616-03-23</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1616-03-23</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1616-03-23</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>98 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr></tbody></table></section>
+    <section><h2>Social, functional, and mental status</h2><h3>Social history</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Occupation: playwright and poet, now writing mostly at home in his market town after many years working in the city; writes by hand first, then types</li><li><span class="badge grade-S" title="Synthetic">S</span> Alcohol: about 24 standard drinks a week (beer and wine most evenings, and six to eight drinks at monthly gatherings with fellow writers); a drink in the evening steadies his hand; no morning drinking, withdrawal symptoms, or blackouts; AUDIT 12</li><li><span class="badge grade-S" title="Synthetic">S</span> Never smoker; no cannabis or other drugs; four to five cups of strong coffee a day</li><li><span class="badge grade-S" title="Synthetic">S</span> Married, living in a large family house in the town; two adult daughters live nearby</li></ul><h3>Functional status</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Independent; handwriting slower and harder to read by evening; signs documents with effort; spills when carrying a full cup</li></ul><h3>Mental status</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Articulate, wry, and observant; worried that his hand will fail him; mood good</li></ul></section>
+    
+    <section><h2>Allergies and medications</h2><h3>Allergies</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> No known allergy</li></ul><h3>Medications</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Propranolol extended-release 60 mg oral capsule, one capsule by mouth each morning</li><li><span class="badge grade-S" title="Synthetic">S</span> Propranolol extended-release 80 mg oral capsule, one capsule by mouth each morning</li></ul></section>
+    <section><h2>Procedures and immunizations</h2><h3>Procedures</h3><ul></ul><h3>Immunizations</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> 1615-10-20: Influenza vaccine, 1615-1616 season</li><li><span class="badge grade-S" title="Synthetic">S</span> 1608-07-09: Tdap vaccine</li><li><span class="badge grade-S" title="Synthetic">S</span> 1615-10-20: COVID-19 vaccine, 1615-1616 formula</li><li><span class="badge grade-S" title="Synthetic">S</span> 1616-02-16: Pneumococcal conjugate vaccine PCV20</li><li><span class="badge grade-S" title="Synthetic">S</span> 1616-02-16: Recombinant zoster vaccine, dose 1 of 2</li></ul></section>
+    <section><h2>Past medical history</h2><p class="muted">True biography with historical dates; not part of the synthetic care timeline.</p><ul></ul><h3>Family history</h3><ul><li><span class="badge grade-D" title="Documented">D</span> father: A glover, wool dealer, and town official; no tremor or other illness is recorded; cause of death not recorded in the cited source</li><li><span class="badge grade-D" title="Documented">D</span> sister: Two sisters died in infancy and a third at the age of eight; causes not recorded in the cited source</li><li><span class="badge grade-D" title="Documented">D</span> natural son: Died at the age of eleven; cause not recorded in the cited source</li></ul></section>
+    <section><h2>Care-plan goals</h2><table><thead><tr><th>Goal</th><th>Target date</th><th>Status</th><th>Outcome</th></tr></thead><tbody>
+  <tr><td>Classify the tremor and exclude treatable causes by the second visit</td><td>1616-01-26</td><td>completed</td><td>Essential tremor diagnosed; TSH, glucose, calcium, and kidney tests normal; no parkinsonism</td></tr>
+  <tr><td>Legible handwriting for a full page and a steady signature</td><td>1616-04-20</td><td>active</td><td>TETRAS writing item from 3 to 1.5 and the spiral much steadier on propranolol 80 mg with a weighted pen</td></tr>
+  <tr><td>No more than 14 standard drinks a week and no more than 4 on any day</td><td>1616-04-20</td><td>active</td><td>Within the limits for ten weeks, about 10 drinks a week for the last five; GGT 84 to 49 U/L</td></tr>
+  <tr><td>Resting pulse above 55 without dizziness, wheeze, or fatigue on propranolol</td><td>1616-04-20</td><td>active</td><td>Pulse 62 and blood pressure 120/76 mmHg on 80 mg, without side effects</td></tr></tbody></table></section>
+    <section><h2>Interventions</h2><table><thead><tr><th>Intervention</th><th>Status</th><th>Guideline</th></tr></thead><tbody>
+  <tr><td>Tremor history and examination with the MDS 1608 classification (rest, postural, and kinetic tremor; distribution; parkinsonism, dystonia, ataxia); TSH, metabolic panel, liver tests, and blood count; a medication, caffeine, and alcohol review</td><td>completed</td><td>GL-AAN-ET-2011, GL-MDS-TREMOR-2018, GL-MDS-ETRX-2019</td></tr>
+  <tr><td>Movement disorders neurology consultation to confirm the tremor type, exclude early Parkinson disease, and advise on treatment</td><td>completed</td><td>GL-AAN-ET-2011, GL-MDS-TREMOR-2018, GL-MDS-ETRX-2019</td></tr>
+  <tr><td>Alcohol: AUDIT screening and a brief intervention (feedback, advice, and a goal of no more than 14 drinks a week and 4 on any day); follow-up of drinking at each visit and GGT after eight to ten weeks</td><td>completed</td><td>GL-USPSTF-ALCOHOL-2018, GL-NIAAA-2005</td></tr>
+  <tr><td>Handwriting sample and Archimedes spiral at each visit; cut coffee to two cups a day, none after midday</td><td>completed</td><td>GL-AAN-ET-2011, GL-MDS-TREMOR-2018, GL-MDS-ETRX-2019</td></tr>
+  <tr><td>Propranolol extended-release 60 mg each morning, increased by response to 80 mg; pulse and blood pressure at each visit; primidone if propranolol fails or is not tolerated</td><td>completed</td><td>GL-AAN-ET-2011, GL-MDS-TREMOR-2018, GL-MDS-ETRX-2019, GL-BEERS-2023</td></tr>
+  <tr><td>Occupational therapy for writing: weighted and wide-grip pens, posture and forearm support, slower larger script, and dictation software for long drafts</td><td>completed</td><td>GL-AAN-ET-2011, GL-MDS-TREMOR-2018, GL-MDS-ETRX-2019</td></tr>
+  <tr><td>Goals-of-care and advance care planning conversation: a named health care agent and a written directive, alongside the will he is preparing</td><td>completed</td><td>GL-PREV-2026</td></tr></tbody></table></section>
+    <section><h2>Planned encounters</h2><ul>
+  <li><strong>1616-01-12</strong> — Primary care visit for six months of tremor of the writing hand in a writer of 51 <span class="muted">(ENC-001)</span></li>
+  <li><strong>1616-01-26</strong> — Two-week review of tremor tests, diagnosis, alcohol follow-up, and movement disorders neurology consultation <span class="muted">(ENC-002)</span></li>
+  <li><strong>1616-02-02</strong> — Same-day sick visit for a cold one week after starting propranolol <span class="muted">(ENC-005, unscheduled)</span></li>
+  <li><strong>1616-02-16</strong> — Preventive health visit at 51 <span class="muted">(ENC-006)</span></li>
+  <li><strong>1616-02-23</strong> — Four-week review of propranolol: tremor rating, pulse and blood pressure, drinking, and occupational therapy <span class="muted">(ENC-003)</span></li>
+  <li><strong>1616-03-23</strong> — Eight-week review: tremor and writing, propranolol at 80 mg, liver tests, and drinking <span class="muted">(ENC-004)</span></li></ul></section>
+    <section><h2>Supporting documents</h2><ul><li><a href="notes/hp.md">History and physical</a></li><li><a href="notes/progress-01.md">Progress note 01</a></li><li><a href="notes/progress-02.md">Progress note 02 — Focused Visit (Follow-up)</a></li><li><a href="notes/progress-03.md">Progress note 03 — Sick Visit</a></li><li><a href="notes/progress-04.md">Progress note 04 — Preventive Visit</a></li><li><a href="notes/progress-05.md">Progress note 05 — Focused Visit (Follow-up)</a></li><li><a href="notes/progress-06.md">Progress note 06 — Focused Visit (Care-plan review)</a></li><li><a href="notes/referral-01.md">Neurology (movement disorders) referral</a></li><li><a href="notes/consult-01.md">Neurology (movement disorders) consultation</a></li><li><a href="notes/careplan.md">Patient care plan</a></li><li><a href="notes/teaching-note.md">Teaching note</a></li><li><a href="provenance.csv">Provenance CSV</a></li></ul></section>
+    <section><h2>C-CDA note documents</h2><p class="muted">Each link opens a readable copy; the XML beside it is the exchange file.</p><ul><li><a href="ccda/hp-01.html">History and physical</a> <a href="ccda/hp-01.xml">(XML)</a></li><li><a href="ccda/progress-01.html">Progress note 01</a> <a href="ccda/progress-01.xml">(XML)</a></li><li><a href="ccda/progress-02.html">Progress note 02 — Focused Visit (Follow-up)</a> <a href="ccda/progress-02.xml">(XML)</a></li><li><a href="ccda/progress-03.html">Progress note 03 — Sick Visit</a> <a href="ccda/progress-03.xml">(XML)</a></li><li><a href="ccda/progress-04.html">Progress note 04 — Preventive Visit</a> <a href="ccda/progress-04.xml">(XML)</a></li><li><a href="ccda/progress-05.html">Progress note 05 — Focused Visit (Follow-up)</a> <a href="ccda/progress-05.xml">(XML)</a></li><li><a href="ccda/progress-06.html">Progress note 06 — Focused Visit (Care-plan review)</a> <a href="ccda/progress-06.xml">(XML)</a></li><li><a href="ccda/referral-01.html">Neurology (movement disorders) referral</a> <a href="ccda/referral-01.xml">(XML)</a></li><li><a href="ccda/consult-01.html">Neurology (movement disorders) consultation</a> <a href="ccda/consult-01.xml">(XML)</a></li></ul></section>
+    <section><h2>Sources</h2><table><thead><tr><th>ID</th><th>Source</th><th>Publisher</th><th>Type</th></tr></thead><tbody>
+  <tr>
+    <td>SRC-0001</td>
+    <td><a href="https://www.shakespeare.org.uk/explore-shakespeare/shakespedia/william-shakespeare/when-was-shakespeare-born/" target="_blank" rel="noreferrer">When Was Shakespeare Born?</a></td>
+    <td>Shakespeare Birthplace Trust</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0002</td>
+    <td><a href="https://www.shakespeare.org.uk/explore-shakespeare/shakespedia/william-shakespeare/william-shakespeares-family/" target="_blank" rel="noreferrer">William Shakespeare&#39;s Family</a></td>
+    <td>Shakespeare Birthplace Trust</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0003</td>
+    <td><a href="https://www.shakespeare.org.uk/explore-shakespeare/shakespedia/william-shakespeare/shakespeare-and-stratford/" target="_blank" rel="noreferrer">Shakespeare and Stratford</a></td>
+    <td>Shakespeare Birthplace Trust</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0004</td>
+    <td><a href="https://www.shakespeare.org.uk/explore-shakespeare/shakespedia/william-shakespeare/shakespeare-death/" target="_blank" rel="noreferrer">How did Shakespeare Die?</a></td>
+    <td>Shakespeare Birthplace Trust</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0005</td>
+    <td><a href="https://shakespeare.org.uk/explore-shakespeare/blogs/birth-and-burial-records-william-shakespeare" target="_blank" rel="noreferrer">The Birth and Burial Records of William Shakespeare (2012)</a></td>
+    <td>Shakespeare Birthplace Trust</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0006</td>
+    <td><a href="https://shakespearedocumented.folger.edu/node/211" target="_blank" rel="noreferrer">John Ward&#39;s notebook: only known account of Shakespeare&#39;s death and other references (Folger Shakespeare Library V.a.292, 1662-1663)</a></td>
+    <td>Shakespeare Documented, Folger Shakespeare Library</td>
+    <td>primary</td>
+  </tr>
+  <tr>
+    <td>SRC-0007</td>
+    <td><a href="https://shakespearedocumented.folger.edu/resource/document/william-shakespeares-last-will-and-testament-original-copy-including-three" target="_blank" rel="noreferrer">William Shakespeare&#39;s last will and testament: original copy including three signatures (The National Archives, PROB 1/4)</a></td>
+    <td>Shakespeare Documented, Folger Shakespeare Library</td>
+    <td>primary</td>
+  </tr>
+  <tr>
+    <td>SRC-0008</td>
+    <td><a href="http://web.archive.org/web/20250708201503/https://blog.nationalarchives.gov.uk/shakespeares-will-new-interpretation/" target="_blank" rel="noreferrer">Shakespeare&#39;s will: a new interpretation (2016)</a></td>
+    <td>The National Archives (UK) blog, archived copy</td>
+    <td>scholarly</td>
+  </tr>
+  <tr>
+    <td>SRC-0009</td>
+    <td><a href="https://www.nationalarchives.gov.uk/explore-the-collection/stories/william-shakespeare/" target="_blank" rel="noreferrer">William Shakespeare: a documentary heritage</a></td>
+    <td>The National Archives (UK)</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0010</td>
+    <td><a href="https://www.wits.ac.za/news/latest-news/research-news/2024/2024-01/doobee-or-not-doobee.html" target="_blank" rel="noreferrer">Doobee or not doobee? (1 January 2024), on the 2001 South African Journal of Science study of clay pipe residues from Stratford-upon-Avon</a></td>
+    <td>University of the Witwatersrand</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0011</td>
+    <td><a href="https://pubmed.ncbi.nlm.nih.gov/15668863/" target="_blank" rel="noreferrer">Shakespeare&#39;s chancre: did the bard have syphilis? Clin Infect Dis 2005;40(3):399-404. PMID 15668863</a></td>
+    <td>PubMed</td>
+    <td>scholarly</td>
+  </tr>
+  <tr>
+    <td>SRC-0013</td>
+    <td><a href="https://www.rmg.co.uk/sites/default/files/Calendars-from-around-the-world.pdf" target="_blank" rel="noreferrer">Calendars from around the world</a></td>
+    <td>Royal Museums Greenwich</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0014</td>
+    <td><a href="https://humanrecord.example.org/internal/HISTMED_Master_Roster_v3.xlsx" target="_blank" rel="noreferrer">HISTMED Master Roster v3</a></td>
+    <td>The Human Record project</td>
+    <td>other</td>
+  </tr></tbody></table></section>
+    <section><h2>Review status</h2><table><thead><tr><th>Review</th><th>Status</th><th>Notes</th></tr></thead><tbody>
+  <tr><td>schema validation</td><td>not_started</td><td>Run scripts/build.ps1 -Conformance.</td></tr>
+  <tr><td>clinical review</td><td>not_started</td><td>Awaiting clinician review; check the tremor classification (essential tremor rather than enhanced physiological tremor or early Parkinson disease), the decision against imaging, the propranolol titration, the brief alcohol intervention, and the occupational therapy plan.</td></tr>
+  <tr><td>provenance review</td><td>not_started</td><td>Shakespeare Birthplace Trust pages, the Folger&#39;s Shakespeare Documented entries for John Ward&#39;s notebook and the will, The National Archives&#39; collection page and an archivist&#39;s 2016 essay (archived copy), a university news article on the pipe study, and the 2005 PubMed record logged; living authors are not named.</td></tr>
+  <tr><td>safe messaging review</td><td>not_started</td><td>No behavioral-health diagnosis; hazardous drinking is handled with a brief intervention and is not attributed to the historical figure; claims about drinking, drugs, and syphilis are R and flagged sensitive.</td></tr></tbody></table></section>
+  </main>
+</body>
+</html>

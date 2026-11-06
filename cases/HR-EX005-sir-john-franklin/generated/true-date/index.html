@@ -1,0 +1,623 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sir John Franklin — The Human Record</title>
+  <style>
+    :root { --navy:#17365d; --blue:#1f4e78; --pale:#eef5fa; --ink:#1f2933; --muted:#66788a; --amber:#fff2cc; --red:#f8d7da; --green:#d9ead3; }
+    * { box-sizing:border-box; }
+    body { margin:0; font:16px/1.5 Arial, sans-serif; color:var(--ink); background:#f6f8fa; }
+    header { background:var(--navy); color:white; padding:24px max(24px,calc((100vw - 1180px)/2)); }
+    header h1 { margin:4px 0; font-size:30px; }
+    .banner { background:#b42318; color:white; font-weight:700; text-align:center; padding:10px; letter-spacing:.03em; }
+    main { max-width:1180px; margin:24px auto 60px; padding:0 24px; }
+    section { background:white; border:1px solid #d9e1e8; border-radius:8px; margin:18px 0; padding:20px; }
+    h2 { color:var(--navy); margin:0 0 14px; font-size:22px; }
+    h3 { color:var(--blue); }
+    .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:12px; }
+    .card { background:var(--pale); border-left:4px solid var(--blue); padding:12px; }
+    .label { color:var(--muted); font-size:13px; text-transform:uppercase; letter-spacing:.04em; }
+    table { width:100%; border-collapse:collapse; }
+    th { background:var(--blue); color:white; text-align:left; }
+    th,td { padding:9px; border-bottom:1px solid #dfe6ec; vertical-align:top; }
+    .badge { display:inline-block; min-width:28px; text-align:center; font-weight:700; border-radius:12px; padding:2px 8px; }
+    .grade-D { background:var(--green); } .grade-R { background:var(--amber); } .grade-S { background:var(--red); }
+    .muted { color:var(--muted); font-size:14px; }
+    .relationship { color:var(--muted); font-size:12px; }
+    .downloads a { display:inline-block; margin:4px 8px 4px 0; padding:8px 12px; background:var(--blue); color:white; text-decoration:none; border-radius:5px; }
+    @media (max-width:700px) { table { display:block; overflow-x:auto; } }
+  </style>
+</head>
+<body>
+  <div class="banner">SYNTHETIC RECORD, NOT A REAL MEDICAL RECORD</div>
+  <div class="banner">True-date frame: synthetic events are moved into the patient&#39;s historical lifetime. Codes, instruments, and treatments remain modern and are anachronistic.</div>
+  <header>
+    <div>The Human Record</div>
+    <h1>Sir John Franklin</h1>
+    <div>Case HR-EX005-TD · Modern EHR teaching episode · Draft for review</div>
+  </header>
+  <main>
+    <section>
+      <h2>Review summary</h2>
+      <div class="grid">
+        <div class="card"><div class="label">Historical dates</div>April 16, 1786 – June 11, 1847</div>
+        <div class="card"><div class="label">Synthetic DOB</div>1786-04-16</div>
+        <div class="card"><div class="label">Index visit</div>1845-01-13 at age 58</div>
+        <div class="card"><div class="label">Synthetic MRN</div>HR-EX005-SYN-TD</div>
+      </div>
+      <p><strong>Teaching objective:</strong> Fitness assessment of an older man before a multi-year Arctic expedition, with high blood pressure and obesity found at the pre-expedition medical: a 58-year-old naval officer chosen to command an expedition that will be years beyond the reach of hospital care. The episode covers confirming the diagnosis with home readings and treating stage 2 hypertension under the 1844 AHA/ACC guideline, choosing a medicine that needs no laboratory monitoring and suits dehydration and cold; cardiovascular risk with ECG, lipids, HbA1c, kidney function, urine albumin, echocardiography and an exercise treadmill test, and the PREVENT and Pooled Cohort risk estimates; weight managed by his own goals and without stigma; vitamin C and vitamin D and nutrition planning for years without fresh food; food safety, with canned-food quality, lead and botulism as modern risks; cold injury and hypothermia prevention under the Wilderness Medical Society guidelines; vaccinations, including rabies pre-exposure prophylaxis; dental care before departure; noise-induced hearing loss; mental health in isolation and polar darkness; a medical kit and an evacuation plan; and influenza in the weeks before departure, with oseltamivir and decongestant avoidance.</p>
+      <div class="downloads">
+        <a href="../case.json">Canonical JSON</a>
+        <a href="fhir-bundle.json">FHIR R4 draft</a>
+        <a href="ccda.html">C-CDA R2.1 summary</a> <a href="ccda.xml">(XML)</a>
+        <a href="../sources.md">Evidence dossier</a>
+      </div>
+    </section>
+    <section><h2>Historical timeline</h2><table><thead><tr><th>Date</th><th>Event</th><th>Claims</th></tr></thead><tbody>
+  <tr><td>April 16, 1786</td><td>Born in Spilsby, Lincolnshire, the ninth of twelve children of a merchant.</td><td>CLM-0001</td></tr>
+  <tr><td>October 1800</td><td>Enters the Royal Navy at 14; fights at Copenhagen and Trafalgar and is left with a mild hearing loss.</td><td>CLM-0002</td></tr>
+  <tr><td>December 14, 1814</td><td>Slightly wounded at the battle of Lake Borgne.</td><td>CLM-0003</td></tr>
+  <tr><td>1819 to 1822</td><td>First overland Arctic expedition: starvation, eleven men dead; known as the man who ate his boots.</td><td>CLM-0004</td></tr>
+  <tr><td>1823</td><td>Marries Eleanor Anne Porden; she dies of tuberculosis in 1825, a year after their daughter&#39;s birth.</td><td>CLM-0006</td></tr>
+  <tr><td>1825 to 1827</td><td>Second overland expedition; knighted in 1829; marries Jane Griffin in 1828.</td><td>CLM-0005, CLM-0006</td></tr>
+  <tr><td>January 6, 1837</td><td>Arrives in Van Diemen&#39;s Land as Lieutenant-Governor; recalled under censure, back in England by June 1844.</td><td>CLM-0007</td></tr>
+  <tr><td>Late 1844 to early 1845</td><td>Seeks the command of the Northwest Passage expedition; senior officials question his age, build and tolerance of cold.</td><td>CLM-0008</td></tr>
+  <tr><td>Winter of 1844 to 1845</td><td>A severe bout of influenza, not fully recovered when the ships sail.</td><td>CLM-0009</td></tr>
+  <tr><td>May 19, 1845</td><td>Erebus and Terror sail from the Thames with 129 men; beset off King William Island from September 1846.</td><td>CLM-0010</td></tr>
+  <tr><td>June 11, 1847</td><td>Dies during the expedition; the cause and place are not recorded.</td><td>CLM-0011, CLM-0012</td></tr>
+  <tr><td>April 25, 1848</td><td>The ships are abandoned; no man survives the retreat. Later studies of the crew&#39;s remains find lead, tuberculosis and signs of hardship; the causes are disputed.</td><td>CLM-0013, CLM-0014, CLM-0015, CLM-0017</td></tr>
+  <tr><td>2014 and 2016</td><td>The wrecks of Erebus and Terror are found with the help of Inuit knowledge.</td><td>CLM-0016</td></tr></tbody></table></section>
+    <section><h2>Evidence claims</h2><p class="muted">D = documented, R = retrospective, S = synthetic.</p><table><thead><tr><th>Grade</th><th>Claim</th><th>Certainty</th><th>Sources</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>John Franklin was born on April 16, 1786, in the market town of Spilsby, Lincolnshire, England, over his father&#39;s shop; his father was a dry-goods and cloth merchant, and he was the ninth child and youngest son in a family of twelve.</strong></td>
+    <td>confirmed</td>
+    <td><a href="http://www.biographi.ca/en/bio/franklin_john_7E.html" target="_blank" rel="noreferrer">Cavell J. Franklin, Sir John. Dictionary of Canadian Biography, vol. 7</a> <span class="relationship">supports</span><br><a href="https://humanrecord.example.org/internal/HISTMED_Master_Roster_v3.xlsx" target="_blank" rel="noreferrer">HISTMED Master Roster v3</a> <span class="relationship">context</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>He entered the Royal Navy at 14 in 1800 and fought at the battles of Copenhagen (1801) and Trafalgar (1805); the constant noise of the guns left him with a mild degree of hearing loss.</strong><div class="muted">Anchors the synthetic noise-induced hearing loss in the modern episode.</div></td>
+    <td>confirmed</td>
+    <td><a href="http://www.biographi.ca/en/bio/franklin_john_7E.html" target="_blank" rel="noreferrer">Cavell J. Franklin, Sir John. Dictionary of Canadian Biography, vol. 7</a> <span class="relationship">supports</span><br><a href="https://parks.canada.ca/lhn-nhs/nu/epaveswrecks/culture/histoire-history/qui-who" target="_blank" rel="noreferrer">Who&#39;s who in the Franklin expedition (Wrecks of HMS Erebus and HMS Terror National Historic Site)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>He was slightly wounded in the battle of Lake Borgne near New Orleans on December 14, 1814.</strong><div class="muted">Past injury; no lasting effect is recorded.</div></td>
+    <td>confirmed</td>
+    <td><a href="http://www.biographi.ca/en/bio/franklin_john_7E.html" target="_blank" rel="noreferrer">Cavell J. Franklin, Sir John. Dictionary of Canadian Biography, vol. 7</a> <span class="relationship">supports</span><br><a href="https://parks.canada.ca/lhn-nhs/nu/epaveswrecks/culture/histoire-history/qui-who" target="_blank" rel="noreferrer">Who&#39;s who in the Franklin expedition (Wrecks of HMS Erebus and HMS Terror National Historic Site)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>On his first overland Arctic expedition, from 1819 to 1822, which charted the coast east of the mouth of the Coppermine River, supplies ran out: in the autumn of 1821 the men lived on lichen, deer skins, bones, maggots and boiled boot leather, and eleven of the party died of starvation, exposure and violence before Dene hunters brought food. He became known as the man who ate his boots.</strong><div class="muted">Documented starvation; no lasting health effect is recorded. The two sources give the party as 19 or 20 men.</div></td>
+    <td>confirmed</td>
+    <td><a href="http://www.biographi.ca/en/bio/franklin_john_7E.html" target="_blank" rel="noreferrer">Cavell J. Franklin, Sir John. Dictionary of Canadian Biography, vol. 7</a> <span class="relationship">supports</span><br><a href="https://parks.canada.ca/lhn-nhs/nu/epaveswrecks/culture/histoire-history/qui-who" target="_blank" rel="noreferrer">Who&#39;s who in the Franklin expedition (Wrecks of HMS Erebus and HMS Terror National Historic Site)</a> <span class="relationship">supports</span><br><a href="https://www.mysteryquests.ca/quests/43/support/mq43_0001en.pdf" target="_blank" rel="noreferrer">Sandwell R. MysteryQuest 43: Support Material (Activity Sheet 1), Introducing the participants</a> <span class="relationship">supports</span><br><a href="https://www.rmg.co.uk/collections/library/rmgl-30680" target="_blank" rel="noreferrer">Wilson CM. &quot;The man who ate his boots&quot;: the remarkable story of Sir John Franklin 1786-1847 (Lincolnshire Books, 1994), library catalogue record</a> <span class="relationship">context</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>He led a second overland expedition from 1825 to 1827 and was knighted on April 29, 1829.</strong></td>
+    <td>confirmed</td>
+    <td><a href="http://www.biographi.ca/en/bio/franklin_john_7E.html" target="_blank" rel="noreferrer">Cavell J. Franklin, Sir John. Dictionary of Canadian Biography, vol. 7</a> <span class="relationship">supports</span><br><a href="https://parks.canada.ca/lhn-nhs/nu/epaveswrecks/culture/histoire-history/qui-who" target="_blank" rel="noreferrer">Who&#39;s who in the Franklin expedition (Wrecks of HMS Erebus and HMS Terror National Historic Site)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>He married Eleanor Anne Porden in 1823; their daughter was born in 1824, and Eleanor died on February 22, 1825, of an illness her doctors were slow to recognize as tuberculosis. In 1828 he married Jane Griffin; they had no children.</strong><div class="muted">Documented family history; it anchors a question about past tuberculosis exposure. No relative has any statement, decision or health fact in the modern episode.</div></td>
+    <td>confirmed</td>
+    <td><a href="http://www.biographi.ca/en/bio/franklin_john_7E.html" target="_blank" rel="noreferrer">Cavell J. Franklin, Sir John. Dictionary of Canadian Biography, vol. 7</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>He was Lieutenant-Governor of Van Diemen&#39;s Land (now Tasmania) from January 1837; after a dispute with his colonial secretary he was recalled by a letter that censured his conduct, and he was back in England by June 1844.</strong><div class="muted">Anchors the social history: a public career ended under criticism shortly before the index visit.</div></td>
+    <td>confirmed</td>
+    <td><a href="http://www.biographi.ca/en/bio/franklin_john_7E.html" target="_blank" rel="noreferrer">Cavell J. Franklin, Sir John. Dictionary of Canadian Biography, vol. 7</a> <span class="relationship">supports</span><br><a href="https://www.lindahall.org/about/news/scientist-of-the-day/john-franklin-2/" target="_blank" rel="noreferrer">Ashworth WB Jr. John Franklin (Scientist of the Day)</a> <span class="relationship">supports</span><br><a href="https://parks.canada.ca/lhn-nhs/nu/epaveswrecks/culture/histoire-history/qui-who" target="_blank" rel="noreferrer">Who&#39;s who in the Franklin expedition (Wrecks of HMS Erebus and HMS Terror National Historic Site)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>He sought the command of the 1845 Northwest Passage expedition at 58 to 59. Several senior officials privately questioned his age, his portly build and his alleged intolerance of cold; he answered their doubts and was given the command.</strong><div class="muted">Anchors the pre-expedition fitness assessment of an older man with a heavy build; no weight, blood pressure or medical examination from his lifetime is recorded in the sources read. The source is an educational resource of a university history project.</div></td>
+    <td>probable</td>
+    <td><a href="https://www.mysteryquests.ca/quests/43/support/mq43_0001en.pdf" target="_blank" rel="noreferrer">Sandwell R. MysteryQuest 43: Support Material (Activity Sheet 1), Introducing the participants</a> <span class="relationship">supports</span><br><a href="http://www.biographi.ca/en/bio/franklin_john_7E.html" target="_blank" rel="noreferrer">Cavell J. Franklin, Sir John. Dictionary of Canadian Biography, vol. 7</a> <span class="relationship">supports</span><br><a href="https://www.lindahall.org/about/news/scientist-of-the-day/john-franklin-2/" target="_blank" rel="noreferrer">Ashworth WB Jr. John Franklin (Scientist of the Day)</a> <span class="relationship">supports</span><br><a href="https://parks.canada.ca/lhn-nhs/nu/epaveswrecks/culture/histoire-history/qui-who" target="_blank" rel="noreferrer">Who&#39;s who in the Franklin expedition (Wrecks of HMS Erebus and HMS Terror National Historic Site)</a> <span class="relationship">context</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>During the winter of 1844 to 1845 he had a severe bout of influenza, from which he acknowledged he was still suffering after the expedition sailed in May 1845.</strong><div class="muted">Anchors the synthetic sick visit for influenza; the timing within the winter is not recorded in the source read.</div></td>
+    <td>probable</td>
+    <td><a href="https://www.mysteryquests.ca/quests/43/support/mq43_0001en.pdf" target="_blank" rel="noreferrer">Sandwell R. MysteryQuest 43: Support Material (Activity Sheet 1), Introducing the participants</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>HMS Erebus, under his command, and HMS Terror sailed from the Thames on May 19, 1845, with 129 officers and men. The first winter was spent at Beechey Island, where three crewmen died and were buried; in September 1846 the ships were beset in the ice off the northwest coast of King William Island.</strong><div class="muted">History of the expedition after the modern episode ends; the deaths of crewmen are history about others.</div></td>
+    <td>confirmed</td>
+    <td><a href="http://www.biographi.ca/en/bio/franklin_john_7E.html" target="_blank" rel="noreferrer">Cavell J. Franklin, Sir John. Dictionary of Canadian Biography, vol. 7</a> <span class="relationship">supports</span><br><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC1279489/" target="_blank" rel="noreferrer">Bayliss R. Sir John Franklin&#39;s last arctic expedition: a medical disaster. J R Soc Med 2002;95(3):151-153 (PMID 11872772)</a> <span class="relationship">supports</span><br><a href="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0202983" target="_blank" rel="noreferrer">Swanston T, Varney TL, Kozachuk M, et al. Franklin expedition lead exposure: New insights from high resolution confocal x-ray fluorescence imaging of skeletal microstructure. PLoS One 2018;13(8):e0202983 (PMID 30138435)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>He died on June 11, 1847, during the expedition, near King William Island. The date comes from a note added on April 25, 1848, to the record left in a cairn near Victory Point and found in 1859; it gives neither the cause nor the place of his death.</strong><div class="muted">The cause of his death is not documented.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://canadianmysteries.ca/sites/franklin/archive/text/FranklinVictoryPoint_en.htm" target="_blank" rel="noreferrer">Franklin Expedition Record, discovered at Victory Point, King William Island, on 7 May 1859 (transcription)</a> <span class="relationship">supports</span><br><a href="http://www.biographi.ca/en/bio/franklin_john_7E.html" target="_blank" rel="noreferrer">Cavell J. Franklin, Sir John. Dictionary of Canadian Biography, vol. 7</a> <span class="relationship">supports</span><br><a href="https://parks.canada.ca/lhn-nhs/nu/epaveswrecks/culture/histoire-history/qui-who" target="_blank" rel="noreferrer">Who&#39;s who in the Franklin expedition (Wrecks of HMS Erebus and HMS Terror National Historic Site)</a> <span class="relationship">supports</span><br><a href="https://humanrecord.example.org/internal/HISTMED_Master_Roster_v3.xlsx" target="_blank" rel="noreferrer">HISTMED Master Roster v3</a> <span class="relationship">context</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-R" title="Retrospective">R</span></td>
+    <td><strong>The cause of his death is not known. A medical historian writes that he died suddenly on board Erebus; no examination was made and his grave has never been found.</strong><div class="muted">Retrospective statement; the primary record gives neither cause nor place. No cause of death is used in the modern episode.</div></td>
+    <td>possible</td>
+    <td><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC1279489/" target="_blank" rel="noreferrer">Bayliss R. Sir John Franklin&#39;s last arctic expedition: a medical disaster. J R Soc Med 2002;95(3):151-153 (PMID 11872772)</a> <span class="relationship">supports</span><br><a href="http://www.biographi.ca/en/bio/franklin_john_7E.html" target="_blank" rel="noreferrer">Cavell J. Franklin, Sir John. Dictionary of Canadian Biography, vol. 7</a> <span class="relationship">context</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>In April 1848, with the crew reduced to 105, the ships were abandoned and the men set out south on foot; none survived, and some men resorted to cannibalism during the retreat.</strong><div class="muted">History about others, recorded once as context; no health fact about any named crewman is recorded.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0202983" target="_blank" rel="noreferrer">Swanston T, Varney TL, Kozachuk M, et al. Franklin expedition lead exposure: New insights from high resolution confocal x-ray fluorescence imaging of skeletal microstructure. PLoS One 2018;13(8):e0202983 (PMID 30138435)</a> <span class="relationship">supports</span><br><a href="http://www.biographi.ca/en/bio/franklin_john_7E.html" target="_blank" rel="noreferrer">Cavell J. Franklin, Sir John. Dictionary of Canadian Biography, vol. 7</a> <span class="relationship">supports</span><br><a href="https://pubmed.ncbi.nlm.nih.gov/32845447/" target="_blank" rel="noreferrer">Byard RW. Death in the Arctic: the tragic fate of members of the Franklin expedition (1845). Forensic Sci Med Pathol 2021;17(1):161-166 (PMID 32845447)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-R" title="Retrospective">R</span></td>
+    <td><strong>Examinations of crewmen&#39;s remains found elevated lead in bone, hair and soft tissue, and tuberculosis and pneumonia in men buried on Beechey Island; lead from the solder of the expedition&#39;s tinned food was long proposed as a cause of the disaster.</strong><div class="muted">History about the crew, not about him; recorded only as context for the modern food-safety plan. Beattie and colleagues led the forensic work.</div></td>
+    <td>disputed</td>
+    <td><a href="https://pubmed.ncbi.nlm.nih.gov/3521821/" target="_blank" rel="noreferrer">Amy R, Bhatnagar R, Damkjar E, Beattie O. The last Franklin expedition: report of a postmortem examination of a crew member. CMAJ 1986;135(2):115-117 (PMID 3521821)</a> <span class="relationship">supports</span><br><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC1279489/" target="_blank" rel="noreferrer">Bayliss R. Sir John Franklin&#39;s last arctic expedition: a medical disaster. J R Soc Med 2002;95(3):151-153 (PMID 11872772)</a> <span class="relationship">supports</span><br><a href="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0202983" target="_blank" rel="noreferrer">Swanston T, Varney TL, Kozachuk M, et al. Franklin expedition lead exposure: New insights from high resolution confocal x-ray fluorescence imaging of skeletal microstructure. PLoS One 2018;13(8):e0202983 (PMID 30138435)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-R" title="Retrospective">R</span></td>
+    <td><strong>Later analyses challenged the tinned-food lead hypothesis: a statistical re-analysis found great variation in lead among the crew, with levels perhaps not exceptional for nineteenth-century Britain, and a synchrotron study of bone found no unusually high lead exposure compared with Royal Navy sailors buried in Antigua. Scurvy, botulism, zinc deficiency, starvation, hypothermia and infection have all been proposed, and the deaths were most likely due to many causes together.</strong><div class="muted">Context only: the cause of the crew&#39;s deaths is disputed and none of it is a fact about him.</div></td>
+    <td>disputed</td>
+    <td><a href="https://www.gla.ac.uk/news/archiveofnews/2014/january/headline_301759_en.html" target="_blank" rel="noreferrer">New light cast on ill-fated &#39;Franklin Expedition&#39; to find Northwest Passage (on Millar K, Bowman AW, Battersby W. A re-analysis of the supposed role of lead poisoning in Sir John Franklin&#39;s last expedition, 1845-1848. Polar Record 2015;51(3):224-238)</a> <span class="relationship">supports</span><br><a href="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0202983" target="_blank" rel="noreferrer">Swanston T, Varney TL, Kozachuk M, et al. Franklin expedition lead exposure: New insights from high resolution confocal x-ray fluorescence imaging of skeletal microstructure. PLoS One 2018;13(8):e0202983 (PMID 30138435)</a> <span class="relationship">supports</span><br><a href="https://pubmed.ncbi.nlm.nih.gov/14677794/" target="_blank" rel="noreferrer">Horowitz BZ. Polar poisons: did Botulism doom the Franklin expedition? J Toxicol Clin Toxicol 2003;41(6):841-847 (PMID 14677794)</a> <span class="relationship">supports</span><br><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC1279489/" target="_blank" rel="noreferrer">Bayliss R. Sir John Franklin&#39;s last arctic expedition: a medical disaster. J R Soc Med 2002;95(3):151-153 (PMID 11872772)</a> <span class="relationship">supports</span><br><a href="https://pubmed.ncbi.nlm.nih.gov/32845447/" target="_blank" rel="noreferrer">Byard RW. Death in the Arctic: the tragic fate of members of the Franklin expedition (1845). Forensic Sci Med Pathol 2021;17(1):161-166 (PMID 32845447)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>The wrecks of HMS Erebus and HMS Terror were found in 2014 and 2016, when Inuit traditional knowledge combined with modern technology led to the sites; Inuit along the expedition&#39;s route were the last people to see the men alive.</strong><div class="muted">History of the search; it records the part Inuit knowledge played.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://parks.canada.ca/lhn-nhs/nu/epaveswrecks/culture/histoire-history" target="_blank" rel="noreferrer">History of the Franklin Expedition (Wrecks of HMS Erebus and HMS Terror National Historic Site)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-R" title="Retrospective">R</span></td>
+    <td><strong>The roster&#39;s leads of lead encephalopathy that impaired decision-making, and of lead poisoning and scurvy as his own conditions, are not supported for him by the sources read: no examination of his body exists, and the role of lead in the crew is disputed.</strong><div class="muted">Not used as a diagnosis for him.</div></td>
+    <td>disputed</td>
+    <td><a href="https://humanrecord.example.org/internal/HISTMED_Master_Roster_v3.xlsx" target="_blank" rel="noreferrer">HISTMED Master Roster v3</a> <span class="relationship">context</span><br><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC1279489/" target="_blank" rel="noreferrer">Bayliss R. Sir John Franklin&#39;s last arctic expedition: a medical disaster. J R Soc Med 2002;95(3):151-153 (PMID 11872772)</a> <span class="relationship">context</span><br><a href="https://www.gla.ac.uk/news/archiveofnews/2014/january/headline_301759_en.html" target="_blank" rel="noreferrer">New light cast on ill-fated &#39;Franklin Expedition&#39; to find Northwest Passage (on Millar K, Bowman AW, Battersby W. A re-analysis of the supposed role of lead poisoning in Sir John Franklin&#39;s last expedition, 1845-1848. Polar Record 2015;51(3):224-238)</a> <span class="relationship">context</span></td>
+  </tr></tbody></table></section>
+    <section><h2>Modern synthetic problem list</h2><table><thead><tr><th>Grade</th><th>Problem</th><th>Clinical status</th><th>Verification</th><th>Placement</th><th>Historical claims</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>High blood pressure found at the pre-expedition medical (152/94 mmHg, average of two readings), without a prior diagnosis; home readings for one week ordered to confirm</td>
+    <td>resolved</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td>CLM-0008</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Essential hypertension, stage 2 by home readings (one-week average 144/90 mmHg), without target-organ damage; synthetic</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td>CLM-0008</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Obesity, class 1 (BMI 31.4 at intake), with a waist of 106 cm; he sets his own goals for activity and food</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td>CLM-0008</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Medical preparation for a multi-year Arctic expedition beyond the reach of hospital care: fitness, cold injury, nutrition and food safety, vaccinations, dental care, mental health in isolation, a medical kit and an evacuation plan</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td>CLM-0008, CLM-0010</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Bilateral high-frequency sensorineural hearing loss from noise, mild; trouble hearing in noisy rooms</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>both_with_link</td>
+    <td>CLM-0002</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Vitamin D insufficiency in midwinter (25-hydroxyvitamin D 22 ng/mL), with years of polar darkness ahead</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Influenza A, confirmed by rapid molecular test, with fever, cough and aches, without pneumonia; treated with oseltamivir; recovered with a lingering cough</td>
+    <td>resolved</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td>CLM-0009</td>
+  </tr></tbody></table></section>
+    <section><h2>Synthetic outcome measures</h2><table><thead><tr><th>Grade</th><th>Date</th><th>Measure</th><th>Result</th><th>Coding</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1845-01-13</td>
+    <td>Sodium [Moles/volume] in Serum or Plasma</td>
+    <td>140 mmol/L<div class="muted">Reference 135-146 mmol/L</div></td>
+    <td>http://loinc.org · 2951-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1845-01-13</td>
+    <td>Potassium [Moles/volume] in Serum or Plasma</td>
+    <td>4.2 mmol/L<div class="muted">Reference 3.5-5.3 mmol/L</div></td>
+    <td>http://loinc.org · 2823-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1845-01-13</td>
+    <td>Creatinine [Mass/volume] in Serum or Plasma</td>
+    <td>0.98 mg/dL<div class="muted">Reference 0.7-1.3 mg/dL</div></td>
+    <td>http://loinc.org · 2160-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1845-01-13</td>
+    <td>Glomerular filtration rate [Volume Rate/Area] in Serum, Plasma or Blood by Creatinine-based formula (CKD-EPI 1840)/1.73 sq M</td>
+    <td>88 mL/min/1.73 m²<div class="muted">Reference &gt;=60 mL/min/1.73 m²</div></td>
+    <td>http://loinc.org · 98979-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1845-01-13</td>
+    <td>Glucose [Mass/volume] in Serum or Plasma</td>
+    <td>96 mg/dL<div class="muted">Reference 65-99 mg/dL</div></td>
+    <td>http://loinc.org · 2345-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1845-01-13</td>
+    <td>Hemoglobin [Mass/volume] in Blood</td>
+    <td>15.1 g/dL<div class="muted">Reference 13.2-17.1 g/dL</div></td>
+    <td>http://loinc.org · 718-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1845-01-13</td>
+    <td>Hemoglobin A1c/Hemoglobin.total in Blood</td>
+    <td>5.6%<div class="muted">Reference Below 5.7% normal; 5.7 to 6.4% prediabetes</div></td>
+    <td>http://loinc.org · 4548-4</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1845-01-13</td>
+    <td>Cholesterol [Mass/volume] in Serum or Plasma</td>
+    <td>188 mg/dL<div class="muted">Reference &lt;=199 mg/dL</div></td>
+    <td>http://loinc.org · 2093-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1845-01-13</td>
+    <td>Cholesterol in HDL [Mass/volume] in Serum or Plasma</td>
+    <td>52 mg/dL<div class="muted">Reference &gt;=40 mg/dL</div></td>
+    <td>http://loinc.org · 2085-9</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1845-01-13</td>
+    <td>Cholesterol in LDL [Mass/volume] in Serum or Plasma by calculation</td>
+    <td>112 mg/dL (high)<div class="muted">Reference &lt;=99 mg/dL</div></td>
+    <td>http://loinc.org · 13457-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1845-01-13</td>
+    <td>Triglyceride [Mass/volume] in Serum or Plasma</td>
+    <td>120 mg/dL<div class="muted">Reference &lt;=149 mg/dL</div></td>
+    <td>http://loinc.org · 2571-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1845-01-13</td>
+    <td>Thyrotropin [Units/volume] in Serum or Plasma</td>
+    <td>1.9 mIU/L<div class="muted">Reference 0.4-4.5 mIU/L</div></td>
+    <td>http://loinc.org · 3016-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1845-01-13</td>
+    <td>Alanine aminotransferase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>34 U/L<div class="muted">Reference 9-46 U/L</div></td>
+    <td>http://loinc.org · 1742-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1845-01-13</td>
+    <td>Lead [Mass/volume] in Blood</td>
+    <td>1.8 ug/dL<div class="muted">Reference Below 3.5 micrograms per deciliter</div></td>
+    <td>http://loinc.org · 5671-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1845-01-13</td>
+    <td>Ascorbate [Mass/volume] in Serum or Plasma</td>
+    <td>0.8 mg/dL<div class="muted">Reference Below 0.2 mg/dL is deficient</div></td>
+    <td>http://loinc.org · 1903-4</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1845-01-13</td>
+    <td>25-Hydroxyvitamin D3+25-Hydroxyvitamin D2 [Mass/volume] in Serum or Plasma</td>
+    <td>22 ng/mL (low)<div class="muted">Reference Below 20 ng/mL deficient; 20 to 29 insufficient</div></td>
+    <td>http://loinc.org · 62292-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1845-01-13</td>
+    <td>Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]</td>
+    <td>3</td>
+    <td>http://loinc.org · 44261-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1845-01-13</td>
+    <td>Generalized anxiety disorder 7 item (GAD-7) total score [Reported.PHQ]</td>
+    <td>2</td>
+    <td>http://loinc.org · 70274-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1845-01-13</td>
+    <td>Total score [AUDIT-C]</td>
+    <td>3</td>
+    <td>http://loinc.org · 75626-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1845-02-24</td>
+    <td>Albumin/Creatinine [Mass Ratio] in Urine</td>
+    <td>12 mg/g<div class="muted">Reference Below 30 mg/g normal</div></td>
+    <td>http://loinc.org · 9318-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1845-02-24</td>
+    <td>Left ventricular Ejection fraction</td>
+    <td>62%<div class="muted">Reference 52-72%</div></td>
+    <td>http://loinc.org · 10230-1</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1845-03-10</td>
+    <td>Patient Health Questionnaire 2 item (PHQ-2) total score [Reported]</td>
+    <td>0</td>
+    <td>http://loinc.org · 55758-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1845-05-05</td>
+    <td>Sodium [Moles/volume] in Serum or Plasma</td>
+    <td>139 mmol/L<div class="muted">Reference 135-146 mmol/L</div></td>
+    <td>http://loinc.org · 2951-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1845-05-05</td>
+    <td>Potassium [Moles/volume] in Serum or Plasma</td>
+    <td>4.3 mmol/L<div class="muted">Reference 3.5-5.3 mmol/L</div></td>
+    <td>http://loinc.org · 2823-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1845-05-05</td>
+    <td>Creatinine [Mass/volume] in Serum or Plasma</td>
+    <td>0.96 mg/dL<div class="muted">Reference 0.7-1.3 mg/dL</div></td>
+    <td>http://loinc.org · 2160-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1845-05-05</td>
+    <td>Glomerular filtration rate [Volume Rate/Area] in Serum, Plasma or Blood by Creatinine-based formula (CKD-EPI 1840)/1.73 sq M</td>
+    <td>90 mL/min/1.73 m²<div class="muted">Reference &gt;=60 mL/min/1.73 m²</div></td>
+    <td>http://loinc.org · 98979-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1845-05-05</td>
+    <td>25-Hydroxyvitamin D3+25-Hydroxyvitamin D2 [Mass/volume] in Serum or Plasma</td>
+    <td>34 ng/mL<div class="muted">Reference Below 20 ng/mL deficient; 20 to 29 insufficient</div></td>
+    <td>http://loinc.org · 62292-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1845-05-05</td>
+    <td>Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]</td>
+    <td>2</td>
+    <td>http://loinc.org · 44261-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1845-05-05</td>
+    <td>Generalized anxiety disorder 7 item (GAD-7) total score [Reported.PHQ]</td>
+    <td>3</td>
+    <td>http://loinc.org · 70274-6</td>
+  </tr></tbody></table></section>
+    <section><h2>Synthetic vital signs</h2><table><thead><tr><th>Date</th><th>Measure</th><th>Result</th><th>LOINC</th><th>Grade</th></tr></thead><tbody>
+  <tr><td>1845-01-13</td><td>Body height</td><td>170 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1845-01-13</td><td>Body weight</td><td>90.8 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1845-01-13</td><td>Body mass index (BMI) [Ratio]</td><td>31.4 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1845-01-13</td><td>Systolic blood pressure</td><td>152 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1845-01-13</td><td>Diastolic blood pressure</td><td>94 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1845-01-13</td><td>Heart rate</td><td>78 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1845-01-13</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1845-01-13</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1845-01-13</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>97 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1845-01-27</td><td>Body height</td><td>170 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1845-01-27</td><td>Body weight</td><td>90.4 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1845-01-27</td><td>Body mass index (BMI) [Ratio]</td><td>31.3 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1845-01-27</td><td>Systolic blood pressure</td><td>148 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1845-01-27</td><td>Diastolic blood pressure</td><td>92 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1845-01-27</td><td>Heart rate</td><td>76 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1845-01-27</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1845-01-27</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1845-01-27</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>97 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1845-02-24</td><td>Body height</td><td>170 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1845-02-24</td><td>Body weight</td><td>89 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1845-02-24</td><td>Body mass index (BMI) [Ratio]</td><td>30.8 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1845-02-24</td><td>Systolic blood pressure</td><td>136 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1845-02-24</td><td>Diastolic blood pressure</td><td>84 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1845-02-24</td><td>Heart rate</td><td>80 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1845-02-24</td><td>Respiratory rate</td><td>16 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1845-02-24</td><td>Body temperature</td><td>36.7 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1845-02-24</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>97 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1845-04-07</td><td>Body height</td><td>170 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1845-04-07</td><td>Body weight</td><td>87.6 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1845-04-07</td><td>Body mass index (BMI) [Ratio]</td><td>30.3 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1845-04-07</td><td>Systolic blood pressure</td><td>128 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1845-04-07</td><td>Diastolic blood pressure</td><td>78 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1845-04-07</td><td>Heart rate</td><td>70 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1845-04-07</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1845-04-07</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1845-04-07</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>98 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1845-05-05</td><td>Body height</td><td>170 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1845-05-05</td><td>Body weight</td><td>86.9 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1845-05-05</td><td>Body mass index (BMI) [Ratio]</td><td>30.1 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1845-05-05</td><td>Systolic blood pressure</td><td>126 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1845-05-05</td><td>Diastolic blood pressure</td><td>76 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1845-05-05</td><td>Heart rate</td><td>68 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1845-05-05</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1845-05-05</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1845-05-05</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>98 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1845-03-10</td><td>Body height</td><td>170 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1845-03-10</td><td>Body weight</td><td>88.4 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1845-03-10</td><td>Body mass index (BMI) [Ratio]</td><td>30.6 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1845-03-10</td><td>Systolic blood pressure</td><td>132 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1845-03-10</td><td>Diastolic blood pressure</td><td>80 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1845-03-10</td><td>Heart rate</td><td>72 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1845-03-10</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1845-03-10</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1845-03-10</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>98 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1845-02-10</td><td>Body height</td><td>170 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1845-02-10</td><td>Body weight</td><td>89.6 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1845-02-10</td><td>Body mass index (BMI) [Ratio]</td><td>31 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1845-02-10</td><td>Systolic blood pressure</td><td>136 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1845-02-10</td><td>Diastolic blood pressure</td><td>84 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1845-02-10</td><td>Heart rate</td><td>96 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1845-02-10</td><td>Respiratory rate</td><td>18 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1845-02-10</td><td>Body temperature</td><td>38.4 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1845-02-10</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>96 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr></tbody></table></section>
+    <section><h2>Social, functional, and mental status</h2><h3>Social history</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Senior naval officer and Arctic explorer who has led two overland expeditions in northern Canada; lately returned from a colonial governorship that ended under public criticism; has been chosen to command a naval expedition to find the Northwest Passage, expected to last two to three years beyond any outside contact</li><li><span class="badge grade-S" title="Synthetic">S</span> Married; one adult daughter; lives in London; widowed once, many years ago, when his first wife died of tuberculosis in the household</li><li><span class="badge grade-S" title="Synthetic">S</span> Never smoked; a glass or two of wine with dinner on most days (AUDIT-C 3); no other substances</li><li><span class="badge grade-S" title="Synthetic">S</span> Diet heavy in meat, bread and puddings, with few vegetables; walks most days but has done little hard exercise since his governorship; sleeps about seven hours</li><li><span class="badge grade-S" title="Synthetic">S</span> Strengths: long experience of Arctic travel and hardship, careful scientific habits, concern for the welfare of his men, a strong religious faith, and a clear wish to be fit for the command</li></ul><h3>Functional status</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Independent in all activities; walks three miles at a steady pace; climbs two flights of stairs without stopping but breathes hard; no chest pain, fainting or claudication</li></ul><h3>Mental status</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Alert, courteous and thorough; speech normal, though he turns his better ear in a noisy room; mood good and determined; PHQ-9 3 with item 9 scored 0; GAD-7 2; no thoughts of self-harm</li></ul></section>
+    
+    <section><h2>Allergies and medications</h2><h3>Allergies</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> No known allergy</li></ul><h3>Medications</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Amlodipine 5 mg oral tablet once daily</li><li><span class="badge grade-S" title="Synthetic">S</span> Vitamin D3 (cholecalciferol) 25 micrograms (1,000 units) oral tablet once daily, continued through the polar winters</li><li><span class="badge grade-S" title="Synthetic">S</span> Vitamin C (ascorbic acid) 250 mg oral tablet once daily for the whole expedition, stored sealed and away from heat and light, in addition to food sources</li><li><span class="badge grade-S" title="Synthetic">S</span> Oseltamivir 75 mg oral capsule twice daily for five days</li></ul></section>
+    <section><h2>Procedures and immunizations</h2><h3>Procedures</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Resting 12-lead ECG: sinus rhythm at 76, normal axis and intervals, no left ventricular hypertrophy by voltage criteria, no Q waves</li><li><span class="badge grade-S" title="Synthetic">S</span> Pure tone audiometry: symmetric high-frequency sensorineural loss with a notch at 4 kHz (45 dB) on both sides; speech frequencies within 25 dB; normal tympanograms</li><li><span class="badge grade-S" title="Synthetic">S</span> Transthoracic echocardiogram: left ventricular ejection fraction 62%, mild concentric remodeling (septum 11 mm), normal diastolic function for age, normal valves and aortic root</li><li><span class="badge grade-S" title="Synthetic">S</span> Symptom-limited exercise treadmill test (Bruce protocol): 9 minutes, about 10 METs, peak heart rate 152 (94% of predicted), normal blood pressure response, no chest pain, arrhythmia or ischemic ST change</li><li><span class="badge grade-S" title="Synthetic">S</span> Advance care planning conversation, about 25 minutes, including his wishes for serious illness at sea or in the ice beyond the reach of evacuation</li></ul><h3>Immunizations</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> 1845-03-10: Tetanus, diphtheria and acellular pertussis (Tdap) booster</li><li><span class="badge grade-S" title="Synthetic">S</span> 1845-03-10: Pneumococcal conjugate vaccine (PCV20), single dose</li><li><span class="badge grade-S" title="Synthetic">S</span> 1845-03-10: Recombinant zoster vaccine, first of two doses</li><li><span class="badge grade-S" title="Synthetic">S</span> 1845-03-10: Hepatitis B vaccine (HepB-CpG), first of two doses</li><li><span class="badge grade-S" title="Synthetic">S</span> 1845-03-10: Rabies vaccine (human diploid cell), pre-exposure prophylaxis, first of two doses</li><li><span class="badge grade-S" title="Synthetic">S</span> 1845-03-17: Rabies vaccine (human diploid cell), pre-exposure prophylaxis, second of two doses, given by the clinic nurse</li><li><span class="badge grade-S" title="Synthetic">S</span> 1845-04-07: Hepatitis B vaccine (HepB-CpG), second of two doses</li><li><span class="badge grade-S" title="Synthetic">S</span> 1845-05-05: Recombinant zoster vaccine, second of two doses</li></ul></section>
+    <section><h2>Past medical history</h2><p class="muted">True biography with historical dates; not part of the synthetic care timeline.</p><ul><li><span class="badge grade-D" title="Documented">D</span> 1801 to 1805: Mild hearing loss from the noise of naval gunfire in his youth <span class="muted">(CLM-0002)</span></li><li><span class="badge grade-D" title="Documented">D</span> December 14, 1814: Slight wound in battle; healed <span class="muted">(CLM-0003)</span></li><li><span class="badge grade-D" title="Documented">D</span> Autumn 1821: Prolonged starvation and exposure on an Arctic land expedition, surviving on lichen and boiled leather; recovered <span class="muted">(CLM-0004)</span></li></ul><h3>Family history</h3><p class="muted">No family medical history is documented in the logged sources. Family history of real relatives is never synthesized.</p></section>
+    <section><h2>Care-plan goals</h2><table><thead><tr><th>Goal</th><th>Target date</th><th>Status</th><th>Outcome</th></tr></thead><tbody>
+  <tr><td>Confirm or exclude hypertension with a week of home readings</td><td>1845-01-27</td><td>completed</td><td>Home average 144/90 mmHg: stage 2 hypertension confirmed</td></tr>
+  <tr><td>Blood pressure below 130/80 mmHg at home before departure</td><td>1845-04-07</td><td>completed</td><td>Home average 127/79 mmHg at eight weeks on amlodipine 5 mg with lifestyle change</td></tr>
+  <tr><td>Lose about 5 percent of body weight before sailing by his own plan of walking, hill work and smaller portions</td><td>1845-05-05</td><td>completed</td><td>90.8 to 86.9 kg (4.3 percent); waist 106 to 101 cm; he counts it as met and plans to keep walking on board</td></tr>
+  <tr><td>Medical clearance for the command with a written expedition health plan, medical kit and evacuation plan</td><td>1845-05-05</td><td>completed</td><td>Cleared at the pre-departure visit with no cardiac limitation; plan, kit list and supplies in hand</td></tr></tbody></table></section>
+    <section><h2>Interventions</h2><table><thead><tr><th>Intervention</th><th>Status</th><th>Guideline</th></tr></thead><tbody>
+  <tr><td>Pre-expedition medical: history, examination, resting ECG, kidney function and electrolytes, HbA1c, lipid panel, urine albumin, TSH, ALT, blood count, and baseline blood lead, vitamin C and vitamin D; audiogram; tuberculosis blood test because of a past household contact</td><td>completed</td><td>GL-AHA-HTN-2025, GL-CMID-2026, GL-USPSTF-LTBI-2023</td></tr>
+  <tr><td>Wilderness and expedition medicine consultation to advise on fitness for the command, treatment for years away from care, nutrition and food safety, cold injury, and evacuation</td><td>completed</td><td>GL-WMS-FROST-2024, GL-WMS-HYPO-2019</td></tr>
+  <tr><td>Blood pressure: a validated upper-arm home monitor with a large cuff, two readings morning and evening for seven days, to confirm the diagnosis; less salt, less alcohol, more vegetables and daily walking from today</td><td>completed</td><td>GL-AHA-HTN-2025, GL-CMID-2026</td></tr>
+  <tr><td>Treatment: amlodipine 5 mg daily, with a goal below 130/80 mmHg at home, home readings weekly on board, and a supply for three years in blister packs; no diuretic or renin-angiotensin blocker because of dehydration, cold diuresis and no laboratory access; statin not started by his choice after a risk discussion</td><td>completed</td><td>GL-AHA-HTN-2025, GL-CMID-2026, GL-USPSTF-STATIN-2022</td></tr>
+  <tr><td>Heart before a strenuous remote posting: echocardiogram for stage 2 hypertension, and a symptom-limited exercise treadmill test once he has recovered from any acute illness</td><td>completed</td><td>GL-AHA-HTN-2025, GL-CMID-2026</td></tr>
+  <tr><td>Weight: his own goals for walking, hill work, portions and alcohol, discussed without blame; no weight-loss medicine before departure</td><td>completed</td><td>GL-USPSTF-OBESITY-2018, GL-AHA-HTN-2025</td></tr>
+  <tr><td>Nutrition and food safety for years without fresh food: vitamin C 250 mg daily in sealed, cool, dark storage, with food sources and a check of the expedition&#39;s stores; vitamin D3 daily; an energy-dense ration; canned food from suppliers without lead solder, inspected for bulging, leaking or damaged cans, which are discarded unopened; no home-canned food; a blood lead baseline</td><td>completed</td><td>GL-CDC-BOT-2021, GL-KOSNETT-PB-2007, GL-CMID-2026</td></tr>
+  <tr><td>Cold: layered clothing with vapor control, dry socks and mitts, buddy checks of face, hands and feet, no tobacco or alcohol before cold exposure, rewarming of frostbite only when refreezing can be prevented, and hypothermia recognition and insulation in the field</td><td>completed</td><td>GL-WMS-FROST-2024, GL-WMS-HYPO-2019</td></tr>
+  <tr><td>Vaccinations, dental examination and treatment, and colorectal and other screening at the preventive visit before departure</td><td>completed</td><td>GL-PREV-2026, GL-CDC-IMZ-2026</td></tr>
+  <tr><td>Mind and isolation: baseline PHQ-9 and GAD-7, a routine of work, light, exercise and sleep through the polar night, a peer-support plan among the officers, and an evacuation plan with a medical kit, written instructions for the ship&#39;s surgeons, and a 12-month review of medicines</td><td>completed</td><td>GL-USPSTF-DEP-2023, GL-WMS-HYPO-2019</td></tr>
+  <tr><td>Hearing: audiogram, hearing protection around guns and engines, and seating so that his better ear faces the speaker</td><td>completed</td><td>GL-CMID-2026</td></tr></tbody></table></section>
+    <section><h2>Planned encounters</h2><ul>
+  <li><strong>1845-01-13</strong> — Pre-expedition medical for a 58-year-old naval officer chosen to command a multi-year Arctic expedition: history, examination, ECG, laboratory tests, hearing, mood, a high blood pressure reading, and a wilderness and expedition medicine consultation <span class="muted">(ENC-001)</span></li>
+  <li><strong>1845-01-27</strong> — Two-week review of home blood pressure readings, seen the same day by wilderness and expedition medicine: the diagnosis, treatment for years away from care, cardiac testing, nutrition, cold and evacuation <span class="muted">(ENC-002)</span></li>
+  <li><strong>1845-02-10</strong> — Same-day sick visit for influenza <span class="muted">(ENC-007, unscheduled)</span></li>
+  <li><strong>1845-02-24</strong> — Four-week review after starting amlodipine: blood pressure, side effects, echocardiogram and urine albumin <span class="muted">(ENC-003)</span></li>
+  <li><strong>1845-03-10</strong> — Periodic adult preventive visit before a multi-year Arctic expedition <span class="muted">(ENC-006)</span></li>
+  <li><strong>1845-04-07</strong> — Eight-week review: blood pressure at goal, weight, exercise treadmill test and expedition planning <span class="muted">(ENC-004)</span></li>
+  <li><strong>1845-05-05</strong> — Pre-departure review two weeks before sailing: blood pressure, medicines and supplies, mental health, vaccinations, the medical kit and the evacuation plan <span class="muted">(ENC-005)</span></li></ul></section>
+    <section><h2>Supporting documents</h2><ul><li><a href="notes/hp.md">History and physical</a></li><li><a href="notes/progress-01.md">Progress note 01</a></li><li><a href="notes/progress-02.md">Progress note 02 — Focused Visit (Follow-up)</a></li><li><a href="notes/progress-03.md">Progress note 03 — Sick Visit</a></li><li><a href="notes/progress-04.md">Progress note 04 — Focused Visit (Follow-up)</a></li><li><a href="notes/progress-05.md">Progress note 05 — Preventive Visit</a></li><li><a href="notes/progress-06.md">Progress note 06 — Focused Visit (Follow-up)</a></li><li><a href="notes/progress-07.md">Progress note 07 — Focused Visit (Care-plan review)</a></li><li><a href="notes/referral-01.md">Wilderness and Expedition Medicine referral</a></li><li><a href="notes/consult-01.md">Wilderness and Expedition Medicine consultation</a></li><li><a href="notes/careplan.md">Patient care plan</a></li><li><a href="notes/teaching-note.md">Teaching note</a></li><li><a href="provenance.csv">Provenance CSV</a></li></ul></section>
+    <section><h2>C-CDA note documents</h2><p class="muted">Each link opens a readable copy; the XML beside it is the exchange file.</p><ul><li><a href="ccda/hp-01.html">History and physical</a> <a href="ccda/hp-01.xml">(XML)</a></li><li><a href="ccda/progress-01.html">Progress note 01</a> <a href="ccda/progress-01.xml">(XML)</a></li><li><a href="ccda/progress-02.html">Progress note 02 — Focused Visit (Follow-up)</a> <a href="ccda/progress-02.xml">(XML)</a></li><li><a href="ccda/progress-03.html">Progress note 03 — Sick Visit</a> <a href="ccda/progress-03.xml">(XML)</a></li><li><a href="ccda/progress-04.html">Progress note 04 — Focused Visit (Follow-up)</a> <a href="ccda/progress-04.xml">(XML)</a></li><li><a href="ccda/progress-05.html">Progress note 05 — Preventive Visit</a> <a href="ccda/progress-05.xml">(XML)</a></li><li><a href="ccda/progress-06.html">Progress note 06 — Focused Visit (Follow-up)</a> <a href="ccda/progress-06.xml">(XML)</a></li><li><a href="ccda/progress-07.html">Progress note 07 — Focused Visit (Care-plan review)</a> <a href="ccda/progress-07.xml">(XML)</a></li><li><a href="ccda/referral-01.html">Wilderness and Expedition Medicine referral</a> <a href="ccda/referral-01.xml">(XML)</a></li><li><a href="ccda/consult-01.html">Wilderness and Expedition Medicine consultation</a> <a href="ccda/consult-01.xml">(XML)</a></li></ul></section>
+    <section><h2>Sources</h2><table><thead><tr><th>ID</th><th>Source</th><th>Publisher</th><th>Type</th></tr></thead><tbody>
+  <tr>
+    <td>SRC-0001</td>
+    <td><a href="http://www.biographi.ca/en/bio/franklin_john_7E.html" target="_blank" rel="noreferrer">Cavell J. Franklin, Sir John. Dictionary of Canadian Biography, vol. 7</a></td>
+    <td>University of Toronto and Université Laval</td>
+    <td>scholarly</td>
+  </tr>
+  <tr>
+    <td>SRC-0002</td>
+    <td><a href="https://parks.canada.ca/lhn-nhs/nu/epaveswrecks/culture/histoire-history/qui-who" target="_blank" rel="noreferrer">Who&#39;s who in the Franklin expedition (Wrecks of HMS Erebus and HMS Terror National Historic Site)</a></td>
+    <td>Parks Canada</td>
+    <td>government</td>
+  </tr>
+  <tr>
+    <td>SRC-0003</td>
+    <td><a href="https://parks.canada.ca/lhn-nhs/nu/epaveswrecks/culture/histoire-history" target="_blank" rel="noreferrer">History of the Franklin Expedition (Wrecks of HMS Erebus and HMS Terror National Historic Site)</a></td>
+    <td>Parks Canada</td>
+    <td>government</td>
+  </tr>
+  <tr>
+    <td>SRC-0004</td>
+    <td><a href="https://www.mysteryquests.ca/quests/43/support/mq43_0001en.pdf" target="_blank" rel="noreferrer">Sandwell R. MysteryQuest 43: Support Material (Activity Sheet 1), Introducing the participants</a></td>
+    <td>Great Unsolved Mysteries in Canadian History (MysteryQuests)</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0005</td>
+    <td><a href="https://canadianmysteries.ca/sites/franklin/archive/text/FranklinVictoryPoint_en.htm" target="_blank" rel="noreferrer">Franklin Expedition Record, discovered at Victory Point, King William Island, on 7 May 1859 (transcription)</a></td>
+    <td>Great Unsolved Mysteries in Canadian History: The Franklin Mystery</td>
+    <td>primary</td>
+  </tr>
+  <tr>
+    <td>SRC-0006</td>
+    <td><a href="https://www.rmg.co.uk/collections/library/rmgl-30680" target="_blank" rel="noreferrer">Wilson CM. &quot;The man who ate his boots&quot;: the remarkable story of Sir John Franklin 1786-1847 (Lincolnshire Books, 1994), library catalogue record</a></td>
+    <td>Royal Museums Greenwich (Caird Library)</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0007</td>
+    <td><a href="https://www.lindahall.org/about/news/scientist-of-the-day/john-franklin-2/" target="_blank" rel="noreferrer">Ashworth WB Jr. John Franklin (Scientist of the Day)</a></td>
+    <td>Linda Hall Library</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0008</td>
+    <td><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC1279489/" target="_blank" rel="noreferrer">Bayliss R. Sir John Franklin&#39;s last arctic expedition: a medical disaster. J R Soc Med 2002;95(3):151-153 (PMID 11872772)</a></td>
+    <td>Journal of the Royal Society of Medicine</td>
+    <td>scholarly</td>
+  </tr>
+  <tr>
+    <td>SRC-0009</td>
+    <td><a href="https://pubmed.ncbi.nlm.nih.gov/3521821/" target="_blank" rel="noreferrer">Amy R, Bhatnagar R, Damkjar E, Beattie O. The last Franklin expedition: report of a postmortem examination of a crew member. CMAJ 1986;135(2):115-117 (PMID 3521821)</a></td>
+    <td>Canadian Medical Association Journal</td>
+    <td>scholarly</td>
+  </tr>
+  <tr>
+    <td>SRC-0010</td>
+    <td><a href="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0202983" target="_blank" rel="noreferrer">Swanston T, Varney TL, Kozachuk M, et al. Franklin expedition lead exposure: New insights from high resolution confocal x-ray fluorescence imaging of skeletal microstructure. PLoS One 2018;13(8):e0202983 (PMID 30138435)</a></td>
+    <td>PLOS ONE</td>
+    <td>scholarly</td>
+  </tr>
+  <tr>
+    <td>SRC-0011</td>
+    <td><a href="https://www.gla.ac.uk/news/archiveofnews/2014/january/headline_301759_en.html" target="_blank" rel="noreferrer">New light cast on ill-fated &#39;Franklin Expedition&#39; to find Northwest Passage (on Millar K, Bowman AW, Battersby W. A re-analysis of the supposed role of lead poisoning in Sir John Franklin&#39;s last expedition, 1845-1848. Polar Record 2015;51(3):224-238)</a></td>
+    <td>University of Glasgow</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0012</td>
+    <td><a href="https://pubmed.ncbi.nlm.nih.gov/14677794/" target="_blank" rel="noreferrer">Horowitz BZ. Polar poisons: did Botulism doom the Franklin expedition? J Toxicol Clin Toxicol 2003;41(6):841-847 (PMID 14677794)</a></td>
+    <td>Journal of Toxicology: Clinical Toxicology</td>
+    <td>scholarly</td>
+  </tr>
+  <tr>
+    <td>SRC-0013</td>
+    <td><a href="https://pubmed.ncbi.nlm.nih.gov/32845447/" target="_blank" rel="noreferrer">Byard RW. Death in the Arctic: the tragic fate of members of the Franklin expedition (1845). Forensic Sci Med Pathol 2021;17(1):161-166 (PMID 32845447)</a></td>
+    <td>Forensic Science, Medicine and Pathology</td>
+    <td>scholarly</td>
+  </tr>
+  <tr>
+    <td>SRC-0014</td>
+    <td><a href="https://humanrecord.example.org/internal/HISTMED_Master_Roster_v3.xlsx" target="_blank" rel="noreferrer">HISTMED Master Roster v3</a></td>
+    <td>The Human Record project</td>
+    <td>other</td>
+  </tr></tbody></table></section>
+    <section><h2>Review status</h2><table><thead><tr><th>Review</th><th>Status</th><th>Notes</th></tr></thead><tbody>
+  <tr><td>schema validation</td><td>not_started</td><td>Run scripts/build.ps1 -Conformance.</td></tr>
+  <tr><td>clinical review</td><td>not_started</td><td>Awaiting clinician review; check the home-reading confirmation and stage 2 classification, amlodipine as the agent for years without laboratory access, the statin decision, the echocardiogram and exercise test before clearance, the vitamin C and D plan, the food-safety advice on lead and botulism, the cold-injury and hypothermia advice, rabies pre-exposure prophylaxis, oseltamivir and decongestant avoidance in influenza, and the evacuation plan.</td></tr>
+  <tr><td>provenance review</td><td>not_started</td><td>Sources: the Dictionary of Canadian Biography, two Parks Canada pages, the MysteryQuest educational resource and the Victory Point transcription of the Great Unsolved Mysteries in Canadian History project, the Royal Museums Greenwich catalogue, the Linda Hall Library, Bayliss (2002) in full text, and the PubMed records or open text of Amy et al. (1986), Swanston et al. (2018), Horowitz (2003) and Byard (2021), with the University of Glasgow release on Millar et al. (2015). The roster&#39;s lead poisoning, scurvy and lead encephalopathy are history about the crew or unsupported and are not used as his diagnoses.</td></tr>
+  <tr><td>safe messaging review</td><td>not_started</td><td>Weight is described in neutral clinical terms and managed by his own goals; the documented word &#39;portly&#39; appears only as a quotation of officials&#39; doubts. The crew&#39;s deaths and the cannibalism in the retreat are recorded once, plainly, as history about others; no crewman is named. The part of Inuit knowledge in finding the wrecks is recorded. His wives and daughter appear only as documented history; no relative has a role in the modern episode. PHQ-9 3 and then 2 with item 9 scored 0, so no safety assessment is required.</td></tr></tbody></table></section>
+  </main>
+</body>
+</html>

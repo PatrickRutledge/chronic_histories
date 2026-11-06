@@ -1,0 +1,512 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Roald Amundsen — The Human Record</title>
+  <style>
+    :root { --navy:#17365d; --blue:#1f4e78; --pale:#eef5fa; --ink:#1f2933; --muted:#66788a; --amber:#fff2cc; --red:#f8d7da; --green:#d9ead3; }
+    * { box-sizing:border-box; }
+    body { margin:0; font:16px/1.5 Arial, sans-serif; color:var(--ink); background:#f6f8fa; }
+    header { background:var(--navy); color:white; padding:24px max(24px,calc((100vw - 1180px)/2)); }
+    header h1 { margin:4px 0; font-size:30px; }
+    .banner { background:#b42318; color:white; font-weight:700; text-align:center; padding:10px; letter-spacing:.03em; }
+    main { max-width:1180px; margin:24px auto 60px; padding:0 24px; }
+    section { background:white; border:1px solid #d9e1e8; border-radius:8px; margin:18px 0; padding:20px; }
+    h2 { color:var(--navy); margin:0 0 14px; font-size:22px; }
+    h3 { color:var(--blue); }
+    .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:12px; }
+    .card { background:var(--pale); border-left:4px solid var(--blue); padding:12px; }
+    .label { color:var(--muted); font-size:13px; text-transform:uppercase; letter-spacing:.04em; }
+    table { width:100%; border-collapse:collapse; }
+    th { background:var(--blue); color:white; text-align:left; }
+    th,td { padding:9px; border-bottom:1px solid #dfe6ec; vertical-align:top; }
+    .badge { display:inline-block; min-width:28px; text-align:center; font-weight:700; border-radius:12px; padding:2px 8px; }
+    .grade-D { background:var(--green); } .grade-R { background:var(--amber); } .grade-S { background:var(--red); }
+    .muted { color:var(--muted); font-size:14px; }
+    .relationship { color:var(--muted); font-size:12px; }
+    .downloads a { display:inline-block; margin:4px 8px 4px 0; padding:8px 12px; background:var(--blue); color:white; text-decoration:none; border-radius:5px; }
+    @media (max-width:700px) { table { display:block; overflow-x:auto; } }
+  </style>
+</head>
+<body>
+  <div class="banner">SYNTHETIC RECORD, NOT A REAL MEDICAL RECORD</div>
+  <header>
+    <div>The Human Record</div>
+    <h1>Roald Amundsen</h1>
+    <div>Case HR-EX003 · Modern EHR teaching episode · Draft for review</div>
+  </header>
+  <main>
+    <section>
+      <h2>Review summary</h2>
+      <div class="grid">
+        <div class="card"><div class="label">Historical dates</div>July 16, 1872 – about June 18, 1928</div>
+        <div class="card"><div class="label">Synthetic DOB</div>1970-07-16</div>
+        <div class="card"><div class="label">Index visit</div>2026-02-10 at age 55</div>
+        <div class="card"><div class="label">Synthetic MRN</div>HR-EX003-SYN</div>
+      </div>
+      <p><strong>Teaching objective:</strong> Primary care and neurology for a 55-year-old polar explorer with cold-induced burning pain, numbness and color change in the fingers decades after frostbite: separating a late post-frostbite small-fiber neuropathy and cold-induced vasospasm from diabetes, B12 deficiency, thyroid disease and nerve entrapment with blood tests and nerve conduction studies; cold protection and hand care; pharmacological management by NICE CG173, choosing capsaicin cream first because he wishes to avoid tablets and then duloxetine, a first-line drug less sedating than amitriptyline or a gabapentinoid for a man who flies and drives; monitoring of pain, adverse effects, mood, sleep, blood pressure and sodium; avoiding tramadol with duloxetine; preventive care at 55; and a risk discussion about an Arctic air search flight: cold-water immersion, re-injury of previously frostbitten fingers, a stiff old shoulder fracture, and carrying and not stopping duloxetine. Built on NICE CG173, the Wilderness Medical Society frostbite (2024) and hypothermia (2019) guidelines, and the USPSTF and CDC preventive recommendations.</p>
+      <div class="downloads">
+        <a href="../case.json">Canonical JSON</a>
+        <a href="fhir-bundle.json">FHIR R4 draft</a>
+        <a href="ccda.html">C-CDA R2.1 summary</a> <a href="ccda.xml">(XML)</a> <a href="review.html">Review checklist</a>
+        <a href="../sources.md">Evidence dossier</a>
+      </div>
+    </section>
+    <section><h2>Historical timeline</h2><table><thead><tr><th>Date</th><th>Event</th><th>Claims</th></tr></thead><tbody>
+  <tr><td>July 16, 1872</td><td>Born at Hvidtsten in Borge, Østfold.</td><td>CLM-0001</td></tr>
+  <tr><td>about 1894 (his twenty-second year)</td><td>Frostbitten fingers and a near-fatal night in a snow cave on a winter ski crossing of the Hardangervidda.</td><td>CLM-0003</td></tr>
+  <tr><td>1897 to 1899</td><td>Scurvy aboard the Belgica in the Antarctic pack ice; recovery on fresh seal and penguin meat.</td><td>CLM-0004, CLM-0005</td></tr>
+  <tr><td>1903 to 1906</td><td>First voyage through the Northwest Passage in the Gjøa.</td><td>CLM-0006</td></tr>
+  <tr><td>1908</td><td>Bought Uranienborg at Svartskog.</td><td>CLM-0011</td></tr>
+  <tr><td>December 14, 1911</td><td>Reached the South Pole.</td><td>CLM-0006</td></tr>
+  <tr><td>autumn 1918</td><td>Fractured right shoulder and a polar bear attack on the Maud expedition.</td><td>CLM-0007</td></tr>
+  <tr><td>about January 1919</td><td>Near-collapse from lamp fumes in the Maud&#39;s observatory, with months of palpitations on exertion.</td><td>CLM-0008, CLM-0010</td></tr>
+  <tr><td>February 1922</td><td>A London heart specialist advised no more expeditions.</td><td>CLM-0009</td></tr>
+  <tr><td>August 1927</td><td>Back in Oslo after a lecture tour of Japan.</td><td>CLM-0012, CLM-0013</td></tr>
+  <tr><td>June 16, 1928</td><td>Left Uranienborg for the last time.</td><td>CLM-0014</td></tr>
+  <tr><td>June 18, 1928</td><td>Lost with the Latham 47 over the Barents Sea during the search for the Italia&#39;s survivors.</td><td>CLM-0015, CLM-0016</td></tr></tbody></table></section>
+    <section><h2>Evidence claims</h2><p class="muted">D = documented, R = retrospective, S = synthetic.</p><table><thead><tr><th>Grade</th><th>Claim</th><th>Certainty</th><th>Sources</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>Roald Engelbregt Gravning Amundsen was born on July 16, 1872, at the farm Hvidtsten in Borge, Østfold, Norway.</strong></td>
+    <td>confirmed</td>
+    <td><a href="https://snl.no/Roald_Amundsen" target="_blank" rel="noreferrer">Barr S. Roald Amundsen. Store norske leksikon</a> <span class="relationship">supports</span><br><a href="https://id.loc.gov/authorities/names/n80025970.html" target="_blank" rel="noreferrer">Amundsen, Roald, 1872-1928 (name authority record n80025970)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>He wrote that as a young man he was near-sighted, a defect that had gradually improved but was not wholly corrected, and that he had refused to wear the glasses prescribed for him so that it would not keep him out of military training.</strong><div class="muted">Documented myopia; anchors the modern eye examination.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://archive.org/details/roaldamundsenmyl00amun" target="_blank" rel="noreferrer">Amundsen R. My Life as an Explorer. Garden City, NY: Doubleday, Page, 1927 (Internet Archive roaldamundsenmyl00amun)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>On a winter ski crossing of the Hardangervidda plateau in his early twenties he nearly died in a snow cave during a rest stop, and he wrote that he and his companion both got their fingers badly frostbitten while breaking into a nailed-up hut.</strong><div class="muted">His own documented frostbite of the fingers; anchors the modern late sequelae. The roster&#39;s &#39;frostbite&#39; is supported for this event only.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://archive.org/details/roaldamundsenmyl00amun" target="_blank" rel="noreferrer">Amundsen R. My Life as an Explorer. Garden City, NY: Doubleday, Page, 1927 (Internet Archive roaldamundsenmyl00amun)</a> <span class="relationship">supports</span><br><a href="https://snl.no/Roald_Amundsen" target="_blank" rel="noreferrer">Barr S. Roald Amundsen. Store norske leksikon</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>As first mate of the Belgian Antarctic expedition in the Belgica (1897 to 1899), he spent thirteen months in the pack ice. He wrote that every member of the ship&#39;s company was afflicted with scurvy and all but three were prostrated by it; once fresh seal and penguin meat was eaten, the men plainly improved within a week. The expedition&#39;s physician had encouraged the crew to eat seal and penguin.</strong><div class="muted">Documents that he himself had scurvy by his own account, and the remedy. The physician is not named here.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://archive.org/details/roaldamundsenmyl00amun" target="_blank" rel="noreferrer">Amundsen R. My Life as an Explorer. Garden City, NY: Doubleday, Page, 1927 (Internet Archive roaldamundsenmyl00amun)</a> <span class="relationship">supports</span><br><a href="https://mia.no/roaldamundsen/en/the-belgica" target="_blank" rel="noreferrer">Digital exhibition: The Belgica</a> <span class="relationship">supports</span><br><a href="https://snl.no/Roald_Amundsen" target="_blank" rel="noreferrer">Barr S. Roald Amundsen. Store norske leksikon</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-R" title="Retrospective">R</span></td>
+    <td><strong>A physician historian argues that the heart failure seen on the Belgica expedition, described at the time as &#39;polar anaemia&#39;, was almost certainly wet beriberi from thiamine deficiency, and that most sufferers were probably also deficient in vitamin C.</strong><div class="muted">Retrospective interpretation about the expedition as a whole; not a claim about his own heart.</div></td>
+    <td>probable</td>
+    <td><a href="https://pubmed.ncbi.nlm.nih.gov/23564976/" target="_blank" rel="noreferrer">Guly HR. &#39;Polar anaemia&#39;: cardiac failure during the heroic age of Antarctic exploration. Polar Rec (Gr Brit) 2012;48(2):157-164. PMID 23564976</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>He led the first voyage through the Northwest Passage in a single ship, the Gjøa (1903 to 1906), and on December 14, 1911, he and four companions were the first to reach the South Pole. In 1925 he led a flight by flying boat toward the North Pole from Ny-Ålesund, and in 1926 the flight of the airship Norge across the Arctic.</strong><div class="muted">Career context; anchors his modern travel by air.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://snl.no/Roald_Amundsen" target="_blank" rel="noreferrer">Barr S. Roald Amundsen. Store norske leksikon</a> <span class="relationship">supports</span><br><a href="https://id.loc.gov/authorities/names/n80025970.html" target="_blank" rel="noreferrer">Amundsen, Roald, 1872-1928 (name authority record n80025970)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>On the Maud expedition, in the autumn of 1918, he fell down the ship&#39;s runway onto his right shoulder; the fracture was set aboard by a crewman trained in first aid, and he kept to his bed for eight days. On November 8, 1918, a polar bear struck him on the back, leaving minor gashes. He wrote that he could not at first lift his right hand to use a pencil, worked the arm daily for months, and that a surgeon in Seattle who X-rayed it in 1921 found the shoulder in a condition that theoretically would make the arm unusable.</strong><div class="muted">Documented complicated fracture of the upper arm with long rehabilitation.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://archive.org/details/roaldamundsenmyl00amun" target="_blank" rel="noreferrer">Amundsen R. My Life as an Explorer. Garden City, NY: Doubleday, Page, 1927 (Internet Archive roaldamundsenmyl00amun)</a> <span class="relationship">supports</span><br><a href="https://snl.no/Roald_Amundsen" target="_blank" rel="noreferrer">Barr S. Roald Amundsen. Store norske leksikon</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>About the New Year of 1918 to 1919, working in the small, unventilated observatory of the Maud with a kerosene vapour lamp, he became drowsy, felt his heart beating unnaturally, and nearly lost consciousness before he reached fresh air. He wrote that the violent palpitation lasted several days, that for months strenuous exercise set his heart pounding, and that in February he was exhausted by climbing a fifty-foot hill.</strong><div class="muted">His own account of the episode and its after-effects.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://archive.org/details/roaldamundsenmyl00amun" target="_blank" rel="noreferrer">Amundsen R. My Life as an Explorer. Garden City, NY: Doubleday, Page, 1927 (Internet Archive roaldamundsenmyl00amun)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>He wrote that in February 1922 a heart specialist in London told him &quot;No more expeditions!&quot; and to avoid all strenuous exercise; nine months later he travelled about 800 miles on foot through the snow from Point Barrow to Nome, and five years later he wrote that he had had no unpleasant results from his exertions.</strong><div class="muted">His own account; the specialist&#39;s findings are not recorded and no heart diagnosis is adopted.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://archive.org/details/roaldamundsenmyl00amun" target="_blank" rel="noreferrer">Amundsen R. My Life as an Explorer. Garden City, NY: Doubleday, Page, 1927 (Internet Archive roaldamundsenmyl00amun)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-R" title="Retrospective">R</span></td>
+    <td><strong>The Norwegian encyclopedia describes the observatory episode as carbon monoxide poisoning.</strong><div class="muted">Retrospective interpretation; he himself was not sure whether the lamp used up the oxygen or gave off poisonous fumes.</div></td>
+    <td>probable</td>
+    <td><a href="https://snl.no/Roald_Amundsen" target="_blank" rel="noreferrer">Barr S. Roald Amundsen. Store norske leksikon</a> <span class="relationship">supports</span><br><a href="https://archive.org/details/roaldamundsenmyl00amun" target="_blank" rel="noreferrer">Amundsen R. My Life as an Explorer. Garden City, NY: Doubleday, Page, 1927 (Internet Archive roaldamundsenmyl00amun)</a> <span class="relationship">disputes</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>He bought the house Uranienborg at Svartskog, on the Bunnefjord near Oslo, in 1908 and lived there for twenty years. His study had an exercise spring installed in the floor for his strength training, and a pump brought salt water from the fjord for his morning bath.</strong><div class="muted">Documented home and daily habits; anchors his exercise history.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://amundsen.mia.no/en/uranienborg-2/" target="_blank" rel="noreferrer">Uranienborg; the study; the bathroom (Discover Amundsen)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>After his 1927 lecture tour of Japan he returned by the Trans-Siberian railway; letters place him in Oslo in August 1927 and again in May 1928.</strong><div class="muted">Places him in Norway before and during the synthetic episode. The source is an auction catalogue description of his letters.</div></td>
+    <td>probable</td>
+    <td><a href="https://www.christies.com.cn/lot/lot-203602" target="_blank" rel="noreferrer">Roald Amundsen, four autograph letters to Don Pedro Christophersen, 1927-1928 (lot description)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>The Norwegian encyclopedia writes that by the end of his career he felt tired, lonely and bitter; he was 55, with persistent money problems and no more poles to conquer. He had declared himself personally bankrupt.</strong><div class="muted">Documented mood in an encyclopedia article; not a diagnosis. Anchors the modern depression screening only.</div></td>
+    <td>probable</td>
+    <td><a href="https://snl.no/Roald_Amundsen" target="_blank" rel="noreferrer">Barr S. Roald Amundsen. Store norske leksikon</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>He left Uranienborg for the last time on June 16, 1928.</strong><div class="muted">The synthetic episode ends before this date.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://amundsen.mia.no/en/uranienborg-2/" target="_blank" rel="noreferrer">Uranienborg; the study; the bathroom (Discover Amundsen)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>On the afternoon of June 18, 1928, he and five men flew from Tromsø toward Ny-Ålesund in a French Latham 47 flying boat to help search for the survivors of the crashed airship Italia. The aircraft disappeared, probably near Bjørnøya in the Barents Sea; all on board died, and only a float and a fuel tank were ever found.</strong><div class="muted">After the episode.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://snl.no/Roald_Amundsen" target="_blank" rel="noreferrer">Barr S. Roald Amundsen. Store norske leksikon</a> <span class="relationship">supports</span><br><a href="https://www.cambridge.org/core/journals/polar-record/article/deaths-of-roald-amundsen-and-the-crew-of-the-latham-47/4BCCFDBCC7B30A4BC9F666CD27436139" target="_blank" rel="noreferrer">May K, Lewis G. The deaths of Roald Amundsen and the crew of the Latham 47. Polar Record 2015;51(1):1-15. doi:10.1017/S0032247413000375</a> <span class="relationship">supports</span><br><a href="https://id.loc.gov/authorities/names/n80025970.html" target="_blank" rel="noreferrer">Amundsen, Roald, 1872-1928 (name authority record n80025970)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-R" title="Retrospective">R</span></td>
+    <td><strong>Historians reviewing the flight conclude that, in choosing a prototype aircraft that had not completed its flight tests and flying it unaccompanied over the Barents Sea despite warnings, he took a significant risk that led to his death and those of his crew.</strong><div class="muted">After the episode. Retrospective interpretation; the modern risk discussion makes no prediction.</div></td>
+    <td>probable</td>
+    <td><a href="https://www.cambridge.org/core/journals/polar-record/article/deaths-of-roald-amundsen-and-the-crew-of-the-latham-47/4BCCFDBCC7B30A4BC9F666CD27436139" target="_blank" rel="noreferrer">May K, Lewis G. The deaths of Roald Amundsen and the crew of the Latham 47. Polar Record 2015;51(1):1-15. doi:10.1017/S0032247413000375</a> <span class="relationship">supports</span></td>
+  </tr></tbody></table></section>
+    <section><h2>Modern synthetic problem list</h2><table><thead><tr><th>Grade</th><th>Problem</th><th>Clinical status</th><th>Verification</th><th>Placement</th><th>Historical claims</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Burning pain, numbness and tingling in the fingers of both hands, brought on by cold for many winters and worse this winter, with the fingers turning white then blue then red in the cold; average pain 6 of 10; cause not yet established at intake; nerve conduction studies and neurology consultation requested</td>
+    <td>resolved</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td>CLM-0003</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Cold-induced neuropathic pain and cold sensitivity of the fingers of both hands, a late sequela of frostbite in early adulthood: small-fiber pattern with normal nerve conduction studies, cold allodynia and reduced pinprick at the fingertips, and cold-induced vasospasm</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>both_with_link</td>
+    <td>CLM-0003</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Old fracture of the upper end of the right humerus, set at sea and rehabilitated without surgery: forward flexion and abduction limited to about 120 degrees, without pain at rest</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>both_with_link</td>
+    <td>CLM-0007</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Acute inversion sprain of the right ankle on wet rocks at the shore, lateral ligaments, without fracture by the Ottawa ankle rules; on duloxetine, so no tramadol and a topical rather than an oral NSAID; resolved</td>
+    <td>resolved</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td></td>
+  </tr></tbody></table></section>
+    <section><h2>Synthetic outcome measures</h2><table><thead><tr><th>Grade</th><th>Date</th><th>Measure</th><th>Result</th><th>Coding</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-02-10</td>
+    <td>Sodium [Moles/volume] in Serum or Plasma</td>
+    <td>141 mmol/L<div class="muted">Reference 136-145 mmol/L</div></td>
+    <td>http://loinc.org · 2951-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-02-10</td>
+    <td>Potassium [Moles/volume] in Serum or Plasma</td>
+    <td>4.3 mmol/L<div class="muted">Reference 3.5-5.1 mmol/L</div></td>
+    <td>http://loinc.org · 2823-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-02-10</td>
+    <td>Creatinine [Mass/volume] in Serum or Plasma</td>
+    <td>0.96 mg/dL<div class="muted">Reference 0.74-1.35 mg/dL</div></td>
+    <td>http://loinc.org · 2160-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-02-10</td>
+    <td>Glucose [Mass/volume] in Serum or Plasma</td>
+    <td>94 mg/dL<div class="muted">Reference 70-99 mg/dL</div></td>
+    <td>http://loinc.org · 2345-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-02-10</td>
+    <td>Hemoglobin A1c/Hemoglobin.total in Blood</td>
+    <td>5.4%<div class="muted">Reference &lt;=5.6%</div></td>
+    <td>http://loinc.org · 4548-4</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-02-10</td>
+    <td>Cobalamin (Vitamin B12) [Mass/volume] in Serum or Plasma</td>
+    <td>512 pg/mL<div class="muted">Reference 232-1245 pg/mL</div></td>
+    <td>http://loinc.org · 2132-9</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-02-10</td>
+    <td>Thyrotropin [Units/volume] in Serum or Plasma</td>
+    <td>1.8 mIU/L<div class="muted">Reference 0.45-4.5 mIU/L</div></td>
+    <td>http://loinc.org · 3016-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-02-10</td>
+    <td>Hemoglobin [Mass/volume] in Blood</td>
+    <td>14.9 g/dL<div class="muted">Reference 13.2-17.1 g/dL</div></td>
+    <td>http://loinc.org · 718-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-02-10</td>
+    <td>Alanine aminotransferase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>24 U/L<div class="muted">Reference 7-52 U/L</div></td>
+    <td>http://loinc.org · 1742-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-02-10</td>
+    <td>Cholesterol [Mass/volume] in Serum or Plasma</td>
+    <td>204 mg/dL (high)<div class="muted">Reference &lt;=199 mg/dL</div></td>
+    <td>http://loinc.org · 2093-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-02-10</td>
+    <td>Cholesterol in HDL [Mass/volume] in Serum or Plasma</td>
+    <td>58 mg/dL<div class="muted">Reference &gt;=40 mg/dL</div></td>
+    <td>http://loinc.org · 2085-9</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-02-10</td>
+    <td>Cholesterol in LDL [Mass/volume] in Serum or Plasma by calculation</td>
+    <td>126 mg/dL<div class="muted">Reference Below 130</div></td>
+    <td>http://loinc.org · 13457-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-02-10</td>
+    <td>Triglyceride [Mass/volume] in Serum or Plasma</td>
+    <td>100 mg/dL<div class="muted">Reference &lt;=149 mg/dL</div></td>
+    <td>http://loinc.org · 2571-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-02-10</td>
+    <td>Glomerular filtration rate [Volume Rate/Area] in Serum, Plasma or Blood by Creatinine-based formula (CKD-EPI 2021)/1.73 sq M</td>
+    <td>93 mL/min/1.73 m²<div class="muted">Reference 60 or more</div></td>
+    <td>http://loinc.org · 98979-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-02-10</td>
+    <td>Pain severity - 0-10 verbal numeric rating [Score] - Reported</td>
+    <td>6</td>
+    <td>http://loinc.org · 72514-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-02-10</td>
+    <td>Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]</td>
+    <td>5</td>
+    <td>http://loinc.org · 44261-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-24</td>
+    <td>Pain severity - 0-10 verbal numeric rating [Score] - Reported</td>
+    <td>5</td>
+    <td>http://loinc.org · 72514-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-05-05</td>
+    <td>Pain severity - 0-10 verbal numeric rating [Score] - Reported</td>
+    <td>3</td>
+    <td>http://loinc.org · 72514-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-05-05</td>
+    <td>Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]</td>
+    <td>3</td>
+    <td>http://loinc.org · 44261-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-05-05</td>
+    <td>Sodium [Moles/volume] in Serum or Plasma</td>
+    <td>139 mmol/L<div class="muted">Reference 136-145 mmol/L</div></td>
+    <td>http://loinc.org · 2951-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-05-05</td>
+    <td>Alanine aminotransferase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>27 U/L<div class="muted">Reference 7-52 U/L</div></td>
+    <td>http://loinc.org · 1742-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-06-09</td>
+    <td>Pain severity - 0-10 verbal numeric rating [Score] - Reported</td>
+    <td>2</td>
+    <td>http://loinc.org · 72514-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-04-07</td>
+    <td>Patient Health Questionnaire 2 item (PHQ-2) total score [Reported]</td>
+    <td>1</td>
+    <td>http://loinc.org · 55758-7</td>
+  </tr></tbody></table></section>
+    <section><h2>Synthetic vital signs</h2><table><thead><tr><th>Date</th><th>Measure</th><th>Result</th><th>LOINC</th><th>Grade</th></tr></thead><tbody>
+  <tr><td>2026-02-10</td><td>Body height</td><td>183 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-02-10</td><td>Body weight</td><td>79 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-02-10</td><td>Body mass index (BMI) [Ratio]</td><td>23.6 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-02-10</td><td>Systolic blood pressure</td><td>128 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-02-10</td><td>Diastolic blood pressure</td><td>80 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-02-10</td><td>Heart rate</td><td>62 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-02-10</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-02-10</td><td>Body temperature</td><td>36.4 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-02-10</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>98 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-02-24</td><td>Body height</td><td>183 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-02-24</td><td>Body weight</td><td>79.2 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-02-24</td><td>Body mass index (BMI) [Ratio]</td><td>23.6 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-02-24</td><td>Systolic blood pressure</td><td>126 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-02-24</td><td>Diastolic blood pressure</td><td>78 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-02-24</td><td>Heart rate</td><td>60 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-02-24</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-02-24</td><td>Body temperature</td><td>36.5 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-02-24</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>98 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-24</td><td>Body height</td><td>183 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-24</td><td>Body weight</td><td>79 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-24</td><td>Body mass index (BMI) [Ratio]</td><td>23.6 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-24</td><td>Systolic blood pressure</td><td>126 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-24</td><td>Diastolic blood pressure</td><td>78 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-24</td><td>Heart rate</td><td>62 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-24</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-24</td><td>Body temperature</td><td>36.5 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-24</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>98 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-05-05</td><td>Body height</td><td>183 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-05-05</td><td>Body weight</td><td>78.6 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-05-05</td><td>Body mass index (BMI) [Ratio]</td><td>23.5 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-05-05</td><td>Systolic blood pressure</td><td>132 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-05-05</td><td>Diastolic blood pressure</td><td>82 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-05-05</td><td>Heart rate</td><td>66 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-05-05</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-05-05</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-05-05</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>98 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-09</td><td>Body height</td><td>183 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-09</td><td>Body weight</td><td>78.4 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-09</td><td>Body mass index (BMI) [Ratio]</td><td>23.4 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-09</td><td>Systolic blood pressure</td><td>128 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-09</td><td>Diastolic blood pressure</td><td>80 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-09</td><td>Heart rate</td><td>64 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-09</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-09</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-09</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>98 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-07</td><td>Body height</td><td>183 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-07</td><td>Body weight</td><td>78.8 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-07</td><td>Body mass index (BMI) [Ratio]</td><td>23.5 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-07</td><td>Systolic blood pressure</td><td>128 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-07</td><td>Diastolic blood pressure</td><td>80 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-07</td><td>Heart rate</td><td>64 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-07</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-07</td><td>Body temperature</td><td>36.5 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-07</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>98 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-05-19</td><td>Body height</td><td>183 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-05-19</td><td>Body weight</td><td>78.5 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-05-19</td><td>Body mass index (BMI) [Ratio]</td><td>23.4 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-05-19</td><td>Systolic blood pressure</td><td>134 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-05-19</td><td>Diastolic blood pressure</td><td>84 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-05-19</td><td>Heart rate</td><td>72 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-05-19</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-05-19</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-05-19</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>98 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr></tbody></table></section>
+    <section><h2>Social, functional, and mental status</h2><h3>Social history</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Polar explorer and expedition leader, now writing and lecturing; still plans flights and expeditions in the Arctic; often travels by air and sea</li><li><span class="badge grade-S" title="Synthetic">S</span> Lives in his own house on a fjord outside Oslo; under financial strain after a bankruptcy</li><li><span class="badge grade-S" title="Synthetic">S</span> Exercise: strength training with floor springs most mornings, a cold salt-water bath each morning, and long walks and skiing; no limitation</li><li><span class="badge grade-S" title="Synthetic">S</span> Tobacco: never. Alcohol: rarely, a glass of wine at a dinner; no other drugs</li><li><span class="badge grade-S" title="Synthetic">S</span> Drives a car and flies as a passenger and expedition navigator; wants to stay fit to fly in the Arctic</li></ul><h3>Functional status</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Independent; fumbles with buttons, keys and pen in the cold until his hands warm; cannot reach fully overhead with the right arm</li></ul><h3>Mental status</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Alert, courteous and guarded; tired and worried about money; PHQ-9 score 5</li></ul></section>
+    
+    <section><h2>Allergies and medications</h2><h3>Allergies</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> No known allergy</li></ul><h3>Medications</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Diclofenac 1% gel, 4 g to the right ankle four times a day for up to two weeks</li><li><span class="badge grade-S" title="Synthetic">S</span> Capsaicin 0.075% cream, a small amount rubbed into the painful fingers four times a day; wash hands after use and keep away from the eyes</li><li><span class="badge grade-S" title="Synthetic">S</span> Duloxetine 30 mg delayed-release capsule, one capsule by mouth daily for one week</li><li><span class="badge grade-S" title="Synthetic">S</span> Duloxetine 60 mg delayed-release capsule, one capsule by mouth daily; do not stop suddenly</li></ul></section>
+    <section><h2>Procedures and immunizations</h2><h3>Procedures</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Advance care planning conversation, about 20 minutes</li><li><span class="badge grade-S" title="Synthetic">S</span> Nerve conduction studies of both arms: median, ulnar and radial sensory and motor nerves, with median-ulnar palmar comparison and digital sensory responses</li><li><span class="badge grade-S" title="Synthetic">S</span> Resting twelve-lead electrocardiogram</li></ul><h3>Immunizations</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> 2026-04-07: Recombinant zoster vaccine, dose 1 of 2</li><li><span class="badge grade-S" title="Synthetic">S</span> 2026-04-07: Pneumococcal conjugate vaccine (PCV20)</li><li><span class="badge grade-S" title="Synthetic">S</span> 2026-04-07: Tdap vaccine</li><li><span class="badge grade-S" title="Synthetic">S</span> 2026-06-09: Recombinant zoster vaccine, dose 2 of 2</li></ul></section>
+    <section><h2>Past medical history</h2><p class="muted">True biography with historical dates; not part of the synthetic care timeline.</p><ul><li><span class="badge grade-D" title="Documented">D</span> since youth (year not recorded): Near-sightedness since youth, partly improved, never fully corrected <span class="muted">(CLM-0002)</span></li><li><span class="badge grade-D" title="Documented">D</span> about 1894 (his twenty-second year): Frostbite of the fingers of both hands on a winter ski crossing in his early twenties <span class="muted">(CLM-0003)</span></li><li><span class="badge grade-D" title="Documented">D</span> 1898: Scurvy during thirteen months in the Antarctic pack ice in his mid-twenties, with recovery on fresh seal and penguin meat <span class="muted">(CLM-0004)</span></li><li><span class="badge grade-D" title="Documented">D</span> 1918: Complicated fracture of the right upper arm in a fall on board ship in his mid-forties, set without surgery, with months of self-directed rehabilitation; minor back wounds from a polar bear the same autumn <span class="muted">(CLM-0007)</span></li><li><span class="badge grade-R" title="Retrospective">R</span> about January 1919: Near-collapse with palpitations from lamp fumes in a closed observatory, with months of exertional palpitations and a slow recovery; later advised by a heart specialist to give up expeditions, without lasting effect on his exercise tolerance by his account <span class="muted">(CLM-0008, CLM-0009, CLM-0010)</span></li></ul><h3>Family history</h3><p class="muted">No family medical history is documented in the logged sources. Family history of real relatives is never synthesized.</p></section>
+    <section><h2>Care-plan goals</h2><table><thead><tr><th>Goal</th><th>Target date</th><th>Status</th><th>Outcome</th></tr></thead><tbody>
+  <tr><td>Average finger pain at or below 3 of 10, with fewer cold attacks, by four months</td><td>2026-06-09</td><td>completed</td><td>Average pain 2 of 10 on duloxetine 60 mg; cold attacks shorter and less frequent</td></tr>
+  <tr><td>Able to handle buttons, keys and a pen outdoors in the cold with protective gloves</td><td>2026-05-05</td><td>completed</td><td>Managing with liner and heated gloves and hand warmers</td></tr>
+  <tr><td>Any medicine used causes no daytime drowsiness that affects driving or flying</td><td>2026-06-09</td><td>completed</td><td>No drowsiness on capsaicin cream or duloxetine</td></tr></tbody></table></section>
+    <section><h2>Interventions</h2><table><thead><tr><th>Intervention</th><th>Status</th><th>Guideline</th></tr></thead><tbody>
+  <tr><td>Neurology consultation in two weeks with nerve conduction studies to confirm or exclude a late post-frostbite neuropathy, entrapment, or another polyneuropathy, and to advise on treatment that does not cause drowsiness</td><td>completed</td><td>GL-NICE-CG173, GL-WMS-FROST-2024</td></tr>
+  <tr><td>Cold protection and hand care: liner gloves under mittens, heated gloves and hand warmers outdoors, warming the hands before fine work, no cold-water hand washing, and checking the fingers for skin damage</td><td>completed</td><td>GL-WMS-FROST-2024</td></tr>
+  <tr><td>Blood tests for other causes of neuropathy: glucose and HbA1c, vitamin B12, TSH, kidney function, liver enzyme and hemoglobin; PHQ-9 for mood with chronic pain</td><td>completed</td><td>GL-NICE-CG173, GL-USPSTF-DEP-2023</td></tr>
+  <tr><td>Capsaicin 0.075% cream to the painful fingers four times a day for localized neuropathic pain, because he wishes to avoid oral treatment, with review in four weeks</td><td>completed</td><td>GL-NICE-CG173</td></tr>
+  <tr><td>Duloxetine 30 mg daily for a week, then 60 mg daily, for neuropathic pain not controlled by capsaicin cream, with review of pain, adverse effects, sleep, mood and blood pressure, a sodium check, no tramadol, and no abrupt stopping</td><td>completed</td><td>GL-NICE-CG173</td></tr></tbody></table></section>
+    <section><h2>Planned encounters</h2><ul>
+  <li><strong>2026-02-10</strong> — New patient visit for cold-induced burning pain and numbness in the fingers of both hands: history, examination, blood tests for other causes of neuropathy, mood screening, cold protection, and a neurology referral <span class="muted">(ENC-001)</span></li>
+  <li><strong>2026-02-24</strong> — Two-week follow-up and neurology consultation with nerve conduction studies <span class="muted">(ENC-002)</span></li>
+  <li><strong>2026-03-24</strong> — Six-week review: finger pain on capsaicin cream, starting duloxetine <span class="muted">(ENC-003)</span></li>
+  <li><strong>2026-04-07</strong> — Periodic adult preventive visit <span class="muted">(ENC-006)</span></li>
+  <li><strong>2026-05-05</strong> — Twelve-week review: finger pain, mood, blood pressure and sodium on duloxetine <span class="muted">(ENC-004)</span></li>
+  <li><strong>2026-05-19</strong> — Same-day sick visit for a right ankle sprain <span class="muted">(ENC-007, unscheduled)</span></li>
+  <li><strong>2026-06-09</strong> — Seventeen-week review: finger pain, the ankle sprain, and the risks of an Arctic air search flight <span class="muted">(ENC-005)</span></li></ul></section>
+    <section><h2>Supporting documents</h2><ul><li><a href="notes/hp.md">History and physical</a></li><li><a href="notes/progress-01.md">Progress note 01</a></li><li><a href="notes/progress-02.md">Progress note 02 — Focused Visit (Follow-up)</a></li><li><a href="notes/progress-03.md">Progress note 03 — Focused Visit (Follow-up)</a></li><li><a href="notes/progress-04.md">Progress note 04 — Preventive Visit</a></li><li><a href="notes/progress-05.md">Progress note 05 — Focused Visit (Follow-up)</a></li><li><a href="notes/progress-06.md">Progress note 06 — Sick Visit</a></li><li><a href="notes/progress-07.md">Progress note 07 — Focused Visit (Care-plan review)</a></li><li><a href="notes/referral-01.md">Neurology (peripheral nerve) referral</a></li><li><a href="notes/consult-01.md">Neurology (peripheral nerve) consultation</a></li><li><a href="notes/careplan.md">Patient care plan</a></li><li><a href="notes/teaching-note.md">Teaching note</a></li><li><a href="provenance.csv">Provenance CSV</a></li></ul></section>
+    <section><h2>C-CDA note documents</h2><p class="muted">Each link opens a readable copy; the XML beside it is the exchange file.</p><ul><li><a href="ccda/hp-01.html">History and physical</a> <a href="ccda/hp-01.xml">(XML)</a></li><li><a href="ccda/progress-01.html">Progress note 01</a> <a href="ccda/progress-01.xml">(XML)</a></li><li><a href="ccda/progress-02.html">Progress note 02 — Focused Visit (Follow-up)</a> <a href="ccda/progress-02.xml">(XML)</a></li><li><a href="ccda/progress-03.html">Progress note 03 — Focused Visit (Follow-up)</a> <a href="ccda/progress-03.xml">(XML)</a></li><li><a href="ccda/progress-04.html">Progress note 04 — Preventive Visit</a> <a href="ccda/progress-04.xml">(XML)</a></li><li><a href="ccda/progress-05.html">Progress note 05 — Focused Visit (Follow-up)</a> <a href="ccda/progress-05.xml">(XML)</a></li><li><a href="ccda/progress-06.html">Progress note 06 — Sick Visit</a> <a href="ccda/progress-06.xml">(XML)</a></li><li><a href="ccda/progress-07.html">Progress note 07 — Focused Visit (Care-plan review)</a> <a href="ccda/progress-07.xml">(XML)</a></li><li><a href="ccda/referral-01.html">Neurology (peripheral nerve) referral</a> <a href="ccda/referral-01.xml">(XML)</a></li><li><a href="ccda/consult-01.html">Neurology (peripheral nerve) consultation</a> <a href="ccda/consult-01.xml">(XML)</a></li></ul></section>
+    <section><h2>Sources</h2><table><thead><tr><th>ID</th><th>Source</th><th>Publisher</th><th>Type</th></tr></thead><tbody>
+  <tr>
+    <td>SRC-0001</td>
+    <td><a href="https://snl.no/Roald_Amundsen" target="_blank" rel="noreferrer">Barr S. Roald Amundsen. Store norske leksikon</a></td>
+    <td>Store norske leksikon</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0002</td>
+    <td><a href="https://id.loc.gov/authorities/names/n80025970.html" target="_blank" rel="noreferrer">Amundsen, Roald, 1872-1928 (name authority record n80025970)</a></td>
+    <td>Library of Congress</td>
+    <td>government</td>
+  </tr>
+  <tr>
+    <td>SRC-0003</td>
+    <td><a href="https://archive.org/details/roaldamundsenmyl00amun" target="_blank" rel="noreferrer">Amundsen R. My Life as an Explorer. Garden City, NY: Doubleday, Page, 1927 (Internet Archive roaldamundsenmyl00amun)</a></td>
+    <td>Internet Archive</td>
+    <td>primary</td>
+  </tr>
+  <tr>
+    <td>SRC-0004</td>
+    <td><a href="https://mia.no/roaldamundsen/en/the-belgica" target="_blank" rel="noreferrer">Digital exhibition: The Belgica</a></td>
+    <td>Roald Amundsen&#39;s House Uranienborg (Follo museum, Museums in Akershus)</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0005</td>
+    <td><a href="https://amundsen.mia.no/en/uranienborg-2/" target="_blank" rel="noreferrer">Uranienborg; the study; the bathroom (Discover Amundsen)</a></td>
+    <td>Roald Amundsen&#39;s House Uranienborg (Follo museum, Museums in Akershus)</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0006</td>
+    <td><a href="https://www.christies.com.cn/lot/lot-203602" target="_blank" rel="noreferrer">Roald Amundsen, four autograph letters to Don Pedro Christophersen, 1927-1928 (lot description)</a></td>
+    <td>Christie&#39;s</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0007</td>
+    <td><a href="https://www.cambridge.org/core/journals/polar-record/article/deaths-of-roald-amundsen-and-the-crew-of-the-latham-47/4BCCFDBCC7B30A4BC9F666CD27436139" target="_blank" rel="noreferrer">May K, Lewis G. The deaths of Roald Amundsen and the crew of the Latham 47. Polar Record 2015;51(1):1-15. doi:10.1017/S0032247413000375</a></td>
+    <td>Polar Record (Cambridge University Press)</td>
+    <td>scholarly</td>
+  </tr>
+  <tr>
+    <td>SRC-0008</td>
+    <td><a href="https://humanrecord.example.org/internal/HISTMED_Master_Roster_v3.xlsx" target="_blank" rel="noreferrer">HISTMED Master Roster v3</a></td>
+    <td>The Human Record project</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0009</td>
+    <td><a href="https://pubmed.ncbi.nlm.nih.gov/23564976/" target="_blank" rel="noreferrer">Guly HR. &#39;Polar anaemia&#39;: cardiac failure during the heroic age of Antarctic exploration. Polar Rec (Gr Brit) 2012;48(2):157-164. PMID 23564976</a></td>
+    <td>Polar Record (Cambridge University Press)</td>
+    <td>scholarly</td>
+  </tr></tbody></table></section>
+    <section><h2>Review status</h2><table><thead><tr><th>Review</th><th>Status</th><th>Notes</th></tr></thead><tbody>
+  <tr><td>schema validation</td><td>not_started</td><td>Run scripts/build.ps1 -Conformance.</td></tr>
+  <tr><td>clinical review</td><td>not_started</td><td>Awaiting clinician review; check the diagnosis of a late post-frostbite small-fiber neuropathy with normal nerve conduction studies, the order of capsaicin cream then duloxetine under NICE CG173, the monitoring on duloxetine, the avoidance of tramadol and oral NSAIDs with duloxetine, and the flight risk discussion.</td></tr>
+  <tr><td>provenance review</td><td>not_started</td><td>Store norske leksikon, the Library of Congress authority record, his 1927 autobiography (Internet Archive), the museum of his home at Uranienborg, an auction catalogue description of his letters (dates and places only), and two Polar Record articles (abstracts) logged. The carbon monoxide interpretation, the Belgica beriberi interpretation, and the historians&#39; judgment on the last flight are graded R.</td></tr>
+  <tr><td>safe messaging review</td><td>not_started</td><td>The encyclopedia&#39;s description of him as tired, lonely and bitter in his last years is a documented claim marked sensitive; the modern PHQ-9 scores are synthetic, below 10, and no behavioral-health diagnosis is made. The modern flight risk discussion makes no prediction about his death.</td></tr></tbody></table></section>
+  </main>
+</body>
+</html>

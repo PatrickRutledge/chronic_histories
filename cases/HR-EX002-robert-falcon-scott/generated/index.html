@@ -1,0 +1,582 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Robert Falcon Scott — The Human Record</title>
+  <style>
+    :root { --navy:#17365d; --blue:#1f4e78; --pale:#eef5fa; --ink:#1f2933; --muted:#66788a; --amber:#fff2cc; --red:#f8d7da; --green:#d9ead3; }
+    * { box-sizing:border-box; }
+    body { margin:0; font:16px/1.5 Arial, sans-serif; color:var(--ink); background:#f6f8fa; }
+    header { background:var(--navy); color:white; padding:24px max(24px,calc((100vw - 1180px)/2)); }
+    header h1 { margin:4px 0; font-size:30px; }
+    .banner { background:#b42318; color:white; font-weight:700; text-align:center; padding:10px; letter-spacing:.03em; }
+    main { max-width:1180px; margin:24px auto 60px; padding:0 24px; }
+    section { background:white; border:1px solid #d9e1e8; border-radius:8px; margin:18px 0; padding:20px; }
+    h2 { color:var(--navy); margin:0 0 14px; font-size:22px; }
+    h3 { color:var(--blue); }
+    .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:12px; }
+    .card { background:var(--pale); border-left:4px solid var(--blue); padding:12px; }
+    .label { color:var(--muted); font-size:13px; text-transform:uppercase; letter-spacing:.04em; }
+    table { width:100%; border-collapse:collapse; }
+    th { background:var(--blue); color:white; text-align:left; }
+    th,td { padding:9px; border-bottom:1px solid #dfe6ec; vertical-align:top; }
+    .badge { display:inline-block; min-width:28px; text-align:center; font-weight:700; border-radius:12px; padding:2px 8px; }
+    .grade-D { background:var(--green); } .grade-R { background:var(--amber); } .grade-S { background:var(--red); }
+    .muted { color:var(--muted); font-size:14px; }
+    .relationship { color:var(--muted); font-size:12px; }
+    .downloads a { display:inline-block; margin:4px 8px 4px 0; padding:8px 12px; background:var(--blue); color:white; text-decoration:none; border-radius:5px; }
+    @media (max-width:700px) { table { display:block; overflow-x:auto; } }
+  </style>
+</head>
+<body>
+  <div class="banner">SYNTHETIC RECORD, NOT A REAL MEDICAL RECORD</div>
+  <header>
+    <div>The Human Record</div>
+    <h1>Robert Falcon Scott</h1>
+    <div>Case HR-EX002 · Modern EHR teaching episode · Draft for review</div>
+  </header>
+  <main>
+    <section>
+      <h2>Review summary</h2>
+      <div class="grid">
+        <div class="card"><div class="label">Historical dates</div>June 6, 1868 – about March 29, 1912</div>
+        <div class="card"><div class="label">Synthetic DOB</div>1984-06-06</div>
+        <div class="card"><div class="label">Index visit</div>2026-01-13 at age 41</div>
+        <div class="card"><div class="label">Synthetic MRN</div>HR-EX002-SYN</div>
+      </div>
+      <p><strong>Teaching objective:</strong> Primary care and wilderness and expedition medicine for a 41-year-old naval officer, five months before he leads a long Antarctic expedition with a winter in a hut and months of hauling sledges on foot: a structured pre-expedition medical assessment (cardiovascular risk and fitness, dental, hearing, vision, vaccinations); an elevated office blood pressure confirmed as stage 1 hypertension with home readings, lifestyle measures first, and an angiotensin receptor blocker chosen over a thiazide or a beta-blocker for cold and dehydration, with sick-day rules; stopping pipe tobacco with varenicline, because nicotine raises frostbite risk; nutrition planning for energy needs of man-hauling in extreme cold and vitamin C to prevent the scurvy he had on an earlier journey; frostbite and hypothermia prevention and field first aid training; altitude on the polar plateau; sleep and mental health in isolation with screening and a support plan; and an evacuation and communication plan. Built on the Wilderness Medical Society frostbite (2024), hypothermia (2019) and altitude (2024) guidelines, the 2025 AHA/ACC high blood pressure guideline, the CMID hypertension monograph, and the USPSTF tobacco, depression and anxiety recommendations.</p>
+      <div class="downloads">
+        <a href="../case.json">Canonical JSON</a>
+        <a href="fhir-bundle.json">FHIR R4 draft</a>
+        <a href="ccda.html">C-CDA R2.1 summary</a> <a href="ccda.xml">(XML)</a> <a href="review.html">Review checklist</a>
+        <a href="../sources.md">Evidence dossier</a>
+      </div>
+    </section>
+    <section><h2>Historical timeline</h2><table><thead><tr><th>Date</th><th>Event</th><th>Claims</th></tr></thead><tbody>
+  <tr><td>June 6, 1868</td><td>Born at Plymouth, Devon.</td><td>CLM-0001</td></tr>
+  <tr><td>1901 to 1904</td><td>Led the Discovery expedition.</td><td>CLM-0002</td></tr>
+  <tr><td>October 1902</td><td>Scurvy found at the Discovery&#39;s winter quarters after a sledge journey; seal meat added to sledging rations.</td><td>CLM-0003, CLM-0007</td></tr>
+  <tr><td>December 20, 1902</td><td>Tobacco running out on the southern journey; tried tea leaves.</td><td>CLM-0008</td></tr>
+  <tr><td>January 14, 1903</td><td>Red gums and slight ankle swelling recorded at a medical examination on the southern journey.</td><td>CLM-0004, CLM-0005</td></tr>
+  <tr><td>February 1903</td><td>Returned to the ship with swollen legs, sore gums, and weeks of lassitude.</td><td>CLM-0006</td></tr>
+  <tr><td>1908</td><td>Married; naval commands and Admiralty work between the expeditions.</td><td>CLM-0009</td></tr>
+  <tr><td>November 24, 1909</td><td>Organizing and raising funds for the British Antarctic Expedition from its London offices.</td><td>CLM-0010</td></tr>
+  <tr><td>June 15, 1910</td><td>The Terra Nova left Cardiff.</td><td>CLM-0011, CLM-0015</td></tr>
+  <tr><td>January 17, 1912</td><td>Reached the South Pole; a rival expedition had been there first.</td><td>CLM-0012</td></tr>
+  <tr><td>March 18, 1912</td><td>Frostbite of the right foot recorded on the return march.</td><td>CLM-0013, CLM-0018</td></tr>
+  <tr><td>March 29, 1912</td><td>Last journal entry, in the tent on the Ross Ice Shelf; died of cold and hunger about this date.</td><td>CLM-0014, CLM-0016, CLM-0017</td></tr></tbody></table></section>
+    <section><h2>Evidence claims</h2><p class="muted">D = documented, R = retrospective, S = synthetic.</p><table><thead><tr><th>Grade</th><th>Claim</th><th>Certainty</th><th>Sources</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>Robert Falcon Scott was born on June 6, 1868, at Plymouth, Devon, into a seafaring family, and joined his first Royal Navy ship when he was 13.</strong></td>
+    <td>confirmed</td>
+    <td><a href="https://id.loc.gov/authorities/names/n50005591.html" target="_blank" rel="noreferrer">Scott, Robert Falcon, 1868-1912 (name authority record n50005591)</a> <span class="relationship">supports</span><br><a href="https://www.rmg.co.uk/stories/maritime-history/captain-robert-falcon-scott" target="_blank" rel="noreferrer">Captain Robert Falcon Scott</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>He led the Discovery expedition to the Antarctic from 1901 to 1904.</strong></td>
+    <td>confirmed</td>
+    <td><a href="https://www.rmg.co.uk/stories/maritime-history/captain-robert-falcon-scott" target="_blank" rel="noreferrer">Captain Robert Falcon Scott</a> <span class="relationship">supports</span><br><a href="https://archive.org/details/voyageofdiscover001scot" target="_blank" rel="noreferrer">Scott RF. The Voyage of the &#39;Discovery&#39;. Volume I. London: Smith, Elder, 1905 (Internet Archive voyageofdiscover001scot)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>In October 1902, at the Discovery&#39;s winter quarters, scurvy was found after a sledge party returned from the western journey; the expedition&#39;s surgeon then examined everyone on board and found signs in a good many men, in most only the merest indication, and the outbreak was over by about October 20. Scott arranged to replace part of the sledging pemmican with cooked seal meat.</strong><div class="muted">Documents the sledging scurvy of the Discovery expedition; no other man is named here.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://archive.org/details/voyageofdiscover001scot" target="_blank" rel="noreferrer">Scott RF. The Voyage of the &#39;Discovery&#39;. Volume I. London: Smith, Elder, 1905 (Internet Archive voyageofdiscover001scot)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>On the southern sledge journey (November 1902 to February 1903) the party examined gums and legs every Sunday. When one companion developed angry-looking gums in late December 1902, they stopped eating bacon and increased the seal-meat ration, and Scott recorded that the scurvy symptoms lessened.</strong><div class="muted">Fresh seal meat as the remedy is documented; the companion&#39;s health is mentioned only as the trigger for the change of diet.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://archive.org/details/voyageofdiscover002scot" target="_blank" rel="noreferrer">Scott RF. The Voyage of the &#39;Discovery&#39;. Volume II. London: Smith, Elder, 1905 (Internet Archive voyageofdiscover002scot)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>At a thorough medical examination on the southern journey on January 14, 1903, Scott recorded that he himself had &quot;distinctly red gums, and a very slight swelling in the ankles.&quot; Two days later, on a double ration of seal meat, his gums were much cleaner and his leg vastly improved; by the last days of the journey he wrote that their scurvy had been advancing again and that his ankles were considerably swollen.</strong><div class="muted">His own documented signs of scurvy in his mid-thirties.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://archive.org/details/voyageofdiscover002scot" target="_blank" rel="noreferrer">Scott RF. The Voyage of the &#39;Discovery&#39;. Volume II. London: Smith, Elder, 1905 (Internet Archive voyageofdiscover002scot)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>After the southern party returned to the ship in February 1903, Scott wrote that he had both legs much swollen and very uncomfortable gums, and an extraordinary lassitude, physical and mental, that lasted many weeks before he returned to a normally vigorous condition.</strong><div class="muted">His own account of recovery from scurvy and exhaustion.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://archive.org/details/voyageofdiscover002scot" target="_blank" rel="noreferrer">Scott RF. The Voyage of the &#39;Discovery&#39;. Volume II. London: Smith, Elder, 1905 (Internet Archive voyageofdiscover002scot)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-R" title="Retrospective">R</span></td>
+    <td><strong>In his account of the Discovery expedition he wrote that scurvy was then believed to be ptomaine poisoning from tainted meat. A modern historian of medicine notes that many British doctors of the time accepted this view and overlooked the experiments of Holst and Frølich on dietary deficiency, so medical advice given to him before his second expedition would probably not have helped him prevent scurvy.</strong><div class="muted">The ptomaine statement is documented in his own book; the judgment about what advice could have achieved is a retrospective interpretation.</div></td>
+    <td>probable</td>
+    <td><a href="https://archive.org/details/voyageofdiscover001scot" target="_blank" rel="noreferrer">Scott RF. The Voyage of the &#39;Discovery&#39;. Volume I. London: Smith, Elder, 1905 (Internet Archive voyageofdiscover001scot)</a> <span class="relationship">supports</span><br><a href="https://pubmed.ncbi.nlm.nih.gov/23734365/" target="_blank" rel="noreferrer">Butler AR. The role of scurvy in Scott&#39;s return from the South Pole. J R Coll Physicians Edinb 2013;43(2):175-81. PMID 23734365</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>On the southern journey, on December 20, 1902, he wrote that his tobacco supply was so low that he had been trying tea leaves, which were &quot;nothing less than horrid.&quot;</strong><div class="muted">Documented tobacco use; anchors the synthetic pipe-smoking history.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://archive.org/details/voyageofdiscover002scot" target="_blank" rel="noreferrer">Scott RF. The Voyage of the &#39;Discovery&#39;. Volume II. London: Smith, Elder, 1905 (Internet Archive voyageofdiscover002scot)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>After the Discovery expedition the needs of the naval service called him to the command of battleships and to confidential work at the Admiralty, and five years passed before he resumed Antarctic work. In 1908 he married the sculptor Kathleen Bruce; they had one son.</strong><div class="muted">Career and household context; no health facts about his family are recorded.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.gutenberg.org/ebooks/11579" target="_blank" rel="noreferrer">Scott&#39;s Last Expedition, Volume I: Being the Journals of Captain R. F. Scott, arranged by Leonard Huxley. London, 1913. Project Gutenberg eBook 11579</a> <span class="relationship">supports</span><br><a href="https://www.rmg.co.uk/stories/maritime-history/captain-robert-falcon-scott" target="_blank" rel="noreferrer">Captain Robert Falcon Scott</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>On November 24, 1909, he wrote from the offices of the British Antarctic Expedition at 36 and 38 Victoria Street, London, that the Pole was at the forefront of the campaign for raising funds but that scientific work would not be neglected.</strong><div class="muted">Places him in London organizing and funding the expedition before the modern episode begins.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://calmview.bham.ac.uk/rdf/catalog/XOJL/1/354" target="_blank" rel="noreferrer">Letter from R. Scott to Oliver Lodge, 24 November 1909 (archive record XOJL/1/354)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>The Terra Nova left the Roath Basin at Cardiff on June 15, 1910, with Scott and members of the British Antarctic Expedition on board.</strong><div class="muted">The synthetic episode ends before this date. Where and when he finally joined the ship for the voyage south is given differently in the comments on the source page and is not used.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://museum.wales/articles/1041/Captain-Scott-sails-from-Cardiff" target="_blank" rel="noreferrer">Captain Scott sails from Cardiff</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>He reached the South Pole on January 17 to 18, 1912, and found that a rival expedition had already been there.</strong><div class="muted">After the episode.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.rmg.co.uk/stories/maritime-history/captain-robert-falcon-scott" target="_blank" rel="noreferrer">Captain Robert Falcon Scott</a> <span class="relationship">supports</span><br><a href="https://www.gutenberg.org/ebooks/11579" target="_blank" rel="noreferrer">Scott&#39;s Last Expedition, Volume I: Being the Journals of Captain R. F. Scott, arranged by Leonard Huxley. London, 1913. Project Gutenberg eBook 11579</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>On the return march, on March 18, 1912, he wrote that his right foot had &quot;gone, nearly all the toes,&quot; and on March 19 that amputation was &quot;the least I can hope for now.&quot;</strong><div class="muted">After the episode. His own documented frostbite.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.gutenberg.org/ebooks/11579" target="_blank" rel="noreferrer">Scott&#39;s Last Expedition, Volume I: Being the Journals of Captain R. F. Scott, arranged by Leonard Huxley. London, 1913. Project Gutenberg eBook 11579</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>All five men of the polar party died of cold and hunger. Two died earlier on the return march; Scott and the two remaining companions died in their tent about 11 miles short of a depot of food and fuel. His last journal entry, dated March 29, 1912, records a continuous gale since March 21, fuel and food exhausted, and ends &quot;For God&#39;s sake look after our people.&quot; A search party found the tent on November 12, 1912.</strong><div class="muted">After the episode. The date of his death is taken from the last entry and is approximate.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.rmg.co.uk/stories/maritime-history/captain-robert-falcon-scott" target="_blank" rel="noreferrer">Captain Robert Falcon Scott</a> <span class="relationship">supports</span><br><a href="https://www.gutenberg.org/ebooks/11579" target="_blank" rel="noreferrer">Scott&#39;s Last Expedition, Volume I: Being the Journals of Captain R. F. Scott, arranged by Leonard Huxley. London, 1913. Project Gutenberg eBook 11579</a> <span class="relationship">supports</span><br><a href="https://id.loc.gov/authorities/names/n50005591.html" target="_blank" rel="noreferrer">Scott, Robert Falcon, 1868-1912 (name authority record n50005591)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>His original diaries of the second expedition, from October 18, 1910 to March 29, 1912, are held by the British Library as Add MS 51024-51042.</strong><div class="muted">Locates the primary record; not a clinical claim.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://searcharchives.bl.uk/catalog/032-001958841" target="_blank" rel="noreferrer">Diaries and other records of the Second Antarctic Expedition of Capt. Robert Falcon Scott (Add MS 51024-51042)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-R" title="Retrospective">R</span></td>
+    <td><strong>A historian of medicine concludes that scurvy may have contributed to the general ill health of the polar party in 1912, but that their deaths were more likely caused by a combination of frostbite, malnutrition and hypothermia.</strong><div class="muted">Retrospective interpretation; the record does not diagnose scurvy in 1912.</div></td>
+    <td>probable</td>
+    <td><a href="https://pubmed.ncbi.nlm.nih.gov/23734365/" target="_blank" rel="noreferrer">Butler AR. The role of scurvy in Scott&#39;s return from the South Pole. J R Coll Physicians Edinb 2013;43(2):175-81. PMID 23734365</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-R" title="Retrospective">R</span></td>
+    <td><strong>Physiologists reviewing the expedition conclude that rations of a different composition, giving more energy for the same weight, might have saved some of the party, and that more vitamin C, though hard to achieve at the time, could have improved their chances.</strong><div class="muted">Retrospective interpretation; used to frame the modern nutrition plan.</div></td>
+    <td>possible</td>
+    <td><a href="https://pubmed.ncbi.nlm.nih.gov/22535890/" target="_blank" rel="noreferrer">Halsey LG, Stroud MA. 100 years since Scott reached the pole: a century of learning about the physiological demands of Antarctica. Physiol Rev 2012;92(2):521-36. PMID 22535890</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-R" title="Retrospective">R</span></td>
+    <td><strong>Atmospheric scientists comparing the party&#39;s temperature records with modern automatic weather stations found that daily minimum temperatures from late February to March 19, 1912 were on average 10 to 20 °F below those measured in the same region and season since 1985, and that this cold likely contributed substantially to the party&#39;s exhaustion and frostbite.</strong><div class="muted">Retrospective interpretation.</div></td>
+    <td>probable</td>
+    <td><a href="https://pubmed.ncbi.nlm.nih.gov/10557264/" target="_blank" rel="noreferrer">Solomon S, Stearns CR. On the role of the weather in the deaths of R. F. Scott and his companions. Proc Natl Acad Sci U S A 1999;96(23):13012-6. PMID 10557264</a> <span class="relationship">supports</span></td>
+  </tr></tbody></table></section>
+    <section><h2>Modern synthetic problem list</h2><table><thead><tr><th>Grade</th><th>Problem</th><th>Clinical status</th><th>Verification</th><th>Placement</th><th>Historical claims</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Elevated blood pressure at a pre-expedition medical assessment, 144/90 mmHg in the office without symptoms; hypertension not yet confirmed; one week of home readings requested</td>
+    <td>resolved</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Nicotine dependence, pipe tobacco: about 25 g a week since his early twenties; first pipe within an hour of waking; has never tried to stop</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>both_with_link</td>
+    <td>CLM-0008</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Essential hypertension, stage 1, confirmed by a one-week home blood pressure average of 138/88 mmHg; normal ECG and kidney function; low ten-year cardiovascular risk</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Personal history of scurvy on a long polar sledge journey in his mid-thirties, with red gums and swollen ankles and legs, treated with fresh seal meat, and full recovery; months on preserved food again ahead</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>both_with_link</td>
+    <td>CLM-0003, CLM-0004, CLM-0005, CLM-0006</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Acute viral gastroenteritis with mild dehydration, two weeks after starting losartan; losartan held under the sick-day rule; resolved</td>
+    <td>resolved</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td></td>
+  </tr></tbody></table></section>
+    <section><h2>Synthetic outcome measures</h2><table><thead><tr><th>Grade</th><th>Date</th><th>Measure</th><th>Result</th><th>Coding</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-01-13</td>
+    <td>Sodium [Moles/volume] in Serum or Plasma</td>
+    <td>140 mmol/L<div class="muted">Reference 136-145 mmol/L</div></td>
+    <td>http://loinc.org · 2951-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-01-13</td>
+    <td>Potassium [Moles/volume] in Serum or Plasma</td>
+    <td>4.2 mmol/L<div class="muted">Reference 3.5-5.1 mmol/L</div></td>
+    <td>http://loinc.org · 2823-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-01-13</td>
+    <td>Creatinine [Mass/volume] in Serum or Plasma</td>
+    <td>0.92 mg/dL<div class="muted">Reference 0.74-1.35 mg/dL</div></td>
+    <td>http://loinc.org · 2160-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-01-13</td>
+    <td>Glucose [Mass/volume] in Serum or Plasma</td>
+    <td>92 mg/dL<div class="muted">Reference 70-99 mg/dL</div></td>
+    <td>http://loinc.org · 2345-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-01-13</td>
+    <td>Cholesterol [Mass/volume] in Serum or Plasma</td>
+    <td>196 mg/dL<div class="muted">Reference &lt;=199 mg/dL</div></td>
+    <td>http://loinc.org · 2093-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-01-13</td>
+    <td>Cholesterol in HDL [Mass/volume] in Serum or Plasma</td>
+    <td>52 mg/dL<div class="muted">Reference &gt;=40 mg/dL</div></td>
+    <td>http://loinc.org · 2085-9</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-01-13</td>
+    <td>Cholesterol in LDL [Mass/volume] in Serum or Plasma by calculation</td>
+    <td>122 mg/dL<div class="muted">Reference Below 130</div></td>
+    <td>http://loinc.org · 13457-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-01-13</td>
+    <td>Triglyceride [Mass/volume] in Serum or Plasma</td>
+    <td>110 mg/dL<div class="muted">Reference &lt;=149 mg/dL</div></td>
+    <td>http://loinc.org · 2571-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-01-13</td>
+    <td>Hemoglobin A1c/Hemoglobin.total in Blood</td>
+    <td>5.3%<div class="muted">Reference &lt;=5.6%</div></td>
+    <td>http://loinc.org · 4548-4</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-01-13</td>
+    <td>Thyrotropin [Units/volume] in Serum or Plasma</td>
+    <td>2.1 mIU/L<div class="muted">Reference 0.45-4.5 mIU/L</div></td>
+    <td>http://loinc.org · 3016-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-01-13</td>
+    <td>Hemoglobin [Mass/volume] in Blood</td>
+    <td>15.1 g/dL<div class="muted">Reference 13.2-17.1 g/dL</div></td>
+    <td>http://loinc.org · 718-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-01-13</td>
+    <td>Glomerular filtration rate [Volume Rate/Area] in Serum, Plasma or Blood by Creatinine-based formula (CKD-EPI 2021)/1.73 sq M</td>
+    <td>107 mL/min/1.73 m²<div class="muted">Reference 60 or more</div></td>
+    <td>http://loinc.org · 98979-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-01-13</td>
+    <td>Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]</td>
+    <td>3</td>
+    <td>http://loinc.org · 44261-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-01-13</td>
+    <td>Generalized anxiety disorder 7 item (GAD-7) total score [Reported.PHQ]</td>
+    <td>4</td>
+    <td>http://loinc.org · 70274-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-01-13</td>
+    <td>Total score [AUDIT-C]</td>
+    <td>3</td>
+    <td>http://loinc.org · 75626-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-02-24</td>
+    <td>Albumin/Creatinine [Mass Ratio] in Urine</td>
+    <td>8 mg/g{creat}<div class="muted">Reference Below 30</div></td>
+    <td>http://loinc.org · 9318-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-05-26</td>
+    <td>Sodium [Moles/volume] in Serum or Plasma</td>
+    <td>140 mmol/L<div class="muted">Reference 136-145 mmol/L</div></td>
+    <td>http://loinc.org · 2951-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-05-26</td>
+    <td>Potassium [Moles/volume] in Serum or Plasma</td>
+    <td>4.4 mmol/L<div class="muted">Reference 3.5-5.1 mmol/L</div></td>
+    <td>http://loinc.org · 2823-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-05-26</td>
+    <td>Creatinine [Mass/volume] in Serum or Plasma</td>
+    <td>0.94 mg/dL<div class="muted">Reference 0.74-1.35 mg/dL</div></td>
+    <td>http://loinc.org · 2160-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-05-26</td>
+    <td>Glomerular filtration rate [Volume Rate/Area] in Serum, Plasma or Blood by Creatinine-based formula (CKD-EPI 2021)/1.73 sq M</td>
+    <td>104 mL/min/1.73 m²<div class="muted">Reference 60 or more</div></td>
+    <td>http://loinc.org · 98979-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-05-26</td>
+    <td>Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]</td>
+    <td>2</td>
+    <td>http://loinc.org · 44261-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-05-26</td>
+    <td>Generalized anxiety disorder 7 item (GAD-7) total score [Reported.PHQ]</td>
+    <td>3</td>
+    <td>http://loinc.org · 70274-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-10</td>
+    <td>Patient Health Questionnaire 2 item (PHQ-2) total score [Reported]</td>
+    <td>0</td>
+    <td>http://loinc.org · 55758-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-05-05</td>
+    <td>Sodium [Moles/volume] in Serum or Plasma</td>
+    <td>137 mmol/L<div class="muted">Reference 136-145 mmol/L</div></td>
+    <td>http://loinc.org · 2951-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-05-05</td>
+    <td>Potassium [Moles/volume] in Serum or Plasma</td>
+    <td>3.8 mmol/L<div class="muted">Reference 3.5-5.1 mmol/L</div></td>
+    <td>http://loinc.org · 2823-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-05-05</td>
+    <td>Creatinine [Mass/volume] in Serum or Plasma</td>
+    <td>1.16 mg/dL<div class="muted">Reference 0.74-1.35 mg/dL</div></td>
+    <td>http://loinc.org · 2160-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-05-05</td>
+    <td>Glomerular filtration rate [Volume Rate/Area] in Serum, Plasma or Blood by Creatinine-based formula (CKD-EPI 2021)/1.73 sq M</td>
+    <td>81 mL/min/1.73 m²<div class="muted">Reference 60 or more</div></td>
+    <td>http://loinc.org · 98979-8</td>
+  </tr></tbody></table></section>
+    <section><h2>Synthetic vital signs</h2><table><thead><tr><th>Date</th><th>Measure</th><th>Result</th><th>LOINC</th><th>Grade</th></tr></thead><tbody>
+  <tr><td>2026-01-13</td><td>Body height</td><td>173 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-01-13</td><td>Body weight</td><td>72.5 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-01-13</td><td>Body mass index (BMI) [Ratio]</td><td>24.2 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-01-13</td><td>Systolic blood pressure</td><td>144 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-01-13</td><td>Diastolic blood pressure</td><td>90 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-01-13</td><td>Heart rate</td><td>68 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-01-13</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-01-13</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-01-13</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>98 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-01-27</td><td>Body height</td><td>173 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-01-27</td><td>Body weight</td><td>72.2 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-01-27</td><td>Body mass index (BMI) [Ratio]</td><td>24.1 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-01-27</td><td>Systolic blood pressure</td><td>140 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-01-27</td><td>Diastolic blood pressure</td><td>88 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-01-27</td><td>Heart rate</td><td>66 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-01-27</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-01-27</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-01-27</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>98 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-02-24</td><td>Body height</td><td>173 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-02-24</td><td>Body weight</td><td>71.6 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-02-24</td><td>Body mass index (BMI) [Ratio]</td><td>23.9 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-02-24</td><td>Systolic blood pressure</td><td>136 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-02-24</td><td>Diastolic blood pressure</td><td>86 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-02-24</td><td>Heart rate</td><td>64 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-02-24</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-02-24</td><td>Body temperature</td><td>36.5 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-02-24</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>98 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-21</td><td>Body height</td><td>173 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-21</td><td>Body weight</td><td>71 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-21</td><td>Body mass index (BMI) [Ratio]</td><td>23.7 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-21</td><td>Systolic blood pressure</td><td>136 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-21</td><td>Diastolic blood pressure</td><td>86 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-21</td><td>Heart rate</td><td>62 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-21</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-21</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-21</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>99 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-05-26</td><td>Body height</td><td>173 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-05-26</td><td>Body weight</td><td>70.8 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-05-26</td><td>Body mass index (BMI) [Ratio]</td><td>23.7 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-05-26</td><td>Systolic blood pressure</td><td>124 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-05-26</td><td>Diastolic blood pressure</td><td>78 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-05-26</td><td>Heart rate</td><td>60 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-05-26</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-05-26</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-05-26</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>99 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-10</td><td>Body height</td><td>173 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-10</td><td>Body weight</td><td>71.4 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-10</td><td>Body mass index (BMI) [Ratio]</td><td>23.9 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-10</td><td>Systolic blood pressure</td><td>134 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-10</td><td>Diastolic blood pressure</td><td>84 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-10</td><td>Heart rate</td><td>62 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-10</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-10</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-10</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>98 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-05-05</td><td>Body height</td><td>173 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-05-05</td><td>Body weight</td><td>69.9 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-05-05</td><td>Body mass index (BMI) [Ratio]</td><td>23.4 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-05-05</td><td>Systolic blood pressure</td><td>112 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-05-05</td><td>Diastolic blood pressure</td><td>70 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-05-05</td><td>Heart rate</td><td>96 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-05-05</td><td>Respiratory rate</td><td>16 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-05-05</td><td>Body temperature</td><td>37.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-05-05</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>98 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr></tbody></table></section>
+    <section><h2>Social, functional, and mental status</h2><h3>Social history</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Naval officer and polar explorer; leading a scientific expedition to the Antarctic that sails in about five months, with a voyage south, a winter in a hut, and sledge journeys of several months on foot; for much of the year no evacuation is possible</li><li><span class="badge grade-S" title="Synthetic">S</span> Married, with a young son; lives in London and works long days raising funds and organizing the expedition</li><li><span class="badge grade-S" title="Synthetic">S</span> Tobacco: smokes a pipe, about 25 g of tobacco a week, more on long working days, since his early twenties; first pipe within an hour of waking; no cigarettes</li><li><span class="badge grade-S" title="Synthetic">S</span> Alcohol: a glass or two of wine with dinner on three or four evenings a week (AUDIT-C 3); no other drugs</li><li><span class="badge grade-S" title="Synthetic">S</span> Exercise: walks fast across London every day; no regular endurance or strength training since his last expedition</li><li><span class="badge grade-S" title="Synthetic">S</span> Sleep: six to seven hours, shorter when the expedition work presses; no snoring reported</li></ul><h3>Functional status</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Independent and fully active; no limitation on stairs, walking or lifting</li></ul><h3>Mental status</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Alert, reserved and precise; determined, with some worry about money and time; PHQ-9 score 3 and GAD-7 score 4</li></ul></section>
+    
+    <section><h2>Allergies and medications</h2><h3>Allergies</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> No known allergy</li></ul><h3>Medications</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Varenicline 1 mg tablet, one tablet by mouth twice a day after a one-week starter titration (0.5 mg once daily for 3 days, then twice daily for 4 days)</li><li><span class="badge grade-S" title="Synthetic">S</span> Losartan 50 mg tablet, one tablet by mouth daily; stop during vomiting, diarrhea or dehydration and restart when eating and drinking normally</li><li><span class="badge grade-S" title="Synthetic">S</span> Vitamin C (ascorbic acid) 250 mg tablet, one tablet by mouth daily whenever no fresh food is available, packed in every sledging ration</li></ul></section>
+    <section><h2>Procedures and immunizations</h2><h3>Procedures</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Resting twelve-lead electrocardiogram</li><li><span class="badge grade-S" title="Synthetic">S</span> Advance care planning conversation, about 20 minutes</li><li><span class="badge grade-S" title="Synthetic">S</span> Pure-tone audiometry, both ears</li></ul><h3>Immunizations</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> 2026-03-10: Tdap vaccine</li><li><span class="badge grade-S" title="Synthetic">S</span> 2026-03-10: Influenza vaccine, current season</li></ul></section>
+    <section><h2>Past medical history</h2><p class="muted">True biography with historical dates; not part of the synthetic care timeline.</p><ul><li><span class="badge grade-D" title="Documented">D</span> January 14, 1903: Scurvy on a long polar sledge journey in his mid-thirties: red gums and swelling of the ankles and legs, improved with fresh seal meat, then worse again toward the end of the journey <span class="muted">(CLM-0004, CLM-0005)</span></li><li><span class="badge grade-D" title="Documented">D</span> February 1903: Swollen legs, sore gums and weeks of physical and mental lassitude after returning from that journey, with full recovery <span class="muted">(CLM-0006)</span></li></ul><h3>Family history</h3><p class="muted">No family medical history is documented in the logged sources. Family history of real relatives is never synthesized.</p></section>
+    <section><h2>Care-plan goals</h2><table><thead><tr><th>Goal</th><th>Target date</th><th>Status</th><th>Outcome</th></tr></thead><tbody>
+  <tr><td>Home blood pressure average below 130/80 mmHg before departure</td><td>2026-05-26</td><td>completed</td><td>Home average 124/78 mmHg on losartan 50 mg</td></tr>
+  <tr><td>No tobacco from the quit date, confirmed at each visit</td><td>2026-05-26</td><td>completed</td><td>No pipe since the quit date a week after intake; varenicline continued for relapse prevention</td></tr>
+  <tr><td>Complete a wilderness first aid course with frostbite, hypothermia and evacuation practice before departure</td><td>2026-04-21</td><td>completed</td><td>Course completed, with rewarming and casualty-packaging practice</td></tr>
+  <tr><td>A written expedition medical plan covering nutrition and vitamin C, cold injury, altitude, mental health support, medicines and evacuation, agreed before departure</td><td>2026-05-26</td><td>completed</td><td>Plan agreed; a copy travels in the expedition medical kit</td></tr></tbody></table></section>
+    <section><h2>Interventions</h2><table><thead><tr><th>Intervention</th><th>Status</th><th>Guideline</th></tr></thead><tbody>
+  <tr><td>Wilderness and expedition medicine consultation in two weeks to assess fitness for a long polar expedition and to plan nutrition, cold-injury and altitude precautions, mental health support, and evacuation</td><td>completed</td><td>GL-WMS-FROST-2024, GL-WMS-HYPO-2019</td></tr>
+  <tr><td>Confirm the blood pressure with a validated upper-arm home monitor, two readings morning and evening for seven days, and start lifestyle measures: less salt, more fruit and vegetables, regular endurance training, and alcohol within limits</td><td>completed</td><td>GL-AHA-HTN-2025, GL-CMID-2026</td></tr>
+  <tr><td>Stop pipe tobacco: varenicline with a quit date in one week, counseling at each visit, and the quitline; nicotine products avoided because nicotine narrows skin blood vessels and adds to frostbite risk</td><td>completed</td><td>GL-USPSTF-TOB-2021, GL-WMS-FROST-2024</td></tr>
+  <tr><td>Baseline PHQ-9 and GAD-7 before a long isolated expedition, repeated before departure, with a mental health and sleep support plan</td><td>completed</td><td>GL-USPSTF-DEP-2023, GL-USPSTF-ANX-2023</td></tr>
+  <tr><td>Dental examination and cleaning, pure-tone audiometry, and an eye examination with a spare pair of glasses before departure</td><td>completed</td><td>GL-USPSTF-AB</td></tr>
+  <tr><td>Expedition nutrition plan: energy of about 5,000 to 6,500 kcal a day on man-hauling journeys with a high fat share, weight checked weekly, fresh seal meat when available, and vitamin C 250 mg a day from tablets in every sledging ration when no fresh food is available, with a weekly check of gums and legs</td><td>completed</td><td>GL-IOM-VITC-2000, GL-WMS-FROST-2024</td></tr>
+  <tr><td>Cold injury and altitude plan: frostbite and hypothermia prevention and field treatment training for all sledging parties, rapid rewarming only when refreezing can be prevented, ibuprofen for frostbite, gradual ascent to the polar plateau with acetazolamide in the medical kit, and a written evacuation and satellite communication plan</td><td>completed</td><td>GL-WMS-FROST-2024, GL-WMS-HYPO-2019, GL-WMS-ALT-2024</td></tr>
+  <tr><td>Start losartan 50 mg daily because the home average stayed above 130/80 mmHg after three months of lifestyle measures, with electrolytes and creatinine in two to four weeks and sick-day rules: stop it during vomiting, diarrhea or dehydration and restart when eating and drinking normally</td><td>completed</td><td>GL-AHA-HTN-2025, GL-CMID-2026</td></tr></tbody></table></section>
+    <section><h2>Planned encounters</h2><ul>
+  <li><strong>2026-01-13</strong> — New patient pre-expedition medical assessment before a long Antarctic expedition: history, examination, ECG, blood tests, mental health and alcohol screening, an elevated blood pressure, tobacco counseling, and a wilderness and expedition medicine referral <span class="muted">(ENC-001)</span></li>
+  <li><strong>2026-01-27</strong> — Two-week follow-up with home blood pressure readings, and wilderness and expedition medicine consultation <span class="muted">(ENC-002)</span></li>
+  <li><strong>2026-02-24</strong> — Six-week review: blood pressure on lifestyle measures, tobacco, urine albumin, dental and hearing results <span class="muted">(ENC-003)</span></li>
+  <li><strong>2026-03-10</strong> — Periodic adult preventive visit <span class="muted">(ENC-006)</span></li>
+  <li><strong>2026-04-21</strong> — Three-month review: blood pressure above target, starting losartan, and cold-injury and first aid training <span class="muted">(ENC-004)</span></li>
+  <li><strong>2026-05-05</strong> — Same-day sick visit for vomiting and diarrhea <span class="muted">(ENC-007, unscheduled)</span></li>
+  <li><strong>2026-05-26</strong> — Pre-departure review: electrolytes on losartan, blood pressure, mental health, and the expedition medical plan <span class="muted">(ENC-005)</span></li></ul></section>
+    <section><h2>Supporting documents</h2><ul><li><a href="notes/hp.md">History and physical</a></li><li><a href="notes/progress-01.md">Progress note 01</a></li><li><a href="notes/progress-02.md">Progress note 02 — Focused Visit (Follow-up)</a></li><li><a href="notes/progress-03.md">Progress note 03 — Focused Visit (Follow-up)</a></li><li><a href="notes/progress-04.md">Progress note 04 — Preventive Visit</a></li><li><a href="notes/progress-05.md">Progress note 05 — Focused Visit (Follow-up)</a></li><li><a href="notes/progress-06.md">Progress note 06 — Sick Visit</a></li><li><a href="notes/progress-07.md">Progress note 07 — Focused Visit (Care-plan review)</a></li><li><a href="notes/referral-01.md">Wilderness and Expedition Medicine referral</a></li><li><a href="notes/consult-01.md">Wilderness and Expedition Medicine consultation</a></li><li><a href="notes/careplan.md">Patient care plan</a></li><li><a href="notes/teaching-note.md">Teaching note</a></li><li><a href="provenance.csv">Provenance CSV</a></li></ul></section>
+    <section><h2>C-CDA note documents</h2><p class="muted">Each link opens a readable copy; the XML beside it is the exchange file.</p><ul><li><a href="ccda/hp-01.html">History and physical</a> <a href="ccda/hp-01.xml">(XML)</a></li><li><a href="ccda/progress-01.html">Progress note 01</a> <a href="ccda/progress-01.xml">(XML)</a></li><li><a href="ccda/progress-02.html">Progress note 02 — Focused Visit (Follow-up)</a> <a href="ccda/progress-02.xml">(XML)</a></li><li><a href="ccda/progress-03.html">Progress note 03 — Focused Visit (Follow-up)</a> <a href="ccda/progress-03.xml">(XML)</a></li><li><a href="ccda/progress-04.html">Progress note 04 — Preventive Visit</a> <a href="ccda/progress-04.xml">(XML)</a></li><li><a href="ccda/progress-05.html">Progress note 05 — Focused Visit (Follow-up)</a> <a href="ccda/progress-05.xml">(XML)</a></li><li><a href="ccda/progress-06.html">Progress note 06 — Sick Visit</a> <a href="ccda/progress-06.xml">(XML)</a></li><li><a href="ccda/progress-07.html">Progress note 07 — Focused Visit (Care-plan review)</a> <a href="ccda/progress-07.xml">(XML)</a></li><li><a href="ccda/referral-01.html">Wilderness and Expedition Medicine referral</a> <a href="ccda/referral-01.xml">(XML)</a></li><li><a href="ccda/consult-01.html">Wilderness and Expedition Medicine consultation</a> <a href="ccda/consult-01.xml">(XML)</a></li></ul></section>
+    <section><h2>Sources</h2><table><thead><tr><th>ID</th><th>Source</th><th>Publisher</th><th>Type</th></tr></thead><tbody>
+  <tr>
+    <td>SRC-0001</td>
+    <td><a href="https://id.loc.gov/authorities/names/n50005591.html" target="_blank" rel="noreferrer">Scott, Robert Falcon, 1868-1912 (name authority record n50005591)</a></td>
+    <td>Library of Congress</td>
+    <td>government</td>
+  </tr>
+  <tr>
+    <td>SRC-0002</td>
+    <td><a href="https://www.rmg.co.uk/stories/maritime-history/captain-robert-falcon-scott" target="_blank" rel="noreferrer">Captain Robert Falcon Scott</a></td>
+    <td>Royal Museums Greenwich</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0003</td>
+    <td><a href="https://archive.org/details/voyageofdiscover001scot" target="_blank" rel="noreferrer">Scott RF. The Voyage of the &#39;Discovery&#39;. Volume I. London: Smith, Elder, 1905 (Internet Archive voyageofdiscover001scot)</a></td>
+    <td>Internet Archive</td>
+    <td>primary</td>
+  </tr>
+  <tr>
+    <td>SRC-0004</td>
+    <td><a href="https://archive.org/details/voyageofdiscover002scot" target="_blank" rel="noreferrer">Scott RF. The Voyage of the &#39;Discovery&#39;. Volume II. London: Smith, Elder, 1905 (Internet Archive voyageofdiscover002scot)</a></td>
+    <td>Internet Archive</td>
+    <td>primary</td>
+  </tr>
+  <tr>
+    <td>SRC-0005</td>
+    <td><a href="https://www.gutenberg.org/ebooks/11579" target="_blank" rel="noreferrer">Scott&#39;s Last Expedition, Volume I: Being the Journals of Captain R. F. Scott, arranged by Leonard Huxley. London, 1913. Project Gutenberg eBook 11579</a></td>
+    <td>Project Gutenberg</td>
+    <td>primary</td>
+  </tr>
+  <tr>
+    <td>SRC-0006</td>
+    <td><a href="https://pubmed.ncbi.nlm.nih.gov/23734365/" target="_blank" rel="noreferrer">Butler AR. The role of scurvy in Scott&#39;s return from the South Pole. J R Coll Physicians Edinb 2013;43(2):175-81. PMID 23734365</a></td>
+    <td>Journal of the Royal College of Physicians of Edinburgh</td>
+    <td>scholarly</td>
+  </tr>
+  <tr>
+    <td>SRC-0007</td>
+    <td><a href="https://searcharchives.bl.uk/catalog/032-001958841" target="_blank" rel="noreferrer">Diaries and other records of the Second Antarctic Expedition of Capt. Robert Falcon Scott (Add MS 51024-51042)</a></td>
+    <td>British Library</td>
+    <td>government</td>
+  </tr>
+  <tr>
+    <td>SRC-0008</td>
+    <td><a href="https://pubmed.ncbi.nlm.nih.gov/22535890/" target="_blank" rel="noreferrer">Halsey LG, Stroud MA. 100 years since Scott reached the pole: a century of learning about the physiological demands of Antarctica. Physiol Rev 2012;92(2):521-36. PMID 22535890</a></td>
+    <td>Physiological Reviews</td>
+    <td>scholarly</td>
+  </tr>
+  <tr>
+    <td>SRC-0009</td>
+    <td><a href="https://calmview.bham.ac.uk/rdf/catalog/XOJL/1/354" target="_blank" rel="noreferrer">Letter from R. Scott to Oliver Lodge, 24 November 1909 (archive record XOJL/1/354)</a></td>
+    <td>Cadbury Research Library, University of Birmingham</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0010</td>
+    <td><a href="https://museum.wales/articles/1041/Captain-Scott-sails-from-Cardiff" target="_blank" rel="noreferrer">Captain Scott sails from Cardiff</a></td>
+    <td>Amgueddfa Cymru - Museum Wales</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0011</td>
+    <td><a href="https://pubmed.ncbi.nlm.nih.gov/10557264/" target="_blank" rel="noreferrer">Solomon S, Stearns CR. On the role of the weather in the deaths of R. F. Scott and his companions. Proc Natl Acad Sci U S A 1999;96(23):13012-6. PMID 10557264</a></td>
+    <td>Proceedings of the National Academy of Sciences</td>
+    <td>scholarly</td>
+  </tr>
+  <tr>
+    <td>SRC-0012</td>
+    <td><a href="https://humanrecord.example.org/internal/HISTMED_Master_Roster_v3.xlsx" target="_blank" rel="noreferrer">HISTMED Master Roster v3</a></td>
+    <td>The Human Record project</td>
+    <td>other</td>
+  </tr></tbody></table></section>
+    <section><h2>Review status</h2><table><thead><tr><th>Review</th><th>Status</th><th>Notes</th></tr></thead><tbody>
+  <tr><td>schema validation</td><td>not_started</td><td>Run scripts/build.ps1 -Conformance.</td></tr>
+  <tr><td>clinical review</td><td>not_started</td><td>Awaiting clinician review; check the stage 1 hypertension pathway (lifestyle first, then losartan) against the 2025 AHA/ACC guideline, the choice of an ARB for a cold, dehydrating environment, the vitamin C dose and energy targets, the frostbite, hypothermia and altitude plans, and the mental health support plan for isolation.</td></tr>
+  <tr><td>provenance review</td><td>not_started</td><td>Library of Congress authority record, Royal Museums Greenwich, his own Voyage of the &#39;Discovery&#39; (Internet Archive scans) and journals (Project Gutenberg), the British Library catalogue, a University of Birmingham archive record, Museum Wales, and three PubMed abstracts logged. Interpretations of the 1912 deaths are graded R.</td></tr>
+  <tr><td>safe messaging review</td><td>not_started</td><td>No behavioral-health diagnosis; the roster&#39;s &#39;depression&#39; is not adopted. The deaths of the polar party are recorded as history in the claims and do not appear in the modern episode.</td></tr></tbody></table></section>
+  </main>
+</body>
+</html>

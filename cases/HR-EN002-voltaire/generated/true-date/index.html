@@ -1,0 +1,667 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Voltaire — The Human Record</title>
+  <style>
+    :root { --navy:#17365d; --blue:#1f4e78; --pale:#eef5fa; --ink:#1f2933; --muted:#66788a; --amber:#fff2cc; --red:#f8d7da; --green:#d9ead3; }
+    * { box-sizing:border-box; }
+    body { margin:0; font:16px/1.5 Arial, sans-serif; color:var(--ink); background:#f6f8fa; }
+    header { background:var(--navy); color:white; padding:24px max(24px,calc((100vw - 1180px)/2)); }
+    header h1 { margin:4px 0; font-size:30px; }
+    .banner { background:#b42318; color:white; font-weight:700; text-align:center; padding:10px; letter-spacing:.03em; }
+    main { max-width:1180px; margin:24px auto 60px; padding:0 24px; }
+    section { background:white; border:1px solid #d9e1e8; border-radius:8px; margin:18px 0; padding:20px; }
+    h2 { color:var(--navy); margin:0 0 14px; font-size:22px; }
+    h3 { color:var(--blue); }
+    .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:12px; }
+    .card { background:var(--pale); border-left:4px solid var(--blue); padding:12px; }
+    .label { color:var(--muted); font-size:13px; text-transform:uppercase; letter-spacing:.04em; }
+    table { width:100%; border-collapse:collapse; }
+    th { background:var(--blue); color:white; text-align:left; }
+    th,td { padding:9px; border-bottom:1px solid #dfe6ec; vertical-align:top; }
+    .badge { display:inline-block; min-width:28px; text-align:center; font-weight:700; border-radius:12px; padding:2px 8px; }
+    .grade-D { background:var(--green); } .grade-R { background:var(--amber); } .grade-S { background:var(--red); }
+    .muted { color:var(--muted); font-size:14px; }
+    .relationship { color:var(--muted); font-size:12px; }
+    .downloads a { display:inline-block; margin:4px 8px 4px 0; padding:8px 12px; background:var(--blue); color:white; text-decoration:none; border-radius:5px; }
+    @media (max-width:700px) { table { display:block; overflow-x:auto; } }
+  </style>
+</head>
+<body>
+  <div class="banner">SYNTHETIC RECORD, NOT A REAL MEDICAL RECORD</div>
+  <div class="banner">True-date frame: synthetic events are moved into the patient&#39;s historical lifetime. Codes, instruments, and treatments remain modern and are anachronistic.</div>
+  <header>
+    <div>The Human Record</div>
+    <h1>Voltaire</h1>
+    <div>Case HR-EN002-TD · Modern EHR teaching episode · Draft for review</div>
+  </header>
+  <main>
+    <section>
+      <h2>Review summary</h2>
+      <div class="grid">
+        <div class="card"><div class="label">Historical dates</div>21 November 1694 – 30 May 1778</div>
+        <div class="card"><div class="label">Synthetic DOB</div>1694-11-21</div>
+        <div class="card"><div class="label">Index visit</div>1778-04-06 at age 83</div>
+        <div class="card"><div class="label">Synthetic MRN</div>HR-EN002-SYN-TD</div>
+      </div>
+      <p><strong>Teaching objective:</strong> Evaluate visible blood in the urine with difficult urination in a frail man of 83: urinalysis with microscopy and culture, kidney function, bladder scan, and catheter drainage of chronic retention with a medication review that stops an anticholinergic sleep aid; PSA by shared decision; CT urography with chest CT and cystoscopy (AUA/SUFU); resection and staging of a muscle-invasive squamous cell carcinoma of the bladder; a geriatric assessment and shared decision on cystectomy, trimodality therapy, and palliative hypofractionated radiotherapy matched to his goals; a febrile catheter-associated infection; and safe, low-dose opioid prescribing with naloxone in a patient with a documented opium overdose (CDC 1774, AGS Beers 1775).</p>
+      <div class="downloads">
+        <a href="../case.json">Canonical JSON</a>
+        <a href="fhir-bundle.json">FHIR R4 draft</a>
+        <a href="ccda.html">C-CDA R2.1 summary</a> <a href="ccda.xml">(XML)</a>
+        <a href="../sources.md">Evidence dossier</a>
+      </div>
+    </section>
+    <section><h2>Historical timeline</h2><table><thead><tr><th>Date</th><th>Event</th><th>Claims</th></tr></thead><tbody>
+  <tr><td>21 November 1694</td><td>Born in Paris (the date on his birth certificate).</td><td>CLM-0001</td></tr>
+  <tr><td>1717</td><td>Nearly a year in the Bastille.</td><td>CLM-0002</td></tr>
+  <tr><td>1718</td><td>Adopts the name Voltaire.</td><td>CLM-0001</td></tr>
+  <tr><td>4 November 1723</td><td>Falls ill with smallpox at Maisons; out of danger by 15 November.</td><td>CLM-0003</td></tr>
+  <tr><td>5 May 1726</td><td>Conducted to Calais, whence he leaves for London.</td><td>CLM-0002</td></tr>
+  <tr><td>1769</td><td>Writes that he has always had a feeble constitution.</td><td>CLM-0004</td></tr>
+  <tr><td>10 February 1778</td><td>Returns to Paris after 28 years.</td><td>CLM-0005</td></tr>
+  <tr><td>25 February 1778</td><td>Blood spurts from his mouth and nose after a fit of coughing; bleeding continues for several days.</td><td>CLM-0006</td></tr>
+  <tr><td>30 March 1778</td><td>Acclaimed at the Académie and crowned at a performance of Irène.</td><td>CLM-0005</td></tr>
+  <tr><td>Mid-May 1778</td><td>Takes a large dose of an opium preparation; strangury and catheterization in his last weeks.</td><td>CLM-0007, CLM-0008, CLM-0009</td></tr>
+  <tr><td>18 May 1778</td><td>Stricken with uremia, by Britannica&#39;s account.</td><td>CLM-0009</td></tr>
+  <tr><td>30 May 1778</td><td>Dies in Paris, aged 83.</td><td>CLM-0010</td></tr>
+  <tr><td>31 May 1778</td><td>Report of the opening of the body: diseased, thickened bladder; very large, hard prostate.</td><td>CLM-0011</td></tr>
+  <tr><td>2025</td><td>Retrospective study proposes perforated squamous cell cancer of the bladder.</td><td>CLM-0012</td></tr></tbody></table></section>
+    <section><h2>Evidence claims</h2><p class="muted">D = documented, R = retrospective, S = synthetic.</p><table><thead><tr><th>Grade</th><th>Claim</th><th>Certainty</th><th>Sources</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>Voltaire, the pen name of François-Marie Arouet, was born in Paris; his birth certificate gives 21 November 1694, although he stated on several occasions that he was in fact born on 20 February. He was born into a wealthy bourgeois family; his putative father, François Arouet, became a receiver in the Cour des Comptes (the audit office), and he lost his mother when he was seven. He adopted the name Voltaire in 1718.</strong><div class="muted">The cause of his mother&#39;s death is not recorded in the cited sources.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.britannica.com/biography/Voltaire" target="_blank" rel="noreferrer">Pomeau RH. Voltaire. Encyclopaedia Britannica</a> <span class="relationship">supports</span><br><a href="https://www.voltaire.ox.ac.uk/about-voltaire/" target="_blank" rel="noreferrer">About Voltaire</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>He was imprisoned in the Bastille for nearly a year in 1717 after mocking the regent, and in May 1726, after a quarrel with the chevalier de Rohan, was beaten, taken to the Bastille, and conducted to Calais, whence he left for London.</strong></td>
+    <td>confirmed</td>
+    <td><a href="https://www.britannica.com/biography/Voltaire" target="_blank" rel="noreferrer">Pomeau RH. Voltaire. Encyclopaedia Britannica</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>In a letter to the baron de Breteuil dated December 1723, he gave an account of the smallpox from which he was recovering: he fell ill on 4 November at Maisons; the disease declared itself after two days of fever with a slight eruption; the physician Gervasi had him take an emetic eight times and drink two hundred pints of lemonade, he had himself bled a second time on his own authority, and by the 15th he was out of danger.</strong><div class="muted">His own contemporary account of an illness he survived.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://fr.wikisource.org/wiki/Correspondance_de_Voltaire/1723/Lettre_101" target="_blank" rel="noreferrer">Voltaire. Letter to the baron de Breteuil, December 1723 (Correspondance, Garnier edition, letter 101)</a> <span class="relationship">supports</span><br><a href="https://blog.oup.com/2018/05/voltaire-death/" target="_blank" rel="noreferrer">Russell A. Voltaire&#39;s thoughts on death. OUPblog, 29 May 2018</a> <span class="relationship">context</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>His biographer Jean Orieux, as summarized in a 1970 review in the Revue d&#39;histoire de la pharmacie, describes a lifelong preoccupation with illness and remedies: he suffered from colic, took as many as eight purges and twelve enemas in a month, was persuaded he would die before forty, and really did suffer from his kidneys and bladder. In a letter of 1769 he wrote that being very ill was the common lot of old age, especially for one who had always had a feeble constitution.</strong><div class="muted">A biographer&#39;s summary and his own words; they record digestive and urinary complaints and frequent self-medication, not a diagnosis.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.persee.fr/doc/pharm_0035-2349_1970_num_58_204_7976_t1_0060_0000_1" target="_blank" rel="noreferrer">Julien P. Les maladies et la mort de Voltaire: Jean Orieux, Voltaire ou la Royauté de l&#39;esprit [review]. Revue d&#39;histoire de la pharmacie 1970;58(204):60-61</a> <span class="relationship">supports</span><br><a href="https://blog.oup.com/2018/05/voltaire-death/" target="_blank" rel="noreferrer">Russell A. Voltaire&#39;s thoughts on death. OUPblog, 29 May 2018</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>He returned to Paris on 10 February 1778, for the first time in 28 years, to direct rehearsals of his tragedy Irène; more than 300 people called on him the day after his arrival. On 30 March he went to the Académie amid acclamations and was crowned in his box at a performance of Irène. His deteriorating health did not permit his return to Ferney.</strong></td>
+    <td>confirmed</td>
+    <td><a href="https://www.britannica.com/biography/Voltaire/Achievements-at-Ferney" target="_blank" rel="noreferrer">Pomeau RH. Voltaire: Achievements at Ferney. Encyclopaedia Britannica</a> <span class="relationship">supports</span><br><a href="https://www.voltaire.ox.ac.uk/about-voltaire/" target="_blank" rel="noreferrer">About Voltaire</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>His secretary Jean-Louis Wagnière recorded that on 25 February 1778, at a quarter past noon, while dictating from his bed, he coughed three times and said that he was spitting blood, and that blood then spurted from his mouth and nose. A declaration in his hand of 2 March 1778 states that he had been attacked for four days by a vomiting of blood, and the blood loss continued for several days.</strong><div class="muted">Contemporary accounts of hemorrhage from the mouth and nose; the source of bleeding was not established. The surgeon who opened the body reported that the vessel whose rupture caused this first illness had healed.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://archive.org/details/voltairemourante00lachuoft" target="_blank" rel="noreferrer">Lachèvre F. Voltaire mourant: enquête faite en 1778 sur les circonstances de sa dernière maladie. Paris: Champion; 1908</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-R" title="Retrospective">R</span></td>
+    <td><strong>An anonymous and hostile manuscript account of 1778, published by Frédéric Lachèvre in 1908, claims that in May 1778, before a meeting at the Académie, he secretly took as many as eighteen cups of coffee.</strong><div class="muted">A single anecdote in a hostile source; the roster&#39;s figure of 40 to 50 cups a day was not found in any source read.</div></td>
+    <td>possible</td>
+    <td><a href="https://archive.org/details/voltairemourante00lachuoft" target="_blank" rel="noreferrer">Lachèvre F. Voltaire mourant: enquête faite en 1778 sur les circonstances de sa dernière maladie. Paris: Champion; 1908</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>In mid-May 1778, according to Wagnière&#39;s account, he was persuaded to take a liquor brought by an apothecary and then, in great agitation, asked the maréchal de Richelieu to send him some of his prepared opium; one witness said he saw him finish the bottle. The anonymous manuscript says he took the whole vial at once instead of dividing it into three or four doses. Orieux&#39;s account has him refuse the apothecary&#39;s remedy and accept the opium preparation brought by Richelieu, after which he felt a trail of fire from throat to bowels and became frenzied.</strong><div class="muted">Several contemporary and later accounts agree that he took a large dose of an opium preparation in mid-May and differ in the details; the amount is unknown.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://archive.org/details/voltairemourante00lachuoft" target="_blank" rel="noreferrer">Lachèvre F. Voltaire mourant: enquête faite en 1778 sur les circonstances de sa dernière maladie. Paris: Champion; 1908</a> <span class="relationship">supports</span><br><a href="https://www.persee.fr/doc/pharm_0035-2349_1970_num_58_204_7976_t1_0060_0000_1" target="_blank" rel="noreferrer">Julien P. Les maladies et la mort de Voltaire: Jean Orieux, Voltaire ou la Royauté de l&#39;esprit [review]. Revue d&#39;histoire de la pharmacie 1970;58(204):60-61</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>In his last weeks he suffered from strangury and needed frequent catheterization by the surgeon Try; the anonymous manuscript describes a bladder holding as much pus as urine, which could be emptied only with a catheter, and a burning heat over the lower abdomen. Britannica records that on 18 May he was stricken with uremia and that he suffered much pain on his deathbed.</strong><div class="muted">Contemporary descriptions of painful urination, retention needing a catheter, and infected urine; &#39;uremia&#39; is a later encyclopedia&#39;s term.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://archive.org/details/voltairemourante00lachuoft" target="_blank" rel="noreferrer">Lachèvre F. Voltaire mourant: enquête faite en 1778 sur les circonstances de sa dernière maladie. Paris: Champion; 1908</a> <span class="relationship">supports</span><br><a href="https://www.britannica.com/biography/Voltaire/Achievements-at-Ferney" target="_blank" rel="noreferrer">Pomeau RH. Voltaire: Achievements at Ferney. Encyclopaedia Britannica</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>He died in Paris on 30 May 1778, aged 83, peacefully it seems, according to Britannica; his body was taken to the Abbey of Scellières and given Christian burial there, and his remains were later transferred to the Panthéon.</strong><div class="muted">Record the death as a fact without graphic detail.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.britannica.com/biography/Voltaire/Achievements-at-Ferney" target="_blank" rel="noreferrer">Pomeau RH. Voltaire: Achievements at Ferney. Encyclopaedia Britannica</a> <span class="relationship">supports</span><br><a href="https://www.britannica.com/biography/Voltaire" target="_blank" rel="noreferrer">Pomeau RH. Voltaire. Encyclopaedia Britannica</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>The report of the opening and embalming of his body, dated 31 May 1778 and signed by the surgeon Try, found the brain and the organs of the chest healthy; the bladder was diseased, more than an inch thick at its upper and posterior part, with a lard-like substance and suppurating tubercles whose pus had leaked into the abdomen over the nearby intestines; the right kidney bore gangrenous marks; and the prostate was very large and entirely scirrhous. The anonymous manuscript adds that the bladder held about a pint of pus and was perforated at its base.</strong><div class="muted">An eighteenth-century gross description without microscopy; &#39;scirrhous&#39; meant hard.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://archive.org/details/voltairemourante00lachuoft" target="_blank" rel="noreferrer">Lachèvre F. Voltaire mourant: enquête faite en 1778 sur les circonstances de sa dernière maladie. Paris: Champion; 1908</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-R" title="Retrospective">R</span></td>
+    <td><strong>Retrospective readings of his final illness differ. A 2025 paleoproteomic study of blood residues by Charlier and colleagues concluded that he died of a perforated squamous cell cancer of the bladder with peritoneal extension; Britannica describes uremia; the autopsy&#39;s very large, hard prostate leaves prostate disease, benign or malignant, as a further possibility.</strong><div class="muted">Retrospective interpretations; the 2025 study is known here only from its published title and bibliographic record. The record does not assert any of them as his historical diagnosis.</div></td>
+    <td>disputed</td>
+    <td><a href="https://pubmed.ncbi.nlm.nih.gov/40977402/" target="_blank" rel="noreferrer">Charlier P, Neuzillet Y, Le Gendre R, Armengaud J. Paleoproteomic study of blood residues shows that Voltaire (1778) died of perforated bladder squamous cell cancer with peritoneal extension. BJU Int 2025;136(6):1002-1003. PMID 40977402</a> <span class="relationship">supports</span><br><a href="https://www.britannica.com/biography/Voltaire/Achievements-at-Ferney" target="_blank" rel="noreferrer">Pomeau RH. Voltaire: Achievements at Ferney. Encyclopaedia Britannica</a> <span class="relationship">supports</span><br><a href="https://archive.org/details/voltairemourante00lachuoft" target="_blank" rel="noreferrer">Lachèvre F. Voltaire mourant: enquête faite en 1778 sur les circonstances de sa dernière maladie. Paris: Champion; 1908</a> <span class="relationship">context</span></td>
+  </tr></tbody></table></section>
+    <section><h2>Modern synthetic problem list</h2><table><thead><tr><th>Grade</th><th>Problem</th><th>Clinical status</th><th>Verification</th><th>Placement</th><th>Historical claims</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Visible blood in the urine for three weeks with clots, and a weak stream, straining, and frequent small voids, in a man of 83; under evaluation</td>
+    <td>resolved</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td>CLM-0004, CLM-0009</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Chronic urinary retention with overflow (post-void residual 460 mL at intake), worsened by a nightly anticholinergic sleep aid; drained by an indwelling catheter</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td>CLM-0009</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Acute kidney injury from bladder outlet obstruction (creatinine 1.68 mg/dL, from 1.1 mg/dL a year earlier)</td>
+    <td>resolved</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td>CLM-0009</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Benign prostatic hyperplasia with lower urinary tract symptoms: prostate about 78 mL on CT, enlarged, firm, and smooth on examination, PSA 6.4 ng/mL with a PSA density of 0.08; no prostate biopsy, by shared decision</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td>CLM-0011</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Squamous cell carcinoma of the bladder, keratinizing, posterior wall extending to the dome, muscle-invasive with extravesical extension (clinical stage cT3b N0 M0, stage IIIA), pure squamous histology without a urothelial component; treated with palliative-intent hypofractionated radiotherapy by shared decision</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>both_with_link</td>
+    <td>CLM-0009, CLM-0011, CLM-0012</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Chronic constipation, lifelong by his account, with long use of laxatives and self-given enemas</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td>CLM-0004</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Febrile catheter-associated urinary tract infection with Escherichia coli, five days after bladder tumor resection; treated with cefpodoxime and a catheter change; resolved</td>
+    <td>resolved</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td>CLM-0009</td>
+  </tr></tbody></table></section>
+    <section><h2>Synthetic outcome measures</h2><table><thead><tr><th>Grade</th><th>Date</th><th>Measure</th><th>Result</th><th>Coding</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1778-04-06</td>
+    <td>Erythrocytes [#/area] in Urine sediment by Microscopy high power field</td>
+    <td>75 /[HPF] (high)<div class="muted">Reference 0 to 2 per high-power field; 3 or more is microhematuria (AUA/SUFU)</div></td>
+    <td>http://loinc.org · 13945-1</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1778-04-06</td>
+    <td>Leukocytes [#/area] in Urine sediment by Microscopy high power field</td>
+    <td>8 /[HPF] (high)<div class="muted">Reference &lt;=5 /[HPF]</div></td>
+    <td>http://loinc.org · 5821-4</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1778-04-06</td>
+    <td>International Prostate Symptom Score [IPSS]</td>
+    <td>22</td>
+    <td>http://loinc.org · 80976-4</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1778-04-06</td>
+    <td>US Urinary bladder Volume post void</td>
+    <td>460 mL (high)<div class="muted">Reference Below 100 mL; 300 mL or more suggests chronic retention</div></td>
+    <td>http://loinc.org · 98856-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1778-04-06</td>
+    <td>Hemoglobin [Mass/volume] in Blood</td>
+    <td>11.6 g/dL (low)<div class="muted">Reference 13.2-16.6 g/dL</div></td>
+    <td>http://loinc.org · 718-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1778-04-06</td>
+    <td>Leukocytes [#/volume] in Blood by Automated count</td>
+    <td>7.8 10*3/uL<div class="muted">Reference 3.4-9.6 10*3/uL</div></td>
+    <td>http://loinc.org · 6690-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1778-04-06</td>
+    <td>Platelets [#/volume] in Blood by Automated count</td>
+    <td>268 10*3/uL<div class="muted">Reference 150-400 10*3/uL</div></td>
+    <td>http://loinc.org · 777-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1778-04-06</td>
+    <td>Sodium [Moles/volume] in Serum or Plasma</td>
+    <td>138 mmol/L<div class="muted">Reference 135-145 mmol/L</div></td>
+    <td>http://loinc.org · 2951-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1778-04-06</td>
+    <td>Potassium [Moles/volume] in Serum or Plasma</td>
+    <td>5 mmol/L<div class="muted">Reference 3.5-5.1 mmol/L</div></td>
+    <td>http://loinc.org · 2823-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1778-04-06</td>
+    <td>Carbon dioxide, total [Moles/volume] in Serum or Plasma</td>
+    <td>21 mmol/L (low)<div class="muted">Reference 22-29 mmol/L</div></td>
+    <td>http://loinc.org · 2028-9</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1778-04-06</td>
+    <td>Urea nitrogen [Mass/volume] in Serum or Plasma</td>
+    <td>34 mg/dL (high)<div class="muted">Reference 8-24 mg/dL</div></td>
+    <td>http://loinc.org · 3094-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1778-04-06</td>
+    <td>Creatinine [Mass/volume] in Serum or Plasma</td>
+    <td>1.68 mg/dL (high)<div class="muted">Reference 0.74-1.35 mg/dL</div></td>
+    <td>http://loinc.org · 2160-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1778-04-06</td>
+    <td>Glomerular filtration rate [Volume Rate/Area] in Serum, Plasma or Blood by Creatinine-based formula (CKD-EPI 1773)/1.73 sq M</td>
+    <td>40 mL/min/1.73 m² (low)<div class="muted">Reference &gt;=60 mL/min/1.73 m²</div></td>
+    <td>http://loinc.org · 98979-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1778-04-06</td>
+    <td>Glucose [Mass/volume] in Serum or Plasma</td>
+    <td>96 mg/dL<div class="muted">Reference 70-99 mg/dL</div></td>
+    <td>http://loinc.org · 2345-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1778-04-06</td>
+    <td>Prostate specific Ag [Mass/volume] in Serum or Plasma</td>
+    <td>6.4 ng/mL (high)<div class="muted">Reference &lt;=4 ng/mL</div></td>
+    <td>http://loinc.org · 2857-1</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1778-04-13</td>
+    <td>Hemoglobin [Mass/volume] in Blood</td>
+    <td>11.2 g/dL (low)<div class="muted">Reference 13.2-16.6 g/dL</div></td>
+    <td>http://loinc.org · 718-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1778-04-13</td>
+    <td>Potassium [Moles/volume] in Serum or Plasma</td>
+    <td>4.6 mmol/L<div class="muted">Reference 3.5-5.1 mmol/L</div></td>
+    <td>http://loinc.org · 2823-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1778-04-13</td>
+    <td>Urea nitrogen [Mass/volume] in Serum or Plasma</td>
+    <td>22 mg/dL<div class="muted">Reference 8-24 mg/dL</div></td>
+    <td>http://loinc.org · 3094-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1778-04-13</td>
+    <td>Creatinine [Mass/volume] in Serum or Plasma</td>
+    <td>1.24 mg/dL<div class="muted">Reference 0.74-1.35 mg/dL</div></td>
+    <td>http://loinc.org · 2160-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1778-04-13</td>
+    <td>Glomerular filtration rate [Volume Rate/Area] in Serum, Plasma or Blood by Creatinine-based formula (CKD-EPI 1773)/1.73 sq M</td>
+    <td>58 mL/min/1.73 m² (low)<div class="muted">Reference &gt;=60 mL/min/1.73 m²</div></td>
+    <td>http://loinc.org · 98979-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1778-04-20</td>
+    <td>Leukocytes [#/area] in Urine sediment by Microscopy high power field</td>
+    <td>60 /[HPF] (high)<div class="muted">Reference &lt;=5 /[HPF]</div></td>
+    <td>http://loinc.org · 5821-4</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1778-04-20</td>
+    <td>Leukocytes [#/volume] in Blood by Automated count</td>
+    <td>12.6 10*3/uL (high)<div class="muted">Reference 3.4-9.6 10*3/uL</div></td>
+    <td>http://loinc.org · 6690-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1778-04-20</td>
+    <td>Creatinine [Mass/volume] in Serum or Plasma</td>
+    <td>1.34 mg/dL<div class="muted">Reference 0.74-1.35 mg/dL</div></td>
+    <td>http://loinc.org · 2160-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1778-04-20</td>
+    <td>Glomerular filtration rate [Volume Rate/Area] in Serum, Plasma or Blood by Creatinine-based formula (CKD-EPI 1773)/1.73 sq M</td>
+    <td>53 mL/min/1.73 m² (low)<div class="muted">Reference &gt;=60 mL/min/1.73 m²</div></td>
+    <td>http://loinc.org · 98979-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1778-04-20</td>
+    <td>Potassium [Moles/volume] in Serum or Plasma</td>
+    <td>4.7 mmol/L<div class="muted">Reference 3.5-5.1 mmol/L</div></td>
+    <td>http://loinc.org · 2823-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1778-04-22</td>
+    <td>Hemoglobin [Mass/volume] in Blood</td>
+    <td>10.9 g/dL (low)<div class="muted">Reference 13.2-16.6 g/dL</div></td>
+    <td>http://loinc.org · 718-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1778-04-22</td>
+    <td>Leukocytes [#/volume] in Blood by Automated count</td>
+    <td>8.2 10*3/uL<div class="muted">Reference 3.4-9.6 10*3/uL</div></td>
+    <td>http://loinc.org · 6690-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1778-04-22</td>
+    <td>Platelets [#/volume] in Blood by Automated count</td>
+    <td>254 10*3/uL<div class="muted">Reference 150-400 10*3/uL</div></td>
+    <td>http://loinc.org · 777-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1778-04-22</td>
+    <td>Potassium [Moles/volume] in Serum or Plasma</td>
+    <td>4.5 mmol/L<div class="muted">Reference 3.5-5.1 mmol/L</div></td>
+    <td>http://loinc.org · 2823-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1778-04-22</td>
+    <td>Creatinine [Mass/volume] in Serum or Plasma</td>
+    <td>1.22 mg/dL<div class="muted">Reference 0.74-1.35 mg/dL</div></td>
+    <td>http://loinc.org · 2160-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1778-04-22</td>
+    <td>Glomerular filtration rate [Volume Rate/Area] in Serum, Plasma or Blood by Creatinine-based formula (CKD-EPI 1773)/1.73 sq M</td>
+    <td>59 mL/min/1.73 m² (low)<div class="muted">Reference &gt;=60 mL/min/1.73 m²</div></td>
+    <td>http://loinc.org · 98979-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1778-04-22</td>
+    <td>US Urinary bladder Volume post void</td>
+    <td>140 mL (high)<div class="muted">Reference Below 100 mL; 300 mL or more suggests chronic retention</div></td>
+    <td>http://loinc.org · 98856-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1778-04-22</td>
+    <td>International Prostate Symptom Score [IPSS]</td>
+    <td>14</td>
+    <td>http://loinc.org · 80976-4</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1778-04-22</td>
+    <td>Pain severity - 0-10 verbal numeric rating [Score] - Reported</td>
+    <td>5</td>
+    <td>http://loinc.org · 72514-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1778-04-28</td>
+    <td>Patient Health Questionnaire 2 item (PHQ-2) total score [Reported]</td>
+    <td>1</td>
+    <td>http://loinc.org · 55758-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1778-04-28</td>
+    <td>Total score [Mini-Cog]</td>
+    <td>4</td>
+    <td>http://loinc.org · 72233-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1778-05-06</td>
+    <td>Hemoglobin [Mass/volume] in Blood</td>
+    <td>10.8 g/dL (low)<div class="muted">Reference 13.2-16.6 g/dL</div></td>
+    <td>http://loinc.org · 718-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1778-05-06</td>
+    <td>Leukocytes [#/volume] in Blood by Automated count</td>
+    <td>6.9 10*3/uL<div class="muted">Reference 3.4-9.6 10*3/uL</div></td>
+    <td>http://loinc.org · 6690-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1778-05-06</td>
+    <td>Platelets [#/volume] in Blood by Automated count</td>
+    <td>231 10*3/uL<div class="muted">Reference 150-400 10*3/uL</div></td>
+    <td>http://loinc.org · 777-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1778-05-06</td>
+    <td>Potassium [Moles/volume] in Serum or Plasma</td>
+    <td>4.4 mmol/L<div class="muted">Reference 3.5-5.1 mmol/L</div></td>
+    <td>http://loinc.org · 2823-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1778-05-06</td>
+    <td>Creatinine [Mass/volume] in Serum or Plasma</td>
+    <td>1.2 mg/dL<div class="muted">Reference 0.74-1.35 mg/dL</div></td>
+    <td>http://loinc.org · 2160-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1778-05-06</td>
+    <td>Glomerular filtration rate [Volume Rate/Area] in Serum, Plasma or Blood by Creatinine-based formula (CKD-EPI 1773)/1.73 sq M</td>
+    <td>60 mL/min/1.73 m²<div class="muted">Reference &gt;=60 mL/min/1.73 m²</div></td>
+    <td>http://loinc.org · 98979-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1778-05-06</td>
+    <td>US Urinary bladder Volume post void</td>
+    <td>120 mL (high)<div class="muted">Reference Below 100 mL; 300 mL or more suggests chronic retention</div></td>
+    <td>http://loinc.org · 98856-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1778-05-06</td>
+    <td>International Prostate Symptom Score [IPSS]</td>
+    <td>15</td>
+    <td>http://loinc.org · 80976-4</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1778-05-06</td>
+    <td>Pain severity - 0-10 verbal numeric rating [Score] - Reported</td>
+    <td>2</td>
+    <td>http://loinc.org · 72514-3</td>
+  </tr></tbody></table></section>
+    <section><h2>Synthetic vital signs</h2><table><thead><tr><th>Date</th><th>Measure</th><th>Result</th><th>LOINC</th><th>Grade</th></tr></thead><tbody>
+  <tr><td>1778-04-06</td><td>Body height</td><td>170 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1778-04-06</td><td>Body weight</td><td>54.2 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1778-04-06</td><td>Body mass index (BMI) [Ratio]</td><td>18.8 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1778-04-06</td><td>Systolic blood pressure</td><td>138 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1778-04-06</td><td>Diastolic blood pressure</td><td>72 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1778-04-06</td><td>Heart rate</td><td>84 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1778-04-06</td><td>Respiratory rate</td><td>16 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1778-04-06</td><td>Body temperature</td><td>36.7 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1778-04-06</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>96 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1778-04-13</td><td>Body height</td><td>170 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1778-04-13</td><td>Body weight</td><td>54 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1778-04-13</td><td>Body mass index (BMI) [Ratio]</td><td>18.7 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1778-04-13</td><td>Systolic blood pressure</td><td>132 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1778-04-13</td><td>Diastolic blood pressure</td><td>70 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1778-04-13</td><td>Heart rate</td><td>80 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1778-04-13</td><td>Respiratory rate</td><td>16 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1778-04-13</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1778-04-13</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>96 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1778-04-20</td><td>Body height</td><td>170 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1778-04-20</td><td>Body weight</td><td>53.6 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1778-04-20</td><td>Body mass index (BMI) [Ratio]</td><td>18.5 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1778-04-20</td><td>Systolic blood pressure</td><td>118 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1778-04-20</td><td>Diastolic blood pressure</td><td>64 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1778-04-20</td><td>Heart rate</td><td>98 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1778-04-20</td><td>Respiratory rate</td><td>18 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1778-04-20</td><td>Body temperature</td><td>38.4 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1778-04-20</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>95 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1778-04-22</td><td>Body height</td><td>170 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1778-04-22</td><td>Body weight</td><td>53.4 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1778-04-22</td><td>Body mass index (BMI) [Ratio]</td><td>18.5 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1778-04-22</td><td>Systolic blood pressure</td><td>124 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1778-04-22</td><td>Diastolic blood pressure</td><td>68 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1778-04-22</td><td>Heart rate</td><td>82 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1778-04-22</td><td>Respiratory rate</td><td>16 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1778-04-22</td><td>Body temperature</td><td>36.9 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1778-04-22</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>96 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1778-04-28</td><td>Body height</td><td>170 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1778-04-28</td><td>Body weight</td><td>53.5 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1778-04-28</td><td>Body mass index (BMI) [Ratio]</td><td>18.5 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1778-04-28</td><td>Systolic blood pressure</td><td>126 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1778-04-28</td><td>Diastolic blood pressure</td><td>70 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1778-04-28</td><td>Heart rate</td><td>78 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1778-04-28</td><td>Respiratory rate</td><td>16 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1778-04-28</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1778-04-28</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>96 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1778-05-06</td><td>Body height</td><td>170 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1778-05-06</td><td>Body weight</td><td>53 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1778-05-06</td><td>Body mass index (BMI) [Ratio]</td><td>18.3 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1778-05-06</td><td>Systolic blood pressure</td><td>122 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1778-05-06</td><td>Diastolic blood pressure</td><td>68 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1778-05-06</td><td>Heart rate</td><td>80 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1778-05-06</td><td>Respiratory rate</td><td>16 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1778-05-06</td><td>Body temperature</td><td>36.7 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1778-05-06</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>96 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr></tbody></table></section>
+    <section><h2>Social, functional, and mental status</h2><h3>Social history</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Occupation: author, playwright, and essayist, still writing every day and directing rehearsals of his new play; recently returned to the city after many years living in the country near the border</li><li><span class="badge grade-S" title="Synthetic">S</span> Never smoker; one glass of wine with dinner (AUDIT-C 2); no recreational drugs; eight to ten cups of strong coffee a day, more on working days</li><li><span class="badge grade-S" title="Synthetic">S</span> Lives in a rented town house with a live-in assistant; a large circle of friends and visitors calls every day; he names a long-time younger colleague as the person to involve in health decisions</li><li><span class="badge grade-S" title="Synthetic">S</span> No occupational exposure to dyes, rubber, or aromatic amines; no cyclophosphamide or pelvic radiation in the past; no travel to areas where schistosomiasis occurs</li></ul><h3>Functional status</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Independent in activities of daily living; walks indoors and short distances outside with a stick; tires easily; needs help with shopping and travel</li></ul><h3>Mental status</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Thin, quick, witty, and impatient; fully oriented; asks for the facts and wants to keep working</li></ul></section>
+    
+    <section><h2>Allergies and medications</h2><h3>Allergies</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> No known allergy</li></ul><h3>Medications</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Diphenhydramine 25 mg oral capsule, one capsule at night for sleep (over the counter)</li><li><span class="badge grade-S" title="Synthetic">S</span> Tamsulosin 0.4 mg oral capsule, one capsule at bedtime</li><li><span class="badge grade-S" title="Synthetic">S</span> Polyethylene glycol 3350, 17 g in a glass of water once daily</li><li><span class="badge grade-S" title="Synthetic">S</span> Cefpodoxime 200 mg oral tablet, one tablet by mouth twice daily for 7 days</li><li><span class="badge grade-S" title="Synthetic">S</span> Acetaminophen 500 mg oral tablet, two tablets by mouth three times daily (3 g a day)</li><li><span class="badge grade-S" title="Synthetic">S</span> Oxycodone 5 mg oral tablet, one half tablet (2.5 mg) by mouth every 6 hours if needed for bladder pain not relieved by acetaminophen, no more than three doses a day; 15 tablets dispensed</li><li><span class="badge grade-S" title="Synthetic">S</span> Sennosides 8.6 mg oral tablet, two tablets at bedtime while taking oxycodone</li><li><span class="badge grade-S" title="Synthetic">S</span> Naloxone 4 mg nasal spray, one spray in one nostril for suspected opioid overdose; call 911; may repeat in 2 to 3 minutes in the other nostril</li></ul></section>
+    <section><h2>Procedures and immunizations</h2><h3>Procedures</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Insertion of a 16 Fr two-way indwelling urethral catheter in the clinic: 520 mL of pink urine drained without clots</li><li><span class="badge grade-S" title="Synthetic">S</span> Multiphasic CT urography: 4.2 cm sessile soft-tissue mass of the posterior bladder wall extending to the dome, with wall thickening to 1.8 cm and perivesical fat stranding (suspected extravesical extension); no hydronephrosis; upper tracts clear; prostate about 78 mL with a median lobe; no enlarged pelvic or retroperitoneal nodes; no bone lesions</li><li><span class="badge grade-S" title="Synthetic">S</span> CT of the chest with contrast, done with the urography: no lung nodule, mass, or mediastinal lymph node; airways clear; no source for the earlier bleeding from the mouth</li><li><span class="badge grade-S" title="Synthetic">S</span> Flexible cystoscopy by urology: solid, sessile, partly necrotic tumor about 4 cm on the posterior wall extending to the dome, with surrounding white keratinizing plaques; trilobar prostatic enlargement with friable surface vessels; catheter replaced</li><li><span class="badge grade-S" title="Synthetic">S</span> Transurethral resection of the bladder tumor with examination under anesthesia: a mobile, palpable mass (cT3b); resection to muscle. Pathology: keratinizing squamous cell carcinoma, moderately differentiated, invading the muscularis propria, with lymphovascular invasion; no urothelial carcinoma component and no carcinoma in situ; catheter left for drainage</li><li><span class="badge grade-S" title="Synthetic">S</span> Change of the urethral catheter at the sick visit, with a urine culture from the new catheter</li><li><span class="badge grade-S" title="Synthetic">S</span> Trial without catheter on tamsulosin: voided 260 mL with a post-void residual of 140 mL</li><li><span class="badge grade-S" title="Synthetic">S</span> CT of the bladder for radiotherapy planning</li><li><span class="badge grade-S" title="Synthetic">S</span> Hypofractionated external beam radiotherapy to the bladder, 36 Gy in six weekly fractions of 6 Gy, with daily image guidance, by the radiation oncology team; fractions 1 and 2 given by the last visit</li></ul><h3>Immunizations</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> 1777-10-07: Influenza vaccine, high dose, 1777-1778 season</li><li><span class="badge grade-S" title="Synthetic">S</span> 1776-11-12: Pneumococcal conjugate vaccine PCV20</li><li><span class="badge grade-S" title="Synthetic">S</span> 1773-06-03: Recombinant zoster vaccine, two-dose series completed</li><li><span class="badge grade-S" title="Synthetic">S</span> 1771-02-18: Tdap vaccine</li><li><span class="badge grade-S" title="Synthetic">S</span> 1776-10-01: Respiratory syncytial virus vaccine, single dose</li></ul></section>
+    <section><h2>Past medical history</h2><p class="muted">True biography with historical dates; not part of the synthetic care timeline.</p><ul><li><span class="badge grade-D" title="Documented">D</span> 4 November 1723: Smallpox at 28, with two days of fever and then an eruption, treated with bleeding, emetics, and large amounts of lemonade; out of danger in eleven days <span class="muted">(CLM-0003)</span></li><li><span class="badge grade-D" title="Documented">D</span> 1769 and throughout his life: Lifelong digestive complaints, colic, and frequent self-treatment with purges and enemas; complaints of the kidneys and bladder; a feeble constitution by his own account <span class="muted">(CLM-0004)</span></li><li><span class="badge grade-D" title="Documented">D</span> 25 February 1778: Sudden bleeding from the mouth and nose after a fit of coughing, continuing for several days, six weeks before the index visit; source not established <span class="muted">(CLM-0006)</span></li></ul><h3>Family history</h3><ul><li><span class="badge grade-D" title="Documented">D</span> mother: Died when he was seven; cause not recorded in the cited source</li><li><span class="badge grade-D" title="Documented">D</span> father: A receiver in the audit office; his health and cause of death are not recorded in the cited sources</li></ul></section>
+    <section><h2>Care-plan goals</h2><table><thead><tr><th>Goal</th><th>Target date</th><th>Status</th><th>Outcome</th></tr></thead><tbody>
+  <tr><td>Find the cause of the bleeding within three weeks</td><td>1778-04-22</td><td>completed</td><td>CT urography in two days, cystoscopy in one week, resection in nine days; pathology reviewed at sixteen days</td></tr>
+  <tr><td>Relieve the retention and recover kidney function</td><td>1778-04-22</td><td>completed</td><td>Creatinine 1.68 to 1.22 mg/dL; voiding after the trial without catheter with a residual of 140 mL</td></tr>
+  <tr><td>Treatment that controls bleeding and local symptoms while keeping him at home and writing</td><td>1778-05-27</td><td>active</td><td>Weekly radiotherapy under way; no clots or retention since the resection; writing most days</td></tr>
+  <tr><td>Pain at or below 3 of 10 without sedation, falls, or constipation</td><td>1778-05-27</td><td>active</td><td>Pain 2 of 10 on scheduled acetaminophen and about one half tablet of oxycodone a day; no sedation</td></tr>
+  <tr><td>A written plan for future care, with a named health care agent</td><td>1778-04-28</td><td>completed</td><td>Health care agent named and a portable medical order completed at the wellness visit</td></tr></tbody></table></section>
+    <section><h2>Interventions</h2><table><thead><tr><th>Intervention</th><th>Status</th><th>Guideline</th></tr></thead><tbody>
+  <tr><td>Hematuria evaluation: urinalysis with microscopy, urine culture, urine cytology, blood count, kidney function, multiphasic CT urography with CT of the chest, and cystoscopy</td><td>completed</td><td>GL-AUA-MH-2025, GL-CMID-2026</td></tr>
+  <tr><td>Urology consultation for gross hematuria with chronic retention: cystoscopy, resection if a tumor is found, the voiding trial, and the meaning of the PSA</td><td>completed</td><td>GL-AUA-MH-2025, GL-CMID-2026, GL-AUA-BPH-2023</td></tr>
+  <tr><td>Retention: indwelling catheter now, tamsulosin at bedtime, catheter care teaching, then a trial without catheter with a bladder scan; IPSS and post-void residual at each visit</td><td>completed</td><td>GL-AUA-BPH-2023, GL-IDSA-CAUTI-2009, GL-CMID-2026</td></tr>
+  <tr><td>Medication review: stop the diphenhydramine sleep aid and the over-the-counter sodium phosphate enemas; keep polyethylene glycol; cut coffee to two cups a day, none after noon; sleep advice without sedatives</td><td>completed</td><td>GL-ASCO-GERI-2018, GL-BEERS-2023</td></tr>
+  <tr><td>Shared decision on PSA testing: drawn before the catheter to interpret an enlarged, firm prostate, with the understanding that a raised value at 83 would lead to biopsy only if it would change treatment</td><td>completed</td><td>GL-AUA-BPH-2023, GL-USPSTF-PSA-2018</td></tr>
+  <tr><td>Transurethral resection of the bladder tumor with examination under anesthesia, for diagnosis and staging</td><td>completed</td><td>GL-NCCN-BLADDER-2026, GL-AUA-MIBC-2024, GL-EAU-MIBC-2026, GL-CMID-2026</td></tr>
+  <tr><td>Geriatric assessment (G8 screen, function, falls, cognition, mood, nutrition, social support, and medicines) before choosing cancer treatment</td><td>completed</td><td>GL-ASCO-GERI-2018, GL-BEERS-2023, GL-NCCN-BLADDER-2026</td></tr>
+  <tr><td>Shared decision on treatment of muscle-invasive squamous cell carcinoma: radical cystectomy, trimodality bladder preservation, palliative hypofractionated radiotherapy, or symptom care alone; he chose weekly radiotherapy, 36 Gy in six fractions, given by the radiation oncology team</td><td>completed</td><td>GL-NCCN-BLADDER-2026, GL-AUA-MIBC-2024, GL-EAU-MIBC-2026, GL-CMID-2026, GL-HYBRID-2017</td></tr>
+  <tr><td>Pain plan: scheduled acetaminophen; oxycodone 2.5 mg only if needed, no more than three doses a day, 15 tablets at a time from one prescriber; naloxone nasal spray; senna; the state prescription monitoring program checked; no alcohol, sleep aids, or anyone else&#39;s opium-based remedies; doses kept in a locked box; review within two weeks</td><td>completed</td><td>GL-CDC-OPIOID-2022, GL-BEERS-2023</td></tr>
+  <tr><td>Palliative care team joins his care alongside radiotherapy for symptom control, goals of care, and support at home</td><td>completed</td><td>GL-NCCN-BLADDER-2026, GL-ASCO-GERI-2018</td></tr>
+  <tr><td>Advance care planning: name a health care agent and complete a portable medical order reflecting his wishes</td><td>completed</td><td>GL-PREV-2026</td></tr></tbody></table></section>
+    <section><h2>Planned encounters</h2><ul>
+  <li><strong>1778-04-06</strong> — Primary care visit for three weeks of visible blood in the urine and difficult urination at 83 <span class="muted">(ENC-001)</span></li>
+  <li><strong>1778-04-13</strong> — One-week review of CT urography and kidney function; urology consultation with office cystoscopy <span class="muted">(ENC-002)</span></li>
+  <li><strong>1778-04-20</strong> — Same-day sick visit for fever with a catheter after bladder tumor resection <span class="muted">(ENC-005, unscheduled)</span></li>
+  <li><strong>1778-04-22</strong> — Review of resection pathology, diagnosis, geriatric assessment, trial without catheter, and shared decision on treatment <span class="muted">(ENC-003)</span></li>
+  <li><strong>1778-04-28</strong> — Subsequent annual wellness visit at 83 <span class="muted">(ENC-006)</span></li>
+  <li><strong>1778-05-06</strong> — Two-week review during weekly radiotherapy: symptoms, kidney function, voiding, and opioid safety <span class="muted">(ENC-004)</span></li></ul></section>
+    <section><h2>Supporting documents</h2><ul><li><a href="notes/hp.md">History and physical</a></li><li><a href="notes/progress-01.md">Progress note 01</a></li><li><a href="notes/progress-02.md">Progress note 02 — Focused Visit (Follow-up)</a></li><li><a href="notes/progress-03.md">Progress note 03 — Sick Visit</a></li><li><a href="notes/progress-04.md">Progress note 04 — Focused Visit (Follow-up)</a></li><li><a href="notes/progress-05.md">Progress note 05 — Annual Wellness Visit, Subsequent</a></li><li><a href="notes/progress-06.md">Progress note 06 — Focused Visit (Care-plan review)</a></li><li><a href="notes/referral-01.md">Urology referral</a></li><li><a href="notes/consult-01.md">Urology consultation</a></li><li><a href="notes/careplan.md">Patient care plan</a></li><li><a href="notes/teaching-note.md">Teaching note</a></li><li><a href="provenance.csv">Provenance CSV</a></li></ul></section>
+    <section><h2>C-CDA note documents</h2><p class="muted">Each link opens a readable copy; the XML beside it is the exchange file.</p><ul><li><a href="ccda/hp-01.html">History and physical</a> <a href="ccda/hp-01.xml">(XML)</a></li><li><a href="ccda/progress-01.html">Progress note 01</a> <a href="ccda/progress-01.xml">(XML)</a></li><li><a href="ccda/progress-02.html">Progress note 02 — Focused Visit (Follow-up)</a> <a href="ccda/progress-02.xml">(XML)</a></li><li><a href="ccda/progress-03.html">Progress note 03 — Sick Visit</a> <a href="ccda/progress-03.xml">(XML)</a></li><li><a href="ccda/progress-04.html">Progress note 04 — Focused Visit (Follow-up)</a> <a href="ccda/progress-04.xml">(XML)</a></li><li><a href="ccda/progress-05.html">Progress note 05 — Annual Wellness Visit, Subsequent</a> <a href="ccda/progress-05.xml">(XML)</a></li><li><a href="ccda/progress-06.html">Progress note 06 — Focused Visit (Care-plan review)</a> <a href="ccda/progress-06.xml">(XML)</a></li><li><a href="ccda/referral-01.html">Urology referral</a> <a href="ccda/referral-01.xml">(XML)</a></li><li><a href="ccda/consult-01.html">Urology consultation</a> <a href="ccda/consult-01.xml">(XML)</a></li></ul></section>
+    <section><h2>Sources</h2><table><thead><tr><th>ID</th><th>Source</th><th>Publisher</th><th>Type</th></tr></thead><tbody>
+  <tr>
+    <td>SRC-0001</td>
+    <td><a href="https://www.britannica.com/biography/Voltaire" target="_blank" rel="noreferrer">Pomeau RH. Voltaire. Encyclopaedia Britannica</a></td>
+    <td>Encyclopaedia Britannica</td>
+    <td>scholarly</td>
+  </tr>
+  <tr>
+    <td>SRC-0002</td>
+    <td><a href="https://www.britannica.com/biography/Voltaire/Achievements-at-Ferney" target="_blank" rel="noreferrer">Pomeau RH. Voltaire: Achievements at Ferney. Encyclopaedia Britannica</a></td>
+    <td>Encyclopaedia Britannica</td>
+    <td>scholarly</td>
+  </tr>
+  <tr>
+    <td>SRC-0003</td>
+    <td><a href="https://www.voltaire.ox.ac.uk/about-voltaire/" target="_blank" rel="noreferrer">About Voltaire</a></td>
+    <td>Voltaire Foundation, University of Oxford</td>
+    <td>scholarly</td>
+  </tr>
+  <tr>
+    <td>SRC-0004</td>
+    <td><a href="https://fr.wikisource.org/wiki/Correspondance_de_Voltaire/1723/Lettre_101" target="_blank" rel="noreferrer">Voltaire. Letter to the baron de Breteuil, December 1723 (Correspondance, Garnier edition, letter 101)</a></td>
+    <td>Wikisource</td>
+    <td>primary</td>
+  </tr>
+  <tr>
+    <td>SRC-0005</td>
+    <td><a href="https://archive.org/details/voltairemourante00lachuoft" target="_blank" rel="noreferrer">Lachèvre F. Voltaire mourant: enquête faite en 1778 sur les circonstances de sa dernière maladie. Paris: Champion; 1908</a></td>
+    <td>Internet Archive (University of Toronto copy)</td>
+    <td>primary</td>
+  </tr>
+  <tr>
+    <td>SRC-0006</td>
+    <td><a href="https://www.persee.fr/doc/pharm_0035-2349_1970_num_58_204_7976_t1_0060_0000_1" target="_blank" rel="noreferrer">Julien P. Les maladies et la mort de Voltaire: Jean Orieux, Voltaire ou la Royauté de l&#39;esprit [review]. Revue d&#39;histoire de la pharmacie 1970;58(204):60-61</a></td>
+    <td>Persée</td>
+    <td>scholarly</td>
+  </tr>
+  <tr>
+    <td>SRC-0007</td>
+    <td><a href="https://blog.oup.com/2018/05/voltaire-death/" target="_blank" rel="noreferrer">Russell A. Voltaire&#39;s thoughts on death. OUPblog, 29 May 2018</a></td>
+    <td>Oxford University Press</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0008</td>
+    <td><a href="https://pubmed.ncbi.nlm.nih.gov/40977402/" target="_blank" rel="noreferrer">Charlier P, Neuzillet Y, Le Gendre R, Armengaud J. Paleoproteomic study of blood residues shows that Voltaire (1778) died of perforated bladder squamous cell cancer with peritoneal extension. BJU Int 2025;136(6):1002-1003. PMID 40977402</a></td>
+    <td>PubMed</td>
+    <td>scholarly</td>
+  </tr>
+  <tr>
+    <td>SRC-0009</td>
+    <td><a href="https://humanrecord.example.org/internal/HISTMED_Master_Roster_v3.xlsx" target="_blank" rel="noreferrer">HISTMED Master Roster v3</a></td>
+    <td>The Human Record project</td>
+    <td>other</td>
+  </tr></tbody></table></section>
+    <section><h2>Review status</h2><table><thead><tr><th>Review</th><th>Status</th><th>Notes</th></tr></thead><tbody>
+  <tr><td>schema validation</td><td>not_started</td><td>Run scripts/build.ps1 -Conformance.</td></tr>
+  <tr><td>clinical review</td><td>not_started</td><td>Awaiting clinician review; check the choice of squamous cell carcinoma, the decision against prostate biopsy, the choice of weekly palliative radiotherapy over cystectomy or trimodality therapy, the catheter and voiding-trial plan, the catheter-associated infection treatment, and the opioid plan.</td></tr>
+  <tr><td>provenance review</td><td>not_started</td><td>Britannica, the Voltaire Foundation, his 1723 letter on smallpox (Wikisource), Lachèvre&#39;s 1908 edition with Wagnière&#39;s account and the 1778 autopsy report (Internet Archive), a 1970 review of Orieux&#39;s biography (Persée), an OUP blog, and the 2025 BJU International record (title only) logged.</td></tr>
+  <tr><td>safe messaging review</td><td>not_started</td><td>No behavioral-health diagnosis; the documented opium overdose is flagged sensitive and informs the opioid plan; death recorded without graphic detail; legends about his deathbed are not repeated.</td></tr></tbody></table></section>
+  </main>
+</body>
+</html>

@@ -1,0 +1,608 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Rocky Marciano — The Human Record</title>
+  <style>
+    :root { --navy:#17365d; --blue:#1f4e78; --pale:#eef5fa; --ink:#1f2933; --muted:#66788a; --amber:#fff2cc; --red:#f8d7da; --green:#d9ead3; }
+    * { box-sizing:border-box; }
+    body { margin:0; font:16px/1.5 Arial, sans-serif; color:var(--ink); background:#f6f8fa; }
+    header { background:var(--navy); color:white; padding:24px max(24px,calc((100vw - 1180px)/2)); }
+    header h1 { margin:4px 0; font-size:30px; }
+    .banner { background:#b42318; color:white; font-weight:700; text-align:center; padding:10px; letter-spacing:.03em; }
+    main { max-width:1180px; margin:24px auto 60px; padding:0 24px; }
+    section { background:white; border:1px solid #d9e1e8; border-radius:8px; margin:18px 0; padding:20px; }
+    h2 { color:var(--navy); margin:0 0 14px; font-size:22px; }
+    h3 { color:var(--blue); }
+    .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:12px; }
+    .card { background:var(--pale); border-left:4px solid var(--blue); padding:12px; }
+    .label { color:var(--muted); font-size:13px; text-transform:uppercase; letter-spacing:.04em; }
+    table { width:100%; border-collapse:collapse; }
+    th { background:var(--blue); color:white; text-align:left; }
+    th,td { padding:9px; border-bottom:1px solid #dfe6ec; vertical-align:top; }
+    .badge { display:inline-block; min-width:28px; text-align:center; font-weight:700; border-radius:12px; padding:2px 8px; }
+    .grade-D { background:var(--green); } .grade-R { background:var(--amber); } .grade-S { background:var(--red); }
+    .muted { color:var(--muted); font-size:14px; }
+    .relationship { color:var(--muted); font-size:12px; }
+    .downloads a { display:inline-block; margin:4px 8px 4px 0; padding:8px 12px; background:var(--blue); color:white; text-decoration:none; border-radius:5px; }
+    @media (max-width:700px) { table { display:block; overflow-x:auto; } }
+  </style>
+</head>
+<body>
+  <div class="banner">SYNTHETIC RECORD, NOT A REAL MEDICAL RECORD</div>
+  <div class="banner">True-date frame: synthetic events are moved into the patient&#39;s historical lifetime. Codes, instruments, and treatments remain modern and are anachronistic.</div>
+  <header>
+    <div>The Human Record</div>
+    <h1>Rocky Marciano</h1>
+    <div>Case HR-BX006-TD · Modern EHR teaching episode · Draft for review</div>
+  </header>
+  <main>
+    <section>
+      <h2>Review summary</h2>
+      <div class="grid">
+        <div class="card"><div class="label">Historical dates</div>September 1, 1923 – August 31, 1969</div>
+        <div class="card"><div class="label">Synthetic DOB</div>1923-09-01</div>
+        <div class="card"><div class="label">Index visit</div>1956-08-04 at age 32</div>
+        <div class="card"><div class="label">Synthetic MRN</div>HR-BX006-SYN-TD</div>
+      </div>
+      <p><strong>Teaching objective:</strong> Primary care for a retired professional boxer: a 32-year-old former heavyweight champion, four months retired, comes in a few weeks after a lumbar disc herniation with sciatica, on a background of years of back pain, with an aching thumb base from an old fracture. The episode covers the history and neurological examination of low back pain with radiculopathy and its red flags; when imaging and surgical referral are and are not needed; exercise therapy, motor control training and a short NSAID course without opioids under the 1947 American College of Physicians guideline; post-traumatic osteoarthritis of the thumb base with a splint, hand therapy and topical diclofenac under the 1949 American College of Rheumatology/Arthritis Foundation guideline; NSAID safety, with dyspepsia that follows unmonitored daily naproxen and its test-and-treat management; a brain health baseline after repetitive head impacts (symptom inventory, MoCA, mood, anxiety and sleep, no imaging without an indication, and traumatic encephalopathy syndrome as a research diagnosis); the metabolic change after a sudden end to heavy training, with weight, blood pressure confirmed by home readings, lipids and an exercise prescription; and anxiety screening that is negative.</p>
+      <div class="downloads">
+        <a href="../case.json">Canonical JSON</a>
+        <a href="fhir-bundle.json">FHIR R4 draft</a>
+        <a href="ccda.html">C-CDA R2.1 summary</a> <a href="ccda.xml">(XML)</a>
+        <a href="../sources.md">Evidence dossier</a>
+      </div>
+    </section>
+    <section><h2>Historical timeline</h2><table><thead><tr><th>Date</th><th>Event</th><th>Claims</th></tr></thead><tbody>
+  <tr><td>September 1, 1923</td><td>Born Rocco Francis Marchegiano in Brockton, Massachusetts.</td><td>CLM-0001</td></tr>
+  <tr><td>about 1925</td><td>Pneumonia as a small child; not expected to survive.</td><td>CLM-0002</td></tr>
+  <tr><td>1943</td><td>Drafted into the Army; takes up boxing; discharged in March 1946.</td><td>CLM-0003</td></tr>
+  <tr><td>March 1947</td><td>First professional fight.</td><td>CLM-0004</td></tr>
+  <tr><td>August 1949</td><td>By one account, fighting from now on with a ruptured disc in his back.</td><td>CLM-0006</td></tr>
+  <tr><td>December 1950</td><td>Marries; a daughter and later an adopted son.</td><td>CLM-0011</td></tr>
+  <tr><td>1951</td><td>An arthritic right elbow from about this year.</td><td>CLM-0006</td></tr>
+  <tr><td>September 23, 1952</td><td>Wins the world heavyweight championship in Philadelphia.</td><td>CLM-0004</td></tr>
+  <tr><td>April 27, 1956</td><td>Announces his retirement as undefeated champion, 49-0, at 32; broken hands, back injuries and cuts during his career.</td><td>CLM-0005, CLM-0007, CLM-0008, CLM-0009</td></tr>
+  <tr><td>July 1956</td><td>Back pain while playing at home; a hospital diagnoses a ruptured disc.</td><td>CLM-0010</td></tr>
+  <tr><td>1961</td><td>Hosts a weekly boxing program on television; later works as a referee and commentator.</td><td>CLM-0012</td></tr>
+  <tr><td>August 31, 1969</td><td>Killed in a small-plane crash near Newton, Iowa, on the eve of his 46th birthday.</td><td>CLM-0013</td></tr></tbody></table></section>
+    <section><h2>Evidence claims</h2><p class="muted">D = documented, R = retrospective, S = synthetic.</p><table><thead><tr><th>Grade</th><th>Claim</th><th>Certainty</th><th>Sources</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>Rocco Francis Marchegiano was born on September 1, 1923, in Brockton, Massachusetts, where his father, Pierino, worked in a shoe factory; he later boxed as Rocky Marciano.</strong></td>
+    <td>confirmed</td>
+    <td><a href="https://www.history.com/this-day-in-history/april-27/rocky-marciano-retires-as-world-heavyweight-champion" target="_blank" rel="noreferrer">Rocky Marciano retires as world heavyweight champion (This Day in History, April 27)</a> <span class="relationship">supports</span><br><a href="https://www.encyclopedia.com/people/sports-and-games/sports-biographies/rocky-marciano" target="_blank" rel="noreferrer">Marciano, Rocky (Notable Sports Figures; UXL Encyclopedia of World Biography; Scribner Encyclopedia of American Lives, Sports Figures; Encyclopedia of World Biography; World Encyclopedia)</a> <span class="relationship">supports</span><br><a href="https://humanrecord.example.org/internal/HISTMED_Master_Roster_v3.xlsx" target="_blank" rel="noreferrer">HISTMED Master Roster v3</a> <span class="relationship">context</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>As a small child he had pneumonia and was not expected to survive.</strong><div class="muted">Childhood illness recorded in the past medical history; a single secondary source, without a date or details.</div></td>
+    <td>probable</td>
+    <td><a href="https://www.boxingnewsonline.net/the-secrets-behind-the-legend-of-rocky-marciano/" target="_blank" rel="noreferrer">The secrets behind the legend of Rocky Marciano</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>He was drafted into the Army in 1943, served in Britain, and completed his service in March 1946 at Fort Lewis, Washington; he took up boxing in the Army.</strong></td>
+    <td>confirmed</td>
+    <td><a href="https://www.biography.com/athlete/rocky-marciano" target="_blank" rel="noreferrer">Rocky Marciano (Biography)</a> <span class="relationship">supports</span><br><a href="https://www.encyclopedia.com/people/sports-and-games/sports-biographies/rocky-marciano" target="_blank" rel="noreferrer">Marciano, Rocky (Notable Sports Figures; UXL Encyclopedia of World Biography; Scribner Encyclopedia of American Lives, Sports Figures; Encyclopedia of World Biography; World Encyclopedia)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>He turned professional in March 1947 and won the world heavyweight championship on September 23, 1952, in Philadelphia, knocking out Jersey Joe Walcott in the thirteenth round.</strong><div class="muted">Anchors the synthetic modern history of a long professional boxing career with repetitive head impacts.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.encyclopedia.com/people/sports-and-games/sports-biographies/rocky-marciano" target="_blank" rel="noreferrer">Marciano, Rocky (Notable Sports Figures; UXL Encyclopedia of World Biography; Scribner Encyclopedia of American Lives, Sports Figures; Encyclopedia of World Biography; World Encyclopedia)</a> <span class="relationship">supports</span><br><a href="https://www.history.com/this-day-in-history/april-27/rocky-marciano-retires-as-world-heavyweight-champion" target="_blank" rel="noreferrer">Rocky Marciano retires as world heavyweight champion (This Day in History, April 27)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>Broken hands, back injuries and many facial cuts were among the injuries he had during his career.</strong><div class="muted">Anchors the synthetic hand osteoarthritis and chronic low back pain; which hand bones were broken, and when, is not recorded in the sources read.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.encyclopedia.com/people/sports-and-games/sports-biographies/rocky-marciano" target="_blank" rel="noreferrer">Marciano, Rocky (Notable Sports Figures; UXL Encyclopedia of World Biography; Scribner Encyclopedia of American Lives, Sports Figures; Encyclopedia of World Biography; World Encyclopedia)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>By one account he knew from August 1949 that he was fighting with a ruptured disc in his back, and from 1951 he had an arthritic right elbow that left his right arm slightly shorter than the left.</strong><div class="muted">Anchors the synthetic chronic low back pain; a single source, which another source&#39;s account of a disc diagnosis in July 1956 does not easily fit.</div></td>
+    <td>probable</td>
+    <td><a href="https://www.espn.com/classic/s/marcianorockyadd.html" target="_blank" rel="noreferrer">Kiger FW. More Info on Rocky Marciano</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>He was unbeaten as a professional, retiring with 49 wins in 49 bouts, 43 by knockout; he is the only heavyweight champion to retire with a perfect record.</strong></td>
+    <td>confirmed</td>
+    <td><a href="https://www.history.com/this-day-in-history/april-27/rocky-marciano-retires-as-world-heavyweight-champion" target="_blank" rel="noreferrer">Rocky Marciano retires as world heavyweight champion (This Day in History, April 27)</a> <span class="relationship">supports</span><br><a href="https://www.encyclopedia.com/people/sports-and-games/sports-biographies/rocky-marciano" target="_blank" rel="noreferrer">Marciano, Rocky (Notable Sports Figures; UXL Encyclopedia of World Biography; Scribner Encyclopedia of American Lives, Sports Figures; Encyclopedia of World Biography; World Encyclopedia)</a> <span class="relationship">supports</span><br><a href="https://iowahistoryjournal.com/publishers-perspective-remembering-boxing-legend-rocky-marciano-50-years-tragic-death/" target="_blank" rel="noreferrer">Publisher&#39;s Perspective: Remembering boxing legend Rocky Marciano 50 years after his tragic death</a> <span class="relationship">supports</span><br><a href="https://humanrecord.example.org/internal/HISTMED_Master_Roster_v3.xlsx" target="_blank" rel="noreferrer">HISTMED Master Roster v3</a> <span class="relationship">context</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>He trained exceptionally hard: more than once he sparred about 250 rounds to prepare for a fight, about 100 more than usual, and he limited his diet.</strong><div class="muted">Anchors the synthetic modern history of a sudden end to heavy training at retirement.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.espn.com/classic/s/marcianorockyadd.html" target="_blank" rel="noreferrer">Kiger FW. More Info on Rocky Marciano</a> <span class="relationship">supports</span><br><a href="https://www.vice.com/en/article/throwback-thursday-rocky-marciano-hangs-up-his-gloves" target="_blank" rel="noreferrer">Weinreb M. Throwback Thursday: Rocky Marciano Hangs Up His Gloves</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>On April 27, 1956, at 32, he announced his retirement as undefeated heavyweight champion, saying he wanted to spend more time with his family. Accounts also mention that he was weary of training, at odds with his manager over money, did not want to fight past his prime, and had an ailing back.</strong><div class="muted">Anchors the setting of the modern episode: a retired boxer a few months after retirement.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.history.com/this-day-in-history/april-27/rocky-marciano-retires-as-world-heavyweight-champion" target="_blank" rel="noreferrer">Rocky Marciano retires as world heavyweight champion (This Day in History, April 27)</a> <span class="relationship">supports</span><br><a href="https://www.encyclopedia.com/people/sports-and-games/sports-biographies/rocky-marciano" target="_blank" rel="noreferrer">Marciano, Rocky (Notable Sports Figures; UXL Encyclopedia of World Biography; Scribner Encyclopedia of American Lives, Sports Figures; Encyclopedia of World Biography; World Encyclopedia)</a> <span class="relationship">supports</span><br><a href="https://www.vice.com/en/article/throwback-thursday-rocky-marciano-hangs-up-his-gloves" target="_blank" rel="noreferrer">Weinreb M. Throwback Thursday: Rocky Marciano Hangs Up His Gloves</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>In July 1956, after he felt pain in his back while playing with his three-year-old daughter, he checked into a hospital and was diagnosed with a ruptured disc in his back.</strong><div class="muted">Anchors the synthetic presenting problem: a lumbar disc herniation with sciatica a few weeks before the index visit, on a background of years of back pain; a single secondary source.</div></td>
+    <td>probable</td>
+    <td><a href="https://www.vice.com/en/article/throwback-thursday-rocky-marciano-hangs-up-his-gloves" target="_blank" rel="noreferrer">Weinreb M. Throwback Thursday: Rocky Marciano Hangs Up His Gloves</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>He married in 1950; he and his wife had a daughter and later adopted a son.</strong><div class="muted">Documented family history recorded plainly; no relative has a role, statement, decision or health fact in the modern episode.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.encyclopedia.com/people/sports-and-games/sports-biographies/rocky-marciano" target="_blank" rel="noreferrer">Marciano, Rocky (Notable Sports Figures; UXL Encyclopedia of World Biography; Scribner Encyclopedia of American Lives, Sports Figures; Encyclopedia of World Biography; World Encyclopedia)</a> <span class="relationship">supports</span><br><a href="https://www.espn.com/classic/s/marcianorockyadd.html" target="_blank" rel="noreferrer">Kiger FW. More Info on Rocky Marciano</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>After boxing he earned a living from personal appearances and business interests, hosted a weekly boxing program on television in 1961, and worked for many years as a referee and boxing commentator. He was frugal and often accepted rides from friends with private planes.</strong><div class="muted">Later life, after the true-frame index date; on the timeline only.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.biography.com/athlete/rocky-marciano" target="_blank" rel="noreferrer">Rocky Marciano (Biography)</a> <span class="relationship">supports</span><br><a href="https://www.encyclopedia.com/people/sports-and-games/sports-biographies/rocky-marciano" target="_blank" rel="noreferrer">Marciano, Rocky (Notable Sports Figures; UXL Encyclopedia of World Biography; Scribner Encyclopedia of American Lives, Sports Figures; Encyclopedia of World Biography; World Encyclopedia)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>On August 31, 1969, the eve of his 46th birthday, he was killed when the small private plane in which he was a passenger, a Cessna 172 flying at night in bad weather, struck a tree in a pasture about two miles short of the airport at Newton, Iowa; the pilot and another passenger also died. Investigators found that the pilot, who had limited night experience and no instrument rating, attempted a flight beyond his experience and became spatially disoriented.</strong><div class="muted">Recorded on the timeline only, as documented history; no claim about his own health.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://iowahistoryjournal.com/publishers-perspective-remembering-boxing-legend-rocky-marciano-50-years-tragic-death/" target="_blank" rel="noreferrer">Publisher&#39;s Perspective: Remembering boxing legend Rocky Marciano 50 years after his tragic death</a> <span class="relationship">supports</span><br><a href="https://www.history.com/this-day-in-history/april-27/rocky-marciano-retires-as-world-heavyweight-champion" target="_blank" rel="noreferrer">Rocky Marciano retires as world heavyweight champion (This Day in History, April 27)</a> <span class="relationship">supports</span><br><a href="https://www.biography.com/athlete/rocky-marciano" target="_blank" rel="noreferrer">Rocky Marciano (Biography)</a> <span class="relationship">supports</span><br><a href="https://humanrecord.example.org/internal/HISTMED_Master_Roster_v3.xlsx" target="_blank" rel="noreferrer">HISTMED Master Roster v3</a> <span class="relationship">context</span></td>
+  </tr></tbody></table></section>
+    <section><h2>Modern synthetic problem list</h2><table><thead><tr><th>Grade</th><th>Problem</th><th>Clinical status</th><th>Verification</th><th>Placement</th><th>Historical claims</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Chronic mechanical low back pain for about seven years of heavy training and fighting, aching across the lower back, worse after long drives and in the morning</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td>CLM-0005, CLM-0006, CLM-0010</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Lumbar disc herniation at L4-L5 with left L5 radiculopathy, a few weeks old and improving: sharp pain into the left buttock and calf after bending to lift a child at home, seen in a hospital emergency department, where MRI showed a left paracentral L4-L5 disc extrusion contacting the left L5 nerve root; leg pain now intermittent, with slight numbness over the top of the left foot and normal strength; no bladder or bowel change</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td>CLM-0005, CLM-0006, CLM-0010</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Post-traumatic osteoarthritis of the left thumb base (first carpometacarpal joint) after an old fracture at the base of the first metacarpal from his early fighting years, with pain on pinching and gripping, an ache after long gripping, and a positive grind test</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td>CLM-0005</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Overweight after retirement, with a weight gain of about 9 kg in the four months since he stopped training, eating as he did in training camp; BMI 28.7</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td>CLM-0008, CLM-0009</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Elevated blood pressure reading at intake (136/86 mmHg, average of two) without a diagnosis of hypertension; home readings to confirm</td>
+    <td>resolved</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td>CLM-0008</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>History of repetitive head impacts from about thirteen years of Army, amateur and professional boxing, including heavy sparring; no remembered loss of consciousness; normal brain health baseline (no cognitive, mood or behavioral complaints; MoCA 29); traumatic encephalopathy syndrome not suspected</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td>CLM-0004, CLM-0005, CLM-0008</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Epigastric pain and burning for six days after about seven weeks of near-daily naproxen, worse at night and on an empty stomach; no vomiting, black stools, blood or weight loss; normal hemoglobin; no alarm features; NSAID-associated dyspepsia</td>
+    <td>resolved</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td></td>
+  </tr></tbody></table></section>
+    <section><h2>Synthetic outcome measures</h2><table><thead><tr><th>Grade</th><th>Date</th><th>Measure</th><th>Result</th><th>Coding</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1956-08-04</td>
+    <td>Sodium [Moles/volume] in Serum or Plasma</td>
+    <td>140 mmol/L<div class="muted">Reference 135-146 mmol/L</div></td>
+    <td>http://loinc.org · 2951-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1956-08-04</td>
+    <td>Potassium [Moles/volume] in Serum or Plasma</td>
+    <td>4.2 mmol/L<div class="muted">Reference 3.5-5.3 mmol/L</div></td>
+    <td>http://loinc.org · 2823-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1956-08-04</td>
+    <td>Creatinine [Mass/volume] in Serum or Plasma</td>
+    <td>1.08 mg/dL<div class="muted">Reference 0.7-1.3 mg/dL</div></td>
+    <td>http://loinc.org · 2160-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1956-08-04</td>
+    <td>Glomerular filtration rate [Volume Rate/Area] in Serum, Plasma or Blood by Creatinine-based formula (CKD-EPI 1951)/1.73 sq M</td>
+    <td>92 mL/min/1.73 m²<div class="muted">Reference &gt;=60 mL/min/1.73 m²</div></td>
+    <td>http://loinc.org · 98979-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1956-08-04</td>
+    <td>Glucose [Mass/volume] in Serum or Plasma</td>
+    <td>91 mg/dL<div class="muted">Reference 65-99 mg/dL</div></td>
+    <td>http://loinc.org · 2345-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1956-08-04</td>
+    <td>Hemoglobin [Mass/volume] in Blood</td>
+    <td>15.2 g/dL<div class="muted">Reference 13.5-17.5 g/dL</div></td>
+    <td>http://loinc.org · 718-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1956-08-04</td>
+    <td>Alanine aminotransferase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>31 U/L<div class="muted">Reference 7-55 U/L</div></td>
+    <td>http://loinc.org · 1742-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1956-08-04</td>
+    <td>Hemoglobin A1c/Hemoglobin.total in Blood</td>
+    <td>5.4%<div class="muted">Reference &lt;=5.6%</div></td>
+    <td>http://loinc.org · 4548-4</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1956-08-04</td>
+    <td>Cholesterol [Mass/volume] in Serum or Plasma</td>
+    <td>212 mg/dL (high)<div class="muted">Reference &lt;=199 mg/dL</div></td>
+    <td>http://loinc.org · 2093-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1956-08-04</td>
+    <td>Cholesterol in HDL [Mass/volume] in Serum or Plasma</td>
+    <td>45 mg/dL<div class="muted">Reference &gt;=40 mg/dL</div></td>
+    <td>http://loinc.org · 2085-9</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1956-08-04</td>
+    <td>Cholesterol in LDL [Mass/volume] in Serum or Plasma by calculation</td>
+    <td>137 mg/dL (high)<div class="muted">Reference &lt;=99 mg/dL</div></td>
+    <td>http://loinc.org · 13457-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1956-08-04</td>
+    <td>Triglyceride [Mass/volume] in Serum or Plasma</td>
+    <td>148 mg/dL<div class="muted">Reference &lt;=149 mg/dL</div></td>
+    <td>http://loinc.org · 2571-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1956-08-04</td>
+    <td>Pain severity - 0-10 verbal numeric rating [Score] - Reported</td>
+    <td>6</td>
+    <td>http://loinc.org · 72514-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1956-08-04</td>
+    <td>Oswestry disability index score ODI</td>
+    <td>36</td>
+    <td>http://loinc.org · 97909-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1956-08-04</td>
+    <td>Pain severity in the past week - 0-10 numeric rating [Reported]</td>
+    <td>5</td>
+    <td>http://loinc.org · 75893-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1956-08-04</td>
+    <td>Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]</td>
+    <td>3</td>
+    <td>http://loinc.org · 44261-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1956-08-04</td>
+    <td>Generalized anxiety disorder 7 item (GAD-7) total score [Reported.PHQ]</td>
+    <td>4</td>
+    <td>http://loinc.org · 70274-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1956-08-04</td>
+    <td>Total score [AUDIT-C]</td>
+    <td>1</td>
+    <td>http://loinc.org · 75626-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1956-08-04</td>
+    <td>Total score [MoCA]</td>
+    <td>29</td>
+    <td>http://loinc.org · 72172-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1956-08-04</td>
+    <td>PROMIS sleep related impairment - version 1.0 Tscore</td>
+    <td>55</td>
+    <td>http://loinc.org · 77859-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1956-08-18</td>
+    <td>Pain severity - 0-10 verbal numeric rating [Score] - Reported</td>
+    <td>5</td>
+    <td>http://loinc.org · 72514-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1956-08-18</td>
+    <td>Pain severity in the past week - 0-10 numeric rating [Reported]</td>
+    <td>5</td>
+    <td>http://loinc.org · 75893-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1956-08-18</td>
+    <td>Grip strength Hand - left Dynamometer</td>
+    <td>38 kg</td>
+    <td>http://loinc.org · 83173-5</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1956-08-18</td>
+    <td>Grip strength Hand - right Dynamometer</td>
+    <td>54 kg</td>
+    <td>http://loinc.org · 83174-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1956-09-08</td>
+    <td>Patient Health Questionnaire 2 item (PHQ-2) total score [Reported]</td>
+    <td>0</td>
+    <td>http://loinc.org · 55758-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1956-09-22</td>
+    <td>Hemoglobin [Mass/volume] in Blood</td>
+    <td>15 g/dL<div class="muted">Reference 13.5-17.5 g/dL</div></td>
+    <td>http://loinc.org · 718-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1956-09-29</td>
+    <td>Pain severity - 0-10 verbal numeric rating [Score] - Reported</td>
+    <td>3</td>
+    <td>http://loinc.org · 72514-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1956-09-29</td>
+    <td>Oswestry disability index score ODI</td>
+    <td>18</td>
+    <td>http://loinc.org · 97909-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1956-09-29</td>
+    <td>Pain severity in the past week - 0-10 numeric rating [Reported]</td>
+    <td>3</td>
+    <td>http://loinc.org · 75893-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1956-10-27</td>
+    <td>Pain severity - 0-10 verbal numeric rating [Score] - Reported</td>
+    <td>2</td>
+    <td>http://loinc.org · 72514-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1956-10-27</td>
+    <td>Oswestry disability index score ODI</td>
+    <td>10</td>
+    <td>http://loinc.org · 97909-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1956-10-27</td>
+    <td>Pain severity in the past week - 0-10 numeric rating [Reported]</td>
+    <td>2</td>
+    <td>http://loinc.org · 75893-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1956-10-27</td>
+    <td>Grip strength Hand - left Dynamometer</td>
+    <td>46 kg</td>
+    <td>http://loinc.org · 83173-5</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1956-10-27</td>
+    <td>Grip strength Hand - right Dynamometer</td>
+    <td>55 kg</td>
+    <td>http://loinc.org · 83174-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1956-10-27</td>
+    <td>Generalized anxiety disorder 7 item (GAD-7) total score [Reported.PHQ]</td>
+    <td>2</td>
+    <td>http://loinc.org · 70274-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1956-10-27</td>
+    <td>Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]</td>
+    <td>1</td>
+    <td>http://loinc.org · 44261-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1956-10-27</td>
+    <td>PROMIS sleep related impairment - version 1.0 Tscore</td>
+    <td>48</td>
+    <td>http://loinc.org · 77859-7</td>
+  </tr></tbody></table></section>
+    <section><h2>Synthetic vital signs</h2><table><thead><tr><th>Date</th><th>Measure</th><th>Result</th><th>LOINC</th><th>Grade</th></tr></thead><tbody>
+  <tr><td>1956-08-04</td><td>Body height</td><td>179 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1956-08-04</td><td>Body weight</td><td>92 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1956-08-04</td><td>Body mass index (BMI) [Ratio]</td><td>28.7 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1956-08-04</td><td>Systolic blood pressure</td><td>136 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1956-08-04</td><td>Diastolic blood pressure</td><td>86 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1956-08-04</td><td>Heart rate</td><td>62 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1956-08-04</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1956-08-04</td><td>Body temperature</td><td>36.7 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1956-08-04</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>98 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1956-08-18</td><td>Body height</td><td>179 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1956-08-18</td><td>Body weight</td><td>91.6 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1956-08-18</td><td>Body mass index (BMI) [Ratio]</td><td>28.6 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1956-08-18</td><td>Systolic blood pressure</td><td>130 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1956-08-18</td><td>Diastolic blood pressure</td><td>82 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1956-08-18</td><td>Heart rate</td><td>60 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1956-08-18</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1956-08-18</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1956-08-18</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>99 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1956-09-29</td><td>Body height</td><td>179 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1956-09-29</td><td>Body weight</td><td>89.4 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1956-09-29</td><td>Body mass index (BMI) [Ratio]</td><td>27.9 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1956-09-29</td><td>Systolic blood pressure</td><td>124 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1956-09-29</td><td>Diastolic blood pressure</td><td>78 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1956-09-29</td><td>Heart rate</td><td>58 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1956-09-29</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1956-09-29</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1956-09-29</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>99 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1956-10-27</td><td>Body height</td><td>179 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1956-10-27</td><td>Body weight</td><td>88.2 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1956-10-27</td><td>Body mass index (BMI) [Ratio]</td><td>27.5 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1956-10-27</td><td>Systolic blood pressure</td><td>122 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1956-10-27</td><td>Diastolic blood pressure</td><td>76 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1956-10-27</td><td>Heart rate</td><td>58 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1956-10-27</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1956-10-27</td><td>Body temperature</td><td>36.5 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1956-10-27</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>99 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1956-09-08</td><td>Body height</td><td>179 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1956-09-08</td><td>Body weight</td><td>90.6 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1956-09-08</td><td>Body mass index (BMI) [Ratio]</td><td>28.3 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1956-09-08</td><td>Systolic blood pressure</td><td>126 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1956-09-08</td><td>Diastolic blood pressure</td><td>78 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1956-09-08</td><td>Heart rate</td><td>58 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1956-09-08</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1956-09-08</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1956-09-08</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>99 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1956-09-22</td><td>Body height</td><td>179 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1956-09-22</td><td>Body weight</td><td>89.9 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1956-09-22</td><td>Body mass index (BMI) [Ratio]</td><td>28.1 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1956-09-22</td><td>Systolic blood pressure</td><td>124 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1956-09-22</td><td>Diastolic blood pressure</td><td>78 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1956-09-22</td><td>Heart rate</td><td>64 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1956-09-22</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1956-09-22</td><td>Body temperature</td><td>36.7 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1956-09-22</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>99 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr></tbody></table></section>
+    <section><h2>Social, functional, and mental status</h2><h3>Social history</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Retired professional heavyweight boxer, unbeaten and a former world champion; retired four months ago, saying he wanted more time with his family and was tired of the training; now works on personal appearances and business interests</li><li><span class="badge grade-S" title="Synthetic">S</span> Married, with a young daughter; lives in his home town south of Boston</li><li><span class="badge grade-S" title="Synthetic">S</span> Trained six days a week for years, with long roadwork, heavy sparring and a strict diet; since retiring he walks most days but has stopped running and bag work, and eats as he did in camp</li><li><span class="badge grade-S" title="Synthetic">S</span> Never used tobacco; an occasional glass of wine with dinner (AUDIT-C 1); no drug use; no anabolic steroids or other performance drugs</li><li><span class="badge grade-S" title="Synthetic">S</span> Strengths: discipline and a habit of hard daily work, a close family, a supportive home town, and a clear wish to stay fit and healthy in retirement</li></ul><h3>Functional status</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Independent in all activities; cannot sit through a long drive or lift heavy objects since the disc herniation; trouble opening jars and turning keys with the left hand; Oswestry Disability Index 36%</li></ul><h3>Mental status</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Alert, courteous and good-humored; speech fluent and clear; attention, memory and reasoning intact (MoCA 29); mood good; no anxiety on examination; PHQ-9 3 with item 9 scored 0; GAD-7 4</li></ul></section>
+    
+    <section><h2>Allergies and medications</h2><h3>Allergies</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> No known allergy</li></ul><h3>Medications</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Naproxen 500 mg tablet, one twice a day with food for two weeks, then as needed for back pain</li><li><span class="badge grade-S" title="Synthetic">S</span> Diclofenac sodium 1% gel, 2 g rubbed into the base of the left thumb up to four times a day</li><li><span class="badge grade-S" title="Synthetic">S</span> Omeprazole 20 mg delayed-release capsule, one each morning before breakfast for four weeks</li></ul></section>
+    <section><h2>Procedures and immunizations</h2><h3>Procedures</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Plain X-ray of the left hand and thumb (posteroanterior, oblique and Robert&#39;s views): narrowing of the first carpometacarpal joint with subchondral sclerosis and a small osteophyte; healed old fracture at the base of the first metacarpal with slight angulation; no acute fracture; other joints normal</li><li><span class="badge grade-S" title="Synthetic">S</span> Hand-based thumb carpometacarpal orthosis (thumb spica splint) fitted, to wear during gripping work and at night</li><li><span class="badge grade-S" title="Synthetic">S</span> Physical therapy evaluation of the lumbar spine with a plan for directional preference exercise, motor control and progressive strengthening, twice a week for six weeks</li><li><span class="badge grade-S" title="Synthetic">S</span> Advance care planning conversation, about 15 minutes, with his consent</li></ul><h3>Immunizations</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> 1956-09-08: Hepatitis B vaccine (HepB-CpG), dose 1 of 2, recommended for all adults 19 to 59</li><li><span class="badge grade-S" title="Synthetic">S</span> 1956-10-27: Hepatitis B vaccine (HepB-CpG), dose 2 of 2</li><li><span class="badge grade-S" title="Synthetic">S</span> 1956-10-27: Influenza vaccine, inactivated trivalent, this season&#39;s formulation</li></ul></section>
+    <section><h2>Past medical history</h2><p class="muted">True biography with historical dates; not part of the synthetic care timeline.</p><ul><li><span class="badge grade-D" title="Documented">D</span> about 1925: Pneumonia as a small child, severe enough that he was not expected to survive <span class="muted">(CLM-0002)</span></li><li><span class="badge grade-D" title="Documented">D</span> August 1949: By one account, a ruptured disc in his back from his early professional years <span class="muted">(CLM-0006)</span></li><li><span class="badge grade-D" title="Documented">D</span> 1951: Arthritic right elbow, with the right arm slightly shorter than the left <span class="muted">(CLM-0006)</span></li><li><span class="badge grade-D" title="Documented">D</span> by 1956: Broken hands, back injuries and many facial cuts during his boxing career; which bones were broken is not recorded <span class="muted">(CLM-0005)</span></li><li><span class="badge grade-D" title="Documented">D</span> July 1956: Ruptured disc diagnosed in hospital after back pain while playing at home, a few weeks before this visit <span class="muted">(CLM-0010)</span></li></ul><h3>Family history</h3><p class="muted">No family medical history is documented in the logged sources. Family history of real relatives is never synthesized.</p></section>
+    <section><h2>Care-plan goals</h2><table><thead><tr><th>Goal</th><th>Target date</th><th>Status</th><th>Outcome</th></tr></thead><tbody>
+  <tr><td>Leg pain gone and back pain at 3 or less out of 10, with an Oswestry index under 20%</td><td>1956-09-29</td><td>completed</td><td>Back pain 6 to 3 out of 10 and Oswestry 36% to 18% at eight weeks; no leg pain</td></tr>
+  <tr><td>Grip and pinch without thumb pain at 3 or less out of 10</td><td>1956-10-27</td><td>completed</td><td>Thumb pain 5 to 2 out of 10; left grip 38 to 46 kg</td></tr>
+  <tr><td>Lose 5% to 7% of body weight over six months with regular exercise</td><td>1957-02-04</td><td>active</td><td>92.0 to 88.2 kg at twelve weeks (4%)</td></tr>
+  <tr><td>Blood pressure under 120/80 mmHg at home without medicine</td><td>1956-10-27</td><td>completed</td><td>Home average 126/78 mmHg in the week after intake and 118/74 mmHg before the twelve-week visit; clinic 122/76</td></tr>
+  <tr><td>Keep a documented brain health baseline and repeat it yearly</td><td>1957-08-04</td><td>active</td><td>MoCA 29, PHQ-9 3, GAD-7 4 and a normal symptom inventory at intake; repeat in a year</td></tr></tbody></table></section>
+    <section><h2>Interventions</h2><table><thead><tr><th>Intervention</th><th>Status</th><th>Guideline</th></tr></thead><tbody>
+  <tr><td>Back and leg pain: neurological examination of the legs at every visit; red flags reviewed (new weakness, saddle numbness, bladder or bowel change, fever, weight loss) with instructions to come the same day if any appear; the outside MRI reviewed and no repeat imaging unless the deficit progresses; naproxen with food for two weeks then as needed; heat and staying active; no opioids, no muscle relaxants, no bed rest</td><td>completed</td><td>GL-ACP-LBP-2017</td></tr>
+  <tr><td>Sports medicine consultation for the disc herniation and chronic back pain, the thumb base, a brain health baseline after repetitive head impacts, and an exercise prescription for life after heavy training</td><td>completed</td><td>GL-ACP-LBP-2017, GL-ACR-OA-2019, GL-TES-2021</td></tr>
+  <tr><td>Physical therapy twice a week for six weeks (directional preference exercise, motor control and core strengthening), then a home program; a graded return to running and swimming</td><td>completed</td><td>GL-ACP-LBP-2017</td></tr>
+  <tr><td>Thumb base: X-ray of the hand; topical diclofenac gel; hand-protection advice</td><td>completed</td><td>GL-ACR-OA-2019, GL-CMID-2026</td></tr>
+  <tr><td>Thumb orthosis for gripping work and at night, hand therapy exercises, and a corticosteroid injection only if pain persists</td><td>completed</td><td>GL-ACR-OA-2019, GL-CMID-2026</td></tr>
+  <tr><td>Weight and cardiovascular risk after heavy training: home blood pressure monitoring with a validated upper-arm cuff, twice a day for a week, before any diagnosis; a meal plan matched to his lower energy needs; lipids and HbA1c at intake; repeat risk assessment yearly</td><td>completed</td><td>GL-AHA-HTN-2025, GL-ACC-DYSLIP-2026</td></tr>
+  <tr><td>Exercise prescription: 150 to 300 minutes a week of moderate aerobic activity (walking, swimming and cycling, then running) and strength training twice a week, with no sparring or other head impacts</td><td>completed</td><td>GL-PAG-2018, GL-ACP-LBP-2017</td></tr>
+  <tr><td>Brain health baseline after repetitive head impacts: symptom inventory (headache, memory, attention, mood, behavior, sleep, balance), MoCA, PHQ-9, GAD-7 and PROMIS sleep at intake; no brain imaging without an indication; repeat yearly; traumatic encephalopathy syndrome is a research diagnosis and is not made on history alone</td><td>completed</td><td>GL-TES-2021</td></tr>
+  <tr><td>Mood and anxiety: PHQ-9 and GAD-7 at intake and again at twelve weeks; support for the change of life after retirement</td><td>completed</td><td>GL-USPSTF-ANX-2023, GL-USPSTF-DEP-2023</td></tr>
+  <tr><td>Stomach on NSAIDs: stop naproxen; omeprazole for four weeks; stool test for Helicobacter pylori; no further oral NSAIDs; topical diclofenac continued</td><td>completed</td><td>GL-ACG-DYSPEPSIA-2017, GL-CMID-2026</td></tr></tbody></table></section>
+    <section><h2>Planned encounters</h2><ul>
+  <li><strong>1956-08-04</strong> — Establishing primary care after retirement from professional boxing: low back pain and left leg pain after a recent disc herniation, left thumb pain, weight gain and blood pressure after stopping training, a brain health baseline, mood, anxiety and sleep, and a sports medicine consultation <span class="muted">(ENC-001)</span></li>
+  <li><strong>1956-08-18</strong> — Two-week review on the day of the sports medicine consultation: back and leg pain, the thumb, home blood pressure, the brain health baseline and an exercise plan <span class="muted">(ENC-002)</span></li>
+  <li><strong>1956-09-08</strong> — Periodic adult preventive visit <span class="muted">(ENC-005)</span></li>
+  <li><strong>1956-09-22</strong> — Same-day sick visit for epigastric pain on naproxen <span class="muted">(ENC-006, unscheduled)</span></li>
+  <li><strong>1956-09-29</strong> — Eight-week review: back pain after six weeks of physical therapy, the thumb splint, the stomach after stopping naproxen, weight and blood pressure <span class="muted">(ENC-003)</span></li>
+  <li><strong>1956-10-27</strong> — Twelve-week review: back and thumb on home programs, weight, blood pressure, mood, anxiety and sleep, and the plan ahead <span class="muted">(ENC-004)</span></li></ul></section>
+    <section><h2>Supporting documents</h2><ul><li><a href="notes/hp.md">History and physical</a></li><li><a href="notes/progress-01.md">Progress note 01</a></li><li><a href="notes/progress-02.md">Progress note 02 — Focused Visit (Follow-up)</a></li><li><a href="notes/progress-03.md">Progress note 03 — Preventive Visit</a></li><li><a href="notes/progress-04.md">Progress note 04 — Sick Visit</a></li><li><a href="notes/progress-05.md">Progress note 05 — Focused Visit (Follow-up)</a></li><li><a href="notes/progress-06.md">Progress note 06 — Focused Visit (Care-plan review)</a></li><li><a href="notes/referral-01.md">Sports Medicine referral</a></li><li><a href="notes/consult-01.md">Sports Medicine consultation</a></li><li><a href="notes/careplan.md">Patient care plan</a></li><li><a href="notes/teaching-note.md">Teaching note</a></li><li><a href="provenance.csv">Provenance CSV</a></li></ul></section>
+    <section><h2>C-CDA note documents</h2><p class="muted">Each link opens a readable copy; the XML beside it is the exchange file.</p><ul><li><a href="ccda/hp-01.html">History and physical</a> <a href="ccda/hp-01.xml">(XML)</a></li><li><a href="ccda/progress-01.html">Progress note 01</a> <a href="ccda/progress-01.xml">(XML)</a></li><li><a href="ccda/progress-02.html">Progress note 02 — Focused Visit (Follow-up)</a> <a href="ccda/progress-02.xml">(XML)</a></li><li><a href="ccda/progress-03.html">Progress note 03 — Preventive Visit</a> <a href="ccda/progress-03.xml">(XML)</a></li><li><a href="ccda/progress-04.html">Progress note 04 — Sick Visit</a> <a href="ccda/progress-04.xml">(XML)</a></li><li><a href="ccda/progress-05.html">Progress note 05 — Focused Visit (Follow-up)</a> <a href="ccda/progress-05.xml">(XML)</a></li><li><a href="ccda/progress-06.html">Progress note 06 — Focused Visit (Care-plan review)</a> <a href="ccda/progress-06.xml">(XML)</a></li><li><a href="ccda/referral-01.html">Sports Medicine referral</a> <a href="ccda/referral-01.xml">(XML)</a></li><li><a href="ccda/consult-01.html">Sports Medicine consultation</a> <a href="ccda/consult-01.xml">(XML)</a></li></ul></section>
+    <section><h2>Sources</h2><table><thead><tr><th>ID</th><th>Source</th><th>Publisher</th><th>Type</th></tr></thead><tbody>
+  <tr>
+    <td>SRC-0001</td>
+    <td><a href="https://www.encyclopedia.com/people/sports-and-games/sports-biographies/rocky-marciano" target="_blank" rel="noreferrer">Marciano, Rocky (Notable Sports Figures; UXL Encyclopedia of World Biography; Scribner Encyclopedia of American Lives, Sports Figures; Encyclopedia of World Biography; World Encyclopedia)</a></td>
+    <td>Encyclopedia.com (Gale and other publishers)</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0002</td>
+    <td><a href="https://www.history.com/this-day-in-history/april-27/rocky-marciano-retires-as-world-heavyweight-champion" target="_blank" rel="noreferrer">Rocky Marciano retires as world heavyweight champion (This Day in History, April 27)</a></td>
+    <td>HISTORY.com (A&amp;E Television Networks)</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0003</td>
+    <td><a href="https://www.vice.com/en/article/throwback-thursday-rocky-marciano-hangs-up-his-gloves" target="_blank" rel="noreferrer">Weinreb M. Throwback Thursday: Rocky Marciano Hangs Up His Gloves</a></td>
+    <td>VICE Sports</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0004</td>
+    <td><a href="https://www.espn.com/classic/s/marcianorockyadd.html" target="_blank" rel="noreferrer">Kiger FW. More Info on Rocky Marciano</a></td>
+    <td>ESPN Classic</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0005</td>
+    <td><a href="https://iowahistoryjournal.com/publishers-perspective-remembering-boxing-legend-rocky-marciano-50-years-tragic-death/" target="_blank" rel="noreferrer">Publisher&#39;s Perspective: Remembering boxing legend Rocky Marciano 50 years after his tragic death</a></td>
+    <td>Iowa History Journal</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0006</td>
+    <td><a href="https://www.biography.com/athlete/rocky-marciano" target="_blank" rel="noreferrer">Rocky Marciano (Biography)</a></td>
+    <td>Biography.com (A&amp;E Television Networks)</td>
+    <td>biography</td>
+  </tr>
+  <tr>
+    <td>SRC-0007</td>
+    <td><a href="https://www.boxingnewsonline.net/the-secrets-behind-the-legend-of-rocky-marciano/" target="_blank" rel="noreferrer">The secrets behind the legend of Rocky Marciano</a></td>
+    <td>Boxing News</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0008</td>
+    <td><a href="https://humanrecord.example.org/internal/HISTMED_Master_Roster_v3.xlsx" target="_blank" rel="noreferrer">HISTMED Master Roster v3</a></td>
+    <td>The Human Record project</td>
+    <td>other</td>
+  </tr></tbody></table></section>
+    <section><h2>Review status</h2><table><thead><tr><th>Review</th><th>Status</th><th>Notes</th></tr></thead><tbody>
+  <tr><td>schema validation</td><td>not_started</td><td>Run scripts/build.ps1 -Conformance.</td></tr>
+  <tr><td>clinical review</td><td>not_started</td><td>Awaiting clinician review; check the radiculopathy examination and red flags, no repeat imaging, exercise therapy and a short NSAID course without opioids, the thumb orthosis and topical diclofenac, the NSAID monitoring lapse and the dyspepsia that followed, the brain health baseline and the statement that traumatic encephalopathy syndrome is a research diagnosis, home blood pressure confirmation, the low-risk lipid decision, and the negative anxiety screen.</td></tr>
+  <tr><td>provenance review</td><td>not_started</td><td>Sources: Encyclopedia.com (Gale and other reference works), HISTORY.com, VICE (2016), ESPN Classic (2003), the Iowa History Journal (2019), Biography.com and Boxing News (2017). The International Boxing Hall of Fame page could not be reached and the New York Times archive could not be fetched; Russell Sullivan&#39;s biography was not read directly. The roster&#39;s anxiety, fear of flying and hoarding leads are not documented in the sources read and are left out.</td></tr>
+  <tr><td>safe messaging review</td><td>not_started</td><td>His wife and children are recorded only as documented family history and are not named; no relative has a role, statement, decision or health fact in the modern episode. The plane crash is recorded as documented history on the timeline only, with no foreshadowing in the modern episode. PHQ-9 3 and 1, item 9 scored 0, so no safety assessment is required. Anxiety screening is negative; no anxiety diagnosis is made.</td></tr></tbody></table></section>
+  </main>
+</body>
+</html>

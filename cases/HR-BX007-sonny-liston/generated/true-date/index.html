@@ -1,0 +1,549 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sonny Liston — The Human Record</title>
+  <style>
+    :root { --navy:#17365d; --blue:#1f4e78; --pale:#eef5fa; --ink:#1f2933; --muted:#66788a; --amber:#fff2cc; --red:#f8d7da; --green:#d9ead3; }
+    * { box-sizing:border-box; }
+    body { margin:0; font:16px/1.5 Arial, sans-serif; color:var(--ink); background:#f6f8fa; }
+    header { background:var(--navy); color:white; padding:24px max(24px,calc((100vw - 1180px)/2)); }
+    header h1 { margin:4px 0; font-size:30px; }
+    .banner { background:#b42318; color:white; font-weight:700; text-align:center; padding:10px; letter-spacing:.03em; }
+    main { max-width:1180px; margin:24px auto 60px; padding:0 24px; }
+    section { background:white; border:1px solid #d9e1e8; border-radius:8px; margin:18px 0; padding:20px; }
+    h2 { color:var(--navy); margin:0 0 14px; font-size:22px; }
+    h3 { color:var(--blue); }
+    .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:12px; }
+    .card { background:var(--pale); border-left:4px solid var(--blue); padding:12px; }
+    .label { color:var(--muted); font-size:13px; text-transform:uppercase; letter-spacing:.04em; }
+    table { width:100%; border-collapse:collapse; }
+    th { background:var(--blue); color:white; text-align:left; }
+    th,td { padding:9px; border-bottom:1px solid #dfe6ec; vertical-align:top; }
+    .badge { display:inline-block; min-width:28px; text-align:center; font-weight:700; border-radius:12px; padding:2px 8px; }
+    .grade-D { background:var(--green); } .grade-R { background:var(--amber); } .grade-S { background:var(--red); }
+    .muted { color:var(--muted); font-size:14px; }
+    .relationship { color:var(--muted); font-size:12px; }
+    .downloads a { display:inline-block; margin:4px 8px 4px 0; padding:8px 12px; background:var(--blue); color:white; text-decoration:none; border-radius:5px; }
+    @media (max-width:700px) { table { display:block; overflow-x:auto; } }
+  </style>
+</head>
+<body>
+  <div class="banner">SYNTHETIC RECORD, NOT A REAL MEDICAL RECORD</div>
+  <div class="banner">True-date frame: synthetic events are moved into the patient&#39;s historical lifetime. Codes, instruments, and treatments remain modern and are anachronistic.</div>
+  <header>
+    <div>The Human Record</div>
+    <h1>Sonny Liston</h1>
+    <div>Case HR-BX007-TD · Modern EHR teaching episode · Draft for review</div>
+  </header>
+  <main>
+    <section>
+      <h2>Review summary</h2>
+      <div class="grid">
+        <div class="card"><div class="label">Historical dates</div>May 8, 1932 (the date he gave; disputed) – December 30, 1970 (date set by the coroner)</div>
+        <div class="card"><div class="label">Synthetic DOB</div>1932-05-08</div>
+        <div class="card"><div class="label">Index visit</div>1969-06-09 at age 37</div>
+        <div class="card"><div class="label">Synthetic MRN</div>HR-BX007-SYN-TD</div>
+      </div>
+      <p><strong>Teaching objective:</strong> Trauma-informed primary care for a 37-year-old professional heavyweight boxer who grew up in poverty with adverse childhood experiences, spent time in prison as a young man, and does not read or write, seen after a high blood pressure reading at a boxing commission check. The episode follows the 1968 AHA/ACC blood pressure guideline and the CMID hypertension monograph: out-of-office confirmation by 24-hour ambulatory monitoring before the diagnosis, baseline tests including urine albumin and an ECG, an echocardiogram for stage 2 hypertension, a single-pill combination of two first-line drugs, and potassium and creatinine checks; the AHA/ACC eligibility statement for competitive athletes with hypertension; alcohol and drug screening (AUDIT, DAST-10) with nonjudgmental motivational counseling, naltrexone for alcohol use disorder, and a structured safety assessment; why naloxone is not prescribed when there is no opioid use; ACE-informed history taken with choice and control; health literacy universal precautions (spoken and picture-based plans, teach-back, read-aloud consent); cardiovascular risk; and preventive care. It makes no claim about his real health and does not draw on the disputed circumstances of his death.</p>
+      <div class="downloads">
+        <a href="../case.json">Canonical JSON</a>
+        <a href="fhir-bundle.json">FHIR R4 draft</a>
+        <a href="ccda.html">C-CDA R2.1 summary</a> <a href="ccda.xml">(XML)</a>
+        <a href="../sources.md">Evidence dossier</a>
+      </div>
+    </section>
+    <section><h2>Historical timeline</h2><table><thead><tr><th>Date</th><th>Event</th><th>Claims</th></tr></thead><tbody>
+  <tr><td>May 8, 1932 (the date he gave; disputed)</td><td>Born in St. Francis County, Arkansas, to sharecroppers.</td><td>CLM-0001</td></tr>
+  <tr><td>Childhood</td><td>Field work from the age of eight; beaten regularly by his father; little schooling.</td><td>CLM-0002, CLM-0003</td></tr>
+  <tr><td>1950 to 1952</td><td>Imprisoned in the Missouri State Penitentiary; learns to box; paroled.</td><td>CLM-0004</td></tr>
+  <tr><td>September 1953</td><td>Turns professional.</td><td>CLM-0005</td></tr>
+  <tr><td>September 25, 1962</td><td>Wins the world heavyweight title; holds it until February 1964.</td><td>CLM-0005</td></tr>
+  <tr><td>1966</td><td>Moves to Las Vegas; described as a heavy drinker.</td><td>CLM-0005, CLM-0006</td></tr>
+  <tr><td>June 29, 1970</td><td>Fights for the last time; later enters the International Boxing Hall of Fame.</td><td>CLM-0010</td></tr>
+  <tr><td>December 30, 1970 (date set by the coroner)</td><td>Dies in Las Vegas; found on January 5, 1971; the cause is disputed.</td><td>CLM-0007, CLM-0008, CLM-0009</td></tr></tbody></table></section>
+    <section><h2>Evidence claims</h2><p class="muted">D = documented, R = retrospective, S = synthetic.</p><table><thead><tr><th>Grade</th><th>Claim</th><th>Certainty</th><th>Sources</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>Charles L. Liston was born in St. Francis County, Arkansas, to sharecroppers Tobe and Helen Liston. His birth date is uncertain: there was no birth certificate (Arkansas did not require them until 1965); he filed for one in 1953 giving May 8, 1932, which the Encyclopedia of Arkansas and the Scribner encyclopedia use with a question; his family&#39;s 1930 census record does not list him, so he was probably born no earlier than late 1930; his mother gave several dates; and other sources suggest 1927 or 1928.</strong><div class="muted">The preferred date is the one he used for official purposes; the uncertainty is recorded and no year is treated as settled.</div></td>
+    <td>disputed</td>
+    <td><a href="https://encyclopediaofarkansas.net/entries/sonny-liston-2569/" target="_blank" rel="noreferrer">Cochran RB. Sonny Liston (1932?-1970). Encyclopedia of Arkansas</a> <span class="relationship">supports</span><br><a href="https://www.encyclopedia.com/humanities/encyclopedias-almanacs-transcripts-and-maps/liston-charles-sonny-0" target="_blank" rel="noreferrer">McLean M. Liston, Charles (&quot;Sonny&quot;). Scribner Encyclopedia of American Lives, Thematic Series: Sports Figures</a> <span class="relationship">supports</span><br><a href="https://tss.ib.tv/boxing/wp-json/wp/v2/posts/1639" target="_blank" rel="noreferrer">Tallent A. The Mysterious Birth of Sonny Liston. The Sweet Science, February 2, 2005</a> <span class="relationship">supports</span><br><a href="https://humanrecord.example.org/internal/HISTMED_Master_Roster_v3.xlsx" target="_blank" rel="noreferrer">HISTMED Master Roster v3</a> <span class="relationship">context</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>He was one of many children (the ninth of his mother&#39;s ten; one account counts twenty-two siblings and half-siblings), worked full-time in the cotton fields by the age of eight, and was beaten regularly by his father.</strong><div class="muted">Anchors the trauma history (adverse childhood experiences) in the modern episode; recorded briefly, without detail.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.encyclopedia.com/humanities/encyclopedias-almanacs-transcripts-and-maps/liston-charles-sonny-0" target="_blank" rel="noreferrer">McLean M. Liston, Charles (&quot;Sonny&quot;). Scribner Encyclopedia of American Lives, Thematic Series: Sports Figures</a> <span class="relationship">supports</span><br><a href="https://encyclopediaofarkansas.net/entries/sonny-liston-2569/" target="_blank" rel="noreferrer">Cochran RB. Sonny Liston (1932?-1970). Encyclopedia of Arkansas</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>He had virtually no schooling and never learned to read or write.</strong><div class="muted">Anchors the health literacy adaptations in the modern episode.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.encyclopedia.com/humanities/encyclopedias-almanacs-transcripts-and-maps/liston-charles-sonny-0" target="_blank" rel="noreferrer">McLean M. Liston, Charles (&quot;Sonny&quot;). Scribner Encyclopedia of American Lives, Thematic Series: Sports Figures</a> <span class="relationship">supports</span><br><a href="https://encyclopediaofarkansas.net/entries/sonny-liston-2569/" target="_blank" rel="noreferrer">Cochran RB. Sonny Liston (1932?-1970). Encyclopedia of Arkansas</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>At thirteen he followed his mother to St. Louis. Arrested in 1950 after a series of robberies, he was sentenced to five years in the Missouri State Penitentiary in Jefferson City, where a Catholic chaplain encouraged him to box; he was paroled in 1952.</strong><div class="muted">History of incarceration, recorded as a social fact.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://encyclopediaofarkansas.net/entries/sonny-liston-2569/" target="_blank" rel="noreferrer">Cochran RB. Sonny Liston (1932?-1970). Encyclopedia of Arkansas</a> <span class="relationship">supports</span><br><a href="https://www.encyclopedia.com/humanities/encyclopedias-almanacs-transcripts-and-maps/liston-charles-sonny-0" target="_blank" rel="noreferrer">McLean M. Liston, Charles (&quot;Sonny&quot;). Scribner Encyclopedia of American Lives, Thematic Series: Sports Figures</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>He turned professional in September 1953 and broke his jaw in a 1954 loss. He won the world heavyweight title in Chicago on September 25, 1962, with a first-round knockout, and lost it in Miami Beach on February 25, 1964, when he did not come out for the seventh round, citing a shoulder injury; he lost the rematch in 1965. His record was 50 wins (39 by knockout) and 4 losses; he moved to Las Vegas in 1966.</strong><div class="muted">Anchors the long exposure to boxing and his active career in the index year.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://encyclopediaofarkansas.net/entries/sonny-liston-2569/" target="_blank" rel="noreferrer">Cochran RB. Sonny Liston (1932?-1970). Encyclopedia of Arkansas</a> <span class="relationship">supports</span><br><a href="https://www.encyclopedia.com/humanities/encyclopedias-almanacs-transcripts-and-maps/liston-charles-sonny-0" target="_blank" rel="noreferrer">McLean M. Liston, Charles (&quot;Sonny&quot;). Scribner Encyclopedia of American Lives, Thematic Series: Sports Figures</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>He was described as a heavy drinker and a reckless driver with frequent arrests.</strong><div class="muted">A biographical description, not a diagnosis. Anchors the alcohol screening in the modern episode.</div></td>
+    <td>probable</td>
+    <td><a href="https://www.encyclopedia.com/humanities/encyclopedias-almanacs-transcripts-and-maps/liston-charles-sonny-0" target="_blank" rel="noreferrer">McLean M. Liston, Charles (&quot;Sonny&quot;). Scribner Encyclopedia of American Lives, Thematic Series: Sports Figures</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>His wife found him dead in their Las Vegas home on January 5, 1971, on returning from a Christmas visit; he had been dead for about a week, and the coroner set the date of death as December 30, 1970. The death was ascribed to pulmonary congestion and heart failure, and the coroner recorded natural causes; traces of heroin and a needle mark on his arm were found, and heroin and marijuana were found in the house.</strong><div class="muted">Recorded once, in plain words. Not used in the modern episode.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://encyclopediaofarkansas.net/entries/sonny-liston-2569/" target="_blank" rel="noreferrer">Cochran RB. Sonny Liston (1932?-1970). Encyclopedia of Arkansas</a> <span class="relationship">supports</span><br><a href="https://www.encyclopedia.com/humanities/encyclopedias-almanacs-transcripts-and-maps/liston-charles-sonny-0" target="_blank" rel="noreferrer">McLean M. Liston, Charles (&quot;Sonny&quot;). Scribner Encyclopedia of American Lives, Thematic Series: Sports Figures</a> <span class="relationship">supports</span><br><a href="https://andscape.com/features/after-sonny-liston-died" target="_blank" rel="noreferrer">Assael S. After Sonny Liston died. Andscape, October 13, 2016</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-R" title="Retrospective">R</span></td>
+    <td><strong>The cause of his death is disputed: natural causes, an accidental heroin overdose and homicide have all been proposed, and none is established.</strong><div class="muted">No theory is adopted. Not used in the modern episode.</div></td>
+    <td>disputed</td>
+    <td><a href="https://www.encyclopedia.com/humanities/encyclopedias-almanacs-transcripts-and-maps/liston-charles-sonny-0" target="_blank" rel="noreferrer">McLean M. Liston, Charles (&quot;Sonny&quot;). Scribner Encyclopedia of American Lives, Thematic Series: Sports Figures</a> <span class="relationship">supports</span><br><a href="https://encyclopediaofarkansas.net/entries/sonny-liston-2569/" target="_blank" rel="noreferrer">Cochran RB. Sonny Liston (1932?-1970). Encyclopedia of Arkansas</a> <span class="relationship">supports</span><br><a href="https://andscape.com/features/after-sonny-liston-died" target="_blank" rel="noreferrer">Assael S. After Sonny Liston died. Andscape, October 13, 2016</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-R" title="Retrospective">R</span></td>
+    <td><strong>The project roster describes probable heroin dependency. No source read documents heroin or other opioid use during his life; the findings at his death are disputed.</strong><div class="muted">A retrospective label from an unsourced roster; not adopted. The modern episode finds no opioid use.</div></td>
+    <td>disputed</td>
+    <td><a href="https://humanrecord.example.org/internal/HISTMED_Master_Roster_v3.xlsx" target="_blank" rel="noreferrer">HISTMED Master Roster v3</a> <span class="relationship">supports</span><br><a href="https://www.encyclopedia.com/humanities/encyclopedias-almanacs-transcripts-and-maps/liston-charles-sonny-0" target="_blank" rel="noreferrer">McLean M. Liston, Charles (&quot;Sonny&quot;). Scribner Encyclopedia of American Lives, Thematic Series: Sports Figures</a> <span class="relationship">context</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>He fought for the last time on June 29, 1970, and entered the International Boxing Hall of Fame in 1991.</strong><div class="muted">History after the modern episode; not used in intake documents.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://encyclopediaofarkansas.net/entries/sonny-liston-2569/" target="_blank" rel="noreferrer">Cochran RB. Sonny Liston (1932?-1970). Encyclopedia of Arkansas</a> <span class="relationship">supports</span><br><a href="https://www.encyclopedia.com/humanities/encyclopedias-almanacs-transcripts-and-maps/liston-charles-sonny-0" target="_blank" rel="noreferrer">McLean M. Liston, Charles (&quot;Sonny&quot;). Scribner Encyclopedia of American Lives, Thematic Series: Sports Figures</a> <span class="relationship">supports</span></td>
+  </tr></tbody></table></section>
+    <section><h2>Modern synthetic problem list</h2><table><thead><tr><th>Grade</th><th>Problem</th><th>Clinical status</th><th>Verification</th><th>Placement</th><th>Historical claims</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>High blood pressure readings at a first visit (154/98 mmHg, average of two readings with a large cuff), without a diagnosis of hypertension; out-of-office confirmation needed</td>
+    <td>resolved</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Hypertension, stage 2, confirmed by 24-hour ambulatory monitoring (daytime average 146/94 mmHg, nighttime 132/84 mmHg), with mild concentric left ventricular hypertrophy on echocardiography and normal kidney function and urine albumin</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Alcohol use disorder, moderate (four DSM-5-TR criteria: drinking more than intended, unsuccessful efforts to cut down, craving, and continued drinking despite its effect on his training, blood pressure and liver tests); AUDIT 16</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>both_with_link</td>
+    <td>CLM-0006</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Personal history of physical abuse in childhood (beaten regularly by his father), with heavy field work from the age of eight</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>both_with_link</td>
+    <td>CLM-0002</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Does not read or write (no schooling as a child); prefers spoken explanations, pictures and demonstrations</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>both_with_link</td>
+    <td>CLM-0003</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Acute viral upper respiratory infection (common cold) for four days, with blood pressure raised to 158/98 mmHg by an over-the-counter pseudoephedrine cold tablet he could not read the label of; resolved</td>
+    <td>resolved</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td></td>
+  </tr></tbody></table></section>
+    <section><h2>Synthetic outcome measures</h2><table><thead><tr><th>Grade</th><th>Date</th><th>Measure</th><th>Result</th><th>Coding</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1969-06-09</td>
+    <td>Hemoglobin [Mass/volume] in Blood</td>
+    <td>15.1 g/dL<div class="muted">Reference 13.5-17.5 g/dL</div></td>
+    <td>http://loinc.org · 718-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1969-06-09</td>
+    <td>MCV [Entitic mean volume] in Red Blood Cells by Automated count</td>
+    <td>98 fL<div class="muted">Reference 80-100 fL</div></td>
+    <td>http://loinc.org · 787-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1969-06-09</td>
+    <td>Sodium [Moles/volume] in Serum or Plasma</td>
+    <td>139 mmol/L<div class="muted">Reference 135-145 mmol/L</div></td>
+    <td>http://loinc.org · 2951-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1969-06-09</td>
+    <td>Potassium [Moles/volume] in Serum or Plasma</td>
+    <td>4.1 mmol/L<div class="muted">Reference 3.5-5.1 mmol/L</div></td>
+    <td>http://loinc.org · 2823-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1969-06-09</td>
+    <td>Creatinine [Mass/volume] in Serum or Plasma</td>
+    <td>1.1 mg/dL<div class="muted">Reference 0.74-1.35 mg/dL</div></td>
+    <td>http://loinc.org · 2160-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1969-06-09</td>
+    <td>Glomerular filtration rate [Volume Rate/Area] in Serum, Plasma or Blood by Creatinine-based formula (CKD-EPI 1964)/1.73 sq M</td>
+    <td>89 mL/min/1.73 m²<div class="muted">Reference &gt;=60 mL/min/1.73 m²</div></td>
+    <td>http://loinc.org · 98979-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1969-06-09</td>
+    <td>Glucose [Mass/volume] in Serum or Plasma</td>
+    <td>92 mg/dL<div class="muted">Reference 70-99 mg/dL</div></td>
+    <td>http://loinc.org · 2345-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1969-06-09</td>
+    <td>Calcium [Mass/volume] in Serum or Plasma</td>
+    <td>9.6 mg/dL<div class="muted">Reference 8.6-10.3 mg/dL</div></td>
+    <td>http://loinc.org · 17861-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1969-06-09</td>
+    <td>Hemoglobin A1c/Hemoglobin.total in Blood</td>
+    <td>5.4%<div class="muted">Reference &lt;=5.6%</div></td>
+    <td>http://loinc.org · 4548-4</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1969-06-09</td>
+    <td>Cholesterol [Mass/volume] in Serum or Plasma</td>
+    <td>204 mg/dL (high)<div class="muted">Reference &lt;=199 mg/dL</div></td>
+    <td>http://loinc.org · 2093-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1969-06-09</td>
+    <td>Cholesterol in HDL [Mass/volume] in Serum or Plasma</td>
+    <td>58 mg/dL<div class="muted">Reference &gt;=40 mg/dL</div></td>
+    <td>http://loinc.org · 2085-9</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1969-06-09</td>
+    <td>Cholesterol in LDL [Mass/volume] in Serum or Plasma by calculation</td>
+    <td>122 mg/dL<div class="muted">Reference &lt;=129 mg/dL</div></td>
+    <td>http://loinc.org · 13457-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1969-06-09</td>
+    <td>Triglyceride [Mass/volume] in Serum or Plasma</td>
+    <td>120 mg/dL<div class="muted">Reference &lt;=149 mg/dL</div></td>
+    <td>http://loinc.org · 2571-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1969-06-09</td>
+    <td>Albumin/Creatinine [Mass Ratio] in Urine</td>
+    <td>18 mg/g<div class="muted">Reference &lt;=29 mg/g</div></td>
+    <td>http://loinc.org · 9318-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1969-06-09</td>
+    <td>Thyrotropin [Units/volume] in Serum or Plasma</td>
+    <td>1.6 mIU/L<div class="muted">Reference 0.45-4.5 mIU/L</div></td>
+    <td>http://loinc.org · 3016-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1969-06-09</td>
+    <td>Aspartate aminotransferase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>46 U/L (high)<div class="muted">Reference 10-40 U/L</div></td>
+    <td>http://loinc.org · 1920-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1969-06-09</td>
+    <td>Alanine aminotransferase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>38 U/L<div class="muted">Reference 7-56 U/L</div></td>
+    <td>http://loinc.org · 1742-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1969-06-09</td>
+    <td>Gamma glutamyl transferase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>88 U/L (high)<div class="muted">Reference 8-61 U/L</div></td>
+    <td>http://loinc.org · 2324-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1969-06-09</td>
+    <td>Total score [AUDIT]</td>
+    <td>16</td>
+    <td>http://loinc.org · 75624-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1969-06-09</td>
+    <td>Total score [DAST-10]</td>
+    <td>0</td>
+    <td>http://loinc.org · 82667-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1969-06-09</td>
+    <td>Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]</td>
+    <td>6</td>
+    <td>http://loinc.org · 44261-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1969-06-09</td>
+    <td>PC-PTSD-5 score [PC-PTSD-5]</td>
+    <td>1</td>
+    <td>http://loinc.org · 102017-1</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1969-07-21</td>
+    <td>Potassium [Moles/volume] in Serum or Plasma</td>
+    <td>4.4 mmol/L<div class="muted">Reference 3.5-5.1 mmol/L</div></td>
+    <td>http://loinc.org · 2823-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1969-07-21</td>
+    <td>Creatinine [Mass/volume] in Serum or Plasma</td>
+    <td>1.1 mg/dL<div class="muted">Reference 0.74-1.35 mg/dL</div></td>
+    <td>http://loinc.org · 2160-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1969-07-21</td>
+    <td>Glomerular filtration rate [Volume Rate/Area] in Serum, Plasma or Blood by Creatinine-based formula (CKD-EPI 1964)/1.73 sq M</td>
+    <td>89 mL/min/1.73 m²<div class="muted">Reference &gt;=60 mL/min/1.73 m²</div></td>
+    <td>http://loinc.org · 98979-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1969-07-21</td>
+    <td>Total score [AUDIT-C]</td>
+    <td>7</td>
+    <td>http://loinc.org · 75626-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1969-09-22</td>
+    <td>Aspartate aminotransferase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>31 U/L<div class="muted">Reference 10-40 U/L</div></td>
+    <td>http://loinc.org · 1920-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1969-09-22</td>
+    <td>Alanine aminotransferase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>30 U/L<div class="muted">Reference 7-56 U/L</div></td>
+    <td>http://loinc.org · 1742-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1969-09-22</td>
+    <td>Gamma glutamyl transferase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>54 U/L<div class="muted">Reference 8-61 U/L</div></td>
+    <td>http://loinc.org · 2324-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1969-09-22</td>
+    <td>Total score [AUDIT-C]</td>
+    <td>4</td>
+    <td>http://loinc.org · 75626-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1969-10-20</td>
+    <td>Total score [AUDIT]</td>
+    <td>7</td>
+    <td>http://loinc.org · 75624-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1969-10-20</td>
+    <td>Gamma glutamyl transferase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>41 U/L<div class="muted">Reference 8-61 U/L</div></td>
+    <td>http://loinc.org · 2324-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1969-10-20</td>
+    <td>Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]</td>
+    <td>2</td>
+    <td>http://loinc.org · 44261-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1969-08-11</td>
+    <td>Patient Health Questionnaire 2 item (PHQ-2) total score [Reported]</td>
+    <td>0</td>
+    <td>http://loinc.org · 55758-7</td>
+  </tr></tbody></table></section>
+    <section><h2>Synthetic vital signs</h2><table><thead><tr><th>Date</th><th>Measure</th><th>Result</th><th>LOINC</th><th>Grade</th></tr></thead><tbody>
+  <tr><td>1969-06-09</td><td>Body height</td><td>185 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1969-06-09</td><td>Body weight</td><td>99 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1969-06-09</td><td>Body mass index (BMI) [Ratio]</td><td>28.9 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1969-06-09</td><td>Systolic blood pressure</td><td>154 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1969-06-09</td><td>Diastolic blood pressure</td><td>98 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1969-06-09</td><td>Heart rate</td><td>58 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1969-06-09</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1969-06-09</td><td>Body temperature</td><td>36.7 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1969-06-09</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>99 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1969-06-23</td><td>Body height</td><td>185 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1969-06-23</td><td>Body weight</td><td>98.6 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1969-06-23</td><td>Body mass index (BMI) [Ratio]</td><td>28.8 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1969-06-23</td><td>Systolic blood pressure</td><td>148 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1969-06-23</td><td>Diastolic blood pressure</td><td>96 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1969-06-23</td><td>Heart rate</td><td>56 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1969-06-23</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1969-06-23</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1969-06-23</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>99 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1969-07-21</td><td>Body height</td><td>185 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1969-07-21</td><td>Body weight</td><td>98 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1969-07-21</td><td>Body mass index (BMI) [Ratio]</td><td>28.6 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1969-07-21</td><td>Systolic blood pressure</td><td>136 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1969-07-21</td><td>Diastolic blood pressure</td><td>86 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1969-07-21</td><td>Heart rate</td><td>58 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1969-07-21</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1969-07-21</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1969-07-21</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>99 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1969-09-22</td><td>Body height</td><td>185 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1969-09-22</td><td>Body weight</td><td>97.2 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1969-09-22</td><td>Body mass index (BMI) [Ratio]</td><td>28.4 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1969-09-22</td><td>Systolic blood pressure</td><td>126 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1969-09-22</td><td>Diastolic blood pressure</td><td>78 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1969-09-22</td><td>Heart rate</td><td>56 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1969-09-22</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1969-09-22</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1969-09-22</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>99 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1969-10-20</td><td>Body height</td><td>185 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1969-10-20</td><td>Body weight</td><td>97 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1969-10-20</td><td>Body mass index (BMI) [Ratio]</td><td>28.3 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1969-10-20</td><td>Systolic blood pressure</td><td>122 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1969-10-20</td><td>Diastolic blood pressure</td><td>76 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1969-10-20</td><td>Heart rate</td><td>56 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1969-10-20</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1969-10-20</td><td>Body temperature</td><td>36.5 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1969-10-20</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>99 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1969-08-11</td><td>Body height</td><td>185 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1969-08-11</td><td>Body weight</td><td>97.6 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1969-08-11</td><td>Body mass index (BMI) [Ratio]</td><td>28.5 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1969-08-11</td><td>Systolic blood pressure</td><td>128 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1969-08-11</td><td>Diastolic blood pressure</td><td>80 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1969-08-11</td><td>Heart rate</td><td>56 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1969-08-11</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1969-08-11</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1969-08-11</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>99 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1969-09-08</td><td>Body height</td><td>185 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1969-09-08</td><td>Body weight</td><td>97.2 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1969-09-08</td><td>Body mass index (BMI) [Ratio]</td><td>28.4 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1969-09-08</td><td>Systolic blood pressure</td><td>158 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1969-09-08</td><td>Diastolic blood pressure</td><td>98 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1969-09-08</td><td>Heart rate</td><td>78 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1969-09-08</td><td>Respiratory rate</td><td>16 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1969-09-08</td><td>Body temperature</td><td>37.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1969-09-08</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>98 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr></tbody></table></section>
+    <section><h2>Social, functional, and mental status</h2><h3>Social history</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Professional heavyweight boxer, still competing and training six days a week; married; lives in Las Vegas</li><li><span class="badge grade-S" title="Synthetic">S</span> Grew up on a farm with many brothers and sisters; did field work from childhood and had almost no schooling; does not read or write and asks that forms and instructions be read to him</li><li><span class="badge grade-S" title="Synthetic">S</span> Spent about two years in a state prison as a young man, where he learned to box; he chose to share this and said it was where his life turned</li><li><span class="badge grade-S" title="Synthetic">S</span> Alcohol: vodka or beer most days, usually two or three drinks and five to six on weekend nights (about 25 drinks a week); has tried to cut down before training camps</li><li><span class="badge grade-S" title="Synthetic">S</span> No opioid, stimulant, cannabis or sedative use, no injection drug use (DAST-10 0); does not smoke</li><li><span class="badge grade-S" title="Synthetic">S</span> No firearms in the home</li><li><span class="badge grade-S" title="Synthetic">S</span> Health literacy: answers &quot;always&quot; to needing help reading health materials; strong memory for spoken instructions and demonstrations</li><li><span class="badge grade-S" title="Synthetic">S</span> Strengths and supports: discipline and daily training, physical strength, a sharp memory, his family, his trainer and gym, and the steadiness he says boxing gave him</li></ul><h3>Functional status</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Fully independent; trains six days a week (roadwork, bag and sparring); no limitation from the old shoulder or jaw injuries</li></ul><h3>Mental status</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Alert, watchful at first and then relaxed once he was told what each step of the visit would be; speaks briefly and to the point; mood &quot;all right&quot;; no thoughts of suicide or of harming anyone; no psychotic symptoms; insight good about drinking before fights</li></ul></section>
+    <section><h2>Structured safety assessment</h2><div class="grid"><div class="card"><div class="label">Current ideation</div>absent</div><div class="card"><div class="label">Intent</div>absent</div><div class="card"><div class="label">Plan</div>absent</div><div class="card"><div class="label">Disposition</div>Outpatient care with a spoken and picture-based safety plan, the 988 Suicide &amp; Crisis Lifeline saved in his phone by voice contact, and a two-week follow-up; safety reviewed at every visit</div></div><p class="muted">This assessment is synthetic and does not convert historical behavior into a present-day fact.</p></section>
+    <section><h2>Allergies and medications</h2><h3>Allergies</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> No known allergy</li></ul><h3>Medications</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Amlodipine 5 mg and valsartan 160 mg combined oral tablet, one tablet each morning</li><li><span class="badge grade-S" title="Synthetic">S</span> Amlodipine 10 mg and valsartan 160 mg combined oral tablet, one tablet each morning</li><li><span class="badge grade-S" title="Synthetic">S</span> Naltrexone 50 mg oral tablet, one tablet each morning</li><li><span class="badge grade-S" title="Synthetic">S</span> Pseudoephedrine 30 mg oral tablet, bought over the counter as a cold tablet, two tablets up to four times a day</li><li><span class="badge grade-S" title="Synthetic">S</span> Acetaminophen 500 mg oral tablet, one or two tablets every six hours as needed for aches, no more than four tablets (2 g) a day because he drinks</li><li><span class="badge grade-S" title="Synthetic">S</span> Saline nasal spray 0.65%, two sprays in each nostril as needed</li></ul></section>
+    <section><h2>Procedures and immunizations</h2><h3>Procedures</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Twelve-lead ECG: sinus bradycardia at 56 per minute; voltage criteria for left ventricular hypertrophy without repolarization changes; normal intervals (PR 168 ms, QRS 96 ms, QTc 402 ms)</li><li><span class="badge grade-S" title="Synthetic">S</span> 24-hour ambulatory blood pressure monitoring: daytime average 146/94 mmHg, nighttime average 132/84 mmHg, 24-hour average 142/91 mmHg; nighttime fall 10 percent; confirms hypertension</li><li><span class="badge grade-S" title="Synthetic">S</span> Transthoracic echocardiogram: mild concentric left ventricular hypertrophy (septum and posterior wall 12 mm), normal chamber size, ejection fraction 60 percent, normal diastolic function (septal e&#39; 10 cm/s), normal valves, aortic root 34 mm</li></ul><h3>Immunizations</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> 1969-08-11: Tdap vaccine; no record of an earlier tetanus booster</li><li><span class="badge grade-S" title="Synthetic">S</span> 1969-08-11: Hepatitis B vaccine (HepB-CpG), dose 1 of 2, recommended for all adults 19 to 59</li><li><span class="badge grade-S" title="Synthetic">S</span> 1969-09-22: Hepatitis B vaccine (HepB-CpG), dose 2 of 2</li><li><span class="badge grade-S" title="Synthetic">S</span> 1969-10-20: Influenza vaccine, 1969-1970 season</li></ul></section>
+    <section><h2>Past medical history</h2><p class="muted">True biography with historical dates; not part of the synthetic care timeline.</p><ul><li><span class="badge grade-D" title="Documented">D</span> Childhood: Physical abuse in childhood (beaten regularly by his father) and full-time field work from the age of eight <span class="muted">(CLM-0002)</span></li><li><span class="badge grade-D" title="Documented">D</span> 1954: Broken jaw in a professional bout in 1954 <span class="muted">(CLM-0005)</span></li><li><span class="badge grade-D" title="Documented">D</span> February 25, 1964: Shoulder injury cited when he did not come out for the seventh round of a title fight in 1964 <span class="muted">(CLM-0005)</span></li><li><span class="badge grade-D" title="Documented">D</span> September 1953: Professional boxing since 1953, about 50 bouts as a heavyweight, still active <span class="muted">(CLM-0005)</span></li></ul><h3>Family history</h3><p class="muted">No family medical history is documented in the logged sources. Family history of real relatives is never synthesized.</p></section>
+    <section><h2>Care-plan goals</h2><table><thead><tr><th>Goal</th><th>Target date</th><th>Status</th><th>Outcome</th></tr></thead><tbody>
+  <tr><td>Confirm or rule out hypertension with out-of-office readings before any medicine</td><td>1969-06-23</td><td>completed</td><td>Ambulatory monitoring confirmed stage 2 hypertension (daytime 146/94 mmHg)</td></tr>
+  <tr><td>Blood pressure under 130/80 mmHg in the clinic and at home by four months</td><td>1969-10-20</td><td>completed</td><td>Clinic 122/76 mmHg; home average 120/76 mmHg on amlodipine 10 mg and valsartan 160 mg</td></tr>
+  <tr><td>Drink within the goal he set: no more than 14 drinks a week and no more than 4 on any day, and none in the two weeks before a fight</td><td>1969-10-20</td><td>completed</td><td>About 8 drinks a week with no day above 3; AUDIT 7; GGT normal</td></tr>
+  <tr><td>Explain his medicines and blood pressure plan back in his own words</td><td>1969-07-21</td><td>completed</td><td>Teach-back correct at four weeks with the picture card</td></tr></tbody></table></section>
+    <section><h2>Interventions</h2><table><thead><tr><th>Intervention</th><th>Status</th><th>Guideline</th></tr></thead><tbody>
+  <tr><td>Confirm the blood pressure out of the office with 24-hour ambulatory monitoring before any diagnosis or medicine; baseline metabolic panel, glucose, lipids, urine albumin, TSH and ECG</td><td>completed</td><td>GL-AHA-HTN-2025, GL-USPSTF-HTN-2021, GL-CMID-2026</td></tr>
+  <tr><td>Cardiology consultation on the same day as the two-week visit: confirm and stage the hypertension, echocardiogram, choice of treatment, and fitness to compete</td><td>completed</td><td>GL-AHA-HTN-2025, GL-ATHLETE-HTN-2015</td></tr>
+  <tr><td>Alcohol: nonjudgmental brief intervention with motivational interviewing; a drinking goal he sets himself; medicines (naltrexone, acamprosate or topiramate) explained; AUDIT-C at each follow-up and liver tests</td><td>completed</td><td>GL-NIAAA-CORE, GL-SUD-2021, GL-APA-AUD-2018, GL-USPSTF-ALC-2018</td></tr>
+  <tr><td>Safety plan given out loud and as a picture card, with the 988 Suicide &amp; Crisis Lifeline saved in his phone as a voice contact; safety reviewed at every visit</td><td>completed</td><td>GL-SUICIDE-2024</td></tr>
+  <tr><td>Health literacy universal precautions at every visit: plain spoken explanations, one or two key points at a time, teach-back, a picture-based medicine and blood pressure card, consent forms read aloud with time for questions, phone and voice-message reminders instead of letters, and an adult literacy program offered without pressure</td><td>completed</td><td>GL-AHRQ-HL-2024</td></tr>
+  <tr><td>Trauma-informed care: an ACE-informed history in which he chooses what to share, explanation and permission before each part of the examination, a PTSD screen, and counseling offered</td><td>completed</td><td>GL-SAMHSA-TIP57-2014, GL-PTSD-2023</td></tr>
+  <tr><td>Drug use screening with the DAST-10; naloxone and overdose education if any opioid use is reported or suspected</td><td>completed</td><td>GL-USPSTF-DRUG-2020, GL-SAMHSA-NALOXONE</td></tr>
+  <tr><td>Start a single-pill combination of amlodipine 5 mg and valsartan 160 mg each morning for stage 2 hypertension; potassium and creatinine in two to four weeks; home blood pressure with a talking, large-display monitor; lower-salt eating and alcohol reduction</td><td>completed</td><td>GL-AHA-HTN-2025, GL-CMID-2026</td></tr>
+  <tr><td>Competing: no bouts until blood pressure is controlled, then clearance by the commission physician with a repeat check; no stimulants, decongestants or weight-cut diuretics</td><td>completed</td><td>GL-ATHLETE-HTN-2015</td></tr>
+  <tr><td>Raise the combination to amlodipine 10 mg and valsartan 160 mg; start naltrexone 50 mg each morning, with a wallet card saying it blocks opioid pain medicines and a liver test recheck in two months</td><td>completed</td><td>GL-AHA-HTN-2025, GL-APA-AUD-2018, GL-SUD-2021</td></tr>
+  <tr><td>Cardiovascular risk and preventive care at the preventive visit: lipids, risk estimate, immunizations and one-time screenings</td><td>completed</td><td>GL-CMID-2026, GL-AHA-HTN-2025</td></tr></tbody></table></section>
+    <section><h2>Planned encounters</h2><ul>
+  <li><strong>1969-06-09</strong> — Establishing care: a high blood pressure reading at a boxing commission check, trauma-informed history, alcohol and drug screening with a safety assessment, and health literacy <span class="muted">(ENC-001)</span></li>
+  <li><strong>1969-06-23</strong> — Two-week review, seen the same day by cardiology: ambulatory monitoring, echocardiogram, the diagnosis and treatment, and fitness to compete <span class="muted">(ENC-002)</span></li>
+  <li><strong>1969-07-21</strong> — Four-week review: blood pressure on treatment, potassium and creatinine, drinking, and medicine teach-back <span class="muted">(ENC-003)</span></li>
+  <li><strong>1969-08-11</strong> — Periodic adult preventive visit <span class="muted">(ENC-006)</span></li>
+  <li><strong>1969-09-08</strong> — Same-day sick visit for a cold and raised blood pressure <span class="muted">(ENC-007, unscheduled)</span></li>
+  <li><strong>1969-09-22</strong> — Three-month review: blood pressure, liver tests and drinking on naltrexone <span class="muted">(ENC-004)</span></li>
+  <li><strong>1969-10-20</strong> — Four-month review: blood pressure at goal, AUDIT, and the plan ahead <span class="muted">(ENC-005)</span></li></ul></section>
+    <section><h2>Supporting documents</h2><ul><li><a href="notes/hp.md">History and physical</a></li><li><a href="notes/progress-01.md">Progress note 01</a></li><li><a href="notes/progress-02.md">Progress note 02 — Focused Visit (Follow-up)</a></li><li><a href="notes/progress-03.md">Progress note 03 — Focused Visit (Follow-up)</a></li><li><a href="notes/progress-04.md">Progress note 04 — Preventive Visit</a></li><li><a href="notes/progress-05.md">Progress note 05 — Sick Visit</a></li><li><a href="notes/progress-06.md">Progress note 06 — Focused Visit (Follow-up)</a></li><li><a href="notes/progress-07.md">Progress note 07 — Focused Visit (Care-plan review)</a></li><li><a href="notes/referral-01.md">Cardiology (hypertension and sports cardiology) referral</a></li><li><a href="notes/consult-01.md">Cardiology (hypertension and sports cardiology) consultation</a></li><li><a href="notes/careplan.md">Patient care plan</a></li><li><a href="notes/teaching-note.md">Teaching note</a></li><li><a href="provenance.csv">Provenance CSV</a></li></ul></section>
+    <section><h2>C-CDA note documents</h2><p class="muted">Each link opens a readable copy; the XML beside it is the exchange file.</p><ul><li><a href="ccda/hp-01.html">History and physical</a> <a href="ccda/hp-01.xml">(XML)</a></li><li><a href="ccda/progress-01.html">Progress note 01</a> <a href="ccda/progress-01.xml">(XML)</a></li><li><a href="ccda/progress-02.html">Progress note 02 — Focused Visit (Follow-up)</a> <a href="ccda/progress-02.xml">(XML)</a></li><li><a href="ccda/progress-03.html">Progress note 03 — Focused Visit (Follow-up)</a> <a href="ccda/progress-03.xml">(XML)</a></li><li><a href="ccda/progress-04.html">Progress note 04 — Preventive Visit</a> <a href="ccda/progress-04.xml">(XML)</a></li><li><a href="ccda/progress-05.html">Progress note 05 — Sick Visit</a> <a href="ccda/progress-05.xml">(XML)</a></li><li><a href="ccda/progress-06.html">Progress note 06 — Focused Visit (Follow-up)</a> <a href="ccda/progress-06.xml">(XML)</a></li><li><a href="ccda/progress-07.html">Progress note 07 — Focused Visit (Care-plan review)</a> <a href="ccda/progress-07.xml">(XML)</a></li><li><a href="ccda/referral-01.html">Cardiology (hypertension and sports cardiology) referral</a> <a href="ccda/referral-01.xml">(XML)</a></li><li><a href="ccda/consult-01.html">Cardiology (hypertension and sports cardiology) consultation</a> <a href="ccda/consult-01.xml">(XML)</a></li></ul></section>
+    <section><h2>Sources</h2><table><thead><tr><th>ID</th><th>Source</th><th>Publisher</th><th>Type</th></tr></thead><tbody>
+  <tr>
+    <td>SRC-0001</td>
+    <td><a href="https://encyclopediaofarkansas.net/entries/sonny-liston-2569/" target="_blank" rel="noreferrer">Cochran RB. Sonny Liston (1932?-1970). Encyclopedia of Arkansas</a></td>
+    <td>Central Arkansas Library System</td>
+    <td>biography</td>
+  </tr>
+  <tr>
+    <td>SRC-0002</td>
+    <td><a href="https://www.encyclopedia.com/humanities/encyclopedias-almanacs-transcripts-and-maps/liston-charles-sonny-0" target="_blank" rel="noreferrer">McLean M. Liston, Charles (&quot;Sonny&quot;). Scribner Encyclopedia of American Lives, Thematic Series: Sports Figures</a></td>
+    <td>Charles Scribner&#39;s Sons (via Encyclopedia.com)</td>
+    <td>biography</td>
+  </tr>
+  <tr>
+    <td>SRC-0003</td>
+    <td><a href="https://tss.ib.tv/boxing/wp-json/wp/v2/posts/1639" target="_blank" rel="noreferrer">Tallent A. The Mysterious Birth of Sonny Liston. The Sweet Science, February 2, 2005</a></td>
+    <td>The Sweet Science</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0004</td>
+    <td><a href="https://andscape.com/features/after-sonny-liston-died" target="_blank" rel="noreferrer">Assael S. After Sonny Liston died. Andscape, October 13, 2016</a></td>
+    <td>Andscape (ESPN)</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0005</td>
+    <td><a href="https://humanrecord.example.org/internal/HISTMED_Master_Roster_v3.xlsx" target="_blank" rel="noreferrer">HISTMED Master Roster v3</a></td>
+    <td>The Human Record project</td>
+    <td>other</td>
+  </tr></tbody></table></section>
+    <section><h2>Review status</h2><table><thead><tr><th>Review</th><th>Status</th><th>Notes</th></tr></thead><tbody>
+  <tr><td>schema validation</td><td>not_started</td><td>Run scripts/build.ps1 -Conformance.</td></tr>
+  <tr><td>clinical review</td><td>not_started</td><td>Awaiting clinician review; check ambulatory confirmation before diagnosis, the single-pill combination for stage 2 hypertension, the echocardiogram reading in a trained heavyweight, the advice on competing, the moderate alcohol use disorder diagnosis and naltrexone, naloxone not prescribed with a negative DAST-10, and the health literacy adaptations.</td></tr>
+  <tr><td>provenance review</td><td>not_started</td><td>A thin documented health history. Sources: the Encyclopedia of Arkansas, the Scribner Encyclopedia of American Lives, The Sweet Science (birth-date evidence) and Andscape (the coroner&#39;s conclusion). The New York Times, Sports Illustrated&#39;s archive, the International Boxing Hall of Fame site and the Tosches and Gallender biographies could not be read. The birth date is disputed and the cause of death is disputed; no theory is adopted.</td></tr>
+  <tr><td>safe messaging review</td><td>not_started</td><td>Childhood abuse, incarceration, drinking and death claims are marked sensitive and kept brief. Poverty, prison and literacy are recorded as social history, not as risk labels. The modern episode finds no opioid use and does not draw on the circumstances of his death. No relative is given a statement, decision or health fact. The safety assessment is synthetic and asserts no ideation.</td></tr></tbody></table></section>
+  </main>
+</body>
+</html>
