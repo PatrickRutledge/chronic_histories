@@ -1,0 +1,495 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cleopatra — The Human Record</title>
+  <style>
+    :root { --navy:#17365d; --blue:#1f4e78; --pale:#eef5fa; --ink:#1f2933; --muted:#66788a; --amber:#fff2cc; --red:#f8d7da; --green:#d9ead3; }
+    * { box-sizing:border-box; }
+    body { margin:0; font:16px/1.5 Arial, sans-serif; color:var(--ink); background:#f6f8fa; }
+    header { background:var(--navy); color:white; padding:24px max(24px,calc((100vw - 1180px)/2)); }
+    header h1 { margin:4px 0; font-size:30px; }
+    .banner { background:#b42318; color:white; font-weight:700; text-align:center; padding:10px; letter-spacing:.03em; }
+    main { max-width:1180px; margin:24px auto 60px; padding:0 24px; }
+    section { background:white; border:1px solid #d9e1e8; border-radius:8px; margin:18px 0; padding:20px; }
+    h2 { color:var(--navy); margin:0 0 14px; font-size:22px; }
+    h3 { color:var(--blue); }
+    .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:12px; }
+    .card { background:var(--pale); border-left:4px solid var(--blue); padding:12px; }
+    .label { color:var(--muted); font-size:13px; text-transform:uppercase; letter-spacing:.04em; }
+    table { width:100%; border-collapse:collapse; }
+    th { background:var(--blue); color:white; text-align:left; }
+    th,td { padding:9px; border-bottom:1px solid #dfe6ec; vertical-align:top; }
+    .badge { display:inline-block; min-width:28px; text-align:center; font-weight:700; border-radius:12px; padding:2px 8px; }
+    .grade-D { background:var(--green); } .grade-R { background:var(--amber); } .grade-S { background:var(--red); }
+    .muted { color:var(--muted); font-size:14px; }
+    .relationship { color:var(--muted); font-size:12px; }
+    .downloads a { display:inline-block; margin:4px 8px 4px 0; padding:8px 12px; background:var(--blue); color:white; text-decoration:none; border-radius:5px; }
+    @media (max-width:700px) { table { display:block; overflow-x:auto; } }
+  </style>
+</head>
+<body>
+  <div class="banner">SYNTHETIC RECORD, NOT A REAL MEDICAL RECORD</div>
+  <header>
+    <div>The Human Record</div>
+    <h1>Cleopatra</h1>
+    <div>Case HR-AC003 · Modern EHR teaching episode · Draft for review</div>
+  </header>
+  <main>
+    <section>
+      <h2>Review summary</h2>
+      <div class="grid">
+        <div class="card"><div class="label">Historical dates</div>early 69 BC – about 10 or 12 August 30 BC</div>
+        <div class="card"><div class="label">Synthetic DOB</div>1997-01-15</div>
+        <div class="card"><div class="label">Index visit</div>2026-03-03 at age 29</div>
+        <div class="card"><div class="label">Synthetic MRN</div>HR-AC003-SYN</div>
+      </div>
+      <p><strong>Teaching objective:</strong> Evaluation of a uterus large for dates in early pregnancy (dating by the last period checked against the crown-rump length under ACOG Committee Opinion 700; multiple pregnancy, dating error, fibroids, and molar pregnancy) and high-risk prenatal care of a dichorionic diamniotic twin pregnancy in a 29-year-old woman under ACOG Practice Bulletin 231 and Committee Opinion 831: chorionicity from the first-trimester scan, aneuploidy screening options in twins (nuchal translucency for each fetus, cell-free DNA, and diagnostic testing), nausea and vomiting of pregnancy, iron deficiency anemia and iron, low-dose aspirin because a twin pregnancy is a high-risk factor for preeclampsia (USPSTF 2021), detailed anatomy scans, growth scans every four weeks with discordance, preterm birth risk and cervical length without cerclage, progesterone, or bed rest for twins alone (ACOG Practice Bulletin 234), gestational diabetes screening, Tdap and seasonal vaccines, a viral gastroenteritis with tightenings at 22 weeks, perinatal mood screening with the EPDS (ACOG Clinical Practice Guideline 4), and a delivery plan for 38 0/7 to 38 6/7 weeks. The episode ends at 33 weeks, before delivery.</p>
+      <div class="downloads">
+        <a href="../case.json">Canonical JSON</a>
+        <a href="fhir-bundle.json">FHIR R4 draft</a>
+        <a href="ccda.html">C-CDA R2.1 summary</a> <a href="ccda.xml">(XML)</a> <a href="review.html">Review checklist</a>
+        <a href="../sources.md">Evidence dossier</a>
+      </div>
+    </section>
+    <section><h2>Historical timeline</h2><table><thead><tr><th>Date</th><th>Event</th><th>Claims</th></tr></thead><tbody>
+  <tr><td>early 69 BC</td><td>Born, probably in Alexandria.</td><td>CLM-0001, CLM-0002</td></tr>
+  <tr><td>51 BC</td><td>Becomes queen of Egypt.</td><td>CLM-0004, CLM-0003</td></tr>
+  <tr><td>47 BC, possibly 23 June</td><td>Her first child, a son, is born.</td><td>CLM-0005</td></tr>
+  <tr><td>41 BC; the winter of 41 to 40 BC</td><td>Meets Mark Antony in Cilicia; he winters with her in Alexandria.</td><td>CLM-0006</td></tr>
+  <tr><td>by the end of 40 BC (month not recorded)</td><td>Twins, a son and a daughter, are born.</td><td>CLM-0007</td></tr>
+  <tr><td>by the summer of 36 BC</td><td>A third son with Mark Antony is born.</td><td>CLM-0008</td></tr>
+  <tr><td>about 10 or 12 August 30 BC</td><td>Dies in Alexandria.</td><td>CLM-0009</td></tr></tbody></table></section>
+    <section><h2>Evidence claims</h2><p class="muted">D = documented, R = retrospective, S = synthetic.</p><table><thead><tr><th>Grade</th><th>Claim</th><th>Certainty</th><th>Sources</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>Cleopatra VII Philopator was born in early 69 BC (some sources allow late 70 BC), daughter of Ptolemy XII Auletes; her mother is not identified with certainty.</strong><div class="muted">The day and month are not known.</div></td>
+    <td>probable</td>
+    <td><a href="https://en.wikipedia.org/wiki/Cleopatra" target="_blank" rel="noreferrer">Cleopatra</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>She was of Macedonian Greek descent, from the dynasty founded by Ptolemy I Soter; her first language was Koine Greek, and she is the only Ptolemaic ruler known to have learned the Egyptian language.</strong></td>
+    <td>probable</td>
+    <td><a href="https://en.wikipedia.org/wiki/Cleopatra" target="_blank" rel="noreferrer">Cleopatra</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>Plutarch writes that her tongue, &#39;like an instrument of many strings&#39;, could turn to whatever language she pleased, and that she seldom needed an interpreter with Ethiopians, Troglodytes, Hebrews, Arabians, Syrians, Medes, or Parthians.</strong><div class="muted">Plutarch wrote more than a century later; he reports this as fact.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Plutarch/Lives/Antony*.html" target="_blank" rel="noreferrer">Plutarch, Parallel Lives: The Life of Antony (Loeb Classical Library, volume IX, 1920)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>She was queen of Egypt from 51 BC to 30 BC.</strong></td>
+    <td>confirmed</td>
+    <td><a href="https://en.wikipedia.org/wiki/Cleopatra" target="_blank" rel="noreferrer">Cleopatra</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>Her first child, a son, Ptolemy Caesar, called Caesarion, was born in 47 BC, possibly on 23 June; Plutarch says he &#39;was believed to be&#39; the son of the Roman dictator.</strong><div class="muted">The birth date is uncertain. Nothing is recorded about the pregnancy or the birth.</div></td>
+    <td>probable</td>
+    <td><a href="https://en.wikipedia.org/wiki/Cleopatra" target="_blank" rel="noreferrer">Cleopatra</a> <span class="relationship">supports</span><br><a href="https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Plutarch/Lives/Antony*.html" target="_blank" rel="noreferrer">Plutarch, Parallel Lives: The Life of Antony (Loeb Classical Library, volume IX, 1920)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>Mark Antony summoned her to Cilicia in 41 BC; she drew him to Alexandria, where he spent the winter of 41 to 40 BC with her, and he left Egypt by the spring of 40 BC.</strong><div class="muted">The twins were conceived during this winter.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Plutarch/Lives/Antony*.html" target="_blank" rel="noreferrer">Plutarch, Parallel Lives: The Life of Antony (Loeb Classical Library, volume IX, 1920)</a> <span class="relationship">supports</span><br><a href="https://en.wikipedia.org/wiki/Cleopatra" target="_blank" rel="noreferrer">Cleopatra</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>By the end of 40 BC she had borne twins, a son, Alexander Helios, and a daughter, Cleopatra Selene; Cassius Dio calls them &#39;twins at a birth&#39;, and Mark Antony later acknowledged them as his children.</strong><div class="muted">The month of the birth is not recorded. Nothing is recorded about the pregnancy or the birth; chorionicity, a modern concept, cannot be known.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Cassius_Dio/49*.html" target="_blank" rel="noreferrer">Cassius Dio, Roman History, Book 49 (translated by E. Cary, Loeb Classical Library, 1917)</a> <span class="relationship">supports</span><br><a href="https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Plutarch/Lives/Antony*.html" target="_blank" rel="noreferrer">Plutarch, Parallel Lives: The Life of Antony (Loeb Classical Library, volume IX, 1920)</a> <span class="relationship">supports</span><br><a href="https://en.wikipedia.org/wiki/Cleopatra" target="_blank" rel="noreferrer">Cleopatra</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>By the summer of 36 BC she had a third child with Mark Antony, a son, Ptolemy Philadelphus.</strong></td>
+    <td>probable</td>
+    <td><a href="https://en.wikipedia.org/wiki/Cleopatra" target="_blank" rel="noreferrer">Cleopatra</a> <span class="relationship">supports</span><br><a href="https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Cassius_Dio/49*.html" target="_blank" rel="noreferrer">Cassius Dio, Roman History, Book 49 (translated by E. Cary, Loeb Classical Library, 1917)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>She died by suicide in Alexandria in August 30 BC, on about 10 or 12 August, at 39, after the Roman capture of the city. Ancient writers did not agree on how she died; Plutarch writes that &#39;the truth of the matter no one knows&#39;.</strong><div class="muted">Recorded once, without method detail. The date is a Roman (Julian) date and uncertain by a day or two.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Plutarch/Lives/Antony*.html" target="_blank" rel="noreferrer">Plutarch, Parallel Lives: The Life of Antony (Loeb Classical Library, volume IX, 1920)</a> <span class="relationship">supports</span><br><a href="https://en.wikipedia.org/wiki/Cleopatra" target="_blank" rel="noreferrer">Cleopatra</a> <span class="relationship">supports</span><br><a href="https://en.wikipedia.org/wiki/Julian_calendar" target="_blank" rel="noreferrer">Julian calendar</a> <span class="relationship">context</span></td>
+  </tr></tbody></table></section>
+    <section><h2>Modern synthetic problem list</h2><table><thead><tr><th>Grade</th><th>Problem</th><th>Clinical status</th><th>Verification</th><th>Placement</th><th>Historical claims</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Uterus larger than dates in early pregnancy: 9 weeks by a certain last menstrual period, with the uterus about 12 to 13 weeks in size; nausea and vomiting heavier than in her first pregnancy; no bleeding; cause not yet known (multiple pregnancy, dating error, fibroids, or molar pregnancy)</td>
+    <td>resolved</td>
+    <td>confirmed</td>
+    <td>both_with_link</td>
+    <td>CLM-0006</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Nausea and vomiting of pregnancy, moderate (PUQE score 9); keeping fluids down; no weight loss or ketonuria</td>
+    <td>resolved</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Iron deficiency anemia in pregnancy: hemoglobin 10.8 g/dL, MCV 79 fL, ferritin 14 ng/mL</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Twin pregnancy, dichorionic diamniotic, second pregnancy (gravida 2, para 1): two live fetuses with a thick dividing membrane and a twin-peak (lambda) sign at 11 weeks; dated by her last period, confirmed by the crown-rump lengths</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>both_with_link</td>
+    <td>CLM-0006, CLM-0007</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Acute viral gastroenteritis at 22 weeks in a twin pregnancy, with mild dehydration and painless tightenings; no preterm labor (cervical length 39 mm); resolved with oral rehydration</td>
+    <td>resolved</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td></td>
+  </tr></tbody></table></section>
+    <section><h2>Synthetic outcome measures</h2><table><thead><tr><th>Grade</th><th>Date</th><th>Measure</th><th>Result</th><th>Coding</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-03</td>
+    <td>Hemoglobin [Mass/volume] in Blood</td>
+    <td>10.8 g/dL (low)<div class="muted">Reference 11-15 g/dL</div></td>
+    <td>http://loinc.org · 718-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-03</td>
+    <td>MCV [Entitic mean volume] in Red Blood Cells by Automated count</td>
+    <td>79 fL (low)<div class="muted">Reference 80-100 fL</div></td>
+    <td>http://loinc.org · 787-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-03</td>
+    <td>Leukocytes [#/volume] in Blood by Automated count</td>
+    <td>9.4 10*3/uL<div class="muted">Reference 4-13 10*3/uL</div></td>
+    <td>http://loinc.org · 6690-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-03</td>
+    <td>Platelets [#/volume] in Blood by Automated count</td>
+    <td>268 10*3/uL<div class="muted">Reference 150-400 10*3/uL</div></td>
+    <td>http://loinc.org · 777-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-03</td>
+    <td>Ferritin [Mass/volume] in Serum or Plasma</td>
+    <td>14 ng/mL (low)<div class="muted">Reference 30-150 ng/mL</div></td>
+    <td>http://loinc.org · 2276-4</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-03</td>
+    <td>Choriogonadotropin.beta subunit [Units/volume] in Serum or Plasma</td>
+    <td>152000 m[IU]/mL<div class="muted">Reference Wide normal range at 9 weeks, about 25,700 to 288,000 mIU/mL</div></td>
+    <td>http://loinc.org · 21198-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-03</td>
+    <td>Total score [EPDS]</td>
+    <td>6</td>
+    <td>http://loinc.org · 99046-5</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-17</td>
+    <td>Fetal Crown Rump length US</td>
+    <td>45 mm<div class="muted">Reference Consistent with 11 weeks 2 days</div></td>
+    <td>http://loinc.org · 11957-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-17</td>
+    <td>Fetal Crown Rump length US</td>
+    <td>46 mm<div class="muted">Reference Consistent with 11 weeks 3 days</div></td>
+    <td>http://loinc.org · 11957-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-17</td>
+    <td>Fetal nuchal translucency measured by US</td>
+    <td>1.6 mm<div class="muted">Reference &lt;=3.5 mm</div></td>
+    <td>http://loinc.org · 33069-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-17</td>
+    <td>Fetal nuchal translucency measured by US</td>
+    <td>1.8 mm<div class="muted">Reference &lt;=3.5 mm</div></td>
+    <td>http://loinc.org · 33069-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-05-12</td>
+    <td>Hemoglobin [Mass/volume] in Blood</td>
+    <td>11.1 g/dL<div class="muted">Reference 10.5-15 g/dL</div></td>
+    <td>http://loinc.org · 718-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-05-12</td>
+    <td>Ferritin [Mass/volume] in Serum or Plasma</td>
+    <td>24 ng/mL (low)<div class="muted">Reference 30-150 ng/mL</div></td>
+    <td>http://loinc.org · 2276-4</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-05-12</td>
+    <td>Cervix [Length] US</td>
+    <td>41 mm<div class="muted">Reference &gt;=25 mm</div></td>
+    <td>http://loinc.org · 11961-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-06-02</td>
+    <td>Cervix [Length] US</td>
+    <td>39 mm<div class="muted">Reference &gt;=25 mm</div></td>
+    <td>http://loinc.org · 11961-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-06-23</td>
+    <td>Hemoglobin [Mass/volume] in Blood</td>
+    <td>10.9 g/dL<div class="muted">Reference 10.5-15 g/dL</div></td>
+    <td>http://loinc.org · 718-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-06-23</td>
+    <td>Ferritin [Mass/volume] in Serum or Plasma</td>
+    <td>31 ng/mL<div class="muted">Reference 30-150 ng/mL</div></td>
+    <td>http://loinc.org · 2276-4</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-06-23</td>
+    <td>Platelets [#/volume] in Blood by Automated count</td>
+    <td>241 10*3/uL<div class="muted">Reference 150-400 10*3/uL</div></td>
+    <td>http://loinc.org · 777-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-06-23</td>
+    <td>Glucose [Mass/volume] in Serum or Plasma --1 hour post 50 g glucose PO</td>
+    <td>128 mg/dL<div class="muted">Reference &lt;=139 mg/dL</div></td>
+    <td>http://loinc.org · 1504-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-06-23</td>
+    <td>Fetal Body weight estimated by US</td>
+    <td>760 g<div class="muted">Reference About the 55th centile for 25 weeks</div></td>
+    <td>http://loinc.org · 11727-5</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-06-23</td>
+    <td>Fetal Body weight estimated by US</td>
+    <td>720 g<div class="muted">Reference About the 40th centile for 25 weeks; discordance 5 percent</div></td>
+    <td>http://loinc.org · 11727-5</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-06-23</td>
+    <td>Total score [EPDS]</td>
+    <td>7</td>
+    <td>http://loinc.org · 99046-5</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-08-18</td>
+    <td>Hemoglobin [Mass/volume] in Blood</td>
+    <td>11 g/dL<div class="muted">Reference 11-15 g/dL</div></td>
+    <td>http://loinc.org · 718-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-08-18</td>
+    <td>Platelets [#/volume] in Blood by Automated count</td>
+    <td>226 10*3/uL<div class="muted">Reference 150-400 10*3/uL</div></td>
+    <td>http://loinc.org · 777-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-08-18</td>
+    <td>Fetal Body weight estimated by US</td>
+    <td>2050 g<div class="muted">Reference About the 45th centile for 33 weeks</div></td>
+    <td>http://loinc.org · 11727-5</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-08-18</td>
+    <td>Fetal Body weight estimated by US</td>
+    <td>1890 g<div class="muted">Reference About the 30th centile for 33 weeks; discordance 8 percent</div></td>
+    <td>http://loinc.org · 11727-5</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-08-18</td>
+    <td>Total score [EPDS]</td>
+    <td>6</td>
+    <td>http://loinc.org · 99046-5</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-06-02</td>
+    <td>Sodium [Moles/volume] in Serum or Plasma</td>
+    <td>135 mmol/L<div class="muted">Reference 133-145 mmol/L</div></td>
+    <td>http://loinc.org · 2951-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-06-02</td>
+    <td>Potassium [Moles/volume] in Serum or Plasma</td>
+    <td>3.5 mmol/L<div class="muted">Reference 3.3-5.1 mmol/L</div></td>
+    <td>http://loinc.org · 2823-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-06-02</td>
+    <td>Creatinine [Mass/volume] in Serum or Plasma</td>
+    <td>0.55 mg/dL<div class="muted">Reference 0.4-0.8 mg/dL</div></td>
+    <td>http://loinc.org · 2160-0</td>
+  </tr></tbody></table></section>
+    <section><h2>Synthetic vital signs</h2><table><thead><tr><th>Date</th><th>Measure</th><th>Result</th><th>LOINC</th><th>Grade</th></tr></thead><tbody>
+  <tr><td>2026-03-03</td><td>Body height</td><td>165 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-03</td><td>Body weight</td><td>58 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-03</td><td>Body mass index (BMI) [Ratio]</td><td>21.3 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-03</td><td>Systolic blood pressure</td><td>108 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-03</td><td>Diastolic blood pressure</td><td>66 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-03</td><td>Heart rate</td><td>84 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-03</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-03</td><td>Body temperature</td><td>36.7 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-03</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>99 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-17</td><td>Body height</td><td>165 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-17</td><td>Body weight</td><td>58.2 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-17</td><td>Body mass index (BMI) [Ratio]</td><td>21.4 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-17</td><td>Systolic blood pressure</td><td>106 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-17</td><td>Diastolic blood pressure</td><td>64 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-17</td><td>Heart rate</td><td>86 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-17</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-17</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-17</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>99 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-05-12</td><td>Body height</td><td>165 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-05-12</td><td>Body weight</td><td>61.5 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-05-12</td><td>Body mass index (BMI) [Ratio]</td><td>22.6 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-05-12</td><td>Systolic blood pressure</td><td>104 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-05-12</td><td>Diastolic blood pressure</td><td>62 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-05-12</td><td>Heart rate</td><td>88 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-05-12</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-05-12</td><td>Body temperature</td><td>36.7 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-05-12</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>99 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-02</td><td>Body height</td><td>165 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-02</td><td>Body weight</td><td>61 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-02</td><td>Body mass index (BMI) [Ratio]</td><td>22.4 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-02</td><td>Systolic blood pressure</td><td>102 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-02</td><td>Diastolic blood pressure</td><td>60 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-02</td><td>Heart rate</td><td>98 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-02</td><td>Respiratory rate</td><td>16 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-02</td><td>Body temperature</td><td>37.4 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-02</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>99 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-23</td><td>Body height</td><td>165 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-23</td><td>Body weight</td><td>64.2 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-23</td><td>Body mass index (BMI) [Ratio]</td><td>23.6 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-23</td><td>Systolic blood pressure</td><td>108 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-23</td><td>Diastolic blood pressure</td><td>66 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-23</td><td>Heart rate</td><td>90 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-23</td><td>Respiratory rate</td><td>16 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-23</td><td>Body temperature</td><td>36.7 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-23</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>99 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-08-18</td><td>Body height</td><td>165 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-08-18</td><td>Body weight</td><td>70.5 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-08-18</td><td>Body mass index (BMI) [Ratio]</td><td>25.9 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-08-18</td><td>Systolic blood pressure</td><td>114 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-08-18</td><td>Diastolic blood pressure</td><td>72 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-08-18</td><td>Heart rate</td><td>92 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-08-18</td><td>Respiratory rate</td><td>16 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-08-18</td><td>Body temperature</td><td>36.8 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-08-18</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>99 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr></tbody></table></section>
+    <section><h2>Social, functional, and mental status</h2><h3>Social history</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Heads a large family business and holds a demanding public role in the city; long working days and frequent meetings with visitors from abroad; speaks Greek, Arabic, and English and reads several other languages</li><li><span class="badge grade-S" title="Synthetic">S</span> Lives with her seven-year-old son and a large household; her partner, the father of this pregnancy, is often away for long periods; she has close women friends and staff who help at home</li><li><span class="badge grade-S" title="Synthetic">S</span> Greek-Egyptian; grew up in the city; prefers to be called Cleopatra; prefers women clinicians for examinations</li><li><span class="badge grade-S" title="Synthetic">S</span> Never smoked; no alcohol since a positive pregnancy test; no drug use; feels safe at home; screen for intimate partner violence negative</li><li><span class="badge grade-S" title="Synthetic">S</span> Walks and swims most days; no special diet</li></ul><h3>Functional status</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Independent; working full days, though nausea slows her mornings</li></ul><h3>Mental status</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Composed, quick, and articulate; mood &quot;busy and a little uneasy&quot;; no thoughts of self-harm; EPDS 6 with item 10 scored 0</li></ul></section>
+    
+    <section><h2>Allergies and medications</h2><h3>Allergies</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> No known allergy</li></ul><h3>Medications</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Prenatal vitamin containing folic acid 0.4 mg, one tablet by mouth daily</li><li><span class="badge grade-S" title="Synthetic">S</span> Ferrous sulfate 325 mg (65 mg elemental iron) oral tablet, one tablet by mouth every other day</li><li><span class="badge grade-S" title="Synthetic">S</span> Doxylamine succinate 10 mg / pyridoxine hydrochloride 10 mg delayed-release tablet, two tablets by mouth at bedtime</li><li><span class="badge grade-S" title="Synthetic">S</span> Aspirin 81 mg delayed-release tablet, one tablet by mouth at bedtime</li></ul></section>
+    <section><h2>Procedures and immunizations</h2><h3>Procedures</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> First-trimester ultrasound at 11 weeks with nuchal translucency: two live intrauterine fetuses; a thick dividing membrane with a twin-peak (lambda) sign at a fused anterior placental mass (dichorionic diamniotic); crown-rump lengths 45 and 46 mm; nuchal translucency 1.6 and 1.8 mm; nasal bones present; no structural abnormality seen; no fibroids; no features of a molar pregnancy</li><li><span class="badge grade-S" title="Synthetic">S</span> Detailed anatomy ultrasound of both twins at 19 weeks: normal anatomy in each; dividing membrane confirmed; fused anterior placenta clear of the cervix; normal amniotic fluid around each twin; transvaginal cervical length 41 mm</li><li><span class="badge grade-S" title="Synthetic">S</span> Transvaginal measurement of cervical length at 22 weeks: 39 mm, closed internal os, no funneling</li><li><span class="badge grade-S" title="Synthetic">S</span> Growth ultrasound at 25 weeks: estimated weights 760 g (twin A) and 720 g (twin B), discordance 5 percent; normal amniotic fluid in each sac; normal umbilical artery Doppler</li><li><span class="badge grade-S" title="Synthetic">S</span> Growth ultrasound at 33 weeks: estimated weights 2050 g (twin A, cephalic) and 1890 g (twin B, breech), discordance 8 percent; normal amniotic fluid in each sac; normal umbilical artery Doppler</li></ul><h3>Immunizations</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> 2026-03-03: Influenza vaccine, 2025-2026 season, given in pregnancy</li><li><span class="badge grade-S" title="Synthetic">S</span> 2026-08-18: Tdap vaccine in pregnancy, 33 weeks</li></ul></section>
+    <section><h2>Past medical history</h2><p class="muted">True biography with historical dates; not part of the synthetic care timeline.</p><ul><li><span class="badge grade-D" title="Documented">D</span> 47 BC, possibly 23 June: First pregnancy and birth: a son; nothing about the pregnancy or the birth is recorded <span class="muted">(CLM-0005)</span></li></ul><h3>Family history</h3><p class="muted">No family medical history is documented in the logged sources. Family history of real relatives is never synthesized.</p></section>
+    <section><h2>Care-plan goals</h2><table><thead><tr><th>Goal</th><th>Target date</th><th>Status</th><th>Outcome</th></tr></thead><tbody>
+  <tr><td>The cause of the large uterus and the dating of the pregnancy established at the 11-week scan</td><td>2026-03-17</td><td>completed</td><td>Dichorionic diamniotic twins; dating by her last period confirmed by the crown-rump lengths</td></tr>
+  <tr><td>An informed choice about aneuploidy screening by 14 weeks</td><td>2026-03-17</td><td>completed</td><td>Chose nuchal translucency for each twin with cell-free DNA; declined diagnostic testing for now</td></tr>
+  <tr><td>Hemoglobin and ferritin in the normal range for pregnancy by the third trimester</td><td>2026-08-18</td><td>completed</td><td>Ferritin 31 ng/mL at 25 weeks; hemoglobin 11.0 g/dL at 33 weeks</td></tr>
+  <tr><td>Growth discordance under 20 percent at every growth scan</td><td>2026-08-18</td><td>completed</td><td>Discordance 5 percent at 25 weeks and 8 percent at 33 weeks</td></tr>
+  <tr><td>A written delivery plan agreed by 34 weeks</td><td>2026-08-18</td><td>completed</td><td>Planned birth at 38 weeks 0 days in the hospital, with a vaginal birth while twin A is head down, an epidural, and the operating room ready</td></tr></tbody></table></section>
+    <section><h2>Interventions</h2><table><thead><tr><th>Intervention</th><th>Status</th><th>Guideline</th></tr></thead><tbody>
+  <tr><td>First prenatal visit: blood count, ferritin, quantitative hCG, blood group and antibody screen, rubella immunity, hepatitis B surface antigen, HIV, syphilis, and hepatitis C tests; urine culture; influenza vaccine; prenatal vitamin with folic acid</td><td>completed</td><td>GL-USPSTF-AB, GL-CDC-PREGVAX</td></tr>
+  <tr><td>Maternal-fetal medicine consultation with a first-trimester ultrasound at 11 weeks for a uterus large for dates: dating, the number of fetuses and, if more than one, chorionicity; nuchal translucency; and fibroids or a molar pregnancy</td><td>completed</td><td>GL-ACOG-DUE-2017, GL-ACOG-MULTI-2021</td></tr>
+  <tr><td>Nausea and vomiting: small, frequent, bland meals, ginger, and doxylamine with pyridoxine at bedtime; return for vomiting that stops her keeping fluids down, weight loss, or dizziness</td><td>completed</td><td>GL-ACOG-NVP-2018</td></tr>
+  <tr><td>Iron deficiency anemia: ferrous sulfate 325 mg every other day; blood count and ferritin at the anatomy-scan visit, with intravenous iron in the second trimester if there is no response</td><td>completed</td><td>GL-ACOG-ANEMIA-2021</td></tr>
+  <tr><td>Mood: EPDS in each trimester and after the birth</td><td>completed</td><td>GL-ACOG-MH-2023</td></tr>
+  <tr><td>Twin pregnancy care (dichorionic diamniotic): aneuploidy screening by nuchal translucency for each fetus and cell-free DNA, with chorionic villus sampling or amniocentesis available; detailed anatomy scans at 18 to 22 weeks; growth scans every four weeks from 20 weeks with discordance calculated; prenatal visits every two to four weeks; weight gain of about 17 to 25 kg; weekly fetal testing may be considered from 36 weeks</td><td>completed</td><td>GL-ACOG-MULTI-2021, GL-ACOG-ANEU-2020</td></tr>
+  <tr><td>Preeclampsia prevention: aspirin 81 mg at bedtime from 12 weeks until delivery, because a twin pregnancy is a high-risk factor; blood pressure and urine protein at every visit</td><td>completed</td><td>GL-USPSTF-ASA-2021, GL-ACOG-MULTI-2021</td></tr>
+  <tr><td>Preterm birth: teaching on the signs of preterm labor; cervical length at the anatomy scan; no cerclage, pessary, progesterone, or bed rest for a twin pregnancy alone; antenatal corticosteroids if birth before 34 weeks is threatened</td><td>completed</td><td>GL-ACOG-PTB-2021, GL-ACOG-MULTI-2021</td></tr>
+  <tr><td>Gestational diabetes: one-hour glucose challenge at 24 to 28 weeks</td><td>completed</td><td>GL-ACOG-GDM-2018</td></tr>
+  <tr><td>Delivery plan: birth at 38 0/7 to 38 6/7 weeks in a hospital with a neonatal intensive care unit; vaginal birth while twin A is head down, with an epidural and the operating room ready for twin B; active management of the third stage for the higher risk of hemorrhage; group B streptococcus swab at 36 to 37 weeks; RSV vaccine at 32 to 36 weeks once the season begins in September; Tdap at 27 to 36 weeks</td><td>completed</td><td>GL-ACOG-831-2021, GL-ACOG-MULTI-2021, GL-CDC-PREGVAX</td></tr></tbody></table></section>
+    <section><h2>Planned encounters</h2><ul>
+  <li><strong>2026-03-03</strong> — First prenatal visit at 9 weeks: the uterus is larger than dates; prenatal tests and an early ultrasound with maternal-fetal medicine <span class="muted">(ENC-001)</span></li>
+  <li><strong>2026-03-17</strong> — Prenatal visit at 11 weeks with the maternal-fetal medicine consultation and first-trimester ultrasound <span class="muted">(ENC-002)</span></li>
+  <li><strong>2026-05-12</strong> — Prenatal visit at 19 weeks with the detailed anatomy scans and cervical length <span class="muted">(ENC-003)</span></li>
+  <li><strong>2026-06-02</strong> — Same-day sick visit for vomiting, diarrhea, and tightenings at 22 weeks <span class="muted">(ENC-006, unscheduled)</span></li>
+  <li><strong>2026-06-23</strong> — Prenatal visit at 25 weeks: growth scan, glucose challenge, and blood count <span class="muted">(ENC-004)</span></li>
+  <li><strong>2026-08-18</strong> — Prenatal visit at 33 weeks: growth scan, Tdap, and the delivery plan <span class="muted">(ENC-005)</span></li></ul></section>
+    <section><h2>Supporting documents</h2><ul><li><a href="notes/hp.md">History and physical</a></li><li><a href="notes/progress-01.md">Progress note 01</a></li><li><a href="notes/progress-02.md">Progress note 02 — Focused Visit (Follow-up)</a></li><li><a href="notes/progress-03.md">Progress note 03 — Focused Visit (Follow-up)</a></li><li><a href="notes/progress-04.md">Progress note 04 — Sick Visit</a></li><li><a href="notes/progress-05.md">Progress note 05 — Focused Visit (Follow-up)</a></li><li><a href="notes/progress-06.md">Progress note 06 — Focused Visit (Care-plan review)</a></li><li><a href="notes/referral-01.md">Maternal-Fetal Medicine referral</a></li><li><a href="notes/consult-01.md">Maternal-Fetal Medicine consultation</a></li><li><a href="notes/careplan.md">Patient care plan</a></li><li><a href="notes/teaching-note.md">Teaching note</a></li><li><a href="provenance.csv">Provenance CSV</a></li></ul></section>
+    <section><h2>C-CDA note documents</h2><p class="muted">Each link opens a readable copy; the XML beside it is the exchange file.</p><ul><li><a href="ccda/hp-01.html">History and physical</a> <a href="ccda/hp-01.xml">(XML)</a></li><li><a href="ccda/progress-01.html">Progress note 01</a> <a href="ccda/progress-01.xml">(XML)</a></li><li><a href="ccda/progress-02.html">Progress note 02 — Focused Visit (Follow-up)</a> <a href="ccda/progress-02.xml">(XML)</a></li><li><a href="ccda/progress-03.html">Progress note 03 — Focused Visit (Follow-up)</a> <a href="ccda/progress-03.xml">(XML)</a></li><li><a href="ccda/progress-04.html">Progress note 04 — Sick Visit</a> <a href="ccda/progress-04.xml">(XML)</a></li><li><a href="ccda/progress-05.html">Progress note 05 — Focused Visit (Follow-up)</a> <a href="ccda/progress-05.xml">(XML)</a></li><li><a href="ccda/progress-06.html">Progress note 06 — Focused Visit (Care-plan review)</a> <a href="ccda/progress-06.xml">(XML)</a></li><li><a href="ccda/referral-01.html">Maternal-Fetal Medicine referral</a> <a href="ccda/referral-01.xml">(XML)</a></li><li><a href="ccda/consult-01.html">Maternal-Fetal Medicine consultation</a> <a href="ccda/consult-01.xml">(XML)</a></li></ul></section>
+    <section><h2>Sources</h2><table><thead><tr><th>ID</th><th>Source</th><th>Publisher</th><th>Type</th></tr></thead><tbody>
+  <tr>
+    <td>SRC-0001</td>
+    <td><a href="https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Plutarch/Lives/Antony*.html" target="_blank" rel="noreferrer">Plutarch, Parallel Lives: The Life of Antony (Loeb Classical Library, volume IX, 1920)</a></td>
+    <td>LacusCurtius, University of Chicago (Bill Thayer)</td>
+    <td>primary</td>
+  </tr>
+  <tr>
+    <td>SRC-0002</td>
+    <td><a href="https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Cassius_Dio/49*.html" target="_blank" rel="noreferrer">Cassius Dio, Roman History, Book 49 (translated by E. Cary, Loeb Classical Library, 1917)</a></td>
+    <td>LacusCurtius, University of Chicago (Bill Thayer)</td>
+    <td>primary</td>
+  </tr>
+  <tr>
+    <td>SRC-0003</td>
+    <td><a href="https://en.wikipedia.org/wiki/Cleopatra" target="_blank" rel="noreferrer">Cleopatra</a></td>
+    <td>Wikipedia</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0004</td>
+    <td><a href="https://en.wikipedia.org/wiki/Julian_calendar" target="_blank" rel="noreferrer">Julian calendar</a></td>
+    <td>Wikipedia</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0005</td>
+    <td><a href="https://humanrecord.example.org/internal/HISTMED_Master_Roster_v3.xlsx" target="_blank" rel="noreferrer">HISTMED Master Roster v3</a></td>
+    <td>The Human Record project</td>
+    <td>other</td>
+  </tr></tbody></table></section>
+    <section><h2>Review status</h2><table><thead><tr><th>Review</th><th>Status</th><th>Notes</th></tr></thead><tbody>
+  <tr><td>schema validation</td><td>not_started</td><td>Run scripts/build.ps1 -Conformance.</td></tr>
+  <tr><td>clinical review</td><td>not_started</td><td>Awaiting clinician review; check the work-up of a uterus large for dates, the two-week wait for the 11-week scan, chorionicity, dating, aneuploidy screening in twins, aspirin, iron, the growth-scan schedule and the missed 29-week scan, cervical length, the gastroenteritis visit, and delivery timing at 38 weeks.</td></tr>
+  <tr><td>provenance review</td><td>not_started</td><td>Plutarch&#39;s Life of Antony and Cassius Dio, Book 49, in the Loeb translations on LacusCurtius, and two encyclopedia articles logged. Her birth, children, and death are D; the twins are D (Dio: &#39;twins at a birth&#39;); nothing about her health or pregnancies is documented. The British Museum page returned HTTP 403, and the biographies by Roller and Schiff were not read.</td></tr>
+  <tr><td>safe messaging review</td><td>not_started</td><td>Her death is recorded once, plainly, in one claim marked sensitive, without method detail; the timeline says only that she died in Alexandria. Nothing in the modern episode refers to it. EPDS scores are below 10 with item 10 scored 0, so no safety assessment is required. No statement, decision, or health fact is attributed to her partner or children.</td></tr></tbody></table></section>
+  </main>
+</body>
+</html>

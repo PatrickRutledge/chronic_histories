@@ -1,0 +1,461 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pierre Le Moyne d&#39;Iberville — The Human Record</title>
+  <style>
+    :root { --navy:#17365d; --blue:#1f4e78; --pale:#eef5fa; --ink:#1f2933; --muted:#66788a; --amber:#fff2cc; --red:#f8d7da; --green:#d9ead3; }
+    * { box-sizing:border-box; }
+    body { margin:0; font:16px/1.5 Arial, sans-serif; color:var(--ink); background:#f6f8fa; }
+    header { background:var(--navy); color:white; padding:24px max(24px,calc((100vw - 1180px)/2)); }
+    header h1 { margin:4px 0; font-size:30px; }
+    .banner { background:#b42318; color:white; font-weight:700; text-align:center; padding:10px; letter-spacing:.03em; }
+    main { max-width:1180px; margin:24px auto 60px; padding:0 24px; }
+    section { background:white; border:1px solid #d9e1e8; border-radius:8px; margin:18px 0; padding:20px; }
+    h2 { color:var(--navy); margin:0 0 14px; font-size:22px; }
+    h3 { color:var(--blue); }
+    .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:12px; }
+    .card { background:var(--pale); border-left:4px solid var(--blue); padding:12px; }
+    .label { color:var(--muted); font-size:13px; text-transform:uppercase; letter-spacing:.04em; }
+    table { width:100%; border-collapse:collapse; }
+    th { background:var(--blue); color:white; text-align:left; }
+    th,td { padding:9px; border-bottom:1px solid #dfe6ec; vertical-align:top; }
+    .badge { display:inline-block; min-width:28px; text-align:center; font-weight:700; border-radius:12px; padding:2px 8px; }
+    .grade-D { background:var(--green); } .grade-R { background:var(--amber); } .grade-S { background:var(--red); }
+    .muted { color:var(--muted); font-size:14px; }
+    .relationship { color:var(--muted); font-size:12px; }
+    .downloads a { display:inline-block; margin:4px 8px 4px 0; padding:8px 12px; background:var(--blue); color:white; text-decoration:none; border-radius:5px; }
+    @media (max-width:700px) { table { display:block; overflow-x:auto; } }
+  </style>
+</head>
+<body>
+  <div class="banner">SYNTHETIC RECORD, NOT A REAL MEDICAL RECORD</div>
+  <header>
+    <div>The Human Record</div>
+    <h1>Pierre Le Moyne d&#39;Iberville</h1>
+    <div>Case HR-ET014 · Modern EHR teaching episode · Draft for review</div>
+  </header>
+  <main>
+    <section>
+      <h2>Review summary</h2>
+      <div class="grid">
+        <div class="card"><div class="label">Historical dates</div>July 16, 1661 – probably July 9, 1706</div>
+        <div class="card"><div class="label">Synthetic DOB</div>1982-07-16</div>
+        <div class="card"><div class="label">Index visit</div>2026-02-17 at age 43</div>
+        <div class="card"><div class="label">Synthetic MRN</div>HR-ET014-SYN</div>
+      </div>
+      <p><strong>Teaching objective:</strong> Primary care and travel medicine for a 43-year-old naval commander with recurrent fevers after service in malaria-endemic areas, who is preparing to lead a deployment to French Guiana and the French Antilles: recognizing relapsing Plasmodium vivax malaria after blood-stage treatment without antirelapse therapy, using PCR when smears are negative between attacks, testing G6PD quantitatively before primaquine, radical cure with chloroquine and primaquine, and relapse surveillance; then a full pre-travel consultation under the CDC Yellow Book 2026 and the IDSA travel medicine guideline: one dose of yellow fever vaccine and a valid certificate for French Guiana, hepatitis A, hepatitis B and typhoid vaccines, atovaquone-proguanil chemoprophylaxis, mosquito avoidance for dengue and chikungunya (no dengue vaccine for travelers), repellents for typhus, food and water precautions with standby treatment for travelers&#39; diarrhea, terminal antirelapse therapy and fever evaluation after return; preventive care at 43; and a same-day visit for a skin abscess managed by drainage alone under the IDSA skin and soft tissue guideline.</p>
+      <div class="downloads">
+        <a href="../case.json">Canonical JSON</a>
+        <a href="fhir-bundle.json">FHIR R4 draft</a>
+        <a href="ccda.html">C-CDA R2.1 summary</a> <a href="ccda.xml">(XML)</a> <a href="review.html">Review checklist</a>
+        <a href="../sources.md">Evidence dossier</a>
+      </div>
+    </section>
+    <section><h2>Historical timeline</h2><table><thead><tr><th>Date</th><th>Event</th><th>Claims</th></tr></thead><tbody>
+  <tr><td>July 16, 1661 (baptized July 20)</td><td>Born at Ville-Marie (Montreal), New France.</td><td>CLM-0001</td></tr>
+  <tr><td>1686 to 1697</td><td>Campaigns against the English in James Bay and Hudson Bay, with scurvy among the men.</td><td>CLM-0003, CLM-0004</td></tr>
+  <tr><td>1696 to 1697</td><td>Pemaquid and the Newfoundland campaign.</td><td>CLM-0005</td></tr>
+  <tr><td>April 1699</td><td>Chose the site of Fort Maurepas on Biloxi Bay, beginning the Louisiana colony.</td><td>CLM-0006, CLM-0002</td></tr>
+  <tr><td>autumn 1701</td><td>Forced by illness to put in at Pensacola on his third voyage.</td><td>CLM-0007</td></tr>
+  <tr><td>1702 to 1705</td><td>Recurrent attacks of an illness his biographer calls malaria; did not return to Louisiana.</td><td>CLM-0008, CLM-0010</td></tr>
+  <tr><td>1705</td><td>Entrusted with preparing an armament for the West Indies.</td><td>CLM-0009</td></tr>
+  <tr><td>spring 1706</td><td>Martinique and the capture of Nevis.</td><td>CLM-0011</td></tr>
+  <tr><td>probably July 9, 1706</td><td>Died suddenly, probably at Havana.</td><td>CLM-0012, CLM-0013</td></tr></tbody></table></section>
+    <section><h2>Evidence claims</h2><p class="muted">D = documented, R = retrospective, S = synthetic.</p><table><thead><tr><th>Grade</th><th>Claim</th><th>Certainty</th><th>Sources</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>Pierre Le Moyne d&#39;Iberville was born on July 16, 1661, in Montreal (Ville-Marie), New France, and was baptized there on July 20, 1661. He was the third son of Charles Le Moyne de Longueuil et de Châteauguay and Catherine Thierry.</strong><div class="muted">The Dictionary of Canadian Biography and the Canadian Encyclopedia give only the baptism; 64 Parishes gives the birth date.</div></td>
+    <td>confirmed</td>
+    <td><a href="http://www.biographi.ca/en/bio/le_moyne_d_iberville_et_d_ardillieres_pierre_2E.html" target="_blank" rel="noreferrer">Pothier B. Le Moyne d&#39;Iberville et d&#39;Ardillières, Pierre. In: Dictionary of Canadian Biography, vol. 2 (University of Toronto/Université Laval, 1969; revised 1982)</a> <span class="relationship">supports</span><br><a href="https://www.thecanadianencyclopedia.ca/en/article/pierre-le-moyne-diberville-et-dardillieres" target="_blank" rel="noreferrer">Marsh JH. Pierre Le Moyne d&#39;Iberville et d&#39;Ardillières. The Canadian Encyclopedia (published January 21, 2008; last edited September 23, 2021)</a> <span class="relationship">supports</span><br><a href="https://64parishes.org/entry/pierre-le-moyne-diberville-2" target="_blank" rel="noreferrer">Pasquier MT. Pierre Le Moyne d&#39;Iberville. 64 Parishes</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>The name d&#39;Iberville came from a fief held by his father&#39;s family near Dieppe, and d&#39;Ardillières from a property he acquired in Aunis near Rochefort. He was the first person born in Canada to receive the cross of the order of Saint-Louis.</strong><div class="muted">Explains the territorial designations in his name.</div></td>
+    <td>confirmed</td>
+    <td><a href="http://www.biographi.ca/en/bio/le_moyne_d_iberville_et_d_ardillieres_pierre_2E.html" target="_blank" rel="noreferrer">Pothier B. Le Moyne d&#39;Iberville et d&#39;Ardillières, Pierre. In: Dictionary of Canadian Biography, vol. 2 (University of Toronto/Université Laval, 1969; revised 1982)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>He fought the English in Hudson Bay and James Bay from 1686: the capture of the James Bay posts in 1686, the Albany River in 1688 to 1689, New Severn in 1690, York Fort (renamed Fort Bourbon) in 1694, and in 1697 the naval battle near York Factory in which his ship, the Pélican, defeated English warships and was itself lost, followed by the surrender of the fort.</strong><div class="muted">Career context: years of winter campaigning in the subarctic.</div></td>
+    <td>confirmed</td>
+    <td><a href="http://www.biographi.ca/en/bio/le_moyne_d_iberville_et_d_ardillieres_pierre_2E.html" target="_blank" rel="noreferrer">Pothier B. Le Moyne d&#39;Iberville et d&#39;Ardillières, Pierre. In: Dictionary of Canadian Biography, vol. 2 (University of Toronto/Université Laval, 1969; revised 1982)</a> <span class="relationship">supports</span><br><a href="https://www.thecanadianencyclopedia.ca/en/article/pierre-le-moyne-diberville-et-dardillieres" target="_blank" rel="noreferrer">Marsh JH. Pierre Le Moyne d&#39;Iberville et d&#39;Ardillières. The Canadian Encyclopedia (published January 21, 2008; last edited September 23, 2021)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>His biographer records that scurvy and exposure killed 25 of the English in the winter of 1688 to 1689 on the Albany River, and that in 1694 at York Fort scurvy killed many men on both sides.</strong><div class="muted">Documents scurvy among the men of these campaigns, not in Iberville himself; the roster&#39;s &#39;scurvy&#39; is not supported as his own illness.</div></td>
+    <td>confirmed</td>
+    <td><a href="http://www.biographi.ca/en/bio/le_moyne_d_iberville_et_d_ardillieres_pierre_2E.html" target="_blank" rel="noreferrer">Pothier B. Le Moyne d&#39;Iberville et d&#39;Ardillières, Pierre. In: Dictionary of Canadian Biography, vol. 2 (University of Toronto/Université Laval, 1969; revised 1982)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>In 1696 to 1697 he led a campaign against the English: Fort William Henry at Pemaquid capitulated on August 15, 1696, and in Newfoundland St John&#39;s surrendered on November 30 after a brief siege; the campaign destroyed 36 settlements, killed about 200 people and took about 700 prisoners.</strong><div class="muted">Career context.</div></td>
+    <td>confirmed</td>
+    <td><a href="http://www.biographi.ca/en/bio/le_moyne_d_iberville_et_d_ardillieres_pierre_2E.html" target="_blank" rel="noreferrer">Pothier B. Le Moyne d&#39;Iberville et d&#39;Ardillières, Pierre. In: Dictionary of Canadian Biography, vol. 2 (University of Toronto/Université Laval, 1969; revised 1982)</a> <span class="relationship">supports</span><br><a href="https://www.thecanadianencyclopedia.ca/en/article/pierre-le-moyne-diberville-et-dardillieres" target="_blank" rel="noreferrer">Marsh JH. Pierre Le Moyne d&#39;Iberville et d&#39;Ardillières. The Canadian Encyclopedia (published January 21, 2008; last edited September 23, 2021)</a> <span class="relationship">supports</span><br><a href="https://64parishes.org/entry/pierre-le-moyne-diberville-2" target="_blank" rel="noreferrer">Pasquier MT. Pierre Le Moyne d&#39;Iberville. 64 Parishes</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>He led the expeditions that began the French colony of Louisiana: in April 1699 he chose a site near the entrance of Biloxi Bay, near present-day Ocean Springs, Mississippi, for Fort Maurepas; in 1700 he built a fort on the Mississippi; and on his third voyage he began Fort Saint-Louis at Mobile. He left Louisiana in April 1702 and did not return.</strong><div class="muted">Career context; anchors his service on the Gulf Coast.</div></td>
+    <td>confirmed</td>
+    <td><a href="http://www.biographi.ca/en/bio/le_moyne_d_iberville_et_d_ardillieres_pierre_2E.html" target="_blank" rel="noreferrer">Pothier B. Le Moyne d&#39;Iberville et d&#39;Ardillières, Pierre. In: Dictionary of Canadian Biography, vol. 2 (University of Toronto/Université Laval, 1969; revised 1982)</a> <span class="relationship">supports</span><br><a href="https://64parishes.org/entry/pierre-le-moyne-diberville-2" target="_blank" rel="noreferrer">Pasquier MT. Pierre Le Moyne d&#39;Iberville. 64 Parishes</a> <span class="relationship">supports</span><br><a href="https://www.thecanadianencyclopedia.ca/en/article/pierre-le-moyne-diberville-et-dardillieres" target="_blank" rel="noreferrer">Marsh JH. Pierre Le Moyne d&#39;Iberville et d&#39;Ardillières. The Canadian Encyclopedia (published January 21, 2008; last edited September 23, 2021)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>Sailing from La Rochelle on September 29, 1701, on his third voyage to Louisiana, he was forced by illness to put in at Pensacola.</strong><div class="muted">The nature of the illness is not recorded. No source fetched mentions an abscess.</div></td>
+    <td>confirmed</td>
+    <td><a href="http://www.biographi.ca/en/bio/le_moyne_d_iberville_et_d_ardillieres_pierre_2E.html" target="_blank" rel="noreferrer">Pothier B. Le Moyne d&#39;Iberville et d&#39;Ardillières, Pierre. In: Dictionary of Canadian Biography, vol. 2 (University of Toronto/Université Laval, 1969; revised 1982)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>His biographer writes that he had attacks of malaria that recurred several times from 1702 to 1705 and that his deteriorating health thwarted planned expeditions to Louisiana; 64 Parishes writes that illness kept him from the expedition of 1703.</strong><div class="muted">Documented recurrent illness in the years before the synthetic episode. &#39;Malaria&#39; is the biographer&#39;s word; no contemporary diagnosis or species is known. Anchors the modern relapsing malaria, which is synthetic.</div></td>
+    <td>probable</td>
+    <td><a href="http://www.biographi.ca/en/bio/le_moyne_d_iberville_et_d_ardillieres_pierre_2E.html" target="_blank" rel="noreferrer">Pothier B. Le Moyne d&#39;Iberville et d&#39;Ardillières, Pierre. In: Dictionary of Canadian Biography, vol. 2 (University of Toronto/Université Laval, 1969; revised 1982)</a> <span class="relationship">supports</span><br><a href="https://64parishes.org/entry/pierre-le-moyne-diberville-2" target="_blank" rel="noreferrer">Pasquier MT. Pierre Le Moyne d&#39;Iberville. 64 Parishes</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>Despite his poor health, he was well enough in 1705 to be entrusted with preparing an armament, and early in 1706 he sailed from France with a squadron of twelve vessels against the English in the West Indies.</strong><div class="muted">Places him in France preparing a tropical campaign during the synthetic episode.</div></td>
+    <td>confirmed</td>
+    <td><a href="http://www.biographi.ca/en/bio/le_moyne_d_iberville_et_d_ardillieres_pierre_2E.html" target="_blank" rel="noreferrer">Pothier B. Le Moyne d&#39;Iberville et d&#39;Ardillières, Pierre. In: Dictionary of Canadian Biography, vol. 2 (University of Toronto/Université Laval, 1969; revised 1982)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>His biographer places the births of three of his children at La Rochelle, in 1698, 1701 and 1705.</strong><div class="muted">Used only to place his household at La Rochelle; no fact about the children is used.</div></td>
+    <td>probable</td>
+    <td><a href="http://www.biographi.ca/en/bio/le_moyne_d_iberville_et_d_ardillieres_pierre_2E.html" target="_blank" rel="noreferrer">Pothier B. Le Moyne d&#39;Iberville et d&#39;Ardillières, Pierre. In: Dictionary of Canadian Biography, vol. 2 (University of Toronto/Université Laval, 1969; revised 1982)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>In the spring of 1706 his squadron reached Martinique and then took the English island of Nevis, whose entire population was taken prisoner, including about 6,000 enslaved Africans, who were seized with the ships, plantations and buildings.</strong><div class="muted">Documented history, stated plainly. No health fact about any of the people seized is recorded.</div></td>
+    <td>confirmed</td>
+    <td><a href="http://www.biographi.ca/en/bio/le_moyne_d_iberville_et_d_ardillieres_pierre_2E.html" target="_blank" rel="noreferrer">Pothier B. Le Moyne d&#39;Iberville et d&#39;Ardillières, Pierre. In: Dictionary of Canadian Biography, vol. 2 (University of Toronto/Université Laval, 1969; revised 1982)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>He died suddenly, probably at Havana, Cuba, probably on July 9, 1706, of an illness his biographer calls unspecified, and was buried the same day in the church of San Cristóbal; 64 Parishes says the site of his burial is unknown.</strong><div class="muted">After the episode.</div></td>
+    <td>probable</td>
+    <td><a href="http://www.biographi.ca/en/bio/le_moyne_d_iberville_et_d_ardillieres_pierre_2E.html" target="_blank" rel="noreferrer">Pothier B. Le Moyne d&#39;Iberville et d&#39;Ardillières, Pierre. In: Dictionary of Canadian Biography, vol. 2 (University of Toronto/Université Laval, 1969; revised 1982)</a> <span class="relationship">supports</span><br><a href="https://64parishes.org/entry/pierre-le-moyne-diberville-2" target="_blank" rel="noreferrer">Pasquier MT. Pierre Le Moyne d&#39;Iberville. 64 Parishes</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-R" title="Retrospective">R</span></td>
+    <td><strong>The Canadian Encyclopedia says he died likely of yellow fever, and 64 Parishes says he died of yellow fever.</strong><div class="muted">Retrospective attribution; the Dictionary of Canadian Biography calls the illness unspecified. No source fetched names typhus. Not used in the modern episode, which makes no prediction.</div></td>
+    <td>disputed</td>
+    <td><a href="https://www.thecanadianencyclopedia.ca/en/article/pierre-le-moyne-diberville-et-dardillieres" target="_blank" rel="noreferrer">Marsh JH. Pierre Le Moyne d&#39;Iberville et d&#39;Ardillières. The Canadian Encyclopedia (published January 21, 2008; last edited September 23, 2021)</a> <span class="relationship">supports</span><br><a href="https://64parishes.org/entry/pierre-le-moyne-diberville-2" target="_blank" rel="noreferrer">Pasquier MT. Pierre Le Moyne d&#39;Iberville. 64 Parishes</a> <span class="relationship">supports</span><br><a href="http://www.biographi.ca/en/bio/le_moyne_d_iberville_et_d_ardillieres_pierre_2E.html" target="_blank" rel="noreferrer">Pothier B. Le Moyne d&#39;Iberville et d&#39;Ardillières, Pierre. In: Dictionary of Canadian Biography, vol. 2 (University of Toronto/Université Laval, 1969; revised 1982)</a> <span class="relationship">disputes</span></td>
+  </tr></tbody></table></section>
+    <section><h2>Modern synthetic problem list</h2><table><thead><tr><th>Grade</th><th>Problem</th><th>Clinical status</th><th>Verification</th><th>Placement</th><th>Historical claims</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Recurrent episodes of fever with shaking chills and drenching sweats, three in the past two years, each beginning months after naval service in malaria-endemic areas; the first diagnosed as malaria abroad on a blood smear with the species not recorded and treated with chloroquine alone, the later two treated with chloroquine without testing; the last ended six weeks before intake; afebrile and well at intake; cause not established at intake; infectious diseases consultation requested</td>
+    <td>resolved</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td>CLM-0008</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Relapsing Plasmodium vivax malaria: P. vivax DNA detected by PCR in blood drawn between attacks, with negative smears and rapid antigen test; after three relapses treated without antirelapse therapy; normal quantitative G6PD</td>
+    <td>resolved</td>
+    <td>confirmed</td>
+    <td>both_with_link</td>
+    <td>CLM-0008</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Pre-travel care for a naval deployment, expected to sail early next year, to French Guiana and the French Antilles: yellow fever vaccination required for entry to French Guiana, malaria prevention, dengue, chikungunya and typhus prevention by vector avoidance, food and water safety, and travel vaccines</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td>CLM-0009</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Small cutaneous abscess of the right forearm, about 2 cm, from a wooden splinter in the dockyard, without fever, spreading cellulitis or systemic signs; drained, without antibiotics; methicillin-susceptible Staphylococcus aureus on culture; resolved</td>
+    <td>resolved</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td></td>
+  </tr></tbody></table></section>
+    <section><h2>Synthetic outcome measures</h2><table><thead><tr><th>Grade</th><th>Date</th><th>Measure</th><th>Result</th><th>Coding</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-02-17</td>
+    <td>Hemoglobin [Mass/volume] in Blood</td>
+    <td>13 g/dL (low)<div class="muted">Reference 13.2-17.1 g/dL</div></td>
+    <td>http://loinc.org · 718-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-02-17</td>
+    <td>Leukocytes [#/volume] in Blood by Automated count</td>
+    <td>5.6 10*3/uL<div class="muted">Reference 3.4-9.6 10*3/uL</div></td>
+    <td>http://loinc.org · 6690-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-02-17</td>
+    <td>Platelets [#/volume] in Blood by Automated count</td>
+    <td>141 10*3/uL (low)<div class="muted">Reference 150-400 10*3/uL</div></td>
+    <td>http://loinc.org · 777-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-02-17</td>
+    <td>Sodium [Moles/volume] in Serum or Plasma</td>
+    <td>139 mmol/L<div class="muted">Reference 136-145 mmol/L</div></td>
+    <td>http://loinc.org · 2951-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-02-17</td>
+    <td>Potassium [Moles/volume] in Serum or Plasma</td>
+    <td>4.1 mmol/L<div class="muted">Reference 3.5-5.1 mmol/L</div></td>
+    <td>http://loinc.org · 2823-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-02-17</td>
+    <td>Creatinine [Mass/volume] in Serum or Plasma</td>
+    <td>0.98 mg/dL<div class="muted">Reference 0.74-1.35 mg/dL</div></td>
+    <td>http://loinc.org · 2160-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-02-17</td>
+    <td>Glucose [Mass/volume] in Serum or Plasma</td>
+    <td>92 mg/dL<div class="muted">Reference 70-99 mg/dL</div></td>
+    <td>http://loinc.org · 2345-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-02-17</td>
+    <td>Alanine aminotransferase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>34 U/L<div class="muted">Reference 7-52 U/L</div></td>
+    <td>http://loinc.org · 1742-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-02-17</td>
+    <td>Aspartate aminotransferase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>29 U/L<div class="muted">Reference 13-39 U/L</div></td>
+    <td>http://loinc.org · 1920-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-02-17</td>
+    <td>Bilirubin.total [Mass/volume] in Serum or Plasma</td>
+    <td>1.1 mg/dL<div class="muted">Reference 0.3-1.2 mg/dL</div></td>
+    <td>http://loinc.org · 1975-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-02-17</td>
+    <td>Glucose-6-Phosphate dehydrogenase [Enzymatic activity/mass] in Red Blood Cells</td>
+    <td>11.8 U/g{Hb}<div class="muted">Reference 7-20.5 U/g{Hb}</div></td>
+    <td>http://loinc.org · 32546-4</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-02-17</td>
+    <td>Glomerular filtration rate [Volume Rate/Area] in Serum, Plasma or Blood by Creatinine-based formula (CKD-EPI 2021)/1.73 sq M</td>
+    <td>98 mL/min/1.73 m²<div class="muted">Reference 60 or more</div></td>
+    <td>http://loinc.org · 98979-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-31</td>
+    <td>Hemoglobin [Mass/volume] in Blood</td>
+    <td>13.6 g/dL<div class="muted">Reference 13.2-17.1 g/dL</div></td>
+    <td>http://loinc.org · 718-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-31</td>
+    <td>Platelets [#/volume] in Blood by Automated count</td>
+    <td>212 10*3/uL<div class="muted">Reference 150-400 10*3/uL</div></td>
+    <td>http://loinc.org · 777-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-31</td>
+    <td>Bilirubin.total [Mass/volume] in Serum or Plasma</td>
+    <td>0.7 mg/dL<div class="muted">Reference 0.3-1.2 mg/dL</div></td>
+    <td>http://loinc.org · 1975-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-10-13</td>
+    <td>Hemoglobin [Mass/volume] in Blood</td>
+    <td>14.1 g/dL<div class="muted">Reference 13.2-17.1 g/dL</div></td>
+    <td>http://loinc.org · 718-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-10-13</td>
+    <td>Platelets [#/volume] in Blood by Automated count</td>
+    <td>236 10*3/uL<div class="muted">Reference 150-400 10*3/uL</div></td>
+    <td>http://loinc.org · 777-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-04-21</td>
+    <td>Patient Health Questionnaire 2 item (PHQ-2) total score [Reported]</td>
+    <td>0</td>
+    <td>http://loinc.org · 55758-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-04-21</td>
+    <td>Total score [AUDIT-C]</td>
+    <td>3</td>
+    <td>http://loinc.org · 75626-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-04-21</td>
+    <td>Cholesterol [Mass/volume] in Serum or Plasma</td>
+    <td>192 mg/dL<div class="muted">Reference &lt;=199 mg/dL</div></td>
+    <td>http://loinc.org · 2093-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-04-21</td>
+    <td>Cholesterol in HDL [Mass/volume] in Serum or Plasma</td>
+    <td>52 mg/dL<div class="muted">Reference &gt;=40 mg/dL</div></td>
+    <td>http://loinc.org · 2085-9</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-04-21</td>
+    <td>Cholesterol in LDL [Mass/volume] in Serum or Plasma by calculation</td>
+    <td>116 mg/dL<div class="muted">Reference Below 130</div></td>
+    <td>http://loinc.org · 13457-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-04-21</td>
+    <td>Triglyceride [Mass/volume] in Serum or Plasma</td>
+    <td>120 mg/dL<div class="muted">Reference &lt;=149 mg/dL</div></td>
+    <td>http://loinc.org · 2571-8</td>
+  </tr></tbody></table></section>
+    <section><h2>Synthetic vital signs</h2><table><thead><tr><th>Date</th><th>Measure</th><th>Result</th><th>LOINC</th><th>Grade</th></tr></thead><tbody>
+  <tr><td>2026-02-17</td><td>Body height</td><td>175 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-02-17</td><td>Body weight</td><td>68.4 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-02-17</td><td>Body mass index (BMI) [Ratio]</td><td>22.3 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-02-17</td><td>Systolic blood pressure</td><td>124 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-02-17</td><td>Diastolic blood pressure</td><td>78 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-02-17</td><td>Heart rate</td><td>70 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-02-17</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-02-17</td><td>Body temperature</td><td>36.7 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-02-17</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>98 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-03</td><td>Body height</td><td>175 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-03</td><td>Body weight</td><td>68.6 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-03</td><td>Body mass index (BMI) [Ratio]</td><td>22.4 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-03</td><td>Systolic blood pressure</td><td>122 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-03</td><td>Diastolic blood pressure</td><td>76 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-03</td><td>Heart rate</td><td>68 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-03</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-03</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-03</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>98 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-31</td><td>Body height</td><td>175 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-31</td><td>Body weight</td><td>69 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-31</td><td>Body mass index (BMI) [Ratio]</td><td>22.5 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-31</td><td>Systolic blood pressure</td><td>122 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-31</td><td>Diastolic blood pressure</td><td>78 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-31</td><td>Heart rate</td><td>66 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-31</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-31</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-31</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>98 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-07-28</td><td>Body height</td><td>175 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-07-28</td><td>Body weight</td><td>69.4 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-07-28</td><td>Body mass index (BMI) [Ratio]</td><td>22.7 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-07-28</td><td>Systolic blood pressure</td><td>124 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-07-28</td><td>Diastolic blood pressure</td><td>78 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-07-28</td><td>Heart rate</td><td>66 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-07-28</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-07-28</td><td>Body temperature</td><td>36.7 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-07-28</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>98 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-13</td><td>Body height</td><td>175 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-13</td><td>Body weight</td><td>69.2 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-13</td><td>Body mass index (BMI) [Ratio]</td><td>22.6 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-13</td><td>Systolic blood pressure</td><td>122 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-13</td><td>Diastolic blood pressure</td><td>76 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-13</td><td>Heart rate</td><td>64 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-13</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-13</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-13</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>98 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-21</td><td>Body height</td><td>175 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-21</td><td>Body weight</td><td>69.2 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-21</td><td>Body mass index (BMI) [Ratio]</td><td>22.6 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-21</td><td>Systolic blood pressure</td><td>120 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-21</td><td>Diastolic blood pressure</td><td>76 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-21</td><td>Heart rate</td><td>64 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-21</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-21</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-21</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>98 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-09</td><td>Body height</td><td>175 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-09</td><td>Body weight</td><td>69.3 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-09</td><td>Body mass index (BMI) [Ratio]</td><td>22.6 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-09</td><td>Systolic blood pressure</td><td>124 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-09</td><td>Diastolic blood pressure</td><td>78 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-09</td><td>Heart rate</td><td>70 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-09</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-09</td><td>Body temperature</td><td>36.8 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-09</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>98 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr></tbody></table></section>
+    <section><h2>Social, functional, and mental status</h2><h3>Social history</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Naval officer and squadron commander; years of service in subarctic waters and on the Gulf of Mexico coast; now ashore preparing a squadron for a tropical deployment expected to sail early next year</li><li><span class="badge grade-S" title="Synthetic">S</span> Lives with his family in a port city on the French Atlantic coast</li><li><span class="badge grade-S" title="Synthetic">S</span> Tobacco: never. Alcohol: wine with dinner, about eight drinks a week; no other drugs</li><li><span class="badge grade-S" title="Synthetic">S</span> Exercise: walks the quays and dockyard most days; sails</li></ul><h3>Functional status</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Independent; lost about a week of work with each febrile attack</li></ul><h3>Mental status</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Alert, direct and impatient to be fit for sea; worried that another attack at sea would endanger the deployment</li></ul></section>
+    
+    <section><h2>Allergies and medications</h2><h3>Allergies</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> No known allergy</li></ul><h3>Medications</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Chloroquine phosphate 500 mg tablet: 1,000 mg (two tablets) at once, then 500 mg at 6, 24 and 48 hours; take with food</li><li><span class="badge grade-S" title="Synthetic">S</span> Primaquine phosphate 26.3 mg tablet (15 mg base): two tablets (30 mg base) by mouth daily with food for 14 days</li><li><span class="badge grade-S" title="Synthetic">S</span> Atovaquone-proguanil 250 mg/100 mg tablet: one tablet daily with food, starting one to two days before entering a malaria area, daily there, and for seven days after leaving</li><li><span class="badge grade-S" title="Synthetic">S</span> Azithromycin 500 mg tablet: one tablet daily for up to three days for severe travelers&#39; diarrhea (standby supply)</li><li><span class="badge grade-S" title="Synthetic">S</span> Primaquine phosphate 26.3 mg tablet (15 mg base): two tablets (30 mg base) daily with food for 14 days, starting when he leaves the malaria areas (terminal prophylaxis)</li></ul></section>
+    <section><h2>Procedures and immunizations</h2><h3>Procedures</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Advance care planning conversation, about 20 minutes</li><li><span class="badge grade-S" title="Synthetic">S</span> Incision and drainage of a cutaneous abscess of the right forearm under local anesthesia, with wound culture</li></ul><h3>Immunizations</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> 2026-04-21: Tdap vaccine</li><li><span class="badge grade-S" title="Synthetic">S</span> 2026-07-28: Yellow fever vaccine, live, single dose; certificate (ICVP) issued, valid from ten days after vaccination</li><li><span class="badge grade-S" title="Synthetic">S</span> 2026-07-28: Hepatitis A vaccine, adult, dose 1 of 2</li><li><span class="badge grade-S" title="Synthetic">S</span> 2026-07-28: Typhoid Vi polysaccharide vaccine</li><li><span class="badge grade-S" title="Synthetic">S</span> 2026-07-28: Hepatitis B vaccine (HepB-CpG), dose 1 of 2</li><li><span class="badge grade-S" title="Synthetic">S</span> 2026-10-13: Hepatitis B vaccine (HepB-CpG), dose 2 of 2</li><li><span class="badge grade-S" title="Synthetic">S</span> 2026-10-13: Influenza vaccine, inactivated, trivalent, preservative-free</li></ul></section>
+    <section><h2>Past medical history</h2><p class="muted">True biography with historical dates; not part of the synthetic care timeline.</p><ul><li><span class="badge grade-D" title="Documented">D</span> late 1701: An illness at sea, nature not recorded, that forced him to put in at port on a voyage to the Gulf of Mexico about three and a half years before intake <span class="muted">(CLM-0007)</span></li><li><span class="badge grade-D" title="Documented">D</span> 1702 onward: Recurrent attacks of illness over the past three years, described by his biographer as malaria, that kept him from planned voyages <span class="muted">(CLM-0008)</span></li></ul><h3>Family history</h3><p class="muted">No family medical history is documented in the logged sources. Family history of real relatives is never synthesized.</p></section>
+    <section><h2>Care-plan goals</h2><table><thead><tr><th>Goal</th><th>Target date</th><th>Status</th><th>Outcome</th></tr></thead><tbody>
+  <tr><td>No further malaria relapse in the six months after radical cure</td><td>2026-10-13</td><td>completed</td><td>No fever in the seven months since finishing primaquine</td></tr>
+  <tr><td>All required and recommended travel vaccines given, with a valid yellow fever certificate, at least ten days before departure</td><td>2026-10-13</td><td>completed</td><td>Yellow fever, hepatitis A dose 1, hepatitis B two-dose series, typhoid and influenza vaccines given; certificate valid</td></tr>
+  <tr><td>Knows to have a malaria test the same day for any fever, during travel and for months after return</td><td>2026-03-31</td><td>completed</td><td>Carries a fever card and explained the plan back correctly</td></tr></tbody></table></section>
+    <section><h2>Interventions</h2><table><thead><tr><th>Intervention</th><th>Status</th><th>Guideline</th></tr></thead><tbody>
+  <tr><td>Infectious diseases (travel medicine) consultation in two weeks to establish the cause of the recurrent fevers, advise on antirelapse treatment, and plan pre-travel care for the deployment</td><td>completed</td><td>GL-CDC-MAL-TX-2026, GL-IDSA-TRAVEL-2006</td></tr>
+  <tr><td>Malaria testing between attacks: thick and thin blood smears, rapid antigen test, and Plasmodium species PCR sent to the reference laboratory; quantitative G6PD activity before any primaquine; blood count, kidney and liver tests</td><td>completed</td><td>GL-CDC-MAL-TX-2026</td></tr>
+  <tr><td>Fever action plan: a blood smear the same day for any fever, at home, at sea or after travel; carry a card stating his malaria history</td><td>completed</td><td>GL-CDC-MAL-TX-2026, GL-YB-MAL-2026</td></tr>
+  <tr><td>Chloroquine for the blood stage (1,000 mg salt, then 500 mg at 6, 24 and 48 hours) and primaquine 30 mg base daily for 14 days for radical cure, with the normal G6PD result; blood count and bilirubin after the course; report dark urine, breathlessness or blue lips</td><td>completed</td><td>GL-CDC-MAL-TX-2026</td></tr>
+  <tr><td>Pre-travel plan for French Guiana and the Antilles: one dose of yellow fever vaccine with the certificate, hepatitis A, hepatitis B if not immune, typhoid; atovaquone-proguanil chemoprophylaxis for malaria areas; repellent, permethrin-treated clothing, screened or air-conditioned quarters and bed nets against mosquitoes, fleas, lice and mites; food and water precautions with standby azithromycin; primaquine terminal prophylaxis after leaving the malaria areas, and a malaria test for any fever after return</td><td>completed</td><td>GL-YB-YF-2026, GL-CDC-FG-2026, GL-YB-MAL-2026, GL-YB-DENGUE-2026, GL-YB-RICK-2026, GL-YB-TD-2026, GL-IDSA-TRAVEL-2006</td></tr></tbody></table></section>
+    <section><h2>Planned encounters</h2><ul>
+  <li><strong>2026-02-17</strong> — New patient visit for recurrent fevers with chills after naval service in malaria-endemic areas, and an expected tropical deployment: history, examination, malaria testing, quantitative G6PD, and an infectious diseases (travel medicine) referral <span class="muted">(ENC-001)</span></li>
+  <li><strong>2026-03-03</strong> — Two-week follow-up and infectious diseases consultation: PCR result and radical cure <span class="muted">(ENC-002)</span></li>
+  <li><strong>2026-03-31</strong> — Six-week review after chloroquine and primaquine: blood count, adverse effects, relapse surveillance <span class="muted">(ENC-003)</span></li>
+  <li><strong>2026-04-21</strong> — Periodic adult preventive visit <span class="muted">(ENC-006)</span></li>
+  <li><strong>2026-06-09</strong> — Same-day sick visit for a skin abscess of the right forearm <span class="muted">(ENC-007, unscheduled)</span></li>
+  <li><strong>2026-07-28</strong> — Pre-travel visit: yellow fever, hepatitis A, hepatitis B and typhoid vaccines, and the travel plan <span class="muted">(ENC-004)</span></li>
+  <li><strong>2026-10-13</strong> — Pre-departure review: no relapse, malaria chemoprophylaxis, vector, food and water precautions, standby treatment, and the plan on return <span class="muted">(ENC-005)</span></li></ul></section>
+    <section><h2>Supporting documents</h2><ul><li><a href="notes/hp.md">History and physical</a></li><li><a href="notes/progress-01.md">Progress note 01</a></li><li><a href="notes/progress-02.md">Progress note 02 — Focused Visit (Follow-up)</a></li><li><a href="notes/progress-03.md">Progress note 03 — Focused Visit (Follow-up)</a></li><li><a href="notes/progress-04.md">Progress note 04 — Preventive Visit</a></li><li><a href="notes/progress-05.md">Progress note 05 — Sick Visit</a></li><li><a href="notes/progress-06.md">Progress note 06 — Focused Visit (Follow-up)</a></li><li><a href="notes/progress-07.md">Progress note 07 — Focused Visit (Care-plan review)</a></li><li><a href="notes/referral-01.md">Infectious Diseases (travel medicine) referral</a></li><li><a href="notes/consult-01.md">Infectious Diseases (travel medicine) consultation</a></li><li><a href="notes/careplan.md">Patient care plan</a></li><li><a href="notes/teaching-note.md">Teaching note</a></li><li><a href="provenance.csv">Provenance CSV</a></li></ul></section>
+    <section><h2>C-CDA note documents</h2><p class="muted">Each link opens a readable copy; the XML beside it is the exchange file.</p><ul><li><a href="ccda/hp-01.html">History and physical</a> <a href="ccda/hp-01.xml">(XML)</a></li><li><a href="ccda/progress-01.html">Progress note 01</a> <a href="ccda/progress-01.xml">(XML)</a></li><li><a href="ccda/progress-02.html">Progress note 02 — Focused Visit (Follow-up)</a> <a href="ccda/progress-02.xml">(XML)</a></li><li><a href="ccda/progress-03.html">Progress note 03 — Focused Visit (Follow-up)</a> <a href="ccda/progress-03.xml">(XML)</a></li><li><a href="ccda/progress-04.html">Progress note 04 — Preventive Visit</a> <a href="ccda/progress-04.xml">(XML)</a></li><li><a href="ccda/progress-05.html">Progress note 05 — Sick Visit</a> <a href="ccda/progress-05.xml">(XML)</a></li><li><a href="ccda/progress-06.html">Progress note 06 — Focused Visit (Follow-up)</a> <a href="ccda/progress-06.xml">(XML)</a></li><li><a href="ccda/progress-07.html">Progress note 07 — Focused Visit (Care-plan review)</a> <a href="ccda/progress-07.xml">(XML)</a></li><li><a href="ccda/referral-01.html">Infectious Diseases (travel medicine) referral</a> <a href="ccda/referral-01.xml">(XML)</a></li><li><a href="ccda/consult-01.html">Infectious Diseases (travel medicine) consultation</a> <a href="ccda/consult-01.xml">(XML)</a></li></ul></section>
+    <section><h2>Sources</h2><table><thead><tr><th>ID</th><th>Source</th><th>Publisher</th><th>Type</th></tr></thead><tbody>
+  <tr>
+    <td>SRC-0001</td>
+    <td><a href="http://www.biographi.ca/en/bio/le_moyne_d_iberville_et_d_ardillieres_pierre_2E.html" target="_blank" rel="noreferrer">Pothier B. Le Moyne d&#39;Iberville et d&#39;Ardillières, Pierre. In: Dictionary of Canadian Biography, vol. 2 (University of Toronto/Université Laval, 1969; revised 1982)</a></td>
+    <td>Dictionary of Canadian Biography</td>
+    <td>biography</td>
+  </tr>
+  <tr>
+    <td>SRC-0002</td>
+    <td><a href="https://www.thecanadianencyclopedia.ca/en/article/pierre-le-moyne-diberville-et-dardillieres" target="_blank" rel="noreferrer">Marsh JH. Pierre Le Moyne d&#39;Iberville et d&#39;Ardillières. The Canadian Encyclopedia (published January 21, 2008; last edited September 23, 2021)</a></td>
+    <td>Historica Canada</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0003</td>
+    <td><a href="https://64parishes.org/entry/pierre-le-moyne-diberville-2" target="_blank" rel="noreferrer">Pasquier MT. Pierre Le Moyne d&#39;Iberville. 64 Parishes</a></td>
+    <td>Louisiana Endowment for the Humanities</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0004</td>
+    <td><a href="https://humanrecord.example.org/internal/HISTMED_Master_Roster_v3.xlsx" target="_blank" rel="noreferrer">HISTMED Master Roster v3</a></td>
+    <td>The Human Record project</td>
+    <td>other</td>
+  </tr></tbody></table></section>
+    <section><h2>Review status</h2><table><thead><tr><th>Review</th><th>Status</th><th>Notes</th></tr></thead><tbody>
+  <tr><td>schema validation</td><td>not_started</td><td>Run scripts/build.ps1 -Conformance.</td></tr>
+  <tr><td>clinical review</td><td>not_started</td><td>Awaiting clinician review; check the diagnosis of relapsing P. vivax malaria on a positive PCR with negative smears, chloroquine with primaquine at 30 mg base for 14 days after a normal quantitative G6PD, the travel vaccines and the yellow fever certificate timing, atovaquone-proguanil for French Guiana, primaquine terminal prophylaxis, and drainage alone for a small abscess.</td></tr>
+  <tr><td>provenance review</td><td>not_started</td><td>The Dictionary of Canadian Biography, the Canadian Encyclopedia and 64 Parishes logged. Yellow fever as the cause of death is graded R and disputed; the roster&#39;s combat wounds and alcohol were not found in any fetched source and are not recorded as claims.</td></tr>
+  <tr><td>safe messaging review</td><td>not_started</td><td>No behavioral-health content. The enslaved people seized at Nevis are recorded as documented history without any health fact about them.</td></tr></tbody></table></section>
+  </main>
+</body>
+</html>

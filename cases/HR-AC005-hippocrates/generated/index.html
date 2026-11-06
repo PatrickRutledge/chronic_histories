@@ -1,0 +1,534 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hippocrates — The Human Record</title>
+  <style>
+    :root { --navy:#17365d; --blue:#1f4e78; --pale:#eef5fa; --ink:#1f2933; --muted:#66788a; --amber:#fff2cc; --red:#f8d7da; --green:#d9ead3; }
+    * { box-sizing:border-box; }
+    body { margin:0; font:16px/1.5 Arial, sans-serif; color:var(--ink); background:#f6f8fa; }
+    header { background:var(--navy); color:white; padding:24px max(24px,calc((100vw - 1180px)/2)); }
+    header h1 { margin:4px 0; font-size:30px; }
+    .banner { background:#b42318; color:white; font-weight:700; text-align:center; padding:10px; letter-spacing:.03em; }
+    main { max-width:1180px; margin:24px auto 60px; padding:0 24px; }
+    section { background:white; border:1px solid #d9e1e8; border-radius:8px; margin:18px 0; padding:20px; }
+    h2 { color:var(--navy); margin:0 0 14px; font-size:22px; }
+    h3 { color:var(--blue); }
+    .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:12px; }
+    .card { background:var(--pale); border-left:4px solid var(--blue); padding:12px; }
+    .label { color:var(--muted); font-size:13px; text-transform:uppercase; letter-spacing:.04em; }
+    table { width:100%; border-collapse:collapse; }
+    th { background:var(--blue); color:white; text-align:left; }
+    th,td { padding:9px; border-bottom:1px solid #dfe6ec; vertical-align:top; }
+    .badge { display:inline-block; min-width:28px; text-align:center; font-weight:700; border-radius:12px; padding:2px 8px; }
+    .grade-D { background:var(--green); } .grade-R { background:var(--amber); } .grade-S { background:var(--red); }
+    .muted { color:var(--muted); font-size:14px; }
+    .relationship { color:var(--muted); font-size:12px; }
+    .downloads a { display:inline-block; margin:4px 8px 4px 0; padding:8px 12px; background:var(--blue); color:white; text-decoration:none; border-radius:5px; }
+    @media (max-width:700px) { table { display:block; overflow-x:auto; } }
+  </style>
+</head>
+<body>
+  <div class="banner">SYNTHETIC RECORD, NOT A REAL MEDICAL RECORD</div>
+  <header>
+    <div>The Human Record</div>
+    <h1>Hippocrates</h1>
+    <div>Case HR-AC005 · Modern EHR teaching episode · Draft for review</div>
+  </header>
+  <main>
+    <section>
+      <h2>Review summary</h2>
+      <div class="grid">
+        <div class="card"><div class="label">Historical dates</div>About 460 BC – About 370 BC (traditions give ages of 85, 90, 104 or 109)</div>
+        <div class="card"><div class="label">Synthetic DOB</div>1937-01-10</div>
+        <div class="card"><div class="label">Index visit</div>2026-03-02 at age 89</div>
+        <div class="card"><div class="label">Synthetic MRN</div>HR-AC005-SYN</div>
+      </div>
+      <p><strong>Teaching objective:</strong> Healthy aging in a nonagenarian, with care built on function rather than disease: an 89-year-old physician who still teaches comes in after a wellness screening notes slower walking and a near-fall. The episode covers the comprehensive geriatric assessment (gait speed, Timed Up and Go, chair stands and the four-stage balance test, grip strength, MoCA and Mini-Cog, GDS-15, hearing and vision, nutrition and continence) and frailty (Clinical Frailty Scale and the FRAIL scale, ICFSR 2019); the Age-Friendly Health Systems 4Ms (What Matters, Medication, Mentation, Mobility); a deprescribing review with the AGS Beers Criteria 2023 (over-the-counter naproxen and diphenhydramine stopped); knee osteoarthritis diagnosed clinically without imaging and treated with exercise, topical diclofenac and acetaminophen (ACR/AF 2019); falls prevention by STEADI and the World Falls Guidelines, with a strength and balance program; bone health in an older man (DXA, FRAX and vitamin D); a sick visit for a cold that tests the deprescribing plan; vaccinations for his age (pneumococcal, RSV, recombinant zoster, high-dose influenza); and advance care planning centered on what matters most to him.</p>
+      <div class="downloads">
+        <a href="../case.json">Canonical JSON</a>
+        <a href="fhir-bundle.json">FHIR R4 draft</a>
+        <a href="ccda.html">C-CDA R2.1 summary</a> <a href="ccda.xml">(XML)</a> <a href="review.html">Review checklist</a>
+        <a href="../sources.md">Evidence dossier</a>
+      </div>
+    </section>
+    <section><h2>Historical timeline</h2><table><thead><tr><th>Date</th><th>Event</th><th>Claims</th></tr></thead><tbody>
+  <tr><td>About 460 BC</td><td>Born on the island of Cos (Kos), of the Asclepiad guild of physicians, by the late ancient lives.</td><td>CLM-0002</td></tr>
+  <tr><td>Late fifth or early fourth century BC</td><td>Named by Plato as a physician of Cos who taught medicine for a fee; later called &#39;the Great Hippocrates&#39; by Aristotle. The writings that bear his name are by many authors.</td><td>CLM-0001, CLM-0005, CLM-0006, CLM-0007</td></tr>
+  <tr><td>About 370 BC (traditions give ages from 85 to 109)</td><td>Dies in Thessaly and is buried at Larissa, by the Suda; the year and his age are uncertain.</td><td>CLM-0003, CLM-0004</td></tr></tbody></table></section>
+    <section><h2>Evidence claims</h2><p class="muted">D = documented, R = retrospective, S = synthetic.</p><table><thead><tr><th>Grade</th><th>Claim</th><th>Certainty</th><th>Sources</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>Plato names him in the Protagoras as &#39;Hippocrates of Cos, the Asclepiad&#39;, a physician who took pupils for a fee, and in the Phaedrus cites his method; Aristotle calls him &#39;the Great Hippocrates&#39;. These are the earliest witnesses to him.</strong><div class="muted">The documented core of his life: a physician and teacher of medicine from Cos. It anchors his work in the modern social history.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.gutenberg.org/ebooks/1591" target="_blank" rel="noreferrer">Plato. Protagoras, translated by Benjamin Jowett (Project Gutenberg eBook #1591)</a> <span class="relationship">supports</span><br><a href="https://archive.org/details/hippocrates01hippuoft" target="_blank" rel="noreferrer">Jones WHS. Hippocrates, with an English translation, vol. I, General Introduction (Loeb Classical Library, 1923) (Internet Archive, University of Toronto copy)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>The three ancient lives (by Soranus, a late writer, and in the Suda and Tzetzes, all written many centuries after him) say that he was born on Cos in 460 BC, that his father Heraclides was a physician of the Asclepiad guild and taught him, and that he travelled widely in Greece; the Loeb editor finds &#39;a certain amount of fable&#39; in them but nothing improbable in their broad outline.</strong><div class="muted">Birth on Cos about 460 BC is accepted by modern scholars; the details of the lives are late and partly legendary.</div></td>
+    <td>probable</td>
+    <td><a href="https://archive.org/details/hippocrates01hippuoft" target="_blank" rel="noreferrer">Jones WHS. Hippocrates, with an English translation, vol. I, General Introduction (Loeb Classical Library, 1923) (Internet Archive, University of Toronto copy)</a> <span class="relationship">supports</span><br><a href="https://www.cs.uky.edu/~raphael/sol/sol-entries/iota/564" target="_blank" rel="noreferrer">Suda On Line, iota 564: Hippocrates (translated by Carl Widstrand, 2000, with editors&#39; notes)</a> <span class="relationship">supports</span><br><a href="https://humanrecord.example.org/internal/HISTMED_Master_Roster_v3.xlsx" target="_blank" rel="noreferrer">HISTMED Master Roster v3</a> <span class="relationship">context</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-R" title="Retrospective">R</span></td>
+    <td><strong>How long he lived is not known: the traditions make him live 85, 90, 104 or 109 years, and the Suda says about 104. Some stories in the lives are legend; the Loeb editor notes that the tale of his staying the plague at Athens contradicts Thucydides.</strong><div class="muted">The length of his life rests on late and conflicting traditions; the modern episode follows the ninety-year tradition only to place the index age and makes no claim about his real age at death.</div></td>
+    <td>disputed</td>
+    <td><a href="https://archive.org/details/hippocrates01hippuoft" target="_blank" rel="noreferrer">Jones WHS. Hippocrates, with an English translation, vol. I, General Introduction (Loeb Classical Library, 1923) (Internet Archive, University of Toronto copy)</a> <span class="relationship">supports</span><br><a href="https://www.cs.uky.edu/~raphael/sol/sol-entries/iota/564" target="_blank" rel="noreferrer">Suda On Line, iota 564: Hippocrates (translated by Carl Widstrand, 2000, with editors&#39; notes)</a> <span class="relationship">supports</span><br><a href="https://humanrecord.example.org/internal/HISTMED_Master_Roster_v3.xlsx" target="_blank" rel="noreferrer">HISTMED Master Roster v3</a> <span class="relationship">context</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>According to the Suda he died in Thessaly and was buried at Larissa.</strong><div class="muted">Anchors the assumed setting of the modern episode; the date of his death is not known.</div></td>
+    <td>probable</td>
+    <td><a href="https://www.cs.uky.edu/~raphael/sol/sol-entries/iota/564" target="_blank" rel="noreferrer">Suda On Line, iota 564: Hippocrates (translated by Carl Widstrand, 2000, with editors&#39; notes)</a> <span class="relationship">supports</span><br><a href="https://humanrecord.example.org/internal/HISTMED_Master_Roster_v3.xlsx" target="_blank" rel="noreferrer">HISTMED Master Roster v3</a> <span class="relationship">context</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>The Hippocratic Corpus is not the work of one man. The Loeb editor describes it as the remains of a library of works &#39;of various dates and of different schools&#39;, a great part of which is &#39;neither by Hippocrates himself nor by his school&#39;; Aristotle ascribed one of its treatises to Polybus, and Hippocrates is &#39;a name without writings&#39;. Which treatises, if any, he wrote is still debated.</strong><div class="muted">Recorded so that no statement in the Corpus is attributed to him as fact.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://archive.org/details/hippocrates01hippuoft" target="_blank" rel="noreferrer">Jones WHS. Hippocrates, with an English translation, vol. I, General Introduction (Loeb Classical Library, 1923) (Internet Archive, University of Toronto copy)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>Modern medicine regards him as its founder: reviews call him &#39;the father of modern medicine&#39; and &#39;the founding father of clinical medicine&#39;, for medicine based on observation of clinical signs rather than on religious or magical beliefs.</strong><div class="muted">His reputation; it anchors the teaching theme of a physician as patient.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://pubmed.ncbi.nlm.nih.gov/19567383/" target="_blank" rel="noreferrer">Yapijakis C. Hippocrates of Kos, the father of clinical medicine, and Asclepiades of Bithynia, the father of molecular medicine. In Vivo 2009;23(4):507-514 (PMID 19567383)</a> <span class="relationship">supports</span><br><a href="https://pubmed.ncbi.nlm.nih.gov/39483540/" target="_blank" rel="noreferrer">Kostakopoulos NA, Bellos TC, Katsimperis S, Tzelves L. Hippocrates of Kos (460-377 BC): The Founder and Pioneer of Clinical Medicine. Cureus 2024;16(10):e70602 (PMID 39483540; PMC11526839)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-R" title="Retrospective">R</span></td>
+    <td><strong>Nothing about his own health is documented in the sources read: no illness, injury or cause of death is recorded. The roster&#39;s &#39;longevity; natural aging&#39; is a lead only, resting on the disputed traditions of his age.</strong><div class="muted">The thin chart is the point: the modern episode is built around normal aging, not a historical diagnosis.</div></td>
+    <td>disputed</td>
+    <td><a href="https://archive.org/details/hippocrates01hippuoft" target="_blank" rel="noreferrer">Jones WHS. Hippocrates, with an English translation, vol. I, General Introduction (Loeb Classical Library, 1923) (Internet Archive, University of Toronto copy)</a> <span class="relationship">context</span><br><a href="https://humanrecord.example.org/internal/HISTMED_Master_Roster_v3.xlsx" target="_blank" rel="noreferrer">HISTMED Master Roster v3</a> <span class="relationship">context</span></td>
+  </tr></tbody></table></section>
+    <section><h2>Modern synthetic problem list</h2><table><thead><tr><th>Grade</th><th>Problem</th><th>Clinical status</th><th>Verification</th><th>Placement</th><th>Historical claims</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Slower walking, knee pain on stairs and one near-fall in the past six months, found on the comprehensive geriatric assessment at intake: gait speed 0.78 m/s, Timed Up and Go 13.8 seconds, unable to hold a tandem stance for 10 seconds, grip 24 kg; cause under evaluation with a geriatric medicine consultation</td>
+    <td>resolved</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td>CLM-0007</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Primary osteoarthritis of both knees, diagnosed clinically by the ACR criteria (knee pain, age over 50, morning stiffness under 30 minutes, crepitus, bony enlargement, no warmth), with reduced quadriceps strength and balance and an increased risk of falls; KOOS JR 62</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td>CLM-0007</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Potentially inappropriate over-the-counter medicines (Beers 2023): naproxen most days for about two years and diphenhydramine for sleep three or four nights a week; both stopped at intake</td>
+    <td>resolved</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td>CLM-0007</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Low bone mass (femoral neck T-score -1.7, total hip -1.4) with vitamin D insufficiency (24 ng/mL); FRAX 10-year risk 11 percent major and 2.6 percent hip, below treatment thresholds</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td>CLM-0007</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Common cold (viral upper respiratory infection) with runny nose, sore throat and a mild cough, no fever, chest clear, oxygen saturation 97 percent; COVID-19 and influenza tests negative; resolved in about ten days</td>
+    <td>resolved</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td></td>
+  </tr></tbody></table></section>
+    <section><h2>Synthetic outcome measures</h2><table><thead><tr><th>Grade</th><th>Date</th><th>Measure</th><th>Result</th><th>Coding</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-02</td>
+    <td>Sodium [Moles/volume] in Serum or Plasma</td>
+    <td>139 mmol/L<div class="muted">Reference 135-145 mmol/L</div></td>
+    <td>http://loinc.org · 2951-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-02</td>
+    <td>Potassium [Moles/volume] in Serum or Plasma</td>
+    <td>4.4 mmol/L<div class="muted">Reference 3.5-5.1 mmol/L</div></td>
+    <td>http://loinc.org · 2823-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-02</td>
+    <td>Creatinine [Mass/volume] in Serum or Plasma</td>
+    <td>1.08 mg/dL<div class="muted">Reference 0.74-1.35 mg/dL</div></td>
+    <td>http://loinc.org · 2160-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-02</td>
+    <td>Glucose [Mass/volume] in Serum or Plasma</td>
+    <td>92 mg/dL<div class="muted">Reference 70-99 mg/dL</div></td>
+    <td>http://loinc.org · 2345-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-02</td>
+    <td>Calcium [Mass/volume] in Serum or Plasma</td>
+    <td>9.3 mg/dL<div class="muted">Reference 8.6-10.3 mg/dL</div></td>
+    <td>http://loinc.org · 17861-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-02</td>
+    <td>Glomerular filtration rate [Volume Rate/Area] in Serum, Plasma or Blood by Creatinine-based formula (CKD-EPI 2021)/1.73 sq M</td>
+    <td>63 mL/min/1.73 m²<div class="muted">Reference &gt;=60 mL/min/1.73 m²</div></td>
+    <td>http://loinc.org · 98979-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-02</td>
+    <td>Hemoglobin [Mass/volume] in Blood</td>
+    <td>13.6 g/dL<div class="muted">Reference 13-17 g/dL</div></td>
+    <td>http://loinc.org · 718-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-02</td>
+    <td>Platelets [#/volume] in Blood by Automated count</td>
+    <td>228 10*3/uL<div class="muted">Reference 150-400 10*3/uL</div></td>
+    <td>http://loinc.org · 777-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-02</td>
+    <td>Albumin [Mass/volume] in Serum or Plasma</td>
+    <td>4.1 g/dL<div class="muted">Reference 3.5-5 g/dL</div></td>
+    <td>http://loinc.org · 1751-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-02</td>
+    <td>25-Hydroxyvitamin D3+25-Hydroxyvitamin D2 [Mass/volume] in Serum or Plasma</td>
+    <td>24 ng/mL (low)<div class="muted">Reference Below 20 ng/mL deficient; 20 to 29 insufficient</div></td>
+    <td>http://loinc.org · 62292-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-02</td>
+    <td>Thyrotropin [Units/volume] in Serum or Plasma</td>
+    <td>2.1 mIU/L<div class="muted">Reference 0.4-4.5 mIU/L</div></td>
+    <td>http://loinc.org · 3016-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-02</td>
+    <td>Grip strength Hand - left Dynamometer</td>
+    <td>22 kg</td>
+    <td>http://loinc.org · 83173-5</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-02</td>
+    <td>Grip strength Hand - right Dynamometer</td>
+    <td>24 kg</td>
+    <td>http://loinc.org · 83174-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-02</td>
+    <td>Total score [MoCA]</td>
+    <td>26</td>
+    <td>http://loinc.org · 72172-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-02</td>
+    <td>Geriatric depression scale (GDS) short version total</td>
+    <td>2</td>
+    <td>http://loinc.org · 48545-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-02</td>
+    <td>Total interval score [KOOSJR]</td>
+    <td>62</td>
+    <td>http://loinc.org · 82332-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-02</td>
+    <td>Pain severity - 0-10 verbal numeric rating [Score] - Reported</td>
+    <td>5</td>
+    <td>http://loinc.org · 72514-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-16</td>
+    <td>Cobalamin (Vitamin B12) [Mass/volume] in Serum or Plasma</td>
+    <td>418 pg/mL<div class="muted">Reference 232-1245 pg/mL</div></td>
+    <td>http://loinc.org · 2132-9</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-16</td>
+    <td>Pain severity - 0-10 verbal numeric rating [Score] - Reported</td>
+    <td>4</td>
+    <td>http://loinc.org · 72514-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-04-27</td>
+    <td>DXA Femur [T-score] Bone density</td>
+    <td>-1.7 (low)<div class="muted">Reference -1.0 or higher is normal; between -1.0 and -2.5 is low bone mass; -2.5 or lower is osteoporosis</div></td>
+    <td>http://loinc.org · 38263-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-04-27</td>
+    <td>DXA Hip [T-score] Bone density</td>
+    <td>-1.4 (low)<div class="muted">Reference -1.0 or higher is normal; between -1.0 and -2.5 is low bone mass; -2.5 or lower is osteoporosis</div></td>
+    <td>http://loinc.org · 38264-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-04-27</td>
+    <td>DXA Lumbar spine [T-score] Bone density</td>
+    <td>-0.6<div class="muted">Reference May read falsely high with spinal osteoarthritis</div></td>
+    <td>http://loinc.org · 38267-1</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-04-27</td>
+    <td>Major osteoporotic fracture 10-year probability [Likelihood] Fracture Risk Assessment</td>
+    <td>11%</td>
+    <td>http://loinc.org · 90265-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-04-27</td>
+    <td>Hip fracture 10-year probability [Likelihood] Fracture Risk Assessment</td>
+    <td>2.6%</td>
+    <td>http://loinc.org · 90266-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-04-27</td>
+    <td>Pain severity - 0-10 verbal numeric rating [Score] - Reported</td>
+    <td>3</td>
+    <td>http://loinc.org · 72514-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-06-08</td>
+    <td>Total score [Mini-Cog]</td>
+    <td>5</td>
+    <td>http://loinc.org · 72233-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-06-08</td>
+    <td>Patient Health Questionnaire 2 item (PHQ-2) total score [Reported]</td>
+    <td>0</td>
+    <td>http://loinc.org · 55758-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-06-29</td>
+    <td>25-Hydroxyvitamin D3+25-Hydroxyvitamin D2 [Mass/volume] in Serum or Plasma</td>
+    <td>33 ng/mL<div class="muted">Reference Below 20 ng/mL deficient; 20 to 29 insufficient</div></td>
+    <td>http://loinc.org · 62292-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-06-29</td>
+    <td>Grip strength Hand - left Dynamometer</td>
+    <td>24 kg</td>
+    <td>http://loinc.org · 83173-5</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-06-29</td>
+    <td>Grip strength Hand - right Dynamometer</td>
+    <td>26 kg</td>
+    <td>http://loinc.org · 83174-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-06-29</td>
+    <td>Total interval score [KOOSJR]</td>
+    <td>74</td>
+    <td>http://loinc.org · 82332-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-06-29</td>
+    <td>Pain severity - 0-10 verbal numeric rating [Score] - Reported</td>
+    <td>2</td>
+    <td>http://loinc.org · 72514-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-09-28</td>
+    <td>Grip strength Hand - left Dynamometer</td>
+    <td>24 kg</td>
+    <td>http://loinc.org · 83173-5</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-09-28</td>
+    <td>Grip strength Hand - right Dynamometer</td>
+    <td>26 kg</td>
+    <td>http://loinc.org · 83174-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-09-28</td>
+    <td>Total interval score [KOOSJR]</td>
+    <td>76</td>
+    <td>http://loinc.org · 82332-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-09-28</td>
+    <td>Pain severity - 0-10 verbal numeric rating [Score] - Reported</td>
+    <td>2</td>
+    <td>http://loinc.org · 72514-3</td>
+  </tr></tbody></table></section>
+    <section><h2>Synthetic vital signs</h2><table><thead><tr><th>Date</th><th>Measure</th><th>Result</th><th>LOINC</th><th>Grade</th></tr></thead><tbody>
+  <tr><td>2026-03-02</td><td>Body height</td><td>168 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-02</td><td>Body weight</td><td>64.2 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-02</td><td>Body mass index (BMI) [Ratio]</td><td>22.7 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-02</td><td>Systolic blood pressure</td><td>138 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-02</td><td>Diastolic blood pressure</td><td>74 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-02</td><td>Heart rate</td><td>68 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-02</td><td>Respiratory rate</td><td>16 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-02</td><td>Body temperature</td><td>36.5 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-02</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>97 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-16</td><td>Body height</td><td>168 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-16</td><td>Body weight</td><td>64 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-16</td><td>Body mass index (BMI) [Ratio]</td><td>22.7 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-16</td><td>Systolic blood pressure</td><td>136 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-16</td><td>Diastolic blood pressure</td><td>74 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-16</td><td>Heart rate</td><td>66 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-16</td><td>Respiratory rate</td><td>16 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-16</td><td>Body temperature</td><td>36.5 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-16</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>97 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-13</td><td>Body height</td><td>168 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-13</td><td>Body weight</td><td>64 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-13</td><td>Body mass index (BMI) [Ratio]</td><td>22.7 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-13</td><td>Systolic blood pressure</td><td>136 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-13</td><td>Diastolic blood pressure</td><td>72 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-13</td><td>Heart rate</td><td>78 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-13</td><td>Respiratory rate</td><td>18 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-13</td><td>Body temperature</td><td>37.4 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-13</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>97 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-27</td><td>Body height</td><td>168 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-27</td><td>Body weight</td><td>64.4 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-27</td><td>Body mass index (BMI) [Ratio]</td><td>22.8 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-27</td><td>Systolic blood pressure</td><td>134 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-27</td><td>Diastolic blood pressure</td><td>72 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-27</td><td>Heart rate</td><td>66 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-27</td><td>Respiratory rate</td><td>16 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-27</td><td>Body temperature</td><td>36.4 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-27</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>97 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-08</td><td>Body height</td><td>168 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-08</td><td>Body weight</td><td>64.5 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-08</td><td>Body mass index (BMI) [Ratio]</td><td>22.9 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-08</td><td>Systolic blood pressure</td><td>134 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-08</td><td>Diastolic blood pressure</td><td>72 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-08</td><td>Heart rate</td><td>64 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-08</td><td>Respiratory rate</td><td>16 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-08</td><td>Body temperature</td><td>36.5 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-08</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>97 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-29</td><td>Body height</td><td>168 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-29</td><td>Body weight</td><td>64.6 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-29</td><td>Body mass index (BMI) [Ratio]</td><td>22.9 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-29</td><td>Systolic blood pressure</td><td>132 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-29</td><td>Diastolic blood pressure</td><td>72 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-29</td><td>Heart rate</td><td>64 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-29</td><td>Respiratory rate</td><td>16 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-29</td><td>Body temperature</td><td>36.5 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-29</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>97 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-09-28</td><td>Body height</td><td>168 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-09-28</td><td>Body weight</td><td>64.8 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-09-28</td><td>Body mass index (BMI) [Ratio]</td><td>23 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-09-28</td><td>Systolic blood pressure</td><td>134 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-09-28</td><td>Diastolic blood pressure</td><td>72 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-09-28</td><td>Heart rate</td><td>64 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-09-28</td><td>Respiratory rate</td><td>16 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-09-28</td><td>Body temperature</td><td>36.5 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-09-28</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>97 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr></tbody></table></section>
+    <section><h2>Social, functional, and mental status</h2><h3>Social history</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Physician and teacher of medicine for some seventy years; still teaches pupils two mornings a week, examines their case notes and writes; walks into town for his teaching</li><li><span class="badge grade-S" title="Synthetic">S</span> Lives alone in his own house in the town, with stairs to the bedroom; a neighbor looks in each day; pupils and friends visit often</li><li><span class="badge grade-S" title="Synthetic">S</span> Never smoked; one small cup of wine mixed with water at dinner most days (AUDIT-C 1); no other substances</li><li><span class="badge grade-S" title="Synthetic">S</span> Eats a plain diet of barley, beans, vegetables, fish, cheese and olive oil; drinks water through the day; walks about 2 km a day, less since the knee pain worsened</li><li><span class="badge grade-S" title="Synthetic">S</span> Strengths: lifelong habits of observation and moderation, a sharp mind, purpose in teaching, friends and pupils around him, and his own wish to stay independent</li></ul><h3>Functional status</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Independent in all activities of daily living and in instrumental activities (shopping, cooking, his own medicines and money); climbs his stairs with the rail and one foot at a time; walks more slowly and stops to rest on the hill into town; Clinical Frailty Scale 3 (managing well); FRAIL scale 1 of 5 (difficulty climbing stairs), pre-frail</li></ul><h3>Mental status</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Alert, courteous and precise; speech fluent; mood good; affect full; no psychotic symptoms; MoCA 26 of 30 (lost points on delayed recall); GDS-15 2</li></ul></section>
+    
+    <section><h2>Allergies and medications</h2><h3>Allergies</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> No known allergy</li></ul><h3>Medications</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Naproxen sodium 220 mg oral tablet, one or two tablets most days for knee pain, bought over the counter, for about two years; stopped at intake (Beers 2023: avoid chronic use)</li><li><span class="badge grade-S" title="Synthetic">S</span> Diphenhydramine 25 mg oral capsule at bedtime three or four nights a week for sleep, bought over the counter; stopped at intake (Beers 2023: strongly anticholinergic)</li><li><span class="badge grade-S" title="Synthetic">S</span> Acetaminophen 500 mg oral tablet, one or two tablets up to three times a day as needed for knee pain, no more than 3,000 mg in a day</li><li><span class="badge grade-S" title="Synthetic">S</span> Vitamin D3 (cholecalciferol) 25 micrograms (1,000 units) oral tablet once daily</li><li><span class="badge grade-S" title="Synthetic">S</span> Diclofenac 1% gel, 4 g rubbed into each painful knee up to four times a day</li><li><span class="badge grade-S" title="Synthetic">S</span> Sodium chloride 0.65% nasal spray, two sprays in each nostril as needed for congestion</li></ul></section>
+    <section><h2>Procedures and immunizations</h2><h3>Procedures</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> DXA of the lumbar spine and both hips: femoral neck T-score -1.7 (lower of the two hips), total hip -1.4, lumbar spine L1 to L4 -0.6 with degenerative change; no vertebral fracture on vertebral fracture assessment</li><li><span class="badge grade-S" title="Synthetic">S</span> Advance care planning conversation, about 30 minutes</li></ul><h3>Immunizations</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> 2026-04-27: Pneumococcal conjugate vaccine (PCV20), single dose, one or more years after PPSV23 at 65</li><li><span class="badge grade-S" title="Synthetic">S</span> 2026-06-08: RSV vaccine (adjuvanted RSVpreF3), single dose for an adult aged 75 or older</li><li><span class="badge grade-S" title="Synthetic">S</span> 2026-06-08: Recombinant zoster vaccine, first of two doses</li><li><span class="badge grade-S" title="Synthetic">S</span> 2026-09-28: Recombinant zoster vaccine, second of two doses</li><li><span class="badge grade-S" title="Synthetic">S</span> 2026-09-28: Influenza vaccine, high-dose, trivalent, preservative-free, for this season</li></ul></section>
+    <section><h2>Past medical history</h2><p class="muted">True biography with historical dates; not part of the synthetic care timeline.</p><ul></ul><h3>Family history</h3><p class="muted">No family medical history is documented in the logged sources. Family history of real relatives is never synthesized.</p></section>
+    <section><h2>Care-plan goals</h2><table><thead><tr><th>Goal</th><th>Target date</th><th>Status</th><th>Outcome</th></tr></thead><tbody>
+  <tr><td>Find out why he walks more slowly and nearly fell</td><td>2026-03-16</td><td>completed</td><td>Knee osteoarthritis with reduced quadriceps strength and balance, and diphenhydramine at night; no neurologic, thyroid, B12 or blood pressure cause</td></tr>
+  <tr><td>Walk into town and back for his teaching without stopping to rest, and climb his stairs safely</td><td>2026-09-28</td><td>completed</td><td>Gait speed 0.78 to 0.96 m/s; Timed Up and Go 13.8 to 10.9 seconds; walks to town without stopping; no falls</td></tr>
+  <tr><td>No medicine he does not need, and none on the Beers list</td><td>2026-04-27</td><td>completed</td><td>Naproxen and diphenhydramine stopped; sleeping without a sleep aid; chose not to take a cold remedy with diphenhydramine</td></tr>
+  <tr><td>Knee pain 3 of 10 or less on stairs</td><td>2026-06-29</td><td>completed</td><td>5 to 2 of 10 on exercise, topical diclofenac and acetaminophen as needed; KOOS JR 62 to 74</td></tr>
+  <tr><td>Bones and falls: vitamin D above 30 ng/mL and no falls</td><td>2027-03-02</td><td>active</td><td>Vitamin D 24 to 33 ng/mL; no falls in seven months</td></tr></tbody></table></section>
+    <section><h2>Interventions</h2><table><thead><tr><th>Intervention</th><th>Status</th><th>Guideline</th></tr></thead><tbody>
+  <tr><td>Comprehensive geriatric assessment at intake: gait speed, Timed Up and Go, 30-second chair stand, four-stage balance test, grip strength, orthostatic blood pressure, MoCA, GDS-15, hearing (whisper test), vision, nutrition (MNA-SF), continence, the Clinical Frailty Scale and the FRAIL scale; what matters most to him (4Ms)</td><td>completed</td><td>GL-IHI-4MS, GL-ICFSR-2019, GL-STEADI-2025</td></tr>
+  <tr><td>Geriatric medicine consultation for slower gait and a near-fall in a man of 89: the cause, frailty, the deprescribing plan, falls prevention, bone health and a plan built on what matters most to him</td><td>completed</td><td>GL-IHI-4MS, GL-STEADI-2025, GL-WFG-2022</td></tr>
+  <tr><td>Deprescribing (Beers 2023): stop over-the-counter naproxen (chronic NSAID use at 89) and diphenhydramine (strongly anticholinergic); acetaminophen up to 3,000 mg a day as needed; sleep routine without a sleep aid; check every over-the-counter purchase with the clinic or pharmacist</td><td>completed</td><td>GL-AGS-BEERS-2023</td></tr>
+  <tr><td>Bone health: 25-hydroxyvitamin D at intake and after repletion; vitamin D3 1,000 units daily; calcium from food (about 1,200 mg a day); DXA of the spine and hips with FRAX</td><td>completed</td><td>GL-BHOF-2022, GL-ENDO-MEN-2012, GL-CMID-2026</td></tr>
+  <tr><td>Knee osteoarthritis: diagnosis on clinical criteria without X-ray; exercise as the core treatment; diclofenac 1% gel to the knees; acetaminophen as needed; KOOS JR and a pain score at each visit; weight kept steady</td><td>completed</td><td>GL-ACR-OA-2019, GL-CMID-2026</td></tr>
+  <tr><td>Falls prevention (STEADI and the World Falls Guidelines): twelve weeks of physical therapy with a progressive strength and balance program based on Otago, then tai chi twice a week; a home safety check with a second stair rail and night lights; well-fitting shoes; gait, balance and strength measures repeated after the program</td><td>completed</td><td>GL-STEADI-2025, GL-WFG-2022, GL-USPSTF-FALLS-2024</td></tr>
+  <tr><td>Low bone mass below treatment thresholds (FRAX hip 2.6 percent, major 11 percent): no osteoporosis medicine now; vitamin D, dietary calcium, exercise and falls prevention; repeat DXA and FRAX in two years, or sooner after any fracture</td><td>completed</td><td>GL-BHOF-2022, GL-CMID-2026</td></tr></tbody></table></section>
+    <section><h2>Planned encounters</h2><ul>
+  <li><strong>2026-03-02</strong> — Establishing care with a comprehensive geriatric assessment, after his annual wellness screening elsewhere noted slower walking and a near-fall: gait speed, Timed Up and Go, chair stands, balance, grip strength, MoCA, GDS-15, hearing, vision, nutrition and continence; frailty; a deprescribing review; bone health; what matters most to him; and a geriatric medicine consultation <span class="muted">(ENC-001)</span></li>
+  <li><strong>2026-03-16</strong> — Two-week review, seen the same day by geriatric medicine: the cause of the slower gait, knee osteoarthritis, the deprescribing plan, a strength and balance program, falls prevention and bone health <span class="muted">(ENC-002)</span></li>
+  <li><strong>2026-04-13</strong> — Same-day sick visit for a common cold <span class="muted">(ENC-007, unscheduled)</span></li>
+  <li><strong>2026-04-27</strong> — Eight-week review: knee pain and function, the strength and balance program, sleep without diphenhydramine, the DXA result and pneumococcal vaccine <span class="muted">(ENC-003)</span></li>
+  <li><strong>2026-06-08</strong> — Subsequent annual wellness visit <span class="muted">(ENC-006)</span></li>
+  <li><strong>2026-06-29</strong> — Four-month review: knee function, repeat gait, balance and strength measures, vitamin D, falls and the home program <span class="muted">(ENC-004)</span></li>
+  <li><strong>2026-09-28</strong> — Seven-month review: knee function, mobility, falls, medicines, vaccines and what matters most to him <span class="muted">(ENC-005)</span></li></ul></section>
+    <section><h2>Supporting documents</h2><ul><li><a href="notes/hp.md">History and physical</a></li><li><a href="notes/progress-01.md">Progress note 01</a></li><li><a href="notes/progress-02.md">Progress note 02 — Focused Visit (Follow-up)</a></li><li><a href="notes/progress-03.md">Progress note 03 — Sick Visit</a></li><li><a href="notes/progress-04.md">Progress note 04 — Focused Visit (Follow-up)</a></li><li><a href="notes/progress-05.md">Progress note 05 — Annual Wellness Visit, Subsequent</a></li><li><a href="notes/progress-06.md">Progress note 06 — Focused Visit (Follow-up)</a></li><li><a href="notes/progress-07.md">Progress note 07 — Focused Visit (Care-plan review)</a></li><li><a href="notes/referral-01.md">Geriatric Medicine referral</a></li><li><a href="notes/consult-01.md">Geriatric Medicine consultation</a></li><li><a href="notes/careplan.md">Patient care plan</a></li><li><a href="notes/teaching-note.md">Teaching note</a></li><li><a href="provenance.csv">Provenance CSV</a></li></ul></section>
+    <section><h2>C-CDA note documents</h2><p class="muted">Each link opens a readable copy; the XML beside it is the exchange file.</p><ul><li><a href="ccda/hp-01.html">History and physical</a> <a href="ccda/hp-01.xml">(XML)</a></li><li><a href="ccda/progress-01.html">Progress note 01</a> <a href="ccda/progress-01.xml">(XML)</a></li><li><a href="ccda/progress-02.html">Progress note 02 — Focused Visit (Follow-up)</a> <a href="ccda/progress-02.xml">(XML)</a></li><li><a href="ccda/progress-03.html">Progress note 03 — Sick Visit</a> <a href="ccda/progress-03.xml">(XML)</a></li><li><a href="ccda/progress-04.html">Progress note 04 — Focused Visit (Follow-up)</a> <a href="ccda/progress-04.xml">(XML)</a></li><li><a href="ccda/progress-05.html">Progress note 05 — Annual Wellness Visit, Subsequent</a> <a href="ccda/progress-05.xml">(XML)</a></li><li><a href="ccda/progress-06.html">Progress note 06 — Focused Visit (Follow-up)</a> <a href="ccda/progress-06.xml">(XML)</a></li><li><a href="ccda/progress-07.html">Progress note 07 — Focused Visit (Care-plan review)</a> <a href="ccda/progress-07.xml">(XML)</a></li><li><a href="ccda/referral-01.html">Geriatric Medicine referral</a> <a href="ccda/referral-01.xml">(XML)</a></li><li><a href="ccda/consult-01.html">Geriatric Medicine consultation</a> <a href="ccda/consult-01.xml">(XML)</a></li></ul></section>
+    <section><h2>Sources</h2><table><thead><tr><th>ID</th><th>Source</th><th>Publisher</th><th>Type</th></tr></thead><tbody>
+  <tr>
+    <td>SRC-0001</td>
+    <td><a href="https://archive.org/details/hippocrates01hippuoft" target="_blank" rel="noreferrer">Jones WHS. Hippocrates, with an English translation, vol. I, General Introduction (Loeb Classical Library, 1923) (Internet Archive, University of Toronto copy)</a></td>
+    <td>Internet Archive</td>
+    <td>scholarly</td>
+  </tr>
+  <tr>
+    <td>SRC-0002</td>
+    <td><a href="https://www.gutenberg.org/ebooks/1591" target="_blank" rel="noreferrer">Plato. Protagoras, translated by Benjamin Jowett (Project Gutenberg eBook #1591)</a></td>
+    <td>Project Gutenberg</td>
+    <td>primary</td>
+  </tr>
+  <tr>
+    <td>SRC-0003</td>
+    <td><a href="https://www.cs.uky.edu/~raphael/sol/sol-entries/iota/564" target="_blank" rel="noreferrer">Suda On Line, iota 564: Hippocrates (translated by Carl Widstrand, 2000, with editors&#39; notes)</a></td>
+    <td>Stoa Consortium (University of Kentucky)</td>
+    <td>primary</td>
+  </tr>
+  <tr>
+    <td>SRC-0004</td>
+    <td><a href="https://pubmed.ncbi.nlm.nih.gov/19567383/" target="_blank" rel="noreferrer">Yapijakis C. Hippocrates of Kos, the father of clinical medicine, and Asclepiades of Bithynia, the father of molecular medicine. In Vivo 2009;23(4):507-514 (PMID 19567383)</a></td>
+    <td>In Vivo</td>
+    <td>scholarly</td>
+  </tr>
+  <tr>
+    <td>SRC-0005</td>
+    <td><a href="https://pubmed.ncbi.nlm.nih.gov/39483540/" target="_blank" rel="noreferrer">Kostakopoulos NA, Bellos TC, Katsimperis S, Tzelves L. Hippocrates of Kos (460-377 BC): The Founder and Pioneer of Clinical Medicine. Cureus 2024;16(10):e70602 (PMID 39483540; PMC11526839)</a></td>
+    <td>Cureus</td>
+    <td>scholarly</td>
+  </tr>
+  <tr>
+    <td>SRC-0006</td>
+    <td><a href="https://humanrecord.example.org/internal/HISTMED_Master_Roster_v3.xlsx" target="_blank" rel="noreferrer">HISTMED Master Roster v3</a></td>
+    <td>The Human Record project</td>
+    <td>other</td>
+  </tr></tbody></table></section>
+    <section><h2>Review status</h2><table><thead><tr><th>Review</th><th>Status</th><th>Notes</th></tr></thead><tbody>
+  <tr><td>schema validation</td><td>not_started</td><td>Run scripts/build.ps1 -Conformance.</td></tr>
+  <tr><td>clinical review</td><td>not_started</td><td>Awaiting clinician review; check the reading of the geriatric assessment (gait speed 0.78 m/s, Timed Up and Go 13.8 seconds, grip 24 kg) as pre-frailty from knee osteoarthritis rather than disease, the clinical diagnosis of knee osteoarthritis without X-ray, stopping naproxen and diphenhydramine, topical diclofenac with acetaminophen up to 3,000 mg a day, the strength and balance program, the decision against osteoporosis medicine at a FRAX hip risk of 2.6 percent, vitamin D3, the cold treated without a sedating remedy, the vaccines (PCV20, RSV, recombinant zoster, high-dose influenza), and the screening tests not indicated at 89.</td></tr>
+  <tr><td>provenance review</td><td>not_started</td><td>Sources: the Loeb general introduction by W. H. S. Jones (1923), Plato&#39;s Protagoras (Jowett), the Suda On Line entry with editors&#39; notes, and two medical reviews (Yapijakis 2009; Kostakopoulos 2024). The Stanford Encyclopedia of Philosophy has no entry at the address tried, and the National Library of Medicine page tried is no longer maintained; Britannica could not be read. Nothing about his own health is documented; the ancient lives are late and partly legendary.</td></tr>
+  <tr><td>safe messaging review</td><td>not_started</td><td>No sensitive content: no mental illness, substance use or self-harm. The GDS-15 and PHQ-2 are normal and no safety assessment is required. No relative or other real person has a statement, decision or health fact in the modern episode.</td></tr></tbody></table></section>
+  </main>
+</body>
+</html>

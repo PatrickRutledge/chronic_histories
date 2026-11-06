@@ -1,0 +1,816 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Duke Kahanamoku — The Human Record</title>
+  <style>
+    :root { --navy:#17365d; --blue:#1f4e78; --pale:#eef5fa; --ink:#1f2933; --muted:#66788a; --amber:#fff2cc; --red:#f8d7da; --green:#d9ead3; }
+    * { box-sizing:border-box; }
+    body { margin:0; font:16px/1.5 Arial, sans-serif; color:var(--ink); background:#f6f8fa; }
+    header { background:var(--navy); color:white; padding:24px max(24px,calc((100vw - 1180px)/2)); }
+    header h1 { margin:4px 0; font-size:30px; }
+    .banner { background:#b42318; color:white; font-weight:700; text-align:center; padding:10px; letter-spacing:.03em; }
+    main { max-width:1180px; margin:24px auto 60px; padding:0 24px; }
+    section { background:white; border:1px solid #d9e1e8; border-radius:8px; margin:18px 0; padding:20px; }
+    h2 { color:var(--navy); margin:0 0 14px; font-size:22px; }
+    h3 { color:var(--blue); }
+    .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:12px; }
+    .card { background:var(--pale); border-left:4px solid var(--blue); padding:12px; }
+    .label { color:var(--muted); font-size:13px; text-transform:uppercase; letter-spacing:.04em; }
+    table { width:100%; border-collapse:collapse; }
+    th { background:var(--blue); color:white; text-align:left; }
+    th,td { padding:9px; border-bottom:1px solid #dfe6ec; vertical-align:top; }
+    .badge { display:inline-block; min-width:28px; text-align:center; font-weight:700; border-radius:12px; padding:2px 8px; }
+    .grade-D { background:var(--green); } .grade-R { background:var(--amber); } .grade-S { background:var(--red); }
+    .muted { color:var(--muted); font-size:14px; }
+    .relationship { color:var(--muted); font-size:12px; }
+    .downloads a { display:inline-block; margin:4px 8px 4px 0; padding:8px 12px; background:var(--blue); color:white; text-decoration:none; border-radius:5px; }
+    @media (max-width:700px) { table { display:block; overflow-x:auto; } }
+  </style>
+</head>
+<body>
+  <div class="banner">SYNTHETIC RECORD, NOT A REAL MEDICAL RECORD</div>
+  <header>
+    <div>The Human Record</div>
+    <h1>Duke Kahanamoku</h1>
+    <div>Case HR-ML050 · Modern EHR teaching episode · Draft for review</div>
+  </header>
+  <main>
+    <section>
+      <h2>Review summary</h2>
+      <div class="grid">
+        <div class="card"><div class="label">Historical dates</div>August 24, 1890 – January 22, 1968</div>
+        <div class="card"><div class="label">Synthetic DOB</div>1959-08-24</div>
+        <div class="card"><div class="label">Index visit</div>2026-03-16 at age 66</div>
+        <div class="card"><div class="label">Synthetic MRN</div>HR-ML050-SYN</div>
+      </div>
+      <p><strong>Teaching objective:</strong> Heart failure with reduced ejection fraction from ischemic cardiomyopathy in a 66-year-old Native Hawaiian man, sheriff of Honolulu and a lifelong Olympic swimmer and surfer, five years after a heart attack. The episode covers breathlessness, ankle swelling and tiredness diagnosed by NT-proBNP and echocardiography (ejection fraction 30%); invasive coronary angiography for the ischemic cause; the four pillars of guideline-directed medical therapy under the 2022 AHA/ACC/HFSA guideline and the 2024 ACC decision pathway: changing lisinopril to sacubitril-valsartan with a 36-hour washout, changing metoprolol tartrate to carvedilol, empagliflozin and spironolactone, titrated every two weeks with potassium, magnesium and kidney checks; a loop diuretic adjusted to euvolemia; intravenous iron for iron deficiency; sick-day rules when vomiting and diarrhea raise potassium and creatinine; a missed laboratory check recorded honestly; the decision against a primary-prevention defibrillator when the ejection fraction rose from 30% to 38% after more than 90 days of therapy; sodium guidance without routine fluid restriction; cardiac rehabilitation adapted to an ocean athlete, with swimming and surfing safety; vaccinations; and culturally safe care for a Native Hawaiian patient, with his ʻohana involved as he chooses, his own healing practices respected, and attention to the higher and earlier burden of heart failure hospitalization among Native Hawaiians.</p>
+      <div class="downloads">
+        <a href="../case.json">Canonical JSON</a>
+        <a href="fhir-bundle.json">FHIR R4 draft</a>
+        <a href="ccda.html">C-CDA R2.1 summary</a> <a href="ccda.xml">(XML)</a> <a href="review.html">Review checklist</a>
+        <a href="../sources.md">Evidence dossier</a>
+      </div>
+    </section>
+    <section><h2>Historical timeline</h2><table><thead><tr><th>Date</th><th>Event</th><th>Claims</th></tr></thead><tbody>
+  <tr><td>August 24, 1890</td><td>Born in Honolulu.</td><td>CLM-0001, CLM-0002</td></tr>
+  <tr><td>1911</td><td>Co-founds the Hui Nalu surf club.</td><td>CLM-0004</td></tr>
+  <tr><td>1912</td><td>Olympic champion in the 100-meter freestyle at Stockholm.</td><td>CLM-0003</td></tr>
+  <tr><td>December 24, 1914</td><td>Surfing exhibition at Freshwater Beach, Sydney.</td><td>CLM-0004</td></tr>
+  <tr><td>1920</td><td>Two Olympic gold medals at Antwerp.</td><td>CLM-0003</td></tr>
+  <tr><td>1922</td><td>Moves to Los Angeles and acts in films.</td><td>CLM-0005</td></tr>
+  <tr><td>1934 (1932 in some sources)</td><td>First elected sheriff of Honolulu.</td><td>CLM-0006</td></tr>
+  <tr><td>August 2, 1940</td><td>Marries Nadine Alexander in Kailua-Kona.</td><td>CLM-0007</td></tr>
+  <tr><td>1952</td><td>Heart attack.</td><td>CLM-0009, CLM-0008</td></tr>
+  <tr><td>1956</td><td>Official U.S. representative at the Melbourne Olympic Games.</td><td>CLM-0014, CLM-0013</td></tr>
+  <tr><td>1962</td><td>Cerebral blood clot; survives a brain operation.</td><td>CLM-0010</td></tr>
+  <tr><td>January 22, 1968</td><td>Dies of a heart attack in Honolulu.</td><td>CLM-0011</td></tr>
+  <tr><td>January 27, 1968</td><td>Beachboy funeral at Waikīkī.</td><td>CLM-0012</td></tr></tbody></table></section>
+    <section><h2>Evidence claims</h2><p class="muted">D = documented, R = retrospective, S = synthetic.</p><table><thead><tr><th>Grade</th><th>Claim</th><th>Certainty</th><th>Sources</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>Duke Kahanamoku was born on August 24, 1890, in Honolulu, at Haleʻākala, the Honolulu home of Princess Bernice Pauahi Bishop; he was named after his father, who had been named Duke for a visit of the Duke of Edinburgh to Hawaiʻi.</strong><div class="muted">Anchors the true birth date and his Native Hawaiian heritage and home in Honolulu. One International Swimming Hall of Fame tribute implies an August 14 birthday through its arithmetic; the dated sources agree on August 24.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.pbs.org/wnet/americanmasters/duke-kahanamoku-biography-and-life-timeline/21754" target="_blank" rel="noreferrer">Duke Kahanamoku: biography and life timeline. American Masters</a> <span class="relationship">supports</span><br><a href="https://staradvertiser.com/?p=715741" target="_blank" rel="noreferrer">Luis C. A wonderful life (Duke Kahanamoku timeline). Honolulu Star-Advertiser, January 22, 2018</a> <span class="relationship">supports</span><br><a href="https://www.olympedia.org/athletes/51429" target="_blank" rel="noreferrer">Duke Kahanamoku (athlete profile)</a> <span class="relationship">supports</span><br><a href="https://ebsco.com/research-starters/history/duke-kahanamoku" target="_blank" rel="noreferrer">Duke Kahanamoku. Research Starters: History</a> <span class="relationship">supports</span><br><a href="https://humanrecord.example.org/internal/HISTMED_Master_Roster_v3.xlsx" target="_blank" rel="noreferrer">HISTMED Master Roster v3</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>Olympedia gives his full name as Duke Paoa Kahino Makoe Hulikohoa Kahanamoku.</strong><div class="muted">Used only for the alias. Other spellings of the middle names exist; the brief&#39;s spelling (Kahinu Mokoe Hulikohola) was not found in a source that could be fetched.</div></td>
+    <td>probable</td>
+    <td><a href="https://www.olympedia.org/athletes/51429" target="_blank" rel="noreferrer">Duke Kahanamoku (athlete profile)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>He won the Olympic 100-meter freestyle in 1912 at Stockholm (with silver in the 4 x 200-meter relay) and again in 1920 at Antwerp (with gold in the relay), and silver in the 100-meter freestyle in 1924 at Paris: three gold and two silver medals.</strong><div class="muted">Anchors his identity as a lifelong swimmer in the modern social history and the adapted exercise plan.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.pbs.org/wnet/americanmasters/duke-kahanamoku-biography-and-life-timeline/21754" target="_blank" rel="noreferrer">Duke Kahanamoku: biography and life timeline. American Masters</a> <span class="relationship">supports</span><br><a href="https://www.olympedia.org/athletes/51429" target="_blank" rel="noreferrer">Duke Kahanamoku (athlete profile)</a> <span class="relationship">supports</span><br><a href="https://staradvertiser.com/?p=715741" target="_blank" rel="noreferrer">Luis C. A wonderful life (Duke Kahanamoku timeline). Honolulu Star-Advertiser, January 22, 2018</a> <span class="relationship">supports</span><br><a href="https://ishof.org/?p=2428" target="_blank" rel="noreferrer">August 24: celebrate the birth of one of Hawaii&#39;s greatest sons and 1965 ISHOF Honoree, Duke Kahanamoku</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>He co-founded the Hui Nalu surf club in 1911, introduced surfing to the Atlantic coast of the United States in 1914 and gave a surfing exhibition at Freshwater Beach in Sydney on December 24, 1914, widely regarded as a seminal event for surfing in Australia; he was inducted into the International Swimming Hall of Fame in 1965 and was the first inductee of the International Surfing Hall of Fame in 1966.</strong><div class="muted">Anchors his identity as a surfer and waterman in the modern social history.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://staradvertiser.com/?p=715741" target="_blank" rel="noreferrer">Luis C. A wonderful life (Duke Kahanamoku timeline). Honolulu Star-Advertiser, January 22, 2018</a> <span class="relationship">supports</span><br><a href="https://www.pbs.org/wnet/americanmasters/duke-kahanamoku-biography-and-life-timeline/21754" target="_blank" rel="noreferrer">Duke Kahanamoku: biography and life timeline. American Masters</a> <span class="relationship">supports</span><br><a href="https://www.olympedia.org/athletes/51429" target="_blank" rel="noreferrer">Duke Kahanamoku (athlete profile)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>From 1922 he lived in Los Angeles for years and found small roles in many Hollywood films.</strong><div class="muted">History only.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.pbs.org/wnet/americanmasters/duke-kahanamoku-biography-and-life-timeline/21754" target="_blank" rel="noreferrer">Duke Kahanamoku: biography and life timeline. American Masters</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>He was elected sheriff of Honolulu for 13 consecutive terms, from 1934 until the post was eliminated in 1960, after which he was named Hawaiʻi&#39;s &quot;Ambassador of Aloha&quot;; other sources date his first election to 1932 and his departure to 1961.</strong><div class="muted">Anchors his occupation at the index date (1957). The Star-Advertiser and PBS give 1934 to 1960; Olympedia, the Encyclopedia of World Biography and EBSCO give 1932 to 1961. Either way he was sheriff in 1957.</div></td>
+    <td>probable</td>
+    <td><a href="https://staradvertiser.com/?p=715741" target="_blank" rel="noreferrer">Luis C. A wonderful life (Duke Kahanamoku timeline). Honolulu Star-Advertiser, January 22, 2018</a> <span class="relationship">supports</span><br><a href="https://www.pbs.org/wnet/americanmasters/duke-kahanamoku-biography-and-life-timeline/21754" target="_blank" rel="noreferrer">Duke Kahanamoku: biography and life timeline. American Masters</a> <span class="relationship">supports</span><br><a href="https://www.olympedia.org/athletes/51429" target="_blank" rel="noreferrer">Duke Kahanamoku (athlete profile)</a> <span class="relationship">disputes</span><br><a href="https://www.encyclopedia.com/doc/1G2-3404707611.html" target="_blank" rel="noreferrer">Kahanamoku, Duke. Encyclopedia of World Biography</a> <span class="relationship">disputes</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>He married Nadine Alexander on August 2, 1940, in Kailua-Kona.</strong><div class="muted">Documented history only; his wife is not given any role, statement or health fact in the modern episode.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://staradvertiser.com/?p=715741" target="_blank" rel="noreferrer">Luis C. A wonderful life (Duke Kahanamoku timeline). Honolulu Star-Advertiser, January 22, 2018</a> <span class="relationship">supports</span><br><a href="https://www.pbs.org/wnet/americanmasters/duke-kahanamoku-biography-and-life-timeline/21754" target="_blank" rel="noreferrer">Duke Kahanamoku: biography and life timeline. American Masters</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>He never drank alcohol or smoked and trained consistently.</strong><div class="muted">Anchors the substance history in the modern social history.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.encyclopedia.com/doc/1G2-3404707611.html" target="_blank" rel="noreferrer">Kahanamoku, Duke. Encyclopedia of World Biography</a> <span class="relationship">supports</span><br><a href="https://ebsco.com/research-starters/history/duke-kahanamoku" target="_blank" rel="noreferrer">Duke Kahanamoku. Research Starters: History</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>He had a heart attack in 1952 and suffered several heart attacks in his later years, continuing to swim and sail almost to the end of his life.</strong><div class="muted">The documented anchor for the old myocardial infarction in the modern episode. The year 1952 rests on the Honolulu Star-Advertiser alone; EBSCO says he had several heart attacks without dates. A heart attack in 1955, named in the brief, was not found in any source read and is not used.</div></td>
+    <td>probable</td>
+    <td><a href="https://staradvertiser.com/?p=715743" target="_blank" rel="noreferrer">Luis C. Legacy of Hawaii&#39;s most beloved, honored athlete endures 50 years after his death. Honolulu Star-Advertiser, January 22, 2018</a> <span class="relationship">supports</span><br><a href="https://ebsco.com/research-starters/history/duke-kahanamoku" target="_blank" rel="noreferrer">Duke Kahanamoku. Research Starters: History</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>In 1962 he had a cerebral blood clot and survived a brain operation.</strong><div class="muted">Later history, after the modern episode. The Star-Advertiser names a cerebral blood clot in 1962 and EBSCO an undated brain operation; a 1962 wire report of an operation for a blood clot on the brain at Kaiser Hospital, found in a search, could not be fetched. No source read describes a tumor.</div></td>
+    <td>probable</td>
+    <td><a href="https://staradvertiser.com/?p=715743" target="_blank" rel="noreferrer">Luis C. Legacy of Hawaii&#39;s most beloved, honored athlete endures 50 years after his death. Honolulu Star-Advertiser, January 22, 2018</a> <span class="relationship">supports</span><br><a href="https://ebsco.com/research-starters/history/duke-kahanamoku" target="_blank" rel="noreferrer">Duke Kahanamoku. Research Starters: History</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>On January 22, 1968, he collapsed with a heart attack at the Waikiki Yacht Club while working on his boat, was taken to Kaiser Foundation Hospital and died there, aged 77.</strong><div class="muted">The cause of death, a heart attack, fits the long course of coronary disease taught in the modern episode.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://staradvertiser.com/?p=715741" target="_blank" rel="noreferrer">Luis C. A wonderful life (Duke Kahanamoku timeline). Honolulu Star-Advertiser, January 22, 2018</a> <span class="relationship">supports</span><br><a href="https://www.pbs.org/wnet/americanmasters/duke-kahanamoku-biography-and-life-timeline/21754" target="_blank" rel="noreferrer">Duke Kahanamoku: biography and life timeline. American Masters</a> <span class="relationship">supports</span><br><a href="https://ebsco.com/research-starters/history/duke-kahanamoku" target="_blank" rel="noreferrer">Duke Kahanamoku. Research Starters: History</a> <span class="relationship">supports</span><br><a href="https://www.olympedia.org/athletes/51429" target="_blank" rel="noreferrer">Duke Kahanamoku (athlete profile)</a> <span class="relationship">supports</span><br><a href="https://humanrecord.example.org/internal/HISTMED_Master_Roster_v3.xlsx" target="_blank" rel="noreferrer">HISTMED Master Roster v3</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>On January 27, 1968, his ashes were scattered off Waikīkī in a beachboy funeral attended by thousands.</strong><div class="muted">History after his death.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://staradvertiser.com/?p=715741" target="_blank" rel="noreferrer">Luis C. A wonderful life (Duke Kahanamoku timeline). Honolulu Star-Advertiser, January 22, 2018</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>He had no great personal wealth.</strong><div class="muted">Anchors his modest means in the modern social history.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://staradvertiser.com/?p=715743" target="_blank" rel="noreferrer">Luis C. Legacy of Hawaii&#39;s most beloved, honored athlete endures 50 years after his death. Honolulu Star-Advertiser, January 22, 2018</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>He was the official United States representative at the 1956 Melbourne Olympic Games.</strong><div class="muted">Anchors his continuing role in sport at the index date.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.pbs.org/wnet/americanmasters/duke-kahanamoku-biography-and-life-timeline/21754" target="_blank" rel="noreferrer">Duke Kahanamoku: biography and life timeline. American Masters</a> <span class="relationship">supports</span></td>
+  </tr></tbody></table></section>
+    <section><h2>Modern synthetic problem list</h2><table><thead><tr><th>Grade</th><th>Problem</th><th>Clinical status</th><th>Verification</th><th>Placement</th><th>Historical claims</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Breathlessness on exertion for six weeks (paddling out, walking uphill, finishing his morning swim), with ankle swelling by evening and tiredness, five years after a heart attack; cause to be determined</td>
+    <td>resolved</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Coronary artery disease with an old anterior myocardial infarction five years ago, treated with medicines; synthetic modern episode linked to the documented heart attack of 1952</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>both_with_link</td>
+    <td>CLM-0009</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Heart failure with reduced ejection fraction from ischemic cardiomyopathy (ejection fraction 30% with a thinned, akinetic anterior wall and apex), NYHA class III at diagnosis</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td>CLM-0009</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Iron deficiency without anemia (ferritin 62 ng/mL, transferrin saturation 16%)</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Viral gastroenteritis for two days, with volume depletion, potassium 5.5 mmol/L and a rise in creatinine on sacubitril-valsartan, spironolactone, empagliflozin and furosemide; settled with sick-day rules</td>
+    <td>resolved</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td></td>
+  </tr></tbody></table></section>
+    <section><h2>Synthetic outcome measures</h2><table><thead><tr><th>Grade</th><th>Date</th><th>Measure</th><th>Result</th><th>Coding</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-16</td>
+    <td>Natriuretic peptide.B prohormone N-Terminal [Mass/volume] in Serum or Plasma</td>
+    <td>2450 pg/mL (high)<div class="muted">Reference Below 125 pg/mL makes heart failure unlikely outside the hospital</div></td>
+    <td>http://loinc.org · 33762-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-16</td>
+    <td>Sodium [Moles/volume] in Serum or Plasma</td>
+    <td>138 mmol/L<div class="muted">Reference 135-145 mmol/L</div></td>
+    <td>http://loinc.org · 2951-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-16</td>
+    <td>Potassium [Moles/volume] in Serum or Plasma</td>
+    <td>4.2 mmol/L<div class="muted">Reference 3.5-5.1 mmol/L</div></td>
+    <td>http://loinc.org · 2823-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-16</td>
+    <td>Creatinine [Mass/volume] in Serum or Plasma</td>
+    <td>1.02 mg/dL<div class="muted">Reference 0.74-1.35 mg/dL</div></td>
+    <td>http://loinc.org · 2160-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-16</td>
+    <td>Glomerular filtration rate [Volume Rate/Area] in Serum, Plasma or Blood by Creatinine-based formula (CKD-EPI 2021)/1.73 sq M</td>
+    <td>81 mL/min/1.73 m²<div class="muted">Reference &gt;=60 mL/min/1.73 m²</div></td>
+    <td>http://loinc.org · 98979-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-16</td>
+    <td>Glucose [Mass/volume] in Serum or Plasma</td>
+    <td>102 mg/dL (high)<div class="muted">Reference 70-99 mg/dL</div></td>
+    <td>http://loinc.org · 2345-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-16</td>
+    <td>Magnesium [Mass/volume] in Serum or Plasma</td>
+    <td>2 mg/dL<div class="muted">Reference 1.6-2.6 mg/dL</div></td>
+    <td>http://loinc.org · 19123-9</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-16</td>
+    <td>Hemoglobin [Mass/volume] in Blood</td>
+    <td>13.4 g/dL<div class="muted">Reference 13.2-16.6 g/dL</div></td>
+    <td>http://loinc.org · 718-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-16</td>
+    <td>Ferritin [Mass/volume] in Serum or Plasma</td>
+    <td>62 ng/mL (low)<div class="muted">Reference In heart failure, below 100 ng/mL, or 100 to 299 with transferrin saturation below 20%, is iron deficiency</div></td>
+    <td>http://loinc.org · 2276-4</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-16</td>
+    <td>Iron saturation [Mass Fraction] in Serum or Plasma</td>
+    <td>16% (low)<div class="muted">Reference 20-50%</div></td>
+    <td>http://loinc.org · 2502-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-16</td>
+    <td>Thyrotropin [Units/volume] in Serum or Plasma</td>
+    <td>2.1 mIU/L<div class="muted">Reference 0.45-4.5 mIU/L</div></td>
+    <td>http://loinc.org · 3016-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-16</td>
+    <td>Hemoglobin A1c/Hemoglobin.total in Blood</td>
+    <td>5.9% (high)<div class="muted">Reference &lt;=5.6%</div></td>
+    <td>http://loinc.org · 4548-4</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-16</td>
+    <td>Cholesterol [Mass/volume] in Serum or Plasma</td>
+    <td>168 mg/dL<div class="muted">Reference &lt;=199 mg/dL</div></td>
+    <td>http://loinc.org · 2093-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-16</td>
+    <td>Cholesterol in LDL [Mass/volume] in Serum or Plasma by calculation</td>
+    <td>92 mg/dL (high)<div class="muted">Reference Secondary-prevention goal below 70 mg/dL</div></td>
+    <td>http://loinc.org · 13457-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-16</td>
+    <td>Cholesterol in HDL [Mass/volume] in Serum or Plasma</td>
+    <td>44 mg/dL<div class="muted">Reference &gt;=40 mg/dL</div></td>
+    <td>http://loinc.org · 2085-9</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-16</td>
+    <td>Triglyceride [Mass/volume] in Serum or Plasma</td>
+    <td>160 mg/dL (high)<div class="muted">Reference &lt;=149 mg/dL</div></td>
+    <td>http://loinc.org · 2571-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-16</td>
+    <td>Alanine aminotransferase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>28 U/L<div class="muted">Reference 7-55 U/L</div></td>
+    <td>http://loinc.org · 1742-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-16</td>
+    <td>Patient Health Questionnaire 2 item (PHQ-2) total score [Reported]</td>
+    <td>1</td>
+    <td>http://loinc.org · 55758-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-16</td>
+    <td>Overall summary score [KCCQ-12]</td>
+    <td>38</td>
+    <td>http://loinc.org · 86924-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-30</td>
+    <td>Sodium [Moles/volume] in Serum or Plasma</td>
+    <td>137 mmol/L<div class="muted">Reference 135-145 mmol/L</div></td>
+    <td>http://loinc.org · 2951-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-30</td>
+    <td>Potassium [Moles/volume] in Serum or Plasma</td>
+    <td>3.9 mmol/L<div class="muted">Reference 3.5-5.1 mmol/L</div></td>
+    <td>http://loinc.org · 2823-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-30</td>
+    <td>Creatinine [Mass/volume] in Serum or Plasma</td>
+    <td>1.08 mg/dL<div class="muted">Reference 0.74-1.35 mg/dL</div></td>
+    <td>http://loinc.org · 2160-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-30</td>
+    <td>Glomerular filtration rate [Volume Rate/Area] in Serum, Plasma or Blood by Creatinine-based formula (CKD-EPI 2021)/1.73 sq M</td>
+    <td>76 mL/min/1.73 m²<div class="muted">Reference &gt;=60 mL/min/1.73 m²</div></td>
+    <td>http://loinc.org · 98979-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-30</td>
+    <td>Glucose [Mass/volume] in Serum or Plasma</td>
+    <td>98 mg/dL<div class="muted">Reference 70-99 mg/dL</div></td>
+    <td>http://loinc.org · 2345-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-30</td>
+    <td>Magnesium [Mass/volume] in Serum or Plasma</td>
+    <td>1.9 mg/dL<div class="muted">Reference 1.6-2.6 mg/dL</div></td>
+    <td>http://loinc.org · 19123-9</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-30</td>
+    <td>Left ventricular Ejection fraction</td>
+    <td>30% (low)<div class="muted">Reference 50-70%</div></td>
+    <td>http://loinc.org · 10230-1</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-04-13</td>
+    <td>Sodium [Moles/volume] in Serum or Plasma</td>
+    <td>137 mmol/L<div class="muted">Reference 135-145 mmol/L</div></td>
+    <td>http://loinc.org · 2951-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-04-13</td>
+    <td>Potassium [Moles/volume] in Serum or Plasma</td>
+    <td>4.5 mmol/L<div class="muted">Reference 3.5-5.1 mmol/L</div></td>
+    <td>http://loinc.org · 2823-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-04-13</td>
+    <td>Creatinine [Mass/volume] in Serum or Plasma</td>
+    <td>1.16 mg/dL<div class="muted">Reference 0.74-1.35 mg/dL</div></td>
+    <td>http://loinc.org · 2160-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-04-13</td>
+    <td>Glomerular filtration rate [Volume Rate/Area] in Serum, Plasma or Blood by Creatinine-based formula (CKD-EPI 2021)/1.73 sq M</td>
+    <td>69 mL/min/1.73 m²<div class="muted">Reference &gt;=60 mL/min/1.73 m²</div></td>
+    <td>http://loinc.org · 98979-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-04-13</td>
+    <td>Glucose [Mass/volume] in Serum or Plasma</td>
+    <td>96 mg/dL<div class="muted">Reference 70-99 mg/dL</div></td>
+    <td>http://loinc.org · 2345-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-04-13</td>
+    <td>Magnesium [Mass/volume] in Serum or Plasma</td>
+    <td>2 mg/dL<div class="muted">Reference 1.6-2.6 mg/dL</div></td>
+    <td>http://loinc.org · 19123-9</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-04-13</td>
+    <td>Overall summary score [KCCQ-12]</td>
+    <td>56</td>
+    <td>http://loinc.org · 86924-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-04-22</td>
+    <td>Sodium [Moles/volume] in Serum or Plasma</td>
+    <td>133 mmol/L (low)<div class="muted">Reference 135-145 mmol/L</div></td>
+    <td>http://loinc.org · 2951-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-04-22</td>
+    <td>Potassium [Moles/volume] in Serum or Plasma</td>
+    <td>5.5 mmol/L (high)<div class="muted">Reference 3.5-5.1 mmol/L</div></td>
+    <td>http://loinc.org · 2823-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-04-22</td>
+    <td>Creatinine [Mass/volume] in Serum or Plasma</td>
+    <td>1.52 mg/dL (high)<div class="muted">Reference 0.74-1.35 mg/dL</div></td>
+    <td>http://loinc.org · 2160-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-04-22</td>
+    <td>Glomerular filtration rate [Volume Rate/Area] in Serum, Plasma or Blood by Creatinine-based formula (CKD-EPI 2021)/1.73 sq M</td>
+    <td>50 mL/min/1.73 m² (low)<div class="muted">Reference &gt;=60 mL/min/1.73 m²</div></td>
+    <td>http://loinc.org · 98979-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-04-22</td>
+    <td>Glucose [Mass/volume] in Serum or Plasma</td>
+    <td>88 mg/dL<div class="muted">Reference 70-99 mg/dL</div></td>
+    <td>http://loinc.org · 2345-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-04-22</td>
+    <td>Magnesium [Mass/volume] in Serum or Plasma</td>
+    <td>2.1 mg/dL<div class="muted">Reference 1.6-2.6 mg/dL</div></td>
+    <td>http://loinc.org · 19123-9</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-04-27</td>
+    <td>Sodium [Moles/volume] in Serum or Plasma</td>
+    <td>137 mmol/L<div class="muted">Reference 135-145 mmol/L</div></td>
+    <td>http://loinc.org · 2951-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-04-27</td>
+    <td>Potassium [Moles/volume] in Serum or Plasma</td>
+    <td>4.8 mmol/L<div class="muted">Reference 3.5-5.1 mmol/L</div></td>
+    <td>http://loinc.org · 2823-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-04-27</td>
+    <td>Creatinine [Mass/volume] in Serum or Plasma</td>
+    <td>1.2 mg/dL<div class="muted">Reference 0.74-1.35 mg/dL</div></td>
+    <td>http://loinc.org · 2160-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-04-27</td>
+    <td>Glomerular filtration rate [Volume Rate/Area] in Serum, Plasma or Blood by Creatinine-based formula (CKD-EPI 2021)/1.73 sq M</td>
+    <td>67 mL/min/1.73 m²<div class="muted">Reference &gt;=60 mL/min/1.73 m²</div></td>
+    <td>http://loinc.org · 98979-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-04-27</td>
+    <td>Glucose [Mass/volume] in Serum or Plasma</td>
+    <td>97 mg/dL<div class="muted">Reference 70-99 mg/dL</div></td>
+    <td>http://loinc.org · 2345-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-04-27</td>
+    <td>Magnesium [Mass/volume] in Serum or Plasma</td>
+    <td>2 mg/dL<div class="muted">Reference 1.6-2.6 mg/dL</div></td>
+    <td>http://loinc.org · 19123-9</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-04-27</td>
+    <td>Cholesterol [Mass/volume] in Serum or Plasma</td>
+    <td>130 mg/dL<div class="muted">Reference &lt;=199 mg/dL</div></td>
+    <td>http://loinc.org · 2093-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-04-27</td>
+    <td>Cholesterol in LDL [Mass/volume] in Serum or Plasma by calculation</td>
+    <td>62 mg/dL<div class="muted">Reference Secondary-prevention goal below 70 mg/dL</div></td>
+    <td>http://loinc.org · 13457-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-04-27</td>
+    <td>Cholesterol in HDL [Mass/volume] in Serum or Plasma</td>
+    <td>45 mg/dL<div class="muted">Reference &gt;=40 mg/dL</div></td>
+    <td>http://loinc.org · 2085-9</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-04-27</td>
+    <td>Triglyceride [Mass/volume] in Serum or Plasma</td>
+    <td>115 mg/dL<div class="muted">Reference &lt;=149 mg/dL</div></td>
+    <td>http://loinc.org · 2571-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-04-27</td>
+    <td>Alanine aminotransferase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>31 U/L<div class="muted">Reference 7-55 U/L</div></td>
+    <td>http://loinc.org · 1742-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-04-27</td>
+    <td>Overall summary score [KCCQ-12]</td>
+    <td>66</td>
+    <td>http://loinc.org · 86924-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-09-14</td>
+    <td>Patient Health Questionnaire 2 item (PHQ-2) total score [Reported]</td>
+    <td>0</td>
+    <td>http://loinc.org · 55758-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-09-28</td>
+    <td>Natriuretic peptide.B prohormone N-Terminal [Mass/volume] in Serum or Plasma</td>
+    <td>620 pg/mL (high)<div class="muted">Reference Below 125 pg/mL makes heart failure unlikely outside the hospital</div></td>
+    <td>http://loinc.org · 33762-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-09-28</td>
+    <td>Sodium [Moles/volume] in Serum or Plasma</td>
+    <td>138 mmol/L<div class="muted">Reference 135-145 mmol/L</div></td>
+    <td>http://loinc.org · 2951-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-09-28</td>
+    <td>Potassium [Moles/volume] in Serum or Plasma</td>
+    <td>4.6 mmol/L<div class="muted">Reference 3.5-5.1 mmol/L</div></td>
+    <td>http://loinc.org · 2823-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-09-28</td>
+    <td>Creatinine [Mass/volume] in Serum or Plasma</td>
+    <td>1.14 mg/dL<div class="muted">Reference 0.74-1.35 mg/dL</div></td>
+    <td>http://loinc.org · 2160-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-09-28</td>
+    <td>Glomerular filtration rate [Volume Rate/Area] in Serum, Plasma or Blood by Creatinine-based formula (CKD-EPI 2021)/1.73 sq M</td>
+    <td>70 mL/min/1.73 m²<div class="muted">Reference &gt;=60 mL/min/1.73 m²</div></td>
+    <td>http://loinc.org · 98979-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-09-28</td>
+    <td>Glucose [Mass/volume] in Serum or Plasma</td>
+    <td>95 mg/dL<div class="muted">Reference 70-99 mg/dL</div></td>
+    <td>http://loinc.org · 2345-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-09-28</td>
+    <td>Magnesium [Mass/volume] in Serum or Plasma</td>
+    <td>2 mg/dL<div class="muted">Reference 1.6-2.6 mg/dL</div></td>
+    <td>http://loinc.org · 19123-9</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-09-28</td>
+    <td>Hemoglobin [Mass/volume] in Blood</td>
+    <td>14.1 g/dL<div class="muted">Reference 13.2-16.6 g/dL</div></td>
+    <td>http://loinc.org · 718-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-09-28</td>
+    <td>Ferritin [Mass/volume] in Serum or Plasma</td>
+    <td>248 ng/mL<div class="muted">Reference In heart failure, below 100 ng/mL, or 100 to 299 with transferrin saturation below 20%, is iron deficiency</div></td>
+    <td>http://loinc.org · 2276-4</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-09-28</td>
+    <td>Iron saturation [Mass Fraction] in Serum or Plasma</td>
+    <td>27%<div class="muted">Reference 20-50%</div></td>
+    <td>http://loinc.org · 2502-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-09-28</td>
+    <td>Left ventricular Ejection fraction</td>
+    <td>38% (low)<div class="muted">Reference 50-70%</div></td>
+    <td>http://loinc.org · 10230-1</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-09-28</td>
+    <td>Overall summary score [KCCQ-12]</td>
+    <td>80</td>
+    <td>http://loinc.org · 86924-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-09-14</td>
+    <td>Total score [Mini-Cog]</td>
+    <td>5</td>
+    <td>http://loinc.org · 72233-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-09-14</td>
+    <td>Total score [AUDIT-C]</td>
+    <td>0</td>
+    <td>http://loinc.org · 75626-2</td>
+  </tr></tbody></table></section>
+    <section><h2>Synthetic vital signs</h2><table><thead><tr><th>Date</th><th>Measure</th><th>Result</th><th>LOINC</th><th>Grade</th></tr></thead><tbody>
+  <tr><td>2026-03-16</td><td>Body height</td><td>185 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-16</td><td>Body weight</td><td>97.6 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-16</td><td>Body mass index (BMI) [Ratio]</td><td>28.5 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-16</td><td>Systolic blood pressure</td><td>142 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-16</td><td>Diastolic blood pressure</td><td>86 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-16</td><td>Heart rate</td><td>92 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-16</td><td>Respiratory rate</td><td>20 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-16</td><td>Body temperature</td><td>36.7 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-16</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>94 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-30</td><td>Body height</td><td>185 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-30</td><td>Body weight</td><td>95 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-30</td><td>Body mass index (BMI) [Ratio]</td><td>27.8 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-30</td><td>Systolic blood pressure</td><td>134 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-30</td><td>Diastolic blood pressure</td><td>82 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-30</td><td>Heart rate</td><td>86 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-30</td><td>Respiratory rate</td><td>18 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-30</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-30</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>96 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-13</td><td>Body height</td><td>185 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-13</td><td>Body weight</td><td>93.6 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-13</td><td>Body mass index (BMI) [Ratio]</td><td>27.3 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-13</td><td>Systolic blood pressure</td><td>118 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-13</td><td>Diastolic blood pressure</td><td>72 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-13</td><td>Heart rate</td><td>74 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-13</td><td>Respiratory rate</td><td>16 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-13</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-13</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>97 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-27</td><td>Body height</td><td>185 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-27</td><td>Body weight</td><td>93 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-27</td><td>Body mass index (BMI) [Ratio]</td><td>27.2 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-27</td><td>Systolic blood pressure</td><td>112 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-27</td><td>Diastolic blood pressure</td><td>70 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-27</td><td>Heart rate</td><td>68 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-27</td><td>Respiratory rate</td><td>16 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-27</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-27</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>97 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-09-28</td><td>Body height</td><td>185 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-09-28</td><td>Body weight</td><td>92.8 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-09-28</td><td>Body mass index (BMI) [Ratio]</td><td>27.1 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-09-28</td><td>Systolic blood pressure</td><td>106 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-09-28</td><td>Diastolic blood pressure</td><td>66 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-09-28</td><td>Heart rate</td><td>64 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-09-28</td><td>Respiratory rate</td><td>16 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-09-28</td><td>Body temperature</td><td>36.5 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-09-28</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>98 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-22</td><td>Body height</td><td>185 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-22</td><td>Body weight</td><td>91.4 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-22</td><td>Body mass index (BMI) [Ratio]</td><td>26.7 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-22</td><td>Systolic blood pressure</td><td>102 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-22</td><td>Diastolic blood pressure</td><td>62 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-22</td><td>Heart rate</td><td>96 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-22</td><td>Respiratory rate</td><td>16 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-22</td><td>Body temperature</td><td>37.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-22</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>97 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-09-14</td><td>Body height</td><td>185 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-09-14</td><td>Body weight</td><td>92.6 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-09-14</td><td>Body mass index (BMI) [Ratio]</td><td>27.1 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-09-14</td><td>Systolic blood pressure</td><td>108 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-09-14</td><td>Diastolic blood pressure</td><td>68 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-09-14</td><td>Heart rate</td><td>64 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-09-14</td><td>Respiratory rate</td><td>16 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-09-14</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-09-14</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>98 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr></tbody></table></section>
+    <section><h2>Social, functional, and mental status</h2><h3>Social history</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Sheriff of Honolulu, elected many times; a former Olympic champion swimmer and a surfer who helped carry surfing to the world; until six weeks ago he swam and surfed at Waikīkī most mornings</li><li><span class="badge grade-S" title="Synthetic">S</span> Native Hawaiian, born and raised in Honolulu; asked to be called Mr. Kahanamoku in the clinic; speaks English with Hawaiian words where he prefers them</li><li><span class="badge grade-S" title="Synthetic">S</span> ʻOhana: he wants members of his ʻohana present for big decisions when he chooses, and he makes the decisions; lives at home in Honolulu</li><li><span class="badge grade-S" title="Synthetic">S</span> Tobacco: never. Alcohol: never. No drug use</li><li><span class="badge grade-S" title="Synthetic">S</span> Diet: fish, poi, rice, fruit and greens at home; salted and dried fish and shoyu at times; many meals at public events where food is salty</li><li><span class="badge grade-S" title="Synthetic">S</span> Income: a county salary as sheriff; modest means; county health plan with Medicare</li><li><span class="badge grade-S" title="Synthetic">S</span> Traditional healing: he has his own Native Hawaiian practices and will decide whether and how they are part of his care; lomilomi through a Native Hawaiian Health Care System was offered alongside clinic care, and nothing further was asked</li><li><span class="badge grade-S" title="Synthetic">S</span> Strengths: a lifetime of discipline in training, calm under pressure, deep knowledge of the ocean, and a wide circle in the community</li></ul><h3>Functional status</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Independent in all daily activities; breathless walking up a gentle slope or paddling out through small surf; has stopped his morning swim after a few minutes; sleeps on two pillows; NYHA class III</li></ul><h3>Mental status</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Alert, calm and courteous; frustrated at being kept from the water; mood steady; PHQ-2 score 1</li></ul></section>
+    
+    <section><h2>Allergies and medications</h2><h3>Allergies</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> No known allergy</li></ul><h3>Medications</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Aspirin 81 mg delayed-release oral tablet, one tablet daily</li><li><span class="badge grade-S" title="Synthetic">S</span> Atorvastatin 40 mg oral tablet, one tablet daily</li><li><span class="badge grade-S" title="Synthetic">S</span> Atorvastatin 80 mg oral tablet, one tablet daily</li><li><span class="badge grade-S" title="Synthetic">S</span> Metoprolol tartrate 25 mg oral tablet, one tablet twice daily</li><li><span class="badge grade-S" title="Synthetic">S</span> Lisinopril 10 mg oral tablet, one tablet daily</li><li><span class="badge grade-S" title="Synthetic">S</span> Furosemide 40 mg oral tablet, one tablet every morning</li><li><span class="badge grade-S" title="Synthetic">S</span> Furosemide 20 mg oral tablet, one tablet every morning</li><li><span class="badge grade-S" title="Synthetic">S</span> Sacubitril 24 mg / valsartan 26 mg oral tablet, one tablet twice daily, first dose 36 hours after the last lisinopril</li><li><span class="badge grade-S" title="Synthetic">S</span> Sacubitril 49 mg / valsartan 51 mg oral tablet, one tablet twice daily</li><li><span class="badge grade-S" title="Synthetic">S</span> Carvedilol 3.125 mg oral tablet, one tablet twice daily with food, starting the evening after the last metoprolol tartrate</li><li><span class="badge grade-S" title="Synthetic">S</span> Carvedilol 6.25 mg oral tablet, one tablet twice daily with food</li><li><span class="badge grade-S" title="Synthetic">S</span> Carvedilol 12.5 mg oral tablet, one tablet twice daily with food</li><li><span class="badge grade-S" title="Synthetic">S</span> Empagliflozin 10 mg oral tablet, one tablet daily; hold on days of vomiting, diarrhea or not eating or drinking</li><li><span class="badge grade-S" title="Synthetic">S</span> Spironolactone 25 mg oral tablet, one-half tablet (12.5 mg) daily</li><li><span class="badge grade-S" title="Synthetic">S</span> Ferric carboxymaltose 750 mg (15 mL vial, 50 mg/mL) by intravenous infusion, two doses two weeks apart</li></ul></section>
+    <section><h2>Procedures and immunizations</h2><h3>Procedures</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Twelve-lead electrocardiogram: sinus rhythm at 92 per minute, Q waves in V1 to V4 from an old anterior infarction, QRS 104 ms, no left bundle branch block, no atrial fibrillation</li><li><span class="badge grade-S" title="Synthetic">S</span> Chest X-ray, two views: enlarged heart, upper-lobe venous diversion and small pleural effusions on both sides; no pneumonia</li><li><span class="badge grade-S" title="Synthetic">S</span> Transthoracic echocardiography: ejection fraction 30% by biplane method, thinned and akinetic anterior wall and apex, no left ventricular thrombus, dilated left ventricle (end-diastolic diameter 62 mm), moderate functional mitral regurgitation, normal right ventricle, estimated pulmonary artery systolic pressure 42 mmHg</li><li><span class="badge grade-S" title="Synthetic">S</span> Invasive coronary angiography by the radial route: chronic total occlusion of the proximal left anterior descending artery filling faintly by collaterals from the right coronary artery, 40% narrowing of the mid right coronary artery and 30% of the circumflex; no lesion suitable for or likely to benefit from revascularization, given the thinned, scarred anterior wall</li><li><span class="badge grade-S" title="Synthetic">S</span> Twelve-lead electrocardiogram at the sick visit: sinus rhythm at 96 per minute, old anterior Q waves unchanged, no peaked T waves, no change in QRS width</li><li><span class="badge grade-S" title="Synthetic">S</span> Outpatient cardiac rehabilitation for heart failure: 36 sessions over twelve weeks, with supervised pool swimming in the last month and an ocean-safety plan; all sessions completed</li><li><span class="badge grade-S" title="Synthetic">S</span> Advance care planning conversation, about 25 minutes, with his consent</li><li><span class="badge grade-S" title="Synthetic">S</span> Transthoracic echocardiography after more than 90 days of therapy: ejection fraction 38% by biplane method, anterior wall and apex still thinned and akinetic, left ventricular end-diastolic diameter 58 mm (from 62), mild mitral regurgitation (from moderate), no thrombus, estimated pulmonary artery systolic pressure 30 mmHg</li></ul><h3>Immunizations</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> 2026-03-30: Pneumococcal conjugate vaccine PCV20</li><li><span class="badge grade-S" title="Synthetic">S</span> 2026-09-14: High-dose influenza vaccine, this season</li><li><span class="badge grade-S" title="Synthetic">S</span> 2026-09-14: Respiratory syncytial virus vaccine, single dose</li><li><span class="badge grade-S" title="Synthetic">S</span> 2026-09-14: COVID-19 vaccine, mRNA, this season</li><li><span class="badge grade-S" title="Synthetic">S</span> 2026-09-28: Recombinant zoster vaccine, dose 1 of 2</li><li><span class="badge grade-S" title="Synthetic">S</span> 2026-09-28: Tetanus, diphtheria, and acellular pertussis vaccine (Tdap)</li></ul></section>
+    <section><h2>Past medical history</h2><p class="muted">True biography with historical dates; not part of the synthetic care timeline.</p><ul><li><span class="badge grade-D" title="Documented">D</span> 1952: Heart attack in 1952, at about 61, one of several in his later years; details of its treatment are not recorded in the sources read <span class="muted">(CLM-0009)</span></li></ul><h3>Family history</h3><p class="muted">No family medical history is documented in the logged sources. Family history of real relatives is never synthesized.</p></section>
+    <section><h2>Care-plan goals</h2><table><thead><tr><th>Goal</th><th>Target date</th><th>Status</th><th>Outcome</th></tr></thead><tbody>
+  <tr><td>Euvolemia: no ankle swelling or orthopnea, with a steady dry weight</td><td>2026-04-27</td><td>completed</td><td>Dry weight about 93 kg; no edema or orthopnea; furosemide reduced to 20 mg</td></tr>
+  <tr><td>All four guideline-directed medicines at the highest doses he tolerates within three months</td><td>2026-09-28</td><td>active</td><td>All four classes started within two weeks of diagnosis; carvedilol 12.5 mg twice daily, empagliflozin and spironolactone at their doses; sacubitril-valsartan stayed at the starting dose for five months after a missed titration step and was raised at six months</td></tr>
+  <tr><td>KCCQ-12 at least 20 points higher and NYHA class I to II within six months</td><td>2026-09-28</td><td>completed</td><td>KCCQ-12 38 to 80; NYHA class I to II</td></tr>
+  <tr><td>Back in the ocean safely, swimming in calm water with a companion</td><td>2026-09-28</td><td>completed</td><td>Swimming three mornings a week in calm water inside the reef with a friend, after cardiac rehabilitation</td></tr>
+  <tr><td>LDL cholesterol below 70 mg/dL</td><td>2026-04-27</td><td>completed</td><td>LDL 62 mg/dL on atorvastatin 80 mg</td></tr></tbody></table></section>
+    <section><h2>Interventions</h2><table><thead><tr><th>Intervention</th><th>Status</th><th>Guideline</th></tr></thead><tbody>
+  <tr><td>Culturally safe care: address him as Mr. Kahanamoku, as he asked; take time; explain each test and medicine plainly; involve his ʻohana as he chooses while he makes the decisions</td><td>completed</td><td>GL-KEOLAMAMO, GL-NH-HF-2015</td></tr>
+  <tr><td>Heart failure cardiology consultation on the day of the two-week visit, with an echocardiogram, to confirm the diagnosis and its cause and to plan guideline-directed medical therapy, ischemic evaluation and device decisions</td><td>completed</td><td>GL-HF-2022, GL-HFREF-ECDP-2024, GL-CMID-2026</td></tr>
+  <tr><td>Furosemide 40 mg every morning for congestion, with a daily weight and a written plan; metabolic panel and magnesium in one to two weeks; lower the dose when he is dry</td><td>completed</td><td>GL-HF-2022, GL-CMID-2026</td></tr>
+  <tr><td>Baseline tests: ECG, chest X-ray, NT-proBNP, metabolic panel and magnesium, blood count, iron studies, TSH, hemoglobin A1c, lipids and ALT; echocardiogram at the two-week visit</td><td>completed</td><td>GL-HF-2022, GL-CMID-2026</td></tr>
+  <tr><td>Atorvastatin raised from 40 to 80 mg for LDL 92 mg/dL; lipid panel in four to twelve weeks; goal below 70 mg/dL</td><td>completed</td><td>GL-CCD-2023, GL-CMID-2026</td></tr>
+  <tr><td>Sodium: less salted and dried fish, shoyu and salty party food, using the foods he already eats; no routine fluid restriction; daily weights</td><td>completed</td><td>GL-HF-2022</td></tr>
+  <tr><td>Vaccinations: pneumococcal, influenza, COVID-19 and RSV as due, because heart disease raises the risk of severe respiratory infection</td><td>completed</td><td>GL-HF-2022, GL-CDC-IMZ-2026</td></tr>
+  <tr><td>Native Hawaiian healing alongside clinic care, if he wishes: lomilomi through Ke Ola Mamo, a Native Hawaiian Health Care System; he will tell the clinic before using any plant medicine so that interactions can be checked; the clinic asks nothing further about his practices</td><td>completed</td><td>GL-KEOLAMAMO</td></tr>
+  <tr><td>Guideline-directed medical therapy: stop lisinopril and start sacubitril-valsartan 24/26 mg twice daily 36 hours after the last dose; change metoprolol tartrate to carvedilol 3.125 mg twice daily; empagliflozin 10 mg daily; add spironolactone when potassium and kidney function allow; raise one medicine every two weeks toward target doses, with a metabolic panel one to two weeks after each change</td><td>completed</td><td>GL-HF-2022, GL-HFREF-ECDP-2024, GL-CMID-2026</td></tr>
+  <tr><td>Intravenous ferric carboxymaltose 750 mg at the two-week visit and again two weeks later, for iron deficiency in heart failure with reduced ejection fraction; iron studies again at about six months</td><td>completed</td><td>GL-HF-2022, GL-CMID-2026</td></tr>
+  <tr><td>Invasive coronary angiography within two weeks to define the coronary disease and whether revascularization could help</td><td>completed</td><td>GL-HF-2022, GL-CCD-2023</td></tr>
+  <tr><td>Defibrillator decision: repeat echocardiogram after at least 90 days of optimized therapy; a primary-prevention ICD if the ejection fraction stays at 35% or below with NYHA class II to III</td><td>completed</td><td>GL-HF-2022, GL-VA-ICD-2017, GL-CMID-2026</td></tr>
+  <tr><td>Sick-day rules: on days of vomiting, diarrhea or not drinking, hold empagliflozin, furosemide, spironolactone and sacubitril-valsartan, keep carvedilol if blood pressure allows, drink small amounts often, and restart when eating and drinking normally for a day; a written card</td><td>completed</td><td>GL-HF-2022, GL-HFREF-ECDP-2024</td></tr>
+  <tr><td>Cardiac rehabilitation for heart failure, 36 sessions, adapted to an ocean athlete: pool swimming in the program, then calm water inside the reef with a companion and near a lifeguard, no breath-hold diving, no big surf until cleared, water through the morning, and out of the water at once for chest pain, lightheadedness or unusual breathlessness</td><td>completed</td><td>GL-HF-2022, GL-CMID-2026</td></tr>
+  <tr><td>Laboratory tests drawn at the clinic on the day of each medicine change or by the clinic&#39;s nurse at home, with nurse calls to titrate doses between visits</td><td>completed</td><td>GL-HFREF-ECDP-2024, GL-CMID-2026</td></tr></tbody></table></section>
+    <section><h2>Planned encounters</h2><ul>
+  <li><strong>2026-03-16</strong> — Establishing care for six weeks of breathlessness, ankle swelling and tiredness five years after a heart attack: examination, ECG, chest X-ray, NT-proBNP and laboratory tests, a diuretic, and the plan for an echocardiogram <span class="muted">(ENC-001)</span></li>
+  <li><strong>2026-03-30</strong> — Two-week review: echocardiogram, heart failure cardiology consultation the same day, the diagnosis, and guideline-directed medicines <span class="muted">(ENC-002)</span></li>
+  <li><strong>2026-04-13</strong> — Two-week review after sacubitril-valsartan, carvedilol and empagliflozin: kidney function, potassium, angiography result and the next medicine <span class="muted">(ENC-003)</span></li>
+  <li><strong>2026-04-22</strong> — Same-day sick visit for vomiting and diarrhea on heart failure medicines <span class="muted">(ENC-006, unscheduled)</span></li>
+  <li><strong>2026-04-27</strong> — Two-week review, five days after the sick visit: kidney function and potassium, medicine doses, lipids, and cardiac rehabilitation adapted to the ocean <span class="muted">(ENC-004)</span></li>
+  <li><strong>2026-09-14</strong> — Subsequent annual wellness visit <span class="muted">(ENC-007)</span></li>
+  <li><strong>2026-09-28</strong> — Six-month review: repeat echocardiogram after more than 90 days of therapy, the defibrillator decision, iron, the delayed titration step, and plans for the year <span class="muted">(ENC-005)</span></li></ul></section>
+    <section><h2>Supporting documents</h2><ul><li><a href="notes/hp.md">History and physical</a></li><li><a href="notes/progress-01.md">Progress note 01</a></li><li><a href="notes/progress-02.md">Progress note 02 — Focused Visit (Follow-up)</a></li><li><a href="notes/progress-03.md">Progress note 03 — Focused Visit (Follow-up)</a></li><li><a href="notes/progress-04.md">Progress note 04 — Sick Visit</a></li><li><a href="notes/progress-05.md">Progress note 05 — Focused Visit (Follow-up)</a></li><li><a href="notes/progress-06.md">Progress note 06 — Annual Wellness Visit, Subsequent</a></li><li><a href="notes/progress-07.md">Progress note 07 — Focused Visit (Care-plan review)</a></li><li><a href="notes/referral-01.md">Cardiology (heart failure) referral</a></li><li><a href="notes/consult-01.md">Cardiology (heart failure) consultation</a></li><li><a href="notes/careplan.md">Patient care plan</a></li><li><a href="notes/teaching-note.md">Teaching note</a></li><li><a href="provenance.csv">Provenance CSV</a></li></ul></section>
+    <section><h2>C-CDA note documents</h2><p class="muted">Each link opens a readable copy; the XML beside it is the exchange file.</p><ul><li><a href="ccda/hp-01.html">History and physical</a> <a href="ccda/hp-01.xml">(XML)</a></li><li><a href="ccda/progress-01.html">Progress note 01</a> <a href="ccda/progress-01.xml">(XML)</a></li><li><a href="ccda/progress-02.html">Progress note 02 — Focused Visit (Follow-up)</a> <a href="ccda/progress-02.xml">(XML)</a></li><li><a href="ccda/progress-03.html">Progress note 03 — Focused Visit (Follow-up)</a> <a href="ccda/progress-03.xml">(XML)</a></li><li><a href="ccda/progress-04.html">Progress note 04 — Sick Visit</a> <a href="ccda/progress-04.xml">(XML)</a></li><li><a href="ccda/progress-05.html">Progress note 05 — Focused Visit (Follow-up)</a> <a href="ccda/progress-05.xml">(XML)</a></li><li><a href="ccda/progress-06.html">Progress note 06 — Annual Wellness Visit, Subsequent</a> <a href="ccda/progress-06.xml">(XML)</a></li><li><a href="ccda/progress-07.html">Progress note 07 — Focused Visit (Care-plan review)</a> <a href="ccda/progress-07.xml">(XML)</a></li><li><a href="ccda/referral-01.html">Cardiology (heart failure) referral</a> <a href="ccda/referral-01.xml">(XML)</a></li><li><a href="ccda/consult-01.html">Cardiology (heart failure) consultation</a> <a href="ccda/consult-01.xml">(XML)</a></li></ul></section>
+    <section><h2>Sources</h2><table><thead><tr><th>ID</th><th>Source</th><th>Publisher</th><th>Type</th></tr></thead><tbody>
+  <tr>
+    <td>SRC-0001</td>
+    <td><a href="https://www.pbs.org/wnet/americanmasters/duke-kahanamoku-biography-and-life-timeline/21754" target="_blank" rel="noreferrer">Duke Kahanamoku: biography and life timeline. American Masters</a></td>
+    <td>PBS (WNET)</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0002</td>
+    <td><a href="https://staradvertiser.com/?p=715741" target="_blank" rel="noreferrer">Luis C. A wonderful life (Duke Kahanamoku timeline). Honolulu Star-Advertiser, January 22, 2018</a></td>
+    <td>Honolulu Star-Advertiser</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0003</td>
+    <td><a href="https://staradvertiser.com/?p=715743" target="_blank" rel="noreferrer">Luis C. Legacy of Hawaii&#39;s most beloved, honored athlete endures 50 years after his death. Honolulu Star-Advertiser, January 22, 2018</a></td>
+    <td>Honolulu Star-Advertiser</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0004</td>
+    <td><a href="https://www.olympedia.org/athletes/51429" target="_blank" rel="noreferrer">Duke Kahanamoku (athlete profile)</a></td>
+    <td>Olympedia (OlyMADMen)</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0005</td>
+    <td><a href="https://ebsco.com/research-starters/history/duke-kahanamoku" target="_blank" rel="noreferrer">Duke Kahanamoku. Research Starters: History</a></td>
+    <td>EBSCO</td>
+    <td>biography</td>
+  </tr>
+  <tr>
+    <td>SRC-0006</td>
+    <td><a href="https://ishof.org/?p=2428" target="_blank" rel="noreferrer">August 24: celebrate the birth of one of Hawaii&#39;s greatest sons and 1965 ISHOF Honoree, Duke Kahanamoku</a></td>
+    <td>International Swimming Hall of Fame</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0007</td>
+    <td><a href="https://www.encyclopedia.com/doc/1G2-3404707611.html" target="_blank" rel="noreferrer">Kahanamoku, Duke. Encyclopedia of World Biography</a></td>
+    <td>Gale, via Encyclopedia.com</td>
+    <td>biography</td>
+  </tr>
+  <tr>
+    <td>SRC-0010</td>
+    <td><a href="https://humanrecord.example.org/internal/HISTMED_Master_Roster_v3.xlsx" target="_blank" rel="noreferrer">HISTMED Master Roster v3</a></td>
+    <td>The Human Record project</td>
+    <td>other</td>
+  </tr></tbody></table></section>
+    <section><h2>Review status</h2><table><thead><tr><th>Review</th><th>Status</th><th>Notes</th></tr></thead><tbody>
+  <tr><td>schema validation</td><td>not_started</td><td>Run scripts/build.ps1 -Conformance.</td></tr>
+  <tr><td>clinical review</td><td>not_started</td><td>Awaiting clinician review; check the 36-hour washout from lisinopril to sacubitril-valsartan, the change from metoprolol tartrate to carvedilol, the order of titration, spironolactone with an eGFR above 30 and potassium below 5.0, the sick-day holds when potassium reached 5.5, the missed laboratory check after the last dose increases, intravenous iron at a ferritin of 62, angiography without revascularization, the decision against an ICD at an ejection fraction of 38%, and the ocean-safety plan.</td></tr>
+  <tr><td>provenance review</td><td>not_started</td><td>Sources: PBS American Masters, two Honolulu Star-Advertiser articles of 2018, Olympedia, EBSCO, the International Swimming Hall of Fame and the Encyclopedia of World Biography. The Hawaiʻi State Archives, the Bishop Museum, olympics.com, the New York Times obituary and David Davis&#39;s biography Waterman were not read; a 1962 wire report found through Papers Past could not be fetched. The heart attack is dated 1952, not 1955.</td></tr>
+  <tr><td>safe messaging review</td><td>not_started</td><td>His Native Hawaiian identity is described as he would describe it, without stereotype; his own healing practices are respected and not described. Mood screening is synthetic and negative. His wife appears only in a documented claim, and no relative or other real person is given a modern statement, decision or health fact.</td></tr></tbody></table></section>
+  </main>
+</body>
+</html>
