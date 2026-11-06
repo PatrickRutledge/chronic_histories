@@ -1,5 +1,6 @@
 import crypto from "node:crypto";
 import path from "node:path";
+import { fileURLToPath } from "node:url";
 
 export const deterministicUuid = (seed) => {
   const hex = crypto.createHash("sha256").update(seed).digest("hex").slice(0, 32).split("");
@@ -28,6 +29,11 @@ export const compareIso = (a, b) => {
 export const trueDateFrameSupported = (data) => isoYear(data.identity.historical_dates.birth.preferred.iso) >= 1;
 export const frameLabel = (data) => isTrueDateFrame(data) ? "true historical dates (modern content is anachronistic)" : "modern shifted";
 export const TRUE_DATE_NOTICE = "True-date frame: synthetic events are moved into the patient's historical lifetime. Codes, instruments, and treatments remain modern and are anachronistic.";
+
+// The dataset's main page (index.html at the repository root, written by generate_dataset_manifest.mjs),
+// as a link from a record's output directory.
+export const REPO_ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..", "..");
+export const allRecordsHref = (outputDir) => path.relative(outputDir, path.join(REPO_ROOT, "index.html")).split(path.sep).join("/");
 
 // Optional second argument: output directory. Defaults to <case directory>/generated.
 export const outputDirFor = (casePath) => process.argv[3] ? path.resolve(process.argv[3]) : path.join(path.dirname(casePath), "generated");

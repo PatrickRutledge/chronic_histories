@@ -19,7 +19,7 @@ export const editorialResolutions = (sourcesText) => {
   return section.split(/\r?\n/).slice(1).join("\n").split(/\n(?=- )/).map(item => item.replace(/^- /, "").replace(/\s*\n\s*/g, " ").trim()).filter(Boolean);
 };
 
-export function reviewPage(data, sourcesText) {
+export function reviewPage(data, sourcesText, allRecords = "") {
   const visits = data.synthetic_episode.visit_schedule;
   const labels = visitLabels(data);
   const encounterById = new Map(data.clinical.encounters.map(e => [e.id, e]));
@@ -61,7 +61,7 @@ export function reviewPage(data, sourcesText) {
 <body>
 <div class="banner">${esc(data.record_classification.banner)}</div>
 <h1>Review checklist: ${esc(data.identity.display_name)} (${esc(data.case_id)})</h1>
-<p><a href="index.html">Back to the record</a> · <a href="../sources.md">Dossier (sources.md)</a> · <a href="../terminology.md">Terminology</a></p>
+<p>${allRecords ? `<a href="${esc(allRecords)}">All records</a> · ` : ""}<a href="index.html">Back to the record</a> · <a href="../sources.md">Dossier (sources.md)</a> · <a href="../terminology.md">Terminology</a></p>
 <p>Everything a reviewer needs to judge, gathered from the record. Release status: <strong>${esc(data.record_classification.public_release_status)}</strong>.</p>
 ${trueDateFrameSupported(data) ? "" : `<p class="note">No true-date version: the patient was born before 1 CE, and C-CDA and FHIR dates cannot carry a year that early. The record exists in the modern frame only.</p>
 `}<ul>

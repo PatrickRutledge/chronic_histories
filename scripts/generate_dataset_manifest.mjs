@@ -1,4 +1,4 @@
-// Writes manifest.csv at the repository root: one row per released-track case under pilots/ and cases/.
+// Writes manifest.csv and index.html (the main page linking every record) at the repository root: one row per released-track case under pilots/ and cases/.
 // Test fixtures are excluded. Every value is derived from case.json and the committed
 // conformance summary, so the file can be regenerated at any time and must not be hand-edited.
 //   node scripts/generate_dataset_manifest.mjs [--check]
@@ -12,6 +12,8 @@ import { isoYear } from "./lib/common.mjs";
 const repoRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const pilotsDir = path.join(repoRoot, "pilots");
 const manifestPath = path.join(repoRoot, "manifest.csv");
+const indexPath = path.join(repoRoot, "index.html");
+const REPO_URL = "https://github.com/PatrickRutledge/chronic_histories";
 const RECENT_DEATH_AFTER_YEAR = 1990; // Project instruction: deaths after 1990 need extra review.
 
 const columns = [
@@ -99,14 +101,104 @@ const caseDirs = [pilotsDir, path.join(repoRoot, "cases")]
 const rows = caseDirs.map(row).sort((a, b) => a.case_id.localeCompare(b.case_id));
 const csv = [columns.join(","), ...rows.map(r => columns.map(col => csvField(r[col])).join(","))].join("\n") + "\n";
 
+// index.html: the dataset's main page, one row per record with links to its pages and files, a search
+// box, and a "verified" checkbox per record kept in the reader's browser (localStorage) only.
+const esc = (value) => String(value ?? "").replaceAll("&", "&amp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;").replaceAll('"', "&quot;");
+function indexRow(r) {
+  const c = JSON.parse(fs.readFileSync(path.join(repoRoot, r.path, "case.json"), "utf8"));
+  const dates = c.identity.historical_dates;
+  const problems = c.clinical.problems.filter(problem => problem.clinical_status === "active").map(problem => problem.display);
+  const base = r.path;
+  const trueDate = fs.existsSync(path.join(repoRoot, base, "generated", "true-date", "index.html"));
+  const issue = `${REPO_URL}/issues?q=${encodeURIComponent(`is:issue label:clinical-review "${r.case_id}"`)}`;
+  const links = [
+    [`${base}/generated/index.html`, "Record"],
+    [`${base}/generated/review.html`, "Review"],
+    [`${base}/sources.md`, "Sources"],
+    [`${base}/generated/ccda.html`, "C-CDA"],
+    [`${base}/generated/fhir-bundle.json`, "FHIR"],
+    ...(trueDate ? [[`${base}/generated/true-date/index.html`, "True-date"]] : []),
+    [issue, "Issue"],
+  ].map(([href, label]) => `<a href="${esc(href)}">${label}</a>`).join(" ");
+  const search = [r.case_id, r.display_name, r.era, r.nationality, ...problems].join(" ").toLowerCase();
+  return `<tr data-id="${esc(r.case_id)}" data-search="${esc(search)}"><td><input type="checkbox" aria-label="Verified ${esc(r.display_name)}"></td><td>${esc(r.case_id)}</td><td><a href="${esc(base)}/generated/index.html">${esc(r.display_name)}</a></td><td>${esc(r.era)}</td><td>${esc(dates.birth.preferred.display)} – ${esc(dates.death.preferred.display)}</td><td>${esc(r.index_age)}</td><td>${esc(problems.join("; "))}</td><td>${esc(r.conformance)}</td><td class="links">${links}</td></tr>`;
+}
+const indexHtml = `<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Human Record: all records</title>
+<style>
+  body { font: 14px/1.45 system-ui, sans-serif; margin: 1.5rem; color: #1d2433; }
+  .banner { background: #8b0000; color: #fff; padding: .6rem 1rem; font-weight: 700; }
+  .bar { display: flex; gap: 1rem; align-items: center; flex-wrap: wrap; margin: 1rem 0; }
+  input[type=search] { padding: .35rem .5rem; min-width: 22rem; }
+  table { border-collapse: collapse; width: 100%; }
+  th, td { border-bottom: 1px solid #dde; padding: .3rem .45rem; text-align: left; vertical-align: top; }
+  th { position: sticky; top: 0; background: #f4f5fa; }
+  tr.done { background: #eef8ee; }
+  td.links a { margin-right: .4rem; white-space: nowrap; }
+  .note { color: #555; }
+</style>
+</head>
+<body>
+<div class="banner">SYNTHETIC RECORDS, NOT REAL MEDICAL RECORDS</div>
+<h1>The Human Record: all records</h1>
+<p class="note">${rows.length} records, regenerated with manifest.csv on every full build. Each row links to the record, its review checklist, its sources, its C-CDA and FHIR files, the true-date version where one exists, and its clinical-review issue on GitHub. The Verified box is a reading aid kept only in this browser; a record's review status lives in its case.json and its issue.</p>
+<div class="bar">
+  <input type="search" id="q" placeholder="Search name, case ID, era or problem">
+  <label><input type="checkbox" id="hide"> Hide verified</label>
+  <span id="count"></span>
+</div>
+<table>
+<thead><tr><th>Verified</th><th>Case</th><th>Name</th><th>Era</th><th>Lived</th><th>Index age</th><th>Active problems</th><th>Conformance</th><th>Open</th></tr></thead>
+<tbody>
+${rows.map(indexRow).join("\n")}
+</tbody>
+</table>
+<script>
+const KEY = "human-record-verified";
+const saved = new Set(JSON.parse(localStorage.getItem(KEY) || "[]"));
+const rowsEl = [...document.querySelectorAll("tbody tr")];
+const q = document.getElementById("q"), hide = document.getElementById("hide"), count = document.getElementById("count");
+function refresh() {
+  const term = q.value.trim().toLowerCase();
+  let shown = 0;
+  for (const tr of rowsEl) {
+    const done = saved.has(tr.dataset.id);
+    tr.classList.toggle("done", done);
+    const visible = (!term || tr.dataset.search.includes(term)) && !(hide.checked && done);
+    tr.hidden = !visible;
+    if (visible) shown++;
+  }
+  count.textContent = saved.size + " of " + rowsEl.length + " verified; " + shown + " shown";
+}
+for (const tr of rowsEl) {
+  const box = tr.querySelector("input");
+  box.checked = saved.has(tr.dataset.id);
+  box.addEventListener("change", () => { box.checked ? saved.add(tr.dataset.id) : saved.delete(tr.dataset.id); localStorage.setItem(KEY, JSON.stringify([...saved])); refresh(); });
+}
+q.addEventListener("input", refresh); hide.addEventListener("change", refresh); refresh();
+</script>
+</body>
+</html>
+`;
+
 if (process.argv.includes("--check")) {
   const current = fs.existsSync(manifestPath) ? fs.readFileSync(manifestPath, "utf8").replace(/\r\n/g, "\n") : "";
   if (current !== csv) {
     console.error("ERROR: manifest.csv is out of date. Run: node scripts/generate_dataset_manifest.mjs");
     process.exit(1);
   }
-  console.log(`manifest.csv is current (${rows.length} cases).`);
+  const currentIndex = fs.existsSync(indexPath) ? fs.readFileSync(indexPath, "utf8").replace(/\r\n/g, "\n") : "";
+  if (currentIndex !== indexHtml) {
+    console.error("ERROR: index.html is out of date. Run: node scripts/generate_dataset_manifest.mjs");
+    process.exit(1);
+  }
+  console.log(`manifest.csv and index.html are current (${rows.length} cases).`);
 } else {
   fs.writeFileSync(manifestPath, csv, "utf8");
-  console.log(`Wrote manifest.csv (${rows.length} cases).`);
+  fs.writeFileSync(indexPath, indexHtml, "utf8");
+  console.log(`Wrote manifest.csv and index.html (${rows.length} cases).`);
 }
