@@ -66,7 +66,7 @@ This datasheet follows the structure of Gebru et al., "Datasheets for Datasets" 
 
 ## Preprocessing and validation
 
-- JSON Schema validation, plus project checks: age arithmetic, date bounds, claim links, grade consistency, identifier scans, and leakage of other cases' names.
+- JSON Schema validation, plus project checks: age arithmetic, date bounds, claim links, grade consistency, identifier scans, and leakage of other cases' names (a record may name another figure on purpose in its documented history by listing that case in `identity.historical_mentions`; other cases' MRNs are never allowed).
 - C-CDA: the HL7 CDA XSD and the official C-CDA R2.1 Schematron.
 - FHIR: the HL7 FHIR Validator against base R4 and US Core 6.1.0, with codes checked against tx.fhir.org.
 - Builds are deterministic, and hash manifests detect hand edits or stale outputs. Negative controls confirm that each check still fires.

@@ -68,6 +68,14 @@ try {
     $dir = New-ControlCase 'leak' { param($c) Add-SocialText $c 'Seen with Audie Leon Murphy' }
     Assert-Control 'another case''s patient name' (Invoke-Script $build @('-CaseDirectory', $dir)) "contains 'Audie Leon Murphy' from case HR-ET007"
 
+    # A figure the record names on purpose (identity.historical_mentions) is allowed; that case's MRN never is.
+    $addMention = { param($c) $c.identity | Add-Member -Force -NotePropertyName historical_mentions -NotePropertyValue @('HR-ET007') }
+    $dir = New-ControlCase 'mention' { param($c) & $addMention $c; Add-SocialText $c 'Seen with Audie Leon Murphy' }
+    $run = Invoke-Script $build @('-CaseDirectory', $dir)
+    $results.Add([pscustomobject]@{ Control = 'figure named on purpose in documented history'; Result = $(if ($run.Exit -eq 0) { 'PASS' } else { 'FAIL' }); Detail = $(if ($run.Exit -eq 0) { 'not flagged' } else { 'flagged as leakage' }) })
+    $dir = New-ControlCase 'mention-mrn' { param($c) & $addMention $c; Add-SocialText $c 'Records filed under HR-ET007-SYN' }
+    Assert-Control 'MRN of a figure named on purpose' (Invoke-Script $build @('-CaseDirectory', $dir)) "contains 'HR-ET007-SYN' from case HR-ET007"
+
     # The reverse: ordinary words that contain another case's alias ("Ike", "Cash", "Grant") must not trip the check.
     $dir = New-ControlCase 'no-leak' { param($c) Add-SocialText $c 'Likely to hike, cash a check, or grant a favor' }
     $run = Invoke-Script $build @('-CaseDirectory', $dir)

@@ -406,15 +406,27 @@ foreach ($file in $scanFiles) {
     }
 }
 
-# No other case's identity may appear in this case's files.
-foreach ($otherDir in Get-AllCaseDirectories $repoRoot) {
+# No other case's identity may appear in this case's files, except a figure the record names on
+# purpose in its documented history (identity.historical_mentions lists their case IDs). Another
+# case's MRN is never allowed.
+$mentioned = @($case.identity.historical_mentions | Where-Object { $_ })
+$others = @(foreach ($otherDir in Get-AllCaseDirectories $repoRoot) {
     $other = Get-Content -Raw -LiteralPath (Join-Path $otherDir 'case.json') | ConvertFrom-Json
-    if ($other.case_id -eq $case.case_id) { continue }
-    $markers = @($other.identity.display_name, $other.identity.synthetic_identity.mrn) + @($other.identity.aliases) | Where-Object { $_ }
-    foreach ($file in $scanFiles) {
-        foreach ($marker in $markers) {
+    if ($other.case_id -ne $case.case_id) { $other }
+})
+$namesOf = { param($c) @(@($c.identity.display_name) + @($c.identity.aliases) | Where-Object { $_ }) }
+$allNames = @(& $namesOf $case) + @($others | ForEach-Object { & $namesOf $_ })
+foreach ($other in $others) {
+    $otherNames = & $namesOf $other
+    $markers = @($other.identity.synthetic_identity.mrn) + $(if ($mentioned -contains $other.case_id) { @() } else { $otherNames })
+    foreach ($marker in $markers) {
+        # A name inside someone else's longer name ("Martin Luther" in "Martin Luther King Jr.") is not a match.
+        $longer = @($allNames | Where-Object { $_.Length -gt $marker.Length -and $_.Contains($marker) -and $otherNames -notcontains $_ })
+        foreach ($file in $scanFiles) {
+            $text = $scanText[$file]
+            foreach ($name in $longer) { $text = $text.Replace($name, '') }
             # Whole words, case-sensitive: short aliases such as "Ike" or "Cash" must not match "likely" or "cash".
-            if ($scanText[$file] -cmatch "(?<!\w)$([regex]::Escape($marker))(?!\w)") { $errors.Add("$(Split-Path -Leaf $file) contains '$marker' from case $($other.case_id)") }
+            if ($text -cmatch "(?<!\w)$([regex]::Escape($marker))(?!\w)") { $errors.Add("$(Split-Path -Leaf $file) contains '$marker' from case $($other.case_id)") }
         }
     }
 }
