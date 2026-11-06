@@ -1,0 +1,948 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Flannery O&#39;Connor — The Human Record</title>
+  <style>
+    :root { --navy:#17365d; --blue:#1f4e78; --pale:#eef5fa; --ink:#1f2933; --muted:#66788a; --amber:#fff2cc; --red:#f8d7da; --green:#d9ead3; }
+    * { box-sizing:border-box; }
+    body { margin:0; font:16px/1.5 Arial, sans-serif; color:var(--ink); background:#f6f8fa; }
+    header { background:var(--navy); color:white; padding:24px max(24px,calc((100vw - 1180px)/2)); }
+    header h1 { margin:4px 0; font-size:30px; }
+    .banner { background:#b42318; color:white; font-weight:700; text-align:center; padding:10px; letter-spacing:.03em; }
+    main { max-width:1180px; margin:24px auto 60px; padding:0 24px; }
+    section { background:white; border:1px solid #d9e1e8; border-radius:8px; margin:18px 0; padding:20px; }
+    h2 { color:var(--navy); margin:0 0 14px; font-size:22px; }
+    h3 { color:var(--blue); }
+    .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:12px; }
+    .card { background:var(--pale); border-left:4px solid var(--blue); padding:12px; }
+    .label { color:var(--muted); font-size:13px; text-transform:uppercase; letter-spacing:.04em; }
+    table { width:100%; border-collapse:collapse; }
+    th { background:var(--blue); color:white; text-align:left; }
+    th,td { padding:9px; border-bottom:1px solid #dfe6ec; vertical-align:top; }
+    .badge { display:inline-block; min-width:28px; text-align:center; font-weight:700; border-radius:12px; padding:2px 8px; }
+    .grade-D { background:var(--green); } .grade-R { background:var(--amber); } .grade-S { background:var(--red); }
+    .muted { color:var(--muted); font-size:14px; }
+    .relationship { color:var(--muted); font-size:12px; }
+    .downloads a { display:inline-block; margin:4px 8px 4px 0; padding:8px 12px; background:var(--blue); color:white; text-decoration:none; border-radius:5px; }
+    @media (max-width:700px) { table { display:block; overflow-x:auto; } }
+  </style>
+</head>
+<body>
+  <div class="banner">SYNTHETIC RECORD, NOT A REAL MEDICAL RECORD</div>
+  <div class="banner">True-date frame: synthetic events are moved into the patient&#39;s historical lifetime. Codes, instruments, and treatments remain modern and are anachronistic.</div>
+  <header>
+    <div>The Human Record</div>
+    <h1>Flannery O&#39;Connor</h1>
+    <div>Case HR-ML046-TD · Modern EHR teaching episode · Draft for review</div>
+  </header>
+  <main>
+    <section>
+      <h2>Review summary</h2>
+      <div class="grid">
+        <div class="card"><div class="label">Historical dates</div>March 25, 1925 – August 3, 1964</div>
+        <div class="card"><div class="label">Synthetic DOB</div>1925-03-25</div>
+        <div class="card"><div class="label">Index visit</div>1950-04-13 at age 25</div>
+        <div class="card"><div class="label">Synthetic MRN</div>HR-ML046-SYN-TD</div>
+      </div>
+      <p><strong>Teaching objective:</strong> Recognize systemic lupus erythematosus in a woman of 25 with inflammatory arthritis, fever, a malar rash, cytopenias, and protein and blood in the urine, rather than calling it rheumatoid arthritis; classify it with the 1943 EULAR/ACR criteria (ANA, anti-dsDNA, anti-Sm, complements, antiphospholipid antibodies) and tell her the diagnosis directly. Measure the urine protein-to-creatinine ratio, biopsy the kidney, and treat class III lupus nephritis as the 1948 ACR and 1947 EULAR guidance advise: hydroxychloroquine for every patient with baseline eye screening, pulse then tapering glucocorticoids kept to 5 mg a day or less, mycophenolate with belimumab, and an angiotensin receptor blocker. Protect bone and watch for avascular necrosis, give vaccinations before immunosuppression, protect her from the sun, manage cardiovascular risk, plan contraception and any future pregnancy with her antiphospholipid status in mind, and protect her writing life. The teaching note contrasts this with the high-dose steroid treatment, the steroid bone damage, and the concealment of her diagnosis that she lived through.</p>
+      <div class="downloads">
+        <a href="../case.json">Canonical JSON</a>
+        <a href="fhir-bundle.json">FHIR R4 draft</a>
+        <a href="ccda.html">C-CDA R2.1 summary</a> <a href="ccda.xml">(XML)</a>
+        <a href="../sources.md">Evidence dossier</a>
+      </div>
+    </section>
+    <section><h2>Historical timeline</h2><table><thead><tr><th>Date</th><th>Event</th><th>Claims</th></tr></thead><tbody>
+  <tr><td>March 25, 1925</td><td>Born in Savannah, Georgia.</td><td>CLM-0001</td></tr>
+  <tr><td>1937</td><td>Her father&#39;s lupus diagnosed after an illness first thought to be rheumatoid arthritis.</td><td>CLM-0002</td></tr>
+  <tr><td>1941</td><td>Her father died of systemic lupus erythematosus.</td><td>CLM-0002</td></tr>
+  <tr><td>1947</td><td>Completed the Iowa Writers&#39; Workshop.</td><td>CLM-0003</td></tr>
+  <tr><td>December 1949</td><td>Month-long hospital stay in Georgia with an operation for a floating kidney.</td><td>CLM-0004</td></tr>
+  <tr><td>1950, by December</td><td>Joint pain in Connecticut, suspected to be rheumatoid arthritis; in December, admitted to hospital in Georgia and diagnosed with systemic lupus erythematosus in Atlanta.</td><td>CLM-0005, CLM-0006, CLM-0012</td></tr>
+  <tr><td>1951</td><td>Learned her diagnosis from a friend; treated with daily ACTH injections; moved to Andalusia.</td><td>CLM-0007, CLM-0008, CLM-0009</td></tr>
+  <tr><td>1952</td><td>Wise Blood published.</td><td>CLM-0016</td></tr>
+  <tr><td>Spring 1954</td><td>Limp and hip pain from bone damage attributed to steroids; crutches for most of her remaining years.</td><td>CLM-0010, CLM-0011</td></tr>
+  <tr><td>First half of 1961</td><td>Steroids tapered; chloroquine added.</td><td>CLM-0013</td></tr>
+  <tr><td>Early 1964</td><td>Surgery for a bleeding fibroid tumor reactivated her lupus; her kidneys were affected.</td><td>CLM-0014</td></tr>
+  <tr><td>August 3, 1964</td><td>Died in Milledgeville, Georgia.</td><td>CLM-0015</td></tr></tbody></table></section>
+    <section><h2>Evidence claims</h2><p class="muted">D = documented, R = retrospective, S = synthetic.</p><table><thead><tr><th>Grade</th><th>Claim</th><th>Certainty</th><th>Sources</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>Mary Flannery O&#39;Connor was born in Savannah, Georgia, on March 25, 1925, the only child of Edward Francis O&#39;Connor and Regina Cline O&#39;Connor. She later dropped her first name for her writing.</strong></td>
+    <td>confirmed</td>
+    <td><a href="https://www.pbs.org/wnet/americanmasters/flannery-oconnor-biographical-timeline/17555/" target="_blank" rel="noreferrer">Flannery O&#39;Connor: biographical timeline (American Masters)</a> <span class="relationship">supports</span><br><a href="https://www.georgiaencyclopedia.org/articles/arts-culture/flannery-oconnor-1925-1964/" target="_blank" rel="noreferrer">Flannery O&#39;Connor (1925-1964). New Georgia Encyclopedia</a> <span class="relationship">supports</span><br><a href="https://www.encyclopedia.com/humanities/encyclopedias-almanacs-transcripts-and-maps/oconnor-flannery" target="_blank" rel="noreferrer">O&#39;Connor, Flannery. Scribner Encyclopedia of American Lives, Thematic Series: The 1960s</a> <span class="relationship">supports</span><br><a href="https://www.alphaomegaalpha.org/wp-content/uploads/2021/03/2019-2-Silver.pdf" target="_blank" rel="noreferrer">Peacocks and the Red Wolf. The Pharos of Alpha Omega Alpha, Spring 2019:27-32</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>Her father was diagnosed with lupus in 1937; his illness began with a whitish patch of skin on his forehead and arthritis, and was first diagnosed as rheumatoid arthritis. He died of systemic lupus erythematosus in 1941, a month after his 45th birthday, when she was 15.</strong><div class="muted">The documented family history of systemic lupus erythematosus in a first-degree relative.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.alphaomegaalpha.org/wp-content/uploads/2021/03/2019-2-Silver.pdf" target="_blank" rel="noreferrer">Peacocks and the Red Wolf. The Pharos of Alpha Omega Alpha, Spring 2019:27-32</a> <span class="relationship">supports</span><br><a href="https://www.georgiaencyclopedia.org/articles/arts-culture/flannery-oconnor-1925-1964/" target="_blank" rel="noreferrer">Flannery O&#39;Connor (1925-1964). New Georgia Encyclopedia</a> <span class="relationship">supports</span><br><a href="https://www.pbs.org/wnet/americanmasters/flannery-oconnor-biographical-timeline/17555/" target="_blank" rel="noreferrer">Flannery O&#39;Connor: biographical timeline (American Masters)</a> <span class="relationship">supports</span><br><a href="https://hekint.org/2017/01/29/dances-with-wolves/" target="_blank" rel="noreferrer">Dances with wolves. Hektoen International, Spring 2016</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>O&#39;Connor graduated from Georgia State College for Women in 1945 and then studied at the Writers&#39; Workshop of the State University of Iowa, where she earned a Master of Fine Arts; she was writing her first novel by the late 1940s.</strong></td>
+    <td>confirmed</td>
+    <td><a href="https://www.alphaomegaalpha.org/wp-content/uploads/2021/03/2019-2-Silver.pdf" target="_blank" rel="noreferrer">Peacocks and the Red Wolf. The Pharos of Alpha Omega Alpha, Spring 2019:27-32</a> <span class="relationship">supports</span><br><a href="https://www.pbs.org/wnet/americanmasters/flannery-oconnor-biographical-timeline/17555/" target="_blank" rel="noreferrer">Flannery O&#39;Connor: biographical timeline (American Masters)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>In December 1949, at 24, she fell seriously ill on a holiday visit to Georgia and spent about a month in hospital, where she had an operation for a floating kidney.</strong><div class="muted">A physician friend later speculated that this was the first sign of lupus; a review in a medical society journal notes that lupus nephritis is usually painless, so whether it was is unclear.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.alphaomegaalpha.org/wp-content/uploads/2021/03/2019-2-Silver.pdf" target="_blank" rel="noreferrer">Peacocks and the Red Wolf. The Pharos of Alpha Omega Alpha, Spring 2019:27-32</a> <span class="relationship">supports</span><br><a href="https://hekint.org/2017/01/29/dances-with-wolves/" target="_blank" rel="noreferrer">Dances with wolves. Hektoen International, Spring 2016</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>In 1950, while living in Connecticut and writing Wise Blood, O&#39;Connor developed joint pain; rheumatoid arthritis was suspected, a diagnosis that later proved wrong.</strong><div class="muted">The documented presentation that the synthetic episode echoes; the month of onset is not given.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.alphaomegaalpha.org/wp-content/uploads/2021/03/2019-2-Silver.pdf" target="_blank" rel="noreferrer">Peacocks and the Red Wolf. The Pharos of Alpha Omega Alpha, Spring 2019:27-32</a> <span class="relationship">supports</span><br><a href="https://hekint.org/2017/01/29/dances-with-wolves/" target="_blank" rel="noreferrer">Dances with wolves. Hektoen International, Spring 2016</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>In December 1950 she traveled home to Georgia by train and arrived looking very ill. She was admitted to hospital in Milledgeville, kidney disease was suspected, and on the advice of an Atlanta kidney specialist who suspected lupus she was moved to Emory Hospital in Atlanta, where a positive LE cell test confirmed systemic lupus erythematosus.</strong><div class="muted">Sources date the diagnosis to late 1950 or January 1951; it was made in Atlanta.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.alphaomegaalpha.org/wp-content/uploads/2021/03/2019-2-Silver.pdf" target="_blank" rel="noreferrer">Peacocks and the Red Wolf. The Pharos of Alpha Omega Alpha, Spring 2019:27-32</a> <span class="relationship">supports</span><br><a href="https://www.encyclopedia.com/humanities/encyclopedias-almanacs-transcripts-and-maps/oconnor-flannery" target="_blank" rel="noreferrer">O&#39;Connor, Flannery. Scribner Encyclopedia of American Lives, Thematic Series: The 1960s</a> <span class="relationship">supports</span><br><a href="https://www.pbs.org/wnet/americanmasters/flannery-oconnor-biographical-timeline/17555/" target="_blank" rel="noreferrer">Flannery O&#39;Connor: biographical timeline (American Masters)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>Fearing the shock of her having the disease that had killed her father, her mother chose not to tell her the diagnosis; O&#39;Connor learned that she had lupus from a friend in mid-1951.</strong><div class="muted">Documented nondisclosure within the family; the synthetic episode tells her the diagnosis directly. No decision in the modern episode is attributed to any relative.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.alphaomegaalpha.org/wp-content/uploads/2021/03/2019-2-Silver.pdf" target="_blank" rel="noreferrer">Peacocks and the Red Wolf. The Pharos of Alpha Omega Alpha, Spring 2019:27-32</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>She was discharged on daily injections of ACTH, which she learned to give herself, and was later treated with cortisone and prednisone. In early 1953 she wrote that she was nearly bald on top and had a &quot;watermelon face&quot;.</strong><div class="muted">Hair loss and a round face are taken by the medical authors as signs of steroid treatment (iatrogenic Cushing syndrome).</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.alphaomegaalpha.org/wp-content/uploads/2021/03/2019-2-Silver.pdf" target="_blank" rel="noreferrer">Peacocks and the Red Wolf. The Pharos of Alpha Omega Alpha, Spring 2019:27-32</a> <span class="relationship">supports</span><br><a href="https://hekint.org/2017/01/29/dances-with-wolves/" target="_blank" rel="noreferrer">Dances with wolves. Hektoen International, Spring 2016</a> <span class="relationship">supports</span><br><a href="https://www.encyclopedia.com/humanities/encyclopedias-almanacs-transcripts-and-maps/oconnor-flannery" target="_blank" rel="noreferrer">O&#39;Connor, Flannery. Scribner Encyclopedia of American Lives, Thematic Series: The 1960s</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>From 1951 until 1964 O&#39;Connor lived with her mother at Andalusia, the family farm outside Milledgeville, Georgia, where she wrote and kept peafowl and other birds.</strong></td>
+    <td>confirmed</td>
+    <td><a href="https://www.georgiaencyclopedia.org/articles/arts-culture/flannery-oconnor-1925-1964/" target="_blank" rel="noreferrer">Flannery O&#39;Connor (1925-1964). New Georgia Encyclopedia</a> <span class="relationship">supports</span><br><a href="https://www.alphaomegaalpha.org/wp-content/uploads/2021/03/2019-2-Silver.pdf" target="_blank" rel="noreferrer">Peacocks and the Red Wolf. The Pharos of Alpha Omega Alpha, Spring 2019:27-32</a> <span class="relationship">supports</span><br><a href="https://www.encyclopedia.com/humanities/encyclopedias-almanacs-transcripts-and-maps/oconnor-flannery" target="_blank" rel="noreferrer">O&#39;Connor, Flannery. Scribner Encyclopedia of American Lives, Thematic Series: The 1960s</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>By the spring of 1954 she had a limp and progressive hip pain, and she used crutches for most of her remaining years. She later wrote that her doctors had found that her &quot;bone disintegration is being caused by the steroid drugs&quot; she had taken for years.</strong><div class="muted">Her own report of her physicians&#39; finding, as quoted in a medical society journal.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.alphaomegaalpha.org/wp-content/uploads/2021/03/2019-2-Silver.pdf" target="_blank" rel="noreferrer">Peacocks and the Red Wolf. The Pharos of Alpha Omega Alpha, Spring 2019:27-32</a> <span class="relationship">supports</span><br><a href="https://www.encyclopedia.com/humanities/encyclopedias-almanacs-transcripts-and-maps/oconnor-flannery" target="_blank" rel="noreferrer">O&#39;Connor, Flannery. Scribner Encyclopedia of American Lives, Thematic Series: The 1960s</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-R" title="Retrospective">R</span></td>
+    <td><strong>Physician authors attribute her hip disease to avascular necrosis of the femoral head from steroid treatment, and suggest that her jaw may have been affected in the same way.</strong><div class="muted">Retrospective medical interpretation from her letters and photographs; no imaging from her lifetime was reviewed.</div></td>
+    <td>probable</td>
+    <td><a href="https://www.alphaomegaalpha.org/wp-content/uploads/2021/03/2019-2-Silver.pdf" target="_blank" rel="noreferrer">Peacocks and the Red Wolf. The Pharos of Alpha Omega Alpha, Spring 2019:27-32</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-R" title="Retrospective">R</span></td>
+    <td><strong>Physician authors suggest from her letters and photographs that she may have had a malar facial rash early in her illness and the hand deformities of Jaccoud arthropathy.</strong><div class="muted">Retrospective interpretation; not used as a historical finding.</div></td>
+    <td>possible</td>
+    <td><a href="https://www.alphaomegaalpha.org/wp-content/uploads/2021/03/2019-2-Silver.pdf" target="_blank" rel="noreferrer">Peacocks and the Red Wolf. The Pharos of Alpha Omega Alpha, Spring 2019:27-32</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>Her steroid treatment was tapered in the first half of 1961, when she was also taking chloroquine.</strong><div class="muted">Later than the synthetic episode and not used in it.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.alphaomegaalpha.org/wp-content/uploads/2021/03/2019-2-Silver.pdf" target="_blank" rel="noreferrer">Peacocks and the Red Wolf. The Pharos of Alpha Omega Alpha, Spring 2019:27-32</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>In early 1964 she was anemic from a bleeding fibroid tumor and had abdominal surgery to remove it; the tumor was benign, but the operation reactivated her lupus, which had been in remission, and her kidneys were affected.</strong><div class="muted">One source describes the operation as a hysterectomy. Later than the synthetic episode and not used in it.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.georgiaencyclopedia.org/articles/arts-culture/flannery-oconnor-1925-1964/" target="_blank" rel="noreferrer">Flannery O&#39;Connor (1925-1964). New Georgia Encyclopedia</a> <span class="relationship">supports</span><br><a href="https://www.encyclopedia.com/humanities/encyclopedias-almanacs-transcripts-and-maps/oconnor-flannery" target="_blank" rel="noreferrer">O&#39;Connor, Flannery. Scribner Encyclopedia of American Lives, Thematic Series: The 1960s</a> <span class="relationship">supports</span><br><a href="https://www.alphaomegaalpha.org/wp-content/uploads/2021/03/2019-2-Silver.pdf" target="_blank" rel="noreferrer">Peacocks and the Red Wolf. The Pharos of Alpha Omega Alpha, Spring 2019:27-32</a> <span class="relationship">supports</span><br><a href="https://www.pbs.org/wnet/americanmasters/flannery-oconnor-biographical-timeline/17555/" target="_blank" rel="noreferrer">Flannery O&#39;Connor: biographical timeline (American Masters)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>Her novel Wise Blood was published in 1952 and A Good Man Is Hard to Find and Other Stories in 1955; The Complete Stories won the National Book Award after her death.</strong></td>
+    <td>confirmed</td>
+    <td><a href="https://www.alphaomegaalpha.org/wp-content/uploads/2021/03/2019-2-Silver.pdf" target="_blank" rel="noreferrer">Peacocks and the Red Wolf. The Pharos of Alpha Omega Alpha, Spring 2019:27-32</a> <span class="relationship">supports</span><br><a href="https://www.pbs.org/wnet/americanmasters/flannery-oconnor-biographical-timeline/17555/" target="_blank" rel="noreferrer">Flannery O&#39;Connor: biographical timeline (American Masters)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>O&#39;Connor died of kidney failure from lupus in the Baldwin County Hospital in Milledgeville on August 3, 1964, at 39.</strong><div class="muted">Record the death as a fact without detail.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.georgiaencyclopedia.org/articles/arts-culture/flannery-oconnor-1925-1964/" target="_blank" rel="noreferrer">Flannery O&#39;Connor (1925-1964). New Georgia Encyclopedia</a> <span class="relationship">supports</span><br><a href="https://www.encyclopedia.com/humanities/encyclopedias-almanacs-transcripts-and-maps/oconnor-flannery" target="_blank" rel="noreferrer">O&#39;Connor, Flannery. Scribner Encyclopedia of American Lives, Thematic Series: The 1960s</a> <span class="relationship">supports</span><br><a href="https://www.pbs.org/wnet/americanmasters/flannery-oconnor-biographical-timeline/17555/" target="_blank" rel="noreferrer">Flannery O&#39;Connor: biographical timeline (American Masters)</a> <span class="relationship">supports</span><br><a href="https://www.alphaomegaalpha.org/wp-content/uploads/2021/03/2019-2-Silver.pdf" target="_blank" rel="noreferrer">Peacocks and the Red Wolf. The Pharos of Alpha Omega Alpha, Spring 2019:27-32</a> <span class="relationship">supports</span></td>
+  </tr></tbody></table></section>
+    <section><h2>Modern synthetic problem list</h2><table><thead><tr><th>Grade</th><th>Problem</th><th>Clinical status</th><th>Verification</th><th>Placement</th><th>Historical claims</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Pain and swelling of the small joints of both hands, the wrists, and the knees for three months, with an hour of morning stiffness, evening fevers to 38 °C, fatigue, and a red rash over the cheeks and nose after sun; told elsewhere it might be rheumatoid arthritis; cause to be established</td>
+    <td>resolved</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td>CLM-0005</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Protein and blood in the urine: protein-to-creatinine ratio 1.6 g/g and 18 red cells per high-power field, with normal creatinine; cause to be established</td>
+    <td>resolved</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Systemic lupus erythematosus, classified by the EULAR/ACR criteria (ANA 1:640 homogeneous; score 32 before the biopsy): inflammatory arthritis, acute cutaneous lupus (malar rash), fever, leukopenia with lymphopenia, mild thrombocytopenia, low C3 and C4, anti-dsDNA and anti-Sm positive; antiphospholipid antibodies and lupus anticoagulant negative</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>both_with_link</td>
+    <td>CLM-0006, CLM-0002</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Lupus nephritis, ISN/RPS class III (A), focal proliferative, on kidney biopsy: endocapillary proliferation in 9 of 30 glomeruli, activity index 6 of 24, chronicity index 1 of 12, full-house immunofluorescence; no thrombotic microangiopathy; urine protein-to-creatinine ratio 1.8 g/g; normal kidney function</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td>CLM-0006, CLM-0015</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Long-term glucocorticoid treatment for lupus nephritis, tapering to 5 mg a day or less</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td>CLM-0008, CLM-0010</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Long-term mycophenolate mofetil, with belimumab, for lupus nephritis; bone and infection protection in place</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Levonorgestrel intrauterine system for highly effective contraception during mycophenolate treatment</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Acute cystitis on mycophenolate, belimumab, and prednisone 15 mg: two days of burning, frequency, and urgency without fever or flank pain; urine culture grew Escherichia coli sensitive to nitrofurantoin; resolved with seven days of nitrofurantoin</td>
+    <td>resolved</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td></td>
+  </tr></tbody></table></section>
+    <section><h2>Synthetic outcome measures</h2><table><thead><tr><th>Grade</th><th>Date</th><th>Measure</th><th>Result</th><th>Coding</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1950-04-13</td>
+    <td>Hemoglobin [Mass/volume] in Blood</td>
+    <td>11 g/dL (low)<div class="muted">Reference 12-15.5 g/dL</div></td>
+    <td>http://loinc.org · 718-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1950-04-13</td>
+    <td>Leukocytes [#/volume] in Blood by Automated count</td>
+    <td>3.3 10*3/uL (low)<div class="muted">Reference 4-11 10*3/uL</div></td>
+    <td>http://loinc.org · 6690-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1950-04-13</td>
+    <td>Lymphocytes [#/volume] in Blood by Automated count</td>
+    <td>0.8 10*3/uL (low)<div class="muted">Reference 1-4.8 10*3/uL</div></td>
+    <td>http://loinc.org · 731-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1950-04-13</td>
+    <td>Platelets [#/volume] in Blood by Automated count</td>
+    <td>138 10*3/uL (low)<div class="muted">Reference 150-400 10*3/uL</div></td>
+    <td>http://loinc.org · 777-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1950-04-13</td>
+    <td>Creatinine [Mass/volume] in Serum or Plasma</td>
+    <td>0.8 mg/dL<div class="muted">Reference 0.5-1.1 mg/dL</div></td>
+    <td>http://loinc.org · 2160-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1950-04-13</td>
+    <td>Glomerular filtration rate [Volume Rate/Area] in Serum, Plasma or Blood by Creatinine-based formula (CKD-EPI 1945)/1.73 sq M</td>
+    <td>101 mL/min/1.73 m²<div class="muted">Reference &gt;=60 mL/min/1.73 m²</div></td>
+    <td>http://loinc.org · 98979-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1950-04-13</td>
+    <td>Potassium [Moles/volume] in Serum or Plasma</td>
+    <td>4.2 mmol/L<div class="muted">Reference 3.5-5.1 mmol/L</div></td>
+    <td>http://loinc.org · 2823-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1950-04-13</td>
+    <td>Albumin [Mass/volume] in Serum or Plasma</td>
+    <td>3.3 g/dL (low)<div class="muted">Reference 3.5-5 g/dL</div></td>
+    <td>http://loinc.org · 1751-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1950-04-13</td>
+    <td>Alanine aminotransferase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>19 U/L<div class="muted">Reference &lt;=33 U/L</div></td>
+    <td>http://loinc.org · 1742-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1950-04-13</td>
+    <td>Erythrocyte [Sedimentation Rate] in Blood by Westergren method</td>
+    <td>52 mm/h (high)<div class="muted">Reference &lt;=20 mm/h</div></td>
+    <td>http://loinc.org · 4537-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1950-04-13</td>
+    <td>C reactive protein [Mass/volume] in Serum or Plasma</td>
+    <td>0.6 mg/dL (high)<div class="muted">Reference &lt;=0.5 mg/dL</div></td>
+    <td>http://loinc.org · 1988-5</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1950-04-13</td>
+    <td>Protein/Creatinine [Mass Ratio] in Urine</td>
+    <td>1.6 g/g (high)<div class="muted">Reference &lt;=0.2 g/g</div></td>
+    <td>http://loinc.org · 2890-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1950-04-13</td>
+    <td>Erythrocytes [#/area] in Urine sediment by Microscopy high power field</td>
+    <td>18 /[HPF] (high)<div class="muted">Reference &lt;=2 /[HPF]</div></td>
+    <td>http://loinc.org · 13945-1</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1950-04-13</td>
+    <td>Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]</td>
+    <td>7</td>
+    <td>http://loinc.org · 44261-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1950-04-13</td>
+    <td>Pain severity - 0-10 verbal numeric rating [Score] - Reported</td>
+    <td>6</td>
+    <td>http://loinc.org · 72514-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1950-04-22</td>
+    <td>Nuclear Ab [Titer] in Serum by Immunofluorescence</td>
+    <td>640 (high)<div class="muted">Reference Negative at 1:40 or less; the EULAR/ACR entry criterion is 1:80 or higher</div></td>
+    <td>http://loinc.org · 5048-4</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1950-04-22</td>
+    <td>DNA double strand Ab [Units/volume] in Serum</td>
+    <td>186 [IU]/mL (high)<div class="muted">Reference &lt;=29 [IU]/mL</div></td>
+    <td>http://loinc.org · 5130-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1950-04-22</td>
+    <td>Smith extractable nuclear Ab [Units/volume] in Serum</td>
+    <td>42 U/mL (high)<div class="muted">Reference &lt;=19 U/mL</div></td>
+    <td>http://loinc.org · 11090-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1950-04-22</td>
+    <td>Complement C3 [Mass/volume] in Serum or Plasma</td>
+    <td>62 mg/dL (low)<div class="muted">Reference 90-180 mg/dL</div></td>
+    <td>http://loinc.org · 4485-9</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1950-04-22</td>
+    <td>Complement C4 [Mass/volume] in Serum or Plasma</td>
+    <td>8 mg/dL (low)<div class="muted">Reference 10-40 mg/dL</div></td>
+    <td>http://loinc.org · 4498-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1950-04-22</td>
+    <td>Cardiolipin IgG Ab [Units/volume] in Serum by Immunoassay</td>
+    <td>6 U/mL<div class="muted">Reference &lt;=20 U/mL</div></td>
+    <td>http://loinc.org · 3181-5</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1950-04-22</td>
+    <td>Cardiolipin IgM Ab [Units/volume] in Serum by Immunoassay</td>
+    <td>4 U/mL<div class="muted">Reference &lt;=20 U/mL</div></td>
+    <td>http://loinc.org · 3182-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1950-04-22</td>
+    <td>Beta 2 glycoprotein 1 IgG Ab [Units/volume] in Serum</td>
+    <td>3 U/mL<div class="muted">Reference &lt;=20 U/mL</div></td>
+    <td>http://loinc.org · 16135-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1950-04-22</td>
+    <td>Beta 2 glycoprotein 1 IgM Ab [Units/volume] in Serum</td>
+    <td>2 U/mL<div class="muted">Reference &lt;=20 U/mL</div></td>
+    <td>http://loinc.org · 16136-4</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1950-04-22</td>
+    <td>dRVVT/dRVVT W excess phospholipid (screen to confirm ratio)</td>
+    <td>1.04<div class="muted">Reference &lt;=1.2</div></td>
+    <td>http://loinc.org · 50410-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1950-04-22</td>
+    <td>Protein/Creatinine [Mass Ratio] in Urine</td>
+    <td>1.8 g/g (high)<div class="muted">Reference &lt;=0.2 g/g</div></td>
+    <td>http://loinc.org · 2890-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1950-04-22</td>
+    <td>Erythrocytes [#/area] in Urine sediment by Microscopy high power field</td>
+    <td>22 /[HPF] (high)<div class="muted">Reference &lt;=2 /[HPF]</div></td>
+    <td>http://loinc.org · 13945-1</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1950-04-22</td>
+    <td>Creatinine [Mass/volume] in Serum or Plasma</td>
+    <td>0.8 mg/dL<div class="muted">Reference 0.5-1.1 mg/dL</div></td>
+    <td>http://loinc.org · 2160-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1950-04-22</td>
+    <td>Glomerular filtration rate [Volume Rate/Area] in Serum, Plasma or Blood by Creatinine-based formula (CKD-EPI 1945)/1.73 sq M</td>
+    <td>101 mL/min/1.73 m²<div class="muted">Reference &gt;=60 mL/min/1.73 m²</div></td>
+    <td>http://loinc.org · 98979-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1950-04-29</td>
+    <td>Hemoglobin [Mass/volume] in Blood</td>
+    <td>11.2 g/dL (low)<div class="muted">Reference 12-15.5 g/dL</div></td>
+    <td>http://loinc.org · 718-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1950-04-29</td>
+    <td>Leukocytes [#/volume] in Blood by Automated count</td>
+    <td>3.6 10*3/uL (low)<div class="muted">Reference 4-11 10*3/uL</div></td>
+    <td>http://loinc.org · 6690-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1950-04-29</td>
+    <td>Lymphocytes [#/volume] in Blood by Automated count</td>
+    <td>0.9 10*3/uL (low)<div class="muted">Reference 1-4.8 10*3/uL</div></td>
+    <td>http://loinc.org · 731-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1950-04-29</td>
+    <td>Platelets [#/volume] in Blood by Automated count</td>
+    <td>151 10*3/uL<div class="muted">Reference 150-400 10*3/uL</div></td>
+    <td>http://loinc.org · 777-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1950-04-29</td>
+    <td>Alanine aminotransferase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>18 U/L<div class="muted">Reference &lt;=33 U/L</div></td>
+    <td>http://loinc.org · 1742-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1950-04-29</td>
+    <td>25-Hydroxyvitamin D3+25-Hydroxyvitamin D2 [Mass/volume] in Serum or Plasma</td>
+    <td>26 ng/mL (low)<div class="muted">Reference 30-100 ng/mL</div></td>
+    <td>http://loinc.org · 62292-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1950-04-29</td>
+    <td>DXA Lumbar spine [Z-score] Bone density</td>
+    <td>-0.4<div class="muted">Reference Z-score above -2.0 is within the expected range for age</div></td>
+    <td>http://loinc.org · 85394-5</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1950-04-29</td>
+    <td>DXA Femur [Z-score] Bone density</td>
+    <td>-0.2<div class="muted">Reference Z-score above -2.0 is within the expected range for age</div></td>
+    <td>http://loinc.org · 80934-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1950-07-27</td>
+    <td>Hemoglobin [Mass/volume] in Blood</td>
+    <td>12.1 g/dL<div class="muted">Reference 12-15.5 g/dL</div></td>
+    <td>http://loinc.org · 718-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1950-07-27</td>
+    <td>Leukocytes [#/volume] in Blood by Automated count</td>
+    <td>5.2 10*3/uL<div class="muted">Reference 4-11 10*3/uL</div></td>
+    <td>http://loinc.org · 6690-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1950-07-27</td>
+    <td>Lymphocytes [#/volume] in Blood by Automated count</td>
+    <td>1 10*3/uL<div class="muted">Reference 1-4.8 10*3/uL</div></td>
+    <td>http://loinc.org · 731-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1950-07-27</td>
+    <td>Platelets [#/volume] in Blood by Automated count</td>
+    <td>212 10*3/uL<div class="muted">Reference 150-400 10*3/uL</div></td>
+    <td>http://loinc.org · 777-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1950-07-27</td>
+    <td>Creatinine [Mass/volume] in Serum or Plasma</td>
+    <td>0.8 mg/dL<div class="muted">Reference 0.5-1.1 mg/dL</div></td>
+    <td>http://loinc.org · 2160-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1950-07-27</td>
+    <td>Glomerular filtration rate [Volume Rate/Area] in Serum, Plasma or Blood by Creatinine-based formula (CKD-EPI 1945)/1.73 sq M</td>
+    <td>101 mL/min/1.73 m²<div class="muted">Reference &gt;=60 mL/min/1.73 m²</div></td>
+    <td>http://loinc.org · 98979-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1950-07-27</td>
+    <td>Potassium [Moles/volume] in Serum or Plasma</td>
+    <td>4.4 mmol/L<div class="muted">Reference 3.5-5.1 mmol/L</div></td>
+    <td>http://loinc.org · 2823-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1950-07-27</td>
+    <td>Albumin [Mass/volume] in Serum or Plasma</td>
+    <td>3.8 g/dL<div class="muted">Reference 3.5-5 g/dL</div></td>
+    <td>http://loinc.org · 1751-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1950-07-27</td>
+    <td>Alanine aminotransferase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>22 U/L<div class="muted">Reference &lt;=33 U/L</div></td>
+    <td>http://loinc.org · 1742-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1950-07-27</td>
+    <td>Protein/Creatinine [Mass Ratio] in Urine</td>
+    <td>0.9 g/g (high)<div class="muted">Reference &lt;=0.2 g/g</div></td>
+    <td>http://loinc.org · 2890-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1950-07-27</td>
+    <td>Erythrocytes [#/area] in Urine sediment by Microscopy high power field</td>
+    <td>6 /[HPF] (high)<div class="muted">Reference &lt;=2 /[HPF]</div></td>
+    <td>http://loinc.org · 13945-1</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1950-07-27</td>
+    <td>DNA double strand Ab [Units/volume] in Serum</td>
+    <td>72 [IU]/mL (high)<div class="muted">Reference &lt;=29 [IU]/mL</div></td>
+    <td>http://loinc.org · 5130-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1950-07-27</td>
+    <td>Complement C3 [Mass/volume] in Serum or Plasma</td>
+    <td>84 mg/dL (low)<div class="muted">Reference 90-180 mg/dL</div></td>
+    <td>http://loinc.org · 4485-9</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1950-07-27</td>
+    <td>Complement C4 [Mass/volume] in Serum or Plasma</td>
+    <td>13 mg/dL<div class="muted">Reference 10-40 mg/dL</div></td>
+    <td>http://loinc.org · 4498-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1950-07-27</td>
+    <td>25-Hydroxyvitamin D3+25-Hydroxyvitamin D2 [Mass/volume] in Serum or Plasma</td>
+    <td>36 ng/mL<div class="muted">Reference 30-100 ng/mL</div></td>
+    <td>http://loinc.org · 62292-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1950-07-27</td>
+    <td>Cholesterol [Mass/volume] in Serum or Plasma</td>
+    <td>212 mg/dL (high)<div class="muted">Reference &lt;=199 mg/dL</div></td>
+    <td>http://loinc.org · 2093-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1950-07-27</td>
+    <td>Cholesterol in HDL [Mass/volume] in Serum or Plasma</td>
+    <td>58 mg/dL<div class="muted">Reference &gt;=50 mg/dL</div></td>
+    <td>http://loinc.org · 2085-9</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1950-07-27</td>
+    <td>Cholesterol in LDL [Mass/volume] in Serum or Plasma by calculation</td>
+    <td>128 mg/dL (high)<div class="muted">Reference &lt;=99 mg/dL</div></td>
+    <td>http://loinc.org · 13457-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1950-07-27</td>
+    <td>Triglyceride [Mass/volume] in Serum or Plasma</td>
+    <td>130 mg/dL<div class="muted">Reference &lt;=149 mg/dL</div></td>
+    <td>http://loinc.org · 2571-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1950-07-27</td>
+    <td>Hemoglobin A1c/Hemoglobin.total in Blood</td>
+    <td>5.3%<div class="muted">Reference &lt;=5.6%</div></td>
+    <td>http://loinc.org · 4548-4</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1950-07-27</td>
+    <td>Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]</td>
+    <td>4</td>
+    <td>http://loinc.org · 44261-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1950-07-27</td>
+    <td>Pain severity - 0-10 verbal numeric rating [Score] - Reported</td>
+    <td>1</td>
+    <td>http://loinc.org · 72514-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1950-10-26</td>
+    <td>Hemoglobin [Mass/volume] in Blood</td>
+    <td>12.8 g/dL<div class="muted">Reference 12-15.5 g/dL</div></td>
+    <td>http://loinc.org · 718-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1950-10-26</td>
+    <td>Leukocytes [#/volume] in Blood by Automated count</td>
+    <td>5.6 10*3/uL<div class="muted">Reference 4-11 10*3/uL</div></td>
+    <td>http://loinc.org · 6690-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1950-10-26</td>
+    <td>Lymphocytes [#/volume] in Blood by Automated count</td>
+    <td>1.2 10*3/uL<div class="muted">Reference 1-4.8 10*3/uL</div></td>
+    <td>http://loinc.org · 731-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1950-10-26</td>
+    <td>Platelets [#/volume] in Blood by Automated count</td>
+    <td>236 10*3/uL<div class="muted">Reference 150-400 10*3/uL</div></td>
+    <td>http://loinc.org · 777-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1950-10-26</td>
+    <td>Creatinine [Mass/volume] in Serum or Plasma</td>
+    <td>0.8 mg/dL<div class="muted">Reference 0.5-1.1 mg/dL</div></td>
+    <td>http://loinc.org · 2160-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1950-10-26</td>
+    <td>Glomerular filtration rate [Volume Rate/Area] in Serum, Plasma or Blood by Creatinine-based formula (CKD-EPI 1945)/1.73 sq M</td>
+    <td>101 mL/min/1.73 m²<div class="muted">Reference &gt;=60 mL/min/1.73 m²</div></td>
+    <td>http://loinc.org · 98979-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1950-10-26</td>
+    <td>Potassium [Moles/volume] in Serum or Plasma</td>
+    <td>4.3 mmol/L<div class="muted">Reference 3.5-5.1 mmol/L</div></td>
+    <td>http://loinc.org · 2823-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1950-10-26</td>
+    <td>Albumin [Mass/volume] in Serum or Plasma</td>
+    <td>4.1 g/dL<div class="muted">Reference 3.5-5 g/dL</div></td>
+    <td>http://loinc.org · 1751-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1950-10-26</td>
+    <td>Alanine aminotransferase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>20 U/L<div class="muted">Reference &lt;=33 U/L</div></td>
+    <td>http://loinc.org · 1742-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1950-10-26</td>
+    <td>Protein/Creatinine [Mass Ratio] in Urine</td>
+    <td>0.35 g/g (high)<div class="muted">Reference &lt;=0.2 g/g</div></td>
+    <td>http://loinc.org · 2890-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1950-10-26</td>
+    <td>Erythrocytes [#/area] in Urine sediment by Microscopy high power field</td>
+    <td>2 /[HPF]<div class="muted">Reference &lt;=2 /[HPF]</div></td>
+    <td>http://loinc.org · 13945-1</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1950-10-26</td>
+    <td>DNA double strand Ab [Units/volume] in Serum</td>
+    <td>38 [IU]/mL (high)<div class="muted">Reference &lt;=29 [IU]/mL</div></td>
+    <td>http://loinc.org · 5130-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1950-10-26</td>
+    <td>Complement C3 [Mass/volume] in Serum or Plasma</td>
+    <td>96 mg/dL<div class="muted">Reference 90-180 mg/dL</div></td>
+    <td>http://loinc.org · 4485-9</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1950-10-26</td>
+    <td>Complement C4 [Mass/volume] in Serum or Plasma</td>
+    <td>18 mg/dL<div class="muted">Reference 10-40 mg/dL</div></td>
+    <td>http://loinc.org · 4498-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1950-10-26</td>
+    <td>Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]</td>
+    <td>3</td>
+    <td>http://loinc.org · 44261-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1950-10-26</td>
+    <td>Pain severity - 0-10 verbal numeric rating [Score] - Reported</td>
+    <td>0</td>
+    <td>http://loinc.org · 72514-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1950-06-15</td>
+    <td>Leukocytes [#/volume] in Blood by Automated count</td>
+    <td>7.9 10*3/uL<div class="muted">Reference 4-11 10*3/uL</div></td>
+    <td>http://loinc.org · 6690-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1950-06-15</td>
+    <td>Creatinine [Mass/volume] in Serum or Plasma</td>
+    <td>0.8 mg/dL<div class="muted">Reference 0.5-1.1 mg/dL</div></td>
+    <td>http://loinc.org · 2160-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1950-06-15</td>
+    <td>Potassium [Moles/volume] in Serum or Plasma</td>
+    <td>4.6 mmol/L<div class="muted">Reference 3.5-5.1 mmol/L</div></td>
+    <td>http://loinc.org · 2823-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1950-10-05</td>
+    <td>Patient Health Questionnaire 2 item (PHQ-2) total score [Reported]</td>
+    <td>0</td>
+    <td>http://loinc.org · 55758-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1950-10-05</td>
+    <td>Total score [AUDIT-C]</td>
+    <td>1</td>
+    <td>http://loinc.org · 75626-2</td>
+  </tr></tbody></table></section>
+    <section><h2>Synthetic vital signs</h2><table><thead><tr><th>Date</th><th>Measure</th><th>Result</th><th>LOINC</th><th>Grade</th></tr></thead><tbody>
+  <tr><td>1950-04-13</td><td>Body height</td><td>168 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1950-04-13</td><td>Body weight</td><td>60 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1950-04-13</td><td>Body mass index (BMI) [Ratio]</td><td>21.3 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1950-04-13</td><td>Systolic blood pressure</td><td>138 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1950-04-13</td><td>Diastolic blood pressure</td><td>86 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1950-04-13</td><td>Heart rate</td><td>96 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1950-04-13</td><td>Respiratory rate</td><td>16 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1950-04-13</td><td>Body temperature</td><td>37.9 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1950-04-13</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>98 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1950-04-22</td><td>Body height</td><td>168 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1950-04-22</td><td>Body weight</td><td>59.6 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1950-04-22</td><td>Body mass index (BMI) [Ratio]</td><td>21.1 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1950-04-22</td><td>Systolic blood pressure</td><td>136 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1950-04-22</td><td>Diastolic blood pressure</td><td>84 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1950-04-22</td><td>Heart rate</td><td>92 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1950-04-22</td><td>Respiratory rate</td><td>16 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1950-04-22</td><td>Body temperature</td><td>37.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1950-04-22</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>98 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1950-04-29</td><td>Body height</td><td>168 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1950-04-29</td><td>Body weight</td><td>59.8 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1950-04-29</td><td>Body mass index (BMI) [Ratio]</td><td>21.2 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1950-04-29</td><td>Systolic blood pressure</td><td>128 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1950-04-29</td><td>Diastolic blood pressure</td><td>80 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1950-04-29</td><td>Heart rate</td><td>84 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1950-04-29</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1950-04-29</td><td>Body temperature</td><td>37 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1950-04-29</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>99 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1950-07-27</td><td>Body height</td><td>168 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1950-07-27</td><td>Body weight</td><td>63.4 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1950-07-27</td><td>Body mass index (BMI) [Ratio]</td><td>22.5 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1950-07-27</td><td>Systolic blood pressure</td><td>122 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1950-07-27</td><td>Diastolic blood pressure</td><td>78 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1950-07-27</td><td>Heart rate</td><td>76 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1950-07-27</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1950-07-27</td><td>Body temperature</td><td>36.7 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1950-07-27</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>99 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1950-10-26</td><td>Body height</td><td>168 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1950-10-26</td><td>Body weight</td><td>62 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1950-10-26</td><td>Body mass index (BMI) [Ratio]</td><td>22 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1950-10-26</td><td>Systolic blood pressure</td><td>118 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1950-10-26</td><td>Diastolic blood pressure</td><td>76 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1950-10-26</td><td>Heart rate</td><td>72 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1950-10-26</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1950-10-26</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1950-10-26</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>99 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1950-06-15</td><td>Body height</td><td>168 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1950-06-15</td><td>Body weight</td><td>62.4 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1950-06-15</td><td>Body mass index (BMI) [Ratio]</td><td>22.1 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1950-06-15</td><td>Systolic blood pressure</td><td>124 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1950-06-15</td><td>Diastolic blood pressure</td><td>78 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1950-06-15</td><td>Heart rate</td><td>84 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1950-06-15</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1950-06-15</td><td>Body temperature</td><td>37.3 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1950-06-15</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>99 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1950-10-05</td><td>Body height</td><td>168 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1950-10-05</td><td>Body weight</td><td>62.2 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1950-10-05</td><td>Body mass index (BMI) [Ratio]</td><td>22 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1950-10-05</td><td>Systolic blood pressure</td><td>116 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1950-10-05</td><td>Diastolic blood pressure</td><td>74 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1950-10-05</td><td>Heart rate</td><td>70 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1950-10-05</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1950-10-05</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1950-10-05</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>99 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr></tbody></table></section>
+    <section><h2>Social, functional, and mental status</h2><h3>Social history</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Occupation: writer; finishing her first novel after a graduate writing program; writes every morning for about three hours and protects that time</li><li><span class="badge grade-S" title="Synthetic">S</span> Never smoker; rarely drinks alcohol; no other substances</li><li><span class="badge grade-S" title="Synthetic">S</span> Lives in a rented room in a friend&#39;s house in the country while she writes; spends much time outdoors and with birds</li><li><span class="badge grade-S" title="Synthetic">S</span> Strengths: a sharp, ironic sense of humor and a steady religious faith; supports: friends and a writing community; she prefers to keep her health out of conversations about her work</li><li><span class="badge grade-S" title="Synthetic">S</span> Reproductive history: no pregnancies; regular periods; sexually active with no current contraception; would like children some day but not now</li></ul><h3>Functional status</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Independent; morning stiffness makes buttons and typing hard for the first hour; writing sessions cut short by fatigue</li></ul><h3>Mental status</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Alert, witty, and direct; asks for exact answers</li><li><span class="badge grade-S" title="Synthetic">S</span> Mood worn down by fatigue; PHQ-9 7; no thoughts of self-harm</li></ul></section>
+    
+    <section><h2>Allergies and medications</h2><h3>Allergies</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> No known allergy</li></ul><h3>Medications</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Acetaminophen 500 mg oral tablet, two tablets (1000 mg) by mouth up to three times a day as needed for joint pain, no more than 3000 mg a day</li><li><span class="badge grade-S" title="Synthetic">S</span> Hydroxychloroquine sulfate 300 mg oral tablet, one tablet by mouth once daily (5 mg/kg of actual body weight), long term</li><li><span class="badge grade-S" title="Synthetic">S</span> Losartan potassium 25 mg oral tablet, one tablet by mouth once daily, for proteinuria and blood pressure</li><li><span class="badge grade-S" title="Synthetic">S</span> Methylprednisolone 500 mg intravenous infusion once daily for three days</li><li><span class="badge grade-S" title="Synthetic">S</span> Prednisone 5 mg oral tablet: 30 mg (six tablets) once daily from the day after the last pulse, reduced by 5 mg every two weeks to 10 mg, then to 5 mg a day or less by six months</li><li><span class="badge grade-S" title="Synthetic">S</span> Mycophenolate mofetil 500 mg oral tablet, one tablet twice daily for one week, then two tablets (1000 mg) twice daily</li><li><span class="badge grade-S" title="Synthetic">S</span> Belimumab 200 mg/mL subcutaneous autoinjector: 400 mg (two injections) once weekly for four doses, then 200 mg once weekly</li><li><span class="badge grade-S" title="Synthetic">S</span> Cholecalciferol (vitamin D3) 1000 units oral tablet, one tablet by mouth once daily</li><li><span class="badge grade-S" title="Synthetic">S</span> Nitrofurantoin (monohydrate/macrocrystals) 100 mg oral capsule, one capsule by mouth twice daily with food for seven days</li></ul></section>
+    <section><h2>Procedures and immunizations</h2><h3>Procedures</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Ultrasound-guided percutaneous kidney biopsy: ISN/RPS class III (A) lupus nephritis, endocapillary proliferation in 9 of 30 glomeruli, activity index 6 of 24, chronicity index 1 of 12, full-house immunofluorescence, subendothelial deposits; no crescents, thrombotic microangiopathy, or interstitial fibrosis beyond 10 percent; no bleeding after the procedure</li><li><span class="badge grade-S" title="Synthetic">S</span> Insertion of a levonorgestrel 52 mg intrauterine system, her choice for contraception before mycophenolate; pregnancy test negative</li><li><span class="badge grade-S" title="Synthetic">S</span> Bone density scan (DXA) at the start of high-dose glucocorticoids: lumbar spine Z-score -0.4, femoral neck Z-score -0.2; normal for age</li><li><span class="badge grade-S" title="Synthetic">S</span> Baseline eye examination for hydroxychloroquine with dilated fundus examination, spectral-domain optical coherence tomography, and automated 10-2 visual fields: normal; yearly screening from five years of use</li></ul><h3>Immunizations</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> 1949-10-10: Influenza vaccine, 1949-1950 season</li><li><span class="badge grade-S" title="Synthetic">S</span> 1937-10-01: HPV vaccine, 9-valent, series completed (dose 2 of 2)</li><li><span class="badge grade-S" title="Synthetic">S</span> 1943-05-14: Tdap vaccine</li><li><span class="badge grade-S" title="Synthetic">S</span> 1950-04-22: Pneumococcal conjugate vaccine PCV20</li><li><span class="badge grade-S" title="Synthetic">S</span> 1950-04-22: Recombinant zoster vaccine, dose 1 of 2</li><li><span class="badge grade-S" title="Synthetic">S</span> 1950-07-27: Recombinant zoster vaccine, dose 2 of 2</li><li><span class="badge grade-S" title="Synthetic">S</span> 1950-10-05: Influenza vaccine, 1950-1951 season</li></ul></section>
+    <section><h2>Past medical history</h2><p class="muted">True biography with historical dates; not part of the synthetic care timeline.</p><ul><li><span class="badge grade-D" title="Documented">D</span> December 1949: Month-long hospital stay with an operation for a floating kidney <span class="muted">(CLM-0004)</span></li></ul><h3>Family history</h3><ul><li><span class="badge grade-D" title="Documented">D</span> father: Systemic lupus erythematosus, first diagnosed as rheumatoid arthritis; he died of it in 1941 at 45</li></ul></section>
+    <section><h2>Care-plan goals</h2><table><thead><tr><th>Goal</th><th>Target date</th><th>Status</th><th>Outcome</th></tr></thead><tbody>
+  <tr><td>Establish the diagnosis within two weeks and hear it directly, in plain words</td><td>1950-04-22</td><td>completed</td><td>Told directly at nine days that she has systemic lupus erythematosus, with the reasons and a written summary</td></tr>
+  <tr><td>Renal response: urine protein-to-creatinine ratio halved by three months and below 0.5 g/g with stable kidney function by six to twelve months</td><td>1950-10-26</td><td>completed</td><td>Ratio 1.8 at diagnosis, 0.9 at three months, 0.35 at six months, a complete response; creatinine 0.8 throughout</td></tr>
+  <tr><td>Prednisone 5 mg a day or less by six months, with withdrawal considered later</td><td>1950-10-26</td><td>completed</td><td>5 mg a day at six months</td></tr>
+  <tr><td>Write at least four mornings a week through treatment</td><td>1950-12-31</td><td>active</td><td>Writing five mornings a week by three months</td></tr>
+  <tr><td>No unplanned pregnancy on mycophenolate; plan any pregnancy for a time of quiet disease on compatible medicines</td><td>1950-12-31</td><td>active</td><td>Intrauterine system in place; pregnancy planning discussed</td></tr></tbody></table></section>
+    <section><h2>Interventions</h2><table><thead><tr><th>Intervention</th><th>Status</th><th>Guideline</th></tr></thead><tbody>
+  <tr><td>Inflammatory arthritis with fever, rash, cytopenias, and an abnormal urine: blood count, chemistry, ESR and CRP, urine microscopy and protein-to-creatinine ratio today; ANA, anti-dsDNA, anti-Sm, complements, and antiphospholipid antibodies; no NSAIDs with protein in the urine</td><td>completed</td><td>GL-EULAR-ACR-CRIT-2019, GL-ACR-LN-2024</td></tr>
+  <tr><td>Rheumatology consultation within ten days, to confirm the diagnosis, stage organ involvement, and plan treatment with her</td><td>completed</td><td>GL-EULAR-SLE-2023</td></tr>
+  <tr><td>Disclosure: every result explained to her directly and in plain words, with a written copy; her health shared only with the people she names</td><td>completed</td><td>GL-EULAR-SLE-2023</td></tr>
+  <tr><td>Sun protection: broad-spectrum sunscreen SPF 50 or higher, a wide-brimmed hat, and shade in the middle of the day</td><td>completed</td><td>GL-EULAR-SLE-2023</td></tr>
+  <tr><td>Hydroxychloroquine 300 mg daily (5 mg/kg) for every patient with lupus, long term, with a baseline eye examination within the first year and yearly screening after five years</td><td>completed</td><td>GL-EULAR-SLE-2023, GL-AAO-HCQ-2016</td></tr>
+  <tr><td>Kidney biopsy for proteinuria above 0.5 g/g with an active sediment, to class the nephritis before treatment</td><td>completed</td><td>GL-ACR-LN-2024</td></tr>
+  <tr><td>Vaccinations before immunosuppression: PCV20 and recombinant zoster dose 1 now, zoster dose 2 after one to two months, seasonal influenza and COVID-19; no live vaccines on immunosuppression; hepatitis B, hepatitis C, and HIV screening</td><td>completed</td><td>GL-ACR-VAX-2022, GL-CDC-IMZ-MC-2026</td></tr>
+  <tr><td>Angiotensin receptor blocker (losartan) for proteinuria and blood pressure, target below 130/80 mmHg, with potassium and creatinine two to four weeks after starting</td><td>completed</td><td>GL-ACR-LN-2024, GL-CMID-2026</td></tr>
+  <tr><td>Contraception before mycophenolate: highly effective method of her choice (levonorgestrel intrauterine system); pregnancy test before starting; pregnancy planning later for at least six months of quiet disease on pregnancy-compatible medicines</td><td>completed</td><td>GL-ACR-REPRO-2020, GL-FDA-MMF-2026</td></tr>
+  <tr><td>Class III lupus nephritis: methylprednisolone 500 mg daily for three days, then prednisone 30 mg tapered to 5 mg a day or less by six months; mycophenolate mofetil 2 g a day with belimumab, continued for three to five years after a complete response; blood counts weekly for the first month, twice monthly for the next two, then monthly; urine protein-to-creatinine ratio, urine sediment, creatinine, anti-dsDNA, and complements every three months</td><td>completed</td><td>GL-ACR-LN-2024, GL-EULAR-SLE-2023, GL-FDA-MMF-2026, GL-FDA-BELIMUMAB-2026</td></tr>
+  <tr><td>Bone protection on glucocorticoids: baseline DXA, vitamin D3 and calcium from food, weight-bearing exercise; report new hip, groin, or knee pain at once so avascular necrosis can be looked for with MRI</td><td>completed</td><td>GL-ACR-GIOP-2022, GL-EULAR-SLE-2023</td></tr>
+  <tr><td>Cardiovascular risk: blood pressure at every visit, lipids and HbA1c at three months on glucocorticoids, no smoking, activity, and a lower glucocorticoid dose</td><td>completed</td><td>GL-EULAR-SLE-2023</td></tr>
+  <tr><td>Writing life: treatment visits and infusions booked in the afternoons, belimumab self-injected at home, fatigue managed with graded activity and sleep; her illness kept out of conversations about her work unless she chooses otherwise</td><td>completed</td><td>GL-EULAR-SLE-2023</td></tr></tbody></table></section>
+    <section><h2>Planned encounters</h2><ul>
+  <li><strong>1950-04-13</strong> — Primary care visit for joint pain and swelling, fevers, fatigue, a facial rash, and protein in the urine in a writer of 25 <span class="muted">(ENC-001)</span></li>
+  <li><strong>1950-04-22</strong> — Diagnosis of systemic lupus erythematosus with the rheumatology consultation the same day; vaccinations before immunosuppression <span class="muted">(ENC-002)</span></li>
+  <li><strong>1950-04-29</strong> — Kidney biopsy result: class III lupus nephritis; start of pulse methylprednisolone, prednisone, mycophenolate, and belimumab <span class="muted">(ENC-003)</span></li>
+  <li><strong>1950-06-15</strong> — Same-day sick visit for bladder symptoms on immunosuppression <span class="muted">(ENC-006, unscheduled)</span></li>
+  <li><strong>1950-07-27</strong> — Three-month response assessment for lupus nephritis and glucocorticoid taper <span class="muted">(ENC-004)</span></li>
+  <li><strong>1950-10-05</strong> — Adult preventive visit <span class="muted">(ENC-007)</span></li>
+  <li><strong>1950-10-26</strong> — Six-month response assessment: complete renal response; prednisone 5 mg; pregnancy planning <span class="muted">(ENC-005)</span></li></ul></section>
+    <section><h2>Supporting documents</h2><ul><li><a href="notes/hp.md">History and physical</a></li><li><a href="notes/progress-01.md">Progress note 01</a></li><li><a href="notes/progress-02.md">Progress note 02 — Focused Visit (Follow-up)</a></li><li><a href="notes/progress-03.md">Progress note 03 — Focused Visit (Follow-up)</a></li><li><a href="notes/progress-04.md">Progress note 04 — Sick Visit</a></li><li><a href="notes/progress-05.md">Progress note 05 — Focused Visit (Follow-up)</a></li><li><a href="notes/progress-06.md">Progress note 06 — Preventive Visit</a></li><li><a href="notes/progress-07.md">Progress note 07 — Focused Visit (Care-plan review)</a></li><li><a href="notes/referral-01.md">Rheumatology referral</a></li><li><a href="notes/consult-01.md">Rheumatology consultation</a></li><li><a href="notes/careplan.md">Patient care plan</a></li><li><a href="notes/teaching-note.md">Teaching note</a></li><li><a href="provenance.csv">Provenance CSV</a></li></ul></section>
+    <section><h2>C-CDA note documents</h2><p class="muted">Each link opens a readable copy; the XML beside it is the exchange file.</p><ul><li><a href="ccda/hp-01.html">History and physical</a> <a href="ccda/hp-01.xml">(XML)</a></li><li><a href="ccda/progress-01.html">Progress note 01</a> <a href="ccda/progress-01.xml">(XML)</a></li><li><a href="ccda/progress-02.html">Progress note 02 — Focused Visit (Follow-up)</a> <a href="ccda/progress-02.xml">(XML)</a></li><li><a href="ccda/progress-03.html">Progress note 03 — Focused Visit (Follow-up)</a> <a href="ccda/progress-03.xml">(XML)</a></li><li><a href="ccda/progress-04.html">Progress note 04 — Sick Visit</a> <a href="ccda/progress-04.xml">(XML)</a></li><li><a href="ccda/progress-05.html">Progress note 05 — Focused Visit (Follow-up)</a> <a href="ccda/progress-05.xml">(XML)</a></li><li><a href="ccda/progress-06.html">Progress note 06 — Preventive Visit</a> <a href="ccda/progress-06.xml">(XML)</a></li><li><a href="ccda/progress-07.html">Progress note 07 — Focused Visit (Care-plan review)</a> <a href="ccda/progress-07.xml">(XML)</a></li><li><a href="ccda/referral-01.html">Rheumatology referral</a> <a href="ccda/referral-01.xml">(XML)</a></li><li><a href="ccda/consult-01.html">Rheumatology consultation</a> <a href="ccda/consult-01.xml">(XML)</a></li></ul></section>
+    <section><h2>Sources</h2><table><thead><tr><th>ID</th><th>Source</th><th>Publisher</th><th>Type</th></tr></thead><tbody>
+  <tr>
+    <td>SRC-0001</td>
+    <td><a href="https://www.alphaomegaalpha.org/wp-content/uploads/2021/03/2019-2-Silver.pdf" target="_blank" rel="noreferrer">Peacocks and the Red Wolf. The Pharos of Alpha Omega Alpha, Spring 2019:27-32</a></td>
+    <td>Alpha Omega Alpha Honor Medical Society</td>
+    <td>scholarly</td>
+  </tr>
+  <tr>
+    <td>SRC-0002</td>
+    <td><a href="https://www.pbs.org/wnet/americanmasters/flannery-oconnor-biographical-timeline/17555/" target="_blank" rel="noreferrer">Flannery O&#39;Connor: biographical timeline (American Masters)</a></td>
+    <td>PBS (WNET)</td>
+    <td>biography</td>
+  </tr>
+  <tr>
+    <td>SRC-0003</td>
+    <td><a href="https://www.georgiaencyclopedia.org/articles/arts-culture/flannery-oconnor-1925-1964/" target="_blank" rel="noreferrer">Flannery O&#39;Connor (1925-1964). New Georgia Encyclopedia</a></td>
+    <td>Georgia Humanities and the University of Georgia Press</td>
+    <td>biography</td>
+  </tr>
+  <tr>
+    <td>SRC-0004</td>
+    <td><a href="https://www.encyclopedia.com/humanities/encyclopedias-almanacs-transcripts-and-maps/oconnor-flannery" target="_blank" rel="noreferrer">O&#39;Connor, Flannery. Scribner Encyclopedia of American Lives, Thematic Series: The 1960s</a></td>
+    <td>Encyclopedia.com (Scribner)</td>
+    <td>biography</td>
+  </tr>
+  <tr>
+    <td>SRC-0005</td>
+    <td><a href="https://hekint.org/2017/01/29/dances-with-wolves/" target="_blank" rel="noreferrer">Dances with wolves. Hektoen International, Spring 2016</a></td>
+    <td>Hektoen Institute of Medicine</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0006</td>
+    <td><a href="https://pubmed.ncbi.nlm.nih.gov/21778907/" target="_blank" rel="noreferrer">Lupus in the mid-20th century: the life and death of Flannery O&#39;Connor. J Clin Rheumatol 2011;17(5):266-268. PMID 21778907</a></td>
+    <td>Journal of Clinical Rheumatology (PubMed record)</td>
+    <td>scholarly</td>
+  </tr>
+  <tr>
+    <td>SRC-0007</td>
+    <td><a href="https://pubmed.ncbi.nlm.nih.gov/6999184/" target="_blank" rel="noreferrer">Flannery O&#39;Connor&#39;s lupus. A commentary on her collected letters, The Habit of Being. JAMA 1980;244(13):1441-1442. PMID 6999184</a></td>
+    <td>JAMA (PubMed record)</td>
+    <td>scholarly</td>
+  </tr>
+  <tr>
+    <td>SRC-0008</td>
+    <td><a href="https://humanrecord.example.org/internal/HISTMED_Master_Roster_v3.xlsx" target="_blank" rel="noreferrer">HISTMED Master Roster v3</a></td>
+    <td>The Human Record project</td>
+    <td>other</td>
+  </tr></tbody></table></section>
+    <section><h2>Review status</h2><table><thead><tr><th>Review</th><th>Status</th><th>Notes</th></tr></thead><tbody>
+  <tr><td>schema validation</td><td>not_started</td><td>Run scripts/build.ps1 -Conformance.</td></tr>
+  <tr><td>clinical review</td><td>not_started</td><td>Awaiting clinician review; check the EULAR/ACR scoring, the indication for kidney biopsy and the class III result, the choice of mycophenolate with belimumab over a calcineurin inhibitor, the glucocorticoid taper, the contraception choice, and the bone and vaccination plans.</td></tr>
+  <tr><td>provenance review</td><td>not_started</td><td>Her lupus, her father&#39;s lupus, the ACTH and later steroid treatment, the hip disease and crutches, the 1964 surgery, and her death are documented from a medical society journal article drawing on her letters and the standard biography, PBS, the New Georgia Encyclopedia, a Scribner reference biography, and a medical humanities essay. Avascular necrosis and an early malar rash are physicians&#39; retrospective interpretations (R). Her mother appears only in a documented claim; no relative is quoted or makes any decision.</td></tr>
+  <tr><td>safe messaging review</td><td>not_started</td><td>No behavioral-health diagnosis; mild depressive symptoms at diagnosis are screened and improve; the concealment of her diagnosis within her family is recorded factually without judgment; death recorded without detail.</td></tr></tbody></table></section>
+  </main>
+</body>
+</html>

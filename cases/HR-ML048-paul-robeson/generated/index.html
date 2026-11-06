@@ -1,0 +1,605 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Paul Robeson — The Human Record</title>
+  <style>
+    :root { --navy:#17365d; --blue:#1f4e78; --pale:#eef5fa; --ink:#1f2933; --muted:#66788a; --amber:#fff2cc; --red:#f8d7da; --green:#d9ead3; }
+    * { box-sizing:border-box; }
+    body { margin:0; font:16px/1.5 Arial, sans-serif; color:var(--ink); background:#f6f8fa; }
+    header { background:var(--navy); color:white; padding:24px max(24px,calc((100vw - 1180px)/2)); }
+    header h1 { margin:4px 0; font-size:30px; }
+    .banner { background:#b42318; color:white; font-weight:700; text-align:center; padding:10px; letter-spacing:.03em; }
+    main { max-width:1180px; margin:24px auto 60px; padding:0 24px; }
+    section { background:white; border:1px solid #d9e1e8; border-radius:8px; margin:18px 0; padding:20px; }
+    h2 { color:var(--navy); margin:0 0 14px; font-size:22px; }
+    h3 { color:var(--blue); }
+    .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:12px; }
+    .card { background:var(--pale); border-left:4px solid var(--blue); padding:12px; }
+    .label { color:var(--muted); font-size:13px; text-transform:uppercase; letter-spacing:.04em; }
+    table { width:100%; border-collapse:collapse; }
+    th { background:var(--blue); color:white; text-align:left; }
+    th,td { padding:9px; border-bottom:1px solid #dfe6ec; vertical-align:top; }
+    .badge { display:inline-block; min-width:28px; text-align:center; font-weight:700; border-radius:12px; padding:2px 8px; }
+    .grade-D { background:var(--green); } .grade-R { background:var(--amber); } .grade-S { background:var(--red); }
+    .muted { color:var(--muted); font-size:14px; }
+    .relationship { color:var(--muted); font-size:12px; }
+    .downloads a { display:inline-block; margin:4px 8px 4px 0; padding:8px 12px; background:var(--blue); color:white; text-decoration:none; border-radius:5px; }
+    @media (max-width:700px) { table { display:block; overflow-x:auto; } }
+  </style>
+</head>
+<body>
+  <div class="banner">SYNTHETIC RECORD, NOT A REAL MEDICAL RECORD</div>
+  <header>
+    <div>The Human Record</div>
+    <h1>Paul Robeson</h1>
+    <div>Case HR-ML048 · Modern EHR teaching episode · Draft for review</div>
+  </header>
+  <main>
+    <section>
+      <h2>Review summary</h2>
+      <div class="grid">
+        <div class="card"><div class="label">Historical dates</div>April 9, 1898 – January 23, 1976</div>
+        <div class="card"><div class="label">Synthetic DOB</div>1967-04-09</div>
+        <div class="card"><div class="label">Index visit</div>2026-03-09 at age 58</div>
+        <div class="card"><div class="label">Synthetic MRN</div>HR-ML048-SYN</div>
+      </div>
+      <p><strong>Teaching objective:</strong> Recognize and treat recurrent severe major depression in a 58-year-old Black singer, actor and activist under sustained political persecution, as the APA 2019 and VA/DoD 2022 guidelines and the CMID depression monograph advise: PHQ-9 and GAD-7, a structured diagnostic interview, bipolar screening with the MDQ before an antidepressant, a structured suicide-risk assessment with a safety plan, means counseling and the 988 Suicide &amp; Crisis Lifeline, and tests to exclude medical causes; treating realistic fears of surveillance as realistic rather than as paranoia, and attending to the documented racial disparities in the diagnosis of depression, its treatment and access to ECT; behavioral activation with measurement-based care; adequate trials of an SSRI (sertraline to 200 mg) and an SNRI (venlafaxine to 225 mg), then aripiprazole augmentation for treatment-resistant depression with metabolic monitoring; and an informed consent discussion about modern ECT (general anesthesia, right unilateral ultrabrief pulse, a defined course with cognitive testing) and its alternatives (rTMS and esketamine), decided against for now and kept available. The modern record contrasts careful, consented, measured modern ECT with what is documented about the many treatments he received years later, without asserting the disputed allegations about his care. It is a teaching case, not a claim about his real illness or care.</p>
+      <div class="downloads">
+        <a href="../case.json">Canonical JSON</a>
+        <a href="fhir-bundle.json">FHIR R4 draft</a>
+        <a href="ccda.html">C-CDA R2.1 summary</a> <a href="ccda.xml">(XML)</a> <a href="review.html">Review checklist</a>
+        <a href="../sources.md">Evidence dossier</a>
+      </div>
+    </section>
+    <section><h2>Historical timeline</h2><table><thead><tr><th>Date</th><th>Event</th><th>Claims</th></tr></thead><tbody>
+  <tr><td>April 9, 1898</td><td>Born in Princeton, New Jersey.</td><td>CLM-0001, CLM-0002</td></tr>
+  <tr><td>1919</td><td>Graduates from Rutgers as valedictorian.</td><td>CLM-0003</td></tr>
+  <tr><td>1923</td><td>Law degree from Columbia Law School.</td><td>CLM-0004</td></tr>
+  <tr><td>1950</td><td>Passport cancelled by the State Department; blacklisting and loss of income follow.</td><td>CLM-0005, CLM-0006</td></tr>
+  <tr><td>1955</td><td>Prostate surgery and a first breakdown followed by deep depression.</td><td>CLM-0008, CLM-0009</td></tr>
+  <tr><td>1956</td><td>Called before the House Un-American Activities Committee.</td><td>CLM-0007</td></tr>
+  <tr><td>1958</td><td>Passport restored after eight years.</td><td>CLM-0018</td></tr>
+  <tr><td>March 1961</td><td>Suicide attempt in Moscow; illness ends his career.</td><td>CLM-0010, CLM-0013, CLM-0015</td></tr>
+  <tr><td>September 1961</td><td>Admitted to the Priory clinic in London; many electroconvulsive treatments.</td><td>CLM-0011, CLM-0014</td></tr>
+  <tr><td>December 1963</td><td>Returns to the United States after hospital care in East Berlin.</td><td>CLM-0012</td></tr>
+  <tr><td>1966</td><td>Moves to Philadelphia to live with his sister.</td><td>CLM-0016</td></tr>
+  <tr><td>January 23, 1976</td><td>Dies in Philadelphia of complications of a stroke.</td><td>CLM-0017</td></tr></tbody></table></section>
+    <section><h2>Evidence claims</h2><p class="muted">D = documented, R = retrospective, S = synthetic.</p><table><thead><tr><th>Grade</th><th>Claim</th><th>Certainty</th><th>Sources</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>Paul Leroy Robeson was born on April 9, 1898, in Princeton, New Jersey.</strong></td>
+    <td>confirmed</td>
+    <td><a href="https://prcc.rutgers.edu/paul-robeson" target="_blank" rel="noreferrer">Paul Robeson</a> <span class="relationship">supports</span><br><a href="https://paulrobesonhouse.org/paul-robeson/" target="_blank" rel="noreferrer">Paul LeRoy Robeson</a> <span class="relationship">supports</span><br><a href="https://humanrecord.example.org/internal/HISTMED_Master_Roster_v3.xlsx" target="_blank" rel="noreferrer">HISTMED Master Roster v3</a> <span class="relationship">context</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>His father, the Rev. William Drew Robeson, was a minister, and his mother was Maria Louisa Bustill.</strong><div class="muted">History only; his parents are given no role in the modern episode.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://paulrobesonhouse.org/paul-robeson/" target="_blank" rel="noreferrer">Paul LeRoy Robeson</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>In 1915 he was awarded a four-year academic scholarship to Rutgers, where he was elected to Phi Beta Kappa and graduated as valedictorian in 1919; he had been named to college All-America football teams.</strong></td>
+    <td>confirmed</td>
+    <td><a href="https://prcc.rutgers.edu/paul-robeson" target="_blank" rel="noreferrer">Paul Robeson</a> <span class="relationship">supports</span><br><a href="https://paulrobesonhouse.org/paul-robeson/" target="_blank" rel="noreferrer">Paul LeRoy Robeson</a> <span class="relationship">supports</span><br><a href="https://www.smithsonianmag.com/history/what-paul-robeson-said-77742433/" target="_blank" rel="noreferrer">What Paul Robeson Said (Gilbert King)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>In 1923 he earned a law degree from Columbia Law School.</strong><div class="muted">Recorded as a documented education fact only.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://prcc.rutgers.edu/paul-robeson" target="_blank" rel="noreferrer">Paul Robeson</a> <span class="relationship">supports</span><br><a href="https://paulrobesonhouse.org/paul-robeson/" target="_blank" rel="noreferrer">Paul LeRoy Robeson</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>In 1950 the State Department cancelled his passport, saying his overseas travel was &#39;contrary to the best interests of the United States&#39;.</strong><div class="muted">Anchors the sustained political persecution in the modern episode.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.rutgers.edu/news/conscious-choice-paul-robesons-legacy" target="_blank" rel="noreferrer">A Conscious Choice: Paul Robeson&#39;s Legacy</a> <span class="relationship">supports</span><br><a href="https://paulrobesonhouse.org/paul-robeson/" target="_blank" rel="noreferrer">Paul LeRoy Robeson</a> <span class="relationship">supports</span><br><a href="https://biography.wales/article/s14-ROBE-LER-1898" target="_blank" rel="noreferrer">ROBESON, PAUL LEROY (1898 - 1976), actor, singer and political activist (Jamie Griffiths)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>His passport was restored in 1958, after eight years, following a Supreme Court ruling in a similar case that the withdrawal of a passport violated a citizen&#39;s constitutionally protected liberty.</strong><div class="muted">After the true-frame visits.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://biography.wales/article/s14-ROBE-LER-1898" target="_blank" rel="noreferrer">ROBESON, PAUL LEROY (1898 - 1976), actor, singer and political activist (Jamie Griffiths)</a> <span class="relationship">supports</span><br><a href="https://paulrobesonhouse.org/paul-robeson/" target="_blank" rel="noreferrer">Paul LeRoy Robeson</a> <span class="relationship">supports</span><br><a href="https://www.rutgers.edu/news/conscious-choice-paul-robesons-legacy" target="_blank" rel="noreferrer">A Conscious Choice: Paul Robeson&#39;s Legacy</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>He was blacklisted: his concerts were cancelled, record companies stopped recording him, his name was struck from the All-America teams and newsreel footage of him was destroyed, and his yearly income fell from more than $150,000 to less than $3,000.</strong><div class="muted">Anchors the loss of work and income in the modern social history.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.smithsonianmag.com/history/what-paul-robeson-said-77742433/" target="_blank" rel="noreferrer">What Paul Robeson Said (Gilbert King)</a> <span class="relationship">supports</span><br><a href="https://paulrobesonhouse.org/paul-robeson/" target="_blank" rel="noreferrer">Paul LeRoy Robeson</a> <span class="relationship">supports</span><br><a href="https://www.rutgers.edu/news/conscious-choice-paul-robesons-legacy" target="_blank" rel="noreferrer">A Conscious Choice: Paul Robeson&#39;s Legacy</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>In 1956 he was called before the House Un-American Activities Committee, where he invoked the Fifth Amendment and closed by saying, &#39;You gentlemen belong with the Alien and Sedition Acts, and you are the nonpatriots, and you are the un-Americans, and you ought to be ashamed of yourselves.&#39;</strong></td>
+    <td>confirmed</td>
+    <td><a href="https://www.smithsonianmag.com/history/what-paul-robeson-said-77742433/" target="_blank" rel="noreferrer">What Paul Robeson Said (Gilbert King)</a> <span class="relationship">supports</span><br><a href="https://paulrobesonhouse.org/paul-robeson/" target="_blank" rel="noreferrer">Paul LeRoy Robeson</a> <span class="relationship">supports</span><br><a href="https://www.americanyawp.com/reader/25-the-cold-war/paul-robesons-appearance-before-the-house-un-american-activities-committee-1956/" target="_blank" rel="noreferrer">Paul Robeson&#39;s Appearance Before the House Un-American Activities Committee (1956)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>His biographer Martin Duberman describes his first breakdown in 1955, after health problems related to prostate surgery: a period of intense, driven energy that was followed by a deep depression.</strong><div class="muted">The documented anchor for the recurrent depression; reported through a secondary account of the Duberman biography.</div></td>
+    <td>probable</td>
+    <td><a href="https://www.psychologytoday.com/gb/blog/not-the-whole-person/201912/the-great-paul-robesons-mental-illness" target="_blank" rel="noreferrer">The Great Paul Robeson&#39;s Mental Illness (Ingrid Blaufarb Hughes)</a> <span class="relationship">supports</span><br><a href="https://www.kirkusreviews.com/book-reviews/a/martin-bauml-duberman/paul-robeson-a-biography/" target="_blank" rel="noreferrer">Paul Robeson: A Biography, by Martin Bauml Duberman (review)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-R" title="Retrospective">R</span></td>
+    <td><strong>A writer reviewing the Duberman biography has argued that he had the classic symptoms of bipolar disorder; no formal diagnosis of bipolar disorder in his lifetime is quoted.</strong><div class="muted">Retrospective interpretation; not adopted. The modern episode screens for bipolar disorder (MDQ and a structured interview) and records why it is not diagnosed.</div></td>
+    <td>possible</td>
+    <td><a href="https://www.psychologytoday.com/gb/blog/not-the-whole-person/201912/the-great-paul-robesons-mental-illness" target="_blank" rel="noreferrer">The Great Paul Robeson&#39;s Mental Illness (Ingrid Blaufarb Hughes)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>In March 1961, in Moscow, he became acutely paranoid and suicidal and made a suicide attempt.</strong><div class="muted">After the index date; no modern visit falls in this period.</div></td>
+    <td>probable</td>
+    <td><a href="https://www.psychologytoday.com/gb/blog/not-the-whole-person/201912/the-great-paul-robesons-mental-illness" target="_blank" rel="noreferrer">The Great Paul Robeson&#39;s Mental Illness (Ingrid Blaufarb Hughes)</a> <span class="relationship">supports</span><br><a href="https://www.kirkusreviews.com/book-reviews/a/martin-bauml-duberman/paul-robeson-a-biography/" target="_blank" rel="noreferrer">Paul Robeson: A Biography, by Martin Bauml Duberman (review)</a> <span class="relationship">context</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>From September 1961 he was treated at the Priory clinic in London for nearly two years, where he received a large number of electroconvulsive treatments, 54 by his son&#39;s later count, in five courses over about twenty months, together with heavy doses of drugs; reviewers of the Duberman biography note electroshock for recurrent depression and suicide attempts.</strong><div class="muted">After the index date. Contrast for teaching: modern ECT is offered only after informed consent, given under general anesthesia with a muscle relaxant, usually right unilateral with an ultrabrief pulse, in a defined course with cognitive testing before and during treatment; this record does not judge whether his treatment met the standards of its time.</div></td>
+    <td>probable</td>
+    <td><a href="https://ectstatistics.wordpress.com/2013/01/13/paul-robesons-ect-at-the-priory/" target="_blank" rel="noreferrer">Paul Robeson&#39;s ECT at the Priory</a> <span class="relationship">supports</span><br><a href="https://www.psychologytoday.com/gb/blog/not-the-whole-person/201912/the-great-paul-robesons-mental-illness" target="_blank" rel="noreferrer">The Great Paul Robeson&#39;s Mental Illness (Ingrid Blaufarb Hughes)</a> <span class="relationship">supports</span><br><a href="https://www.kirkusreviews.com/book-reviews/a/martin-bauml-duberman/paul-robeson-a-biography/" target="_blank" rel="noreferrer">Paul Robeson: A Biography, by Martin Bauml Duberman (review)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>He later spent time in a psychiatric hospital in East Berlin and returned to the United States in December 1963.</strong><div class="muted">After the index date.</div></td>
+    <td>probable</td>
+    <td><a href="https://www.psychologytoday.com/gb/blog/not-the-whole-person/201912/the-great-paul-robesons-mental-illness" target="_blank" rel="noreferrer">The Great Paul Robeson&#39;s Mental Illness (Ingrid Blaufarb Hughes)</a> <span class="relationship">supports</span><br><a href="https://ectstatistics.wordpress.com/2013/01/13/paul-robesons-ect-at-the-priory/" target="_blank" rel="noreferrer">Paul Robeson&#39;s ECT at the Priory</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>Illness ended his professional career in 1961.</strong><div class="muted">After the index date.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://prcc.rutgers.edu/paul-robeson" target="_blank" rel="noreferrer">Paul Robeson</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-R" title="Retrospective">R</span></td>
+    <td><strong>His son, Paul Robeson Jr., believed that his father had been poisoned by United States intelligence with a mind-altering drug and that a doctor who treated him had links to the MK-Ultra program.</strong><div class="muted">An allegation by a relative, reported as his belief; not confirmed by the cited sources and not adopted. The modern episode makes no claim about it.</div></td>
+    <td>disputed</td>
+    <td><a href="https://www.democracynow.org/1999/7/1/did_the_cia_drug_paul_robeson" target="_blank" rel="noreferrer">Did the CIA Drug Paul Robeson?</a> <span class="relationship">supports</span><br><a href="https://biography.wales/article/s14-ROBE-LER-1898" target="_blank" rel="noreferrer">ROBESON, PAUL LEROY (1898 - 1976), actor, singer and political activist (Jamie Griffiths)</a> <span class="relationship">context</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>Federal agencies kept files on him: the CIA opened a file in 1943, and the FBI kept a &#39;status of health&#39; file on him between April and June 1961; his biographer drew on his FBI files.</strong><div class="muted">Supports treating his concern about surveillance in the modern episode as realistic rather than delusional.</div></td>
+    <td>probable</td>
+    <td><a href="https://www.democracynow.org/1999/7/1/did_the_cia_drug_paul_robeson" target="_blank" rel="noreferrer">Did the CIA Drug Paul Robeson?</a> <span class="relationship">supports</span><br><a href="https://www.kirkusreviews.com/book-reviews/a/martin-bauml-duberman/paul-robeson-a-biography/" target="_blank" rel="noreferrer">Paul Robeson: A Biography, by Martin Bauml Duberman (review)</a> <span class="relationship">context</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>From 1966 he lived in Philadelphia under the care of his sister Marian until his death, and lived as a recluse.</strong><div class="muted">After the index date; his sister is history only.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://paulrobesonhouse.org/paul-robeson/" target="_blank" rel="noreferrer">Paul LeRoy Robeson</a> <span class="relationship">supports</span><br><a href="https://www.rutgers.edu/news/conscious-choice-paul-robesons-legacy" target="_blank" rel="noreferrer">A Conscious Choice: Paul Robeson&#39;s Legacy</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>He died of complications of a stroke on January 23, 1976, in Philadelphia, at the age of 77.</strong><div class="muted">History only.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://biography.wales/article/s14-ROBE-LER-1898" target="_blank" rel="noreferrer">ROBESON, PAUL LEROY (1898 - 1976), actor, singer and political activist (Jamie Griffiths)</a> <span class="relationship">supports</span><br><a href="https://prcc.rutgers.edu/paul-robeson" target="_blank" rel="noreferrer">Paul Robeson</a> <span class="relationship">supports</span><br><a href="https://www.rutgers.edu/news/conscious-choice-paul-robesons-legacy" target="_blank" rel="noreferrer">A Conscious Choice: Paul Robeson&#39;s Legacy</a> <span class="relationship">supports</span></td>
+  </tr></tbody></table></section>
+    <section><h2>Modern synthetic problem list</h2><table><thead><tr><th>Grade</th><th>Problem</th><th>Clinical status</th><th>Verification</th><th>Placement</th><th>Historical claims</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>About three months of low mood, exhaustion, poor sleep with waking at three in the morning, loss of interest in singing and reading, poor appetite with 5 kg weight loss, and withdrawal from friends, in a man of 58 under sustained political pressure; PHQ-9 22 with thoughts of being better off dead; depression suspected; medical causes being excluded and urgent psychiatric consultation arranged</td>
+    <td>resolved</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td>CLM-0008, CLM-0006</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Major depressive disorder, recurrent, severe, without psychotic features (second episode; structured diagnostic interview; MDQ negative and no past hypomanic or manic episode on interview)</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>both_with_link</td>
+    <td>CLM-0008</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Sustained political persecution: passport withheld, concerts and recordings cancelled, income lost, and surveillance by federal agencies; a major and realistic stressor, not a delusion</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td>CLM-0005, CLM-0006, CLM-0007, CLM-0015</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Acute bronchitis after a cold, without signs of pneumonia; treated without antibiotics and without dextromethorphan or decongestants because of venlafaxine; resolved</td>
+    <td>resolved</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td></td>
+  </tr></tbody></table></section>
+    <section><h2>Synthetic outcome measures</h2><table><thead><tr><th>Grade</th><th>Date</th><th>Measure</th><th>Result</th><th>Coding</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-09</td>
+    <td>Hemoglobin [Mass/volume] in Blood</td>
+    <td>14.2 g/dL<div class="muted">Reference 13.2-17.1 g/dL</div></td>
+    <td>http://loinc.org · 718-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-09</td>
+    <td>Leukocytes [#/volume] in Blood by Automated count</td>
+    <td>6.1 10*3/uL<div class="muted">Reference 4-11 10*3/uL</div></td>
+    <td>http://loinc.org · 6690-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-09</td>
+    <td>Platelets [#/volume] in Blood by Automated count</td>
+    <td>240 10*3/uL<div class="muted">Reference 150-400 10*3/uL</div></td>
+    <td>http://loinc.org · 777-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-09</td>
+    <td>Sodium [Moles/volume] in Serum or Plasma</td>
+    <td>140 mmol/L<div class="muted">Reference 135-145 mmol/L</div></td>
+    <td>http://loinc.org · 2951-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-09</td>
+    <td>Potassium [Moles/volume] in Serum or Plasma</td>
+    <td>4.2 mmol/L<div class="muted">Reference 3.5-5.1 mmol/L</div></td>
+    <td>http://loinc.org · 2823-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-09</td>
+    <td>Creatinine [Mass/volume] in Serum or Plasma</td>
+    <td>1.05 mg/dL<div class="muted">Reference 0.7-1.3 mg/dL</div></td>
+    <td>http://loinc.org · 2160-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-09</td>
+    <td>Glomerular filtration rate [Volume Rate/Area] in Serum, Plasma or Blood by Creatinine-based formula (CKD-EPI 2021)/1.73 sq M</td>
+    <td>82 mL/min/1.73 m²<div class="muted">Reference &gt;=60 mL/min/1.73 m²</div></td>
+    <td>http://loinc.org · 98979-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-09</td>
+    <td>Glucose [Mass/volume] in Serum or Plasma</td>
+    <td>92 mg/dL<div class="muted">Reference 70-99 mg/dL</div></td>
+    <td>http://loinc.org · 2345-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-09</td>
+    <td>Calcium [Mass/volume] in Serum or Plasma</td>
+    <td>9.4 mg/dL<div class="muted">Reference 8.6-10.3 mg/dL</div></td>
+    <td>http://loinc.org · 17861-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-09</td>
+    <td>Thyrotropin [Units/volume] in Serum or Plasma</td>
+    <td>1.8 mIU/L<div class="muted">Reference 0.4-4.5 mIU/L</div></td>
+    <td>http://loinc.org · 3016-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-09</td>
+    <td>Cobalamin (Vitamin B12) [Mass/volume] in Serum or Plasma</td>
+    <td>420 pg/mL<div class="muted">Reference 232-1245 pg/mL</div></td>
+    <td>http://loinc.org · 2132-9</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-09</td>
+    <td>Folate [Mass/volume] in Serum or Plasma</td>
+    <td>9.5 ng/mL<div class="muted">Reference &gt;=3 ng/mL</div></td>
+    <td>http://loinc.org · 2284-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-09</td>
+    <td>Testosterone [Mass/volume] in Serum or Plasma</td>
+    <td>420 ng/dL<div class="muted">Reference 264-916 ng/dL</div></td>
+    <td>http://loinc.org · 2986-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-09</td>
+    <td>Hemoglobin A1c/Hemoglobin.total in Blood</td>
+    <td>5.6%<div class="muted">Reference Below 5.7% is normal; 5.7 to 6.4% prediabetes</div></td>
+    <td>http://loinc.org · 4548-4</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-09</td>
+    <td>Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]</td>
+    <td>22</td>
+    <td>http://loinc.org · 44261-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-09</td>
+    <td>Generalized anxiety disorder 7 item (GAD-7) total score [Reported.PHQ]</td>
+    <td>12</td>
+    <td>http://loinc.org · 70274-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-09</td>
+    <td>Total score [AUDIT-C]</td>
+    <td>1</td>
+    <td>http://loinc.org · 75626-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-03-09</td>
+    <td>Total score [MoCA]</td>
+    <td>28</td>
+    <td>http://loinc.org · 72172-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-04-20</td>
+    <td>Sodium [Moles/volume] in Serum or Plasma</td>
+    <td>138 mmol/L<div class="muted">Reference 135-145 mmol/L</div></td>
+    <td>http://loinc.org · 2951-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-04-20</td>
+    <td>Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]</td>
+    <td>19</td>
+    <td>http://loinc.org · 44261-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-06-08</td>
+    <td>Sodium [Moles/volume] in Serum or Plasma</td>
+    <td>137 mmol/L<div class="muted">Reference 135-145 mmol/L</div></td>
+    <td>http://loinc.org · 2951-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-06-08</td>
+    <td>Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]</td>
+    <td>17</td>
+    <td>http://loinc.org · 44261-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-08-24</td>
+    <td>Sodium [Moles/volume] in Serum or Plasma</td>
+    <td>136 mmol/L<div class="muted">Reference 135-145 mmol/L</div></td>
+    <td>http://loinc.org · 2951-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-08-24</td>
+    <td>Glucose [Mass/volume] in Serum or Plasma</td>
+    <td>94 mg/dL<div class="muted">Reference 70-99 mg/dL</div></td>
+    <td>http://loinc.org · 2345-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-08-24</td>
+    <td>Hemoglobin A1c/Hemoglobin.total in Blood</td>
+    <td>5.6%<div class="muted">Reference Below 5.7% is normal; 5.7 to 6.4% prediabetes</div></td>
+    <td>http://loinc.org · 4548-4</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-08-24</td>
+    <td>Cholesterol [Mass/volume] in Serum or Plasma</td>
+    <td>204 mg/dL (high)<div class="muted">Reference &lt;=199 mg/dL</div></td>
+    <td>http://loinc.org · 2093-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-08-24</td>
+    <td>Cholesterol in HDL [Mass/volume] in Serum or Plasma</td>
+    <td>46 mg/dL<div class="muted">Reference &gt;=40 mg/dL</div></td>
+    <td>http://loinc.org · 2085-9</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-08-24</td>
+    <td>Triglyceride [Mass/volume] in Serum or Plasma</td>
+    <td>130 mg/dL<div class="muted">Reference &lt;=149 mg/dL</div></td>
+    <td>http://loinc.org · 2571-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-08-24</td>
+    <td>Cholesterol in LDL [Mass/volume] in Serum or Plasma by calculation</td>
+    <td>132 mg/dL (high)<div class="muted">Reference &lt;=129 mg/dL</div></td>
+    <td>http://loinc.org · 13457-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-08-24</td>
+    <td>Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]</td>
+    <td>13</td>
+    <td>http://loinc.org · 44261-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-08-24</td>
+    <td>Total score [MoCA]</td>
+    <td>28</td>
+    <td>http://loinc.org · 72172-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>2026-10-05</td>
+    <td>Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]</td>
+    <td>6</td>
+    <td>http://loinc.org · 44261-6</td>
+  </tr></tbody></table></section>
+    <section><h2>Synthetic vital signs</h2><table><thead><tr><th>Date</th><th>Measure</th><th>Result</th><th>LOINC</th><th>Grade</th></tr></thead><tbody>
+  <tr><td>2026-03-09</td><td>Body height</td><td>190 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-09</td><td>Body weight</td><td>99 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-09</td><td>Body mass index (BMI) [Ratio]</td><td>27.4 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-09</td><td>Systolic blood pressure</td><td>128 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-09</td><td>Diastolic blood pressure</td><td>80 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-09</td><td>Heart rate</td><td>76 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-09</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-09</td><td>Body temperature</td><td>36.7 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-09</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>98 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-12</td><td>Body height</td><td>190 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-12</td><td>Body weight</td><td>98.8 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-12</td><td>Body mass index (BMI) [Ratio]</td><td>27.4 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-12</td><td>Systolic blood pressure</td><td>126 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-12</td><td>Diastolic blood pressure</td><td>78 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-12</td><td>Heart rate</td><td>74 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-12</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-12</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-03-12</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>98 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-20</td><td>Body height</td><td>190 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-20</td><td>Body weight</td><td>99.5 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-20</td><td>Body mass index (BMI) [Ratio]</td><td>27.6 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-20</td><td>Systolic blood pressure</td><td>126 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-20</td><td>Diastolic blood pressure</td><td>78 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-20</td><td>Heart rate</td><td>72 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-20</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-20</td><td>Body temperature</td><td>36.7 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-04-20</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>98 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-08</td><td>Body height</td><td>190 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-08</td><td>Body weight</td><td>100.2 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-08</td><td>Body mass index (BMI) [Ratio]</td><td>27.8 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-08</td><td>Systolic blood pressure</td><td>128 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-08</td><td>Diastolic blood pressure</td><td>80 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-08</td><td>Heart rate</td><td>74 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-08</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-08</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-06-08</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>98 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-08-24</td><td>Body height</td><td>190 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-08-24</td><td>Body weight</td><td>101 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-08-24</td><td>Body mass index (BMI) [Ratio]</td><td>28 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-08-24</td><td>Systolic blood pressure</td><td>134 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-08-24</td><td>Diastolic blood pressure</td><td>84 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-08-24</td><td>Heart rate</td><td>78 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-08-24</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-08-24</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-08-24</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>98 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-07-27</td><td>Body height</td><td>190 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-07-27</td><td>Body weight</td><td>100.6 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-07-27</td><td>Body mass index (BMI) [Ratio]</td><td>27.9 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-07-27</td><td>Systolic blood pressure</td><td>132 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-07-27</td><td>Diastolic blood pressure</td><td>82 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-07-27</td><td>Heart rate</td><td>84 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-07-27</td><td>Respiratory rate</td><td>16 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-07-27</td><td>Body temperature</td><td>37.4 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-07-27</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>97 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-05</td><td>Body height</td><td>190 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-05</td><td>Body weight</td><td>102.4 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-05</td><td>Body mass index (BMI) [Ratio]</td><td>28.4 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-05</td><td>Systolic blood pressure</td><td>130 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-05</td><td>Diastolic blood pressure</td><td>80 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-05</td><td>Heart rate</td><td>72 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-05</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-05</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>2026-10-05</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>98 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr></tbody></table></section>
+    <section><h2>Social, functional, and mental status</h2><h3>Social history</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Concert singer and stage and film actor, trained in law, whose work has largely stopped: halls cancel his concerts, record companies will not record him, and he cannot travel abroad to perform because his passport is withheld; his income has fallen to a small fraction of what it was</li><li><span class="badge grade-S" title="Synthetic">S</span> Speaks and writes for civil rights and against colonialism; was questioned by a congressional committee last year about his politics and travel</li><li><span class="badge grade-S" title="Synthetic">S</span> Married; lives in an apartment in New York City; no firearm in the home</li><li><span class="badge grade-S" title="Synthetic">S</span> Never smoked; an occasional glass of wine (AUDIT-C 1); no drug use</li><li><span class="badge grade-S" title="Synthetic">S</span> Used to walk and swim most days; now rarely leaves the apartment</li><li><span class="badge grade-S" title="Synthetic">S</span> Believes his telephone is listened to and that federal agents follow him; given the documented surveillance of people in his position, this is recorded as a realistic concern</li><li><span class="badge grade-S" title="Synthetic">S</span> Supports he names: his music and the spirituals he grew up with, his work for civil rights, and old friends from the stage and the movement</li></ul><h3>Functional status</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Independent in daily activities; has stopped practicing and performing, reads little, and has turned down invitations to speak over the past two months</li></ul><h3>Mental status</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Tall, courteous and dignified; slowed movements and a quiet voice; mood &#39;worn through&#39;; constricted affect; thought logical and goal-directed; no delusions or hallucinations; his account of being watched is consistent with the documented surveillance and is not treated as paranoia; insight and judgment good</li><li><span class="badge grade-S" title="Synthetic">S</span> PHQ-9 22 with item 9 scored 1: thoughts on several days that he would be better off dead, without intent or plan; no past suicide attempt; GAD-7 12; MoCA 28</li></ul></section>
+    <section><h2>Structured safety assessment</h2><div class="grid"><div class="card"><div class="label">Current ideation</div>present</div><div class="card"><div class="label">Intent</div>absent</div><div class="card"><div class="label">Plan</div>absent</div><div class="card"><div class="label">Disposition</div>Outpatient care with a psychiatric consultation in three days and close follow-up. C-SSRS screen: wish to be dead on several days in the past month; no active thoughts of suicide, intent, plan, preparation or past attempt. Risk factors reviewed: severe depression, an older man, insomnia, loss of work and income, isolation, and sustained persecution. Means counseling: there is no firearm in the home and he will not acquire one; medicines will be dispensed in limited supplies and kept in a locked box. A written safety plan was made with him, with warning signs, coping steps, people and places for distraction, and crisis numbers; the 988 Suicide &amp; Crisis Lifeline (call or text 988) was saved in his phone. Safety is reviewed at every visit</div></div><p class="muted">This assessment is synthetic and does not convert historical behavior into a present-day fact.</p></section>
+    <section><h2>Allergies and medications</h2><h3>Allergies</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> No known allergy</li></ul><h3>Medications</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Sertraline 50 mg tablet, one tablet each morning</li><li><span class="badge grade-S" title="Synthetic">S</span> Sertraline 100 mg tablet, one tablet each morning</li><li><span class="badge grade-S" title="Synthetic">S</span> Sertraline 50 mg tablets, three tablets (150 mg) each morning</li><li><span class="badge grade-S" title="Synthetic">S</span> Sertraline 100 mg tablets, two tablets (200 mg) each morning</li><li><span class="badge grade-S" title="Synthetic">S</span> Sertraline 100 mg tablet, one tablet each morning for one week, then stop</li><li><span class="badge grade-S" title="Synthetic">S</span> Venlafaxine extended-release 75 mg capsule, one capsule each morning with food</li><li><span class="badge grade-S" title="Synthetic">S</span> Venlafaxine extended-release 150 mg capsule, one capsule each morning with food</li><li><span class="badge grade-S" title="Synthetic">S</span> Venlafaxine extended-release 75 mg capsules, three capsules (225 mg) each morning with food</li><li><span class="badge grade-S" title="Synthetic">S</span> Aripiprazole 2 mg tablet, one tablet each morning</li><li><span class="badge grade-S" title="Synthetic">S</span> Aripiprazole 5 mg tablet, one tablet each morning</li></ul></section>
+    <section><h2>Procedures and immunizations</h2><h3>Procedures</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Advance care planning conversation, about 20 minutes</li></ul><h3>Immunizations</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> 2026-10-05: Influenza vaccine, inactivated, trivalent, preservative-free</li><li><span class="badge grade-S" title="Synthetic">S</span> 2026-10-05: Pneumococcal conjugate vaccine, 20-valent (PCV20)</li><li><span class="badge grade-S" title="Synthetic">S</span> 2026-10-05: Zoster vaccine, recombinant, dose 1 of 2</li></ul></section>
+    <section><h2>Past medical history</h2><p class="muted">True biography with historical dates; not part of the synthetic care timeline.</p><ul><li><span class="badge grade-D" title="Documented">D</span> 1955: Prostate surgery; reason not recorded in the cited source <span class="muted">(CLM-0008)</span></li><li><span class="badge grade-D" title="Documented">D</span> 1955: A breakdown described by his biographer as a period of intense, driven energy followed by a deep depression <span class="muted">(CLM-0008)</span></li></ul><h3>Family history</h3><p class="muted">No family medical history is documented in the logged sources. Family history of real relatives is never synthesized.</p></section>
+    <section><h2>Care-plan goals</h2><table><thead><tr><th>Goal</th><th>Target date</th><th>Status</th><th>Outcome</th></tr></thead><tbody>
+  <tr><td>Response to treatment: PHQ-9 down by at least half from 22</td><td>2026-10-05</td><td>completed</td><td>PHQ-9 6 at about seven months, a 73 percent fall</td></tr>
+  <tr><td>Remission: PHQ-9 below 5</td><td>2026-10-05</td><td>active</td><td>Not yet met: PHQ-9 6 six weeks after augmentation; continuing</td></tr>
+  <tr><td>Stay safe: safety plan in place and reviewed at every visit, with no self-harm</td><td>2026-10-05</td><td>active</td><td>Met so far: no thoughts of suicide since the first months; safety plan reviewed at every visit</td></tr>
+  <tr><td>Sing again: daily vocal practice and one public engagement a month</td><td>2026-10-05</td><td>completed</td><td>Daily practice resumed; sang at two community gatherings in the past month</td></tr>
+  <tr><td>Sleep six to seven hours a night</td><td>2026-10-05</td><td>completed</td><td>About six and a half hours a night</td></tr></tbody></table></section>
+    <section><h2>Interventions</h2><table><thead><tr><th>Intervention</th><th>Status</th><th>Guideline</th></tr></thead><tbody>
+  <tr><td>Evaluation: PHQ-9, GAD-7, AUDIT-C and a cognitive screen (MoCA); blood count, metabolic panel, calcium, TSH, vitamin B12, folate, morning testosterone and hemoglobin A1c, with HIV and syphilis tests, to exclude medical causes; a review of medicines; and a sleep apnea screen</td><td>completed</td><td>GL-APA-DEP-2019, GL-VADOD-MDD-2022, GL-CMID-2026</td></tr>
+  <tr><td>Urgent psychiatric consultation in three days to confirm the diagnosis with a structured interview, screen for bipolar disorder, judge suicide risk and the level of care, and advise on psychotherapy, medicines, and when ECT or other treatments would be indicated</td><td>completed</td><td>GL-APA-DEP-2019, GL-VADOD-MDD-2022, GL-APA-ECT-2001</td></tr>
+  <tr><td>Safety: structured suicide-risk assessment, a written safety plan, no firearm in the home, medicines dispensed in limited supplies and kept locked, the 988 Suicide &amp; Crisis Lifeline, and a safety review at every visit</td><td>completed</td><td>GL-SUICIDE-2024, GL-VADOD-MDD-2022</td></tr>
+  <tr><td>Trust and equity: explain who can see his record and how it is protected; a therapist of his choosing, including a Black clinician if he wishes; treat discrimination and persecution as real stressors and record his account of surveillance as realistic; a social worker for help with income and costs; guard against the documented under-treatment of depression in Black patients by measuring response at every visit</td><td>completed</td><td>GL-WILLIAMS-2007, GL-DISPARITY-2014, GL-SPRENGER-2025, GL-APA-DEP-2019</td></tr>
+  <tr><td>Treatment: behavioral activation weekly with a psychologist for about sixteen sessions, then CBT if needed; sertraline 50 mg, raised to 100 mg at two weeks and to 200 mg by eight weeks as tolerated; PHQ-9 at every visit with response defined as a 50 percent fall and remission as a score below 5; sodium at about six weeks; switch to an SNRI if the PHQ-9 falls by less than a quarter after an adequate trial, and consider augmentation, ECT, rTMS or esketamine if a second adequate trial brings only a partial response; watch for hypomania after starting an antidepressant</td><td>completed</td><td>GL-APA-DEP-2019, GL-VADOD-MDD-2022, GL-CMID-2026</td></tr>
+  <tr><td>Switch to venlafaxine extended-release by cross-taper: venlafaxine 75 mg for a week while sertraline is halved, then 150 mg for three weeks and 225 mg; blood pressure at every visit; 30-day supplies because venlafaxine is more dangerous in overdose</td><td>completed</td><td>GL-VADOD-MDD-2022, GL-APA-DEP-2019</td></tr>
+  <tr><td>Treatment-resistant depression: aripiprazole 2 mg, raised to 5 mg at two weeks, with weight at four, eight and twelve weeks, A1c and lipids at baseline and twelve weeks, and an abnormal involuntary movement examination at baseline and six months; an informed consent discussion about ECT (general anesthesia with a muscle relaxant, right unilateral ultrabrief pulse, two or three treatments a week in a defined course, cognitive testing before and during the course, and the right to stop at any time), with rTMS and esketamine as alternatives; ECT not started now and offered if augmentation fails or if he becomes unable to eat or drink, psychotic or acutely suicidal</td><td>completed</td><td>GL-VADOD-MDD-2022, GL-APA-DEP-2019, GL-APA-ECT-2001, GL-APA-ECT-2024, GL-SPRENGER-2025, GL-CMID-2026</td></tr>
+  <tr><td>Acute bronchitis: no antibiotic and no chest X-ray with normal vital signs and a normal chest examination; honey, warm drinks and steam; plain guaifenesin if needed; no dextromethorphan, which with venlafaxine can cause serotonin syndrome, and no pseudoephedrine or phenylephrine, which raise blood pressure further on venlafaxine; check labels of combination cold remedies; return for fever, breathlessness, chest pain or a cough lasting more than three weeks</td><td>completed</td><td>GL-ARTI-2016, GL-VADOD-MDD-2022</td></tr>
+  <tr><td>Prevention: stool FIT kit for colorectal screening; the earlier prostate surgery records obtained before any decision on PSA testing; a ten-year cardiovascular risk of about 9 percent discussed, with his choice of diet and activity first and a statin to be reconsidered in a year; hepatitis B and C screening; influenza, PCV20 and the first recombinant zoster dose today, the second zoster dose in two to six months</td><td>completed</td><td>GL-USPSTF-CRC-2021, GL-USPSTF-PROS-2018, GL-USPSTF-STATIN-2022, GL-CDC-IMZ-2026</td></tr></tbody></table></section>
+    <section><h2>Planned encounters</h2><ul>
+  <li><strong>2026-03-09</strong> — New patient visit for three months of low mood, exhaustion, poor sleep and withdrawal: depression screening, safety assessment and safety plan, tests for medical causes, and urgent psychiatric consultation <span class="muted">(ENC-001)</span></li>
+  <li><strong>2026-03-12</strong> — Psychiatric consultation and review: diagnosis of recurrent major depression, bipolar screening, start of sertraline and behavioral activation <span class="muted">(ENC-002)</span></li>
+  <li><strong>2026-04-20</strong> — Six-week review: minimal response; sertraline increased <span class="muted">(ENC-003)</span></li>
+  <li><strong>2026-06-08</strong> — Three-month review: no response to an adequate sertraline trial; switch to venlafaxine <span class="muted">(ENC-004)</span></li>
+  <li><strong>2026-07-27</strong> — Same-day sick visit for acute bronchitis on venlafaxine <span class="muted">(ENC-006, unscheduled)</span></li>
+  <li><strong>2026-08-24</strong> — Twenty-four-week review: partial response to venlafaxine; treatment-resistant depression; aripiprazole augmentation and an informed consent discussion about ECT <span class="muted">(ENC-005)</span></li>
+  <li><strong>2026-10-05</strong> — Periodic adult preventive visit <span class="muted">(ENC-007)</span></li></ul></section>
+    <section><h2>Supporting documents</h2><ul><li><a href="notes/hp.md">History and physical</a></li><li><a href="notes/progress-01.md">Progress note 01</a></li><li><a href="notes/progress-02.md">Progress note 02 — Focused Visit (Follow-up)</a></li><li><a href="notes/progress-03.md">Progress note 03 — Focused Visit (Follow-up)</a></li><li><a href="notes/progress-04.md">Progress note 04 — Focused Visit (Follow-up)</a></li><li><a href="notes/progress-05.md">Progress note 05 — Sick Visit</a></li><li><a href="notes/progress-06.md">Progress note 06 — Focused Visit (Care-plan review)</a></li><li><a href="notes/progress-07.md">Progress note 07 — Preventive Visit</a></li><li><a href="notes/referral-01.md">Psychiatry (mood disorders) referral</a></li><li><a href="notes/consult-01.md">Psychiatry (mood disorders) consultation</a></li><li><a href="notes/careplan.md">Patient care plan</a></li><li><a href="notes/teaching-note.md">Teaching note</a></li><li><a href="provenance.csv">Provenance CSV</a></li></ul></section>
+    <section><h2>C-CDA note documents</h2><p class="muted">Each link opens a readable copy; the XML beside it is the exchange file.</p><ul><li><a href="ccda/hp-01.html">History and physical</a> <a href="ccda/hp-01.xml">(XML)</a></li><li><a href="ccda/progress-01.html">Progress note 01</a> <a href="ccda/progress-01.xml">(XML)</a></li><li><a href="ccda/progress-02.html">Progress note 02 — Focused Visit (Follow-up)</a> <a href="ccda/progress-02.xml">(XML)</a></li><li><a href="ccda/progress-03.html">Progress note 03 — Focused Visit (Follow-up)</a> <a href="ccda/progress-03.xml">(XML)</a></li><li><a href="ccda/progress-04.html">Progress note 04 — Focused Visit (Follow-up)</a> <a href="ccda/progress-04.xml">(XML)</a></li><li><a href="ccda/progress-05.html">Progress note 05 — Sick Visit</a> <a href="ccda/progress-05.xml">(XML)</a></li><li><a href="ccda/progress-06.html">Progress note 06 — Focused Visit (Care-plan review)</a> <a href="ccda/progress-06.xml">(XML)</a></li><li><a href="ccda/progress-07.html">Progress note 07 — Preventive Visit</a> <a href="ccda/progress-07.xml">(XML)</a></li><li><a href="ccda/referral-01.html">Psychiatry (mood disorders) referral</a> <a href="ccda/referral-01.xml">(XML)</a></li><li><a href="ccda/consult-01.html">Psychiatry (mood disorders) consultation</a> <a href="ccda/consult-01.xml">(XML)</a></li></ul></section>
+    <section><h2>Sources</h2><table><thead><tr><th>ID</th><th>Source</th><th>Publisher</th><th>Type</th></tr></thead><tbody>
+  <tr>
+    <td>SRC-0001</td>
+    <td><a href="https://prcc.rutgers.edu/paul-robeson" target="_blank" rel="noreferrer">Paul Robeson</a></td>
+    <td>Paul Robeson Cultural Center, Rutgers University-New Brunswick</td>
+    <td>biography</td>
+  </tr>
+  <tr>
+    <td>SRC-0002</td>
+    <td><a href="https://paulrobesonhouse.org/paul-robeson/" target="_blank" rel="noreferrer">Paul LeRoy Robeson</a></td>
+    <td>Paul Robeson House and Museum, Philadelphia</td>
+    <td>biography</td>
+  </tr>
+  <tr>
+    <td>SRC-0003</td>
+    <td><a href="https://www.rutgers.edu/news/conscious-choice-paul-robesons-legacy" target="_blank" rel="noreferrer">A Conscious Choice: Paul Robeson&#39;s Legacy</a></td>
+    <td>Rutgers University</td>
+    <td>biography</td>
+  </tr>
+  <tr>
+    <td>SRC-0004</td>
+    <td><a href="https://biography.wales/article/s14-ROBE-LER-1898" target="_blank" rel="noreferrer">ROBESON, PAUL LEROY (1898 - 1976), actor, singer and political activist (Jamie Griffiths)</a></td>
+    <td>Dictionary of Welsh Biography, National Library of Wales</td>
+    <td>scholarly</td>
+  </tr>
+  <tr>
+    <td>SRC-0005</td>
+    <td><a href="https://www.smithsonianmag.com/history/what-paul-robeson-said-77742433/" target="_blank" rel="noreferrer">What Paul Robeson Said (Gilbert King)</a></td>
+    <td>Smithsonian Magazine</td>
+    <td>biography</td>
+  </tr>
+  <tr>
+    <td>SRC-0006</td>
+    <td><a href="https://www.americanyawp.com/reader/25-the-cold-war/paul-robesons-appearance-before-the-house-un-american-activities-committee-1956/" target="_blank" rel="noreferrer">Paul Robeson&#39;s Appearance Before the House Un-American Activities Committee (1956)</a></td>
+    <td>The American Yawp Reader (Stanford University Press)</td>
+    <td>primary</td>
+  </tr>
+  <tr>
+    <td>SRC-0007</td>
+    <td><a href="https://www.psychologytoday.com/gb/blog/not-the-whole-person/201912/the-great-paul-robesons-mental-illness" target="_blank" rel="noreferrer">The Great Paul Robeson&#39;s Mental Illness (Ingrid Blaufarb Hughes)</a></td>
+    <td>Psychology Today</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0008</td>
+    <td><a href="https://www.kirkusreviews.com/book-reviews/a/martin-bauml-duberman/paul-robeson-a-biography/" target="_blank" rel="noreferrer">Paul Robeson: A Biography, by Martin Bauml Duberman (review)</a></td>
+    <td>Kirkus Reviews</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0009</td>
+    <td><a href="https://ectstatistics.wordpress.com/2013/01/13/paul-robesons-ect-at-the-priory/" target="_blank" rel="noreferrer">Paul Robeson&#39;s ECT at the Priory</a></td>
+    <td>ECT Statistics (blog)</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0010</td>
+    <td><a href="https://www.democracynow.org/1999/7/1/did_the_cia_drug_paul_robeson" target="_blank" rel="noreferrer">Did the CIA Drug Paul Robeson?</a></td>
+    <td>Democracy Now!</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0012</td>
+    <td><a href="https://humanrecord.example.org/internal/HISTMED_Master_Roster_v3.xlsx" target="_blank" rel="noreferrer">HISTMED Master Roster v3</a></td>
+    <td>The Human Record project</td>
+    <td>other</td>
+  </tr></tbody></table></section>
+    <section><h2>Review status</h2><table><thead><tr><th>Review</th><th>Status</th><th>Notes</th></tr></thead><tbody>
+  <tr><td>schema validation</td><td>not_started</td><td>Run scripts/build.ps1 -Conformance.</td></tr>
+  <tr><td>clinical review</td><td>not_started</td><td>Awaiting clinician review; check the bipolar screening decision against the documented 1955 period of intense energy, the antidepressant sequence and trial lengths, aripiprazole augmentation, the decision to defer ECT, and the safety plan.</td></tr>
+  <tr><td>provenance review</td><td>not_started</td><td>Rutgers, the Paul Robeson House and Museum, the Dictionary of Welsh Biography, Smithsonian Magazine and the American Yawp reader logged for the biography. The psychiatric history rests on secondary accounts of the Duberman biography (Psychology Today, Kirkus) and a blog quoting his son&#39;s book, graded D probable; the bipolar interpretation and his son&#39;s allegation are R. The New York Times obituary, the National Archives passport file, the Library of Congress and NMAAHC pages, and Duberman&#39;s book itself were not read.</td></tr>
+  <tr><td>safe messaging review</td><td>not_started</td><td>All psychiatric and suicide claims are marked sensitive. The 1961 suicide attempt is stated once without method detail and placed after the index date; the modern safety assessment records passive ideation without intent or plan, a safety plan, means counseling and the 988 Suicide &amp; Crisis Lifeline. The allegation about intelligence agencies is R and not adopted. His death is recorded in one sentence.</td></tr></tbody></table></section>
+  </main>
+</body>
+</html>

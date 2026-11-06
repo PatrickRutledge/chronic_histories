@@ -1,0 +1,590 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Higuchi Ichiyō — The Human Record</title>
+  <style>
+    :root { --navy:#17365d; --blue:#1f4e78; --pale:#eef5fa; --ink:#1f2933; --muted:#66788a; --amber:#fff2cc; --red:#f8d7da; --green:#d9ead3; }
+    * { box-sizing:border-box; }
+    body { margin:0; font:16px/1.5 Arial, sans-serif; color:var(--ink); background:#f6f8fa; }
+    header { background:var(--navy); color:white; padding:24px max(24px,calc((100vw - 1180px)/2)); }
+    header h1 { margin:4px 0; font-size:30px; }
+    .banner { background:#b42318; color:white; font-weight:700; text-align:center; padding:10px; letter-spacing:.03em; }
+    main { max-width:1180px; margin:24px auto 60px; padding:0 24px; }
+    section { background:white; border:1px solid #d9e1e8; border-radius:8px; margin:18px 0; padding:20px; }
+    h2 { color:var(--navy); margin:0 0 14px; font-size:22px; }
+    h3 { color:var(--blue); }
+    .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:12px; }
+    .card { background:var(--pale); border-left:4px solid var(--blue); padding:12px; }
+    .label { color:var(--muted); font-size:13px; text-transform:uppercase; letter-spacing:.04em; }
+    table { width:100%; border-collapse:collapse; }
+    th { background:var(--blue); color:white; text-align:left; }
+    th,td { padding:9px; border-bottom:1px solid #dfe6ec; vertical-align:top; }
+    .badge { display:inline-block; min-width:28px; text-align:center; font-weight:700; border-radius:12px; padding:2px 8px; }
+    .grade-D { background:var(--green); } .grade-R { background:var(--amber); } .grade-S { background:var(--red); }
+    .muted { color:var(--muted); font-size:14px; }
+    .relationship { color:var(--muted); font-size:12px; }
+    .downloads a { display:inline-block; margin:4px 8px 4px 0; padding:8px 12px; background:var(--blue); color:white; text-decoration:none; border-radius:5px; }
+    @media (max-width:700px) { table { display:block; overflow-x:auto; } }
+  </style>
+</head>
+<body>
+  <div class="banner">SYNTHETIC RECORD, NOT A REAL MEDICAL RECORD</div>
+  <div class="banner">True-date frame: synthetic events are moved into the patient&#39;s historical lifetime. Codes, instruments, and treatments remain modern and are anachronistic.</div>
+  <header>
+    <div>The Human Record</div>
+    <h1>Higuchi Ichiyō</h1>
+    <div>Case HR-NI029-TD · Modern EHR teaching episode · Draft for review</div>
+  </header>
+  <main>
+    <section>
+      <h2>Review summary</h2>
+      <div class="grid">
+        <div class="card"><div class="label">Historical dates</div>May 2, 1872 – November 23, 1896</div>
+        <div class="card"><div class="label">Synthetic DOB</div>1872-05-02</div>
+        <div class="card"><div class="label">Index visit</div>1896-04-14 at age 23</div>
+        <div class="card"><div class="label">Synthetic MRN</div>HR-NI029-SYN-TD</div>
+      </div>
+      <p><strong>Teaching objective:</strong> Recognize and treat pulmonary tuberculosis in a 23-year-old writer in Tokyo with a low income, inside Japan&#39;s public health system: seven weeks of cough, fevers, night sweats and weight loss resolved into a diagnosis by chest X-ray, three sputum specimens for acid-fast smear, Xpert MTB/RIF Ultra with rifampin resistance, liquid culture and drug susceptibility testing; HIV, hepatitis and pregnancy testing, baseline liver tests, vision testing before ethambutol, and diabetes screening; airborne precautions and immediate notification to the public health center under the Infectious Diseases Control Law; outpatient care with public funding for a smear-negative patient; the choice of the standard six-month regimen (isoniazid, rifampin, pyrazinamide and ethambutol for eight weeks, then isoniazid and rifampin for eighteen weeks) because her weight is below the 40 kg needed for the four-month rifapentine-moxifloxacin regimen; daily video-observed therapy with pyridoxine; monitoring for liver injury and optic neuropathy; a contact investigation of her household led by the public health center; treatment of moderate malnutrition and help with income; contraception counseling for rifampin interactions; and a paced plan that lets her keep writing. The modern episode is a teaching case, not a claim about her real illness or care.</p>
+      <div class="downloads">
+        <a href="../case.json">Canonical JSON</a>
+        <a href="fhir-bundle.json">FHIR R4 draft</a>
+        <a href="ccda.html">C-CDA R2.1 summary</a> <a href="ccda.xml">(XML)</a>
+        <a href="../sources.md">Evidence dossier</a>
+      </div>
+    </section>
+    <section><h2>Historical timeline</h2><table><thead><tr><th>Date</th><th>Event</th><th>Claims</th></tr></thead><tbody>
+  <tr><td>May 2, 1872</td><td>Born in Tokyo (Meiji 5, 3rd month, 25th day, in the lunisolar calendar).</td><td>CLM-0001, CLM-0002</td></tr>
+  <tr><td>1886</td><td>Begins the study of classical poetry at the Haginoya.</td><td>CLM-0003</td></tr>
+  <tr><td>summer 1889</td><td>Her father dies; she becomes head of the household.</td><td>CLM-0004</td></tr>
+  <tr><td>1891</td><td>Becomes a pupil of Nakarai Tōsui and begins to write fiction.</td><td>CLM-0005</td></tr>
+  <tr><td>July 1893</td><td>Opens a small shop in Shitaya Ryūsenji-chō beside the Yoshiwara; it closes in April 1894.</td><td>CLM-0006</td></tr>
+  <tr><td>May 1894</td><td>Moves to Hongō Maruyama-Fukuyama-chō; her major works follow.</td><td>CLM-0007, CLM-0008</td></tr>
+  <tr><td>early 1896</td><td>Her health declines rapidly.</td><td>CLM-0010</td></tr>
+  <tr><td>November 23, 1896</td><td>Dies of tuberculosis at home in Hongō, at 24.</td><td>CLM-0011, CLM-0009</td></tr>
+  <tr><td>November 1, 2004</td><td>Her portrait appears on the new 5,000-yen note.</td><td>CLM-0012</td></tr></tbody></table></section>
+    <section><h2>Evidence claims</h2><p class="muted">D = documented, R = retrospective, S = synthetic.</p><table><thead><tr><th>Grade</th><th>Claim</th><th>Certainty</th><th>Sources</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>Higuchi Ichiyō, whose given name was Natsu (also written Natsuko), was born in Tokyo on the 25th day of the 3rd month of Meiji 5 in the Japanese lunisolar calendar, which is 2 May 1872 in the Gregorian calendar, in official housing within the grounds of the Tokyo prefectural office in Uchisaiwai-chō (now in Chiyoda).</strong></td>
+    <td>confirmed</td>
+    <td><a href="https://www.ndl.go.jp/portrait/e/datas/315.html" target="_blank" rel="noreferrer">Portraits of Modern Japanese Historical Figures: HIGUCHI Ichiyo</a> <span class="relationship">supports</span><br><a href="https://kotobank.jp/word/%E6%A8%8B%E5%8F%A3%E4%B8%80%E8%91%89-17510" target="_blank" rel="noreferrer">樋口一葉 (Higuchi Ichiyō), entries from 日本大百科全書(ニッポニカ), 世界大百科事典 and デジタル版 日本人名大辞典+Plus</a> <span class="relationship">supports</span><br><a href="https://www.nippon.com/en/japan-topics/b07226/" target="_blank" rel="noreferrer">Higuchi Ichiyō (Shapers of Japanese History)</a> <span class="relationship">supports</span><br><a href="https://humanrecord.example.org/internal/HISTMED_Master_Roster_v3.xlsx" target="_blank" rel="noreferrer">HISTMED Master Roster v3</a> <span class="relationship">context</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>Japan replaced its lunisolar calendar with the Gregorian calendar at the end of Meiji 5: the 3rd day of the 12th month of Meiji 5 became 1 January 1873 (Meiji 6). Dates before then, including her birth, were recorded in the old calendar.</strong><div class="muted">Explains why her birth date is given in two calendars.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.ndl.go.jp/koyomi/e/history/calendar.html" target="_blank" rel="noreferrer">Calendar History 2 (The Japanese Calendar)</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>From 1886 she studied classical poetry (waka) at the Haginoya academy of Nakajima Utako.</strong></td>
+    <td>confirmed</td>
+    <td><a href="https://www.ndl.go.jp/portrait/e/datas/315.html" target="_blank" rel="noreferrer">Portraits of Modern Japanese Historical Figures: HIGUCHI Ichiyo</a> <span class="relationship">supports</span><br><a href="https://www.city.bunkyo.lg.jp/b014/p003900.html" target="_blank" rel="noreferrer">樋口一葉 (Higuchi Ichiyō), 文京ゆかりの文人</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>Her father died of illness in the summer of 1889, when she was 17, leaving debts from a failed business; she became head of the household and took on the support of her mother and younger sister, who did washing and needlework, and the family lived in poverty.</strong><div class="muted">History only; her mother and sister are given no role in the modern episode.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.nippon.com/en/japan-topics/b07226/" target="_blank" rel="noreferrer">Higuchi Ichiyō (Shapers of Japanese History)</a> <span class="relationship">supports</span><br><a href="https://www.ndl.go.jp/portrait/e/datas/315.html" target="_blank" rel="noreferrer">Portraits of Modern Japanese Historical Figures: HIGUCHI Ichiyo</a> <span class="relationship">supports</span><br><a href="https://taitogeibun.net/english/ichiyo" target="_blank" rel="noreferrer">Ichiyo Memorial Museum</a> <span class="relationship">supports</span><br><a href="https://kotobank.jp/word/%E6%A8%8B%E5%8F%A3%E4%B8%80%E8%91%89-17510" target="_blank" rel="noreferrer">樋口一葉 (Higuchi Ichiyō), entries from 日本大百科全書(ニッポニカ), 世界大百科事典 and デジタル版 日本人名大辞典+Plus</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>In 1891 she became a pupil of the novelist Nakarai Tōsui and began to write fiction, choosing to earn her living by writing at a time when this was very hard for a woman; her story Umoregi (1892) brought her into the literary world.</strong><div class="muted">Anchors her modern occupation as a writer.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.ndl.go.jp/portrait/e/datas/315.html" target="_blank" rel="noreferrer">Portraits of Modern Japanese Historical Figures: HIGUCHI Ichiyo</a> <span class="relationship">supports</span><br><a href="https://taitogeibun.net/english/ichiyo" target="_blank" rel="noreferrer">Ichiyo Memorial Museum</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>From July 1893 to April 1894 she ran a small shop selling household goods and cheap sweets in Shitaya Ryūsenji-chō, beside the Yoshiwara pleasure quarter (now in Taitō); the shop closed after about ten months, and her life there became material for Takekurabe.</strong><div class="muted">History only.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://kotobank.jp/word/%E6%A8%8B%E5%8F%A3%E4%B8%80%E8%91%89-17510" target="_blank" rel="noreferrer">樋口一葉 (Higuchi Ichiyō), entries from 日本大百科全書(ニッポニカ), 世界大百科事典 and デジタル版 日本人名大辞典+Plus</a> <span class="relationship">supports</span><br><a href="https://www.nippon.com/en/japan-topics/b07226/" target="_blank" rel="noreferrer">Higuchi Ichiyō (Shapers of Japanese History)</a> <span class="relationship">supports</span><br><a href="https://www.ndl.go.jp/portrait/e/datas/315.html" target="_blank" rel="noreferrer">Portraits of Modern Japanese Historical Figures: HIGUCHI Ichiyo</a> <span class="relationship">supports</span><br><a href="https://taitogeibun.net/english/ichiyo" target="_blank" rel="noreferrer">Ichiyo Memorial Museum</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>In May 1894 she moved to Hongō Maruyama-Fukuyama-chō (now Nishikata, Bunkyō).</strong><div class="muted">Anchors the place of the index date.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://kotobank.jp/word/%E6%A8%8B%E5%8F%A3%E4%B8%80%E8%91%89-17510" target="_blank" rel="noreferrer">樋口一葉 (Higuchi Ichiyō), entries from 日本大百科全書(ニッポニカ), 世界大百科事典 and デジタル版 日本人名大辞典+Plus</a> <span class="relationship">supports</span><br><a href="https://www.city.bunkyo.lg.jp/b014/p003900.html" target="_blank" rel="noreferrer">樋口一葉 (Higuchi Ichiyō), 文京ゆかりの文人</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>At Maruyama-Fukuyama-chō she wrote the works that made her name, among them Ōtsugomori (1894), Nigorie (1895), Takekurabe (1895 to 1896) and Jūsan&#39;ya; Nippon.com calls the period &#39;the miraculous 14 months&#39;, and the Nipponica encyclopedia calls the time up to January 1896 &#39;the miraculous year&#39;.</strong><div class="muted">Anchors the modern episode&#39;s attention to her writing; the two sources measure the period differently.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.nippon.com/en/japan-topics/b07226/" target="_blank" rel="noreferrer">Higuchi Ichiyō (Shapers of Japanese History)</a> <span class="relationship">supports</span><br><a href="https://kotobank.jp/word/%E6%A8%8B%E5%8F%A3%E4%B8%80%E8%91%89-17510" target="_blank" rel="noreferrer">樋口一葉 (Higuchi Ichiyō), entries from 日本大百科全書(ニッポニカ), 世界大百科事典 and デジタル版 日本人名大辞典+Plus</a> <span class="relationship">supports</span><br><a href="https://www.city.bunkyo.lg.jp/b014/p003900.html" target="_blank" rel="noreferrer">樋口一葉 (Higuchi Ichiyō), 文京ゆかりの文人</a> <span class="relationship">supports</span><br><a href="https://www.ndl.go.jp/portrait/e/datas/315.html" target="_blank" rel="noreferrer">Portraits of Modern Japanese Historical Figures: HIGUCHI Ichiyo</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>She died in poverty.</strong><div class="muted">Anchors the low income in the modern social history.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.ndl.go.jp/portrait/e/datas/315.html" target="_blank" rel="noreferrer">Portraits of Modern Japanese Historical Figures: HIGUCHI Ichiyo</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>From the beginning of 1896 her health declined rapidly.</strong><div class="muted">The anchor for the index date and the presenting illness.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://kotobank.jp/word/%E6%A8%8B%E5%8F%A3%E4%B8%80%E8%91%89-17510" target="_blank" rel="noreferrer">樋口一葉 (Higuchi Ichiyō), entries from 日本大百科全書(ニッポニカ), 世界大百科事典 and デジタル版 日本人名大辞典+Plus</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>She died of tuberculosis on 23 November 1896 at her home in Hongō, at the age of 24. The National Diet Library gives the cause as lung tuberculosis; the Nipponica encyclopedia gives miliary tuberculosis.</strong><div class="muted">After the index date. Tuberculosis is documented; the sources differ on its form (pulmonary or miliary), so the modern pulmonary diagnosis is linked to the documented disease, not to either form.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.ndl.go.jp/portrait/e/datas/315.html" target="_blank" rel="noreferrer">Portraits of Modern Japanese Historical Figures: HIGUCHI Ichiyo</a> <span class="relationship">supports</span><br><a href="https://kotobank.jp/word/%E6%A8%8B%E5%8F%A3%E4%B8%80%E8%91%89-17510" target="_blank" rel="noreferrer">樋口一葉 (Higuchi Ichiyō), entries from 日本大百科全書(ニッポニカ), 世界大百科事典 and デジタル版 日本人名大辞典+Plus</a> <span class="relationship">supports</span><br><a href="https://www.city.bunkyo.lg.jp/b014/p003900.html" target="_blank" rel="noreferrer">樋口一葉 (Higuchi Ichiyō), 文京ゆかりの文人</a> <span class="relationship">supports</span><br><a href="https://www.nippon.com/en/japan-topics/b07226/" target="_blank" rel="noreferrer">Higuchi Ichiyō (Shapers of Japanese History)</a> <span class="relationship">supports</span><br><a href="https://taitogeibun.net/english/ichiyo" target="_blank" rel="noreferrer">Ichiyo Memorial Museum</a> <span class="relationship">supports</span></td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-D" title="Documented">D</span></td>
+    <td><strong>Her portrait appears on the Bank of Japan 5,000-yen note first issued on 1 November 2004, whose back shows Ogata Kōrin&#39;s painting of irises; a new 5,000-yen note with a different portrait was first issued on 3 July 2024.</strong><div class="muted">History only.</div></td>
+    <td>confirmed</td>
+    <td><a href="https://www.boj.or.jp/en/note_tfjgs/note/valid/issue.htm" target="_blank" rel="noreferrer">Bank of Japan Notes and Coins Currently Issued</a> <span class="relationship">supports</span><br><a href="https://www.nippon.com/en/japan-topics/b07226/" target="_blank" rel="noreferrer">Higuchi Ichiyō (Shapers of Japanese History)</a> <span class="relationship">supports</span><br><a href="https://taitogeibun.net/english/ichiyo" target="_blank" rel="noreferrer">Ichiyo Memorial Museum</a> <span class="relationship">supports</span></td>
+  </tr></tbody></table></section>
+    <section><h2>Modern synthetic problem list</h2><table><thead><tr><th>Grade</th><th>Problem</th><th>Clinical status</th><th>Verification</th><th>Placement</th><th>Historical claims</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Cough for about seven weeks with evening fevers, night sweats, poor appetite and weight loss of about 4 kg (about 10 percent) in a woman of 23; chest X-ray with patchy right upper lobe opacities and no cavity; suspected pulmonary tuberculosis; airborne precautions and three sputum specimens for acid-fast smear, nucleic acid amplification and culture</td>
+    <td>resolved</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td>CLM-0010</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Pulmonary tuberculosis of the right upper lobe, sputum smear-negative, confirmed by Xpert MTB/RIF Ultra (Mycobacterium tuberculosis detected, low; rifampin resistance not detected)</td>
+    <td>resolved</td>
+    <td>confirmed</td>
+    <td>both_with_link</td>
+    <td>CLM-0010, CLM-0011</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Moderate protein-calorie malnutrition: BMI 17.6, about 10 percent weight loss in two months, and albumin 3.3 g/dL</td>
+    <td>resolved</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td>CLM-0004, CLM-0009</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Low and irregular income from writing, with a household to support; costs of care are a barrier</td>
+    <td>active</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td>CLM-0004, CLM-0009</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>Acute uncomplicated cystitis, treated with nitrofurantoin rather than a fluoroquinolone during tuberculosis treatment; resolved</td>
+    <td>resolved</td>
+    <td>confirmed</td>
+    <td>active</td>
+    <td></td>
+  </tr></tbody></table></section>
+    <section><h2>Synthetic outcome measures</h2><table><thead><tr><th>Grade</th><th>Date</th><th>Measure</th><th>Result</th><th>Coding</th></tr></thead><tbody>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1896-04-14</td>
+    <td>Hemoglobin [Mass/volume] in Blood</td>
+    <td>11.4 g/dL (low)<div class="muted">Reference 12-15.5 g/dL</div></td>
+    <td>http://loinc.org · 718-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1896-04-14</td>
+    <td>Leukocytes [#/volume] in Blood by Automated count</td>
+    <td>8.6 10*3/uL<div class="muted">Reference 4-11 10*3/uL</div></td>
+    <td>http://loinc.org · 6690-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1896-04-14</td>
+    <td>Platelets [#/volume] in Blood by Automated count</td>
+    <td>452 10*3/uL (high)<div class="muted">Reference 150-400 10*3/uL</div></td>
+    <td>http://loinc.org · 777-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1896-04-14</td>
+    <td>Alanine aminotransferase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>12 U/L<div class="muted">Reference 7-35 U/L</div></td>
+    <td>http://loinc.org · 1742-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1896-04-14</td>
+    <td>Aspartate aminotransferase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>19 U/L<div class="muted">Reference 10-35 U/L</div></td>
+    <td>http://loinc.org · 1920-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1896-04-14</td>
+    <td>Bilirubin.total [Mass/volume] in Serum or Plasma</td>
+    <td>0.4 mg/dL<div class="muted">Reference 0.1-1.2 mg/dL</div></td>
+    <td>http://loinc.org · 1975-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1896-04-14</td>
+    <td>Alkaline phosphatase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>74 U/L<div class="muted">Reference 35-104 U/L</div></td>
+    <td>http://loinc.org · 6768-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1896-04-14</td>
+    <td>Albumin [Mass/volume] in Serum or Plasma</td>
+    <td>3.3 g/dL (low)<div class="muted">Reference 3.5-5 g/dL</div></td>
+    <td>http://loinc.org · 1751-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1896-04-14</td>
+    <td>Creatinine [Mass/volume] in Serum or Plasma</td>
+    <td>0.56 mg/dL<div class="muted">Reference 0.5-1 mg/dL</div></td>
+    <td>http://loinc.org · 2160-0</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1896-04-14</td>
+    <td>Glomerular filtration rate [Volume Rate/Area] in Serum, Plasma or Blood by Creatinine-based formula (CKD-EPI 1891)/1.73 sq M</td>
+    <td>131 mL/min/1.73 m²<div class="muted">Reference &gt;=60 mL/min/1.73 m²</div></td>
+    <td>http://loinc.org · 98979-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1896-04-14</td>
+    <td>Glucose [Mass/volume] in Serum or Plasma</td>
+    <td>82 mg/dL<div class="muted">Reference 70-99 mg/dL</div></td>
+    <td>http://loinc.org · 2345-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1896-04-14</td>
+    <td>Hemoglobin A1c/Hemoglobin.total in Blood</td>
+    <td>5.1%<div class="muted">Reference Below 5.7% is normal; 6.5% or more is diabetes</div></td>
+    <td>http://loinc.org · 4548-4</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1896-04-14</td>
+    <td>Visual acuity uncorrected Right eye by ETDRS eye chart</td>
+    <td>85<div class="muted">Reference &gt;=80</div></td>
+    <td>http://loinc.org · 79878-5</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1896-04-14</td>
+    <td>Visual acuity uncorrected Left eye by ETDRS eye chart</td>
+    <td>85<div class="muted">Reference &gt;=80</div></td>
+    <td>http://loinc.org · 79879-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1896-04-14</td>
+    <td>Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]</td>
+    <td>8</td>
+    <td>http://loinc.org · 44261-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1896-04-14</td>
+    <td>Total score [AUDIT-C]</td>
+    <td>0</td>
+    <td>http://loinc.org · 75626-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1896-05-01</td>
+    <td>Alanine aminotransferase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>22 U/L<div class="muted">Reference 7-35 U/L</div></td>
+    <td>http://loinc.org · 1742-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1896-05-01</td>
+    <td>Aspartate aminotransferase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>24 U/L<div class="muted">Reference 10-35 U/L</div></td>
+    <td>http://loinc.org · 1920-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1896-05-01</td>
+    <td>Bilirubin.total [Mass/volume] in Serum or Plasma</td>
+    <td>0.6 mg/dL<div class="muted">Reference 0.1-1.2 mg/dL</div></td>
+    <td>http://loinc.org · 1975-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1896-05-01</td>
+    <td>Visual acuity uncorrected Right eye by ETDRS eye chart</td>
+    <td>85<div class="muted">Reference &gt;=80</div></td>
+    <td>http://loinc.org · 79878-5</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1896-05-01</td>
+    <td>Visual acuity uncorrected Left eye by ETDRS eye chart</td>
+    <td>84<div class="muted">Reference &gt;=80</div></td>
+    <td>http://loinc.org · 79879-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1896-06-12</td>
+    <td>Alanine aminotransferase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>26 U/L<div class="muted">Reference 7-35 U/L</div></td>
+    <td>http://loinc.org · 1742-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1896-06-12</td>
+    <td>Aspartate aminotransferase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>25 U/L<div class="muted">Reference 10-35 U/L</div></td>
+    <td>http://loinc.org · 1920-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1896-06-12</td>
+    <td>Bilirubin.total [Mass/volume] in Serum or Plasma</td>
+    <td>0.5 mg/dL<div class="muted">Reference 0.1-1.2 mg/dL</div></td>
+    <td>http://loinc.org · 1975-2</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1896-06-12</td>
+    <td>Albumin [Mass/volume] in Serum or Plasma</td>
+    <td>3.8 g/dL<div class="muted">Reference 3.5-5 g/dL</div></td>
+    <td>http://loinc.org · 1751-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1896-06-12</td>
+    <td>Hemoglobin [Mass/volume] in Blood</td>
+    <td>12.4 g/dL<div class="muted">Reference 12-15.5 g/dL</div></td>
+    <td>http://loinc.org · 718-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1896-06-12</td>
+    <td>Visual acuity uncorrected Right eye by ETDRS eye chart</td>
+    <td>85<div class="muted">Reference &gt;=80</div></td>
+    <td>http://loinc.org · 79878-5</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1896-06-12</td>
+    <td>Visual acuity uncorrected Left eye by ETDRS eye chart</td>
+    <td>85<div class="muted">Reference &gt;=80</div></td>
+    <td>http://loinc.org · 79879-3</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1896-06-12</td>
+    <td>Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]</td>
+    <td>5</td>
+    <td>http://loinc.org · 44261-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1896-10-20</td>
+    <td>Alanine aminotransferase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>18 U/L<div class="muted">Reference 7-35 U/L</div></td>
+    <td>http://loinc.org · 1742-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1896-10-20</td>
+    <td>Aspartate aminotransferase [Enzymatic activity/volume] in Serum or Plasma</td>
+    <td>20 U/L<div class="muted">Reference 10-35 U/L</div></td>
+    <td>http://loinc.org · 1920-8</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1896-10-20</td>
+    <td>Albumin [Mass/volume] in Serum or Plasma</td>
+    <td>4.2 g/dL<div class="muted">Reference 3.5-5 g/dL</div></td>
+    <td>http://loinc.org · 1751-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1896-10-20</td>
+    <td>Hemoglobin [Mass/volume] in Blood</td>
+    <td>13.2 g/dL<div class="muted">Reference 12-15.5 g/dL</div></td>
+    <td>http://loinc.org · 718-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1896-10-20</td>
+    <td>Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]</td>
+    <td>3</td>
+    <td>http://loinc.org · 44261-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1896-08-24</td>
+    <td>Patient Health Questionnaire 2 item (PHQ-2) total score [Reported]</td>
+    <td>1</td>
+    <td>http://loinc.org · 55758-7</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1896-08-24</td>
+    <td>Generalized anxiety disorder 7 item (GAD-7) total score [Reported.PHQ]</td>
+    <td>4</td>
+    <td>http://loinc.org · 70274-6</td>
+  </tr>
+  <tr>
+    <td><span class="badge grade-S" title="Synthetic">S</span></td>
+    <td>1896-08-24</td>
+    <td>Total score [AUDIT-C]</td>
+    <td>0</td>
+    <td>http://loinc.org · 75626-2</td>
+  </tr></tbody></table></section>
+    <section><h2>Synthetic vital signs</h2><table><thead><tr><th>Date</th><th>Measure</th><th>Result</th><th>LOINC</th><th>Grade</th></tr></thead><tbody>
+  <tr><td>1896-04-14</td><td>Body height</td><td>148 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1896-04-14</td><td>Body weight</td><td>38.5 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1896-04-14</td><td>Body mass index (BMI) [Ratio]</td><td>17.6 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1896-04-14</td><td>Systolic blood pressure</td><td>98 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1896-04-14</td><td>Diastolic blood pressure</td><td>62 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1896-04-14</td><td>Heart rate</td><td>104 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1896-04-14</td><td>Respiratory rate</td><td>20 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1896-04-14</td><td>Body temperature</td><td>37.8 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1896-04-14</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>96 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1896-04-17</td><td>Body height</td><td>148 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1896-04-17</td><td>Body weight</td><td>38.4 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1896-04-17</td><td>Body mass index (BMI) [Ratio]</td><td>17.5 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1896-04-17</td><td>Systolic blood pressure</td><td>96 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1896-04-17</td><td>Diastolic blood pressure</td><td>60 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1896-04-17</td><td>Heart rate</td><td>100 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1896-04-17</td><td>Respiratory rate</td><td>20 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1896-04-17</td><td>Body temperature</td><td>37.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1896-04-17</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>96 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1896-05-01</td><td>Body height</td><td>148 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1896-05-01</td><td>Body weight</td><td>39.2 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1896-05-01</td><td>Body mass index (BMI) [Ratio]</td><td>17.9 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1896-05-01</td><td>Systolic blood pressure</td><td>100 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1896-05-01</td><td>Diastolic blood pressure</td><td>62 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1896-05-01</td><td>Heart rate</td><td>90 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1896-05-01</td><td>Respiratory rate</td><td>18 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1896-05-01</td><td>Body temperature</td><td>37.1 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1896-05-01</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>97 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1896-06-12</td><td>Body height</td><td>148 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1896-06-12</td><td>Body weight</td><td>41 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1896-06-12</td><td>Body mass index (BMI) [Ratio]</td><td>18.7 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1896-06-12</td><td>Systolic blood pressure</td><td>102 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1896-06-12</td><td>Diastolic blood pressure</td><td>64 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1896-06-12</td><td>Heart rate</td><td>80 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1896-06-12</td><td>Respiratory rate</td><td>16 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1896-06-12</td><td>Body temperature</td><td>36.8 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1896-06-12</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>98 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1896-10-20</td><td>Body height</td><td>148 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1896-10-20</td><td>Body weight</td><td>44 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1896-10-20</td><td>Body mass index (BMI) [Ratio]</td><td>20.1 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1896-10-20</td><td>Systolic blood pressure</td><td>106 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1896-10-20</td><td>Diastolic blood pressure</td><td>68 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1896-10-20</td><td>Heart rate</td><td>72 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1896-10-20</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1896-10-20</td><td>Body temperature</td><td>36.5 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1896-10-20</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>98 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1896-07-20</td><td>Body height</td><td>148 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1896-07-20</td><td>Body weight</td><td>42 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1896-07-20</td><td>Body mass index (BMI) [Ratio]</td><td>19.2 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1896-07-20</td><td>Systolic blood pressure</td><td>104 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1896-07-20</td><td>Diastolic blood pressure</td><td>66 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1896-07-20</td><td>Heart rate</td><td>84 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1896-07-20</td><td>Respiratory rate</td><td>16 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1896-07-20</td><td>Body temperature</td><td>37 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1896-07-20</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>98 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1896-08-24</td><td>Body height</td><td>148 cm</td><td>8302-2</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1896-08-24</td><td>Body weight</td><td>42.6 kg</td><td>29463-7</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1896-08-24</td><td>Body mass index (BMI) [Ratio]</td><td>19.4 kg/m2</td><td>39156-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1896-08-24</td><td>Systolic blood pressure</td><td>104 mm[Hg]</td><td>8480-6</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1896-08-24</td><td>Diastolic blood pressure</td><td>66 mm[Hg]</td><td>8462-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1896-08-24</td><td>Heart rate</td><td>76 /min</td><td>8867-4</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1896-08-24</td><td>Respiratory rate</td><td>14 /min</td><td>9279-1</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1896-08-24</td><td>Body temperature</td><td>36.6 Cel</td><td>8310-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr>
+  <tr><td>1896-08-24</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td>98 %</td><td>59408-5</td><td><span class="badge grade-S" title="Synthetic">S</span></td></tr></tbody></table></section>
+    <section><h2>Social, functional, and mental status</h2><h3>Social history</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Writer of short fiction and essays, paid by the piece by literary magazines; writes at home at a low desk, mostly at night; finished several stories in the past year and is working on new ones with editors waiting</li><li><span class="badge grade-S" title="Synthetic">S</span> Head of a household of three adults in a small rented house in Hongō, Tokyo; provides for the household from her writing income, which is low and irregular, with unpaid bills; enrolled in National Health Insurance</li><li><span class="badge grade-S" title="Synthetic">S</span> Never smoked; no alcohol (AUDIT-C 0); no drug use; no travel outside Japan; no incarceration, homelessness or work in health care; not sexually active</li><li><span class="badge grade-S" title="Synthetic">S</span> Meals irregular and small, mostly rice, pickles and tea, with fish or tofu a few times a week when money allows</li><li><span class="badge grade-S" title="Synthetic">S</span> Supports and strengths she names: her writing, her readers and editors, and the poetry she studied when young</li></ul><h3>Functional status</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Independent; too tired over the past month to write for more than an hour or two, and short of breath on the stairs</li></ul><h3>Mental status</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Alert, composed and precise in her answers, with a wry humor; thin and tired; organized thought</li><li><span class="badge grade-S" title="Synthetic">S</span> Mood worried about money, her household and her deadlines; PHQ-9 8, with item 9 scored 0; no thoughts of suicide or self-harm</li></ul></section>
+    
+    <section><h2>Allergies and medications</h2><h3>Allergies</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> No known allergy</li></ul><h3>Medications</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Isoniazid 100 mg tablets, two tablets (200 mg) daily</li><li><span class="badge grade-S" title="Synthetic">S</span> Rifampin (rifampicin) 150 mg capsules, three capsules (450 mg) daily</li><li><span class="badge grade-S" title="Synthetic">S</span> Pyrazinamide 500 mg tablets, two tablets (1000 mg) daily</li><li><span class="badge grade-S" title="Synthetic">S</span> Ethambutol 100 mg tablets, six tablets (600 mg) daily</li><li><span class="badge grade-S" title="Synthetic">S</span> Vitamin B6 (pyridoxine) 50 mg tablet, one tablet daily</li><li><span class="badge grade-S" title="Synthetic">S</span> Nitrofurantoin monohydrate/macrocrystals 100 mg oral capsule, one capsule twice daily with food for five days</li></ul></section>
+    <section><h2>Procedures and immunizations</h2><h3>Procedures</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> Chest X-ray, two views: patchy opacities in the apical and posterior segments of the right upper lobe with small nodules; no cavity, effusion or hilar enlargement</li><li><span class="badge grade-S" title="Synthetic">S</span> Chest X-ray, two views, at the end of treatment: right upper lobe opacities cleared, leaving a few linear scars; kept as the baseline for any future comparison</li><li><span class="badge grade-S" title="Synthetic">S</span> Cervical cytology (Papanicolaou test), first screening</li><li><span class="badge grade-S" title="Synthetic">S</span> Advance care planning conversation, about 16 minutes</li></ul><h3>Immunizations</h3><ul><li><span class="badge grade-S" title="Synthetic">S</span> 1896-08-24: Tetanus, diphtheria, and acellular pertussis vaccine (Tdap)</li><li><span class="badge grade-S" title="Synthetic">S</span> 1896-08-24: Hepatitis B vaccine (HepB-CpG), dose 1 of 2</li><li><span class="badge grade-S" title="Synthetic">S</span> 1896-08-24: Human papillomavirus 9-valent vaccine, dose 1 of 3</li><li><span class="badge grade-S" title="Synthetic">S</span> 1896-10-20: Hepatitis B vaccine (HepB-CpG), dose 2 of 2</li><li><span class="badge grade-S" title="Synthetic">S</span> 1896-10-20: Human papillomavirus 9-valent vaccine, dose 2 of 3</li><li><span class="badge grade-S" title="Synthetic">S</span> 1896-10-20: Influenza vaccine, inactivated, trivalent, preservative-free</li></ul></section>
+    <section><h2>Past medical history</h2><p class="muted">True biography with historical dates; not part of the synthetic care timeline.</p><ul></ul><h3>Family history</h3><ul><li><span class="badge grade-D" title="Documented">D</span> father: Died of illness in 1889; cause not recorded in the cited source</li></ul></section>
+    <section><h2>Care-plan goals</h2><table><thead><tr><th>Goal</th><th>Target date</th><th>Status</th><th>Outcome</th></tr></thead><tbody>
+  <tr><td>Complete 182 daily doses within about six and a half months by video-observed therapy</td><td>1896-10-20</td><td>completed</td><td>All 182 doses completed in 26 weeks: 56 in the intensive phase and 126 in the continuation phase, none missed</td></tr>
+  <tr><td>Sputum culture negative at two months</td><td>1896-10-20</td><td>completed</td><td>The cultures taken at two weeks and at two months both showed no growth after six weeks</td></tr>
+  <tr><td>Weight at least 44 kg (BMI about 20) by the end of treatment</td><td>1896-10-20</td><td>completed</td><td>44.0 kg at the end of treatment, from 38.5 kg at intake</td></tr>
+  <tr><td>Keep writing on a paced schedule without losing income during treatment</td><td>1896-10-20</td><td>completed</td><td>Public funding covered most treatment costs; she kept writing about two hours a day and finished new work</td></tr>
+  <tr><td>No drug-induced liver injury or loss of vision during treatment</td><td>1896-10-20</td><td>completed</td><td>Liver tests normal throughout; visual acuity unchanged</td></tr></tbody></table></section>
+    <section><h2>Interventions</h2><table><thead><tr><th>Intervention</th><th>Status</th><th>Guideline</th></tr></thead><tbody>
+  <tr><td>Diagnosis and safety: chest X-ray; three sputum specimens at least eight hours apart, one early in the morning, for acid-fast smear, Xpert MTB/RIF Ultra, liquid and solid culture and drug susceptibility testing; HIV, hepatitis B and hepatitis C tests and a pregnancy test; blood count, liver and kidney tests, glucose and hemoglobin A1c; visual acuity and color vision before ethambutol</td><td>completed</td><td>GL-ATS-TBDX-2017, GL-ATS-TB-2016, GL-WHO-TB-2022</td></tr>
+  <tr><td>Infectious diseases consultation at the results visit to confirm the diagnosis, choose between the six-month and four-month regimens, set the doses for her weight, and plan monitoring and infection control</td><td>completed</td><td>GL-ATS-TB-2016, GL-ATS-TB-2025, GL-CDC-4MO-2022</td></tr>
+  <tr><td>Infection control and public health: airborne precautions in the clinic; at home, no visitors, a surgical mask in shared rooms, windows open, and sleeping in her own room until the public health center confirms she is no longer infectious; report of suspected tuberculosis to the public health center the same day and notification at once on diagnosis; a contact investigation of her household and other close contacts led by the public health center</td><td>completed</td><td>GL-MHLW-TB-NOTIFY, GL-CDC-CONTACT-2005, GL-ATS-TB-2016</td></tr>
+  <tr><td>Nutrition, income and writing: two dietitian visits in the first month, three meals and two energy-dense snacks a day with two oral nutrition supplement drinks, and weight at every visit; a medical social worker to apply for public funding of tuberculosis treatment and to review other help with costs; a paced writing plan of short sessions in daylight with rest; PHQ-9 at intake, at two months and at the end of treatment</td><td>completed</td><td>GL-ASPEN-MALN-2012, GL-JP-TB-FUNDING, GL-USPSTF-DEP-2023</td></tr>
+  <tr><td>Treatment: isoniazid 200 mg, rifampin 450 mg, pyrazinamide 1000 mg and ethambutol 600 mg daily for eight weeks, then isoniazid and rifampin daily for eighteen weeks, with pyridoxine 50 mg, by daily video-observed therapy with the public health center; ethambutol stopped once the isolate is susceptible to isoniazid and rifampin; liver tests at two weeks and monthly in the intensive phase because of her low weight and albumin; visual acuity and color vision monthly while on ethambutol; sputum smear and culture at two weeks and two months; chest X-ray at the end of treatment</td><td>completed</td><td>GL-ATS-TB-2016, GL-ATS-TB-2025, GL-WHO-TB-2022, GL-ATS-HEPATOTOX-2006</td></tr>
+  <tr><td>Acute cystitis: nitrofurantoin 100 mg twice daily for five days with urine culture; no fluoroquinolone, because these drugs are kept for drug-resistant tuberculosis and can blur the picture of tuberculosis; continue every tuberculosis dose; plenty of fluids; return for fever, flank pain, vomiting or symptoms that are not better in two days</td><td>completed</td><td>GL-IDSA-UTI-2010, GL-ATS-TB-2016</td></tr>
+  <tr><td>Prevention: cervical cytology now and every three years; Tdap; hepatitis B vaccine in two doses and HPV vaccine in three doses; influenza vaccine in the autumn; folic acid 0.4 mg daily advised; contraception counseling that rifampin makes hormonal pills, patches, rings and implants unreliable, with a copper IUD, injectable progestin or condoms as reliable choices if she needs contraception during treatment</td><td>completed</td><td>GL-USPSTF-CERV-2018, GL-CDC-IMZ-2026, GL-CDC-SPR-2024, GL-USPSTF-FOLIC-2023</td></tr></tbody></table></section>
+    <section><h2>Planned encounters</h2><ul>
+  <li><strong>1896-04-14</strong> — New patient visit for seven weeks of cough, fevers, night sweats and weight loss: chest X-ray, sputum specimens, blood tests, airborne precautions, and a report of suspected tuberculosis to the public health center <span class="muted">(ENC-001)</span></li>
+  <li><strong>1896-04-17</strong> — Results visit: pulmonary tuberculosis confirmed; infectious diseases consultation and the start of the standard six-month regimen <span class="muted">(ENC-002)</span></li>
+  <li><strong>1896-05-01</strong> — Two-week review on treatment: culture result, liver tests, vision, and release from precautions <span class="muted">(ENC-003)</span></li>
+  <li><strong>1896-06-12</strong> — End of the eight-week intensive phase: susceptibility results, the two-month sputum culture, and the start of the continuation phase <span class="muted">(ENC-004)</span></li>
+  <li><strong>1896-07-20</strong> — Same-day sick visit for acute cystitis during tuberculosis treatment <span class="muted">(ENC-006, unscheduled)</span></li>
+  <li><strong>1896-08-24</strong> — Periodic adult preventive visit <span class="muted">(ENC-007)</span></li>
+  <li><strong>1896-10-20</strong> — End-of-treatment review after 182 doses <span class="muted">(ENC-005)</span></li></ul></section>
+    <section><h2>Supporting documents</h2><ul><li><a href="notes/hp.md">History and physical</a></li><li><a href="notes/progress-01.md">Progress note 01</a></li><li><a href="notes/progress-02.md">Progress note 02 — Focused Visit (Follow-up)</a></li><li><a href="notes/progress-03.md">Progress note 03 — Focused Visit (Follow-up)</a></li><li><a href="notes/progress-04.md">Progress note 04 — Focused Visit (Follow-up)</a></li><li><a href="notes/progress-05.md">Progress note 05 — Sick Visit</a></li><li><a href="notes/progress-06.md">Progress note 06 — Preventive Visit</a></li><li><a href="notes/progress-07.md">Progress note 07 — Focused Visit (Care-plan review)</a></li><li><a href="notes/referral-01.md">Infectious Diseases (tuberculosis) referral</a></li><li><a href="notes/consult-01.md">Infectious Diseases (tuberculosis) consultation</a></li><li><a href="notes/careplan.md">Patient care plan</a></li><li><a href="notes/teaching-note.md">Teaching note</a></li><li><a href="provenance.csv">Provenance CSV</a></li></ul></section>
+    <section><h2>C-CDA note documents</h2><p class="muted">Each link opens a readable copy; the XML beside it is the exchange file.</p><ul><li><a href="ccda/hp-01.html">History and physical</a> <a href="ccda/hp-01.xml">(XML)</a></li><li><a href="ccda/progress-01.html">Progress note 01</a> <a href="ccda/progress-01.xml">(XML)</a></li><li><a href="ccda/progress-02.html">Progress note 02 — Focused Visit (Follow-up)</a> <a href="ccda/progress-02.xml">(XML)</a></li><li><a href="ccda/progress-03.html">Progress note 03 — Focused Visit (Follow-up)</a> <a href="ccda/progress-03.xml">(XML)</a></li><li><a href="ccda/progress-04.html">Progress note 04 — Focused Visit (Follow-up)</a> <a href="ccda/progress-04.xml">(XML)</a></li><li><a href="ccda/progress-05.html">Progress note 05 — Sick Visit</a> <a href="ccda/progress-05.xml">(XML)</a></li><li><a href="ccda/progress-06.html">Progress note 06 — Preventive Visit</a> <a href="ccda/progress-06.xml">(XML)</a></li><li><a href="ccda/progress-07.html">Progress note 07 — Focused Visit (Care-plan review)</a> <a href="ccda/progress-07.xml">(XML)</a></li><li><a href="ccda/referral-01.html">Infectious Diseases (tuberculosis) referral</a> <a href="ccda/referral-01.xml">(XML)</a></li><li><a href="ccda/consult-01.html">Infectious Diseases (tuberculosis) consultation</a> <a href="ccda/consult-01.xml">(XML)</a></li></ul></section>
+    <section><h2>Sources</h2><table><thead><tr><th>ID</th><th>Source</th><th>Publisher</th><th>Type</th></tr></thead><tbody>
+  <tr>
+    <td>SRC-0001</td>
+    <td><a href="https://www.ndl.go.jp/portrait/e/datas/315.html" target="_blank" rel="noreferrer">Portraits of Modern Japanese Historical Figures: HIGUCHI Ichiyo</a></td>
+    <td>National Diet Library, Japan</td>
+    <td>biography</td>
+  </tr>
+  <tr>
+    <td>SRC-0002</td>
+    <td><a href="https://kotobank.jp/word/%E6%A8%8B%E5%8F%A3%E4%B8%80%E8%91%89-17510" target="_blank" rel="noreferrer">樋口一葉 (Higuchi Ichiyō), entries from 日本大百科全書(ニッポニカ), 世界大百科事典 and デジタル版 日本人名大辞典+Plus</a></td>
+    <td>Kotobank (Asahi Shimbun), carrying Shogakukan, Heibonsha and Kodansha reference works</td>
+    <td>scholarly</td>
+  </tr>
+  <tr>
+    <td>SRC-0003</td>
+    <td><a href="https://www.nippon.com/en/japan-topics/b07226/" target="_blank" rel="noreferrer">Higuchi Ichiyō (Shapers of Japanese History)</a></td>
+    <td>Nippon.com (Nippon Communications Foundation)</td>
+    <td>biography</td>
+  </tr>
+  <tr>
+    <td>SRC-0004</td>
+    <td><a href="https://taitogeibun.net/english/ichiyo" target="_blank" rel="noreferrer">Ichiyo Memorial Museum</a></td>
+    <td>Taito City Culture Foundation (Ichiyō Memorial Museum, Taitō, Tokyo)</td>
+    <td>biography</td>
+  </tr>
+  <tr>
+    <td>SRC-0005</td>
+    <td><a href="https://www.boj.or.jp/en/note_tfjgs/note/valid/issue.htm" target="_blank" rel="noreferrer">Bank of Japan Notes and Coins Currently Issued</a></td>
+    <td>Bank of Japan</td>
+    <td>other</td>
+  </tr>
+  <tr>
+    <td>SRC-0006</td>
+    <td><a href="https://www.ndl.go.jp/koyomi/e/history/calendar.html" target="_blank" rel="noreferrer">Calendar History 2 (The Japanese Calendar)</a></td>
+    <td>National Diet Library, Japan</td>
+    <td>scholarly</td>
+  </tr>
+  <tr>
+    <td>SRC-0007</td>
+    <td><a href="https://www.city.bunkyo.lg.jp/b014/p003900.html" target="_blank" rel="noreferrer">樋口一葉 (Higuchi Ichiyō), 文京ゆかりの文人</a></td>
+    <td>Bunkyō City, Tokyo</td>
+    <td>biography</td>
+  </tr>
+  <tr>
+    <td>SRC-0009</td>
+    <td><a href="https://humanrecord.example.org/internal/HISTMED_Master_Roster_v3.xlsx" target="_blank" rel="noreferrer">HISTMED Master Roster v3</a></td>
+    <td>The Human Record project</td>
+    <td>other</td>
+  </tr></tbody></table></section>
+    <section><h2>Review status</h2><table><thead><tr><th>Review</th><th>Status</th><th>Notes</th></tr></thead><tbody>
+  <tr><td>schema validation</td><td>not_started</td><td>Run scripts/build.ps1 -Conformance.</td></tr>
+  <tr><td>clinical review</td><td>not_started</td><td>Awaiting clinician review; check outpatient care for smear-negative, Xpert-positive disease in Japan, the six-month regimen chosen because her weight is below 40 kg, the weight-based doses, liver monitoring in a malnourished woman, and the recorded gap in month-one monitoring.</td></tr>
+  <tr><td>provenance review</td><td>not_started</td><td>National Diet Library portrait biography and calendar page, Kotobank encyclopedia entries (Nipponica and others), Nippon.com, the Ichiyō Memorial Museum page, the Bunkyō City biography, and the Bank of Japan banknote page logged. Danly&#39;s biography was not read. The form of her fatal tuberculosis differs between sources (pulmonary or miliary).</td></tr>
+  <tr><td>safe messaging review</td><td>not_started</td><td>No psychiatric claim is made; PHQ-9 at most 8 with item 9 scored 0, so no safety assessment is required. Her mother and sister appear only in documented history; the household contact investigation names no one and records no result. Her death is recorded in one sentence.</td></tr></tbody></table></section>
+  </main>
+</body>
+</html>
