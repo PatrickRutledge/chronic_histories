@@ -146,7 +146,7 @@ const indexHtml = `<!doctype html>
 </head>
 <body>
 <div class="banner">SYNTHETIC RECORDS, NOT REAL MEDICAL RECORDS</div>
-<div class="title"><img class="seal" src="assets/chronos-seal.png" alt="Chronos Archive seal" width="72" height="72"><div><h1>The Human Record: all records</h1><div class="note">Chronos Archive</div></div></div>
+<div class="title"><img class="seal" src="assets/chronos-seal.png" alt="Chronos Archive seal" width="72" height="72"><div><h1>The Human Record: all records</h1><div class="note">Chronos Archive · <a href="https://buymeacoffee.com/patrickrutledge">Support Chronos Archive</a></div></div></div>
 <p class="note">Synthetic modern clinical records for ${rows.length} deceased historical figures, for teaching and for testing health software. Each record grades every clinical claim: D (documented in the sources), R (retrospective interpretation) or S (synthetic, invented for teaching). The patients are historical; the visits, results and notes are not. All records are drafts under review.</p>
 <p class="note">Each row links to the record, its review checklist, its sources, its C-CDA and FHIR files, the true-date version where one exists, and its open review questions on GitHub. <strong>To help:</strong> use <em>Report</em> to send a correction (a source helps), or comment at the bottom of any record page. Both need only a free GitHub account. The Verified box is a reading aid kept only in this browser.</p>
 <div class="bar">

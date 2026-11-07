@@ -20,6 +20,10 @@ Clinicians, historians, and anyone else can help, with no code and no file editi
 
 Both need a free GitHub account.
 
+## Support
+
+Chronos Archive is built and maintained independently. If it is useful to you, you can [support it on Buy Me a Coffee](https://buymeacoffee.com/patrickrutledge).
+
 ## Repository structure
 
 - `schema/` — canonical JSON Schema
