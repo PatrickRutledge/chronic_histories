@@ -55,7 +55,7 @@ export const commentsSection = (caseId, name) => `<section id="comments">
         if (location.hostname.endsWith("github.io")) {
           const s = document.createElement("script");
           s.src = "https://giscus.app/client.js"; s.async = true; s.crossOrigin = "anonymous";
-          Object.entries({ repo: "PatrickRutledge/chronic_histories", repoId: "R_kgDOVfWdqQ", category: "Announcements",
+          Object.entries({ repo: "PatrickRutledge/chronic_histories", repoId: "R_kgDOVfWdqQ", category: "Record Comments",
             categoryId: "DIC_kwDOVfWdqc4DKmRz", mapping: "specific", term: ${JSON.stringify(caseId)}, strict: "1",
             reactionsEnabled: "1", emitMetadata: "0", inputPosition: "top", theme: "light", lang: "en", loading: "lazy" })
             .forEach(([key, value]) => { s.dataset[key] = value; });
