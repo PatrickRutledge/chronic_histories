@@ -14,6 +14,15 @@ Every generated artifact must display:
 
 ## Current state (November 7, 2026)
 
+**Resume here (paused November 7, 2026, after batch 15).** Next: batch 16, ten new researched candidates (the roster is complete). The local batch kit is in `.work/batch-kit/` (git-ignored): agent briefs, roster and issue scripts, and a README. Publishing is ready:
+- The site is online.
+- Reader feedback works: the Report a problem form, and giscus comments in the "Record Comments" Discussions category.
+- The Chronos Archive logo, social preview, and Sponsor button (Buy Me a Coffee, `.github/FUNDING.yml`) are in place.
+- Open items for the project lead:
+  - work through the `clinical-review` issues
+  - verify the Madison autobiography quote in a browser
+  - decide whether to add a name-suffix field to the schema (for "Jr.")
+
 - 153 records: 3 pilots (`pilots/`) and 150 batch records in fifteen batches of ten (`cases/`). Every record passes CDA XSD, C-CDA R2.1 Schematron, the note documents, FHIR R4, and US Core 6.1.0 with 0 errors. `scripts/run_controls.ps1` runs 33 controls, all passing.
 - Every record has an intake H&P, focused chronic-care visits with protocol monitoring tables (missed checks recorded as deviations, never filled with invented results), an adult preventive or annual wellness visit, a sick visit (except the recent-death records), a case-specific referral and consultation, and a review checklist (`generated/review.html`).
 - Open decision points are tracked as GitHub issues labeled `clinical-review`, one per patient (#2 to #95: the batch 5 items for Zelda Fitzgerald, Samuel Johnson, Beethoven and Darwin, and the judgment calls of batches 6 and 8 to 15). Each issue links to the record and its sources.md and lists its Editorial resolutions as a checklist. Batch 7 calls were accepted on November 4, and the Salon source for Florence Griffith Joyner was accepted on November 5, 2026.
