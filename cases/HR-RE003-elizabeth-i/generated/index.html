@@ -4,12 +4,16 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Elizabeth I — The Human Record</title>
+  <link rel="icon" type="image/png" href="../../../assets/favicon.png">
   <style>
     :root { --navy:#17365d; --blue:#1f4e78; --pale:#eef5fa; --ink:#1f2933; --muted:#66788a; --amber:#fff2cc; --red:#f8d7da; --green:#d9ead3; }
     * { box-sizing:border-box; }
     body { margin:0; font:16px/1.5 Arial, sans-serif; color:var(--ink); background:#f6f8fa; }
     header { background:var(--navy); color:white; padding:24px max(24px,calc((100vw - 1180px)/2)); }
+    header { display:flex; gap:18px; align-items:center; }
     header h1 { margin:4px 0; font-size:30px; }
+    .seal { flex:none; border-radius:50%; }
+    .feedback { background:#2d6a4f !important; }
     .banner { background:#b42318; color:white; font-weight:700; text-align:center; padding:10px; letter-spacing:.03em; }
     main { max-width:1180px; margin:24px auto 60px; padding:0 24px; }
     section { background:white; border:1px solid #d9e1e8; border-radius:8px; margin:18px 0; padding:20px; }
@@ -32,9 +36,12 @@
 <body>
   <div class="banner">SYNTHETIC RECORD, NOT A REAL MEDICAL RECORD</div>
   <header>
+    <img class="seal" src="../../../assets/chronos-seal.png" alt="Chronos Archive seal" width="56" height="56">
+    <div>
     <div>The Human Record</div>
     <h1>Elizabeth I</h1>
     <div>Case HR-RE003 · Modern EHR teaching episode · Draft for review</div>
+    </div>
   </header>
   <main>
     <section>
@@ -52,6 +59,8 @@
         <a href="fhir-bundle.json">FHIR R4 draft</a>
         <a href="ccda.html">C-CDA R2.1 summary</a> <a href="ccda.xml">(XML)</a> <a href="review.html">Review checklist</a>
         <a href="../sources.md">Evidence dossier</a>
+        <a class="feedback" href="https://github.com/PatrickRutledge/chronic_histories/issues/new?template=record-feedback.yml&amp;case_id=HR-RE003&amp;title=%5BHR-RE003%5D%20Elizabeth%20I%3A%20">Report a problem</a>
+        <a class="feedback" href="#comments">Comments</a>
       </div>
     </section>
     <section><h2>Historical timeline</h2><table><thead><tr><th>Date</th><th>Event</th><th>Claims</th></tr></thead><tbody>
@@ -577,6 +586,27 @@
   <tr><td>clinical review</td><td>not_started</td><td>Awaiting clinician review; check the workup for medical causes, the passive death wish and safety plan, sertraline dosing and the sodium check, CBT for insomnia, the dental and nutrition plan, falls, and the privacy measures.</td></tr>
   <tr><td>provenance review</td><td>not_started</td><td>The Folger Shakespeare Library court chronology (1562, 1598, 1601, 1602, 1603 volumes), Robert Carey&#39;s memoir (1905 edition), Westminster Abbey, royal.uk, and two Royal Museums Greenwich pages logged. Her late melancholy, sleeplessness, and refusal of food are D; the depression reading is a modern interpretation; lead poisoning and other proposed causes of death are R, disputed. Historic Royal Palaces pages returned HTTP 403 and were not read.</td></tr>
   <tr><td>safe messaging review</td><td>not_started</td><td>A passive death wish is recorded in the synthetic intake, with a safety plan and the 988 Lifeline; the documented remark that she wished to die is recorded as a diplomat&#39;s report, without interpretation, and marked sensitive.</td></tr></tbody></table></section>
+    <section id="comments">
+      <h2>Comments and corrections</h2>
+      <p class="muted">Sign in with GitHub to comment on this record. To report a specific error, ideally with a source, use the <a href="https://github.com/PatrickRutledge/chronic_histories/issues/new?template=record-feedback.yml&amp;case_id=HR-RE003&amp;title=%5BHR-RE003%5D%20Elizabeth%20I%3A%20">feedback form</a>; each report becomes a tracked issue.</p>
+      <div id="giscus-thread"><p class="muted">Comments appear on the online version of this page.</p></div>
+      <script>
+        if (location.hostname.endsWith("github.io")) {
+          const s = document.createElement("script");
+          s.src = "https://giscus.app/client.js"; s.async = true; s.crossOrigin = "anonymous";
+          Object.entries({ repo: "PatrickRutledge/chronic_histories", repoId: "R_kgDOVfWdqQ", category: "Announcements",
+            categoryId: "DIC_kwDOVfWdqc4DKmRz", mapping: "specific", term: "HR-RE003", strict: "1",
+            reactionsEnabled: "1", emitMetadata: "0", inputPosition: "top", theme: "light", lang: "en", loading: "lazy" })
+            .forEach(([key, value]) => { s.dataset[key] = value; });
+          const box = document.getElementById("giscus-thread"); box.replaceChildren(); box.className = "giscus"; box.after(s);
+        }
+      </script>
+    </section>
   </main>
+<script>
+if (location.hostname.endsWith("github.io")) for (const a of document.querySelectorAll('a[href$=".md"]')) {
+  a.href = "https://github.com/PatrickRutledge/chronic_histories/blob/main/" + new URL(a.href).pathname.replace(/^\/chronic_histories\//, "");
+}
+</script>
 </body>
 </html>

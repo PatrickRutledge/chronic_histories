@@ -1,6 +1,6 @@
 import fs from "node:fs/promises";
 import path from "node:path";
-import { NAMESPACE, ROUTES, TRUE_DATE_NOTICE, allRecordsHref, deterministicUuid, isTrueDateFrame, outputDirFor, parseClinician, patientName, splitName } from "./lib/common.mjs";
+import { NAMESPACE, ROUTES, SITE_SCRIPT, TRUE_DATE_NOTICE, allRecordsHref, commentsSection, faviconLink, feedbackUrl, logoImg, deterministicUuid, isTrueDateFrame, outputDirFor, parseClinician, patientName, splitName } from "./lib/common.mjs";
 import { reviewPage } from "./lib/review_page.mjs";
 import { INTERPRETATIONS, documentationOf, isConsultStep, isLab, isUnscheduled, rangeText, visitLabels, withUnit } from "./lib/episode.mjs";
 
@@ -122,12 +122,16 @@ const html = `<!doctype html>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>${esc(data.identity.display_name)} — The Human Record</title>
+  ${faviconLink(outputDir)}
   <style>
     :root { --navy:#17365d; --blue:#1f4e78; --pale:#eef5fa; --ink:#1f2933; --muted:#66788a; --amber:#fff2cc; --red:#f8d7da; --green:#d9ead3; }
     * { box-sizing:border-box; }
     body { margin:0; font:16px/1.5 Arial, sans-serif; color:var(--ink); background:#f6f8fa; }
     header { background:var(--navy); color:white; padding:24px max(24px,calc((100vw - 1180px)/2)); }
+    header { display:flex; gap:18px; align-items:center; }
     header h1 { margin:4px 0; font-size:30px; }
+    .seal { flex:none; border-radius:50%; }
+    .feedback { background:#2d6a4f !important; }
     .banner { background:#b42318; color:white; font-weight:700; text-align:center; padding:10px; letter-spacing:.03em; }
     main { max-width:1180px; margin:24px auto 60px; padding:0 24px; }
     section { background:white; border:1px solid #d9e1e8; border-radius:8px; margin:18px 0; padding:20px; }
@@ -151,9 +155,12 @@ const html = `<!doctype html>
   <div class="banner">${esc(data.record_classification.banner)}</div>
 ${isTrueDateFrame(data) ? `  <div class="banner">${esc(TRUE_DATE_NOTICE)}</div>
 ` : ""}  <header>
+    ${logoImg(outputDir)}
+    <div>
     <div>The Human Record</div>
     <h1>${esc(data.identity.display_name)}</h1>
     <div>Case ${esc(data.case_id)} · Modern EHR teaching episode · Draft for review</div>
+    </div>
   </header>
   <main>
     <section>
@@ -171,6 +178,8 @@ ${isTrueDateFrame(data) ? `  <div class="banner">${esc(TRUE_DATE_NOTICE)}</div>
         <a href="fhir-bundle.json">FHIR R4 draft</a>
         <a href="ccda.html">C-CDA R2.1 summary</a> <a href="ccda.xml">(XML)</a>${isTrueDateFrame(data) ? "" : ` <a href="review.html">Review checklist</a>`}
         <a href="../sources.md">Evidence dossier</a>
+        <a class="feedback" href="${esc(feedbackUrl(data.case_id, data.identity.display_name))}">Report a problem</a>
+        <a class="feedback" href="#comments">Comments</a>
       </div>
     </section>
     <section><h2>Historical timeline</h2><table><thead><tr><th>Date</th><th>Event</th><th>Claims</th></tr></thead><tbody>${timelineRows}</tbody></table></section>
@@ -190,7 +199,9 @@ ${isTrueDateFrame(data) ? `  <div class="banner">${esc(TRUE_DATE_NOTICE)}</div>
     <section><h2>C-CDA note documents</h2><p class="muted">Each link opens a readable copy; the XML beside it is the exchange file.</p><ul>${ccdaDocuments}</ul></section>
     <section><h2>Sources</h2><table><thead><tr><th>ID</th><th>Source</th><th>Publisher</th><th>Type</th></tr></thead><tbody>${sourceRows}</tbody></table></section>
     <section><h2>Review status</h2><table><thead><tr><th>Review</th><th>Status</th><th>Notes</th></tr></thead><tbody>${reviewRows}</tbody></table></section>
+    ${commentsSection(data.case_id, data.identity.display_name)}
   </main>
+${SITE_SCRIPT}
 </body>
 </html>`;
 
@@ -620,7 +631,7 @@ await fs.writeFile(path.join(outputDir, "index.html"), html, "utf8");
 if (!isTrueDateFrame(data)) {
   const sourcesPath = path.join(path.dirname(absoluteInput), "sources.md");
   const sourcesText = await fs.readFile(sourcesPath, "utf8").catch(() => "");
-  await fs.writeFile(path.join(outputDir, "review.html"), reviewPage(data, sourcesText, allRecordsHref(outputDir)), "utf8");
+  await fs.writeFile(path.join(outputDir, "review.html"), reviewPage(data, sourcesText, outputDir), "utf8");
 }
 await fs.writeFile(path.join(outputDir, "fhir-bundle.json"), `${JSON.stringify(bundle, null, 2)}\n`, "utf8");
 console.log(JSON.stringify({ case_id: data.case_id, outputDir, resources: fhirEntries.length }));

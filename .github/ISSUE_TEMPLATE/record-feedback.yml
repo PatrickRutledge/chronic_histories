@@ -1,0 +1,63 @@
+name: Report a problem with a record
+description: Point out an error, a missing source, or wording that needs another look. No file editing needed.
+title: "[CASE ID] Name: short summary"
+labels: [record-feedback]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for reviewing. These records are synthetic teaching records for historical figures; every clinical claim is graded D (documented), R (retrospective) or S (synthetic). Your report becomes a tracked issue, and changes it leads to are made by the maintainers.
+  - type: input
+    id: case_id
+    attributes:
+      label: Case ID
+      description: Shown at the top of every record page, for example HR-ML001.
+      placeholder: HR-XX000
+    validations:
+      required: true
+  - type: dropdown
+    id: kind
+    attributes:
+      label: What kind of problem is it?
+      options:
+        - A historical fact or date is wrong
+        - A claim is graded wrong (D, R or S)
+        - A source is missing, wrong or does not say what is claimed
+        - The clinical care is not realistic or not current practice
+        - Wording is insensitive, stigmatizing or unclear
+        - A file or page does not display or validate
+        - Something else
+    validations:
+      required: true
+  - type: textarea
+    id: details
+    attributes:
+      label: What is wrong, and where?
+      description: Name the page and section (for example "Evidence claims" or "progress note 3") and quote the text if you can.
+    validations:
+      required: true
+  - type: textarea
+    id: suggestion
+    attributes:
+      label: What should it say instead?
+    validations:
+      required: false
+  - type: textarea
+    id: source
+    attributes:
+      label: Supporting source
+      description: A book, article or link that supports the correction. Optional, but it speeds things up.
+    validations:
+      required: false
+  - type: dropdown
+    id: background
+    attributes:
+      label: Your background (optional)
+      options:
+        - Clinician
+        - Historian or biographer
+        - Health informatics or software
+        - Educator or student
+        - Other
+    validations:
+      required: false

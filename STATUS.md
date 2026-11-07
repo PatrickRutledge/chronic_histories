@@ -1,22 +1,23 @@
 # Project status and continuation plan
 
-Last updated: November 4, 2026  
+Last updated: November 7, 2026  
 Branch: `main`  
 Repository: `https://github.com/PatrickRutledge/chronic_histories`
 
 ## Goal
 
-Build The Human Record: a public dataset of 2,000+ fictional modern clinical records anchored to deceased historical figures and original archetypes. Each case should be generated from one canonical structured source, preserve historical evidence separately from synthetic care, and ultimately export validated C-CDA R2.1, FHIR R4, HTML review pages, clinical notes, and provenance.
+Build The Human Record, published as Chronos Archive: a public dataset with a target of 2,000+ fictional modern clinical records anchored to deceased historical figures and original archetypes. Each case should be generated from one canonical structured source, preserve historical evidence separately from synthetic care, and ultimately export validated C-CDA R2.1, FHIR R4, HTML review pages, clinical notes, and provenance.
 
 Every generated artifact must display:
 
 > SYNTHETIC RECORD, NOT A REAL MEDICAL RECORD
 
-## Current state (November 6, 2026)
+## Current state (November 7, 2026)
 
 - 153 records: 3 pilots (`pilots/`) and 150 batch records in fifteen batches of ten (`cases/`). Every record passes CDA XSD, C-CDA R2.1 Schematron, the note documents, FHIR R4, and US Core 6.1.0 with 0 errors. `scripts/run_controls.ps1` runs 33 controls, all passing.
 - Every record has an intake H&P, focused chronic-care visits with protocol monitoring tables (missed checks recorded as deviations, never filled with invented results), an adult preventive or annual wellness visit, a sick visit (except the recent-death records), a case-specific referral and consultation, and a review checklist (`generated/review.html`).
 - Open decision points are tracked as GitHub issues labeled `clinical-review`, one per patient (#2 to #95: the batch 5 items for Zelda Fitzgerald, Samuel Johnson, Beethoven and Darwin, and the judgment calls of batches 6 and 8 to 15). Each issue links to the record and its sources.md and lists its Editorial resolutions as a checklist. Batch 7 calls were accepted on November 4, and the Salon source for Florence Griffith Joyner was accepted on November 5, 2026.
+- Every record is browsable at https://patrickrutledge.github.io/chronic_histories/, published by `.github/workflows/pages.yml` on every push to `main`. Each record page has a "Report a problem" button (the issue form `.github/ISSUE_TEMPLATE/record-feedback.yml`, label `record-feedback`) and a comment thread stored in the repository's Discussions, so reviewers need only a GitHub account.
 - All 153 records are drafts. The pilot reviews of November 2 were reopened on November 3 after the new visit types and consultations were added.
 - Batch 2 (Eisenhower, Churchill, Ali, Ray Charles, Theodore Roosevelt, Benjamin Franklin, Hume, Oakley, Nightingale, Keller) and batch 3 (Ashe, Billie Holiday, Dostoevsky, Doc Holliday, Michelangelo, Gandhi, Hepburn, Olmsted, Dickinson, Barton) fill chronic conditions the panel did not cover and add women, Black, and non-Western patients. Eisenhower (ET015), Ashe (ML013), Olmsted (NI022), Dickinson (NI023), and Barton (NI024) were promoted to the v3 roster from the Next 50 candidates.
 - Batch 4 (Brooke, Roundtree, Lorde, Burney, Nimoy, George H. W. Bush, Ann Richards, Brynner, Mandela, Humphrey) covers breast cancer in men and women, COPD, atrial fibrillation, hypothyroidism, low bone density, and lung, prostate, and bladder cancer. Endometrial cancer still has no well-documented candidate.
@@ -36,9 +37,9 @@ Every generated artifact must display:
 ## Confirmed decisions
 
 - Use a modern shifted calendar for interoperable EHR testing. Preserve actual birth, death, and historical-event dates in the canonical history.
-- No shifted birth date should precede 1900.
+- No shifted birth date may fall before 1901.
 - Use C-CDA R2.1 as the baseline exchange document.
-- Generate FHIR R4 from the same canonical JSON. The current output is a draft R4 collection bundle, not yet claimed as US Core conformant.
+- Generate FHIR R4 from the same canonical JSON. The output is an R4 collection bundle with US Core 6.1.0 profiles, validated with 0 errors (social, functional, mental-status and safety Observations declare no US Core profile).
 - Keep canonical JSON as the authoritative source so additional formats can be generated later.
 - Generate an HTML index for fast human review before import.
 - Use evidence grades on clinical assertions:
@@ -59,7 +60,7 @@ Every generated artifact must display:
 - Missing v1 tabs were restored in v3, including Condition Index, Build Roadmap, Destigmatization Guide, and Next 50 Candidates.
 - The canonical JSON Schema is `schema/case.schema.json`.
 - The modern date-shifting policy is `docs/date-shifting.md`.
-- Deterministic generators produce HTML, FHIR R4, C-CDA R2.1, eight notes, and provenance CSV.
+- Deterministic generators produce HTML, FHIR R4, C-CDA R2.1, nine to twelve notes, a review checklist, and provenance CSV.
 - `scripts/validate_case.ps1` checks schema conformance, age and dates, provenance links, cross-format counts, vital-sign plausibility, note consistency, and synthetic banners.
 - Supporting-note generation is case-driven and no longer contains Audie Murphy-specific prose.
 
@@ -141,7 +142,7 @@ Current validation:
 
 ## Git history
 
-Major milestones, oldest to newest:
+Early milestones, oldest to newest (see `git log` and `CHANGELOG.md` for later work):
 
 1. `c5c7dc2` — Add original HISTMED project sources
 2. `9476e6c` — Create merged and normalized HISTMED roster v3
@@ -157,15 +158,15 @@ Major milestones, oldest to newest:
 
 ## Important limitations
 
-- Formal validation passes with zero errors, but rules test only content that exists. Neither pilot has medications or family-history entries; those paths are tested by `tests/fixtures/HR-TST001-code-paths`. Social, functional, mental-status, and safety Observations declare no US Core profile. See `docs/validation.md`.
+- Formal validation passes with zero errors, but rules test only content that exists. Most records now exercise medications and family history; `tests/fixtures/HR-TST001-code-paths` still covers paths such as allergies with reactions. Social, functional, mental-status, and safety Observations declare no US Core profile. See `docs/validation.md`.
 - The official Schematron has three defective assertions (CONF:1098-8583, 1198-30768, 1198-30235). They are corrected at install time and should be reported to HL7.
-- Family history is empty for both pilots. Real relatives' history must come from sources, so it awaits provenance research.
+- Family history is empty where nothing is sourced. Real relatives' history must come from sources, never synthesis.
 - FHIR validation depends on the public `tx.fhir.org` terminology server, so results can change as its content changes.
 - FHIR validation now checks LOINC and ICD-10-CM codes through the terminology server, but there is not yet an automated resolver covering every SNOMED CT, RxNorm, CVX, and UCUM entry, including C-CDA-only content.
 - C-CDA problem values are ICD-10-CM only. They should gain SNOMED CT codes.
 - Advance directives, medical equipment, payers, and discharge summaries are not yet modeled. They are optional and needed only when a figure's history calls for them.
 - Review of the three pilots was recorded by the project lead, not by independent external reviewers.
-- Primary memoir and archival verification remains incomplete for both pilots.
+- Primary memoir and archival verification remains incomplete for all records.
 - Workbook registers are synced by `scripts/sync_workbook_registers.py` into a reviewable copy. The original workbook is replaced only after review (`--in-place`). Inherited roster claims for built cases are marked superseded but not yet mapped one-to-one to sourced claims.
 - True-date outputs are not formally validated; they share the modern templates and differ only in dates, identifiers, and the anachronism notice.
 - Generated notes are synchronized summaries suitable for review and testing. They still need clinician review before being treated as exemplary clinical documentation.
@@ -174,7 +175,7 @@ Major milestones, oldest to newest:
 
 ### 1. Establish formal validation (complete)
 
-Done. See `docs/validation.md` for pinned tools, commands, and limits. Both pilots have zero errors at every stage.
+Done. See `docs/validation.md` for pinned tools, commands, and limits. All records have zero errors at every stage.
 
 ### 2. Complete the canonical clinical model (mostly complete)
 
@@ -198,14 +199,13 @@ Done:
 - `scripts/build.ps1` runs every generator and check, stops at the first failure, and deletes earlier outputs first.
 - A build manifest with line-ending-normalized hashes rejects stale or hand-edited outputs. Conformance summaries use the same normalized hashes, so Git line-ending conversion no longer marks them stale.
 - Checks for real-looking identifiers (Social Security numbers, phone numbers outside 555-0100 to 555-0199, valid-checksum NPIs), a D, R, or S grade on every FHIR clinical resource and provenance row, and leakage of another case's name, alias, or MRN.
-- `scripts/run_controls.ps1` runs 28 negative and determinism controls, 2 of them against the formal validators.
+- `scripts/run_controls.ps1` runs 33 negative and determinism controls, 2 of them against the formal validators.
 - Consultant name and specialty come from `synthetic_identity.fictional_consultant`.
 
 Remaining:
 
 - Automated terminology resolution for C-CDA-only codes; FHIR codes are already checked by the terminology server.
 - Note-to-C-CDA consistency for medications, allergies, and vital signs, beyond the current visit-date and result-value checks.
-- CI that runs the build and controls on every push.
 
 ### 4. Build pilot 3: Abraham Lincoln (complete)
 
@@ -224,6 +224,7 @@ Reviews recorded November 2, 2026 by the project lead: clinical approved, proven
 - The H&P "Historical basis" lists every claim, including events after the index age. Fixed: later claims are omitted with a count; the teaching note keeps them all.
 - The history of present illness capitalizes the concern mid-sentence, and scores print with their UCUM annotation, for example `14 {score}`. Fixed.
 
+Still open:
 
 - Obtain clinical review of all three pilots.
 - Obtain independent provenance review of `D` and `R` claims.
@@ -236,7 +237,7 @@ Reviews recorded November 2, 2026 by the project lead: clinical approved, proven
 - Create `manifest.csv`, a dataset datasheet, and `CHANGELOG.md` (done: `manifest.csv` is regenerated by every build; `docs/datasheet.md`; `CHANGELOG.md`).
 - Update the v3 workbook’s Claims Register, Sources Register, and Case Build Register (script done; apply with `--in-place` after review).
 - Document how to produce modern-shifted and true-date distributions (done: `generated/true-date/` on every build, documented in `docs/date-shifting.md`).
-- Add batch commands and CI validation (CI done: `.github/workflows/ci.yml` checks committed outputs, rebuilds, compares, and runs controls; formal conformance runs on manual dispatch). Then begin groups of ten records (batches 1 to 6 done).
+- Add batch commands and CI validation (CI done: `.github/workflows/ci.yml` checks committed outputs, rebuilds, compares, and runs controls; formal conformance runs on manual dispatch). Then begin groups of ten records (batches 1 to 15 done; roster complete).
 
 ## Ideas to evaluate later
 
@@ -246,7 +247,7 @@ These are not work instructions.
 
 ## Resume commands
 
-From `D:\chronic_histories`:
+From the repository root:
 
 ```powershell
 git status

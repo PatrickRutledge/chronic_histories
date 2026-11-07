@@ -7,13 +7,12 @@ import crypto from "node:crypto";
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import { isoYear } from "./lib/common.mjs";
+import { REPO_URL, SITE_SCRIPT, feedbackUrl, isoYear } from "./lib/common.mjs";
 
 const repoRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const pilotsDir = path.join(repoRoot, "pilots");
 const manifestPath = path.join(repoRoot, "manifest.csv");
 const indexPath = path.join(repoRoot, "index.html");
-const REPO_URL = "https://github.com/PatrickRutledge/chronic_histories";
 const RECENT_DEATH_AFTER_YEAR = 1990; // Project instruction: deaths after 1990 need extra review.
 
 const columns = [
@@ -119,6 +118,7 @@ function indexRow(r) {
     [`${base}/generated/fhir-bundle.json`, "FHIR"],
     ...(trueDate ? [[`${base}/generated/true-date/index.html`, "True-date"]] : []),
     [issue, "Issue"],
+    [feedbackUrl(r.case_id, r.display_name), "Report"],
   ].map(([href, label]) => `<a href="${esc(href)}">${label}</a>`).join(" ");
   const search = [r.case_id, r.display_name, r.era, r.nationality, ...problems].join(" ").toLowerCase();
   return `<tr data-id="${esc(r.case_id)}" data-search="${esc(search)}"><td><input type="checkbox" aria-label="Verified ${esc(r.display_name)}"></td><td>${esc(r.case_id)}</td><td><a href="${esc(base)}/generated/index.html">${esc(r.display_name)}</a></td><td>${esc(r.era)}</td><td>${esc(dates.birth.preferred.display)} – ${esc(dates.death.preferred.display)}</td><td>${esc(r.index_age)}</td><td>${esc(problems.join("; "))}</td><td>${esc(r.conformance)}</td><td class="links">${links}</td></tr>`;
@@ -129,6 +129,7 @@ const indexHtml = `<!doctype html>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>The Human Record: all records</title>
+<link rel="icon" type="image/png" href="assets/favicon.png">
 <style>
   body { font: 14px/1.45 system-ui, sans-serif; margin: 1.5rem; color: #1d2433; }
   .banner { background: #8b0000; color: #fff; padding: .6rem 1rem; font-weight: 700; }
@@ -139,13 +140,15 @@ const indexHtml = `<!doctype html>
   th { position: sticky; top: 0; background: #f4f5fa; }
   tr.done { background: #eef8ee; }
   td.links a { margin-right: .4rem; white-space: nowrap; }
-  .note { color: #555; }
+  .note { color: #555; max-width: 70rem; }
+  .title { display: flex; gap: 1rem; align-items: center; } .title h1 { margin: .2rem 0; } .seal { flex: none; border-radius: 50%; }
 </style>
 </head>
 <body>
 <div class="banner">SYNTHETIC RECORDS, NOT REAL MEDICAL RECORDS</div>
-<h1>The Human Record: all records</h1>
-<p class="note">${rows.length} records, regenerated with manifest.csv on every full build. Each row links to the record, its review checklist, its sources, its C-CDA and FHIR files, the true-date version where one exists, and its clinical-review issue on GitHub. The Verified box is a reading aid kept only in this browser; a record's review status lives in its case.json and its issue.</p>
+<div class="title"><img class="seal" src="assets/chronos-seal.png" alt="Chronos Archive seal" width="72" height="72"><div><h1>The Human Record: all records</h1><div class="note">Chronos Archive</div></div></div>
+<p class="note">Synthetic modern clinical records for ${rows.length} deceased historical figures, for teaching and for testing health software. Each record grades every clinical claim: D (documented in the sources), R (retrospective interpretation) or S (synthetic, invented for teaching). The patients are historical; the visits, results and notes are not. All records are drafts under review.</p>
+<p class="note">Each row links to the record, its review checklist, its sources, its C-CDA and FHIR files, the true-date version where one exists, and its open review questions on GitHub. <strong>To help:</strong> use <em>Report</em> to send a correction (a source helps), or comment at the bottom of any record page. Both need only a free GitHub account. The Verified box is a reading aid kept only in this browser.</p>
 <div class="bar">
   <input type="search" id="q" placeholder="Search name, case ID, era or problem">
   <label><input type="checkbox" id="hide"> Hide verified</label>
@@ -181,6 +184,7 @@ for (const tr of rowsEl) {
 }
 q.addEventListener("input", refresh); hide.addEventListener("change", refresh); refresh();
 </script>
+${SITE_SCRIPT}
 </body>
 </html>
 `;

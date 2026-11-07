@@ -4,12 +4,16 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Zora Neale Hurston — The Human Record</title>
+  <link rel="icon" type="image/png" href="../../../../assets/favicon.png">
   <style>
     :root { --navy:#17365d; --blue:#1f4e78; --pale:#eef5fa; --ink:#1f2933; --muted:#66788a; --amber:#fff2cc; --red:#f8d7da; --green:#d9ead3; }
     * { box-sizing:border-box; }
     body { margin:0; font:16px/1.5 Arial, sans-serif; color:var(--ink); background:#f6f8fa; }
     header { background:var(--navy); color:white; padding:24px max(24px,calc((100vw - 1180px)/2)); }
+    header { display:flex; gap:18px; align-items:center; }
     header h1 { margin:4px 0; font-size:30px; }
+    .seal { flex:none; border-radius:50%; }
+    .feedback { background:#2d6a4f !important; }
     .banner { background:#b42318; color:white; font-weight:700; text-align:center; padding:10px; letter-spacing:.03em; }
     main { max-width:1180px; margin:24px auto 60px; padding:0 24px; }
     section { background:white; border:1px solid #d9e1e8; border-radius:8px; margin:18px 0; padding:20px; }
@@ -33,9 +37,12 @@
   <div class="banner">SYNTHETIC RECORD, NOT A REAL MEDICAL RECORD</div>
   <div class="banner">True-date frame: synthetic events are moved into the patient&#39;s historical lifetime. Codes, instruments, and treatments remain modern and are anachronistic.</div>
   <header>
+    <img class="seal" src="../../../../assets/chronos-seal.png" alt="Chronos Archive seal" width="56" height="56">
+    <div>
     <div>The Human Record</div>
     <h1>Zora Neale Hurston</h1>
     <div>Case HR-ML040-TD · Modern EHR teaching episode · Draft for review</div>
+    </div>
   </header>
   <main>
     <section>
@@ -53,6 +60,8 @@
         <a href="fhir-bundle.json">FHIR R4 draft</a>
         <a href="ccda.html">C-CDA R2.1 summary</a> <a href="ccda.xml">(XML)</a>
         <a href="../sources.md">Evidence dossier</a>
+        <a class="feedback" href="https://github.com/PatrickRutledge/chronic_histories/issues/new?template=record-feedback.yml&amp;case_id=HR-ML040-TD&amp;title=%5BHR-ML040-TD%5D%20Zora%20Neale%20Hurston%3A%20">Report a problem</a>
+        <a class="feedback" href="#comments">Comments</a>
       </div>
     </section>
     <section><h2>Historical timeline</h2><table><thead><tr><th>Date</th><th>Event</th><th>Claims</th></tr></thead><tbody>
@@ -785,6 +794,27 @@
   <tr><td>clinical review</td><td>not_started</td><td>Awaiting clinician review; check treating stage 2 blood pressure the morning after a 24-hour ambulatory recording, chlorthalidone with amlodipine as the initial combination, the HFpEF diagnosis (NT-proBNP 480, ejection fraction 62%, E/e&#39; 15, left atrial volume index 38), dapagliflozin, spironolactone for low potassium and blood pressure above target, the missed one- to two-week potassium check, the orthostatic episode in the heat, and moderate-intensity atorvastatin.</td></tr>
   <tr><td>provenance review</td><td>not_started</td><td>Sources: PBS American Masters, the Zora Neale Hurston Trust (Valerie Boyd&#39;s essay and chronology), the University of Florida Smathers Libraries, the Encyclopedia of Alabama, the Florida Department of State and a Library of Congress research guide. The Library of Congress collection pages, Florida Memory, the Smithsonian NMAAHC and the New York Times could not be fetched; Robert Hemenway&#39;s and Valerie Boyd&#39;s biographies were not read directly.</td></tr>
   <tr><td>safe messaging review</td><td>not_started</td><td>Poverty, the welfare home and the unmarked grave are recorded plainly as history, without pity or graphic detail. No mental health claim is made; mood screening is synthetic and negative. No relative or other real person is given a modern statement, decision or health fact; the writer who marked the grave is living and is not named.</td></tr></tbody></table></section>
+    <section id="comments">
+      <h2>Comments and corrections</h2>
+      <p class="muted">Sign in with GitHub to comment on this record. To report a specific error, ideally with a source, use the <a href="https://github.com/PatrickRutledge/chronic_histories/issues/new?template=record-feedback.yml&amp;case_id=HR-ML040-TD&amp;title=%5BHR-ML040-TD%5D%20Zora%20Neale%20Hurston%3A%20">feedback form</a>; each report becomes a tracked issue.</p>
+      <div id="giscus-thread"><p class="muted">Comments appear on the online version of this page.</p></div>
+      <script>
+        if (location.hostname.endsWith("github.io")) {
+          const s = document.createElement("script");
+          s.src = "https://giscus.app/client.js"; s.async = true; s.crossOrigin = "anonymous";
+          Object.entries({ repo: "PatrickRutledge/chronic_histories", repoId: "R_kgDOVfWdqQ", category: "Announcements",
+            categoryId: "DIC_kwDOVfWdqc4DKmRz", mapping: "specific", term: "HR-ML040-TD", strict: "1",
+            reactionsEnabled: "1", emitMetadata: "0", inputPosition: "top", theme: "light", lang: "en", loading: "lazy" })
+            .forEach(([key, value]) => { s.dataset[key] = value; });
+          const box = document.getElementById("giscus-thread"); box.replaceChildren(); box.className = "giscus"; box.after(s);
+        }
+      </script>
+    </section>
   </main>
+<script>
+if (location.hostname.endsWith("github.io")) for (const a of document.querySelectorAll('a[href$=".md"]')) {
+  a.href = "https://github.com/PatrickRutledge/chronic_histories/blob/main/" + new URL(a.href).pathname.replace(/^\/chronic_histories\//, "");
+}
+</script>
 </body>
 </html>

@@ -12,6 +12,10 @@ A case ID is never reused for a different person.
 
 ### Added
 
+- Public site at https://patrickrutledge.github.io/chronic_histories/, published by `.github/workflows/pages.yml` on every push to `main`. On the site, sources and terminology open in GitHub's formatted view.
+- Reader feedback with only a GitHub account: a "Report a problem" button on every record and review page and in the index opens the issue form `.github/ISSUE_TEMPLATE/record-feedback.yml` with the case ID filled in (label `record-feedback`), and every record page has a comment thread stored in the repository's Discussions. `.github/CODEOWNERS` routes every pull request to the maintainer.
+- Chronos Archive logo (`assets/`) on the index, record and review pages and in the README.
+- Open judgment calls for each record are tracked as GitHub issues labeled `clinical-review`.
 - `index.html` at the repository root: the main page listing every record with links to its record page, review checklist, sources, C-CDA, FHIR, true-date version and clinical-review issue, plus search and a per-browser "verified" checkbox for working through the list. Regenerated with manifest.csv on every build (and checked by `generate_dataset_manifest.mjs --check`). Every record and review page links back to it.
 - Batch 15, ten more draft records in `cases/`, completing the roster: Martin Luther (`HR-RE004`, Ménière disease, recurrent depression and a ureteral stone), Martin Luther King Jr. (`HR-ML001`, major depression and insomnia under sustained threat, smoking cessation and stage 1 hypertension), John Locke (`HR-EN001`, asthma with persistent airflow limitation after coal smoke exposure), James Madison (`HR-EN007`, functional/dissociative seizures documented by video-EEG, with anxiety and depression), Frederick Cook (`HR-EX006`, re-entry primary care with hypertension and asymptomatic carotid stenosis), Ada Lovelace (`HR-NI031`, stage IVB cervical adenocarcinoma with palliative care from diagnosis and opium-tincture conversion), Phillis Wheatley (`HR-EN015`, asthma in a young woman, with her enslavement handled as social history), Swami Vivekananda (`HR-NI032`, type 2 diabetes with early diabetic kidney disease, asthma and fasting guidance), Pablo Neruda (`HR-ML051`, low-volume metastatic hormone-sensitive prostate cancer), and Wilma Mankiller (`HR-ML052`, AChR-positive myasthenia gravis with thymectomy and ADPKD; recent-death rule). Five were added to the roster as researched candidates. All are draft and awaiting review.
 - `identity.historical_mentions`: a record may name another figure with a record on purpose in its documented history, for example a correspondent or rival; the cross-case name check skips that figure's names but still rejects its MRN. A name found inside someone else's longer name ("Martin Luther" in "Martin Luther King Jr.") no longer counts as a match. Two new controls. The Mahalia Jackson, Isaac Newton, Robert Peary and Thomas Jefferson records list the figures they name.
@@ -52,14 +56,12 @@ A case ID is never reused for a different person.
 - A made-up Social Security number for every patient (`synthetic_identity.ssn`), always in the never-issued 000 area. It appears as a patient identifier in every C-CDA document and in the FHIR Patient. The identifier scan still rejects any other SSN-shaped number, and a new control rejects a case SSN outside the 000 area.
 - C-CDA note documents for every case: History and Physical, a Progress Note per visit, Referral Note, and Consultation Note. The referral order is coded once and shared by the Referral Note, the Consultation Note's `inFulfillmentOf`, and a US Core `ServiceRequest`. Every document passes the CDA XSD and C-CDA R2.1 Schematron, and the local checks confirm each carries the case's patient name, birth date, and MRN.
 - `HR-ET008` Gregory Boyington: an explicit referral step (INT-005) to behavioral health for the trauma-focused psychotherapy already in his plan.
-
 - `CONTRIBUTING.md` with the evidence, sourcing, safety, and build rules for contributors.
 - `CLA.md`: individual and corporate contributor license agreements with a relicensing right and a public-license commitment.
 
 ### Fixed
 
 - The NPI scan no longer flags ten-digit SNOMED CT codes that pass the NPI check digit by chance (about one in ten do): numbers a record uses as a coded `code` value are skipped, and a new control proves it. Free-text numbers are still checked.
-
 - The intake H&P, the first progress note, and the referral listed every care-plan step, including steps decided at later visits (for example chemotherapy chosen after surgery). Care-plan steps now take an optional `recorded_date`, the visit that decided them; documents dated earlier leave them out, and the patient care plan still lists every step. 74 steps across 29 records are dated. Validation requires the date to be a visit date, and two new controls prove the check and the omission.
 - The intake H&P's guideline basis cited guidelines used only by steps decided later.
 - The referral and consultation plans dropped every step whose text mentioned a referral (for example "cardiac rehabilitation referral if needed"), not just the referral step itself.
@@ -83,7 +85,7 @@ A case ID is never reused for a different person.
 
 ## [0.2.0] - 2026-11-02
 
-First approved release. The three pilots passed clinical, provenance, and safe-messaging review.
+First approved release. The project lead recorded clinical, provenance, and safe-messaging reviews of the three pilots (not independent review). The reviews were reopened on November 3, 2026, when the pilots were rebuilt to the batch standard; see Unreleased.
 
 ### Added
 
@@ -93,7 +95,6 @@ First approved release. The three pilots passed clinical, provenance, and safe-m
 - Dataset packaging: `manifest.csv`, generated from the pilot cases on every build, and a [datasheet](docs/datasheet.md).
 - `identity.era` and `identity.nationality` in the case schema, both required and taken from the master roster.
 - Dual license: CC BY-NC 4.0 for data and documentation, MIT for code and schema. Commercial licenses are available from Aether Forge ([COMMERCIAL-USE.md](COMMERCIAL-USE.md)). Third-party terms are in [NOTICE.md](NOTICE.md).
-
 - Review decisions recorded in every pilot case, with reviewer, date, and notes. A release gate rejects an approved case unless every review has passed and every claim is approved.
 
 ### Changed

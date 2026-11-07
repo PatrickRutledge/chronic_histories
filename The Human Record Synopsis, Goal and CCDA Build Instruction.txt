@@ -1,95 +1,0 @@
-The Human Record: Synopsis, Goal and CCDA Build Instruction
-Nov 1, 2026 · @Patrick
-Goal
-Build a public, synthetic clinical dataset of 2,000+ patient records, each with a complete C-CDA, anchored on real historical figures whose documented conditions show that illness can be lived with, treated and survived.
-What the dataset is for:
-• A realistic panel for one practice, or the full set for chronic disease management, population health and care-plan testing.
-• Test data for EHR import, display and workflow checks, using coded content (SNOMED CT, RxNorm, LOINC).
-• Worked examples of evidence-based care: every record carries a guideline-based plan of care, goals and follow-up.
-• Training and evaluation data for clinical AI, and teaching cases for medical and nursing education.
-• Stigma reduction: depression, addiction, epilepsy, PTSD, dementia and disability shown in people history already respects.
-Done means each record validates as C-CDA, its notes agree with it, every clinical element is labeled documented, retrospective or synthetic, and the full set is cleared for public release.
-Synopsis of the discussion
-The idea grew in six steps, from one fictional patient to a roster of 86 real historical figures. Working titles are "The Human Record" and HISTMED.
-1. Fictional test case. We wrote clinical notes for Luke Skywalker (prosthetic hand, precognitive episode, diabetic eye exam, 10-year cardiovascular risk) and a sample record for Jim Hardy of Tales of Wells Fargo. These set the note style.
-2. Characters from TV and film. You proposed old westerns and action shows (Wells Fargo, MASH, Big Valley, Barney Miller and others). Their clinical profiles are rich, but the names and characterizations belong to studios.
-3. Public release changes the risk. Private use is low risk; public distribution is not. Decision: use real historical figures plus original archetypes.
-4. Destigmatization became the theme. Documented conditions such as Churchill's depression, Madison's epilepsy and Audie Murphy's PTSD show people living full lives with illness.
-5. Scope widened. Eras from antiquity through 1980, Enlightenment figures (Locke, Voltaire), explorers, boxers and risk-takers, with demographic and condition targets for 2,000+ records.
-6. Roster built. Version 1 had 62 figures; version 2 has 86 and adds Curie, Shackleton, Scott, Amundsen, Franklin, Ali and others.
-The plan to reach 2,000+ is historical anchors first, then original archetypes designed to fill demographic and condition gaps.
-Status and scope
-Roster v2 holds 86 figures, 69 men and 17 women, against a target of 2,000+ records.
-SegmentNowTargetHistorical anchor figures86~290International and Indigenous figuresabout 6~200Original archetypes (condition-designed)0~930Program-aligned records (memory care, cardiovascular, behavioral health, addiction, palliative, chronic care)0~500Women20%45%Total86~1,920, expandable to 2,000+By era as currently labeled: ancient 5, Renaissance 5, Enlightenment 12, 19th century 23, early 20th century 21, mid to late 20th century 20. The v2 workbook also carries explorer and boxer profile tabs. Fifty more candidates (Marie Curie and Dostoevsky are now in; Robin Williams, Sylvia Plath and Princess Diana are still queued) sit in the v1 workbook.
-Ground rules
-These records are fiction built on history, so every record must say so and every claim must show where it came from.
-• Label as synthetic. Each document carries the title banner "SYNTHETIC RECORD, NOT A REAL MEDICAL RECORD". Use fictional MRNs, clearly fake NPIs, and fictional clinicians and facilities.
-• Grade the evidence. Tag every problem, medication, result and note statement with one code: D documented in a primary or reliable source, R retrospective diagnosis proposed by historians or clinicians (often disputed), S synthetic fill written by the author to complete the record. Keep the tags in a provenance file beside each C-CDA.
-• Never present S as D. Vitals, labs, doses and most modern medications are S for every figure, because none of it was recorded.
-• Safe messaging. For suicide and self-harm (Hemingway, van Gogh, Turing and others) state the fact and the care response, never the method. Use person-first, strengths-based language throughout.
-• Recent deaths. For figures who died after 1990, use only what they or their physicians made public, and send those records to review before release.
-• Legal. Historical figures carry no copyright risk, but right-of-publicity and false-light claims are separate, and some states protect a deceased person's name for decades. Have counsel review the 20th-century records before public release.
-Decision to confirm before the pilot: calendar frame. The goal (a usable panel, ages that behave in an EHR) points to a modern frame. Each figure keeps a true biography in the history sections, while the care episode (encounters, vitals, results, current medications, plan of care) is dated to a synthetic modern window with the date of birth shifted so the age at the index visit matches the age being illustrated. The real birth and death years stay in the narrative and in the manifest. The alternative, true historical dates throughout, produces patients over 100 years old and anachronistic RxNorm and LOINC codes.
-Work instruction: one C-CDA record per figure
-Build each figure from one structured source file and generate every output from it, so the C-CDA, the notes and the provenance file cannot drift apart.
-1. Open the dossier. Take the figure's roster row (ID, conditions, biography). Collect 3 to 5 sources: a reliable biography, a primary text (letters, diary, memoir) where one exists, and any published retrospective-diagnosis paper. Log them in sources.md. Verify the roster's claims here; they were drafted without citations.
-2. Write the timeline. List the clinically relevant events (injuries, illnesses, diagnoses, treatments, exposures, losses) with true dates and an evidence tag D, R or S.
-3. Set the index visit. Choose the age that best shows the teaching point (for example Audie Murphy in the years after the war). Apply the calendar decision above, then fix the index date, shifted date of birth and synthetic MRN.   Shift the birthdates so every record can be used in a modern emr system.  Don’t place any birthday before 1900.  Double check that birthdays after 1901 are not a problem with emr.  We might actually need to take the year people died and work back from 2026 for birthdays. We should make two datasets: 1 use actual dates so we preserve the true record.  2. Shift the dates for use with modern emr.  This would allow us to use this dataset with an app to actually build a profiled panel sometime in the future. 
-4. Build the structured source file (YAML or JSON): demographics, problems, medications, allergies, vitals, results, procedures, immunizations, social and family history, functional and mental status, encounters, goals and plan of care. Section 6 lists the contents.
-5. Write the plan of care to current guidelines. Name the guideline behind each intervention (ADA Standards of Care, ACC/AHA, USPSTF, APA, CDC), set measurable goals, and list referrals and follow-up.
-6. Write the supporting documents from the same file (section 7).
-7. Generate the outputs with the build script: C-CDA R2.1 XML (US Realm), an HTML rendering, the notes and the provenance file. R2.1 is the assumed baseline; use R3 only if the target EHR requires it.
-8. Validate and check (section 8), then mark the record ready for clinical review.
-Pilot first. Build three records end to end (Audie Murphy, Gregory Boyington, Abraham Lincoln), review them with a clinician, fix the template, then run the rest in batches of 10 by module.
-Per-figure checklist:
-• ? Sources logged; timeline tagged D, R or S
-• ? Index age, shifted date of birth and MRN set
-• ? Every core C-CDA section populated and coded
-• ? Plan of care cites guidelines and has measurable goals
-• ? History and physical, three progress notes, specialist notes and referral written
-• ? Validator and consistency checks pass
-• ? Clinical and safe-messaging review signed off
-C-CDA section checklist
-Populate every core section for every record and add the others when the figure's history calls for them. Confirm which sections the CCD template requires against the C-CDA R2.1 schematron.
-Section (LOINC)BuildWhat goes inVocabularyHeaderCoreSynthetic MRN, shifted date of birth, sex and birth sex, language, race and ethnicity where documented; fictional author and custodian; synthetic bannerHL7 value sets, OMB categoriesProblems (11450-4)CoreActive, resolved and historical problems with onset, status and evidence tag; acute episodes (injuries, infections) as resolved entriesSNOMED CT, ICD-10-CM translationMedications (10160-0)CoreCurrent drugs with dose, route, frequency and indication; past drugs, with era remedies mapped to modern equivalents (laudanum to opium tincture)RxNormAllergies (48765-2)CoreAllergen and reaction, or a no-known-allergies entry tagged SRxNorm, UNII, SNOMED CTVital signs (8716-3)CoreHeight, weight, BMI, BP, pulse, respiratory rate, temperature, SpO2 across at least three visits, trending with the conditionsLOINC, UCUM unitsResults (30954-2)CoreLabs and studies tied to the conditions (CBC, CMP, A1c, lipids, TSH, ECG, imaging, PHQ-9, MoCA) with dates and reference rangesLOINCProcedures (47519-4)CoreSurgeries, amputations, ECT and similar, with datesSNOMED CT (leave CPT out of the public release)Immunizations (11369-6)CoreModern-frame schedule, tagged SCVXEncounters (46240-8)CoreIndex visit and prior visits referenced in the notesHL7 ActEncounterCode, SNOMED CTSocial history (29762-2)CoreTobacco (72166-2), alcohol (AUDIT-C), other substances, occupation, housing, supports; social drivers such as poverty or racial stressLOINC, SNOMED CTFamily history (10157-6)CoreRelatives, conditions, age at death where documentedSNOMED CTPast medical history (11348-0)CoreNarrative of the true biography and historical treatmentsNarrativeFunctional (47420-5) and mental status (10190-7)CoreADLs and IADLs, cognition, PHQ-9, GAD-7, PCL-5 scoresLOINCPlan of treatment (18776-5), goals (61146-7), health concerns (46030-3)CoreMeasurable goals with target dates, interventions, referrals, follow-up, guideline cited per itemSNOMED CT, LOINCAssessment (51848-0), reason for visit (29299-5)CoreShort narrative that matches the problem listNarrativeAdvance directives (42348-3), medical equipment (46264-8), payers (48768-6)When relevantCode status, prosthesis or ventilator, a fictional payerSNOMED CTSupporting documents
-Each figure gets 8 to 10 documents beside the C-CDA, all generated from the same source file so they agree with it.
-Document (LOINC)Per figureContent rulesHistory and physical (34117-2)1The index visit in full: history, review of systems, exam, assessment and plan, matching the C-CDAProgress notes (11506-3)3SOAP format: initial plan visit, follow-up with results, and an acute change or exacerbation; each shows vitals, medication changes and the planSpecialist consultation notes (11488-4)1 to 3Chosen by the conditions (neurology for seizures, psychiatry for mood, cardiology, ophthalmology, orthopedics, oncology, addiction medicine), in the specialist's voice, with recommendationsReferral notes (57133-1)1 per consultReason, question asked, pertinent history and dataCare plan document (52521-2)1Goals, interventions and follow-up in plain language for the patientDischarge summary (18842-5)Only if a hospital stay is in the historyCourse, procedures, discharge medications and follow-upTeaching note (markdown, not C-CDA)1One page: why the case matters, learning objectives, the destigmatization message, discussion questions, evidence-grade summaryRules for every note:
-• Same facts as the C-CDA: medications, doses, vitals, problems and dates match exactly.
-• Space the visits over a believable timeline (baseline, 6 weeks, 3 months), with the specialist visit between and the primary care note acknowledging its recommendations.
-• Every plan item names its guideline and shows shared decision-making.
-• Person-first, strengths-based language, with a "strengths and supports" line in each assessment.
-• Fictional signers and facilities only.
-At 2,000 records this is about 18,000 documents, so generate from templates and review a sample rather than every page.
-Quality control and packaging
-A record is ready only when it passes the automated checks and a named human review.
-Automated checks on every record:
-• Validation against the C-CDA R2.1 schematron, with zero errors.
-• Every SNOMED CT, RxNorm, LOINC and CVX code resolves, and units are UCUM.
-• A consistency script compares medications, problems, vitals and dates across the C-CDA and every note; any mismatch fails the record.
-• Plausibility: values within human ranges, trends that fit the conditions, no future dates, and age at the index visit matching the shifted date of birth.
-• The synthetic banner is present and every problem, drug and result carries a D, R or S tag.
-• No real identifiers: scan for Social Security, phone and real NPI patterns.
-Human review:
-• A clinician reviews every pilot record, a 10% sample of the rest, and every record involving suicide, self-harm, children or a recent death.
-• A second person, not the author, spot-checks D and R tags against the logged sources.
-Packaging, one folder per figure named HR-<ID>-<lastname>:
-ccda.xml
-ccda.html
-provenance.csv
-sources.md
-teaching-note.md
-notes/   (hp, progress-01 to 03, consult-01+, referral-01+, careplan, discharge)
-At dataset level: manifest.csv (ID, name, era, sex, conditions, flags), a README with scope and limits, a datasheet naming known biases (survivorship, Western and male skew), a license, and a change log. State plainly that the people shown are deceased historical figures and the clinical records are fictional.
-Roster fixes and next steps
-Fix these in the roster before the pilot:
-• Missing tabs. The v2 workbook dropped four v1 tabs (Condition Index, Build Roadmap, Destigmatization Guide, Next 50 Candidates). Merge them back into one workbook.
-• Misfiled figures. Pierre d'Iberville (born 1661) is filed as early 20th century and belongs with the Enlightenment. Benny Leonard sits with the special cases (RB004) but belongs with the boxers.
-• Unsourced claims. Biographies and condition lists were drafted from general knowledge without citations. Several are retrospective or contested (Shakespeare, Lincoln's Marfan syndrome, Darwin's illness, Kant's OCD); mark them R until sourced.
-• Evidence column. Add a D, R or S grade to the roster; the 1 to 5 documentation score does not say which claims are solid.
-• Representation. Women are 20% of the roster against a 45% target, and non-Western and Indigenous figures number about 6. The Next 50 list adds Wollstonecraft, Plath, Barton and others.
-Next steps:
-1. Confirm three decisions: the calendar frame, C-CDA R2.1 or R3, and the dataset license (CC BY 4.0 is a common choice).
-2. Merge and correct the roster.
-3. Build the pilot three: Audie Murphy, Gregory Boyington, Abraham Lincoln.
-4. Clinician review, then fix the template and generator.
-5. Batch the rest by module, adding women, international figures and archetypes toward 2,000+.

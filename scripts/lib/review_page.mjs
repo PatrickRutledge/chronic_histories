@@ -2,7 +2,7 @@
 // clinical, provenance, and safe-messaging reviews can be worked through without reading every note.
 // Everything is derived from case.json and the case's sources.md; nothing here is new content.
 import { INTERPRETATIONS, MONITORING_DOMAINS, PREVENTION_STATUS, isLab, visitLabels, withUnit } from "./episode.mjs";
-import { trueDateFrameSupported } from "./common.mjs";
+import { SITE_SCRIPT, allRecordsHref, faviconLink, feedbackUrl, logoImg, trueDateFrameSupported } from "./common.mjs";
 
 const esc = (value) => String(value ?? "").replaceAll("&", "&amp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;").replaceAll('"', "&quot;");
 // Minimal Markdown for sources.md bullets: bold, italics, and links.
@@ -19,7 +19,8 @@ export const editorialResolutions = (sourcesText) => {
   return section.split(/\r?\n/).slice(1).join("\n").split(/\n(?=- )/).map(item => item.replace(/^- /, "").replace(/\s*\n\s*/g, " ").trim()).filter(Boolean);
 };
 
-export function reviewPage(data, sourcesText, allRecords = "") {
+export function reviewPage(data, sourcesText, outputDir) {
+  const allRecords = allRecordsHref(outputDir);
   const visits = data.synthetic_episode.visit_schedule;
   const labels = visitLabels(data);
   const encounterById = new Map(data.clinical.encounters.map(e => [e.id, e]));
@@ -48,6 +49,7 @@ export function reviewPage(data, sourcesText, allRecords = "") {
 <head>
 <meta charset="utf-8">
 <title>Review checklist — ${esc(data.identity.display_name)} — ${esc(data.case_id)}</title>
+${faviconLink(outputDir)}
 <style>
   body { font: 15px/1.5 system-ui, sans-serif; max-width: 1100px; margin: 2rem auto; padding: 0 1rem; color: #1d1d1f; }
   .banner { background: #8b0000; color: #fff; padding: .6rem 1rem; font-weight: 700; letter-spacing: .02em; }
@@ -55,13 +57,14 @@ export function reviewPage(data, sourcesText, allRecords = "") {
   table { border-collapse: collapse; width: 100%; margin: .5rem 0 1rem; font-size: 14px; }
   th, td { border: 1px solid #ddd; padding: .35rem .5rem; text-align: left; vertical-align: top; }
   th { background: #f4f4f6; } .muted { color: #666; } li { margin: .35rem 0; }
+  .title { display: flex; gap: 1rem; align-items: center; } .seal { flex: none; border-radius: 50%; }
   .count { display: inline-block; min-width: 2.2rem; text-align: center; background: #eef; border-radius: 1rem; padding: 0 .5rem; margin-right: .4rem; }
 </style>
 </head>
 <body>
 <div class="banner">${esc(data.record_classification.banner)}</div>
-<h1>Review checklist: ${esc(data.identity.display_name)} (${esc(data.case_id)})</h1>
-<p>${allRecords ? `<a href="${esc(allRecords)}">All records</a> · ` : ""}<a href="index.html">Back to the record</a> · <a href="../sources.md">Dossier (sources.md)</a> · <a href="../terminology.md">Terminology</a></p>
+<div class="title">${logoImg(outputDir)}<h1>Review checklist: ${esc(data.identity.display_name)} (${esc(data.case_id)})</h1></div>
+<p><a href="${esc(allRecords)}">All records</a> · <a href="index.html">Back to the record</a> · <a href="../sources.md">Dossier (sources.md)</a> · <a href="../terminology.md">Terminology</a> · <a href="${esc(feedbackUrl(data.case_id, data.identity.display_name))}">Report a problem</a> · <a href="index.html#comments">Comments</a></p>
 <p>Everything a reviewer needs to judge, gathered from the record. Release status: <strong>${esc(data.record_classification.public_release_status)}</strong>.</p>
 ${trueDateFrameSupported(data) ? "" : `<p class="note">No true-date version: the patient was born before 1 CE, and C-CDA and FHIR dates cannot carry a year that early. The record exists in the modern frame only.</p>
 `}<ul>
@@ -103,6 +106,7 @@ ${table(["Problem", "Code", "Verification", "Reason"], provisional.map(p => `<tr
 
 <h2>Abnormal results</h2>
 ${table(["Date", "Result", "Value", "Flag"], abnormal.map(o => `<tr><td>${esc(o.effective_date)}</td><td>${esc(o.label ?? o.display)}</td><td>${esc(withUnit(o))}</td><td>${esc(INTERPRETATIONS[o.interpretation])}</td></tr>`))}
+${SITE_SCRIPT}
 </body>
 </html>
 `;

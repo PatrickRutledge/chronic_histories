@@ -1,8 +1,8 @@
-# Datasheet: The Human Record (HISTMED)
+# Datasheet: The Human Record (HISTMED), published as Chronos Archive
 
 > **SYNTHETIC RECORD, NOT A REAL MEDICAL RECORD**
 
-This datasheet follows the structure of Gebru et al., "Datasheets for Datasets" (2021). It describes release 0.2.0, the first approved release. Figures for the full roster describe the planned dataset, not records that exist yet.
+This datasheet follows the structure of Gebru et al., "Datasheets for Datasets" (2021). It describes the current working set: 153 draft records, none of which has completed review. The project's target is 2,000 or more records.
 
 ## Motivation
 
@@ -16,25 +16,20 @@ This datasheet follows the structure of Gebru et al., "Datasheets for Datasets" 
 
 ## Composition
 
-**Instances.** One instance is one case: a historical figure plus one synthetic modern care episode of about three months. Release 0.2.0 contains three approved pilot cases, listed in [manifest.csv](../manifest.csv).
-
-| Case | Figure | Era | Synthetic episode |
-|---|---|---|---|
-| HR-ET007 | Audie Murphy | Early 20th Century | PTSD and insomnia, age 40 |
-| HR-ET008 | Gregory Boyington | Early 20th Century | Alcohol use disorder and PTSD, age 44 |
-| HR-NI001 | Abraham Lincoln | 19th Century | Moderate major depression, age 32 |
+**Instances.** One instance is one case: a historical figure plus one synthetic modern care episode of about three months. The working set has 153 cases: 3 pilots in `pilots/` and 150 batch records in `cases/`. All are drafts. [manifest.csv](../manifest.csv) lists every case, and the [online index](https://patrickrutledge.github.io/chronic_histories/) links to each one.
 
 **Files per case.**
 
 - `case.json`: the canonical record, valid against [schema/case.schema.json](../schema/case.schema.json). Everything else is generated from it.
 - `generated/ccda.xml`: C-CDA R2.1 Continuity of Care Document summarizing the episode.
-- `generated/ccda/`: one C-CDA R2.1 document per clinical event. `hp-01.xml` is a History and Physical, `progress-01.xml` to `progress-03.xml` are Progress Notes for each visit, `referral-01.xml` is a Referral Note carrying the coded referral order, and `consult-01.xml` is a Consultation Note that fulfills that order. Each names the patient, birth date, and MRN, and passes the CDA XSD and C-CDA R2.1 Schematron.
+- `generated/ccda/`: one C-CDA R2.1 document per clinical event. `hp-01.xml` is a History and Physical, `progress-01.xml` onward are Progress Notes, one per follow-up visit (usually three to six), `referral-01.xml` is a Referral Note carrying the coded referral order, and `consult-01.xml` is a Consultation Note that fulfills that order. Each names the patient, birth date, and MRN, and passes the CDA XSD and C-CDA R2.1 Schematron.
 - `generated/fhir-bundle.json`: FHIR R4 collection bundle with US Core 6.1.0 profiles, including the referral as a `ServiceRequest` whose identifier matches the C-CDA order.
-- `generated/index.html`: a review page for people.
-- `generated/notes/`: eight notes covering the history and physical, three progress notes, a consultation, a referral, a care plan, and a summary.
+- `generated/index.html`: a record page for people, with a comment thread on the online site.
+- `generated/review.html`: a review checklist gathering everything a reviewer has to judge.
+- `generated/notes/`: nine to twelve Markdown notes covering the history and physical, each progress visit, the referral and consultation where there is one, a care plan, a summary, and a teaching note.
 - `generated/provenance.csv`: one row per clinical element, with its evidence grade and linked claims.
 - `sources.md` and `terminology.md`: the source list and coding notes for reviewers.
-- `generated/true-date/`: the same record with synthetic events moved into the patient's historical lifetime, with its own case ID and MRN ending in `-TD`. See [date-shifting.md](date-shifting.md).
+- `generated/true-date/`: the same record with synthetic events moved into the patient's historical lifetime, with its own case ID and MRN ending in `-TD`. Patients born before 1 CE have no true-date version. See [date-shifting.md](date-shifting.md).
 
 **Evidence grades.** Every clinical element carries one of three grades.
 
@@ -56,13 +51,13 @@ This datasheet follows the structure of Gebru et al., "Datasheets for Datasets" 
 
 **Historical content.** Facts were collected by hand from primary documents, U.S. National Park Service and other public-institution pages, and peer-reviewed literature, mostly abstracts. Each source is logged with its access date. The master roster's inherited clinical claims were treated as provisional leads, not as evidence.
 
-**Synthetic content.** Each case defines its modern episode by hand: diagnosis, instruments, medications, and plan, following named clinical practice guidelines. Generators then render the formats deterministically. No language model writes record content at build time. The case files, source dossiers, and code were drafted with an AI assistant (Claude) and then reviewed and approved by the project lead (see Clinical review below).
+**Synthetic content.** Each case defines its modern episode by hand: diagnosis, instruments, medications, and plan, following named clinical practice guidelines. Generators then render the formats deterministically. No language model writes record content at build time. The case files, source dossiers, and code were drafted with an AI assistant (Claude). Each record is a draft until its reviews are complete (see Review below).
 
 **Dates.** Modern dates follow policy `HR-DATE-SHIFT-1` ([date-shifting.md](date-shifting.md)). The synthetic birth date keeps the true month and day, with the year chosen so the patient is the selected index age at a 2026 visit.
 
 **Timeframe.** Built in November 2026. Sources were accessed on the dates recorded in each case.
 
-**Consent.** Every anchor figure is deceased. Figures who died after 1990 need extra review before release, and records may use only what they or their physicians made public. None of the three pilots falls in that group.
+**Consent.** Every anchor figure is deceased. Figures who died after 1990 need extra review before release, and records may use only what they or their physicians made public; 24 cases are in that group and are flagged `recent_death` in `manifest.csv`.
 
 ## Preprocessing and validation
 
@@ -94,33 +89,31 @@ See [validation.md](validation.md) for what a pass does and does not establish.
 
 **Selection and survivorship.** Figures were chosen because they are famous and well documented. That over-represents people who achieved public success and whose conditions were recorded, often by biographers rather than clinicians.
 
-**Demographic skew.** In the 86-figure master roster:
+**Demographic skew.** Across the 153 cases:
 
-- Sex: 69 male and 17 female (80% male).
-- Nationality: 44 American (51%) and 11 English, with no more than 3 for any other nationality.
-- Era: 23 from the 19th century, 20 early 20th century, 20 mid-to-late 20th century, 13 Enlightenment, 5 Renaissance and early modern, and 5 ancient and classical.
+- Sex: 95 male and 58 female (62% male).
+- Nationality: 81 American (53%) and 16 English, with no more than 4 for any other nationality.
+- Era: 61 mid-to-late 20th century, 33 19th century, 31 early 20th century, 16 Enlightenment, 6 Renaissance and early modern, and 6 ancient and classical.
 
-All three pilot cases are American men, and two are World War II veterans. The roster's build roadmap plans additional women, non-Western figures, and original archetypes to correct this. Until then, do not treat the dataset as representative of any population.
+Later batches plan more non-Western figures and original archetypes. Until then, do not treat the dataset as representative of any population.
 
 **Retrospective diagnosis.** Diagnoses for historical figures are contested. They are graded `R` and never placed on the active problem list as fact. The synthetic active diagnosis is a teaching construct.
 
 **Modern-frame anachronism.** The synthetic episode uses modern codes, instruments, and drugs. When dates are shifted back to the true historical frame, the content becomes anachronistic, for example a PHQ-9 score in 1841.
 
-**Review.** On November 2, 2026 the project lead recorded clinical approval, provenance accepted as sufficient, and safe messaging judged appropriate. Reviewer, date, and notes for each review are in each `case.json`, and the status is in `manifest.csv`. A case cannot be marked approved unless every review has passed.
+**Review.** No record has completed review. The project lead recorded reviews of the three pilots on November 2, 2026, and reopened them on November 3. Open judgment calls for each record are tracked as GitHub issues labeled `clinical-review`. Reviewer, date, and notes for each review are in each `case.json`, and the status is in `manifest.csv`. A case cannot be marked approved unless every review has passed.
 
 **Conformance.** Passing XSD, Schematron, and US Core validation shows structural conformance only. It does not show clinical accuracy or that every code is current. Codes that the terminology server could not verify are counted separately.
 
-**Template weaknesses.** Known note-template problems are listed in [STATUS.md](../STATUS.md) under step 5.
-
 ## Distribution
 
-- **Where:** the GitHub repository <https://github.com/PatrickRutledge/chronic_histories>.
+- **Where:** the GitHub repository <https://github.com/PatrickRutledge/chronic_histories>, with every record browsable at <https://patrickrutledge.github.io/chronic_histories/>.
 - **License:** data and documentation under CC BY-NC 4.0, code and schema under MIT. Commercial use of the data needs a license from Aether Forge. See [LICENSE](../LICENSE) and [COMMERCIAL-USE.md](../COMMERCIAL-USE.md).
 - **Third-party terms:** codes from LOINC, SNOMED CT, CPT, RxNorm, and others stay under their owners' terms. See [NOTICE.md](../NOTICE.md).
 
 ## Maintenance
 
 - **Maintainer:** Aether Forge, <NameAppliedFor@gmail.com>.
-- **Errors and corrections:** open an issue on the repository. Corrections to historical claims should cite a source.
+- **Errors and corrections:** use the "Report a problem" button on any record page, or comment at the bottom of the page; both need only a GitHub account. Corrections to historical claims should cite a source.
 - **Versioning:** each release is recorded in [CHANGELOG.md](../CHANGELOG.md). A case's ID is never reused for a different person.
 - **Contributions:** accepted only under an agreement that allows them to be included in commercial licenses.

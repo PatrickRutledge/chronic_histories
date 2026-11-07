@@ -33,7 +33,42 @@ export const TRUE_DATE_NOTICE = "True-date frame: synthetic events are moved int
 // The dataset's main page (index.html at the repository root, written by generate_dataset_manifest.mjs),
 // as a link from a record's output directory.
 export const REPO_ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..", "..");
-export const allRecordsHref = (outputDir) => path.relative(outputDir, path.join(REPO_ROOT, "index.html")).split(path.sep).join("/");
+export const rootHref = (outputDir, file) => path.relative(outputDir, path.join(REPO_ROOT, file)).split(path.sep).join("/");
+export const allRecordsHref = (outputDir) => rootHref(outputDir, "index.html");
+
+// Reader feedback. The published site is GitHub Pages; feedback goes to GitHub issues (an issue form,
+// .github/ISSUE_TEMPLATE/record-feedback.yml) and to one comment thread per record (giscus, stored in
+// the repository's Discussions). Both need only a GitHub login, never an edit to the source files.
+export const REPO_URL = "https://github.com/PatrickRutledge/chronic_histories";
+const htmlEsc = (value) => String(value ?? "").replaceAll("&", "&amp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;").replaceAll('"', "&quot;");
+export const feedbackUrl = (caseId, name) =>
+  `${REPO_URL}/issues/new?template=record-feedback.yml&case_id=${encodeURIComponent(caseId)}&title=${encodeURIComponent(`[${caseId}] ${name}: `)}`;
+export const logoImg = (outputDir) =>
+  `<img class="seal" src="${htmlEsc(rootHref(outputDir, "assets/chronos-seal.png"))}" alt="Chronos Archive seal" width="56" height="56">`;
+export const faviconLink = (outputDir) => `<link rel="icon" type="image/png" href="${htmlEsc(rootHref(outputDir, "assets/favicon.png"))}">`;
+// Comments load only on the published site: the comment service does not run from a local file.
+export const commentsSection = (caseId, name) => `<section id="comments">
+      <h2>Comments and corrections</h2>
+      <p class="muted">Sign in with GitHub to comment on this record. To report a specific error, ideally with a source, use the <a href="${htmlEsc(feedbackUrl(caseId, name))}">feedback form</a>; each report becomes a tracked issue.</p>
+      <div id="giscus-thread"><p class="muted">Comments appear on the online version of this page.</p></div>
+      <script>
+        if (location.hostname.endsWith("github.io")) {
+          const s = document.createElement("script");
+          s.src = "https://giscus.app/client.js"; s.async = true; s.crossOrigin = "anonymous";
+          Object.entries({ repo: "PatrickRutledge/chronic_histories", repoId: "R_kgDOVfWdqQ", category: "Announcements",
+            categoryId: "DIC_kwDOVfWdqc4DKmRz", mapping: "specific", term: ${JSON.stringify(caseId)}, strict: "1",
+            reactionsEnabled: "1", emitMetadata: "0", inputPosition: "top", theme: "light", lang: "en", loading: "lazy" })
+            .forEach(([key, value]) => { s.dataset[key] = value; });
+          const box = document.getElementById("giscus-thread"); box.replaceChildren(); box.className = "giscus"; box.after(s);
+        }
+      </script>
+    </section>`;
+// On the published site, open markdown files (sources, terminology) in GitHub's formatted view.
+export const SITE_SCRIPT = `<script>
+if (location.hostname.endsWith("github.io")) for (const a of document.querySelectorAll('a[href$=".md"]')) {
+  a.href = ${JSON.stringify(REPO_URL + "/blob/main/")} + new URL(a.href).pathname.replace(/^\\/chronic_histories\\//, "");
+}
+</script>`;
 
 // Optional second argument: output directory. Defaults to <case directory>/generated.
 export const outputDirFor = (casePath) => process.argv[3] ? path.resolve(process.argv[3]) : path.join(path.dirname(casePath), "generated");

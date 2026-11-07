@@ -7,7 +7,7 @@ Local checks (`scripts/validate_case.ps1`) test internal consistency. Formal con
 From the repository root:
 
 ```powershell
-pwsh -File scripts/install_validators.ps1          # once; needs Java 11+ and network access
+pwsh -File scripts/install_validators.ps1          # once; needs Java 17 and network access
 pwsh -File scripts/run_conformance.ps1 -CaseDirectory pilots/HR-ET007-audie-murphy
 pwsh -File scripts/run_conformance.ps1 -CaseDirectory pilots/HR-ET008-gregory-boyington
 ```
@@ -52,7 +52,7 @@ The installer builds `ccda-2.1.patched.sch` from the downloaded file, which it l
 
 ## What a pass means
 
-- **Rules only test content that exists.** Neither pilot has medications or family-history entries, so those rules run only on the code-path test record. A pass means the record is valid, not that it is complete.
+- **Rules only test content that exists.** Most records now have medications and family history; paths no record uses yet, such as allergies with reactions, run only on the code-path test record. A pass means the record is valid, not that it is complete.
 - **Warnings are not gated.** They are mostly SHOULD-level items such as author participation, reference ranges, and interpretation codes.
 - **US Core applies only to declared profiles.** The validator ignores a profile a resource does not claim, so the runner fails if no resource declares one. Social, functional, mental-status, and safety Observations declare no US Core profile until they are coded.
 - **Base R4 runs on a temporary copy** with US Core profile references replaced, so that result is independent of US Core.

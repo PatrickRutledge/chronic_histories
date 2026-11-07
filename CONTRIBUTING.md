@@ -4,6 +4,16 @@ Thank you for helping. Contributions can be new cases, corrections to historical
 
 > Every record is fictional clinical care built around real, deceased historical figures. Each artifact displays **SYNTHETIC RECORD, NOT A REAL MEDICAL RECORD**.
 
+## Reviewing records: no code needed
+
+Most help comes from clinicians, historians, and careful readers, and none of it requires editing files. Open the [record index](https://patrickrutledge.github.io/chronic_histories/) and pick a record. Then:
+
+- **Report a problem.** The *Report a problem* button on each record page opens a short form with the case ID filled in: what is wrong, what it should say, and a supporting source if you have one. Each report becomes a tracked issue, and the maintainers make the change.
+- **Comment.** Each record page ends with a comment thread for discussion and questions.
+- **Weigh in on open questions.** Judgment calls still open for each record are issues labeled [`clinical-review`](https://github.com/PatrickRutledge/chronic_histories/issues?q=is%3Aissue+label%3Aclinical-review). Comment there if you have relevant expertise.
+
+All of these need only a free GitHub account. The rest of this guide is for people who add cases or change code.
+
 ## Before you start
 
 1. **Agree to the CLA.** Read [CLA.md](CLA.md) and accept the individual agreement in your first pull request. If you contribute for an employer, the organization signs the corporate agreement. Pull requests are merged only after the agreement is accepted.
@@ -30,13 +40,13 @@ These rules are checked by the build where possible and by reviewers where not.
 
 ## Adding a case
 
-1. Copy an existing pilot folder, such as `pilots/HR-NI001-abraham-lincoln/`, to `pilots/HR-<person id>-<name>/`, and delete its `generated/` folder. The person ID comes from the master roster, for example `NI001`.
+1. Copy an existing case folder, such as `cases/HR-ML001-martin-luther-king-jr/`, to `cases/HR-<person id>-<name>/`, and delete its `generated/` folder. The person ID comes from the master roster, for example `NI001`.
 2. Edit `case.json`. It must validate against [schema/case.schema.json](schema/case.schema.json). Only `case.json` is authoritative.
 3. Write `sources.md` (human-readable source list and editorial decisions) and `terminology.md` (codes used and why).
 4. Build and check:
 
    ```powershell
-   pwsh -File scripts/build.ps1 -CaseDirectory pilots/HR-XX000-name   # one case
+   pwsh -File scripts/build.ps1 -CaseDirectory cases/HR-XX000-name    # one case
    pwsh -File scripts/build.ps1                                       # everything; refreshes manifest.csv
    pwsh -File scripts/run_controls.ps1                                # confirms the checks still work
    ```
